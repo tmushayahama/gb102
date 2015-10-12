@@ -1,0 +1,115 @@
+id	creator_id	description	type	status
+1	1	What are the mentorship primary functions	1	0
+2	1	Prerequisites	1	0
+3	1	Requirements	1	0
+4	1	After the mentorship	1	0
+5	1	Beyond the scope of this mentorship?	1	0
+6	1	List Subskills	2	0
+7	1	What would you like to learn?	2	0
+8	1	What skill applications have you done?	2	0
+9	1	What feedback have you taken?	2	0
+10	1	What corrections have you made	2	0
+11	1	What have you learned?	2	0
+12	1	Requirements and prerequisite	2	0
+13	1	Specific topics/skills to mentor	2	0
+14	1	Specific topics/skills which cannot mentored	2	0
+15	1	Is the mentorship running as you planned? Why or why not?	5	0
+16	1	Is the mentorship running as you planned? Why or why not?	6	0
+17	1	What are you hoping to achieve with your mentee?	5	0
+18	1	What are you hoping to achieve with your mentor?	6	0
+19	1	Are you able to provide enough resources and assistance to your mentee?	5	0
+20	1	Is your mentor providing enough resources and assistance to you?	6	0
+21	1	"Are you finding your interactions with your mentee constructive? If so, please give examples."	5	0
+22	1	"Are you finding your interactions with your mentor constructive? If so, please give examples."	6	0
+23	1	How often do you meet or interact with your mentee?	5	0
+24	1	How often do you meet or interact with your mentor?	6	0
+25	1	Do you feel that you providing your mentee with enough practical assistance and knowledge?	5	0
+26	1	Do you feel that you are being provided by your mentor with enough practical assistance and knowledge?	6	0
+27	1	"Based on my daily routines and actions, where can I expect to be in five years?"	10	0
+28	1	How do you feel right now? What are you thinking about?	10	0
+29	1	What is your favorite color?	10	0
+30	1	What is your favorite food?	10	0
+31	1	What is your favorite dessert?	10	0
+32	1	What have you learned today?	10	0
+33	1	What was your favorite subject in school?	10	0
+34	1	What do you do?	10	0
+35	1	What are some of your favorite books?	10	0
+36	1	What are some of your favorite movies?	10	0
+37	1	What kind of music are you into?	10	0
+38	1	"If you were going to write a book, what would you call it and what would it be about?"	10	0
+39	1	What is one of the scariest things you have ever done?	10	0
+40	1	What accomplishment are you most proud of?	10	0
+41	1	How did you meet your spouse / girlfriend / boyfriend?	10	0
+42	1	"When you were a kid, what did you want to be when you grew up?"	10	0
+43	1	How did you get into your career path?	10	0
+44	1	Would you recommend your career for other people? Why / Why not?	10	0
+45	1	What do you do for fun?	10	0
+46	1	Do you like traveling?	10	0
+47	1	"If you could visit any country in the world, where would you go?"	10	0
+48	1	Who are some people you would like to meet someday?	10	0
+49	1	"If someone asked you to give them a random piece of advice, what would you say?"	10	0
+50	1	What is one of your favorite habits you have?	10	0
+51	1	What are some things that make you really happy?	10	0
+52	1	What are some things that make you really sad?	10	0
+53	1	What are some things that scare you?	10	0
+54	1	Do you like to plan things out in detail or be spontaneous?	10	0
+55	1	"If you could go back in history, who would you like to meet?"	10	0
+56	1	Would you rather live in the country or in the city?	10	0
+57	1	What was your life like growing up?	10	0
+58	1	What were you like in high school?	10	0
+59	1	Do you have any brothers or sisters? How many?	10	0
+60	1	What is your favorite part about today so far?	10	0
+61	1	Who in your life has influenced you the most? How did they do it?	10	0
+62	1	What is your favorite joke?	10	0
+63	1	Have you ever tried sushi? (Did you like it?)	10	0
+64	1	Do you like spicy food?	10	0
+65	1	How do you like your steak cooked?	10	0
+66	1	Do you have a favorite number? Any particular reason why you like that number?	10	0
+67	1	"If you were a type of animal, what would you be and why?"	10	0
+68	1	What is one of the strangest things you have ever done?	10	0
+69	1	What kind of vacations do you like?	10	0
+70	1	What are some of your major goals in life?	10	0
+71	1	What are some of your smaller goals in life?	10	0
+72	1	What do you like least about yourself?	10	0
+73	1	What embarrasses you?	10	0
+74	1	"If you could try out any job for a day, what would you like to try?"	10	0
+75	1	What is your earliest memory?	10	0
+76	1	What is the best decision you ever made?	10	0
+77	1	Who is your best / closest friend?	10	0
+78	1	What do you think people think of you?	10	0
+79	1	What does a typical day look like?	10	0
+80	1	"If you could learn one random skill, what would you learn?"	10	0
+81	1	Are you an introvert or an extrovert?	10	0
+82	1	Have you ever taken a personality test? (How did the results turn out?)	10	0
+83	1	What is the first thing you notice about people?	10	0
+84	1	Do you think people can control their own destiny?	10	0
+85	1	Do you think all people are equally valuable?	10	0
+86	1	Do you think people are basically bad or basically good?	10	0
+87	1	What I am most grateful about for right now?	10	0
+88	1	What is the biggest personal change you have ever made?	10	0
+89	1	What is the stupidest thing you have ever done?	10	0
+90	1	What do you think would be one of the best steps we could take toward ending poverty around the world?	10	0
+91	1	What do you think we could do to best improve the education system?	10	0
+92	1	"In general, what do you think about art?"	10	0
+93	1	What are some of your favorite websites?	10	0
+94	1	What is the biggest turnoff in a man/woman?	10	0
+95	1	What is the biggest lie you have ever told?	10	0
+96	1	What is something most people do not know about you?	10	0
+97	1	What is something you wish everyone knew about you?	10	0
+98	1	What are some of the first things you do in the morning?	10	0
+99	1	What is the worst thing that is ever happened to you?	10	0
+100	1	Do you cry easily?	10	0
+101	1	How do you feel about public speaking?	10	0
+102	1	Do you like to talk on the phone?	10	0
+103	1	"How many emails do you get each week, roughly?"	10	0
+104	1	"If someone were to make a movie about your life, who would you hope would play you?"	10	0
+105	1	What is one of your favorite questions to ask new friends or to get a conversation going?	10	0
+106	1	Would you ever sky dive or bungee jump?	10	0
+107	1	Have you ever been in a fist fight?	10	0
+108	1	What is the best prank you have ever pulled?	10	0
+109	1	What did you do on your 16th birthday?	10	0
+110	1	What do you think is one of the most undervalued professions right now?	10	0
+111	1	How would you explain your basic life philosophy?	10	0
+112	1	Would you rather be hated or forgotten?	10	0
+113	1	"If you knew you would die tomorrow, would you feel cheated today?"	10	0
+114	1	Are you a morning or night person?	10	0

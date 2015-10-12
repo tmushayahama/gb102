@@ -1,0 +1,12 @@
+id	parent_mentorship_id	creator_id	mentor_id	mentee_id	type_id	mentorship_picture_url	title	description	created_date	level_id	bank_id	privacy	order	status
+1	NULL	2	NULL	NULL	NULL	web_dev_1.png	"Web Design & Development (tools to use, advice, introduction)"	"From scratch, what tools to use"	5/4/2015 10:00	14	NULL	0	0	0
+2	NULL	2	NULL	NULL	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	5/4/2015 10:00	16	NULL	0	0	0
+3	2	2	3	2	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	6/4/2015 10:00	16	NULL	0	0	0
+4	2	2	6	2	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	5/7/2015 10:00	16	NULL	0	0	0
+5	NULL	2	NULL	NULL	NULL	sushi_making_1.png	Sushi Making	Beginners guide to making sushi from scratch	11/4/2015 10:00	14	NULL	0	0	0
+6	5	2	15	2	NULL	sushi_making_1.png	Sushi Making	Beginners guide to making sushi from scratch	11/4/2015 10:00	14	NULL	0	0	0
+7	5	2	15	16	NULL	sushi_making_1.png	Sushi Making	Beginners guide to making sushi from scratch	11/4/2015 10:00	14	NULL	0	0	0
+8	NULL	2	NULL	NULL	NULL	bread_making_1.png	Bread Making	What can I do/make with my new bread making machine	5/4/2014 10:00	13	NULL	0	0	0
+9	NULL	3	NULL	NULL	NULL	apartment_decoration_1.png	Apartment Decoration Ideas	Mi casa es su casa. How to  make my apartment awesome	5/4/2015 10:00	13	NULL	0	0	0
+10	NULL	3	NULL	NULL	NULL	mentorship_default.png	Organizing your kitchen area	Have your kitchen in order. The kitchen gets used more often than most other areas.	6/14/2015 0:00	14	NULL	0	1	0
+11	9	3	3	2	NULL	mentorship_default.png	Organizing your kitchen area	Have your kitchen in order. The kitchen gets used more often than most other areas.	NULL	14	NULL	0	1	1

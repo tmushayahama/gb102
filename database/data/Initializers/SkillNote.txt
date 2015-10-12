@@ -1,0 +1,3 @@
+id	note_id	skill_id	privacy	status
+1	1	2091	0	0
+2	2	2091	0	0

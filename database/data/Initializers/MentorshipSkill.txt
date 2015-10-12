@@ -1,0 +1,2 @@
+id	skill_id	mentorship_id	creator_id	created_date	type	privacy	status
+1	2091	10	3	"0000-00-00 00:00:00"	0	0	0

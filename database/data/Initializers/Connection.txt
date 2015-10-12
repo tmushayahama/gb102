@@ -1,0 +1,5 @@
+id	name	connection_picture	description	created_date
+1	Connections	gb_connections.png	All my connections.	0000-00-00 00:00:00
+2	Friends	gb_friends.png	Right friends.	0000-00-00 00:00:00
+3	Family	gb_family.png	Your family members.	0000-00-00 00:00:00
+4	Followers	gb_followers.png	Your followers.	0000-00-00 00:00:00
