@@ -3,7 +3,7 @@
  'use strict';
 
  angular
-         .module('authApp', ['ui.router', 'satellizer'])
+         .module('gbApp', ['ui.router', 'satellizer', 'ui.bootstrap', 'ngResource'])
          .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
 
           function redirectWhenLoggedOut($q, $injector) {
@@ -51,17 +51,19 @@
 
           $urlRouterProvider.otherwise('/auth');
 
-          $stateProvider
-                  .state('auth', {
-                   url: '/auth',
-                   templateUrl: 'public/views/authView.html',
-                   controller: 'AuthController as auth'
-                  })
-                  .state('users', {
-                   url: '/users',
-                   templateUrl: 'public/views/userView.html',
-                   controller: 'UserController as user'
-                  });
+          $stateProvider.state('auth', {
+           url: '/auth',
+           templateUrl: 'public/views/authView.html',
+           controller: 'AuthCtrl as auth'
+          }).state('users', {
+           url: '/users',
+           templateUrl: 'public/views/userView.html',
+           controller: 'UserCtrl as user'
+          }).state('time', {
+           url: '/time',
+           templateUrl: 'public/views/timeEntryView.html',
+           controller: 'TimeEntryCtrl as timeEntry'
+          });
          })
          .run(function ($rootScope, $state) {
 
@@ -102,7 +104,7 @@
            } else {
             if (toState.name !== "auth") {
              event.preventDefault();
-             $state.go('auth');
+             //$state.go('auth');
             }
            }
           });

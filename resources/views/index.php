@@ -3,10 +3,10 @@
  <head>
   <meta charset="utf-8">
   <title>Angular-Laravel Authentication</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="public/css/app.css" rel="stylesheet" type="text/css"/>
  </head>
- <body ng-app="authApp">
-
+ <body ng-app="gbApp" class="ng-cloak">
   <div class="container">
    <div ui-view></div>
   </div>
@@ -14,12 +14,17 @@
  </body>
 
  <!-- Application Dependencies -->
- <script type="application/javascript" src="node_modules/angular/angular.js"></script>
- <script type="application/javascript" src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
- <script type="application/javascript" src="node_modules/satellizer/satellizer.js"></script>
+ <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+ <script src="node_modules/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
+ <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript"></script>
+ <script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
+ <script src="bower_components/moment/moment.js" type="text/javascript"></script>
+ <script src="bower_components/satellizer/satellizer.js" type="text/javascript"></script>
 
  <!-- Application Scripts -->
- <script type="application/javascript" src="public/scripts/app.js"></script>
- <script type="application/javascript" src="public/scripts/controllers/AuthController.js"></script>
- <script type="application/javascript" src="public/scripts/controllers/UserController.js"></script>
+ <script src="public/scripts/app.js" type="text/javascript"></script>
+ <script src="public/scripts/controllers/AuthCtrl.js" type="text/javascript"></script>
+ <script src="public/scripts/controllers/UserCtrl.js" type="text/javascript"></script>
+ <script src="public/scripts/controllers/TimeEntryCtrl.js" type="text/javascript"></script>
+ <script src="public/scripts/services/time.js"  type="text/javascript"></script>
 </html>
