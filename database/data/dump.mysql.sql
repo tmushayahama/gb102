@@ -81,7 +81,8 @@ CREATE TABLE `gb_advice` (
   `advice_picture_url` varchar(250) NOT NULL DEFAULT "advice_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -218,7 +219,8 @@ CREATE TABLE `gb_advice_question_answer` (
   `question_id` int(11) NOT NULL,
   `question_answer_id` int(11),
   `advice_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` varchar (1000) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -265,7 +267,8 @@ CREATE TABLE `gb_advice_skill` (
   `skill_id` int(11) NOT NULL,
   `advice_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -436,7 +439,8 @@ CREATE TABLE `gb_checklist` (
   `parent_checklist_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -517,7 +521,8 @@ CREATE TABLE `gb_comment` (
   `parent_comment_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -539,7 +544,8 @@ CREATE TABLE `gb_contributor` (
   `parent_contributor_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -563,7 +569,8 @@ CREATE TABLE `gb_connection` (
   `name` varchar(50) NOT NULL,
   `connection_picture` varchar(50) ,
   `description` varchar(150) ,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
@@ -603,7 +610,8 @@ CREATE TABLE `gb_discussion` (
   `parent_discussion_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -629,7 +637,8 @@ CREATE TABLE `gb_hobby` (
   `hobby_picture_url` varchar(250) NOT NULL DEFAULT "hobby_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -784,7 +793,8 @@ CREATE TABLE `gb_hobby_play_answer` (
   `hobby_modified_id` int(11),
   `hobby_play_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -930,7 +940,8 @@ CREATE TABLE `gb_goal` (
   `goal_picture_url` varchar(250) NOT NULL DEFAULT "goal_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -1083,7 +1094,8 @@ CREATE TABLE `gb_goal_play_answer` (
   `goal_modified_id` int(11),
   `goal_play_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1247,7 +1259,8 @@ CREATE TABLE `gb_journal` (
   `level_id` int(11) DEFAULT NULL,
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` int(11) DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
@@ -1309,7 +1322,8 @@ CREATE TABLE `gb_mentorship` (
   `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -1427,7 +1441,8 @@ CREATE TABLE `gb_mentorship_goal` (
   `goal_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1452,7 +1467,8 @@ CREATE TABLE `gb_mentorship_hobby` (
   `hobby_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1494,7 +1510,8 @@ CREATE TABLE `gb_mentorship_promise` (
   `promise_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1518,7 +1535,8 @@ CREATE TABLE `gb_mentorship_question_answer` (
   `question_id` int(11) NOT NULL,
   `question_answer_id` int(11),
   `mentorship_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` varchar (1000) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -1565,7 +1583,8 @@ CREATE TABLE `gb_mentorship_skill` (
   `skill_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1686,7 +1705,8 @@ CREATE TABLE `gb_message` (
   `title` int(11) NOT NULL,
   `subject` int(11) NOT NULL,
   `body` varchar(5000) NOT NULL DEFAULT '',
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1727,7 +1747,8 @@ CREATE TABLE `gb_note` (
   `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2024,7 +2045,8 @@ CREATE TABLE `gb_promise` (
   `promise_picture_url` varchar(250) NOT NULL DEFAULT "promise_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -2178,7 +2200,8 @@ CREATE TABLE `gb_promise_play_answer` (
   `promise_modified_id` int(11),
   `promise_play_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2313,7 +2336,8 @@ CREATE TABLE `gb_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int not null DEFAULT "0",
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2351,7 +2375,8 @@ CREATE TABLE `gb_questionnaire` (
   `parent_questionnaire_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2373,7 +2398,8 @@ CREATE TABLE `gb_questionnaire_question` (
   `questionnaire_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2399,7 +2425,8 @@ CREATE TABLE `gb_skill` (
   `skill_picture_url` varchar(250) NOT NULL DEFAULT "skill_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -2553,7 +2580,8 @@ CREATE TABLE `gb_skill_play_answer` (
   `skill_modified_id` int(11),
   `skill_level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2725,7 +2753,8 @@ CREATE TABLE `gb_timeline` (
   `parent_timeline_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `timeline_date` datetime NOT NULL,
   `day` int(11) NOT NULL DEFAULT '1',
   `timeline_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
@@ -2750,7 +2779,8 @@ CREATE TABLE `gb_todo` (
   `priority_id` int(11),
   `creator_id` int(11) NOT NULL,
   `assignee_id` int(11),
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `due_date` datetime,
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `description` varchar(500) NOT NULL DEFAULT "",
@@ -2934,7 +2964,8 @@ CREATE TABLE `gb_user_question_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
   `question_answer_id` int(11),
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` varchar (1000) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -2962,7 +2993,8 @@ CREATE TABLE `gb_weblink` (
   `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -3032,7 +3064,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Goal.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_goal_id`,	`creator_id`,	`goal_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_goal_id`,	`creator_id`,	`goal_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Hobby ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.txt'
@@ -3042,7 +3074,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_hobby_id`,	`creator_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_hobby_id`,	`creator_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Promise ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise.txt'
@@ -3052,7 +3084,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_promise_id`,	`creator_id`,	`promise_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_promise_id`,	`creator_id`,	`promise_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Skill ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'
@@ -3062,7 +3094,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentorship.txt'
@@ -3072,7 +3104,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
+  (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------Skill ----------------
 /*load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'
@@ -3144,7 +3176,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/TodoCat
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, id	parent_todo_id	priority_id	creator_id	assignee_id	created_date	due_date	todo_color	description	type	status
+   (`id`, id	parent_todo_id	priority_id	creator_id	assignee_id	created_at	due_date	todo_color	description	type	status
 );
 
 -- ------------------ DiscussionTitle ----------------
@@ -3155,7 +3187,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Discuss
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `title`, `creator_id`, `skill_id`, `created_date`);
+  (`id`, `title`, `creator_id`, `skill_id`, `created_at`);
 
 -- ------------------ Discussion ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Discussion.txt'
@@ -3165,7 +3197,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Discuss
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`,`title_id`, `creator_id`, `description`,`created_date`, `importance`,`status`);
+  (`id`,`title_id`, `creator_id`, `description`,`created_at`, `importance`,`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWeblink.txt'
     into table gb102.gb_skill_weblink
@@ -3214,7 +3246,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_date`,	`due_date`,	`todo_color`,	`description`,	`type`,	`status`);
+   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_at`,	`due_date`,	`todo_color`,	`description`,	`type`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTodo.txt'
     into table gb102.gb_skill_todo
@@ -3232,7 +3264,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_date`, `importance`,	`status`);
+   (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillNote.txt'
     into table gb102.gb_skill_note
@@ -3250,7 +3282,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_date`, `importance`,	`status`);
+   (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWeblink.txt'
     into table gb102.gb_skill_weblink
@@ -3268,7 +3300,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Timelin
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_date`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
+   (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_at`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTimeline.txt'
     into table gb102.gb_skill_timeline
@@ -3287,7 +3319,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `skill_id`,	`mentorship_id`,	`creator_id`,	`created_date`,	`type`, `privacy`,	`status`);
+  (`id`, `skill_id`,	`mentorship_id`,	`creator_id`,	`created_at`,	`type`, `privacy`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
@@ -3334,6 +3366,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserQue
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`,	`question_id`,	`question_answer_id`,	`created_date`,	`description`,	`user_id`, `privacy`, `status`);
+  (`id`,	`question_id`,	`question_answer_id`,	`created_at`,	`description`,	`user_id`, `privacy`, `status`);
 
 

@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Third Party Services
     |--------------------------------------------------------------------------
@@ -12,27 +12,23 @@ return [
     | default location for this type of information, allowing packages
     | to have a conventional place to find your various credentials.
     |
-    */
+   */
 
-    'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
-    ],
-
-    'mandrill' => [
-        'secret' => env('MANDRILL_SECRET'),
-    ],
-
-    'ses' => [
-        'key'    => env('SES_KEY'),
-        'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
-    ],
-
-    'stripe' => [
-        'model'  => App\User::class,
-        'key'    => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
-    ],
-
+  'mailgun' => [
+    'domain' => env('MAILGUN_DOMAIN'),
+    'secret' => env('MAILGUN_SECRET'),
+  ],
+  'mandrill' => [
+    'secret' => env('MANDRILL_SECRET'),
+  ],
+  'ses' => [
+    'key' => env('SES_KEY'),
+    'secret' => env('SES_SECRET'),
+    'region' => 'us-east-1',
+  ],
+  'stripe' => [
+    'model' => App\Models\User\User::class,
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+  ],
 ];

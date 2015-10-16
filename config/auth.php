@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Default Authentication Driver
     |--------------------------------------------------------------------------
@@ -13,11 +13,10 @@ return [
     |
     | Supported: "database", "eloquent"
     |
-    */
+   */
 
-    'driver' => 'eloquent',
-
-    /*
+  'driver' => 'eloquent',
+  /*
     |--------------------------------------------------------------------------
     | Authentication Model
     |--------------------------------------------------------------------------
@@ -26,11 +25,9 @@ return [
     | Eloquent model should be used to retrieve your users. Of course, it
     | is often just the "User" model but you may use whatever you like.
     |
-    */
-
-    'model' => App\User::class,
-
-    /*
+   */
+  'model' => App\Models\User\User::class,
+  /*
     |--------------------------------------------------------------------------
     | Authentication Table
     |--------------------------------------------------------------------------
@@ -39,11 +36,9 @@ return [
     | table should be used to retrieve your users. We have chosen a basic
     | default value but you may easily change it to any table you like.
     |
-    */
-
-    'table' => 'users',
-
-    /*
+   */
+  'table' => 'gb_users',
+  /*
     |--------------------------------------------------------------------------
     | Password Reset Settings
     |--------------------------------------------------------------------------
@@ -56,12 +51,10 @@ return [
     | considered valid. This security feature keeps tokens short-lived so
     | they have less time to be guessed. You may change this as needed.
     |
-    */
-
-    'password' => [
-        'email' => 'emails.password',
-        'table' => 'password_resets',
-        'expire' => 60,
-    ],
-
+   */
+  'password' => [
+    'email' => 'emails.password',
+    'table' => 'password_resets',
+    'expire' => 60,
+  ],
 ];
