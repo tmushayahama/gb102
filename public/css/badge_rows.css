@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Dec 6, 2014, 1:05:06 AM
+    Author     : Tremmillicious
+*/
+.gb-user-badge{
+ background-color: #BABCB5;
+}
+.gb-user-badge .gb-row-bullet{
+ padding: 10px 0px 0px 0px;
+ text-align: center;
+}
+.gb-user-badge .form-control{
+ background-color: transparent;
+}
+.gb-user-badge .gb-row-display{
+ padding: 15px 5px 0px 0px;
+ border-bottom: #CCC solid 1px;
+ background-color: #F2F2F2;
+}
+
+.gb-user-badge:hover{
+ background-color: #CCCEC7;
+}
+.gb-user-badge:hover .gb-row-display{
+ background-color: #FFF;
+}
+

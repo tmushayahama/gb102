@@ -3,7 +3,14 @@
  'use strict';
 
  angular
-         .module('gbApp', ['ui.router', 'satellizer', 'ui.bootstrap', 'ngResource'])
+         .module('gbApp',
+                 ['gbSkillService',
+                  'gbTimeService',
+                  'ui.router',
+                  'satellizer',
+                  //'ui.bootstrap',
+                  'ngResource'
+                 ])
          .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
 
           function redirectWhenLoggedOut($q, $injector) {

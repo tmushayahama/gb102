@@ -1,0 +1,134 @@
+
+.smart-timeline {
+ position: relative;
+}
+.smart-timeline-list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+.smart-timeline-list:after {
+ content: " ";
+ background-color: #BBB;
+ position: absolute;
+ display: block;
+ width: 2px;
+ top: 0;
+ left: 95px;
+ bottom: 0;
+ z-index: 1;
+}
+.smart-timeline-list li {
+ position: relative;
+ margin: 0;
+ padding: 15px 0;
+}
+.smart-timeline-list>li:hover {
+ background-color: #f4f4f4;
+}
+.smart-timeline-hover li:hover {
+ background-color: #f9f9f9;
+}
+.smart-timeline-icon {
+ color: #fff;
+ border-radius: 50%;
+ position: absolute;
+ width: 32px;
+ height: 32px;
+ line-height: 28px;
+ font-size: 14px;
+ text-align: center;
+ left: 80px;
+ top: 10px;
+ z-index: 100;
+ padding: 2px;
+}
+
+.smart-timeline-icon>img {
+ height: 32px;
+ width: 32px;
+ border-radius: 50%;
+ margin-top: -2px;
+ margin-left: -2px;
+ border: 2px solid #3276b1;
+}
+.smart-timeline-time {
+ float: left;
+ width: 70px;
+ text-align: right;
+}
+.smart-timeline-time>small {
+ font-style: italic;
+}
+.smart-timeline-content {
+ margin-left: 123px;
+}
+
+.gb-timeline-item {
+ margin: 0 0 10px 0;
+ padding: 10px 5px 10px 10px;
+ border-bottom: #AAA solid 1px;
+ background-color: #F7F7F7;
+}
+
+.gb-timeline-item .gb-heading {
+ padding-top: 5px;
+ padding-right: 3px;
+}
+
+.gb-timeline-item .gb-heading-img {
+ margin-top: 4px;
+ max-height: 20px;
+ max-width: 20px;
+}
+
+.gb-timeline-item .gb-description {
+ padding-right: 5px;
+}
+
+.gb-timeline-title {
+ margin-top: 0;
+ color: inherit;
+}
+
+.gb-timeline-body > p,
+.gb-timeline-body > ul {
+ margin-bottom: 0;
+}
+
+.gb-timeline-body > p + p {
+ margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+ .smart-timeline-list:after {
+  left: auto;
+  right: 13px;
+ }
+ .smart-timeline-icon {
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  line-height: 24px;
+  font-size: 12px;
+  text-align: center;
+  right: 0px;
+  left: auto;
+  top: 9px;
+  z-index: 100;
+  padding: 2px;
+ }
+ .smart-timeline-time {
+  float: left;
+  width: 90%;
+  text-align: left;
+  margin-bottom: 5px;
+ }
+ .smart-timeline-content {
+  width:90%;
+  margin-left: 0px;
+ }
+}
+

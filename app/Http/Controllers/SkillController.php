@@ -4,19 +4,32 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Contracts\Auth;
 use JWTAuth;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
+use Request;
 
 class SkillController extends Controller {
 
  public function getSkills() {
-  $skills = Skill::all();
-  return $skills;
+  $userId = Request::get("user_id");
+  //$skills = Skill::all();
+  $skills = Skill::where('creator_id', $userId)
+    ->orderBy('id', 'desc')
+    ->take(10)
+    ->get();
+  return \Response::json($skills);
  }
 
  public function getSkill($id) {
+  $skill = Skill::find($id);
+  $user = JWTAuth::parseToken()->toUser();
+  //$userId = $user->id;
+  return $user; //$skill;
+ }
+
+ public function getSkillt($id) {
   $skill = Skill::find($id);
   $user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

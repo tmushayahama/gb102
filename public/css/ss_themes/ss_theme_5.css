@@ -1,0 +1,79 @@
+a,
+a.btn-link {
+ color: #077568;
+}
+a:hover,
+a.btn-link:hover {
+ color:#066358;
+}
+
+#gb-navbar {
+ border-bottom: #077568 solid 1px!important;
+}
+
+.navbar-header a strong {
+ color:  #077568;
+}
+
+#gb-navbar-nav a {
+ color: #077568;
+}
+.gb-icon-top-nav-1 {
+ border-bottom: #077568 solid 1px;
+}
+
+.gb-icon-top-nav-1 li:hover {
+}
+
+.gb-icon-top-nav-1 li.active {
+}
+
+#gb-left-nav-3 .gb-link.active{
+ border-left: #077568 solid 5px;
+}
+
+.gb-top-nav-1 {
+ border-bottom: #077568 solid 2px;
+}
+
+.btn-primary {
+ background-color: #077568;
+}
+
+.btn-primary:hover {
+ background-color: #066358;
+}
+
+.gb-box-2 {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border: #077568 outset 1px;
+}
+.gb-box-7 {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border: #077568 outset 1px;
+}
+
+.gb-box-3 {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border-top: #077568 solid 1px;
+ border-left: #077568 solid 1px;
+ border-bottom: #BBB solid 1px;
+ border-right: #BBB solid 1px;
+}
+
+.gb-form-border {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border: #077568 outset 1px;
+}
+
+.gb-nav-heading-2 a{
+ color: #077568;
+}

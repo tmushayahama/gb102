@@ -19,6 +19,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
- Route::get('skills', 'SkillController@getSkills');
+ Route::post('skills', 'SkillController@getSkills');
  Route::get('skill/{id}', 'SkillController@getSkill');
 });
