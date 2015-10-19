@@ -14,7 +14,9 @@ class SkillController extends Controller {
 
  public function getSkills() {
   // $userId = Request::get("user_id");
-  $skills = Skill::all();
+  $skills = Skill::orderBy('id', 'desc')
+    ->take(10)
+    ->get();
   /*
     $skills = Skill::where('creator_id', $userId)
     ->orderBy('id', 'desc')

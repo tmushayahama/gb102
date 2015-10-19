@@ -1,8 +1,8 @@
-(function () {
-
- 'use strict';
- angular
-         .module('gbApp')
+'use strict';
+define([
+ 'angular',
+], function (angular) {
+ angular.module('ngApp')
          .controller('AuthCtrl', ['$auth', '$state', '$http', '$rootScope',
           function ($auth, $state, $http, $rootScope) {
            var vm = this;
@@ -50,4 +50,4 @@
           }
 
          ])
-})();
+});

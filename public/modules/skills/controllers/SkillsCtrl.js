@@ -1,10 +1,10 @@
-(function () {
-
- 'use strict';
- angular
-         .module('gbApp')
-         .controller('SkillsCtrl', ['Skills', '$state', '$http', '$rootScope',
-          function (Skills, $state, $http, $rootScope) {
+'use strict';
+define([
+ 'angular',
+], function (angular) {
+ angular.module('app.skills')
+         .controller('SkillsCtrl', ['SkillsServices', '$state', '$http', '$rootScope',
+          function (SkillsServices, $state, $http, $rootScope) {
            var vm = this;
            vm.theme = "public/css/ss_themes/ss_theme_1.css";
            vm.skills = [];
@@ -12,7 +12,7 @@
            };
 
            vm.getSkills = function () {
-            Skills.get(skillData).success(function (data) {
+            SkillsServices.get(skillData).success(function (data) {
              vm.skills = data;
             }).error(function (data) {
              console.log(data);
@@ -21,5 +21,5 @@
 
            vm.getSkills();
           }
-         ])
-})();
+         ]);
+});

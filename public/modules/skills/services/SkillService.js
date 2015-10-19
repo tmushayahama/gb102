@@ -1,12 +1,9 @@
-/* scripts/services/time.js */
-
-(function () {
-
- 'use strict';
-
- angular
-         .module('gbSkillService', [])
-         .factory('Skills', ['$http', function ($http) {
+'use strict';
+define([
+ 'angular',
+], function (angular) {
+ angular.module('app.skills')
+         .factory('SkillService', ['$http', function ($http) {
 
            return {
             // get all the comments
@@ -29,4 +26,4 @@
            }
 
           }]);
-})();
+});
