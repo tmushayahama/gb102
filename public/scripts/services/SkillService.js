@@ -6,12 +6,12 @@
 
  angular
          .module('gbSkillService', [])
-         .factory('Skill', ['$http', function ($http) {
+         .factory('Skills', ['$http', function ($http) {
 
            return {
             // get all the comments
             get: function () {
-             return $http.get('/api/skills');
+             return $http.post('/api/skills');
             },
             // save a comment (pass in comment data)
             save: function (commentData) {

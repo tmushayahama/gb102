@@ -15,8 +15,8 @@
              password: vm.password
             }
 
-            $auth.login(credentials).then(function () {
-
+            $auth.login(credentials).then(function ()
+            {
              // Return an $http request for the now authenticated
              // user so that we can flatten the promise chain
              return $http.get('api/authenticate/user');
@@ -42,6 +42,8 @@
              $rootScope.currentUser = response.data.user;
              // Everything worked out so we can now redirect to
              // the users state to view the data
+             //var loginModal =
+             $("#gb-login-modal").modal("hide");
              $state.go('users');
             });
            };

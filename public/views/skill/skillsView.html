@@ -1,0 +1,107 @@
+<link href="{{skillsCtrl.theme}}" rel="stylesheet" type="text/css"/>
+
+<div id="gb-screen-height" class="container">
+ <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
+  <div class="gb-top-nav-1 gb-nav row">
+   <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <p class="gb-ellipsis">
+     SKILL APP
+    </p>
+   </div>
+   <div class="gb-action col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="btn-group pull-right">
+     <a class="btn btn-link gb-form-modal-trigger"
+        data-gb-modal-target="#gb-skill-play-modal">
+      <i class="fa fa-play"></i>
+     </a>
+     <div class="btn-group">
+      <a class="btn btn-link dropdown-toggle gb-backdrop-visible">
+       <i class="fa fa-filter"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
+       <li>
+        <div class="row gb-panel-form">
+        </div>
+       </li>
+      </ul>
+     </div>
+     <div class="btn-group">
+      <a class="btn btn-link dropdown-toggle gb-backdrop-visible">
+       <i class="fa fa-plus"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
+       <li>
+        <div id="gb-skill-form-container" class="row gb-panel-form">
+
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+   <div id="gb-middle-nav-3" class="gb-nav-parent">
+    <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="row gb-hide">
+      <div class="input-group gb-padding-thin">
+       <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+       <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
+       <div class="input-group-btn">
+        <button id="gb-keyword-search-btn" class="btn btn-default form-control">
+         <span class="caret"></span>
+        </button>
+       </div>
+      </div>
+     </div>
+     <div id="gb-skill-search-form-container" class="row gb-hide gb-panel-form">
+
+     </div>
+     <div id="gb-skills" class="gb-list row">
+      <div ng-repeat="skill in skillsCtrl.skills" class="gb-link gb-box-7 row">
+       <div class="gb-indicator gb-level-' . {{skill.level}}"></div>
+       <div class="gb-container row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 ">
+         <img src="img/profile_pic/" class='pull-right gb-heading-img' alt="">
+        </div>
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 text-left">
+         <p class="gb-ellipsis gb-title">
+          <a class="gb-link">
+          </a>
+         </p>
+         <p class="gb-description">
+          <a class="gb-link">
+           {{skill.title}}
+          </a>
+          {{skill.description}}
+         </p>
+         <a class="gb-level">
+          <small>
+           <i>
+            <?php echo $skill->level->name; ?>
+           </i>
+          </small>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gb-dummy-height row"></div>
+    </div>
+   </div>
+  </div>
+
+  <script type="text/javascript">
+   $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
+   $(".gb-app-tab").removeClass("active");
+   $("<?php echo '#' . $app_selected_tab_id; ?>").addClass("active");
+   $('#gb-browse-trigger').data('gb-url', '<?php echo $browse_url; ?>');
+  </script>
+ </div>
+ <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
+  <div id="gb-right-nav-3" role="navigation">
+  </div>
+ </div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->

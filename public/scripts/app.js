@@ -11,7 +11,7 @@
                   //'ui.bootstrap',
                   'ngResource'
                  ])
-         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
+         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $locationProvider, $provide) {
 
           function redirectWhenLoggedOut($q, $injector) {
 
@@ -56,7 +56,7 @@
 
           $authProvider.loginUrl = '/api/authenticate';
 
-          $urlRouterProvider.otherwise('/auth');
+          //$urlRouterProvider.otherwise('/auth');
 
           $stateProvider.state('auth', {
            url: '/auth',
@@ -66,11 +66,21 @@
            url: '/users',
            templateUrl: 'public/views/userView.html',
            controller: 'UserCtrl as user'
+          }).state('apps', {
+           url: '/apps',
+           templateUrl: 'public/views/appsView.html',
+           controller: 'AppsCtrl as apps'
+          }).state('apps.skills', {
+           url: '/skills',
+           templateUrl: 'public/views/skill/skillsView.html',
+           controller: 'SkillsCtrl as skillsCtrl'
           }).state('time', {
            url: '/time',
            templateUrl: 'public/views/timeEntryView.html',
            controller: 'TimeEntryCtrl as timeEntry'
           });
+
+          //$locationProvider.html5Mode(true);
          })
          .run(function ($rootScope, $state) {
 

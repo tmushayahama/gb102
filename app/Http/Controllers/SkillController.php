@@ -13,12 +13,13 @@ use Request;
 class SkillController extends Controller {
 
  public function getSkills() {
-  $userId = Request::get("user_id");
-  //$skills = Skill::all();
-  $skills = Skill::where('creator_id', $userId)
+  // $userId = Request::get("user_id");
+  $skills = Skill::all();
+  /*
+    $skills = Skill::where('creator_id', $userId)
     ->orderBy('id', 'desc')
     ->take(10)
-    ->get();
+    ->get(); */
   return \Response::json($skills);
  }
 
