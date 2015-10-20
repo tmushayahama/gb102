@@ -1,23 +1,24 @@
 'use strict';
 define([
  'angular',
- 'angular-ui-route',
+ 'angular-ui-router',
  'angular-resource',
  'satellizer',
- '../modules/skills/module',
- '../modules/app/controllers/AppsCtrl',
- '../modules/app/controllers/UserCtrl',
- '../modules/auth/controllers/AuthCtrl'
+ '../skills/module',
+ './controllers/AppsCtrl',
+ './controllers/UserCtrl',
+ '../auth/controllers/AuthCtrl'
 ], function (angular) {
  // Declare app level module which depends on views, and components
  return angular.module('gbApp',
          [
-          'app.skills',
           'ui.router',
           'satellizer',
-          'ngResource'
+          'ngResource',
+          'app.skills'
          ])
-         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $locationProvider, $provide) {
+
+         .config(function ($stateProvider, $authProvider, $httpProvider, $provide) {
 
           function redirectWhenLoggedOut($q, $injector) {
 

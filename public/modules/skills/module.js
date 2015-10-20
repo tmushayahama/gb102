@@ -1,11 +1,13 @@
 'use strict';
 define([
  'angular',
- 'controllers/SkillsCtrl',
- 'services/SkillService',
- 'services/SkillsService'
+ '../skills/controllers/SkillsCtrl',
+ '../skills/services/SkillsService',
+ '../skills/services/SkillService'
 ], function (angular) {
- angular.module('app.skills')
+ return angular.module('app.skills',
+         [
+         ])
          .config(function ($stateProvider) {
           $stateProvider
                   .state('app.skills', {

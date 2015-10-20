@@ -1,47 +1,45 @@
-(function () {
+'use strict';
+require([
+ 'angular',
+ '../modules/app/app',
+], function (angular, module) {
+ return module.controller('UserCtrl', ['$http', '$auth', '$rootScope', '$state',
+  function ($http, $auth, $rootScope, $state) {
 
- 'use strict';
+   var vm = this;
 
- angular
-         .module('gbApp')
-         .controller('UserCtrl', UserCtrl);
+   vm.users;
+   vm.error;
 
- function UserCtrl($http, $auth, $rootScope, $state) {
+   vm.getUsers = function () {
 
-  var vm = this;
+    //Grab the list of users from the API
+    $http.get('api/authenticate').success(function (users) {
+     vm.users = users;
+    }).error(function (error) {
+     vm.error = error;
+    });
+   }
 
-  vm.users;
-  vm.error;
+   // We would normally put the logout method in the same
+   // spot as the login method, ideally extracted out into
+   // a service. For this simpler example we'll leave it here
+   vm.logout = function () {
 
-  vm.getUsers = function () {
+    $auth.logout().then(function () {
 
-   //Grab the list of users from the API
-   $http.get('api/authenticate').success(function (users) {
-    vm.users = users;
-   }).error(function (error) {
-    vm.error = error;
-   });
-  }
+     // Remove the authenticated user from local storage
+     localStorage.removeItem('user');
 
-  // We would normally put the logout method in the same
-  // spot as the login method, ideally extracted out into
-  // a service. For this simpler example we'll leave it here
-  vm.logout = function () {
+     // Flip authenticated to false so that we no longer
+     // show UI elements dependant on the user being logged in
+     $rootScope.authenticated = false;
 
-   $auth.logout().then(function () {
-
-    // Remove the authenticated user from local storage
-    localStorage.removeItem('user');
-
-    // Flip authenticated to false so that we no longer
-    // show UI elements dependant on the user being logged in
-    $rootScope.authenticated = false;
-
-    // Remove the current user info from rootscope
-    $rootScope.currentUser = null;
-    $state.go('auth')
-   });
-  }
- }
-
-})();
+     // Remove the current user info from rootscope
+     $rootScope.currentUser = null;
+     $state.go('auth')
+    });
+   }
+  }]
+         )
+});
