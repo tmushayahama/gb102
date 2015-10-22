@@ -1,10 +1,8 @@
 'use strict';
-require([
+define([
  'angular',
- '../modules/skills/module'
-], function (angular, module) {
- return module.factory('SkillService', ['$http', function ($http) {
-
+], function (angular) {
+ return ['$http', function ($http) {
    return {
     // get all the comments
     get: function () {
@@ -24,6 +22,5 @@ require([
      return $http.delete('/api/comments/' + id);
     }
    }
-
-  }]);
+  }];
 });

@@ -1,9 +1,8 @@
 'use strict';
-require([
- 'angular',
- '../modules/app/app'
-], function (angular, gbApp) {
- return gbApp.controller('AppsCtrl', ['$state', '$http', '$rootScope',
+define([
+ 'angular'
+], function (angular) {
+ return ['$state', '$http', '$rootScope',
   function ($state, $http, $rootScope) {
    var vm = this;
 
@@ -14,5 +13,5 @@ require([
     }
    }
   }
- ]);
+ ];
 });

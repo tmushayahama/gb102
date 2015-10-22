@@ -1,9 +1,8 @@
 'use strict';
-require([
- 'angular',
- '../modules/app/app'
-], function (angular, module) {
- return module.controller('AuthCtrl', ['$auth', '$state', '$http', '$rootScope',
+define([
+ 'angular'
+], function () {
+ return ['$auth', '$state', '$http', '$rootScope',
   function ($auth, $state, $http, $rootScope) {
    var vm = this;
    vm.loginError = false;
@@ -48,5 +47,5 @@ require([
     });
    };
   }
- ])
+ ]
 });

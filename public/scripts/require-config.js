@@ -17,7 +17,7 @@ require.config({
   'angular-ui-router': {deps: ['angular']},
   'angular-resource': {deps: ['angular']},
   'satellizer': {deps: ['angular']},
-  'bootstrap': {deps: ['jquery']},
+  'bootstrap': {'exports': 'bootstrap', deps: ['jquery']},
   'moment': {exports: 'moment'},
   // 'modules-includes': {deps: ['angular']},
  },
@@ -25,22 +25,26 @@ require.config({
   'jquery',
   'bootstrap',
   'angular'
- ]
+ ],
+ deps: ['../modules/app/app']
 });
 
-requirejs([
+
+/*
+ requirejs([
  'angular',
  '../modules/app/app'
-], function (angular, app) {
+ ], function (angular, app) {
  'use strict';
  console.log(app);
  var $html = angular.element(document.getElementsByTagName('html')[0]);
  angular.element().ready(function () {
-  // bootstrap the app manually
-  angular.bootstrap(document, [app.name]);
-  //resumeBootstrap();
+ // bootstrap the app manually
+ angular.bootstrap(document, [app.name]);
+ //resumeBootstrap();
  });
-}
-);
+ }
+ );
+ */
 
 
