@@ -6,15 +6,18 @@ define([
  'angular-resource',
  'oc-lazy-load',
  'satellizer',
- 'bootstrap'
+ 'bootstrap',
+ '../auth/module',
+ '../skills/module'
 ], function (angular) {
 
  var app = angular.module('app', [
   'ui.router',
   'ngResource',
   'satellizer',
-  'oc.lazyLoad'
-          //'app.auth',
+  'oc.lazyLoad',
+  'app.auth',
+  'app.skills'
           //'app.skills'
  ]);
  // var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);
@@ -26,7 +29,7 @@ define([
     loadedModules: ['app'],
     asyncLoader: require
    });
-   $urlRouterProvider.otherwise('/auth');
+   // $urlRouterProvider.otherwise('/auth');
    function redirectWhenLoggedOut($q, $injector) {
 
     return {
@@ -63,23 +66,23 @@ define([
    // Push the new factory onto the $http interceptor array
    $httpProvider.interceptors.push('redirectWhenLoggedOut');
    $authProvider.loginUrl = '/api/authenticate';
-   //$urlRouterProvider.otherwise('/auth');
+   $urlRouterProvider.otherwise('/auth');
    $stateProvider
-           .state('auth', {
-            url: '/auth',
+           .state('apps', {
+            url: '/apps',
+            abstract: true,
             views: {
-             "": {
-              controller: 'AuthCtrl as auth',
-              templateUrl: 'public/modules/auth/views/authView.html',
+             "root": {
+              templateUrl: 'public/modules/app/views/appsView.html',
+              resolve: {
+               load: function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app',
+                 files: ['public/modules/app/controllers/AppsCtrl.js']
+                });
+               }
+              }
              }
-            },
-            resolve: {
-             loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-               return $ocLazyLoad.load({
-                name: 'app',
-                files: ['public/modules/auth/controllers/AuthCtrl.js']
-               });
-              }]
             }
            })
            .state('module1', {

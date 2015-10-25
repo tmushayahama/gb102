@@ -1,39 +1,32 @@
 define(['angular',
- 'angular-couch-potato',
  'angular-ui-router'
 
-], function (angular, couchPotato) {
+], function (angular) {
 
  "use strict";
 
- var module = angular.module('app.auth', ['scs.couch-potato', 'ui.router']);
+ var module = angular.module('app.auth', ['ui.router']);
 
-
-
- module.config(function ($stateProvider, $couchPotatoProvider) {
+ module.config(function ($stateProvider) {
 
   $stateProvider
           .state('auth', {
-           url: 'authe',
+           url: '/auth',
            views: {
-            "": {
-             templateUrl: 'public/modules/auth/views/authView.html',
+            "root": {
              controller: 'AuthCtrl as auth',
-             resolve: {
-              deps: $couchPotatoProvider.resolveDependencies([
-               '../modules/auth/controllers/AuthCtrl',
-              ])
-             }
+             templateUrl: 'public/modules/auth/views/authView.html',
             }
+           },
+           resolve: {
+            load: ['$ocLazyLoad', function ($ocLazyLoad) {
+              return $ocLazyLoad.load({
+               name: 'app',
+               files: ['public/modules/auth/controllers/AuthCtrl.js']
+              });
+             }]
            }
           })
-
- });
-
- couchPotato.configureApp(module);
- module.run(function ($couchPotato) {
-  module.lazy = $couchPotato;
  });
  return module;
-
 });

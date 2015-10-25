@@ -11,24 +11,7 @@
 
  </head>
  <body class="">
-  <div>
-   <a ui-sref="module1">Lazy Module1</a>
-  </div>
-
-  <div>
-   <a ui-sref="module2">Lazy Module2</a>
-  </div>
-
-
-  <div ui-view></div>
-
-  <div  id="main-containe"></div>
+  <div ui-view="root" id="main-container"></div>
  </body>
-
-
- <!-- Application Scripts -->
- <script src="public/scripts/require-confi.js" type="text/javascript"></script>
-
-
  <script data-main="public/scripts/require-config" src="bower_components/requirejs/require.js" type="text/javascript"></script>
 </html>

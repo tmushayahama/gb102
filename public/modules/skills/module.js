@@ -1,34 +1,55 @@
-/*global require*/
-'use strict';
+define(['angular',
+ 'angular-ui-router'
 
-define([
- 'angular',
- 'angular-ui-router',
- 'angular-resource',
- 'satellizer',
- 'bootstrap',
 ], function (angular) {
- require([
-  '../modules/skills/controllers/SkillsCtrl',
-  '../modules/skills/services/SkillsService',
-  '../modules/skills/services/SkillService'
- ], function (skillsCtrl, skillsService, skillService) {
-  angular.module('app.skills',
-          ['ui.router',
-           'satellizer',
-           'ngResource',
-          ])
-          // .controller('SkillsCtrl', skillsCtrl)
-          .factory('SkillsService', skillsService)
-          .factory('SkillService', skillService)
 
-          .config(function ($stateProvider) {
-           $stateProvider
-                   .state('app', {
-                    url: '/skills',
-                    templateUrl: 'public/modules/skills/views/skillsView.html',
-                    controller: 'SkillsCtrl as skillsCtrl'
-                   });
-          });
+ "use strict";
+
+ var module = angular.module('app.skills', ['ui.router']);
+
+ module.config(function ($stateProvider) {
+
+  $stateProvider
+          .state('apps.skills', {
+           url: '/skills',
+           views: {
+            "apps": {
+             controller: 'SkillsCtrl as skillsCtrl',
+             templateUrl: 'public/modules/skills/views/skillsView.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/services/SkillsService.js',
+                  'public/modules/skills/controllers/SkillsCtrl.js'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('skill', {
+           url: '/skill/{skillId}',
+           views: {
+            "root": {
+             controller: 'SkillCtrl as skillCtrl',
+             templateUrl: 'public/modules/skills/views/skillView.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/services/SkillService.js',
+                  'public/modules/skills/controllers/SkillCtrl.js'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
  });
-})
+ return module;
+});
