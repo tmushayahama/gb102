@@ -1,8 +1,8 @@
 'use strict';
 define([
- 'angular'
+ 'angular',
 ], function (angular) {
- return ['SkillsServices', '$state', '$http', '$rootScope',
+ angular.module("app.skills", []).controller('SkillsCtrl', ['SkillsServices', '$state', '$http', '$rootScope',
   function (SkillsServices, $state, $http, $rootScope) {
    var vm = this;
    vm.theme = "public/css/ss_themes/ss_theme_1.css";
@@ -20,5 +20,5 @@ define([
 
    vm.getSkills();
   }
- ]
+ ])
 });

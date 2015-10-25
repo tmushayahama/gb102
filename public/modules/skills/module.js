@@ -18,10 +18,17 @@ define([
            'satellizer',
            'ngResource',
           ])
-          .controller('SkillsCtrl', skillsCtrl)
+          // .controller('SkillsCtrl', skillsCtrl)
           .factory('SkillsService', skillsService)
           .factory('SkillService', skillService)
 
-
+          .config(function ($stateProvider) {
+           $stateProvider
+                   .state('app', {
+                    url: '/skills',
+                    templateUrl: 'public/modules/skills/views/skillsView.html',
+                    controller: 'SkillsCtrl as skillsCtrl'
+                   });
+          });
  });
 })
