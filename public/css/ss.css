@@ -462,12 +462,43 @@ input.gb-form-show{
  height: 100%;
 }
 
+#gb-left-nav-3 {
+ z-index: 1000;
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+ transition: all 0.5s ease;
+}
+
+#gb-left-nav-3 .gb-header {
+ position: absolute;
+ top: 0;
+ right: 0;
+ left: 0;
+ height: 50px;
+}
+
+#gb-left-nav-3 .gb-body {
+ position: absolute;
+ top: 51px;
+ right: 0;
+ left: 0;
+ bottom: 0;
+ overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
+ -webkit-transition: all 0.5s ease;
+}
+
 #gb-left-nav-3 .gb-heading {
- font-size: 1.0em;
+ font-size: 0.8em;
  padding: 15px 3px 15px 5px;
  margin: 0;
- color: #777;
- border-bottom: #AAA solid 2px;
+ color: #AAA;
+ border-bottom: #777 solid 1px;
 }
 
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -487,7 +518,7 @@ input.gb-form-show{
  padding:10px 5px;
  display: block;
  width: 100%;
- border-bottom: #AAA solid 2px;
+ border-bottom: #888 solid 1px;
  /*
  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
@@ -540,7 +571,7 @@ input.gb-form-show{
  padding:0px 3px 0px 5px;
  font-size: 1.1em;
  font-weight: bold;
- color: #000;
+ color: #BBB;
  line-height: 33px;
  text-decoration: none;
  overflow: hidden;
@@ -549,7 +580,7 @@ input.gb-form-show{
 #gb-left-nav-3 .gb-link .gb-description{
  padding: 3px 5px;
  font-size: 0.9em;
- color: #000;
+ color: #BBB;
  text-decoration: none;
 }
 
@@ -1395,7 +1426,7 @@ input.gb-form-show{
 
 .navbar-header .gb-logo small {
  font-size: 10px;
- color: #BE4B49;
+ color: #FF1B1B;
 }
 .navbar-header .gb-divider {
  margin-top: -100px!important;
@@ -1405,9 +1436,10 @@ input.gb-form-show{
  margin-top: -5px;
 }
 
-.navbar-header a {
+.navbar-header a,
+.navbar-header a:hover{
  text-decoration: none;
- color:  #222;
+ color:  #E5E5E5;
 }
 
 #gb-navbar {
@@ -2039,21 +2071,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 
 
 
-#gb-left-nav-3 {
- z-index: 1000;
- position: absolute;
- top: 45px;
- right: 0;
- bottom: 0;
- left: 0;
- overflow-y: auto;
- -webkit-overflow-scrolling: touch;
- -webkit-transition: all 0.5s ease;
- -moz-transition: all 0.5s ease;
- -o-transition: all 0.5s ease;
- transition: all 0.5s ease;
- background-color: #EEE;
-}
+
 
 #gb-left-nav-3::-webkit-scrollbar {
 }

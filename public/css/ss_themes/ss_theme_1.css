@@ -7,20 +7,27 @@ a.btn-link:hover {
  color:#016875;
 }
 
+#gb-left-nav-3 {
+ background-color: #01505A;
+ color: #F5F5F5;
+}
+
+
+
 #gb-navbar {
  border-bottom: #0298AB solid 1px!important;
 }
 
 .navbar-header a strong {
- color:  #0298AB;
+ color:  #F2F2F2;
 }
 
 #gb-navbar-nav a {
- color: #0298AB;
+ color: #FFF;
 }
 
 #gb-left-nav-3 .gb-link.active{
- border-left: #0298AB solid 5px;
+ border-left: #FFF solid 5px;
 }
 
 
