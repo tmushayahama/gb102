@@ -2,6 +2,25 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+
+.gb-ghost-btn-1 {
+ display: inline-block;
+ padding: 1px 15px;
+ color: #DDD;
+ border: 2px solid #DDD;
+ border-radius: 20px;
+ text-align: center;
+ outline: none;
+ text-decoration: none;
+ transition: border-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+.gb-ghost-btn-1:hover,
+.gb-ghost-btn-1:active {
+ transition: border-color 0.4s ease-in,
+  color 0.4s ease-in;
+}
+
 .gb-play-form {
  overflow: hidden;
 }
@@ -246,7 +265,7 @@
  right: 10px;
  padding: 0;
  list-style: none;
- border: #AAA solid 1px;
+ border-bottom: #AAA solid 1px;
  background-color: #FFF;
  margin: 0;
  opacity: 0.7;
@@ -296,6 +315,7 @@
 }
 
 .gb-top-nav-1 .gb-title{
+ margin-right:20px;
  padding: 0 0 0 5px;
  font-weight: bold;
  line-height: 40px;
@@ -303,11 +323,10 @@
 }
 
 .gb-top-nav-1 .gb-action{
- padding: 0px;
+ padding-top: 5px;
 }
 .gb-top-nav-1 .gb-action .btn{
- border-left: #AAA solid 1px;
- padding: 8px 13px;
+ margin-left: 20px;
 }
 
 .gb-top-nav-1 li.active {
@@ -535,14 +554,92 @@
 }
 
 /*----------------- Gb Large Boxes --------------*/
-
-.gb-app-box-1 {
-
+.gb-box-1 {
+ position: relative;
+ margin-bottom: 20px;
+ background-color: #FAFAFA;
+ overflow: hidden;
+ height: 320px;
+}
+.gb-box-1 .gb-leftbar {
+ position: absolute;
+ border-right: #777 solid 5px;
+ background-color: #555;
+ top: 0;
+ width: 30px;
+ bottom: 0;
+ overflow: hidden;
+}
+.gb-box-1 .gb-rightbar{
+ position: absolute;
+ top: 0;
+ left: 30px;
+ right: 0;
+ bottom: 0;
+ background-color: #EFF;
+ overflow: hidden;
+}
+.gb-box-1 .gb-title{
+ height: 40px;
+ background-color: #EEE;
+ overflow: hidden;
+}
+.gb-box-1 .gb-description{
+ padding: 7px 10px;
+ height: 170px;
+ background-color: #DDD;
+ overflow: hidden;
+}
+.gb-box-1 .gb-image{
+ background-image: url(../img/placeholders/skill_cover_3.png);
+ background-size: auto 100%;
+ height: 150px;
+ background-color: #777;
+ overflow: hidden;
 }
 
-.gb-app-box-1 .gb-app-image {
- width: 100%;
- height: 100%;
+.gb-box-1 .gb-actions {
+ margin-top: 10px;
+ margin-left: 8px;
+}
+
+.gb-box-1 .gb-footer{
+ height: 50px;
+ background-color: #DDD;
+ overflow: hidden;
+}
+.gb-box-1 .gb-heading-img-container {
+ height: 150px;
+ overflow: hidden;
+}
+
+.gb-box-1 .gb-heading-img {
+ height: auto;
+}
+
+.gb-box-1:hover {
+ background-color: #EEE;
+ -webkit-box-shadow: #AAA -1px 1px 2px;
+ -moz-box-shadow: #AAA -1px 1px 2px;
+ box-shadow: #AAA -1px 1px 2px;
+}
+.gb-box-1 .gb-heading {
+ padding: 5px 8px;
+ border-bottom: #AAA solid 1px;
+ overflow: hidden;
+}
+.gb-box-1 .gb-body {
+ padding: 5px 8px;
+ overflow: hidden;
+}
+.gb-box-1 .gb-body .gb-title {
+ font-weight: bold;
+ font-size: 1.2em;
+}
+.gb-box-1 .gb-footer {
+ padding: 5px 8px;
+ border-top: #BBB solid 1px;
+ overflow: hidden;
 }
 
 .gb-box-2 {
@@ -628,7 +725,6 @@
 
 .gb-box-7 {
  padding: 15px 10px;
- margin-bottom: 20px;
  background-color: #FFF;
  overflow: hidden;
 }

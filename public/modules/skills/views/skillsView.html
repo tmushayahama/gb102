@@ -1,49 +1,30 @@
 <link href="{{skillsCtrl.theme}}" rel="stylesheet" type="text/css"/>
+<div class="gb-top-nav-1 gb-nav row">
+ <div class="gb-title pull-left">
+  SKILL APP
+ </div>
+ <div class="gb-action pull-left">
+  <div class="btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
+    <i class="fa fa-2x fa-plus-circle"></i>
+   </a>
+   <a class="btn btn-xs btn-link gb-form-modal-trigger"
+      data-gb-modal-target="#gb-skill-play-modal">
+    <i class="fa fa-2x fa-play-circle"></i>
+   </a>
+   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
+    <i class="fa fa-2x fa-filter"></i>
+   </a>
+  </div>
+ </div>
+</div>
 
 <div id="gb-screen-height" class="container">
  <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
-  <div class="gb-top-nav-1 gb-nav row">
-   <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
-    <p class="gb-ellipsis">
-     SKILL APP
-    </p>
-   </div>
-   <div class="gb-action col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <div class="btn-group pull-right">
-     <a class="btn btn-link gb-form-modal-trigger"
-        data-gb-modal-target="#gb-skill-play-modal">
-      <i class="fa fa-play"></i>
-     </a>
-     <div class="btn-group">
-      <a class="btn btn-link dropdown-toggle gb-backdrop-visible">
-       <i class="fa fa-filter"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
-       <li>
-        <div class="row gb-panel-form">
-        </div>
-       </li>
-      </ul>
-     </div>
-     <div class="btn-group">
-      <a class="btn btn-link dropdown-toggle gb-backdrop-visible">
-       <i class="fa fa-plus"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
-       <li>
-        <div id="gb-skill-form-container" class="row gb-panel-form">
-
-        </div>
-       </li>
-      </ul>
-     </div>
-    </div>
-   </div>
-  </div>
 
   <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    <div id="gb-middle-nav-3" class="gb-nav-parent">
-    <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="row gb-hide">
       <div class="input-group gb-padding-thin">
        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -59,30 +40,33 @@
 
      </div>
      <div id="gb-skills" class="gb-list row">
-      <div ng-repeat="skill in skillsCtrl.skills" class="gb-link gb-box-7 row">
+      <div ng-repeat="skill in skillsCtrl.skills" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thick">
        <div class="gb-indicator gb-level-' . {{skill.level}}"></div>
-       <div class="gb-container row">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 ">
+       <div class="gb-box-1">
+        <div class="gb-leftbar">
          <img src="img/profile_pic/" class='pull-right gb-heading-img' alt="">
         </div>
-        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 text-left">
-         <p class="gb-ellipsis gb-title">
-          <a class="gb-link">
-          </a>
-         </p>
-         <p class="gb-description">
-          <a class="gb-link">
+        <div class="gb-rightbar">
+         <div class="gb-image">
+          <div class="gb-actions">
+           <div class="gb-ghost-btn-1">
+            Open
+           </div>
+          </div>
+         </div>
+         <div class="gb-description">
+          <a ui-sref="skill({skillId: skill.id})" class="">
            {{skill.title}}
           </a>
           {{skill.description}}
-         </p>
-         <a class="gb-level">
-          <small>
-           <i>
-            <?php echo $skill->level->name; ?>
-           </i>
-          </small>
-         </a>
+          <a class="gb-level">
+           <small>
+            <i>
+             level
+            </i>
+           </small>
+          </a>
+         </div>
         </div>
        </div>
       </div>

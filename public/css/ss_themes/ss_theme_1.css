@@ -7,9 +7,18 @@ a.btn-link:hover {
  color:#016875;
 }
 
+.gb-ghost-btn-1:hover,
+.gb-ghost-btn-1:active {
+ color: #014851;
+ border-color: #014851;
+}
+
 #gb-left-nav-3 {
  background-color: #01505A;
  color: #F5F5F5;
+}
+#gb-left-nav-3 .gb-header {
+ background-color: #014851;
 }
 
 

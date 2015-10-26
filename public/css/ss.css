@@ -5,7 +5,7 @@ html {
 body {
  height: 100%;
  background: none;
- background-color: #FDFDFD;
+ background-color: #EEE;
 }
 div[class*="col-"],
 li[class*="col-"],
@@ -21,7 +21,7 @@ a[class*="col-"]{
  height: 100%;
 }
 #gb-screen-height {
- height: 800px;
+ height: 100%;
 }
 .errorMessage {
  padding-bottom: 5px;
@@ -66,14 +66,6 @@ a[class*="col-"]{
  background-color: #196679;
  color: #EEE;
 }
-.gb-box-1 {
- padding: 10px;
- background-color: #FFF;
- border: #999 solid 1px;
- -moz-border-radius: 3px;
- -webkit-border-radius: 3px;
- border-radius: 3px;
-}
 .gb-stat-box {
  height: 150px;
  overflow: hidden;
@@ -109,6 +101,7 @@ a[class*="col-"]{
  z-index: 930!important;
 }
 ::-webkit-scrollbar {
+ display: none;
  width: 12px;
 }
 
@@ -296,6 +289,9 @@ input.gb-form-show{
 .gb-padding-medium {
  padding: 8px!important;
 }
+.gb-padding-thick {
+ padding: 12px!important;
+}
 .gb-padding-thickest {
  padding: 25px!important;
 }
@@ -359,16 +355,19 @@ input.gb-form-show{
  height: 100%;
 }
 #gb-middle-nav-3 {
- width: 100%;
- height: 100%;
  padding: 0;
- background-color: #FDFDFD;
-}
-#gb-middle-nav-3 .gb-scrollable-container {
- padding: 70px 10px 10px 10px;
  position: absolute;
- bottom: 12px;
- top: 0px;
+ top: 50px;
+ right: 0;
+ bottom: 0;
+ left: 0;
+}
+#gb-middle-nav-3 .gb-body {
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
  overflow-x: hidden;
  overflow-y: auto;
  -webkit-overflow-scrolling: touch;
@@ -475,16 +474,18 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-header {
+ padding: 5px 5px;
  position: absolute;
  top: 0;
  right: 0;
  left: 0;
- height: 50px;
+ height: 41px;
+ border-bottom: #777 solid 1px;
 }
 
 #gb-left-nav-3 .gb-body {
  position: absolute;
- top: 51px;
+ top: 42px;
  right: 0;
  left: 0;
  bottom: 0;
@@ -1412,7 +1413,6 @@ input.gb-form-show{
  width: 100%;
 }
 .navbar-header {
- margin-top: 5px;
  padding: 0 0 0 5px;
 }
 .navbar-header .gb-logo {
