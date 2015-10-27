@@ -23,6 +23,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   */
  protected $table = 'gb_user';
 
+ public function skill() {
+  return $this->hasMany('App\Models\Skill\Skill', 'creator_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *

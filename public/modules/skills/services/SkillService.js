@@ -1,8 +1,8 @@
 angular.module('app.skills').service('SkillService', ['$http', function ($http) {
   return {
    // get all the comments
-   get: function () {
-    return $http.post('/api/skill');
+   get: function (id, skillData) {
+    return $http.post('/api/skill/' + id, skillData);
    },
    // save a comment (pass in comment data)
    save: function (commentData) {

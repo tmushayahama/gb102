@@ -1,0 +1,80 @@
+<div class="gb-top-nav-1 gb-nav row">
+ <div class="gb-title pull-left">
+  {{skillCtrl.skill.title}}
+ </div>
+ <div class="gb-action pull-left">
+  <div class="btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
+    <i class="fa fa-2x fa-plus-circle"></i>
+   </a>
+   <a class="btn btn-xs btn-link gb-form-modal-trigger"
+      data-gb-modal-target="#gb-skill-play-modal">
+    <i class="fa fa-2x fa-play-circle"></i>
+   </a>
+   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
+    <i class="fa fa-2x fa-filter"></i>
+   </a>
+  </div>
+ </div>
+</div>
+<div id="gb-screen-height" class="container">
+ <div class="nav-container gb-skill-item row gb-app-detail col-lg-8 col-md-9 col-sm-8 col-xs-12">
+  <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <a class='gb-hide gb-close-right-nav'>
+    <i class='fa fa-times'></i> close
+   </a>
+   <div class="gb-hide gb-app-item-heading row">
+    <div class="col-lg-2">
+     <img src="" class="gb-heading-img" alt="">
+    </div>
+    <div class="col-lg-7 gb-padding-left-1 text-left">
+     <p class="gb-title">
+      <a class="gb-ellipsis">
+       <?php
+       echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+       ?>
+      </a>
+     </p>
+     <p class="gb-ellipsis gb-description">
+      <strong><?php echo $skill->level->name; ?></strong>
+     </p>
+     <div class="gb-ellipsis gb-description">
+      Created on
+      <i>
+       <a>
+        <?php echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
+       </a>
+      </i>
+     </div>
+     <p class="gb-ellipsis gb-description">
+      <a class="gb-faded-link"><i class="fa fa-share"></i> Share</a> •
+      <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone Request</a>
+     </p>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-thinner">
+     <div class="row">
+      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown" aria-expanded="false">
+       <i class="fa fa-star"></i> Subscribe
+      </a>
+      <br>
+      <a class="btn dropdown-toggle btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12"
+         data-gb-modal-target="#gb-contribute-modal">
+       <i class="fa fa-user-plus"></i> Contribute
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="tab-content">
+    <div class="tab-pane active">
+     <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-thin">
+
+      <br>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <!-- ------------------------------- MODALS --------------------------->
+
+
+</div>

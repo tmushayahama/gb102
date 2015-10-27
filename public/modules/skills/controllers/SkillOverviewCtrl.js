@@ -1,4 +1,4 @@
-angular.module("app.skills").controller('SkillCtrl', ['SkillService', '$state', '$stateParams', '$http', '$rootScope',
+angular.module("app.skills").controller('SkillOverviewCtrl', ['SkillService', '$state', '$stateParams', '$http', '$rootScope',
  function (SkillService, $state, $stateParams, $http, $rootScope) {
   var vm = this;
   vm.skills = [];

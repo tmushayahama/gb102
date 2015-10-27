@@ -1841,66 +1841,7 @@ CREATE TABLE `gb_post_share` (
   CONSTRAINT `post_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_profile`
---
-DROP TABLE IF EXISTS `gb_profile`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_profile` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(100) NOT NULL DEFAULT '',
-  `firstname` varchar(100) NOT NULL DEFAULT '',
-  `welcome_message` varchar(1000) NOT NULL DEFAULT '',
-  `summary` varchar(1000) NOT NULL DEFAULT '',
-  `experience` varchar(1000) NOT NULL DEFAULT '',
-  `interests` varchar(1000) NOT NULL DEFAULT '',
-  `favorite_quote` varchar(1000) NOT NULL DEFAULT '',
-  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
-  `gender` varchar(3) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  `phone_number` varchar(20) NOT NULL DEFAULT '',
-  `address` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`user_id`),
-  CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_profile_field`
---
-DROP TABLE IF EXISTS `gb_profile_field`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_profile_field` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `varname` varchar(50) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `field_type` varchar(50) NOT NULL,
-  `field_size` varchar(15) NOT NULL DEFAULT '0',
-  `field_size_min` varchar(15) NOT NULL DEFAULT '0',
-  `required` int(1) NOT NULL DEFAULT '0',
-  `match` varchar(255) NOT NULL DEFAULT '',
-  `range` varchar(255) NOT NULL DEFAULT '',
-  `error_message` varchar(255) NOT NULL DEFAULT '',
-  `other_validator` varchar(5000) NOT NULL DEFAULT '',
-  `default` varchar(255) NOT NULL DEFAULT '',
-  `widget` varchar(255) NOT NULL DEFAULT '',
-  `widgetparams` varchar(5000) NOT NULL DEFAULT '',
-  `position` int(3) NOT NULL DEFAULT '0',
-  `visible` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `varname` (`varname`,`widget`,`visible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `gb_profile_field`
---
-
-LOCK TABLES `gb_profile_field` WRITE;
-/*!40000 ALTER TABLE `gb_profile_field` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gb_profile_field` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 --
@@ -2948,6 +2889,18 @@ CREATE TABLE `gb_user` (
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastname` varchar(100) NOT NULL DEFAULT '',
+  `firstname` varchar(100) NOT NULL DEFAULT '',
+  `welcome_message` varchar(1000) NOT NULL DEFAULT '',
+  `summary` varchar(1000) NOT NULL DEFAULT '',
+  `experience` varchar(1000) NOT NULL DEFAULT '',
+  `interests` varchar(1000) NOT NULL DEFAULT '',
+  `favorite_quote` varchar(1000) NOT NULL DEFAULT '',
+  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
+  `gender` varchar(3) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL,
+  `phone_number` varchar(20) NOT NULL DEFAULT '',
+  `address` varchar(255) NOT NULL DEFAULT '',
   `superuser` int(1) NOT NULL DEFAULT '0',
   `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -3014,17 +2967,8 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `email`, `password`, `remember_token`, `superuser`, `status`);
+    (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
--- ------------------Profile ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Profile.txt'
-    into table gb102.gb_profile
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`user_id`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
     into table gb102.gb_category

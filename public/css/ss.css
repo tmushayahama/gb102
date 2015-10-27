@@ -493,6 +493,17 @@ input.gb-form-show{
  -webkit-overflow-scrolling: touch;
  -webkit-transition: all 0.5s ease;
 }
+#gb-left-nav-3 .gb-body .gb-heading-img-container{
+ height: 120px;
+}
+
+#gb-left-nav-3 .gb-body .gb-heading-img-container img{
+ height: 100%;
+}
+
+#gb-left-nav-3 .gb-body .gb-skill-image{
+ height: 120px;
+}
 
 #gb-left-nav-3 .gb-heading {
  font-size: 0.8em;

@@ -23,7 +23,8 @@ define(['angular',
                  serie: true,
                  files: [
                   'public/modules/skills/services/SkillsService.js',
-                  'public/modules/skills/controllers/SkillsCtrl.js'
+                  'public/modules/skills/controllers/SkillsCtrl.js',
+                  'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
@@ -31,6 +32,7 @@ define(['angular',
             }
            }})
           .state('skill', {
+           abstract: true,
            url: '/skill/{skillId}',
            views: {
             "root": {
@@ -43,7 +45,29 @@ define(['angular',
                  serie: true,
                  files: [
                   'public/modules/skills/services/SkillService.js',
-                  'public/modules/skills/controllers/SkillCtrl.js'
+                  'public/modules/skills/controllers/SkillCtrl.js',
+                  'public/css/ss_themes/ss_theme_1.css'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('skill.overview', {
+           url: '/overview',
+           views: {
+            "content": {
+             controller: 'SkillOverviewCtrl as skillOverviewCtrl',
+             templateUrl: 'public/modules/skills/views/skillOverviewView.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/services/SkillService.js',
+                  'public/modules/skills/controllers/SkillOverviewCtrl.js',
+                  'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]

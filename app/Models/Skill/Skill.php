@@ -13,6 +13,10 @@ class Skill extends Model {
   */
  protected $table = 'gb_skill';
 
+ public function creator() {
+  return $this->belongsTo('App\Models\User\User', 'creator_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *

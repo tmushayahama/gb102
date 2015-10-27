@@ -26,10 +26,12 @@ class SkillController extends Controller {
  }
 
  public function getSkill($id) {
-  $skill = Skill::find($id);
-  $user = JWTAuth::parseToken()->toUser();
+  // $id = Request::get("id");
+  $skill = Skill::with('creator')
+    ->find($id);
+  //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
-  return $user; //$skill;
+  return $skill; //$skill;
  }
 
  public function getSkillt($id) {
