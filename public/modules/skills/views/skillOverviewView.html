@@ -1,23 +1,38 @@
-<div class="gb-top-nav-1 gb-nav row">
- <div class="gb-title pull-left">
-  {{skillCtrl.skill.title}}
+<div id="gb-screen-height" class="container">
+ <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
+  <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+   <div id="gb-middle-nav-3" class="gb-nav-parent">
+    <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="row gb-hide">
+      <div class="input-group gb-padding-thin">
+       <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+       <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
+       <div class="input-group-btn">
+        <button id="gb-keyword-search-btn" class="btn btn-default form-control">
+         <span class="caret"></span>
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="gb-dummy-height row"></div>
+    </div>
+   </div>
+  </div>
  </div>
- <div class="gb-action pull-left">
-  <div class="btn-group">
-   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
-    <i class="fa fa-2x fa-plus-circle"></i>
-   </a>
-   <a class="btn btn-xs btn-link gb-form-modal-trigger"
-      data-gb-modal-target="#gb-skill-play-modal">
-    <i class="fa fa-2x fa-play-circle"></i>
-   </a>
-   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
-    <i class="fa fa-2x fa-filter"></i>
-   </a>
+ <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
+  <div id="gb-right-nav-3" role="navigation">
   </div>
  </div>
 </div>
-<div id="gb-screen-height" class="container">
+
+
+
+
+
+
+
+
+<div ng-show='false' id="gb-screen-height" class="container">
  <div class="nav-container gb-skill-item row gb-app-detail col-lg-8 col-md-9 col-sm-8 col-xs-12">
   <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <a class='gb-hide gb-close-right-nav'>

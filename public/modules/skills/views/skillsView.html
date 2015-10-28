@@ -17,10 +17,8 @@
   </div>
  </div>
 </div>
-
 <div id="gb-screen-height" class="container">
  <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
-
   <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    <div id="gb-middle-nav-3" class="gb-nav-parent">
     <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -54,7 +52,7 @@
           </div>
          </div>
          <div class="gb-description">
-          <a ui-sref="skill({skillId: skill.id})" class="">
+          <a href="#/skill/{{skill.id}}/overview" class="">
            {{skill.title}}
           </a>
           {{skill.description}}
@@ -74,13 +72,6 @@
     </div>
    </div>
   </div>
-
-  <script type="text/javascript">
-   $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
-   $(".gb-app-tab").removeClass("active");
-   $("<?php echo '#' . $app_selected_tab_id; ?>").addClass("active");
-   $('#gb-browse-trigger').data('gb-url', '<?php echo $browse_url; ?>');
-  </script>
  </div>
  <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
   <div id="gb-right-nav-3" role="navigation">

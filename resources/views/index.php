@@ -8,6 +8,8 @@
   <link href="public/css/ss.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/ss_components.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <link href="public/css/todo/todo.css" rel="stylesheet" type="text/css"/>
+
 
  </head>
  <body class="">

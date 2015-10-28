@@ -74,6 +74,29 @@ define(['angular',
              }
             }
            }})
+          .state('skill.todos', {
+           url: '/todos',
+           views: {
+            "content": {
+             controller: 'SkillTodoCtrl as skillTodoCtrl',
+             templateUrl: 'public/modules/skills/views/skillTodoView.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/directives/todoEscape.js',
+                  'public/modules/skills/directives/todoFocus.js',
+                  'public/modules/skills/services/SkillTodoService.js',
+                  'public/modules/skills/controllers/SkillTodoCtrl.js',
+                          // 'public/css/ss_themes/ss_theme_1.css'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
  });
  return module;
 });
