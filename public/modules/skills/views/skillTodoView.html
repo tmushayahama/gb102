@@ -1,56 +1,63 @@
-<div id="gb-screen-height" class="container">
- <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
-  <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-   <div id="gb-middle-nav-3" class="gb-nav-parent">
-    <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <section id="todoapp">
-      <header id="header">
-       <h1>todos</h1>
-       <form id="todo-form" ng-submit="skillTodoCtrl.addTodo()">
-        <input id="new-todo" placeholder="What needs to be done?" ng-model="skillTodoCtrl.newTodo" autofocus>
-       </form>
-      </header>
-      <section id="main" ng-show="skillTodoCtrl.todos.length" ng-cloak>
-       <input id="toggle-all" type="checkbox" ng-model="skillTodoCtrl.allChecked" ng-click="markAll(allChecked)">
-       <label for="toggle-all">Mark all as complete</label>
-       <ul id="todo-list">
-        <li ng-repeat="todo in skillTodoCtrl.todos| filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
-         <div class="view">
-          <input class="toggle" type="checkbox" ng-model="todo.completed">
-          <label ng-dblclick="skillTodoCtrl.editTodo(todo)">{{todo.title}}</label>
-          <button class="destroy" ng-click="skillTodoCtrl.removeTodo(todo)"></button>
+<div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
+ <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+  <div id="gb-middle-nav-3" class="gb-nav-parent">
+   <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="gb-todos">
+     <div class='row'>
+      <div class='gb-heading'>todos</div>
+      <form class="gb-todo-form" ng-submit="skillTodoCtrl.addTodo()">
+       <input id="new-todo" placeholder="What needs to be done?" ng-model="skillTodoCtrl.newTodo" autofocus>
+      </form>
+     </div>
+     <div class="gb-todo-body row" ng-show="skillTodoCtrl.todos.length" ng-cloak>
+      <ul id="todo-list">
+       <li ng-repeat="todo in skillTodoCtrl.todos| filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == skillTodoCtrl.editedTodo}">
+        <div class="view row">
+         <input class="toggle col-lg-1" type="checkbox" ng-model="todo.completed">
+         <div class='gb-todo-content col-lg-8' ng-dblclick="skillTodoCtrl.editTodo(todo)">
+          {{todo.title}}
          </div>
-         <form ng-submit="skillTodoCtrl.doneEditing(todo)">
-          <input class="edit" ng-trim="false" ng-model="todo.title" ng-blur="skillTodoCtrl.doneEditing(todo)" todo-escape="skillTodoCtrl.revertEditing(todo)" todo-focus="todo == editedTodo">
-         </form>
-        </li>
-       </ul>
-      </section>
-      <footer id="footer" ng-show="skillTodoCtrl.todos.length" ng-cloak>
-       <span id="todo-count"><strong>{{skillTodoCtrl.remainingCount}}</strong>
-        <ng-pluralize count="skillTodoCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
-       </span>
-       <ul id="filters">
-        <li>
-         <a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
-        </li>
-        <li>
-         <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
-        </li>
-        <li>
-         <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
-        </li>
-       </ul>
-       <button id="clear-completed" ng-click="clearDoneTodos()" ng-show="skillTodoCtrl.remainingCount < skillTodoCtrl.todos.length">Clear completed</button>
-      </footer>
-     </section>
-     <div class="gb-dummy-height row"></div>
+         <div class="btn-group col-lg-3">
+          <a class="btn btn-xs pull-right gb-ghost-btn-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           more
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+           <li><a href="#">View</a></li>
+           <li><a ng-click="skillTodoCtrl.editTodo(todo)">Edit</a></li>
+           <li><a ng-click="skillTodoCtrl.removeTodo(todo)">Delete</a></li>
+          </ul>
+         </div>
+        </div>
+        <form ng-submit="skillTodoCtrl.doneEditing(todo)">
+         <input class="edit" ng-trim="false" ng-model="todo.title" ng-blur="skillTodoCtrl.doneEditing(todo)" todo-escape="skillTodoCtrl.revertEditing(todo)" todo-focus="todo == skillTodoCtrl.editedTodo">
+        </form>
+       </li>
+      </ul>
+     </div>
+     <div class="gb-footer" ng-show="skillTodoCtrl.todos.length" ng-cloak>
+      <span id="todo-count"><strong>{{skillTodoCtrl.remainingCount}}</strong>
+       <ng-pluralize count="skillTodoCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+      </span>
+      <ul id="filters">
+       <li>
+        <a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+       </li>
+       <li>
+        <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
+       </li>
+       <li>
+        <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+       </li>
+      </ul>
+      <button id="clear-completed" ng-click="clearDoneTodos()" ng-show="skillTodoCtrl.remainingCount < skillTodoCtrl.todos.length">Clear completed</button>
+     </div>
     </div>
+    <div class="gb-dummy-height row"></div>
    </div>
   </div>
  </div>
- <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
-  <div id="gb-right-nav-3" role="navigation">
-  </div>
+</div>
+<div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
+ <div id="gb-right-nav-3" role="navigation">
  </div>
 </div>
