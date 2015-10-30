@@ -31,7 +31,24 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            });
           };
 
-          vm.newTodo = '';
+
+          vm.addSkillTodo = function (newSkillTodoData) {
+
+          };
+
+          vm.resetForm = function (form) {
+           if (form) {
+            form.$setPristine();
+            form.$setUntouched();
+           }
+           //$scope.user = angular.copy($scope.master);
+          };
+
+
+
+
+
+
           vm.editedTodo = null;
 
           $scope.$watch(angular.bind(this, function () {
@@ -58,19 +75,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           });
 
 
-          vm.addTodo = function () {
-           var newTodo = vm.newTodo.trim();
-           if (!newTodo.length) {
-            return;
-           }
 
-           vm.skillTodos.push({
-            title: newTodo,
-            completed: false
-           });
-
-           vm.newTodo = '';
-          };
 
 
           vm.editTodo = function (skillTodo) {

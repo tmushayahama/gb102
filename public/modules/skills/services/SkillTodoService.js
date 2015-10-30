@@ -2,10 +2,10 @@ angular.module('app.skills').service('SkillTodoService', ['$http', function ($ht
   var STORAGE_ID = 'todos-angularjs-requirejs';
 
   return {
-   save: function (skillTodoData) {
+   create: function (skillId, skillTodoData) {
     return $http({
      method: 'POST',
-     url: '/api/skillTodo',
+     url: '/api/addSkillTodo' + skillId,
      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
      data: $.param(commentData)
     });
