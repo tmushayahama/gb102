@@ -17,18 +17,30 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           var vm = this;
 
 
-          var todos = vm.todos = SkillTodoService.get();
+          vm.skillTodos = [];
+
+
+          var skillTodoData = {
+           skillId: $stateParams.skillId
+          }
+          vm.getSkillTodos = function (data) {
+           SkillTodoService.get(data).success(function (response) {
+            vm.skillTodos = response;
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
 
           vm.newTodo = '';
           vm.editedTodo = null;
 
           $scope.$watch(angular.bind(this, function () {
-           return vm.todos;
+           return vm.skillTodos;
           }), function () {
-           //vm.remainingCount = filterFilter(todos, {completed: false}).length;
-           vm.doneCount = todos.length - vm.remainingCount;
+           //vm.remainingCount = filterFilter(skillTodos, {completed: false}).length;
+           vm.doneCount = vm.skillTodos.length - vm.remainingCount;
            vm.allChecked = !vm.remainingCount;
-           SkillTodoService.put(todos);
+           //SkillTodoService.put(vm.skillTodos);
           }, true);
 
           if ($location.path() === '') {
@@ -52,7 +64,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
             return;
            }
 
-           todos.push({
+           vm.skillTodos.push({
             title: newTodo,
             completed: false
            });
@@ -61,44 +73,46 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           };
 
 
-          vm.editTodo = function (todo) {
-           vm.editedTodo = todo;
-           // Clone the original todo to restore it on demand.
-           vm.originalTodo = angular.copy(todo);
+          vm.editTodo = function (skillTodo) {
+           vm.editedTodo = skillTodo;
+           // Clone the original skillTodo to restore it on demand.
+           vm.originalTodo = angular.copy(skillTodo);
           };
 
 
-          vm.doneEditing = function (todo) {
+          vm.doneEditing = function (skillTodo) {
            vm.editedTodo = null;
-           todo.title = todo.title.trim();
+           skillTodo.title = skillTodo.title.trim();
 
-           if (!todo.title) {
-            vm.removeTodo(todo);
+           if (!skillTodo.title) {
+            vm.removeTodo(skillTodo);
            }
           };
 
-          vm.revertEditing = function (todo) {
-           todos[todos.indexOf(todo)] = vm.originalTodo;
+          vm.revertEditing = function (skillTodo) {
+           vm.skillTodos[vm.skillTodos.indexOf(skillTodo)] = vm.originalTodo;
            vm.doneEditing(vm.originalTodo);
           };
 
-          vm.removeTodo = function (todo) {
-           todos.splice(todos.indexOf(todo), 1);
+          vm.removeTodo = function (skillTodo) {
+           vm.skillTodos.splice(vm.skillTodos.indexOf(skillTodo), 1);
           };
 
 
           vm.clearDoneTodos = function () {
-           vm.todos = todos = todos.filter(function (val) {
+           vm.skillTodos = vm.skillTodos = vm.skillTodos.filter(function (val) {
             return !val.completed;
            });
           };
 
 
           vm.markAll = function (done) {
-           todos.forEach(function (todo) {
-            todo.completed = done;
+           vm.skillTodos.forEach(function (skillTodo) {
+            skillTodo.completed = done;
            });
           };
 
+          //--------init------
+          vm.getSkillTodos(skillTodoData);
          }
         ])

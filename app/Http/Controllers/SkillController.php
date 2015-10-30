@@ -8,6 +8,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
+use App\Models\Skill\SkillTodo;
 use Request;
 
 class SkillController extends Controller {
@@ -32,6 +33,16 @@ class SkillController extends Controller {
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
   return $skill; //$skill;
+ }
+
+ public function getSkillTodos() {
+  $skillId = Request::get("skillId");
+  $skillTodos = SkillTodo::with('todo')
+    ->where('skill_id', $skillId)
+    ->get();
+  //$user = JWTAuth::parseToken()->toUser();
+  //$userId = $user->id;
+  return $skillTodos; //$skill;
  }
 
  public function getSkillTimeline($id) {

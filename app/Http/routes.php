@@ -21,4 +21,5 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
  Route::post('skills', 'SkillController@getSkills');
  Route::post('skill/{id}', 'SkillController@getSkill');
+ Route::post('skillTodos', 'SkillController@getSkillTodos');
 });

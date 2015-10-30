@@ -2721,7 +2721,7 @@ CREATE TABLE `gb_todo` (
   `creator_id` int(11) NOT NULL,
   `assignee_id` int(11),
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `due_date` datetime,
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `description` varchar(500) NOT NULL DEFAULT "",
