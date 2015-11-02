@@ -15,12 +15,12 @@ angular.module("app.skills").controller('SkillTodoCtrl',
                  $rootScope,
                  $location) {
           var vm = this;
-
+          vm.skillId = $stateParams.skillId;
 
           vm.skillTodos = [];
           vm.todoFormDisplay = false;
           var skillTodoData = {
-           skillId: $stateParams.skillId
+           skillId: vm.skillId
           }
 
           vm.defaultSkillTodoData = {
@@ -29,8 +29,8 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           }
           vm.newSkillTodoData = vm.defaultSkillTodoData;
 
-          vm.getSkillTodos = function (data) {
-           SkillTodoService.get(data).success(function (response) {
+          vm.getSkillTodos = function (skillId) {
+           SkillTodoService.get(skillId).success(function (response) {
             vm.skillTodos = response;
            }).error(function (response) {
             console.log(response);
@@ -43,7 +43,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
           vm.createSkillTodo = function (data) {
            SkillTodoService.create(data).success(function (response) {
-            vm.skillTodos.push(response);
+            vm.skillTodos.unshift(response);
            }).error(function (response) {
             console.log(response);
            });
@@ -133,6 +133,6 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           };
 
           //--------init------
-          vm.getSkillTodos(skillTodoData);
+          vm.getSkillTodos(vm.skillId);
          }
         ])

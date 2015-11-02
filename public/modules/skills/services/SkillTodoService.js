@@ -5,12 +5,12 @@ angular.module('app.skills').service('SkillTodoService', ['$http', function ($ht
    create: function (skillTodoData) {
     return $http({
      method: 'POST',
-     url: '/api/skillTodo/create',
+     url: '/api/skill/todo/create',
      data: skillTodoData
     });
    },
-   get: function (skillTodoData) {
-    return $http.post('/api/skillTodos', skillTodoData);
+   get: function (skillId) {
+    return $http.get('/api/skill/' + skillId + '/todos');
    },
    /*
     get: function () {

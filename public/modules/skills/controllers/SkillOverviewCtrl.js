@@ -13,6 +13,5 @@ angular.module("app.skills").controller('SkillOverviewCtrl', ['SkillService', '$
    });
   };
 
-  vm.getSkill($stateParams.skillId, skillData);
  }
 ])

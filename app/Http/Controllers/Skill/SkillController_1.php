@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Skill;
 
 //use Illuminate\Contracts\Auth;
 use JWTAuth;
@@ -16,7 +16,6 @@ use DB;
 class SkillController extends Controller {
 
  public function getSkills() {
-  // $userId = Request::get("user_id");
   $skills = Skill::orderBy('id', 'desc')
     ->take(10)
     ->get();
@@ -37,9 +36,9 @@ class SkillController extends Controller {
   return $skill; //$skill;
  }
 
- public function getSkillTodos() {
-  $skillId = Request::get("skillId");
+ public function getSkillTodos($skillId) {
   $skillTodos = SkillTodo::with('todo')
+    ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
   //$user = JWTAuth::parseToken()->toUser();
