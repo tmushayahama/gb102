@@ -2695,7 +2695,7 @@ CREATE TABLE `gb_timeline` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `timeline_date` datetime NOT NULL,
   `day` int(11) NOT NULL DEFAULT '1',
   `timeline_color` varchar(6) NOT NULL DEFAULT "FFFFFF",

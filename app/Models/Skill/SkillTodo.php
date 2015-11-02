@@ -12,6 +12,7 @@ class SkillTodo extends Model {
   * @var string
   */
  protected $table = 'gb_skill_todo';
+ public $timestamps = false;
 
  public function skill() {
   return $this->belongsTo('App\Models\Skill\Skill', 'skill_id');

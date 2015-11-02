@@ -18,11 +18,17 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
 
           vm.skillTodos = [];
-
-
+          vm.todoFormDisplay = false;
           var skillTodoData = {
            skillId: $stateParams.skillId
           }
+
+          vm.defaultSkillTodoData = {
+           skillId: $stateParams.skillId,
+           privacy: 0
+          }
+          vm.newSkillTodoData = vm.defaultSkillTodoData;
+
           vm.getSkillTodos = function (data) {
            SkillTodoService.get(data).success(function (response) {
             vm.skillTodos = response;
@@ -31,12 +37,21 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            });
           };
 
+          vm.showTodoForm = function () {
+           vm.todoFormDisplay = true;
+          }
 
-          vm.addSkillTodo = function (newSkillTodoData) {
-
+          vm.createSkillTodo = function (data) {
+           SkillTodoService.create(data).success(function (response) {
+            vm.skillTodos.push(response);
+           }).error(function (response) {
+            console.log(response);
+           });
           };
 
-          vm.resetForm = function (form) {
+          vm.cancelSkillTodo = function (form) {
+           vm.todoFormDisplay = false;
+           vm.newSkillTodoData = vm.defaultSkillTodoData;
            if (form) {
             form.$setPristine();
             form.$setUntouched();

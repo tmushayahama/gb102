@@ -22,4 +22,5 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skills', 'SkillController@getSkills');
  Route::post('skill/{id}', 'SkillController@getSkill');
  Route::post('skillTodos', 'SkillController@getSkillTodos');
+ Route::post('skillTodo/create', 'SkillController@createSkillTodo');
 });

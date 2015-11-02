@@ -9,7 +9,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
 use App\Models\Skill\SkillTodo;
+use App\Models\Todo\Todo;
 use Request;
+use DB;
 
 class SkillController extends Controller {
 
@@ -43,6 +45,31 @@ class SkillController extends Controller {
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
   return $skillTodos; //$skill;
+ }
+
+ public function createSkillTodo() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $skillId = Request::get("skillId");
+  $description = Request::get("description");
+  $todo = new Todo;
+  $skillTodo = new SkillTodo;
+  $todo->creator_id = $userId;
+  $todo->description = $description;
+  $skillTodo->skill_id = $skillId;
+
+  DB::beginTransaction();
+  try {
+   $todo->save();
+   $skillTodo->todo()->associate($todo);
+   $skillTodo->save();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return $skillTodo;
  }
 
  public function getSkillTimeline($id) {
