@@ -78,8 +78,8 @@ define(['angular',
            url: '/todos',
            views: {
             "content": {
-             controller: 'SkillTodoCtrl as skillTodoCtrl',
-             templateUrl: 'public/modules/skills/views/skillTodoView.html',
+             controller: 'SkillTodosCtrl as skillTodosCtrl',
+             templateUrl: 'public/modules/skills/views/skillTodosView.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -88,8 +88,8 @@ define(['angular',
                  files: [
                   'public/modules/skills/directives/todoEscape.js',
                   'public/modules/skills/directives/todoFocus.js',
-                  'public/modules/skills/services/SkillTodoService.js',
-                  'public/modules/skills/controllers/SkillTodoCtrl.js',
+                  'public/modules/skills/services/SkillTodosService.js',
+                  'public/modules/skills/controllers/SkillTodosCtrl.js',
                           // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })

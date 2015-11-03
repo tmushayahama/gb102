@@ -1,4 +1,4 @@
-angular.module('app.skills').service('SkillTodoService', ['$http', function ($http) {
+angular.module('app.skills').service('SkillTodosService', ['$http', function ($http) {
   var STORAGE_ID = 'todos-angularjs-requirejs';
 
   return {
@@ -11,6 +11,13 @@ angular.module('app.skills').service('SkillTodoService', ['$http', function ($ht
    },
    get: function (skillId) {
     return $http.get('/api/skill/' + skillId + '/todos');
+   },
+   edit: function (skillTodoData) {
+    return $http({
+     method: 'POST',
+     url: '/api/skill/todo/{skillTodoId}/edit',
+     data: skillTodoData
+    });
    },
    /*
     get: function () {

@@ -3,27 +3,27 @@
 namespace App\Models\Skill;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Todo\Todo;
+use App\Models\Weblink\Weblink;
 use Request;
 use DB;
 use JWTAuth;
 
-class SkillTodo extends Model {
+class SkillWeblink extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_skill_todo';
+ protected $table = 'gb_skill_weblink';
  public $timestamps = false;
 
  public function skill() {
   return $this->belongsTo('App\Models\Skill\Skill', 'skill_id');
  }
 
- public function todo() {
-  return $this->belongsTo('App\Models\Todo\Todo', 'todo_id');
+ public function weblink() {
+  return $this->belongsTo('App\Models\Weblink\Weblink', 'weblink_id');
  }
 
  /**
@@ -33,62 +33,62 @@ class SkillTodo extends Model {
   */
  protected $fillable = [];
 
- public static function getSkillTodos($skillId) {
-  $skillTodos = SkillTodo::with('todo')
+ public static function getSkillWeblinks($skillId) {
+  $skillWeblinks = SkillWeblink::with('weblink')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
-  return $skillTodos;
+  return $skillWeblinks;
  }
 
- public static function createSkillTodo() {
+ public static function createSkillWeblink() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $weblink = new Weblink;
+  $skillWeblink = new SkillWeblink;
+  $weblink->creator_id = $userId;
+  $weblink->description = $description;
+  $skillWeblink->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $weblink->save();
+   $skillWeblink->weblink()->associate($weblink);
+   $skillWeblink->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTodo;
+  return $skillWeblink;
  }
 
- public static function editSkillTodo() {
+ public static function editSkillWeblink() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $weblink = new Weblink;
+  $skillWeblink = new SkillWeblink;
+  $weblink->creator_id = $userId;
+  $weblink->description = $description;
+  $skillWeblink->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $weblink->save();
+   $skillWeblink->weblink()->associate($weblink);
+   $skillWeblink->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTodo;
+  return $skillWeblink;
  }
 
 }

@@ -3,27 +3,27 @@
 namespace App\Models\Skill;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Todo\Todo;
+use App\Models\Note\Note;
 use Request;
 use DB;
 use JWTAuth;
 
-class SkillTodo extends Model {
+class SkillNote extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_skill_todo';
+ protected $table = 'gb_skill_note';
  public $timestamps = false;
 
  public function skill() {
   return $this->belongsTo('App\Models\Skill\Skill', 'skill_id');
  }
 
- public function todo() {
-  return $this->belongsTo('App\Models\Todo\Todo', 'todo_id');
+ public function note() {
+  return $this->belongsTo('App\Models\Note\Note', 'note_id');
  }
 
  /**
@@ -33,62 +33,62 @@ class SkillTodo extends Model {
   */
  protected $fillable = [];
 
- public static function getSkillTodos($skillId) {
-  $skillTodos = SkillTodo::with('todo')
+ public static function getSkillNotes($skillId) {
+  $skillNotes = SkillNote::with('note')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
-  return $skillTodos;
+  return $skillNotes;
  }
 
- public static function createSkillTodo() {
+ public static function createSkillNote() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $note = new Note;
+  $skillNote = new SkillNote;
+  $note->creator_id = $userId;
+  $note->description = $description;
+  $skillNote->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $note->save();
+   $skillNote->note()->associate($note);
+   $skillNote->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTodo;
+  return $skillNote;
  }
 
- public static function editSkillTodo() {
+ public static function editSkillNote() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $note = new Note;
+  $skillNote = new SkillNote;
+  $note->creator_id = $userId;
+  $note->description = $description;
+  $skillNote->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $note->save();
+   $skillNote->note()->associate($note);
+   $skillNote->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTodo;
+  return $skillNote;
  }
 
 }

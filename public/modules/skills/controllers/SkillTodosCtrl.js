@@ -1,5 +1,5 @@
-angular.module("app.skills").controller('SkillTodoCtrl',
-        ['SkillTodoService',
+angular.module("app.skills").controller('SkillTodosCtrl',
+        ['SkillTodosService',
          '$scope',
          '$state',
          '$stateParams',
@@ -19,9 +19,6 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
           vm.skillTodos = [];
           vm.todoFormDisplay = false;
-          var skillTodoData = {
-           skillId: vm.skillId
-          }
 
           vm.defaultSkillTodoData = {
            skillId: $stateParams.skillId,
@@ -42,6 +39,14 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           }
 
           vm.createSkillTodo = function (data) {
+           SkillTodoService.create(data).success(function (response) {
+            vm.skillTodos.unshift(response);
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editSkillTodo = function (data) {
            SkillTodoService.create(data).success(function (response) {
             vm.skillTodos.unshift(response);
            }).error(function (response) {
@@ -74,12 +79,6 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            vm.allChecked = !vm.remainingCount;
            //SkillTodoService.put(vm.skillTodos);
           }, true);
-
-          if ($location.path() === '') {
-           $location.path('/');
-          }
-
-          vm.location = $location;
 
           $scope.$watch(angular.bind(this, function () {
            return vm.location.path();
