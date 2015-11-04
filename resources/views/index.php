@@ -3,14 +3,9 @@
  <head>
   <meta charset="utf-8">
   <title>SkillSection</title>
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="public/css/app.css" rel="stylesheet" type="text/css"/>
-  <link href="public/css/ss.css" rel="stylesheet" type="text/css"/>
-  <link href="public/css/ss_components.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-  <link href="public/css/todo/todo.css" rel="stylesheet" type="text/css"/>
 
-
+  <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>
  </head>
  <body class="">
   <div ui-view="root" id="main-container"></div>
