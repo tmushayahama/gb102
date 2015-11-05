@@ -14,8 +14,8 @@ module.exports = function (grunt) {
   express: {
    all: {
     options: {
-     port: 8000,
-     hostname: "0.0.0.0",
+     port: 8002,
+     hostname: "localhost",
      bases: ['public'], // Replace with the directory you want the files served from
      // Make sure you don't use `.` or `..` in the path as Express
      // is likely to return 403 Forbidden responses if you do
@@ -32,6 +32,7 @@ module.exports = function (grunt) {
     // or an Array of String for multiple entries
     // You can use globing patterns like `css/**/*.css`
     // See https://github.com/gruntjs/grunt-contrib-watch#files
+    files: 'public/css/gb-sass/stylesheets/main.css',
     options: {
      livereload: true
     }

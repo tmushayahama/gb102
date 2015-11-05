@@ -9,7 +9,7 @@ Error: Undefined mixin 'position'.
 52: 
 53:   .gb-img {
 54:    @include position(absolute, 5px null 5px 5px);
-55:    width: 50px;
+55:    width: 53px;
 56:    height: auto;
 57:   }
 58:   input {
@@ -95,4 +95,4 @@ c:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.19/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'position'.\A         on line 54 of c:/xampp/htdocs/gb102/public/css/gb-sass/sass/app.scss, in `position'\A         from line 54 of c:/xampp/htdocs/gb102/public/css/gb-sass/sass/app.scss\A \A 49:  .gb-form-placeholder {\A 50:   background-color: #FFF;\A 51:   position: relative;\A 52: \A 53:   .gb-img {\A 54:    @include position(absolute, 5px null 5px 5px);\A 55:    width: 50px;\A 56:    height: auto;\A 57:   }\A 58:   input {\A 59:    margin: 0;"; }
+  content: "Error: Undefined mixin 'position'.\A         on line 54 of c:/xampp/htdocs/gb102/public/css/gb-sass/sass/app.scss, in `position'\A         from line 54 of c:/xampp/htdocs/gb102/public/css/gb-sass/sass/app.scss\A \A 49:  .gb-form-placeholder {\A 50:   background-color: #FFF;\A 51:   position: relative;\A 52: \A 53:   .gb-img {\A 54:    @include position(absolute, 5px null 5px 5px);\A 55:    width: 53px;\A 56:    height: auto;\A 57:   }\A 58:   input {\A 59:    margin: 0;"; }
