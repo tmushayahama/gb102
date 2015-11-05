@@ -3,6 +3,7 @@
  <head>
   <meta charset="utf-8">
   <title>SkillSection</title>
+  <script src="http://localhost:35729/livereload.js"></script>
   <link href="public/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>

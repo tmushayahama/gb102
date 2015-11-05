@@ -5,9 +5,10 @@
     <div class="gb-todos">
      <div class='row'>
       <div class='gb-heading'>TODOS</div>
-      <form ng-show="!skillTodosCtrl.todoFormDisplay" class="gb-todo-form">
-       <input id="new-todo" ng-click="skillTodosCtrl.showTodoForm()" placeholder="What needs to be done?">
-      </form>
+      <div ng-show="!skillTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
+       <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
+       <input class="" ng-click="skillTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
+      </div>
       <form ng-show="skillTodosCtrl.todoFormDisplay" name="form" novalidate>
        <div class="form-group">
         <input type="text" class="vol-lg-12 col-md-12 col-cm-12 col-xs-12"
