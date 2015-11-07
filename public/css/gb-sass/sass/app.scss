@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 
 @import "app-variables";
+@import "../../bourbon/bourbon";
 
 [ng\:cloak],
 [ng-cloak],
@@ -41,6 +42,26 @@ input[type="checkbox"] {
 	display: none;
 }
 
+
+.gb-form-1 {
+ padding: 10px;
+ background-color: #FFFFFF;
+ border: #999 solid 1px;
+ -webkit-box-shadow: #27728B -1px 1px 2px;
+ -moz-box-shadow: #27728B -1px 1px 2px;
+ box-shadow: #27728B -1px 1px 2px;
+ .gb-radio-row {
+  padding: 0 0 15px 0;
+  margin: 0 0 10px 0;
+  width: 100%;
+  border-bottom: #CCC solid 1px;
+ }
+ .gb-disabled-2 {
+  pointer-events: none;
+  opacity: 0.3;
+  background: transparent;
+ }
+}
 
 
 .gb-todos {
