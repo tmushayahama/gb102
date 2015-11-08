@@ -6,6 +6,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
          '$http',
          '$rootScope',
          '$location',
+         '$uibModal',
          function (
                  SkillTodoService,
                  $scope,
@@ -13,7 +14,8 @@ angular.module("app.skills").controller('SkillTodosCtrl',
                  $stateParams,
                  $http,
                  $rootScope,
-                 $location) {
+                 $location,
+                 $uibModal) {
           var vm = this;
           vm.skillId = $stateParams.skillId;
 
@@ -27,7 +29,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           vm.newSkillTodoData = vm.defaultSkillTodoData;
 
           vm.getSkillTodos = function (skillId) {
-           SkillTodoService.get(skillId).success(function (response) {
+           SkillTodoService.getSkillTodos(skillId).success(function (response) {
             vm.skillTodos = response;
            }).error(function (response) {
             console.log(response);
@@ -39,7 +41,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           }
 
           vm.createSkillTodo = function (data) {
-           SkillTodoService.create(data).success(function (response) {
+           SkillTodoService.createSkillTodo(data).success(function (response) {
             vm.skillTodos.unshift(response);
            }).error(function (response) {
             console.log(response);
@@ -47,7 +49,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           };
 
           vm.editSkillTodo = function (data) {
-           SkillTodoService.create(data).success(function (response) {
+           SkillTodoService.createSkillTodo(data).success(function (response) {
             vm.skillTodos.unshift(response);
            }).error(function (response) {
             console.log(response);
@@ -79,15 +81,15 @@ angular.module("app.skills").controller('SkillTodosCtrl',
            vm.allChecked = !vm.remainingCount;
            //SkillTodoService.put(vm.skillTodos);
           }, true);
-
-          $scope.$watch(angular.bind(this, function () {
+          /*
+           $scope.$watch(angular.bind(this, function () {
            return vm.location.path();
-          }), function (path) {
+           }), function (path) {
            vm.statusFilter = (path === '/active') ?
-                   {completed: false} : (path === '/completed') ?
-                   {completed: true} : null;
-          });
-
+           {completed: false} : (path === '/completed') ?
+           {completed: true} : null;
+           });
+           */
 
 
 
@@ -130,6 +132,35 @@ angular.module("app.skills").controller('SkillTodosCtrl',
             skillTodo.completed = done;
            });
           };
+
+          vm.items = ['item1', 'item2', 'item3'];
+
+
+          vm.openSkillTodo = function (skillTodo) {
+
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'skill-todo-modal.html',
+            controller: 'SkillTodoCtrl as skillTodoCtrl',
+            size: 'lg',
+            resolve: {
+             skillTodoData: function () {
+              return skillTodo;
+             }
+            }
+           });
+
+           modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+           }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+           });
+          };
+
+          $scope.toggleAnimation = function () {
+           $scope.animationsEnabled = !$scope.animationsEnabled;
+          };
+
 
           //--------init------
           vm.getSkillTodos(vm.skillId);

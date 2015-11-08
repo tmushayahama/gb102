@@ -7366,6 +7366,37 @@ and open the template in the editor.
   background: -webkit-linear-gradient(top, #d1d1d1 0%, #ECECEC 100%);
 }
 
+.gb-ghost-btn-1 {
+  display: inline-block;
+  padding: 1px 15px;
+  color: #DDD;
+  border: 2px solid #DDD;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: border-color 0.3s ease-out, color 0.3s ease-out;
+}
+.gb-ghost-btn-1:hover, .gb-ghost-btn-1:active {
+  transition: border-color 0.4s ease-in, color 0.4s ease-in;
+}
+
+.gb-ghost-btn-2 {
+  display: inline-block;
+  padding: 1px 15px;
+  color: #888;
+  border: 2px solid #BBB;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: border-color 0.3s ease-out, color 0.3s ease-out;
+}
+.gb-ghost-btn-2:hover, .gb-ghost-btn-2:active {
+  transition: border-color 0.4s ease-in, color 0.4s ease-in;
+  border-color: #555;
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -7425,7 +7456,6 @@ input[type="checkbox"] {
 }
 
 .gb-todos {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   /*
    Hack to remove background from Mobile Safari.
    Can't use it globally since it destroys checkboxes in Firefox
@@ -7476,43 +7506,13 @@ input[type="checkbox"] {
 .gb-todos .gb-heading {
   padding: 10px 5px 15px 5px;
   width: 100%;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 100;
   text-align: center;
   color: rgba(17, 105, 117, 0.35);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
-}
-.gb-todos #new-todo,
-.gb-todos .edit {
-  margin: 0;
-  width: 100%;
-  font-size: 24px;
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: 1.4em;
-  border: 0;
-  outline: none;
-  color: inherit;
-  padding: 6px;
-  border: 1px solid #999;
-  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-.gb-todos #new-todo {
-  padding: 16px 16px 16px 60px;
-  border: none;
-  background: rgba(0, 0, 0, 0.003);
-  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
-}
-.gb-todos .gb-todos .gb-todo-body {
-  background-color: #F7F7F7;
-  z-index: 2;
-  border-top: 1px solid #e6e6e6;
 }
 .gb-todos #toggle-all {
   top: -55px;
@@ -7537,8 +7537,40 @@ input[type="checkbox"] {
   padding: 0;
   list-style: none;
 }
-.gb-todos #todo-list li {
-  border-bottom: 1px solid #ededed;
+.gb-todos .gb-todo-row {
+  height: 50px;
+  background-color: #FFFFFF;
+  border-bottom: rgba(39, 114, 139, 0.5) solid 1px;
+}
+.gb-todos #todo-list li .toggle {
+  margin: 5px 0 0 0;
+  text-align: center;
+  /* auto, since non-WebKit browsers doesn't support input styling */
+  height: auto;
+  border: none;
+  /* Mobile Safari */
+  -webkit-appearance: none;
+  appearance: none;
+}
+.gb-todos #todo-list li .toggle:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#BBBBBB" stroke-width="3"/></svg>');
+}
+.gb-todos #todo-list li .toggle:checked:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.gb-todos #todo-list li .gb-todo-content {
+  padding: 10px 0 10px 10px;
+  height: 50px;
+  font-size: 18px;
+  transition: color 0.4s;
+  border-left: rgba(39, 114, 139, 0.5) solid 1px;
+}
+.gb-todos #todo-list li.completed .gb-todo-content {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+.gb-todos #todo-list li .gb-todo-action {
+  padding: 15px 10px 0 0;
 }
 .gb-todos #todo-list li:last-child {
   border-bottom: none;
@@ -7555,32 +7587,6 @@ input[type="checkbox"] {
 }
 .gb-todos #todo-list li.editing .view {
   display: none;
-}
-.gb-todos #todo-list li .toggle {
-  text-align: center;
-  width: 40px;
-  /* auto, since non-WebKit browsers doesn't support input styling */
-  height: auto;
-  margin: auto 0;
-  border: none;
-  /* Mobile Safari */
-  -webkit-appearance: none;
-  appearance: none;
-}
-.gb-todos #todo-list li .toggle:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#BBBBBB" stroke-width="3"/></svg>');
-}
-.gb-todos #todo-list li .toggle:checked:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-}
-.gb-todos #todo-list li .gb-todo-content {
-  padding: 5px 0 5px 5px;
-  font-size: 18px;
-  transition: color 0.4s;
-}
-.gb-todos #todo-list li.completed .gb-todo-content {
-  color: #d9d9d9;
-  text-decoration: line-through;
 }
 .gb-todos #todo-list li .destroy {
   display: none;
@@ -10213,23 +10219,6 @@ ul .gb-sticky-note-row:nth-child(5n) a {
     width: 99%;
   }
 }
-.gb-ghost-btn-1 {
-  display: inline-block;
-  padding: 1px 15px;
-  color: #DDD;
-  border: 2px solid #DDD;
-  border-radius: 20px;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  transition: border-color 0.3s ease-out, color 0.3s ease-out;
-}
-
-.gb-ghost-btn-1:hover,
-.gb-ghost-btn-1:active {
-  transition: border-color 0.4s ease-in, color 0.4s ease-in;
-}
-
 .gb-play-form {
   overflow: hidden;
 }

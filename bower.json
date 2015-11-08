@@ -1,0 +1,36 @@
+{
+  "name": "gb102",
+  "description": "",
+  "main": "",
+  "authors": [
+    "tmushayahama <tmushayahama@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tmushayahama/gb102",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "jquery-easing": "*",
+    "angular-couch-potato": "~0.2.3",
+    "bootstrap": "~3.3.5",
+    "angular-resource": "~1.4.7",
+    "domready": "~1.0.8",
+    "moment": "~2.10.6",
+    "requirejs": "~2.1.20",
+    "require": "*",
+    "satellizer": "~0.12.5",
+    "oclazyload": "~1.0.6",
+    "angular-bootstrap": "~0.14.3"
+  },
+  "devDependencies": {
+    "angular-bootstrap": "~0.14.3"
+  }
+}

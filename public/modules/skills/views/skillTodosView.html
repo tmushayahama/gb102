@@ -9,80 +9,119 @@
        <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
        <input class="" ng-click="skillTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
       </div>
-      <form ng-show="skillTodosCtrl.todoFormDisplay" name="form" novalidate>
-       <div class="form-group">
-        <input type="text" class="vol-lg-12 col-md-12 col-cm-12 col-xs-12"
-               placeholder="Skill Todo Description" ng-model="skillTodosCtrl.newSkillTodoData.description"
-               name="uName" required="" />
-        <div ng-show="form.$submitted || form.uName.$touched">
-         <div ng-show="form.uName.$error.required">Tell us your name.</div>
+      <form class="gb-form-1" ng-show="skillTodosCtrl.todoFormDisplay" name="form" novalidate>
+       <div class="form-group row">
+        <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+         <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                   placeholder="Skill Todo Description" ng-model="skillTodosCtrl.newSkillTodoData.description"
+                   name="uName" required="" rows="3">
+         </textarea>
+         <div ng-show="form.$submitted || form.uName.$touched">
+          <div ng-show="form.uName.$error.required">description required.</div>
+         </div>
         </div>
        </div>
-       <div class="form-group">
-        <input type="radio" ng-model="skillTodosCtrl.newSkillTodoData.privacy" value="0" checked="checked" />public
-        <input type="radio" ng-model="skillTodosCtrl.newSkillTodoData.privacy" value="1" />private
+       <div class="form-group row">
+        <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+         <div class="radio gb-radio-row">
+          <label class="">
+           <input type="radio" ng-model="skillTodosCtrl.newSkillTodoData.privacy" value="0" />
+           <strong>public</strong> All people can see this todo
+          </label>
+         </div>
+         <div class="radio gb-radio-row">
+          <label>
+           <input type="radio" ng-model="skillTodosCtrl.newSkillTodoData.privacy" value="1" />
+           <strong>private</strong> only you can see this todo
+          </label>
+         </div>
+         <div class="radio gb-radio-row">
+          <label>
+           <input type="radio" ng-model="skillTodosCtrl.newSkillTodoData.privacy" value="2" />
+           <strong>custom  </strong> choose who to see this todo
+          </label>
+         </div>
+        </div>
        </div>
-       <div class="row">
-        <a type="button" class="btn btn-default" ng-click="skillTodosCtrl.cancelSkillTodo(form)">
-         Cancel
-        </a>
-        <a type="submit" class="btn btn-primary" ng-click="skillTodosCtrl.createSkillTodo(skillTodosCtrl.newSkillTodoData)">
-         Add Todo
-        </a>
+       <div class="form-group row" ng-class="{'gb-disabled-2': skillTodosCtrl.newSkillTodoData.privacy != 2}">
+        <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+         <input type="text" class="form-control" placeholder="Select members"/>
+        </div>
+       </div>
+       <div class="form-group row">
+        <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+         <a class="btn btn-link" ng-click="skillTodosCtrl.showAdvanced()">
+          Show Advanved
+         </a>
+        </label>
+       </div>
+       <div class="gb-form-footer row">
+        <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
+         <a class="btn gb-btn col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillTodosCtrl.cancelSkillTodo(form)">
+          Cancel
+         </a>
+         <a class="btn gb-btn col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillTodosCtrl.createSkillTodo(skillTodosCtrl.newSkillTodoData)">
+          Add Todo
+         </a>
+        </div>
        </div>
       </form>
-      <pre>todo = {{skillTodosCtrl.newSkillTodoData| json}}</pre>
+     </div>
+     <div class="gb-todo-body row" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
+      <ul id="todo-list">
+       <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
+        <div class="gb-todo-row row">
+         <input class="toggle col-lg-1" type="checkbox" ng-model="skillTodo.completed">
+         <div class='gb-todo-content col-lg-9' ng-dblclick="skillTodosCtrl.editTodo(skillTodo)">
+          <a class="btn-link text-left gb-ellipsis" ng-click="skillTodosCtrl.openSkillTodo(skillTodo)">
+           {{skillTodo.todo.description}}
+          </a>
+         </div>
+         <div class="gb-todo-action btn-group col-lg-2">
+          <a class="btn btn-xs pull-right gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           more
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+           <li><a href="#">View</a></li>
+           <li><a ng-click="skillTodosCtrl.editTodo(skillTodo)">Edit</a></li>
+           <li><a ng-click="skillTodosCtrl.removeTodo(skillTodo)">Delete</a></li>
+          </ul>
+         </div>
+        </div>
+        <form ng-submit="skillTodosCtrl.doneEditing(skillTodo)">
+         <input class="edit" ng-trim="false" ng-model="skillTodo.title" ng-blur="skillTodosCtrl.doneEditing(skillTodo)" todo-escape="skillTodosCtrl.revertEditing(skillTodo)" todo-focus="skillTodo == skillTodosCtrl.editedTodo">
+        </form>
+       </li>
+      </ul>
+     </div>
+     <div class="gb-footer" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
+      <span id="todo-count"><strong>{{skillTodosCtrl.remainingCount}}</strong>
+       <ng-pluralize count="skillTodosCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+      </span>
+      <ul id="filters">
+       <li>
+        <a ng-class="{selected: location.path() == '/'}" href="#/">All</a>
+       </li>
+       <li>
+        <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
+       </li>
+       <li>
+        <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+       </li>
+      </ul>
+      <button id="clear-completed" ng-click="clearDoneTodos()" ng-show="skillTodosCtrl.remainingCount < skillTodosCtrl.skillTodos.length">Clear completed</button>
      </div>
     </div>
-    <div class="gb-todo-body row" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
-     <ul id="todo-list">
-      <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
-       <div class="view row">
-        <input class="toggle col-lg-1" type="checkbox" ng-model="skillTodo.completed">
-        <div class='gb-todo-content col-lg-8' ng-dblclick="skillTodosCtrl.editTodo(skillTodo)">
-         {{skillTodo.todo.description}}
-        </div>
-        <div class="btn-group col-lg-3">
-         <a class="btn btn-xs pull-right gb-ghost-btn-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          more
-         </a>
-         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">View</a></li>
-          <li><a ng-click="skillTodosCtrl.editTodo(skillTodo)">Edit</a></li>
-          <li><a ng-click="skillTodosCtrl.removeTodo(skillTodo)">Delete</a></li>
-         </ul>
-        </div>
-       </div>
-       <form ng-submit="skillTodosCtrl.doneEditing(skillTodo)">
-        <input class="edit" ng-trim="false" ng-model="skillTodo.title" ng-blur="skillTodosCtrl.doneEditing(skillTodo)" todo-escape="skillTodosCtrl.revertEditing(skillTodo)" todo-focus="skillTodo == skillTodosCtrl.editedTodo">
-       </form>
-      </li>
-     </ul>
-    </div>
-    <div class="gb-footer" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
-     <span id="todo-count"><strong>{{skillTodosCtrl.remainingCount}}</strong>
-      <ng-pluralize count="skillTodosCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
-     </span>
-     <ul id="filters">
-      <li>
-       <a ng-class="{selected: location.path() == '/'}" href="#/">All</a>
-      </li>
-      <li>
-       <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
-      </li>
-      <li>
-       <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
-      </li>
-     </ul>
-     <button id="clear-completed" ng-click="clearDoneTodos()" ng-show="skillTodosCtrl.remainingCount < skillTodosCtrl.skillTodos.length">Clear completed</button>
-    </div>
+    <div class="gb-dummy-height row"></div>
    </div>
-   <div class="gb-dummy-height row"></div>
   </div>
  </div>
-</div>
 </div>
 <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
  <div id="gb-right-nav-3" role="navigation">
  </div>
 </div>
+<div class="" ng-include="'public/modules/skills/views/modals/skill-todo.html'"></div>

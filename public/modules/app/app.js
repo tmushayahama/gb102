@@ -6,6 +6,7 @@ define([
  'angular-resource',
  'oc-lazy-load',
  'satellizer',
+ 'angular-bootstrap',
  'bootstrap',
  '../auth/module',
  '../skills/module'
@@ -16,6 +17,7 @@ define([
   'ngResource',
   'satellizer',
   'oc.lazyLoad',
+  'ui.bootstrap',
   'app.auth',
   'app.skills'
           //'app.skills'

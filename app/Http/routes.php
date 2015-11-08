@@ -20,7 +20,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
  Route::get('skills', 'Skill\SkillController@getSkills');
- Route::get('skill/{skillIdd}/todos', 'Skill\SkillController@getSkillTodos');
+ Route::get('skill/{skillId}/todos', 'Skill\SkillController@getSkillTodos');
+ Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
  Route::post('skill/todo/create', 'Skill\SkillController@createSkillTodo');
 });

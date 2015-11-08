@@ -41,6 +41,15 @@ class SkillTodo extends Model {
   return $skillTodos;
  }
 
+ public static function getSkillTodo($skillId, $todoId) {
+  $skillTodo = SkillTodo::with('todo')
+    ->orderBy('id', 'DESC')
+    ->where('skill_id', $skillId)
+    ->where('todo_id', $todoId)
+    ->first();
+  return $skillTodo;
+ }
+
  public static function createSkillTodo() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;

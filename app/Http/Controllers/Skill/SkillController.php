@@ -30,6 +30,11 @@ class SkillController extends Controller {
   return \Response::json($skillTodos);
  }
 
+ public function getSkillTodo($skillId, $todoId) {
+  $skillTodo = SkilLTodo::getSkillTodo($skillId, $todoId);
+  return \Response::json($skillTodo);
+ }
+
  public function createSkillTodo() {
   $skillTodos = SkilLTodo::createSkillTodo();
   return \Response::json($skillTodos);

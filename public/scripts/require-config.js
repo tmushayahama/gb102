@@ -4,6 +4,7 @@ requirejs.config({
   'jquery': '../../bower_components/jquery/dist/jquery.min',
   'angular': '../../bower_components/angular/angular',
   'bootstrap': '../../bower_components/bootstrap/dist/js/bootstrap',
+  'angular-bootstrap': '../../bower_components/angular-bootstrap/ui-bootstrap-tpls',
   'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
   'angular-resource': '../../bower_components/angular-resource/angular-resource',
   'satellizer': '../../bower_components/satellizer/satellizer',
@@ -18,6 +19,7 @@ requirejs.config({
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
   'jquery': {'exports': 'jquery'},
+  'angular-bootstrap': {deps: ['angular']},
   'angular-ui-router': {deps: ['angular']},
   'angular-resource': {deps: ['angular']},
   'oc-lazy-load': {deps: ['angular']},
