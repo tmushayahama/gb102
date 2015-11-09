@@ -1,0 +1,30 @@
+//
+// Modlas
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+
+.modal-xl {
+ @include position(absolute, 20px 20px 20px 20px);
+ .modal-content {
+  @include position(absolute, 0 0 0 0);
+ }
+ .modal-header {
+  @include position(absolute, 0 0 null 0);
+  font-size: 18px;
+  font-weight: normal;
+  height: 50px;
+ }
+ .modal-body {
+  @include position(absolute, 41px 0 46px 0);
+  overflow-y: auto;
+ }
+ .modal-footer {
+  @include position(absolute, null 0 0 0);
+  height: 45px;
+  padding: 5px;
+ }
+}

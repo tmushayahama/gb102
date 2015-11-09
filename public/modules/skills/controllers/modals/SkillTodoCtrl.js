@@ -22,15 +22,26 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
           vm.skillId = skillTodoData.skill_id;
           vm.todoId = skillTodoData.todo_id;
+          vm.editDecriptionMode = false;
+          vm.skillTodoBackUp;
           vm.skillTodo;
 
           vm.ok = function () {
            $uibModalInstance.close();
           };
 
-          vm.cancel = function () {
+          vm.close = function () {
            $uibModalInstance.dismiss('cancel');
           };
+
+          vm.enterEditDescriptionMode = function () {
+           vm.editDecriptionMode = true;
+           vm.skillTodoBackUp = vm.skillTodo;
+          }
+
+          vm.cancelEditDescriptionMode = function () {
+           vm.editDecriptionMode = false;
+          }
 
           // vm.newSkillTodoData = vm.defaultSkillTodoData;
 

@@ -82,7 +82,7 @@ CREATE TABLE `gb_advice` (
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -438,9 +438,10 @@ CREATE TABLE `gb_checklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_checklist_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -520,9 +521,10 @@ CREATE TABLE `gb_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_comment_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -543,9 +545,10 @@ CREATE TABLE `gb_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_contributor_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -609,6 +612,7 @@ CREATE TABLE `gb_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_discussion_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -2724,6 +2728,7 @@ CREATE TABLE `gb_todo` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `due_date` datetime,
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
+  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(500) NOT NULL DEFAULT "",
   `type` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0,
@@ -2918,7 +2923,7 @@ CREATE TABLE `gb_user_question_answer` (
   `question_id` int(11) NOT NULL,
   `question_answer_id` int(11),
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` varchar (1000) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -3190,7 +3195,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_at`,	`due_date`,	`todo_color`,	`description`,	`type`,	`status`);
+   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_at`,	`due_date`,	`todo_color`,	`title`, `description`,	`type`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTodo.txt'
     into table gb102.gb_skill_todo

@@ -1,4 +1,4 @@
-id	parent_todo_id	priority_id	creator_id	assignee_id	created_date	due_date	todo_color	description	type	status
-1	NULL	NULL	2	NULL	"2015-03-05 03:03:48"	NULL	FFFFFF	"Drawing a straight line"	0	0
-2	NULL	NULL	2	NULL	"2015-05-18 07:05:13"	NULL	FFFFFF	"Make my bed after waking up."	0	0
-3	NULL	NULL	2	NULL	"2015-05-18 07:05:15"	NULL	FFFFFF	"Remove all clothes on the floor or from the top of my bed"	0	0
+id	parent_todo_id	priority_id	creator_id	assignee_id	created_date	due_date	todo_color	title	description	type	status
+1	NULL	NULL	2	NULL	3/5/2015 3:03	NULL	FFFFFF	Drawing a straight line		0	0
+2	NULL	NULL	2	NULL	5/18/2015 7:05	NULL	FFFFFF	Making my bed	Make my bed after waking up.	0	0
+3	NULL	NULL	2	NULL	5/18/2015 7:05	NULL	FFFFFF	Clothes	Remove all clothes on the floor or from the top of my bed	0	0

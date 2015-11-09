@@ -11,6 +11,7 @@ and open the template in the editor.
 @import "app-variables";
 @import "../../bourbon/bourbon";
 @import "components/gb-buttons";
+@import "components/gb-modals";
 
 [ng\:cloak],
 [ng-cloak],
@@ -3478,9 +3479,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 }
 
 .gb-section-row-1 {
- padding: 10px 10px;
- margin-bottom: 20px;
- border-bottom: #CCC solid 1px;
 }
 
 .gb-section-row-1 .gb-heading {

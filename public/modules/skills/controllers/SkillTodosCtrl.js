@@ -142,7 +142,8 @@ angular.module("app.skills").controller('SkillTodosCtrl',
             animation: true,
             templateUrl: 'skill-todo-modal.html',
             controller: 'SkillTodoCtrl as skillTodoCtrl',
-            size: 'lg',
+            backdrop: 'static',
+            size: 'xl',
             resolve: {
              skillTodoData: function () {
               return skillTodo;

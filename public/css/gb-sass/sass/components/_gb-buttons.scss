@@ -8,11 +8,8 @@
 
 .gb-btn {
  background: #ECECEC;
- border-radius: 15px;
- padding: 10px 20px;
  display: block;
  font-family: arial;
- font-weight: bold;
  color:#555;
  text-decoration: none;
  text-shadow:0px 1px 0px #fff;
@@ -61,4 +58,23 @@
   transition: border-color 0.4s ease-in, color 0.4s ease-in;
   border-color: #555;
  }
+}
+
+.gb-btn-lg {
+ border-radius: 15px;
+ padding: 12px 20px;
+ font-weight: bold;
+}
+.gb-btn-md {
+ border-radius: 15px;
+ padding: 8px 15px;
+ font-weight: bold;
+}
+.gb-btn-sm {
+ border-radius: 15px;
+ padding: 5px 10px;
+}
+.gb-btn-xs {
+ border-radius: 10px;
+ padding: 2px 8px;
 }
