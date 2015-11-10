@@ -89,6 +89,7 @@ define(['angular',
                   'public/modules/skills/directives/todoEscape.js',
                   'public/modules/skills/directives/todoFocus.js',
                   'public/modules/skills/services/SkillTodosService.js',
+                  'public/modules/skills/services/TodoChecklistService.js',
                   'public/modules/skills/controllers/SkillTodosCtrl.js',
                   'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
                           // 'public/css/ss_themes/ss_theme_1.css'

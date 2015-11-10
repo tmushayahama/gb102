@@ -1,5 +1,6 @@
 angular.module("app.skills").controller('SkillTodoCtrl',
         ['SkillTodosService',
+         'TodoChecklistService',
          '$uibModalInstance',
          '$scope',
          '$state',
@@ -10,6 +11,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
          'skillTodoData',
          function (
                  SkillTodosService,
+                 TodoChecklistService,
                  $uibModalInstance,
                  $scope,
                  $state,
@@ -25,6 +27,15 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.editDecriptionMode = false;
           vm.skillTodoBackUp;
           vm.skillTodo;
+
+          vm.todoChecklist = [];
+          vm.todoFormDisplay = false;
+
+          vm.defaultTodoChecklistData = {
+           todoId: $stateParams.todoId,
+           privacy: 0
+          }
+          vm.newTodoChecklistData = vm.defaultTodoChecklistData;
 
           vm.ok = function () {
            $uibModalInstance.close();
@@ -52,6 +63,146 @@ angular.module("app.skills").controller('SkillTodoCtrl',
             console.log(response);
            });
           };
+
+
+
+          vm.getTodoChecklist = function (todoId) {
+           TodoChecklistService.getTodoChecklist(todoId).success(function (response) {
+            vm.todoChecklist = response;
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.showTodoForm = function () {
+           vm.todoFormDisplay = true;
+          }
+
+          vm.createTodoChecklist = function (data) {
+           TodoChecklistService.createTodoChecklist(data).success(function (response) {
+            vm.todoChecklist.unshift(response);
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editTodoChecklist = function (data) {
+           TodoChecklistService.createTodoChecklist(data).success(function (response) {
+            vm.todoChecklist.unshift(response);
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.cancelTodoChecklist = function (form) {
+           vm.todoFormDisplay = false;
+           vm.newTodoChecklistData = vm.defaultTodoChecklistData;
+           if (form) {
+            form.$setPristine();
+            form.$setUntouched();
+           }
+           //$scope.user = angular.copy($scope.master);
+          };
+
+
+
+
+
+
+          vm.editedTodo = null;
+
+          $scope.$watch(angular.bind(this, function () {
+           return vm.todoChecklist;
+          }), function () {
+           //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
+           vm.doneCount = vm.todoChecklist.length - vm.remainingCount;
+           vm.allChecked = !vm.remainingCount;
+           //TodoChecklistService.put(vm.todoChecklist);
+          }, true);
+          /*
+           $scope.$watch(angular.bind(this, function () {
+           return vm.location.path();
+           }), function (path) {
+           vm.statusFilter = (path === '/active') ?
+           {completed: false} : (path === '/completed') ?
+           {completed: true} : null;
+           });
+           */
+
+
+
+
+          vm.editTodo = function (todoChecklist) {
+           vm.editedTodo = todoChecklist;
+           // Clone the original todoChecklist to restore it on demand.
+           vm.originalTodo = angular.copy(todoChecklist);
+          };
+
+
+          vm.doneEditing = function (todoChecklist) {
+           vm.editedTodo = null;
+           todoChecklist.title = todoChecklist.title.trim();
+
+           if (!todoChecklist.title) {
+            vm.removeTodo(todoChecklist);
+           }
+          };
+
+          vm.revertEditing = function (todoChecklist) {
+           vm.todoChecklist[vm.todoChecklist.indexOf(todoChecklist)] = vm.originalTodo;
+           vm.doneEditing(vm.originalTodo);
+          };
+
+          vm.removeTodo = function (todoChecklist) {
+           vm.todoChecklist.splice(vm.todoChecklist.indexOf(todoChecklist), 1);
+          };
+
+
+          vm.clearDoneTodos = function () {
+           vm.todoChecklist = vm.todoChecklist = vm.todoChecklist.filter(function (val) {
+            return !val.completed;
+           });
+          };
+
+
+          vm.markAll = function (done) {
+           vm.todoChecklist.forEach(function (todoChecklist) {
+            todoChecklist.completed = done;
+           });
+          };
+
+          vm.items = ['item1', 'item2', 'item3'];
+
+
+          vm.openTodoChecklist = function (todoChecklist) {
+
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'todo-todo-modal.html',
+            controller: 'TodoChecklistCtrl as todoChecklistCtrl',
+            backdrop: 'static',
+            size: 'xl',
+            resolve: {
+             todoChecklistData: function () {
+              return todoChecklist;
+             }
+            }
+           });
+
+           modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+           }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+           });
+          };
+
+          $scope.toggleAnimation = function () {
+           $scope.animationsEnabled = !$scope.animationsEnabled;
+          };
+
+
+          //--------init------
+          vm.getTodoChecklist(vm.todoId);
 
           vm.getSkillTodo(vm.skillId, vm.todoId);
          }

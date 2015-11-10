@@ -24,6 +24,10 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
  Route::post('skill/todo/create', 'Skill\SkillController@createSkillTodo');
+
+ //Todos
+ Route::get('todo/{todoId}/checklist', 'Skill\SkillController@getSkills');
+ Route::post('todo/{todoId}/checklist', 'Skill\SkillController@getSkills');
 });
 
 

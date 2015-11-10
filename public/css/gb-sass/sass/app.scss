@@ -12,6 +12,7 @@ and open the template in the editor.
 @import "../../bourbon/bourbon";
 @import "components/gb-buttons";
 @import "components/gb-modals";
+@import "components/gb-sections";
 
 [ng\:cloak],
 [ng-cloak],
@@ -3478,36 +3479,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  max-width: 110px;
 }
 
-.gb-section-row-1 {
-}
-
-.gb-section-row-1 .gb-heading {
- padding: 0;
- margin-bottom: 10px;
-}
-
-.gb-section-row-1 .gb-heading .gb-title {
- padding: 10px 0 0 0;
- font-size: 1.0em;
- font-weight: bold;
- color: #777;
-}
-.gb-section-row-1 .gb-heading .gb-subtitle {
- padding: 0px 0 0 35px;
-}
-
-.gb-section-row-1 .gb-heading .gb-heading-img {
- width: 30px;
- height: 30px;
-}
-
-.gb-section-row-1 .gb-heading .gb-action {
- padding: 11px 0 0 0;
-}
-
-.gb-section-row-1 .gb-body {
- padding-top: 10px;
-}
 
 .gb-section-row-2 {
  margin-bottom: 40px;

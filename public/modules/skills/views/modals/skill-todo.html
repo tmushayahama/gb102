@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{skillTodoCtrl.skillTodo.todo.description}}
+   {{skillTodoCtrl.skillTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="skillTodoCtrl.close()">
@@ -38,12 +38,224 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-show="!skillTodoCtrl.editDecriptionMode" id="gb-skill-item-todo-panel" class="row">
+    <strong>{{skillTodoCtrl.skillTodo.todo.title}}</strong>
     {{skillTodoCtrl.skillTodo.todo.description}}
    </div>
    <div ng-show="skillTodoCtrl.editDecriptionMode" class="row">
-    <textarea rows="3" ng-model="skillTodoCtrl.skillTodoBackUp.todo.description"
-              class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    </textarea>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea rows="2" ng-model="skillTodoCtrl.skillTodoBackUp.todo.title"
+                placeholder="title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea rows="3" ng-model="skillTodoCtrl.skillTodoBackUp.todo.description"
+                placeholder="description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="gb-section-row-1 row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-ellipsis">
+     CHECKLIST
+    </p>
+   </div>
+   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
+        ng-show="!skillTodoCtrl.editDecriptionMode">
+    <a class="gb-ghost-btn-2 pull-right" ng-click="skillTodoCtrl.enterEditDescriptionMode()">
+     <i class="fa fa-pencil"></i>
+    </a>
+   </div>
+   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
+        ng-show="skillTodoCtrl.editDecriptionMode">
+    <div class="btn-group pull-right">
+     <a class="btn gb-btn gb-btn-xs"
+        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+      <i class="text-danger fa fa-times"></i>
+     </a>
+     <a class="btn gb-btn gb-btn-xs"
+        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+      <i class="text-success fa fa-check"></i>
+     </a>
+    </div>
+   </div>
+  </header>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-todos">
+    <div class='row'>
+     <div class='gb-heading'>TODOS</div>
+     <div ng-show="!todoChecklistCtrl.todoFormDisplay" class="gb-form-placeholder">
+      <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
+      <input class="" ng-click="todoChecklistCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
+     </div>
+     <form class="gb-form-1" ng-show="todoChecklistCtrl.todoFormDisplay" name="form" novalidate>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Skill Todo Description" ng-model="todoChecklistCtrl.newTodoChecklistData.title"
+                  name="title" required="" rows="2">
+        </textarea>
+        <div ng-show="form.$submitted || form.title.$touched">
+         <div ng-show="form.title.$error.required">description required.</div>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Skill Todo Description (optional)" ng-model="todoChecklistCtrl.newTodoChecklistData.description"
+                  name="uName" required="" rows="4">
+        </textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="radio gb-radio-row">
+         <label class="">
+          <input type="radio" ng-model="todoChecklistCtrl.newTodoChecklistData.privacy" value="0" />
+          <strong>public</strong> All people can see this todo
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="todoChecklistCtrl.newTodoChecklistData.privacy" value="1" />
+          <strong>private</strong> only you can see this todo
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="todoChecklistCtrl.newTodoChecklistData.privacy" value="2" />
+          <strong>custom</strong> choose who to see this todo
+         </label>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row" ng-class="{'gb-disabled-2': todoChecklistCtrl.newTodoChecklistData.privacy != 2}">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <input type="text" class="form-control" placeholder="Select members"/>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+        <a class="btn btn-link" ng-click="todoChecklistCtrl.showAdvanced()">
+         Show Advanved
+        </a>
+       </label>
+      </div>
+      <div class="gb-form-footer row">
+       <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
+        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="todoChecklistCtrl.cancelTodoChecklist(form)">
+         Cancel
+        </a>
+        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="todoChecklistCtrl.createTodoChecklist(todoChecklistCtrl.newTodoChecklistData)">
+         Add Todo
+        </a>
+       </div>
+      </div>
+     </form>
+    </div>
+    <div class="gb-todo-body row" ng-show="todoChecklistCtrl.todoChecklist.length" ng-cloak>
+     <ul id="todo-list">
+      <li ng-repeat="todoChecklist in todoChecklistCtrl.todoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == todoChecklistCtrl.editedTodo}">
+       <div class="gb-todo-row row">
+        <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklist.completed">
+        <div class='gb-todo-content col-lg-9' ng-dblclick="todoChecklistCtrl.editTodo(todoChecklist)">
+         <a class="btn-link text-left gb-ellipsis" ng-click="todoChecklistCtrl.openTodoChecklist(todoChecklist)">
+          {{todoChecklist.todo.title}}
+         </a>
+        </div>
+        <div class="gb-todo-action btn-group col-lg-2">
+         <a class="btn btn-xs pull-right gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          more
+         </a>
+         <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="#">View</a></li>
+          <li><a ng-click="todoChecklistCtrl.editTodo(todoChecklist)">Edit</a></li>
+          <li><a ng-click="todoChecklistCtrl.removeTodo(todoChecklist)">Delete</a></li>
+         </ul>
+        </div>
+       </div>
+       <form ng-submit="todoChecklistCtrl.doneEditing(todoChecklist)">
+        <input class="edit" ng-trim="false" ng-model="todoChecklist.title" ng-blur="todoChecklistCtrl.doneEditing(todoChecklist)" todo-escape="todoChecklistCtrl.revertEditing(todoChecklist)" todo-focus="todoChecklist == todoChecklistCtrl.editedTodo">
+       </form>
+      </li>
+     </ul>
+    </div>
+    <div class="gb-footer" ng-show="todoChecklistCtrl.todoChecklist.length" ng-cloak>
+     <span id="todo-count"><strong>{{todoChecklistCtrl.remainingCount}}</strong>
+      <ng-pluralize count="todoChecklistCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+     </span>
+    </div>
+   </div>
+
+  </div>
+ </section>
+ <section class="gb-section-row-1 row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-ellipsis">
+     CONTRIBUTORS
+    </p>
+   </div>
+   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
+        ng-show="!skillTodoCtrl.editDecriptionMode">
+    <a class="gb-ghost-btn-2 pull-right" ng-click="skillTodoCtrl.enterEditDescriptionMode()">
+     <i class="fa fa-pencil"></i>
+    </a>
+   </div>
+   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
+        ng-show="skillTodoCtrl.editDecriptionMode">
+    <div class="btn-group pull-right">
+     <a class="btn gb-btn gb-btn-xs"
+        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+      <i class="text-danger fa fa-times"></i>
+     </a>
+     <a class="btn gb-btn gb-btn-xs"
+        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+      <i class="text-success fa fa-check"></i>
+     </a>
+    </div>
+   </div>
+  </header>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-show="!skillTodoCtrl.editDecriptionMode" id="gb-skill-item-todo-panel" class="row">
+    <strong>{{skillTodoCtrl.skillTodo.todo.title}}</strong>
+    {{skillTodoCtrl.skillTodo.todo.description}}
+   </div>
+   <div ng-show="skillTodoCtrl.editDecriptionMode" class="row">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea rows="2" ng-model="skillTodoCtrl.skillTodoBackUp.todo.title"
+                placeholder="title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea rows="3" ng-model="skillTodoCtrl.skillTodoBackUp.todo.description"
+                placeholder="description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
    </div>
   </div>
  </section>

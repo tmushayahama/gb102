@@ -1,5 +1,5 @@
 //
-// Modlas
+// Modals
 // --------------------------------------------------
 
 
@@ -14,6 +14,7 @@
  }
  .modal-header {
   @include position(absolute, 0 0 null 0);
+  @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   font-size: 18px;
   font-weight: normal;
   height: 50px;

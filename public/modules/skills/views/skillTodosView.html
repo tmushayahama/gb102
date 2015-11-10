@@ -81,7 +81,7 @@
      </div>
      <div class="gb-todo-body row" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
       <ul id="todo-list">
-       <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos | filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
+       <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
         <div class="gb-todo-row row">
          <input class="toggle col-lg-1" type="checkbox" ng-model="skillTodo.completed">
          <div class='gb-todo-content col-lg-9' ng-dblclick="skillTodosCtrl.editTodo(skillTodo)">
@@ -110,18 +110,6 @@
       <span id="todo-count"><strong>{{skillTodosCtrl.remainingCount}}</strong>
        <ng-pluralize count="skillTodosCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
       </span>
-      <ul id="filters">
-       <li>
-        <a ng-class="{selected: location.path() == '/'}" href="#/">All</a>
-       </li>
-       <li>
-        <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
-       </li>
-       <li>
-        <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
-       </li>
-      </ul>
-      <button id="clear-completed" ng-click="clearDoneTodos()" ng-show="skillTodosCtrl.remainingCount < skillTodosCtrl.skillTodos.length">Clear completed</button>
      </div>
     </div>
     <div class="gb-dummy-height row"></div>

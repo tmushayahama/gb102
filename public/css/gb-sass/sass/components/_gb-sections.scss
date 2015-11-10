@@ -1,0 +1,35 @@
+//
+// Sections
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.gb-section-row-1 {
+ border-bottom: #BBB solid 1px;
+ padding-bottom: 20px;
+ margin-bottom: 20px;
+ .gb-heading {
+  padding: 0;
+  margin-bottom: 5px;
+ }
+ .gb-heading .gb-title {
+  padding: 10px 0 0 0;
+  font-size: 1.0em;
+  color: #777;
+ }
+
+ .gb-heading .gb-heading-img {
+  width: 30px;
+  height: 30px;
+ }
+
+ .gb-heading .gb-action {
+  padding: 10px 0 0 0;
+ }
+
+ .gb-section-row-1 .gb-body {
+  padding-top: 10px;
+ }
+}

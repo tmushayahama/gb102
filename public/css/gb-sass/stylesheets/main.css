@@ -7435,6 +7435,9 @@ and open the template in the editor.
   top: 0;
   right: 0;
   left: 0;
+  background-color: #EEE;
+  background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+  background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   font-size: 18px;
   font-weight: normal;
   height: 50px;
@@ -7454,6 +7457,31 @@ and open the template in the editor.
   left: 0;
   height: 45px;
   padding: 5px;
+}
+
+.gb-section-row-1 {
+  border-bottom: #BBB solid 1px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.gb-section-row-1 .gb-heading {
+  padding: 0;
+  margin-bottom: 5px;
+}
+.gb-section-row-1 .gb-heading .gb-title {
+  padding: 10px 0 0 0;
+  font-size: 1.0em;
+  color: #777;
+}
+.gb-section-row-1 .gb-heading .gb-heading-img {
+  width: 30px;
+  height: 30px;
+}
+.gb-section-row-1 .gb-heading .gb-action {
+  padding: 10px 0 0 0;
+}
+.gb-section-row-1 .gb-section-row-1 .gb-body {
+  padding-top: 10px;
 }
 
 [ng\:cloak],
@@ -11250,35 +11278,6 @@ ul .gb-sticky-note-row:nth-child(5n) a {
 .gb-profile-header-1 .gb-profile-header-img-1 {
   max-height: 110px;
   max-width: 110px;
-}
-
-.gb-section-row-1 .gb-heading {
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-.gb-section-row-1 .gb-heading .gb-title {
-  padding: 10px 0 0 0;
-  font-size: 1.0em;
-  font-weight: bold;
-  color: #777;
-}
-
-.gb-section-row-1 .gb-heading .gb-subtitle {
-  padding: 0px 0 0 35px;
-}
-
-.gb-section-row-1 .gb-heading .gb-heading-img {
-  width: 30px;
-  height: 30px;
-}
-
-.gb-section-row-1 .gb-heading .gb-action {
-  padding: 11px 0 0 0;
-}
-
-.gb-section-row-1 .gb-body {
-  padding-top: 10px;
 }
 
 .gb-section-row-2 {
