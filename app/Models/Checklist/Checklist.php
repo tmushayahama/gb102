@@ -3,6 +3,9 @@
 namespace App\Models\Checklist;
 
 use Illuminate\Database\Eloquent\Model;
+use Request;
+use DB;
+use JWTAuth;
 
 class Checklist extends Model {
 

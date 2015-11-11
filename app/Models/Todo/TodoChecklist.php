@@ -3,6 +3,10 @@
 namespace App\Models\Todo;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Checklist\Checklist;
+use Request;
+use DB;
+use JWTAuth;
 
 class TodoChecklist extends Model {
 
@@ -12,6 +16,7 @@ class TodoChecklist extends Model {
   * @var string
   */
  protected $table = 'gb_todo_checklist';
+ public $timestamps = false;
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
@@ -29,14 +34,14 @@ class TodoChecklist extends Model {
  protected $fillable = [];
 
  public static function getTodoChecklist($todoId) {
-  $todoChecklist = TodoChecklist::with('todo')
+  $todoChecklist = TodoChecklist::with('checklist')
     ->orderBy('id', 'DESC')
     ->where('todo_id', $todoId)
     ->get();
   return $todoChecklist;
  }
 
- public static function getTodoChecklist($todoId, $todoId) {
+ public static function getTodoChecklistItem($todoId, $todoId) {
   $todoChecklist = TodoChecklist::with('todo')
     ->orderBy('id', 'DESC')
     ->where('todo_id', $todoId)
@@ -50,16 +55,16 @@ class TodoChecklist extends Model {
   $userId = $user->id;
   $todoId = Request::get("todoId");
   $description = Request::get("description");
-  $todo = new Todo;
+  $checklist = new Checklist();
   $todoChecklist = new TodoChecklist;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
+  $checklist->creator_id = $userId;
+  $checklist->description = $description;
   $todoChecklist->todo_id = $todoId;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $todoChecklist->todo()->associate($todo);
+   $checklist->save();
+   $todoChecklist->checklist()->associate($checklist);
    $todoChecklist->save();
   } catch (\Exception $e) {
    //failed logic here

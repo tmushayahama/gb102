@@ -3,6 +3,9 @@
 namespace App\Models\Todo;
 
 use Illuminate\Database\Eloquent\Model;
+use Request;
+use DB;
+use JWTAuth;
 
 class Todo extends Model {
 

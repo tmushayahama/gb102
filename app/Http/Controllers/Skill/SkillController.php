@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
 use App\Models\Skill\SkillTodo;
 use App\Models\Todo\Todo;
+use App\Models\Todo\TodoChecklist;
 use Request;
 use DB;
 
@@ -38,6 +39,16 @@ class SkillController extends Controller {
  public function createSkillTodo() {
   $skillTodos = SkilLTodo::createSkillTodo();
   return \Response::json($skillTodos);
+ }
+
+ public function getSkillTodoChecklist($todoId) {
+  $todoTodos = TodoChecklist::getTodoChecklist($todoId);
+  return \Response::json($todoTodos);
+ }
+
+ public function createSkillTodoChecklist() {
+  $todoTodos = TodoChecklist::createTodoChecklist();
+  return \Response::json($todoTodos);
  }
 
  public function getSkillTimeline($id) {

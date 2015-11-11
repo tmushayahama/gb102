@@ -25,6 +25,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.skillId = skillTodoData.skill_id;
           vm.todoId = skillTodoData.todo_id;
           vm.editDecriptionMode = false;
+          vm.addChecklistMode = false;
           vm.skillTodoBackUp;
           vm.skillTodo;
 
@@ -32,7 +33,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.todoFormDisplay = false;
 
           vm.defaultTodoChecklistData = {
-           todoId: $stateParams.todoId,
+           todoId: vm.todoId,
            privacy: 0
           }
           vm.newTodoChecklistData = vm.defaultTodoChecklistData;
@@ -50,8 +51,17 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            vm.skillTodoBackUp = vm.skillTodo;
           }
 
+          vm.enterAddChecklistMode = function () {
+           vm.addChecklistMode = true;
+           vm.skillTodoBackUp = vm.skillTodo;
+          }
+
           vm.cancelEditDescriptionMode = function () {
            vm.editDecriptionMode = false;
+          }
+
+          vm.cancelAddChecklistMode = function () {
+           vm.addChecklistMode = false;
           }
 
           // vm.newSkillTodoData = vm.defaultSkillTodoData;
@@ -81,6 +91,8 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.createTodoChecklist = function (data) {
            TodoChecklistService.createTodoChecklist(data).success(function (response) {
             vm.todoChecklist.unshift(response);
+            vm.addChecklistMode = false;
+            vm.newTodoChecklistData = vm.defaultTodoChecklistData;
            }).error(function (response) {
             console.log(response);
            });
@@ -202,8 +214,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
 
           //--------init------
-          vm.getTodoChecklist(vm.todoId);
-
           vm.getSkillTodo(vm.skillId, vm.todoId);
+          vm.getTodoChecklist(vm.todoId);
          }
         ])
