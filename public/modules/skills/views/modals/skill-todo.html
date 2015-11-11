@@ -92,7 +92,7 @@
    </div>
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div class="gb-todos">
+   <div class="gb-checklist">
     <div class='row'>
      <form class="gb-form-1" ng-show="skillTodoCtrl.addChecklistMode" name="form" novalidate>
       <div class="form-group row">
@@ -135,53 +135,52 @@
       </div>
       <div class="form-group row">
        <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-        <a class="btn btn-link" ng-click="todoChecklistCtrl.showAdvanced()">
+        <a class="btn btn-link" ng-click="skillTodoCtrl.showAdvanced()">
          Show Advanved
         </a>
        </label>
       </div>
       <div class="gb-form-footer row">
        <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="todoChecklistCtrl.cancelTodoChecklist(form)">
+        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6"
+           ng-click="skillTodoCtrl.cancelAddChecklistMode()">
          Cancel
         </a>
-        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="todoChecklistCtrl.createTodoChecklist(todoChecklistCtrl.newTodoChecklistData)">
+        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6"
+           ng-click="skillTodoCtrl.createTodoChecklist(skillTodoCtrl.newTodoChecklistData)">
          Add Item
         </a>
        </div>
       </div>
      </form>
     </div>
-    <div class="gb-todo-body row" ng-show="todoChecklistCtrl.todoChecklist.length" ng-cloak>
-     <ul id="todo-list">
-      <li ng-repeat="todoChecklist in todoChecklistCtrl.todoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == todoChecklistCtrl.editedTodo}">
-       <div class="gb-todo-row row">
-        <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklist.completed">
-        <div class='gb-todo-content col-lg-9' ng-dblclick="todoChecklistCtrl.editTodo(todoChecklist)">
-         <a class="btn-link text-left gb-ellipsis" ng-click="todoChecklistCtrl.openTodoChecklist(todoChecklist)">
-          {{todoChecklist.todo.title}}
+    <div class="gb-todo-body row" ng-show="skillTodoCtrl.todoChecklist.length" ng-cloak>
+     <ul class="gb-checklist-nav">
+      <li ng-repeat="todoChecklistItem in skillTodoCtrl.todoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == skillTodoCtrl.editedTodo}">
+       <div class="gb-checklist-row row">
+        <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklistItem.completed">
+        <div class='gb-checklist-item-content col-lg-9'>
+         <a class="btn-link text-left gb-ellipsis" ng-click="skillTodoCtrl.openTodoChecklist(todoChecklist)">
+          {{todoChecklistItem.checklist.description}}
          </a>
         </div>
-        <div class="gb-todo-action btn-group col-lg-2">
+        <div class="gb-checklist-item-action btn-group col-lg-2">
          <a class="btn btn-xs pull-right gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           more
          </a>
          <ul class="dropdown-menu dropdown-menu-right">
           <li><a href="#">View</a></li>
-          <li><a ng-click="todoChecklistCtrl.editTodo(todoChecklist)">Edit</a></li>
-          <li><a ng-click="todoChecklistCtrl.removeTodo(todoChecklist)">Delete</a></li>
+          <li><a ng-click="skillTodoCtrl.editTodo(todoChecklistItem)">Edit</a></li>
+          <li><a ng-click="skillTodoCtrl.removeTodo(todoChecklistItem)">Delete</a></li>
          </ul>
         </div>
        </div>
-       <form ng-submit="todoChecklistCtrl.doneEditing(todoChecklist)">
-        <input class="edit" ng-trim="false" ng-model="todoChecklist.title" ng-blur="todoChecklistCtrl.doneEditing(todoChecklist)" todo-escape="todoChecklistCtrl.revertEditing(todoChecklist)" todo-focus="todoChecklist == todoChecklistCtrl.editedTodo">
-       </form>
       </li>
      </ul>
     </div>
-    <div class="gb-footer" ng-show="todoChecklistCtrl.todoChecklist.length" ng-cloak>
-     <span id="todo-count"><strong>{{todoChecklistCtrl.remainingCount}}</strong>
-      <ng-pluralize count="todoChecklistCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+    <div class="gb-footer" ng-show="skillTodoCtrl.todoChecklist.length" ng-cloak>
+     <span id="todo-count"><strong>{{skillTodoCtrl.remainingCount}}</strong>
+      <ng-pluralize count="skillTodoCtrl.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
      </span>
     </div>
    </div>
