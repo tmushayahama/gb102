@@ -26,7 +26,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
            skillId: $stateParams.skillId,
            privacy: 0
           }
-          vm.newSkillTodoData = vm.defaultSkillTodoData;
+          vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
 
           vm.getSkillTodos = function (skillId) {
            SkillTodoService.getSkillTodos(skillId).success(function (response) {
@@ -38,19 +38,13 @@ angular.module("app.skills").controller('SkillTodosCtrl',
 
           vm.showTodoForm = function () {
            vm.todoFormDisplay = true;
-          }
+          };
 
           vm.createSkillTodo = function (data) {
            SkillTodoService.createSkillTodo(data).success(function (response) {
             vm.skillTodos.unshift(response);
-           }).error(function (response) {
-            console.log(response);
-           });
-          };
-
-          vm.editSkillTodo = function (data) {
-           SkillTodoService.createSkillTodo(data).success(function (response) {
-            vm.skillTodos.unshift(response);
+            vm.todoFormDisplay = false;
+            vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData)
            }).error(function (response) {
             console.log(response);
            });
@@ -58,7 +52,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
 
           vm.cancelSkillTodo = function (form) {
            vm.todoFormDisplay = false;
-           vm.newSkillTodoData = vm.defaultSkillTodoData;
+           vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData)
            if (form) {
             form.$setPristine();
             form.$setUntouched();
@@ -110,34 +104,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
            }
           };
 
-          vm.revertEditing = function (skillTodo) {
-           vm.skillTodos[vm.skillTodos.indexOf(skillTodo)] = vm.originalTodo;
-           vm.doneEditing(vm.originalTodo);
-          };
-
-          vm.removeTodo = function (skillTodo) {
-           vm.skillTodos.splice(vm.skillTodos.indexOf(skillTodo), 1);
-          };
-
-
-          vm.clearDoneTodos = function () {
-           vm.skillTodos = vm.skillTodos = vm.skillTodos.filter(function (val) {
-            return !val.completed;
-           });
-          };
-
-
-          vm.markAll = function (done) {
-           vm.skillTodos.forEach(function (skillTodo) {
-            skillTodo.completed = done;
-           });
-          };
-
-          vm.items = ['item1', 'item2', 'item3'];
-
-
           vm.openSkillTodo = function (skillTodo) {
-
            var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'skill-todo-modal.html',

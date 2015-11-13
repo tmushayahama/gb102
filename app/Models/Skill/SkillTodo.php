@@ -54,10 +54,12 @@ class SkillTodo extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
+  $title = Request::get("title");
   $description = Request::get("description");
   $todo = new Todo;
   $skillTodo = new SkillTodo;
   $todo->creator_id = $userId;
+  $todo->title = $title;
   $todo->description = $description;
   $skillTodo->skill_id = $skillId;
 
@@ -78,19 +80,17 @@ class SkillTodo extends Model {
  public static function editSkillTodo() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
+  $skillTodoId = Request::get("skill_todo_id");
+  //$todoId = Request::get("todoId");
+  $title = Request::get("title");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $skillTodo = SkillTodo::find($skillTodoId);
+  $skillTodo->todo->title = $title;
+  $skillTodo->todo->description = $description;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $skillTodo->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

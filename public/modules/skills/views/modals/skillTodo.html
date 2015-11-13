@@ -30,7 +30,7 @@
       <i class="text-danger fa fa-times"></i>
      </a>
      <a class="btn gb-btn gb-btn-xs"
-        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+        ng-click="skillTodoCtrl.editSkillTodo(skillTodoCtrl.sectionedData.skillTodoDetails)">
       <i class="text-success fa fa-check"></i>
      </a>
     </div>
@@ -45,7 +45,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="2" ng-model="skillTodoCtrl.skillTodoBackUp.todo.title"
+      <textarea rows="2" ng-model="skillTodoCtrl.sectionedData.skillTodoDetails.title"
                 placeholder="title"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>
@@ -54,7 +54,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="3" ng-model="skillTodoCtrl.skillTodoBackUp.todo.description"
+      <textarea rows="3" ng-model="skillTodoCtrl.sectionedData.skillTodoDetails.description"
                 placeholder="description"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>

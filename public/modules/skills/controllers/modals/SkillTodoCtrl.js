@@ -22,6 +22,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
                  skillTodoData) {
           var vm = this;
 
+          vm.skillTodoId = skillTodoData.id;
           vm.skillId = skillTodoData.skill_id;
           vm.todoId = skillTodoData.todo_id;
           vm.editDecriptionMode = false;
@@ -32,11 +33,18 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.todoChecklist = [];
           vm.todoFormDisplay = false;
 
+          vm.sectionedData = {
+           skillTodoDetails: {
+            skill_todo_id: vm.skillTodoId
+           }
+          }
+
           vm.defaultTodoChecklistData = {
            todoId: vm.todoId,
            privacy: 0
           }
           vm.newTodoChecklistData = vm.defaultTodoChecklistData;
+
 
           vm.ok = function () {
            $uibModalInstance.close();
@@ -69,11 +77,12 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.getSkillTodo = function (skillId, todoId) {
            SkillTodosService.getSkillTodo(skillId, todoId).success(function (response) {
             vm.skillTodo = response;
+            vm.sectionedData.skillTodoDetails.title = vm.skillTodo.todo.title;
+            vm.sectionedData.skillTodoDetails.description = vm.skillTodo.todo.description;
            }).error(function (response) {
             console.log(response);
            });
           };
-
 
 
           vm.getTodoChecklist = function (todoId) {
@@ -86,7 +95,15 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
           vm.showTodoForm = function () {
            vm.todoFormDisplay = true;
-          }
+          };
+
+          vm.editSkillTodo = function (data) {
+           SkillTodosService.editSkillTodo(data).success(function (response) {
+            vm.skillTodo = response;
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
 
           vm.createTodoChecklist = function (data) {
            TodoChecklistService.createTodoChecklist(data).success(function (response) {

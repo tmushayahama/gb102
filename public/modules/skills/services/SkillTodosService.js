@@ -15,10 +15,10 @@ angular.module('app.skills').service('SkillTodosService', ['$http', function ($h
    getSkillTodo: function (skillId, todoId) {
     return $http.get('/api/skill/' + skillId + '/todo/' + todoId);
    },
-   edit: function (skillTodoData) {
+   editSkillTodo: function (skillTodoData) {
     return $http({
      method: 'POST',
-     url: '/api/skill/todo/{skillTodoId}/edit',
+     url: '/api/skill/todo/edit',
      data: skillTodoData
     });
    },
