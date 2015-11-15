@@ -13,6 +13,7 @@ and open the template in the editor.
 @import "components/gb-buttons";
 @import "components/gb-modals";
 @import "components/gb-sections";
+@import "components/custom-xeditable";
 
 [ng\:cloak],
 [ng-cloak],
@@ -187,6 +188,19 @@ input[type="checkbox"] {
    font-size: 18px;
    transition: color 0.4s;
    border-left: rgba($primary-color, 0.5) solid 1px;
+   .gb-content-text {
+    float: left;
+    @include ellipsis(90%);
+   }
+   .gb-edit-btn {
+    float: left;
+    margin-left: 5px;
+    padding: 0;
+    color: #AAA;
+   }
+   .gb-edit-btn:hover {
+    color: #555;
+   }
   }
 
   li.completed .gb-todo-content {
@@ -194,7 +208,7 @@ input[type="checkbox"] {
    text-decoration: line-through;
   }
   li .gb-todo-action {
-   padding: 15px 10px 0 0;
+   padding: 13px 2px 0 0;
   }
 
  }

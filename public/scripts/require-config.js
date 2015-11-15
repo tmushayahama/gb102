@@ -13,7 +13,8 @@ requirejs.config({
   'text': '../../bower_components/requirejs-text/text',
   'angular-couch-potato': '../../bower_components/angular-couch-potato/dist/angular-couch-potato',
   'dom-ready': '../../bower_components/domready/ready',
-  'modules-includes': 'includes'
+  'angular-xeditable': '../../bower_components/angular-xeditable/dist/js/xeditable',
+  //'modules-includes': 'includes'
 
  },
  shim: {
@@ -27,7 +28,7 @@ requirejs.config({
   'bootstrap': {'exports': 'bootstrap', deps: ['jquery']},
   'moment': {exports: 'moment'},
   'angular-couch-potato': {deps: ['angular']},
-  'modules-includes': {deps: ['angular']},
+  'angular-xeditable': {deps: ['angular']},
  },
  priority: [
   'jquery',

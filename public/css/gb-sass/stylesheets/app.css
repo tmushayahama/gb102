@@ -111,11 +111,11 @@ and open the template in the editor.
   background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   font-size: 18px;
   font-weight: normal;
-  height: 50px;
+  height: 45px;
 }
 .modal-xl .modal-body {
   position: absolute;
-  top: 41px;
+  top: 46px;
   right: 0;
   bottom: 46px;
   left: 0;
@@ -153,6 +153,96 @@ and open the template in the editor.
 }
 .gb-section-row-1 .gb-section-row-1 .gb-body {
   padding-top: 10px;
+}
+
+/*!
+angular-xeditable - 0.1.9
+Edit-in-place for angular.js
+Build date: 2015-03-26
+*/
+.editable-wrap {
+  white-space: nowrap;
+  margin: 0;
+}
+
+.editable-wrap .editable-controls,
+.editable-wrap .editable-error {
+  margin-bottom: 0;
+}
+
+.editable-wrap .editable-controls > input,
+.editable-wrap .editable-controls > select,
+.editable-wrap .editable-controls > textarea {
+  margin-bottom: 0;
+}
+
+.editable-buttons {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.editable-buttons button {
+  margin-left: 5px;
+}
+
+.editable-input.editable-has-buttons {
+  width: auto;
+}
+
+.editable-bstime .editable-input input[type=text] {
+  width: 46px;
+}
+
+.editable-bstime .well-small {
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.editable-range output {
+  display: inline-block;
+  min-width: 30px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.editable-color input[type=color] {
+  width: 50px;
+}
+
+.editable-checkbox label span,
+.editable-checklist label span,
+.editable-radiolist label span {
+  margin-left: 7px;
+  margin-right: 10px;
+}
+
+.editable-hide {
+  display: none !important;
+}
+
+.editable-click,
+a.editable-click {
+  text-decoration: none;
+  color: #428bca;
+  border-bottom: dashed 1px #428bca;
+}
+
+.editable-click:hover,
+a.editable-click:hover {
+  text-decoration: none;
+  color: #2a6496;
+  border-bottom-color: #2a6496;
+}
+
+.editable-empty,
+.editable-empty:hover,
+.editable-empty:focus,
+a.editable-empty,
+a.editable-empty:hover,
+a.editable-empty:focus {
+  font-style: italic;
+  color: #D14;
+  text-decoration: none;
 }
 
 [ng\:cloak],
@@ -323,12 +413,30 @@ input[type="checkbox"] {
   transition: color 0.4s;
   border-left: rgba(39, 114, 139, 0.5) solid 1px;
 }
+.gb-todos #todo-list li .gb-todo-content .gb-content-text {
+  float: left;
+  display: inline-block;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.gb-todos #todo-list li .gb-todo-content .gb-edit-btn {
+  float: left;
+  margin-left: 5px;
+  padding: 0;
+  color: #AAA;
+}
+.gb-todos #todo-list li .gb-todo-content .gb-edit-btn:hover {
+  color: #555;
+}
 .gb-todos #todo-list li.completed .gb-todo-content {
   color: #d9d9d9;
   text-decoration: line-through;
 }
 .gb-todos #todo-list li .gb-todo-action {
-  padding: 15px 10px 0 0;
+  padding: 13px 2px 0 0;
 }
 .gb-todos #todo-list li:last-child {
   border-bottom: none;

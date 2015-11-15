@@ -15,7 +15,7 @@ define(['angular',
            views: {
             "apps": {
              controller: 'SkillsCtrl as skillsCtrl',
-             templateUrl: 'public/modules/skills/views/skillsView.html',
+             templateUrl: 'public/modules/skills/views/skills.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -37,7 +37,7 @@ define(['angular',
            views: {
             "root": {
              controller: 'SkillCtrl as skillCtrl',
-             templateUrl: 'public/modules/skills/views/skillView.html',
+             templateUrl: 'public/modules/skills/views/skill.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -58,7 +58,7 @@ define(['angular',
            views: {
             "content": {
              controller: 'SkillOverviewCtrl as skillOverviewCtrl',
-             templateUrl: 'public/modules/skills/views/skillOverviewView.html',
+             templateUrl: 'public/modules/skills/views/skill-overview.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -79,7 +79,7 @@ define(['angular',
            views: {
             "content": {
              controller: 'SkillTodosCtrl as skillTodosCtrl',
-             templateUrl: 'public/modules/skills/views/skillTodosView.html',
+             templateUrl: 'public/modules/skills/views/skill-todos.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({

@@ -8,6 +8,7 @@ define([
  'satellizer',
  'angular-bootstrap',
  'bootstrap',
+ 'angular-xeditable',
  '../auth/module',
  '../skills/module'
 ], function (angular) {
@@ -18,6 +19,7 @@ define([
   'satellizer',
   'oc.lazyLoad',
   'ui.bootstrap',
+  'xeditable',
   'app.auth',
   'app.skills'
           //'app.skills'
@@ -114,7 +116,7 @@ define([
            });
   }
  ]);
- app.run(function ($stateParams, $rootScope, $state) {
+ app.run(function ($stateParams, $rootScope, $state, editableOptions) {
 
   // $stateChangeStart is fired whenever the state changes. We can use some parameters
   // such as toState to hook into details about the state as it is changing
@@ -154,6 +156,8 @@ define([
     }
     */
   });
+
+  editableOptions.theme = 'bs3';
  });
  return app;
 });

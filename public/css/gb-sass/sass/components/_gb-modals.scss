@@ -17,10 +17,10 @@
   @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   font-size: 18px;
   font-weight: normal;
-  height: 50px;
+  height: 45px;
  }
  .modal-body {
-  @include position(absolute, 41px 0 46px 0);
+  @include position(absolute, 46px 0 46px 0);
   overflow-y: auto;
  }
  .modal-footer {

@@ -84,14 +84,20 @@
        <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
         <div class="gb-todo-row row">
          <input class="toggle col-lg-1" type="checkbox" ng-model="skillTodo.completed">
-         <div class='gb-todo-content col-lg-9'>
-          <a class="btn-link text-left gb-ellipsis" ng-click="skillTodosCtrl.openSkillTodo(skillTodo)">
+         <div class='gb-todo-content col-lg-10'>
+          <a class="gb-content-text btn-link text-left" editable-text="skillTodo.todo.title"
+             e-class="col-lg-10"
+             e-form="titleForm" onbeforesave="skillTodosCtrl.editSkillTodoSections.title(skillTodo.id, $data)" e-required
+             ng-click="skillTodosCtrl.openSkillTodo(skillTodo)">
            {{skillTodo.todo.title}}
           </a>
+          <a class="gb-edit-btn btn-link" ng-click="titleForm.$show()" ng-hide="titleForm.$visible">
+           <i class="fa fa-pencil"></i>
+          </a>
          </div>
-         <div class="gb-todo-action btn-group col-lg-2">
-          <a class="btn btn-xs pull-right gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           more
+         <div ng-hide="titleForm.$visible" class="gb-todo-action btn-group pull-right">
+          <a class="btn btn-xs gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="fa fa-ellipsis-v"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-right">
            <li><a ng-click="skillTodosCtrl.openSkillTodo(skillTodo)">Open</a></li>
@@ -112,5 +118,5 @@
  </div>
 </div>
 <script type="text/ng-template" id="skill-todo-modal.html">
- <div class="" ng-include="'public/modules/skills/views/modals/skillTodo.html'"></div>
+ <div class="" ng-include="'public/modules/skills/views/modals/skill-todo.html'"></div>
 </script>

@@ -18,18 +18,19 @@
    </div>
    <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
         ng-show="!skillTodoCtrl.editDecriptionMode">
-    <a class="gb-ghost-btn-2 pull-right" ng-click="skillTodoCtrl.enterEditDescriptionMode()">
+    <a class="gb-ghost-btn-2 pull-right" ng-click="editableForm.$show()" ng-hide="editableForm.$visible">
      <i class="fa fa-pencil"></i>
     </a>
    </div>
    <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
-        ng-show="skillTodoCtrl.editDecriptionMode">
+        ng-show="editableForm.$visible">
     <div class="btn-group pull-right">
      <a class="btn gb-btn gb-btn-xs"
-        ng-click="skillTodoCtrl.cancelEditDescriptionMode()">
+        ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
       <i class="text-danger fa fa-times"></i>
      </a>
      <a class="btn gb-btn gb-btn-xs"
+        ng-disabled="editableForm.$waiting"
         ng-click="skillTodoCtrl.editSkillTodo(skillTodoCtrl.sectionedData.skillTodoDetails)">
       <i class="text-success fa fa-check"></i>
      </a>
@@ -37,10 +38,32 @@
    </div>
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div ng-show="!skillTodoCtrl.editDecriptionMode" id="gb-skill-item-todo-panel" class="row">
+   <div ng-hide="editableForm.$visible" id="gb-skill-item-todo-panel" class="row">
     <strong>{{skillTodoCtrl.skillTodo.todo.title}}</strong>
     {{skillTodoCtrl.skillTodo.todo.description}}
    </div>
+   <form editable-form name="editableForm" onaftersave="saveUser()" ng-show="editableForm.$visible">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <div editable-textarea="skillTodoCtrl.skillTodo.todo.title" e-name="title" e-required
+           e-rows="2" e-placeholder="title"
+           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </div>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <div editable-textarea="skillTodoCtrl.skillTodo.todo.description" e-name="description"
+           e-rows="2" e-placeholder="description"
+           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </div>
+     </div>
+    </div>
+   </form>
+
+
    <div ng-show="skillTodoCtrl.editDecriptionMode" class="row">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
@@ -63,7 +86,6 @@
    </div>
   </div>
  </section>
-
  <section class="gb-section-row-1 row">
   <header class="gb-heading row">
    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
@@ -96,60 +118,11 @@
     <div class='row'>
      <form class="gb-form-1" ng-show="skillTodoCtrl.addChecklistMode" name="form" novalidate>
       <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                  placeholder="Checklist Description" ng-model="skillTodoCtrl.newTodoChecklistData.description"
-                  name="uName" required="" rows="4">
+                  placeholder="Checklist" ng-model="skillTodoCtrl.newTodoChecklistData.title"
+                  name="title" required="" rows="2">
         </textarea>
-       </div>
-      </div>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div class="radio gb-radio-row">
-         <label class="">
-          <input type="radio" ng-model="skillTodoCtrl.newTodoChecklistData.privacy" value="0" />
-          <strong>public</strong> All people can see this todo
-         </label>
-        </div>
-        <div class="radio gb-radio-row">
-         <label>
-          <input type="radio" ng-model="skillTodoCtrl.newTodoChecklistData.privacy" value="1" />
-          <strong>private</strong> only you can see this todo
-         </label>
-        </div>
-        <div class="radio gb-radio-row">
-         <label>
-          <input type="radio" ng-model="skillTodoCtrl.newTodoChecklistData.privacy" value="2" />
-          <strong>custom</strong> choose who to see this todo
-         </label>
-        </div>
-       </div>
-      </div>
-      <div class="form-group row" ng-class="{'gb-disabled-2': skillTodoCtrl.newTodoChecklistData.privacy != 2}">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <input type="text" class="form-control" placeholder="Select members"/>
-       </div>
-      </div>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-        <a class="btn btn-link" ng-click="skillTodoCtrl.showAdvanced()">
-         Show Advanved
-        </a>
-       </label>
-      </div>
-      <div class="gb-form-footer row">
-       <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6"
-           ng-click="skillTodoCtrl.cancelAddChecklistMode()">
-         Cancel
-        </a>
-        <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6"
-           ng-click="skillTodoCtrl.createTodoChecklist(skillTodoCtrl.newTodoChecklistData)">
-         Add Item
-        </a>
        </div>
       </div>
      </form>
@@ -161,16 +134,16 @@
         <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklistItem.completed">
         <div class='gb-checklist-item-content col-lg-9'>
          <a class="btn-link text-left gb-ellipsis" ng-click="skillTodoCtrl.openTodoChecklist(todoChecklist)">
-          {{todoChecklistItem.checklist.description}}
+          {{todoChecklistItem.checklist.title}}
          </a>
         </div>
         <div class="gb-checklist-item-action btn-group col-lg-2">
          <a class="btn btn-xs pull-right gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          more
+          <i class="fa fa-ellipsis-v"></i>
          </a>
          <ul class="dropdown-menu dropdown-menu-right">
           <li><a href="#">View</a></li>
-          <li><a ng-click="skillTodoCtrl.editTodo(todoChecklistItem)">Edit</a></li>
+          <li><a ng-click="skillTodoCtrl.createTodoChecklist(todoChecklistItem)">Edit</a></li>
           <li><a ng-click="skillTodoCtrl.removeTodo(todoChecklistItem)">Delete</a></li>
          </ul>
         </div>

@@ -35,7 +35,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
 
           vm.sectionedData = {
            skillTodoDetails: {
-            skill_todo_id: vm.skillTodoId
+            skillTodoId: vm.skillTodoId
            }
           }
 

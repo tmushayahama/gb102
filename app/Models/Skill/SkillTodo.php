@@ -80,7 +80,7 @@ class SkillTodo extends Model {
  public static function editSkillTodo() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillTodoId = Request::get("skill_todo_id");
+  $skillTodoId = Request::get("skillTodoId");
   //$todoId = Request::get("todoId");
   $title = Request::get("title");
   $description = Request::get("description");

@@ -8,7 +8,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
          '$location',
          '$uibModal',
          function (
-                 SkillTodoService,
+                 SkillTodosService,
                  $scope,
                  $state,
                  $stateParams,
@@ -29,7 +29,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
 
           vm.getSkillTodos = function (skillId) {
-           SkillTodoService.getSkillTodos(skillId).success(function (response) {
+           SkillTodosService.getSkillTodos(skillId).success(function (response) {
             vm.skillTodos = response;
            }).error(function (response) {
             console.log(response);
@@ -41,10 +41,28 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           };
 
           vm.createSkillTodo = function (data) {
-           SkillTodoService.createSkillTodo(data).success(function (response) {
+           SkillTodosService.createSkillTodo(data).success(function (response) {
             vm.skillTodos.unshift(response);
             vm.todoFormDisplay = false;
             vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData)
+           }).error(function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editSkillTodoSections = {
+           title: function (skillTodoId, title) {
+            var skillTodoData = {
+             skillTodoId: skillTodoId,
+             title: title
+            };
+            vm.editSkillTodo(skillTodoData);
+           }
+          };
+
+          vm.editSkillTodo = function (data) {
+           SkillTodosService.editSkillTodo(data).success(function (response) {
+            vm.skillTodo = response;
            }).error(function (response) {
             console.log(response);
            });
