@@ -54,11 +54,11 @@ class TodoChecklist extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $todoId = Request::get("todoId");
-  $description = Request::get("description");
+  $title = Request::get("title");
   $checklist = new Checklist();
   $todoChecklist = new TodoChecklist;
   $checklist->creator_id = $userId;
-  $checklist->description = $description;
+  $checklist->title = $title;
   $todoChecklist->todo_id = $todoId;
 
   DB::beginTransaction();

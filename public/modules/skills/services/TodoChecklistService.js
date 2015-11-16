@@ -18,13 +18,6 @@ angular.module('app.skills').service('TodoChecklistService', ['$http', function 
      data: skillTodoData
     });
    },
-   /*
-    get: function () {
-    return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
-    },
-    put: function (todos) {
-    localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
-    }*/
   };
  }
 ]);

@@ -2,7 +2,7 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
         ['$http', '$q', function ($http, $q) {
 
           var SkillTodoChecklistManager = function () {
-           this.skillTodoChecklists = [];
+           this.skillTodoChecklist = [];
           };
           SkillTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
            if (!data || typeof data !== 'object') {
@@ -23,12 +23,12 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            return deferred.resolve(data);
           };
 
-          SkillTodoChecklistManager.prototype.getSkillTodoChecklist = function (skillId) {
+          SkillTodoChecklistManager.prototype.getSkillTodoChecklist = function (todoId) {
            var self = this;
            var deferred = $q.defer();
-           self.skillTodoChecklists = [];
-           $http.get('/api/skill/' + skillId + '/todos').success(function (data) {
-            self.skillTodoChecklists = data;
+           self.skillTodoChecklist = [];
+           $http.get('/api/todo/' + todoId + '/checklist').success(function (data) {
+            self.skillTodoChecklist = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,12 +36,11 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            return deferred.promise;
           };
 
-          SkillTodoChecklistManager.prototype.getSkillTodo = function (skillId, todoId) {
+          SkillTodoChecklistManager.prototype.getSkillTodoChecklistItem = function (skillId, todoId) {
            var self = this;
            var deferred = $q.defer();
-           self.skillTodoChecklists = [];
            $http.get('/api/skill/' + skillId + '/todo/' + todoId).success(function (data) {
-            self.skillTodoChecklists = data;
+            //self.skillTodoChecklists = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');
@@ -49,7 +48,7 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            return deferred.promise;
           };
 
-          SkillTodoChecklistManager.prototype.createSkillTodo = function (skillTodoChecklistData) {
+          SkillTodoChecklistManager.prototype.createSkillTodoChecklistItem = function (skillTodoChecklistData) {
            var self = this;
            var deferred = $q.defer();
            $http({
@@ -65,7 +64,7 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            return deferred.promise;
           };
 
-          SkillTodoChecklistManager.prototype.editSkillTodo = function (skillTodoData) {
+          SkillTodoChecklistManager.prototype.editSkillTodoChecklistItem = function (skillTodoData) {
            var self = this;
            var deferred = $q.defer();
            $http({
