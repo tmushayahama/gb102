@@ -79,9 +79,9 @@
        </div>
       </form>
      </div>
-     <div class="gb-todo-body row" ng-show="skillTodosCtrl.skillTodos.length" ng-cloak>
+     <div class="gb-todo-body row" ng-show="skillTodosCtrl.skillTodoManager.skillTodos.length" ng-cloak>
       <ul id="todo-list">
-       <li ng-repeat="skillTodo in skillTodosCtrl.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
+       <li ng-repeat="skillTodo in skillTodosCtrl.skillTodoManager.skillTodos| filter:statusFilter track by $index" ng-class="{completed: skillTodo.completed, editing: skillTodo == skillTodosCtrl.editedTodo}">
         <div class="gb-todo-row row">
          <input class="toggle col-lg-1" type="checkbox" ng-model="skillTodo.completed">
          <div class='gb-todo-content col-lg-10'>

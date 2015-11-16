@@ -1,5 +1,5 @@
 angular.module("app.skills").controller('SkillTodosCtrl',
-        ['SkillTodosService',
+        ['SkillTodoManager',
          '$scope',
          '$state',
          '$stateParams',
@@ -8,7 +8,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
          '$location',
          '$uibModal',
          function (
-                 SkillTodosService,
+                 SkillTodoManager,
                  $scope,
                  $state,
                  $stateParams,
@@ -18,8 +18,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
                  $uibModal) {
           var vm = this;
           vm.skillId = $stateParams.skillId;
-
-          vm.skillTodos = [];
+          vm.skillTodoManager = new SkillTodoManager();
           vm.todoFormDisplay = false;
 
           vm.defaultSkillTodoData = {
@@ -28,45 +27,19 @@ angular.module("app.skills").controller('SkillTodosCtrl',
           }
           vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
 
-          vm.getSkillTodos = function (skillId) {
-           SkillTodosService.getSkillTodos(skillId).success(function (response) {
-            vm.skillTodos = response;
-           }).error(function (response) {
-            console.log(response);
-           });
-          };
-
           vm.showTodoForm = function () {
            vm.todoFormDisplay = true;
           };
 
           vm.createSkillTodo = function (data) {
-           SkillTodosService.createSkillTodo(data).success(function (response) {
-            vm.skillTodos.unshift(response);
+           vm.skillTodoManager.createSkillTodo(data).then(function (response) {
             vm.todoFormDisplay = false;
-            vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData)
-           }).error(function (response) {
+            vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
+           }, function (response) {
             console.log(response);
            });
           };
 
-          vm.editSkillTodoSections = {
-           title: function (skillTodoId, title) {
-            var skillTodoData = {
-             skillTodoId: skillTodoId,
-             title: title
-            };
-            vm.editSkillTodo(skillTodoData);
-           }
-          };
-
-          vm.editSkillTodo = function (data) {
-           SkillTodosService.editSkillTodo(data).success(function (response) {
-            vm.skillTodo = response;
-           }).error(function (response) {
-            console.log(response);
-           });
-          };
 
           vm.cancelSkillTodo = function (form) {
            vm.todoFormDisplay = false;
@@ -89,7 +62,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
            return vm.skillTodos;
           }), function () {
            //vm.remainingCount = filterFilter(skillTodos, {completed: false}).length;
-           vm.doneCount = vm.skillTodos.length - vm.remainingCount;
+           vm.doneCount = vm.skillTodoManager.skillTodos.length - vm.remainingCount;
            vm.allChecked = !vm.remainingCount;
            //SkillTodoService.put(vm.skillTodos);
           }, true);
@@ -143,12 +116,9 @@ angular.module("app.skills").controller('SkillTodosCtrl',
            });
           };
 
-          $scope.toggleAnimation = function () {
-           $scope.animationsEnabled = !$scope.animationsEnabled;
-          };
 
 
           //--------init------
-          vm.getSkillTodos(vm.skillId);
+          vm.skillTodoManager.getSkillTodos(vm.skillId);
          }
         ])

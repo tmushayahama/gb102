@@ -1,5 +1,5 @@
 angular.module("app.skills").controller('SkillTodoCtrl',
-        ['SkillTodosService',
+        ['SkillTodoManager',
          'TodoChecklistService',
          '$uibModalInstance',
          '$scope',
@@ -10,7 +10,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
          '$location',
          'skillTodoData',
          function (
-                 SkillTodosService,
+                 SkillTodoManager,
                  TodoChecklistService,
                  $uibModalInstance,
                  $scope,
@@ -37,6 +37,10 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            skillTodoDetails: {
             skillTodoId: vm.skillTodoId
            }
+          }
+
+          vm.saveMe = function (data) {
+           console.log("I am saved", data);
           }
 
           vm.defaultTodoChecklistData = {
