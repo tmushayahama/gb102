@@ -1,6 +1,6 @@
 angular.module("app.skills").controller('SkillTodoCtrl',
         ['SkillTodoManager',
-         'TodoChecklistService',
+         'SkillTodoChecklistManager',
          '$uibModalInstance',
          '$scope',
          '$state',
@@ -11,7 +11,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
          'skillTodoData',
          function (
                  SkillTodoManager,
-                 TodoChecklistService,
+                 SkillTodoChecklistManager,
                  $uibModalInstance,
                  $scope,
                  $state,
@@ -21,9 +21,12 @@ angular.module("app.skills").controller('SkillTodoCtrl',
                  $location,
                  skillTodoData) {
           var vm = this;
-
-          vm.skillTodoId = skillTodoData.id;
           vm.skillId = skillTodoData.skill_id;
+          vm.skillTodoId = skillTodoData.id;
+          vm.skillTodoManager = new SkillTodoManager();
+          vm.skillTodoChecklistManager = new SkillTodoChecklistManager();
+
+
           vm.todoId = skillTodoData.todo_id;
           vm.editDecriptionMode = false;
           vm.addChecklistMode = false;
@@ -33,11 +36,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.todoChecklist = [];
           vm.todoFormDisplay = false;
 
-          vm.sectionedData = {
-           skillTodoDetails: {
-            skillTodoId: vm.skillTodoId
-           }
-          }
+
 
           vm.saveMe = function (data) {
            console.log("I am saved", data);
@@ -79,20 +78,16 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           // vm.newSkillTodoData = vm.defaultSkillTodoData;
 
           vm.getSkillTodo = function (skillId, todoId) {
-           SkillTodosService.getSkillTodo(skillId, todoId).success(function (response) {
-            vm.skillTodo = response;
-            vm.sectionedData.skillTodoDetails.title = vm.skillTodo.todo.title;
-            vm.sectionedData.skillTodoDetails.description = vm.skillTodo.todo.description;
-           }).error(function (response) {
-            console.log(response);
+           vm.skillTodoManager.getSkillTodo(skillId, todoId).then(function (response) {
+           }, function (error) {
+            console.log(error);
            });
           };
 
-
           vm.getTodoChecklist = function (todoId) {
-           TodoChecklistService.getTodoChecklist(todoId).success(function (response) {
+           vm.skillTodoChecklistManager.getSkillTodoChecklist(todoId).then(function (response) {
             vm.todoChecklist = response;
-           }).error(function (response) {
+           }, function (response) {
             console.log(response);
            });
           };
