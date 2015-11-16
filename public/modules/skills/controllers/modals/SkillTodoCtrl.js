@@ -8,6 +8,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
          '$http',
          '$rootScope',
          '$location',
+         '$log',
          'skillTodoData',
          function (
                  SkillTodoManager,
@@ -19,6 +20,7 @@ angular.module("app.skills").controller('SkillTodoCtrl',
                  $http,
                  $rootScope,
                  $location,
+                 $log,
                  skillTodoData) {
           var vm = this;
           vm.skillId = skillTodoData.skill_id;
@@ -36,11 +38,6 @@ angular.module("app.skills").controller('SkillTodoCtrl',
           vm.todoChecklist = [];
           vm.todoFormDisplay = false;
 
-
-
-          vm.saveMe = function (data) {
-           console.log("I am saved", data);
-          }
 
           vm.defaultTodoChecklistData = {
            todoId: vm.todoId,
@@ -84,6 +81,24 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            });
           };
 
+          vm.editSkillTodo = function (data) {
+           vm.skillTodoManager.editSkillTodo(data).then(function (response) {
+           }, function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editSkillTodoSections = {
+           details: function (details) {
+            var skillTodoData = {
+             skillTodoId: vm.skillTodoId,
+             title: details.title,
+             description: details.description
+            };
+            vm.editSkillTodo(skillTodoData);
+           }
+          }
+
           vm.getTodoChecklist = function (todoId) {
            vm.skillTodoChecklistManager.getSkillTodoChecklist(todoId).then(function (response) {
             vm.todoChecklist = response;
@@ -96,20 +111,11 @@ angular.module("app.skills").controller('SkillTodoCtrl',
            vm.todoFormDisplay = true;
           };
 
-          vm.editSkillTodo = function (data) {
-           SkillTodosService.editSkillTodo(data).success(function (response) {
-            vm.skillTodo = response;
-           }).error(function (response) {
-            console.log(response);
-           });
-          };
-
           vm.createTodoChecklist = function (data) {
-           TodoChecklistService.createTodoChecklist(data).success(function (response) {
-            vm.todoChecklist.unshift(response);
+           vm.skillTodoChecklistManager.createTodoChecklist(data).then(function (response) {
             vm.addChecklistMode = false;
             vm.newTodoChecklistData = vm.defaultTodoChecklistData;
-           }).error(function (response) {
+           }, function (response) {
             console.log(response);
            });
           };

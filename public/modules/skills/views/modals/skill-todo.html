@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{skillTodoCtrl.skillTodo.todo.title}}
+   {{skillTodoCtrl.skillTodoManager.skillTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="skillTodoCtrl.close()">
@@ -27,13 +27,13 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="editableForm.$visible" id="gb-skill-item-todo-panel" class="row">
     <strong>{{skillTodoCtrl.skillTodoManager.skillTodo.todo.title}}</strong>
-    {{skillTodoCtrl.skillTodo.todo.description}}
+    {{skillTodoCtrl.skillTodoManager.skillTodo.todo.description}}
    </div>
-   <form editable-form name="editableForm" onbeforesave="skillTodoCtrl.saveMe($data)" ng-show="editableForm.$visible">
+   <form editable-form name="editableForm" onbeforesave="skillTodoCtrl.editSkillTodoSections.details($data)" ng-show="editableForm.$visible">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="skillTodoCtrl.skillTodo.todo.title" e-name="title" e-required
+      <div editable-textarea="skillTodoCtrl.skillTodoManager.skillTodo.todo.title" e-name="title" e-required
            e-rows="2" e-placeholder="title"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -42,7 +42,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="skillTodoCtrl.skillTodo.todo.description" e-name="description"
+      <div editable-textarea="skillTodoCtrl.skillTodoManager.skillTodo.todo.description" e-name="description"
            e-rows="2" e-placeholder="description"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -189,14 +189,14 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-show="!skillTodoCtrl.editDecriptionMode" id="gb-skill-item-todo-panel" class="row">
-    <strong>{{skillTodoCtrl.skillTodo.todo.title}}</strong>
-    {{skillTodoCtrl.skillTodo.todo.description}}
+    <strong>{{skillTodoCtrl.skillTodoManager.skillTodo.todo.title}}</strong>
+    {{skillTodoCtrl.skillTodoManager.skillTodo.todo.description}}
    </div>
    <div ng-show="skillTodoCtrl.editDecriptionMode" class="row">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="2" ng-model="skillTodoCtrl.skillTodoBackUp.todo.title"
+      <textarea rows="2" ng-model="skillTodoCtrl.skillTodoManager.skillTodoBackUp.todo.title"
                 placeholder="title"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>
@@ -205,7 +205,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="3" ng-model="skillTodoCtrl.skillTodoBackUp.todo.description"
+      <textarea rows="3" ng-model="skillTodoCtrl.skillTodoManager.skillTodoBackUp.todo.description"
                 placeholder="description"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>

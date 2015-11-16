@@ -52,7 +52,6 @@ angular.module('app.skills').service('SkillTodoManager',
            return deferred.promise;
           };
 
-
           return SkillTodoManager;
          }
         ]);
