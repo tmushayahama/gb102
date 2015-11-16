@@ -572,7 +572,7 @@ input[type="checkbox"] {
 }
 
 .gb-checklist .gb-checklist-row {
-  height: 30px;
+  height: 40px;
   background-color: #FFFFFF;
   border-bottom: rgba(39, 114, 139, 0.7) solid 1px;
 }
@@ -598,9 +598,10 @@ input[type="checkbox"] {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 .gb-checklist .gb-checklist-nav li .gb-checklist-item-content {
-  padding: 5px 0 1px 10px;
-  height: 30px;
-  font-size: 12px;
+  padding: 0px 0 1px 10px;
+  height: 40px;
+  line-height: 32px;
+  font-size: 14px;
   transition: color 0.4s;
   border-left: rgba(39, 114, 139, 0.7) solid 1px;
 }

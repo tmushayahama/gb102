@@ -387,7 +387,7 @@ input[type="checkbox"] {
 .gb-checklist {
 
  .gb-checklist-row {
-  height: 30px;
+  height: 40px;
   background-color: #FFFFFF;
   border-bottom: rgba($primary-color, 0.7) solid 1px;
   .gb-heading {
@@ -419,9 +419,10 @@ input[type="checkbox"] {
   }
 
   li .gb-checklist-item-content {
-   padding: 5px 0 1px 10px;
-   height: 30px;
-   font-size: 12px;
+   padding: 0px 0 1px 10px;
+   height: 40px;
+   line-height: 32px;
+   font-size: 14px;
    transition: color 0.4s;
    border-left: rgba($primary-color, 0.7) solid 1px;
   }
