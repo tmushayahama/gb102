@@ -40,7 +40,6 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            var self = this;
            var deferred = $q.defer();
            $http.get('/api/skill/' + skillId + '/todo/' + todoId).success(function (data) {
-            //self.skillTodoChecklists = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');
@@ -56,7 +55,7 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
             url: '/api/todo/checklist/create',
             data: skillTodoChecklistData
            }).success(function (data) {
-            self.skillTodoChecklists.unshift(data);
+            self.skillTodoChecklist.unshift(data);
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');
@@ -69,7 +68,7 @@ angular.module('app.skills').service('SkillTodoChecklistManager',
            var deferred = $q.defer();
            $http({
             method: 'POST',
-            url: '/api/skill/todo/edit',
+            url: '/api/todo/checklist/edit',
             data: skillTodoData
            }).success(function (data) {
             self.deferredHandler(data, deferred);

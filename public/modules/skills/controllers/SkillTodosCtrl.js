@@ -7,6 +7,7 @@ angular.module("app.skills").controller('SkillTodosCtrl',
          '$rootScope',
          '$location',
          '$uibModal',
+         '$log',
          function (
                  SkillTodosManager,
                  $scope,
@@ -15,7 +16,8 @@ angular.module("app.skills").controller('SkillTodosCtrl',
                  $http,
                  $rootScope,
                  $location,
-                 $uibModal) {
+                 $uibModal,
+                 $log) {
 
           var vm = this;
           vm.skillId = $stateParams.skillId;

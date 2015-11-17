@@ -78,19 +78,14 @@ class TodoChecklist extends Model {
  public static function editTodoChecklist() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $todoId = Request::get("todoId");
-  $description = Request::get("description");
-  $todo = new Todo;
-  $todoChecklist = new TodoChecklist;
-  $todo->creator_id = $userId;
-  $todo->description = $description;
-  $todoChecklist->todo_id = $todoId;
+  $checklistId = Request::get("checklistId");
+  $title = Request::get("title");
+  $todoChecklist = TodoChecklist::find($checklistId);
+  $todoChecklist->checklist->title = $title;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $todoChecklist->todo()->associate($todo);
-   $todoChecklist->save();
+   $todoChecklist->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

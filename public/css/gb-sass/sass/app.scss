@@ -208,7 +208,7 @@ input[type="checkbox"] {
    text-decoration: line-through;
   }
   li .gb-todo-action {
-   padding: 13px 2px 0 0;
+   padding: 8px 2px 0 0;
   }
 
  }
@@ -387,7 +387,6 @@ input[type="checkbox"] {
 .gb-checklist {
 
  .gb-checklist-row {
-  height: 40px;
   background-color: #FFFFFF;
   border-bottom: rgba($primary-color, 0.7) solid 1px;
   .gb-heading {
@@ -401,7 +400,7 @@ input[type="checkbox"] {
   list-style: none;
 
   li .toggle {
-   margin: 2px 0 0 0;
+   margin: 3px 0 0 0;
    text-align: center;
    /* auto, since non-WebKit browsers doesn't support input styling */
    height: auto;
@@ -419,12 +418,13 @@ input[type="checkbox"] {
   }
 
   li .gb-checklist-item-content {
-   padding: 0px 0 1px 10px;
-   height: 40px;
-   line-height: 32px;
+   padding: 3px 0 3px 10px;
    font-size: 14px;
    transition: color 0.4s;
    border-left: rgba($primary-color, 0.7) solid 1px;
+   p {
+    padding: 5px 0 0px 0px;
+   }
   }
 
   li.completed .gb-todo-content {
@@ -432,9 +432,8 @@ input[type="checkbox"] {
    text-decoration: line-through;
   }
   li .gb-checklist-item-action {
-   padding: 2px 2px 0 0;
+   padding: 8px 2px 0 0;
   }
-
  }
 }
 

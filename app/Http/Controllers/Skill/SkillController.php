@@ -47,13 +47,18 @@ class SkillController extends Controller {
  }
 
  public function getSkillTodoChecklist($todoId) {
-  $todoTodos = TodoChecklist::getTodoChecklist($todoId);
-  return \Response::json($todoTodos);
+  $todoChecklists = TodoChecklist::getTodoChecklist($todoId);
+  return \Response::json($todoChecklists);
  }
 
  public function createSkillTodoChecklist() {
-  $todoTodos = TodoChecklist::createTodoChecklist();
-  return \Response::json($todoTodos);
+  $todoChecklist = TodoChecklist::createTodoChecklist();
+  return \Response::json($todoChecklist);
+ }
+
+ public function editSkillTodoChecklist() {
+  $todoChecklist = TodoChecklist::editTodoChecklist();
+  return \Response::json($todoChecklist);
  }
 
  public function getSkillTimeline($id) {
