@@ -9,8 +9,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
 use App\Models\Skill\SkillTodo;
+use App\Models\Skill\SkillNote;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
+use App\Models\Note\Note;
 use Request;
 use DB;
 
@@ -25,6 +27,8 @@ class SkillController extends Controller {
   $skill = Skill::getSkill($id);
   return \Response::json($skill);
  }
+
+ /* TODOS */
 
  public function getSkillTodos($skillId) {
   $skillTodos = SkilLTodo::getSkillTodos($skillId);
@@ -59,6 +63,26 @@ class SkillController extends Controller {
  public function editSkillTodoChecklist() {
   $todoChecklist = TodoChecklist::editTodoChecklist();
   return \Response::json($todoChecklist);
+ }
+
+ public function getSkillNotes($skillId) {
+  $skillNotes = SkilLNote::getSkillNotes($skillId);
+  return \Response::json($skillNotes);
+ }
+
+ public function getSkillNote($skillId, $noteId) {
+  $skillNote = SkilLNote::getSkillNote($skillId, $noteId);
+  return \Response::json($skillNote);
+ }
+
+ public function createSkillNote() {
+  $skillNote = SkilLNote::createSkillNote();
+  return \Response::json($skillNote);
+ }
+
+ public function editSkillNote() {
+  $skillNote = SkilLNote::editSkillNote();
+  return \Response::json($skillNote);
  }
 
  public function getSkillTimeline($id) {

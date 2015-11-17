@@ -41,14 +41,25 @@ class SkillNote extends Model {
   return $skillNotes;
  }
 
+ public static function getSkillNote($skillId, $noteId) {
+  $skillNote = SkillNote::with('note')
+    ->orderBy('id', 'DESC')
+    ->where('skill_id', $skillId)
+    ->where('note_id', $noteId)
+    ->first();
+  return $skillNote;
+ }
+
  public static function createSkillNote() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
+  $title = Request::get("title");
   $description = Request::get("description");
   $note = new Note;
   $skillNote = new SkillNote;
   $note->creator_id = $userId;
+  $note->title = $title;
   $note->description = $description;
   $skillNote->skill_id = $skillId;
 
@@ -69,19 +80,17 @@ class SkillNote extends Model {
  public static function editSkillNote() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
+  $skillNoteId = Request::get("skillNoteId");
+  //$noteId = Request::get("noteId");
+  $title = Request::get("title");
   $description = Request::get("description");
-  $note = new Note;
-  $skillNote = new SkillNote;
-  $note->creator_id = $userId;
-  $note->description = $description;
-  $skillNote->skill_id = $skillId;
+  $skillNote = SkillNote::find($skillNoteId);
+  $skillNote->note->title = $title;
+  $skillNote->note->description = $description;
 
   DB::beginTransaction();
   try {
-   $note->save();
-   $skillNote->note()->associate($note);
-   $skillNote->save();
+   $skillNote->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

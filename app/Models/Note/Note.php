@@ -3,6 +3,9 @@
 namespace App\Models\Note;
 
 use Illuminate\Database\Eloquent\Model;
+use Request;
+use DB;
+use JWTAuth;
 
 class Note extends Model {
 
