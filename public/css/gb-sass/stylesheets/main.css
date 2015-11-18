@@ -7958,33 +7958,16 @@ input[type="checkbox"] {
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
 }
-.gb-notes #toggle-all {
-  top: -55px;
-  left: -12px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none;
-  /* Mobile Safari */
-}
-.gb-notes #toggle-all:before {
-  content: ' ';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
-}
-.gb-notes #toggle-all:checked:before {
-  color: #737373;
-}
 .gb-notes #note-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .gb-notes .gb-note-row {
-  height: 50px;
   background-color: #FFFFFF;
-  border-bottom: rgba(39, 114, 139, 0.5) solid 1px;
+  margin-top: 20px;
+  color: #111;
+  padding: 0px;
 }
 .gb-notes #note-list li .toggle {
   margin: 5px 0 0 0;
@@ -8003,20 +7986,57 @@ input[type="checkbox"] {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 .gb-notes #note-list li .gb-note-content {
-  padding: 10px 0 10px 10px;
-  height: 50px;
-  font-size: 18px;
-  transition: color 0.4s;
-  border-left: rgba(39, 114, 139, 0.5) solid 1px;
+  position: relative;
+  min-height: 250px;
+  margin: 0 auto;
+  background: #FFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.gb-notes #note-list li .gb-note-content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  background: radial-gradient(#575450 6px, rgba(0, 0, 0, 0) 7px) repeat-y;
+  background-size: 60px 60px;
+  border-right: 2px solid #D44147;
+  box-sizing: border-box;
 }
 .gb-notes #note-list li .gb-note-content .gb-content-text {
-  float: left;
-  display: inline-block;
-  max-width: 90%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 30px;
+  left: 60px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 30px;
+  left: 60px;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+  background-image: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+  background-size: 30px 30px;
+}
+.gb-notes #note-list li .gb-note-content .gb-content-text textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: mediumblue;
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  font-size: 18px;
+  box-sizing: border-box;
+  z-index: 1;
 }
 .gb-notes #note-list li .gb-note-content .gb-edit-btn {
   float: left;

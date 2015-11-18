@@ -53,10 +53,11 @@ angular.module("app.skills").controller('SkillNotesCtrl',
           };
 
           vm.editSkillNoteSections = {
-           title: function (skillNoteId, title) {
+           detail: function (skillNoteId, detail) {
             var skillNoteData = {
              skillNoteId: skillNoteId,
-             title: title
+             title: detail.title,
+             description: detail.description
             };
             vm.editSkillNote(skillNoteData);
            }
@@ -69,6 +70,10 @@ angular.module("app.skills").controller('SkillNotesCtrl',
             form.$setPristine();
             form.$setUntouched();
            }
+          };
+
+          vm.revertSkillNote = function (skillNoteId) {
+           vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData)
           };
 
 

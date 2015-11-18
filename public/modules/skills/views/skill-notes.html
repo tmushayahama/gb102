@@ -83,25 +83,43 @@
       <ul id="note-list">
        <li ng-repeat="skillNote in skillNotesCtrl.skillNotesManager.skillNotes| filter:statusFilter track by $index" ng-class="{completed: skillNote.completed, editing: skillNote == skillNotesCtrl.editedNote}">
         <div class="gb-note-row row">
-         <input class="toggle col-lg-1" type="checkbox" ng-model="skillNote.completed">
-         <div class='gb-note-content col-lg-10'>
-          <a class="gb-content-text btn-link text-left" editable-text="skillNote.note.title"
+         <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
+          <div class="gb-content-text">
+           <textarea autofocus>{{skillNote.note.title}}</textarea>
+          </div>
+          <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="skillNote.note.title"
              e-class="col-lg-10"
              e-form="titleForm" onbeforesave="skillNotesCtrl.editSkillNoteSections.title(skillNote.id, $data)" e-required
              ng-click="skillNotesCtrl.openSkillNote(skillNote)">
            {{skillNote.note.title}}
           </a>
-          <a class="gb-edit-btn btn-link" ng-click="titleForm.$show()" ng-hide="titleForm.$visible">
+          <a ng-hide="true" class="gb-edit-btn btn-link" ng-click="titleForm.$show()" ng-hide="titleForm.$visible">
            <i class="fa fa-pencil"></i>
           </a>
          </div>
-         <div ng-hide="titleForm.$visible" class="gb-note-action btn-group pull-right">
-          <a class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fa fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-right">
-           <li><a ng-click="skillNotesCtrl.openSkillNote(skillNote)">Open</a></li>
-          </ul>
+         <div class="gb-note-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
+          <div class="row">
+           <div class="btn-group">
+            <button type="button" class="btn gb-btn gb-btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <i class="fa fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+             <li><a ng-click="skillNotesCtrl.openSkillNote(skillNote)">Open</a></li>
+            </ul>
+           </div>
+          </div>
+          <br>
+          <div class="row">
+           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.editSkillNoteSections.details(skillNote.id, skillNote.note)">
+            <i class="fa fa-save"></i>
+           </button>
+          </div>
+          <br>
+          <div class="row">
+           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.refreshSkillNote(skillNote.id)">
+            <i class="fa fa-refresh"></i>
+           </button>
+          </div>
          </div>
         </div>
        </li>
