@@ -82,18 +82,18 @@
      <div class="gb-note-body row" ng-show="skillNotesCtrl.skillNotesManager.skillNotes.length" ng-cloak>
       <ul id="note-list">
        <li ng-repeat="skillNote in skillNotesCtrl.skillNotesManager.skillNotes| filter:statusFilter track by $index" ng-class="{completed: skillNote.completed, editing: skillNote == skillNotesCtrl.editedNote}">
-        <div class="gb-note-row row">
+        <div class="gb-note-row row" ng-init="skillNoteCopy = angular.copy(skillNote)">
          <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
           <div class="gb-content-text">
-           <textarea autofocus>{{skillNote.note.title}}</textarea>
+           <textarea autofocus ng-model="skillNote.note.description">{{skillNote.note.description}}</textarea>
           </div>
-          <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="skillNote.note.title"
+          <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="skillNote.note.description"
              e-class="col-lg-10"
-             e-form="titleForm" onbeforesave="skillNotesCtrl.editSkillNoteSections.title(skillNote.id, $data)" e-required
+             e-form="descriptionForm" onbeforesave="skillNotesCtrl.editSkillNoteSections.description(skillNote.id, $data)" e-required
              ng-click="skillNotesCtrl.openSkillNote(skillNote)">
-           {{skillNote.note.title}}
+           {{skillNote.note.description}}
           </a>
-          <a ng-hide="true" class="gb-edit-btn btn-link" ng-click="titleForm.$show()" ng-hide="titleForm.$visible">
+          <a ng-hide="true" class="gb-edit-btn btn-link" ng-click="descriptionForm.$show()" ng-hide="descriptionForm.$visible">
            <i class="fa fa-pencil"></i>
           </a>
          </div>
@@ -110,13 +110,15 @@
           </div>
           <br>
           <div class="row">
-           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.editSkillNoteSections.details(skillNote.id, skillNote.note)">
+           <button type="button" class="btn gb-btn gb-btn-xs"
+                   ng-click="skillNotesCtrl.editSkillNoteSections.details(skillNote.id, skillNote.note);
+                     skillNoteCopy = skillNote;">
             <i class="fa fa-save"></i>
            </button>
           </div>
           <br>
           <div class="row">
-           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.refreshSkillNote(skillNote.id)">
+           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.revertSkillNote(skillNote, skillNoteCopy)">
             <i class="fa fa-refresh"></i>
            </button>
           </div>

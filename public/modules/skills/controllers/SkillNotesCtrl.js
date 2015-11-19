@@ -8,6 +8,7 @@ angular.module("app.skills").controller('SkillNotesCtrl',
          '$location',
          '$uibModal',
          '$log',
+         '$filter',
          function (
                  SkillNotesManager,
                  $scope,
@@ -17,10 +18,12 @@ angular.module("app.skills").controller('SkillNotesCtrl',
                  $rootScope,
                  $location,
                  $uibModal,
-                 $log) {
+                 $log,
+                 $filter) {
 
           var vm = this;
           vm.skillId = $stateParams.skillId;
+          vm.skillNotesCopy;
           vm.skillNotesManager = new SkillNotesManager();
           vm.noteFormDisplay = false;
 
@@ -38,6 +41,7 @@ angular.module("app.skills").controller('SkillNotesCtrl',
            vm.skillNotesManager.createSkillNote(data).then(function (response) {
             vm.noteFormDisplay = false;
             vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData);
+            vm.skillNotesCopy = angular.copy(vm.skillNotesManager.skillNotes);
            }, function (response) {
             console.log(response);
            });
@@ -47,13 +51,14 @@ angular.module("app.skills").controller('SkillNotesCtrl',
            vm.skillNotesManager.editSkillNote(data).then(function (response) {
             vm.noteFormDisplay = false;
             vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData);
+            vm.skillNotesCopy = angular.copy(vm.skillNotesManager.skillNotes);
            }, function (response) {
             console.log(response);
            });
           };
 
           vm.editSkillNoteSections = {
-           detail: function (skillNoteId, detail) {
+           details: function (skillNoteId, detail) {
             var skillNoteData = {
              skillNoteId: skillNoteId,
              title: detail.title,
@@ -72,8 +77,17 @@ angular.module("app.skills").controller('SkillNotesCtrl',
            }
           };
 
-          vm.revertSkillNote = function (skillNoteId) {
-           vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData)
+          vm.revertSkillNote = function (skillNote, skillNoteCopy) {
+           skillNote = skillNoteCopy;
+           /*
+            $filter('filter')
+            (vm.skillNotesManager.skillNotes, {id: skillNoteId}, true)[0]
+            = angular.copy($filter('filter')
+            (vm.skillNotesCopy, {id: skillNoteId}, true)[0]);
+            if (skillNote.length && skillNoteCopy.length) {
+            // vm.skillNotesManager.skillNotes angular.copy(vm.skillNotesCopy);
+            }
+            */
           };
 
 
