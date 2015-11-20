@@ -8,10 +8,12 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
-use App\Models\Skill\SkillTodo;
+use App\Models\Skill\SkillComment;
 use App\Models\Skill\SkillNote;
+use App\Models\Skill\SkillTodo;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
+use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use Request;
 use DB;
@@ -83,6 +85,26 @@ class SkillController extends Controller {
  public function editSkillNote() {
   $skillNote = SkilLNote::editSkillNote();
   return \Response::json($skillNote);
+ }
+
+ public function getSkillComments($skillId) {
+  $skillComments = SkilLComment::getSkillComments($skillId);
+  return \Response::json($skillComments);
+ }
+
+ public function getSkillComment($skillId, $commentId) {
+  $skillComment = SkilLComment::getSkillComment($skillId, $commentId);
+  return \Response::json($skillComment);
+ }
+
+ public function createSkillComment() {
+  $skillComment = SkilLComment::createSkillComment();
+  return \Response::json($skillComment);
+ }
+
+ public function editSkillComment() {
+  $skillComment = SkilLComment::editSkillComment();
+  return \Response::json($skillComment);
  }
 
  public function getSkillTimeline($id) {

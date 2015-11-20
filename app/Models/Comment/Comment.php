@@ -3,6 +3,9 @@
 namespace App\Models\Comment;
 
 use Illuminate\Database\Eloquent\Model;
+use Request;
+use DB;
+use JWTAuth;
 
 class Comment extends Model {
 

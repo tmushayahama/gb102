@@ -123,6 +123,29 @@ define(['angular',
              }
             }
            }})
+          .state('skill.comments', {
+           url: '/comments',
+           views: {
+            "content": {
+             controller: 'SkillCommentsCtrl as skillCommentsCtrl',
+             templateUrl: 'public/modules/skills/views/skill-comments.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/services/SkillCommentManager.js',
+                  'public/modules/skills/services/SkillCommentsManager.js',
+                  'public/modules/skills/controllers/SkillCommentsCtrl.js',
+                  'public/modules/skills/controllers/modals/SkillCommentCtrl.js',
+                          // 'public/css/ss_themes/ss_theme_1.css'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
  });
  return module;
 });

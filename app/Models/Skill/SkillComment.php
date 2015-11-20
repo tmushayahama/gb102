@@ -41,14 +41,25 @@ class SkillComment extends Model {
   return $skillComments;
  }
 
+ public static function getSkillComment($skillId, $commentId) {
+  $skillComment = SkillComment::with('comment')
+    ->orderBy('id', 'DESC')
+    ->where('skill_id', $skillId)
+    ->where('comment_id', $commentId)
+    ->first();
+  return $skillComment;
+ }
+
  public static function createSkillComment() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
+  $title = Request::get("title");
   $description = Request::get("description");
   $comment = new Comment;
   $skillComment = new SkillComment;
   $comment->creator_id = $userId;
+  $comment->title = $title;
   $comment->description = $description;
   $skillComment->skill_id = $skillId;
 
@@ -69,19 +80,17 @@ class SkillComment extends Model {
  public static function editSkillComment() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
+  $skillCommentId = Request::get("skillCommentId");
+  //$commentId = Request::get("commentId");
+  $title = Request::get("title");
   $description = Request::get("description");
-  $comment = new Comment;
-  $skillComment = new SkillComment;
-  $comment->creator_id = $userId;
-  $comment->description = $description;
-  $skillComment->skill_id = $skillId;
+  $skillComment = SkillComment::find($skillCommentId);
+  $skillComment->comment->title = $title;
+  $skillComment->comment->description = $description;
 
   DB::beginTransaction();
   try {
-   $comment->save();
-   $skillComment->comment()->associate($comment);
-   $skillComment->save();
+   $skillComment->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

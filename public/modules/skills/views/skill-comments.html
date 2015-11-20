@@ -2,19 +2,19 @@
  <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
   <div id="gb-middle-nav-3" class="gb-nav-parent">
    <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="gb-notes">
+    <div class="gb-comments">
      <div class='row'>
-      <div class='gb-heading'>NOTES</div>
-      <div ng-show="!skillNotesCtrl.noteFormDisplay" class="gb-form-placeholder">
+      <div class='gb-heading'>COMMENTS</div>
+      <div ng-show="!skillCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
        <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
-       <input class="" ng-click="skillNotesCtrl.showNoteForm()" placeholder="What needs to be done?" readonly>
+       <input class="" ng-click="skillCommentsCtrl.showCommentForm()" placeholder="What needs to be done?" readonly>
       </div>
-      <form class="gb-form-1" ng-show="skillNotesCtrl.noteFormDisplay" name="form" novalidate>
+      <form class="gb-form-1" ng-show="skillCommentsCtrl.commentFormDisplay" name="form" novalidate>
        <div class="form-group row">
         <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
          <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                   placeholder="Skill Note Description" ng-model="skillNotesCtrl.newSkillNoteData.title"
+                   placeholder="Skill Comment Description" ng-model="skillCommentsCtrl.newSkillCommentData.title"
                    name="title" required="" rows="2">
          </textarea>
          <div ng-show="form.$submitted || form.title.$touched">
@@ -26,7 +26,7 @@
         <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
          <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                   placeholder="Skill Note Description (optional)" ng-model="skillNotesCtrl.newSkillNoteData.description"
+                   placeholder="Skill Comment Description (optional)" ng-model="skillCommentsCtrl.newSkillCommentData.description"
                    name="description" required="" rows="4">
          </textarea>
         </div>
@@ -36,25 +36,25 @@
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
          <div class="radio gb-radio-row">
           <label class="">
-           <input type="radio" ng-model="skillNotesCtrl.newSkillNoteData.privacy" value="0" />
-           <strong>public</strong> All people can see this note
+           <input type="radio" ng-model="skillCommentsCtrl.newSkillCommentData.privacy" value="0" />
+           <strong>public</strong> All people can see this comment
           </label>
          </div>
          <div class="radio gb-radio-row">
           <label>
-           <input type="radio" ng-model="skillNotesCtrl.newSkillNoteData.privacy" value="1" />
-           <strong>private</strong> only you can see this note
+           <input type="radio" ng-model="skillCommentsCtrl.newSkillCommentData.privacy" value="1" />
+           <strong>private</strong> only you can see this comment
           </label>
          </div>
          <div class="radio gb-radio-row">
           <label>
-           <input type="radio" ng-model="skillNotesCtrl.newSkillNoteData.privacy" value="2" />
-           <strong>custom</strong> choose who to see this note
+           <input type="radio" ng-model="skillCommentsCtrl.newSkillCommentData.privacy" value="2" />
+           <strong>custom</strong> choose who to see this comment
           </label>
          </div>
         </div>
        </div>
-       <div class="form-group row" ng-class="{'gb-disabled-2': skillNotesCtrl.newSkillNoteData.privacy != 2}">
+       <div class="form-group row" ng-class="{'gb-disabled-2': skillCommentsCtrl.newSkillCommentData.privacy != 2}">
         <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
          <input type="text" class="form-control" placeholder="Select members"/>
@@ -62,63 +62,63 @@
        </div>
        <div class="form-group row">
         <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-         <a class="btn btn-link" ng-click="skillNotesCtrl.showAdvanced()">
+         <a class="btn btn-link" ng-click="skillCommentsCtrl.showAdvanced()">
           Show Advanced
          </a>
         </label>
        </div>
        <div class="gb-form-footer row">
         <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-         <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillNotesCtrl.cancelSkillNote(form)">
+         <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillCommentsCtrl.cancelSkillComment(form)">
           Cancel
          </a>
-         <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillNotesCtrl.createSkillNote(skillNotesCtrl.newSkillNoteData)">
-          Add Note
+         <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="skillCommentsCtrl.createSkillComment(skillCommentsCtrl.newSkillCommentData)">
+          Add Comment
          </a>
         </div>
        </div>
       </form>
      </div>
-     <div class="gb-note-body row" ng-show="skillNotesCtrl.skillNotesManager.skillNotes.length" ng-cloak>
-      <ul id="note-list">
-       <li ng-repeat="skillNote in skillNotesCtrl.skillNotesManager.skillNotes| filter:statusFilter track by $index" ng-class="{completed: skillNote.completed, editing: skillNote == skillNotesCtrl.editedNote}">
-        <div class="gb-note-row row" ng-init="skillNoteCopy = angular.copy(skillNote)">
-         <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
+     <div class="gb-comment-body row" ng-show="skillCommentsCtrl.skillCommentsManager.skillComments.length" ng-cloak>
+      <ul id="comment-list">
+       <li ng-repeat="skillComment in skillCommentsCtrl.skillCommentsManager.skillComments| filter:statusFilter track by $index" ng-class="{completed: skillComment.completed, editing: skillComment == skillCommentsCtrl.editedComment}">
+        <div class="gb-comment-row row" ng-init="skillCommentCopy = angular.copy(skillComment)">
+         <div class='gb-comment-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
           <div class="gb-content-text">
-           <textarea autofocus ng-model="skillNote.note.description"></textarea>
+           <textarea autofocus ng-model="skillComment.comment.description"></textarea>
           </div>
-          <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="skillNote.note.description"
+          <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="skillComment.comment.description"
              e-class="col-lg-10"
-             e-form="descriptionForm" onbeforesave="skillNotesCtrl.editSkillNoteSections.description(skillNote.id, $data)" e-required
-             ng-click="skillNotesCtrl.openSkillNote(skillNote)">
-           {{skillNote.note.description}}
+             e-form="descriptionForm" onbeforesave="skillCommentsCtrl.editSkillCommentSections.description(skillComment.id, $data)" e-required
+             ng-click="skillCommentsCtrl.openSkillComment(skillComment)">
+           {{skillComment.comment.description}}
           </a>
           <a ng-hide="true" class="gb-edit-btn btn-link" ng-click="descriptionForm.$show()" ng-hide="descriptionForm.$visible">
            <i class="fa fa-pencil"></i>
           </a>
          </div>
-         <div class="gb-note-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
+         <div class="gb-comment-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
           <div class="row">
            <div class="btn-group">
             <button type="button" class="btn gb-btn gb-btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-chevron-down"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
-             <li><a ng-click="skillNotesCtrl.openSkillNote(skillNote)">Open</a></li>
+             <li><a ng-click="skillCommentsCtrl.openSkillComment(skillComment)">Open</a></li>
             </ul>
            </div>
           </div>
           <br>
           <div class="row">
            <button type="button" class="btn gb-btn gb-btn-xs"
-                   ng-click="skillNotesCtrl.editSkillNoteSections.details(skillNote.id, skillNote.note);
-                     skillNoteCopy = skillNote;">
+                   ng-click="skillCommentsCtrl.editSkillCommentSections.details(skillComment.id, skillComment.comment);
+                     skillCommentCopy = skillComment;">
             <i class="fa fa-save"></i>
            </button>
           </div>
           <br>
           <div class="row">
-           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillNotesCtrl.revertSkillNote(skillNote, skillNoteCopy)">
+           <button type="button" class="btn gb-btn gb-btn-xs" ng-click="skillCommentsCtrl.revertSkillComment(skillComment, skillCommentCopy)">
             <i class="fa fa-refresh"></i>
            </button>
           </div>
@@ -137,6 +137,6 @@
  <div id="gb-right-nav-3" role="navigation">
  </div>
 </div>
-<script type="text/ng-template" id="skill-note-modal.html">
- <div class="gb-note-page" ng-include="'public/modules/skills/views/modals/skill-note.html'"></div>
+<script type="text/ng-template" id="skill-comment-modal.html">
+ <div class="gb-comment-page" ng-include="'public/modules/skills/views/modals/skill-comment.html'"></div>
 </script>
