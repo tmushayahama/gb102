@@ -100,7 +100,7 @@ define(['angular',
              }
             }
            }})
-          .state('skill.notes', {
+          .state('apps.skill.notes', {
            url: '/notes',
            views: {
             "content": {
@@ -123,7 +123,7 @@ define(['angular',
              }
             }
            }})
-          .state('skill.comments', {
+          .state('apps.skill.comments', {
            url: '/comments',
            views: {
             "content": {

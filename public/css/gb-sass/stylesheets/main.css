@@ -7503,7 +7503,7 @@ and open the template in the editor.
   text-decoration: none;
 }
 .gb-nav-1 li:hover {
-  border-bottom: ligthen(#27728B, 15%) solid 4px;
+  border-bottom: rgba(39, 114, 139, 0.7) solid 4px;
 }
 .gb-nav-1 li.active {
   border-bottom: #27728B solid 4px;
@@ -7693,12 +7693,18 @@ input[type="checkbox"] {
   width: 35px;
 }
 .gb-app-detail .gb-profile-row .gb-row-content {
-  padding: 3px 0 0 0;
+  padding: 7px 0 0 10px;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 45px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.gb-app-detail .gb-profile-row .gb-row-content a {
+  text-align: left;
+  color: #FAFAFA;
+  font-size: 18px;
 }
 .gb-app-detail .gb-heading-row {
   padding: 15px 5px 15px 10px;

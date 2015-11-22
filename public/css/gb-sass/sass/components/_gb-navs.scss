@@ -18,7 +18,7 @@
    text-decoration: none;
   }
   &:hover {
-   border-bottom: ligthen($primary-color, 15%) solid 4px;
+   border-bottom: rgba($primary-color, 0.7) solid 4px;
   }
   &.active {
    border-bottom: $primary-color solid 4px;
