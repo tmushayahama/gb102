@@ -3939,19 +3939,22 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 .gb-box-1 {
  position: relative;
  margin-bottom: 20px;
- background-color: #FAFAFA;
+ background-color: #FFF;
  overflow: hidden;
  height: 150px;
 
  &:hover {
-  background-color: #EEE;
+  background-color: #F7F7F7;
   -webkit-box-shadow: #AAA -1px 1px 2px;
   -moz-box-shadow: #AAA -1px 1px 2px;
   box-shadow: #AAA -1px 1px 2px;
  }
+ .gb-dropdown-action {
+  padding: 4px 8px 0 0;
+  @include position(absolute, 0 0 null null);
+ }
  .gb-image {
   height: 100%;
-  background-color: #777;
   overflow: hidden;
   img {
    @include position(absolute, 0 0 0 0);
@@ -3961,11 +3964,18 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   height: 100%;
   .gb-heading {
    @include position(absolute, 0 0 null 0);
-   height: 30px;
+   padding: 8px 5px 0 10px;
+   height: 22px;
+   .gb-title {
+    color: #888;
+    font-weight: 500;
+    font-size:10px;
+    text-transform: uppercase;
+   }
   }
   .gb-description {
-   @include position(absolute, 31px 0 50px 0);
-   padding: 7px 10px;
+   @include position(absolute, 23px 0 50px 0);
+   padding: 2px 10px;
    overflow: hidden;
   }
   .gb-footer {
@@ -3974,12 +3984,13 @@ ul .gb-sticky-note-row:nth-child(5n) a{
    padding: 3px;
    border-top: #AAA solid 1px;
    .gb-profile-pic {
+    margin-left: 5px;
     height: 35px;
     width: 35px;
    }
    .gb-footer-content {
     padding: 3px 0 0 0;
-    @include position(absolute, 0 0 0 45px);
+    @include position(absolute, 0 0 0 47px);
    }
   }
  }
