@@ -1496,11 +1496,6 @@ ul, li {
   height: 10px;
 }
 
-img {
-  height: 100%;
-  width: 100%;
-}
-
 .gb-icon-1 {
   height: 20px;
   width: 25px;
@@ -1675,10 +1670,22 @@ input.gb-form-show {
   padding-left: 15px !important;
 }
 
+.app-container {
+  padding: 0 0 0 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .nav-container {
   padding: 0 0 0 0px;
-  height: 100%;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .gb-left-nav-2 .gb-link {
@@ -1838,9 +1845,8 @@ input.gb-form-show {
 
 #gb-left-nav-3 {
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
   bottom: 0;
   left: 0;
   -moz-transition: all 0.5s ease;
@@ -4112,10 +4118,10 @@ ul .gb-sticky-note-row:nth-child(5n) a {
 }
 
 .gb-top-nav-1 {
-  position: absolute;
-  left: 0;
-  right: 10px;
-  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
   list-style: none;
   border-bottom: #AAA solid 1px;
   background-color: #FFF;
@@ -4422,97 +4428,65 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   margin-bottom: 20px;
   background-color: #FAFAFA;
   overflow: hidden;
-  height: 320px;
-}
-
-.gb-box-1 .gb-leftbar {
-  position: absolute;
-  border-right: #777 solid 5px;
-  background-color: #555;
-  top: 0;
-  width: 30px;
-  bottom: 0;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-rightbar {
-  position: absolute;
-  top: 0;
-  left: 30px;
-  right: 0;
-  bottom: 0;
-  background-color: #EFF;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-title {
-  height: 40px;
-  background-color: #EEE;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-description {
-  padding: 7px 10px;
-  height: 170px;
-  background-color: #DDD;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-image {
-  background-image: url(../img/placeholders/skill_cover_3.png);
-  background-size: auto 100%;
   height: 150px;
-  background-color: #777;
-  overflow: hidden;
 }
-
-.gb-box-1 .gb-actions {
-  margin-top: 10px;
-  margin-left: 8px;
-}
-
-.gb-box-1 .gb-footer {
-  height: 50px;
-  background-color: #DDD;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-heading-img-container {
-  height: 150px;
-  overflow: hidden;
-}
-
-.gb-box-1 .gb-heading-img {
-  height: auto;
-}
-
 .gb-box-1:hover {
   background-color: #EEE;
   -webkit-box-shadow: #AAA -1px 1px 2px;
   -moz-box-shadow: #AAA -1px 1px 2px;
   box-shadow: #AAA -1px 1px 2px;
 }
-
-.gb-box-1 .gb-heading {
-  padding: 5px 8px;
-  border-bottom: #AAA solid 1px;
+.gb-box-1 .gb-image {
+  height: 100%;
+  background-color: #777;
   overflow: hidden;
 }
-
-.gb-box-1 .gb-body {
-  padding: 5px 8px;
+.gb-box-1 .gb-image img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.gb-box-1 .gb-box-body {
+  height: 100%;
+}
+.gb-box-1 .gb-box-body .gb-heading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 30px;
+}
+.gb-box-1 .gb-box-body .gb-description {
+  position: absolute;
+  top: 31px;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  padding: 7px 10px;
   overflow: hidden;
 }
-
-.gb-box-1 .gb-body .gb-title {
-  font-weight: bold;
-  font-size: 1.2em;
+.gb-box-1 .gb-box-body .gb-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  padding: 3px;
+  border-top: #AAA solid 1px;
 }
-
-.gb-box-1 .gb-footer {
-  padding: 5px 8px;
-  border-top: #BBB solid 1px;
-  overflow: hidden;
+.gb-box-1 .gb-box-body .gb-footer .gb-profile-pic {
+  height: 35px;
+  width: 35px;
+}
+.gb-box-1 .gb-box-body .gb-footer .gb-footer-content {
+  padding: 3px 0 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 45px;
 }
 
 .gb-box-2 {

@@ -1324,10 +1324,6 @@ ul,li{
  border-radius: 0;
  height: 10px;
 }
-img {
- height: 100%;
- width: 100%;
-}
 .gb-icon-1 {
  height: 20px;
  width: 25px;
@@ -1470,10 +1466,13 @@ input.gb-form-show{
 .gb-padding-left-3 {
  padding-left: 15px!important;
 }
+.app-container {
+ padding: 0 0 0 0px;
+ @include position(absolute, 0 0 0 0);
+}
 .nav-container {
  padding: 0 0 0 0px;
- height: 100%;
- overflow: hidden;
+ @include position(absolute, 0 0 0 0);
 }
 
 .gb-left-nav-2 .gb-link {
@@ -1626,9 +1625,8 @@ input.gb-form-show{
 
 #gb-left-nav-3 {
  z-index: 1000;
- position: absolute;
+ position: fixed;
  top: 0;
- right: 0;
  bottom: 0;
  left: 0;
  -moz-transition: all 0.5s ease;
@@ -3644,10 +3642,10 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 
 
 .gb-top-nav-1 {
- position: absolute;
- left: 0;
- right: 10px;
- padding: 0;
+ position: fixed;
+ top: 0;
+ right: 0;
+ padding: 0 10px;
  list-style: none;
  border-bottom: #AAA solid 1px;
  background-color: #FFF;
@@ -3943,89 +3941,49 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  margin-bottom: 20px;
  background-color: #FAFAFA;
  overflow: hidden;
- height: 320px;
-}
-.gb-box-1 .gb-leftbar {
- position: absolute;
- border-right: #777 solid 5px;
- background-color: #555;
- top: 0;
- width: 30px;
- bottom: 0;
- overflow: hidden;
-}
-.gb-box-1 .gb-rightbar{
- position: absolute;
- top: 0;
- left: 30px;
- right: 0;
- bottom: 0;
- background-color: #EFF;
- overflow: hidden;
-}
-.gb-box-1 .gb-title{
- height: 40px;
- background-color: #EEE;
- overflow: hidden;
-}
-.gb-box-1 .gb-description{
- padding: 7px 10px;
- height: 170px;
- background-color: #DDD;
- overflow: hidden;
-}
-.gb-box-1 .gb-image{
- background-image: url(../img/placeholders/skill_cover_3.png);
- background-size: auto 100%;
  height: 150px;
- background-color: #777;
- overflow: hidden;
-}
 
-.gb-box-1 .gb-actions {
- margin-top: 10px;
- margin-left: 8px;
+ &:hover {
+  background-color: #EEE;
+  -webkit-box-shadow: #AAA -1px 1px 2px;
+  -moz-box-shadow: #AAA -1px 1px 2px;
+  box-shadow: #AAA -1px 1px 2px;
+ }
+ .gb-image {
+  height: 100%;
+  background-color: #777;
+  overflow: hidden;
+  img {
+   @include position(absolute, 0 0 0 0);
+  }
+ }
+ .gb-box-body {
+  height: 100%;
+  .gb-heading {
+   @include position(absolute, 0 0 null 0);
+   height: 30px;
+  }
+  .gb-description {
+   @include position(absolute, 31px 0 50px 0);
+   padding: 7px 10px;
+   overflow: hidden;
+  }
+  .gb-footer {
+   @include position(absolute, null 0 0 0);
+   height: 40px;
+   padding: 3px;
+   border-top: #AAA solid 1px;
+   .gb-profile-pic {
+    height: 35px;
+    width: 35px;
+   }
+   .gb-footer-content {
+    padding: 3px 0 0 0;
+    @include position(absolute, 0 0 0 45px);
+   }
+  }
+ }
 }
-
-.gb-box-1 .gb-footer{
- height: 50px;
- background-color: #DDD;
- overflow: hidden;
-}
-.gb-box-1 .gb-heading-img-container {
- height: 150px;
- overflow: hidden;
-}
-
-.gb-box-1 .gb-heading-img {
- height: auto;
-}
-
-.gb-box-1:hover {
- background-color: #EEE;
- -webkit-box-shadow: #AAA -1px 1px 2px;
- -moz-box-shadow: #AAA -1px 1px 2px;
- box-shadow: #AAA -1px 1px 2px;
-}
-.gb-box-1 .gb-heading {
- padding: 5px 8px;
- border-bottom: #AAA solid 1px;
- overflow: hidden;
-}
-.gb-box-1 .gb-body {
- padding: 5px 8px;
- overflow: hidden;
-}
-.gb-box-1 .gb-body .gb-title {
- font-weight: bold;
- font-size: 1.2em;
-}
-.gb-box-1 .gb-footer {
- padding: 5px 8px;
- border-top: #BBB solid 1px;
- overflow: hidden;
-}
-
 .gb-box-2 {
  margin-bottom: 20px;
  background-color: #FAFAFA;

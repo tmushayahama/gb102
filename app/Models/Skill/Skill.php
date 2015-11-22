@@ -20,6 +20,10 @@ class Skill extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public function level() {
+  return $this->belongsTo('App\Models\Level', 'level_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *
@@ -29,6 +33,8 @@ class Skill extends Model {
 
  public static function getSkills() {
   $skills = Skill::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
     ->take(10)
     ->get();
   return $skills;
@@ -36,6 +42,7 @@ class Skill extends Model {
 
  public static function getSkill($id) {
   $skill = Skill::with('creator')
+    ->with('level')
     ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

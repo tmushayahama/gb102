@@ -1,4 +1,4 @@
-<div class="gb-top-nav-1 gb-nav row">
+<div class="gb-top-nav-1 gb-nav row col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-0 col-lg-10 col-md-9 col-sm-8 col-xs-12">
  <div class="gb-title pull-left">
   SKILL APP
  </div>
@@ -17,65 +17,74 @@
   </div>
  </div>
 </div>
-<div id="gb-screen-height" class="container">
- <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
-  <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-   <div id="gb-middle-nav-3" class="gb-nav-parent">
-    <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <div class="row gb-hide">
-      <div class="input-group gb-padding-thin">
-       <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-       <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
-       <div class="input-group-btn">
-        <button id="gb-keyword-search-btn" class="btn btn-default form-control">
-         <span class="caret"></span>
-        </button>
-       </div>
-      </div>
-     </div>
-     <div id="gb-skill-search-form-container" class="row gb-hide gb-panel-form">
-
-     </div>
-     <div id="gb-skills" class="gb-list row">
-      <div ng-repeat="skill in skillsCtrl.skills" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thick">
-       <div class="gb-indicator gb-level-' . {{skill.level}}"></div>
-       <div class="gb-box-1">
-        <div class="gb-leftbar">
-         <img src="img/profile_pic/" class='pull-right gb-heading-img' alt="">
-        </div>
-        <div class="gb-rightbar">
-         <div class="gb-image">
-          <div class="gb-actions">
-           <div class="gb-ghost-btn-1">
-            Open
-           </div>
-          </div>
-         </div>
-         <div class="gb-description">
-          <a href="#/skill/{{skill.id}}/overview" class="">
-           {{skill.title}}
-          </a>
-          {{skill.description}}
-          <a class="gb-level">
-           <small>
-            <i>
-             level
-            </i>
-           </small>
-          </a>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div class="gb-dummy-height row"></div>
+<div id="gb-middle-nav-3" class="container">
+ <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+  <div class="row gb-hide">
+   <div class="input-group gb-padding-thin">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
+    <div class="input-group-btn">
+     <button id="gb-keyword-search-btn" class="btn btn-default form-control">
+      <span class="caret"></span>
+     </button>
     </div>
    </div>
   </div>
- </div>
- <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
-  <div id="gb-right-nav-3" role="navigation">
+  <div id="gb-skill-search-form-container" class="row gb-hide gb-panel-form">
+
   </div>
+  <div id="gb-skills" class="gb-list row">
+   <div ng-repeat="skill in skillsCtrl.skills" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+    <div class="gb-indicator gb-level-' . {{skill.level_id}}"></div>
+    <div class="gb-box-1">
+     <div class="gb-image col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <img src="public/img/placeholders/skill_cover_1.png" alt=""/>
+      <div class="gb-actions">
+       <div class="gb-ghost-btn-1">
+        Open
+       </div>
+      </div>
+     </div>
+     <div class="gb-box-body col-lg-8 col-md-8 col-sm-8 col-xs-12">
+      <div class="gb-heading">
+       {{skill.level.name}}
+      </div>
+      <div class="gb-description">
+       <a href="#/skill/{{skill.id}}/overview" class="">
+        {{skill.title}}
+       </a>
+       {{skill.description}}
+       <a class="gb-level">
+        <small>
+         <i>
+          level
+         </i>
+        </small>
+       </a>
+      </div>
+      <div class="gb-footer">
+       <img src="public/img/profile_pic/{{skill.creator.avatar_url}}" class='gb-profile-pic' alt="">
+       <div class="gb-footer-content">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+         <h5 class="gb-ellipsis"><a>{{skill.creator.firstname + ' ' + skill.creator.lastname}}</a></h5>
+         <p>{{skill.created_at| date:'MM/dd/yyyy'}}</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+         <div class="gb-ghost-btn-1">
+          Open
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="gb-dummy-height row"></div>
+ </div>
+</div>
+<div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
+ <div id="gb-right-nav-3" role="navigation">
  </div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->
