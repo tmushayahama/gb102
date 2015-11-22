@@ -13,6 +13,7 @@ and open the template in the editor.
 @import "components/gb-buttons";
 @import "components/gb-modals";
 @import "components/gb-sections";
+@import "components/gb-navs";
 @import "components/custom-xeditable";
 
 [ng\:cloak],
@@ -45,6 +46,51 @@ input[type="checkbox"] {
 	display: none;
 }
 
+
+.gb-app-detail {
+ .gb-cover {
+  height: 200px;
+  overflow: hidden;
+  .gb-cover-img {
+   width: 100%;
+  }
+ }
+ .gb-profile-row {
+  @include position(absolute, null 0 0 0);
+  height: 40px;
+  padding: 3px 8px;
+  .gb-profile-pic {
+   height: 35px;
+   width: 35px;
+  }
+  .gb-row-content {
+   padding: 3px 0 0 0;
+   @include position(absolute, 0 0 0 45px);
+  }
+ }
+ .gb-heading-row {
+  padding: 15px 5px 15px 10px;
+  height: 50px;
+  background-color: #FFF;
+  border-bottom: #DDD solid 1px;
+  .gb-heading {
+   font-size: 18px;
+   color: #777;
+   font-weight: normal;
+   strong {
+    font-weight: bold;
+   }
+  }
+ }
+ .gb-menu-row {
+  height: 40px;
+  background-color: #FFF;
+  border-bottom: #CCC solid 1px;
+  -webkit-box-shadow: #CCC 0px 1px 1px;
+  -moz-box-shadow: #CCC 0px 1px 1px;
+  box-shadow: #CCC 0px 1px 1px;
+ }
+}
 
 .gb-form-1 {
  padding: 0px;
@@ -1625,136 +1671,122 @@ input.gb-form-show{
 
 #gb-left-nav-3 {
  z-index: 1000;
- position: fixed;
- top: 0;
- bottom: 0;
- left: 0;
+ @include position(fixed, 0 null 0 0);
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
-}
 
-#gb-left-nav-3 .gb-header {
- padding: 5px 5px;
- position: absolute;
- top: 0;
- right: 0;
- left: 0;
- height: 41px;
- border-bottom: #777 solid 1px;
-}
+ .gb-header {
+  padding: 5px 5px;
+  @include position(absolute, 0 0 null 0);
+  height: 41px;
+  border-bottom: #AAA solid 1px;
+ }
 
-#gb-left-nav-3 .gb-body {
- position: absolute;
- top: 42px;
- right: 0;
- left: 0;
- bottom: 0;
- overflow-y: auto;
- -webkit-overflow-scrolling: touch;
- -webkit-transition: all 0.5s ease;
-}
-#gb-left-nav-3 .gb-body .gb-heading-img-container{
- height: 120px;
-}
+ .gb-body {
+  @include position(absolute, 42px 0 null 0);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: all 0.5s ease;
+ }
+ .gb-body .gb-cover-img-container{
+  height: 120px;
+ }
 
-#gb-left-nav-3 .gb-body .gb-heading-img-container img{
- height: 100%;
-}
+ .gb-body .gb-cover-img-container img{
+  height: 100%;
+ }
 
-#gb-left-nav-3 .gb-body .gb-skill-image{
- height: 120px;
-}
+ .gb-heading {
+  font-size: 0.8em;
+  padding: 15px 3px 15px 5px;
+  margin: 0;
+  color: #AAA;
+  border-bottom: #CCC solid 1px;
+ }
 
-#gb-left-nav-3 .gb-heading {
- font-size: 0.8em;
- padding: 15px 3px 15px 5px;
- margin: 0;
- color: #AAA;
- border-bottom: #777 solid 1px;
-}
+ .gb-heading .gb-superscript {
+  font-size: 0.8em;
+  vertical-align: super;
+ }
 
-#gb-left-nav-3 .gb-heading .gb-superscript {
- font-size: 0.8em;
- vertical-align: super;
-}
+ .gb-sidenav-app-heading {
+  padding:10px 2px 5px 10px;
+  display: block;
+  width: 100%;
+ }
+ .gb-sidenav-app-heading.gb-link:hover {
+  background-color: #CCC9B7;
+ }
+ .gb-link {
+  padding:10px 5px;
+  display: block;
+  width: 100%;
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+ }
 
-#gb-left-nav-3 .gb-sidenav-app-heading {
- padding:10px 2px 5px 10px;
- display: block;
- width: 100%;
-}
-#gb-left-nav-3 .gb-sidenav-app-heading.gb-link:hover {
- background-color: #CCC9B7;
-}
-#gb-left-nav-3 .gb-link {
- padding:10px 5px;
- display: block;
- width: 100%;
- border-bottom: #888 solid 1px;
- /*
- -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- */
-}
+ .gb-nav-strip-mini .gb-link {
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+ }
 
-#gb-left-nav-3 .gb-nav-strip-mini .gb-link {
- /*
- -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
- */
-}
+ .gb-link:hover {
+  opacity: 0.6;
+ }
+ .gb-link.active {
+  background-color: #F7F7F7;
+ }
 
-#gb-left-nav-3 .gb-link:hover {
- opacity: 0.6;
-}
-#gb-left-nav-3 .gb-link.active {
- background-color: #F7F7F7;
-}
+ .gb-link .thumbnail{
+  margin-bottom: 0px;
+  border: none;
+  background-color: transparent;
+ }
 
-#gb-left-nav-3 .gb-link .thumbnail{
- margin-bottom: 0px;
- border: none;
- background-color: transparent;
-}
+ .gb-link .gb-icon {
+  width: 28px;
+  height: 25px;
+  padding: 0px;
+ }
 
-#gb-left-nav-3 .gb-link .gb-icon {
- width: 28px;
- height: 25px;
- padding: 0px;
-}
+ .gb-link .gb-profile-icon {
+  width: 50px;
+  height: 50px;
+ }
 
-#gb-left-nav-3 .gb-link .gb-profile-icon {
- width: 50px;
- height: 50px;
-}
+ .gb-link i{
+  margin-top: 7px;
+  color: #919599;
+ }
 
-#gb-left-nav-3 .gb-link i{
- margin-top: 7px;
- color: #919599;
-}
+ .gb-link .gb-heading {
+  color: #333;
+ }
 
-#gb-left-nav-3 .gb-link .gb-heading {
- color: #333;
-}
+ .gb-link .gb-title {
+  padding:0px 3px 0px 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #777;
+  line-height: 33px;
+  text-decoration: none;
+  overflow: hidden;
+ }
 
-#gb-left-nav-3 .gb-link .gb-title {
- padding:0px 3px 0px 5px;
- font-size: 1.1em;
- font-weight: bold;
- color: #BBB;
- line-height: 33px;
- text-decoration: none;
- overflow: hidden;
-}
-
-#gb-left-nav-3 .gb-link .gb-description{
- padding: 3px 5px;
- font-size: 0.9em;
- color: #BBB;
- text-decoration: none;
+ .gb-link .gb-description{
+  padding: 3px 5px;
+  font-size: 0.9em;
+  color: #999;
+  text-decoration: none;
+ }
 }
 
 #gb-middle-nav-3 .gb-list {
@@ -2434,95 +2466,6 @@ input.gb-form-show{
  color: #000;
 }
 
-.gb-nav-1 {
- padding: 0;
- margin: 0;
- list-style: none;
-}
-.gb-nav-1 li {
- height: 50px;
- float:left;
- line-height: 50px;
- margin: auto 0px auto 0px;
- background-color: transparent;
-}
-.gb-nav-2 {
- margin: 0;
- list-style: none;
- border-bottom: transparent solid 4px;
-}
-.gb-nav-2 li {
- min-width:70px;
- height: 50px;
- float:left;
- line-height: 50px;
- background-color: #DFE0D8;
-}
-.gb-nav-1 li a {
- font-size: 1.3em;
- color: #CCC;
-}
-.gb-nav-2 li a {
- font-size: 1.3em;
-}
-.gb-nav-1 li:first-child a{
- text-align: left!important;
-}
-.gb-nav-1 li a,
-.gb-nav-2 li a{
- display: block;
- height: 100%;
- width: 100%;
- text-align: center;
- text-decoration: none;
-}
-.gb-nav-1 li:hover,
-.gb-nav-1 li.active,
-.gb-nav-2 li:hover,
-.gb-nav-2 li.active {
-}
-.gb-nav-1 li:hover a,
-.gb-nav-1 li.active a {
- color: #FFF;
- font-weight: bold;
-}
-.gb-nav-2 li:hover a,
-.gb-nav-2 li.active a{
- color: #FFF;
- font-weight: bold;
- border-bottom: none;
-}
-.gb-nav-3 {
- margin: 0;
- height: 75px;
- list-style: none;
- background-color: #F2F2F2;
- border-bottom: #CCC solid 2px;
-}
-.gb-nav-3 li {
- min-width: 60px;
- height: 100%;
- float:left;
- margin-left: 10px;
- padding: 2px 10px 3px 10px;
-
-}
-.gb-nav-3 li a{
- display: block;
- height: 100%;
- width: 100%;
- color: #444;
- text-align: center;
- text-decoration: none;
-}
-.gb-nav-3 li:hover,
-.gb-nav-3 li.active {
- border-bottom: #0298AB solid 3px;
-}
-.gb-nav-3 li:hover a,
-.gb-nav-3 li.active a{
- color: #111;
-}
 
 .gb-background-white {
  background-color: #FFF;

@@ -24,18 +24,18 @@ define(['angular',
                  files: [
                   'public/modules/skills/services/SkillsService.js',
                   'public/modules/skills/controllers/SkillsCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
              }
             }
            }})
-          .state('skill', {
+          .state('apps.skill', {
            abstract: true,
            url: '/skill/{skillId}',
            views: {
-            "root": {
+            "apps": {
              controller: 'SkillCtrl as skillCtrl',
              templateUrl: 'public/modules/skills/views/skill.html',
              resolve: {
@@ -53,7 +53,7 @@ define(['angular',
              }
             }
            }})
-          .state('skill.overview', {
+          .state('apps.skill.overview', {
            url: '/overview',
            views: {
             "content": {
@@ -74,7 +74,7 @@ define(['angular',
              }
             }
            }})
-          .state('skill.todos', {
+          .state('apps.skill.todos', {
            url: '/todos',
            views: {
             "content": {

@@ -1,147 +1,44 @@
-<div class="nav-container col-lg-2 col-md-3 col-sm-4 col-xs-12 ">
- <div id="gb-left-nav-3" role="navigation">
-  <div class="gb-header navbar-header">
-   <a class="gb-logo gb-ellipsis" href="app/skill">
-    <span class="">
-     <i class="gb-padding-thin pull-left gb-close-middle-nav fa fa-bars hidden-lg hidden-md hidden-sm visible-xs">
-     </i>
-     <strong>SKILL</strong>SECTION
-    </span>
-    <small class="">BETA</small>
-   </a>
-  </div>
-  <div class="gb-body">
-   <div class="gb-heading-img-container">
-    <img src="public/img/placeholders/skill_cover_1.png" class='' alt="">
-   </div>
-   <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-     <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-heading-img" alt="">
-    </div>
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+<div class="col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-0 col-lg-10 col-md-9 col-sm-8 col-xs-12">
+ <div id="gb-middle-nav-3" class="container gb-app-detail">
+  <div class="gb-cover col-lg-8 col-md-8 col-sm-12 col-xs-12">
+   <img src="public/img/placeholders/skill_cover_1.png" class='gb-cover-img' alt="">
+   <div class="gb-profile-row">
+    <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-profile-pic" alt="">
+    <div class="gb-row-content">
      <a class="gb-link gb-ellipsis">
-      {{skillCtrl.skill.creator.firstname + " " + skillCtrl.skill.creator.lastname }}
+      {{skillCtrl.skill.creator.firstname + " " + skillCtrl.skill.creator.lastname}}
      </a>
-     <div class="row">
-      <a class="btn btn-xs btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin" data-toggle="dropdown" aria-expanded="false">
-       <i class="fa fa-star"></i> Subscribe
-      </a>
-      <a class="btn btn-xs btn-primary col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-       <i class="fa fa-user-plus"></i> Contribute
-      </a>
-     </div>
     </div>
    </div>
-   <div class="gb-nav-strip row">
-    <h6 class="gb-heading gb-ellipsis">
-     <strong>{{skillCtrl.skill.title}}</strong> {{skillCtrl.skill.description}}
-    </h6>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a ui-sref="skill.overview" class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Overview
-       </p>
-      </div>
-     </a>
-    </div>
-    <h6 class="gb-heading gb-ellipsis">
+  </div>
+  <div class="gb-heading-row col-lg-8 col-md-8 col-sm-12 col-xs-12">
+   <h2 class="gb-heading gb-ellipsis">
+    <strong>{{skillCtrl.skill.title}}</strong> {{skillCtrl.skill.description}}
+   </h2>
+  </div>
+  <ul class="gb-menu-row nav gb-nav-1 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+   <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <a href ui-sref="apps.skill.overview" class="gb-link gb-app-tab gb-ellipsis">
+     Overview
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <a ui-sref="apps.skill.todos" class="gb-link gb-app-tab gb-ellipsis">
      Content
-    </h6>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Todos
-       </p>
-      </div>
-     </a>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Notes
-       </p>
-      </div>
-     </a>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        External Links
-       </p>
-      </div>
-     </a>
-    </div>
-    <h6 class="gb-heading gb-ellipsis">
-     Community
-    </h6>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Contribution
-       </p>
-      </div>
-     </a>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Comments
-       </p>
-      </div>
-     </a>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     <a class="gb-link gb-app-tab row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-       <p class="gb-ellipsis gb-title">
-        <img src="" class="gb-icon" alt="">
-        Discussions
-       </p>
-      </div>
-     </a>
-    </div>
-   </div>
-   <div class="gb-dummy-height"></div>
-  </div>
+    </a>
+   </li>
+   <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <a ui-sref="apps.skill.notes" class="gb-link gb-app-tab gb-ellipsis">
+     Contribution
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <a ui-sref="skill.overview" class="gb-link gb-app-tab gb-ellipsis">
+     Manage
+    </a>
+   </li>
+  </ul>
+  <div ui-view="content" class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
+  <div class="gb-dummy-height row"></div>
  </div>
 </div>
-<div class="nav-container col-lg-10 col-md-9 col-sm-8">
- <div class="gb-top-nav-1 gb-nav row">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-   <div class="gb-title pull-left gb-ellipsis">
-    <strong>{{skillCtrl.skill.title}}</strong>
-    {{skillCtrl.skill.description}}
-   </div>
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-   <div class="gb-action pull-left">
-    <div class="btn-group">
-     <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
-      <i class="fa fa-2x fa-plus-circle"></i>
-     </a>
-     <a class="btn btn-xs btn-link gb-form-modal-trigger"
-        data-gb-modal-target="#gb-skill-play-modal">
-      <i class="fa fa-2x fa-play-circle"></i>
-     </a>
-     <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
-      <i class="fa fa-2x fa-filter"></i>
-     </a>
-    </div>
-   </div>
-  </div>
- </div>
- <div ui-view="content" id="gb-screen-height" class='container'></div>
-</div>
-
