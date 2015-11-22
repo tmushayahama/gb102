@@ -1,4 +1,4 @@
-<div class="gb-todos">
+<div class="gb-todos" ng-controller='SkillTodosCtrl as skillTodosCtrl'>
  <div class='row'>
   <div class='gb-heading'>TODOS</div>
   <div ng-show="!skillTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
@@ -103,7 +103,7 @@
    </li>
   </ul>
  </div>
-</div>
-<script type="text/ng-template" id="skill-todo-modal.html">
+ <script type="text/ng-template" id="skill-todo-modal.html">
  <div class="" ng-include="'public/modules/skills/views/modals/skill-todo.html'"></div>
-</script>
+ </script>
+</div>

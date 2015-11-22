@@ -74,12 +74,12 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.todos', {
-           url: '/todos',
+          .state('apps.skill.content', {
+           url: '/content',
            views: {
             "content": {
-             controller: 'SkillTodosCtrl as skillTodosCtrl',
-             templateUrl: 'public/modules/skills/views/skill-todos.html',
+             //controller: 'SkillTodosCtrl as skillTodosCtrl',
+             templateUrl: 'public/modules/skills/views/skill-content.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -93,6 +93,10 @@ define(['angular',
                   'public/modules/skills/services/SkillTodoChecklistManager.js',
                   'public/modules/skills/controllers/SkillTodosCtrl.js',
                   'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
+                  'public/modules/skills/services/SkillNoteManager.js',
+                  'public/modules/skills/services/SkillNotesManager.js',
+                  'public/modules/skills/controllers/SkillNotesCtrl.js',
+                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js'
                           // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -104,7 +108,7 @@ define(['angular',
            url: '/notes',
            views: {
             "content": {
-             controller: 'SkillNotesCtrl as skillNotesCtrl',
+             //controller: 'SkillNotesCtrl as skillNotesCtrl',
              templateUrl: 'public/modules/skills/views/skill-notes.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
