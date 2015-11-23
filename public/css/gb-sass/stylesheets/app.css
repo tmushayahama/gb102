@@ -1054,6 +1054,7 @@ input[type="checkbox"] {
 .gb-comments .gb-form-placeholder {
   background-color: #FFF;
   position: relative;
+  margin-bottom: 15px;
 }
 .gb-comments .gb-form-placeholder .gb-img {
   position: absolute;
@@ -1131,7 +1132,7 @@ input[type="checkbox"] {
   margin-bottom: 20px;
   background-color: #FFF;
   overflow: hidden;
-  height: 150px;
+  min-height: 80px;
 }
 .gb-comments .gb-comment-row:hover {
   background-color: #F7F7F7;
@@ -1157,10 +1158,6 @@ input[type="checkbox"] {
   left: 0;
 }
 .gb-comments .gb-comment-row .gb-comment-heading {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
   padding: 8px 5px 0 10px;
   height: 22px;
 }
@@ -1171,19 +1168,11 @@ input[type="checkbox"] {
   text-transform: uppercase;
 }
 .gb-comments .gb-comment-row .gb-description {
-  position: absolute;
-  top: 23px;
-  right: 0;
-  bottom: 50px;
-  left: 0;
-  padding: 2px 10px;
+  padding: 15px 10px;
   overflow: hidden;
 }
 .gb-comments .gb-comment-row .gb-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
   height: 40px;
   padding: 3px;
   border-top: #AAA solid 1px;
@@ -1199,7 +1188,7 @@ input[type="checkbox"] {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 47px;
+  left: 50px;
 }
 .gb-comments #comment-list li .toggle {
   margin: 5px 0 0 0;
