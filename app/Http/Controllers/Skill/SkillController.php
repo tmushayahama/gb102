@@ -11,10 +11,12 @@ use App\Models\Skill\Skill;
 use App\Models\Skill\SkillComment;
 use App\Models\Skill\SkillNote;
 use App\Models\Skill\SkillTodo;
+use App\Models\Skill\SkillWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
+use App\Models\Weblink\Weblink;
 use Request;
 use DB;
 
@@ -105,6 +107,26 @@ class SkillController extends Controller {
  public function editSkillComment() {
   $skillComment = SkilLComment::editSkillComment();
   return \Response::json($skillComment);
+ }
+
+ public function getSkillWeblinks($skillId) {
+  $skillWeblinks = SkilLWeblink::getSkillWeblinks($skillId);
+  return \Response::json($skillWeblinks);
+ }
+
+ public function getSkillWeblink($skillId, $weblinkId) {
+  $skillWeblink = SkilLWeblink::getSkillWeblink($skillId, $weblinkId);
+  return \Response::json($skillWeblink);
+ }
+
+ public function createSkillWeblink() {
+  $skillWeblink = SkilLWeblink::createSkillWeblink();
+  return \Response::json($skillWeblink);
+ }
+
+ public function editSkillWeblink() {
+  $skillWeblink = SkilLWeblink::editSkillWeblink();
+  return \Response::json($skillWeblink);
  }
 
  public function getSkillTimeline($id) {

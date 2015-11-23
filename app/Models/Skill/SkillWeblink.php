@@ -35,21 +35,32 @@ class SkillWeblink extends Model {
 
  public static function getSkillWeblinks($skillId) {
   $skillWeblinks = SkillWeblink::with('weblink')
+    ->with('weblink.creator')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
   return $skillWeblinks;
  }
 
+ public static function getSkillWeblink($skillId, $weblinkId) {
+  $skillWeblink = SkillWeblink::with('weblink')
+    ->orderBy('id', 'DESC')
+    ->where('skill_id', $skillId)
+    ->where('weblink_id', $weblinkId)
+    ->first();
+  return $skillWeblink;
+ }
+
  public static function createSkillWeblink() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
+  $title = Request::get("title");
   $description = Request::get("description");
   $weblink = new Weblink;
   $skillWeblink = new SkillWeblink;
   $weblink->creator_id = $userId;
-  $weblink->description = $description;
+  $weblink->title = $title;
   $skillWeblink->skill_id = $skillId;
 
   DB::beginTransaction();
@@ -69,19 +80,17 @@ class SkillWeblink extends Model {
  public static function editSkillWeblink() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
+  $skillWeblinkId = Request::get("skillWeblinkId");
+  //$weblinkId = Request::get("weblinkId");
+  $title = Request::get("title");
   $description = Request::get("description");
-  $weblink = new Weblink;
-  $skillWeblink = new SkillWeblink;
-  $weblink->creator_id = $userId;
-  $weblink->description = $description;
-  $skillWeblink->skill_id = $skillId;
+  $skillWeblink = SkillWeblink::find($skillWeblinkId);
+  $skillWeblink->weblink->title = $title;
+  $skillWeblink->weblink->description = $description;
 
   DB::beginTransaction();
   try {
-   $weblink->save();
-   $skillWeblink->weblink()->associate($weblink);
-   $skillWeblink->save();
+   $skillWeblink->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

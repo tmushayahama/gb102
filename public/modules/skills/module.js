@@ -4,9 +4,7 @@ define(['angular',
 ], function (angular) {
 
  "use strict";
-
  var module = angular.module('app.skills', ['ui.router']);
-
  module.config(function ($stateProvider) {
 
   $stateProvider
@@ -86,6 +84,7 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
+                  //Todos
                   'public/modules/skills/directives/todoEscape.js',
                   'public/modules/skills/directives/todoFocus.js',
                   'public/modules/skills/services/SkillTodoManager.js',
@@ -93,10 +92,16 @@ define(['angular',
                   'public/modules/skills/services/SkillTodoChecklistManager.js',
                   'public/modules/skills/controllers/SkillTodosCtrl.js',
                   'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
+                  //Notes,
                   'public/modules/skills/services/SkillNoteManager.js',
                   'public/modules/skills/services/SkillNotesManager.js',
                   'public/modules/skills/controllers/SkillNotesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js'
+                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js',
+                  //Weblink
+                  'public/modules/skills/services/SkillWeblinkManager.js',
+                  'public/modules/skills/services/SkillWeblinksManager.js',
+                  'public/modules/skills/controllers/SkillWeblinksCtrl.js',
+                  'public/modules/skills/controllers/modals/SkillWeblinkCtrl.js'
                           // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })

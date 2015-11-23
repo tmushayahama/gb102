@@ -26,6 +26,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
  Route::get('skill/{skillId}/notes', 'Skill\SkillController@getSkillNotes');
  Route::get('skill/{skillId}/note/{noteId}', 'Skill\SkillController@getSkillNote');
+ Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
+ Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
  Route::post('skill/comment/create', 'Skill\SkillController@createSkillComment');
  Route::post('skill/comment/edit', 'Skill\SkillController@editSkillComment');
@@ -33,6 +35,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/todo/edit', 'Skill\SkillController@editSkillTodo');
  Route::post('skill/note/create', 'Skill\SkillController@createSkillNote');
  Route::post('skill/note/edit', 'Skill\SkillController@editSkillNote');
+ Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
+ Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
+
 
  //Todos
  Route::get('todo/{todoId}/checklist', 'Skill\SkillController@getSkillTodoChecklist');
