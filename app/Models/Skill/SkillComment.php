@@ -35,6 +35,7 @@ class SkillComment extends Model {
 
  public static function getSkillComments($skillId) {
   $skillComments = SkillComment::with('comment')
+    ->with('comment.creator')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
@@ -60,7 +61,6 @@ class SkillComment extends Model {
   $skillComment = new SkillComment;
   $comment->creator_id = $userId;
   $comment->title = $title;
-  $comment->description = $description;
   $skillComment->skill_id = $skillId;
 
   DB::beginTransaction();

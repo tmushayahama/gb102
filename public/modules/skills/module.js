@@ -74,12 +74,12 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.content', {
-           url: '/content',
+          .state('apps.skill.tools', {
+           url: '/tools',
            views: {
             "content": {
              //controller: 'SkillTodosCtrl as skillTodosCtrl',
-             templateUrl: 'public/modules/skills/views/skill-content.html',
+             templateUrl: 'public/modules/skills/views/skill-tools.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -104,35 +104,12 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.notes', {
-           url: '/notes',
+          .state('apps.skill.community', {
+           url: '/community',
            views: {
             "content": {
              //controller: 'SkillNotesCtrl as skillNotesCtrl',
-             templateUrl: 'public/modules/skills/views/skill-notes.html',
-             resolve: {
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.skills',
-                 serie: true,
-                 files: [
-                  'public/modules/skills/services/SkillNoteManager.js',
-                  'public/modules/skills/services/SkillNotesManager.js',
-                  'public/modules/skills/controllers/SkillNotesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js',
-                          // 'public/css/ss_themes/ss_theme_1.css'
-                 ]
-                })
-               }]
-             }
-            }
-           }})
-          .state('apps.skill.comments', {
-           url: '/comments',
-           views: {
-            "content": {
-             controller: 'SkillCommentsCtrl as skillCommentsCtrl',
-             templateUrl: 'public/modules/skills/views/skill-comments.html',
+             templateUrl: 'public/modules/skills/views/skill-community.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
