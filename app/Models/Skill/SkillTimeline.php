@@ -35,21 +35,32 @@ class SkillTimeline extends Model {
 
  public static function getSkillTimelines($skillId) {
   $skillTimelines = SkillTimeline::with('timeline')
+    ->with('timeline.creator')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
   return $skillTimelines;
  }
 
+ public static function getSkillTimeline($skillId, $timelineId) {
+  $skillTimeline = SkillTimeline::with('timeline')
+    ->orderBy('id', 'DESC')
+    ->where('skill_id', $skillId)
+    ->where('timeline_id', $timelineId)
+    ->first();
+  return $skillTimeline;
+ }
+
  public static function createSkillTimeline() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
+  $title = Request::get("title");
   $description = Request::get("description");
   $timeline = new Timeline;
   $skillTimeline = new SkillTimeline;
   $timeline->creator_id = $userId;
-  $timeline->description = $description;
+  $timeline->title = $title;
   $skillTimeline->skill_id = $skillId;
 
   DB::beginTransaction();
@@ -69,19 +80,17 @@ class SkillTimeline extends Model {
  public static function editSkillTimeline() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
+  $skillTimelineId = Request::get("skillTimelineId");
+  //$timelineId = Request::get("timelineId");
+  $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $skillTimeline = new SkillTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->description = $description;
-  $skillTimeline->skill_id = $skillId;
+  $skillTimeline = SkillTimeline::find($skillTimelineId);
+  $skillTimeline->timeline->title = $title;
+  $skillTimeline->timeline->description = $description;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $skillTimeline->timeline()->associate($timeline);
-   $skillTimeline->save();
+   $skillTimeline->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

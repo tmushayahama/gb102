@@ -8,12 +8,14 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Skill\Skill;
+use App\Models\Skill\SkillTimeline;
 use App\Models\Skill\SkillComment;
 use App\Models\Skill\SkillNote;
 use App\Models\Skill\SkillTodo;
 use App\Models\Skill\SkillWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
+use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -30,6 +32,26 @@ class SkillController extends Controller {
  public function getSkill($id) {
   $skill = Skill::getSkill($id);
   return \Response::json($skill);
+ }
+
+ public function getSkillTimelines($skillId) {
+  $skillTimelines = SkilLTimeline::getSkillTimelines($skillId);
+  return \Response::json($skillTimelines);
+ }
+
+ public function getSkillTimeline($skillId, $timelineId) {
+  $skillTimeline = SkilLTimeline::getSkillTimeline($skillId, $timelineId);
+  return \Response::json($skillTimeline);
+ }
+
+ public function createSkillTimeline() {
+  $skillTimeline = SkilLTimeline::createSkillTimeline();
+  return \Response::json($skillTimeline);
+ }
+
+ public function editSkillTimeline() {
+  $skillTimeline = SkilLTimeline::editSkillTimeline();
+  return \Response::json($skillTimeline);
  }
 
  /* TODOS */
@@ -127,22 +149,6 @@ class SkillController extends Controller {
  public function editSkillWeblink() {
   $skillWeblink = SkilLWeblink::editSkillWeblink();
   return \Response::json($skillWeblink);
- }
-
- public function getSkillTimeline($id) {
-  // $id = Request::get("id");
-  $skill = Skill::with('creator')
-    ->find($id);
-  //$user = JWTAuth::parseToken()->toUser();
-  //$userId = $user->id;
-  return $skill; //$skill;
- }
-
- public function getSkillt($id) {
-  $skill = Skill::find($id);
-  $user = JWTAuth::parseToken()->toUser();
-  //$userId = $user->id;
-  return $user; //$skill;
  }
 
 }
