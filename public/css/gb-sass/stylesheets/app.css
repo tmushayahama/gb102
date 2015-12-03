@@ -2294,7 +2294,7 @@ input.gb-form-show {
   font-size: 0.8em;
   padding: 15px 3px 15px 5px;
   margin: 0;
-  color: #AAA;
+  color: #999;
   border-bottom: #CCC solid 1px;
 }
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -2313,6 +2313,7 @@ input.gb-form-show {
   padding: 10px 5px;
   display: block;
   width: 100%;
+  border-bottom: #EEE solid 1px;
   /*
   -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
@@ -2327,10 +2328,11 @@ input.gb-form-show {
   */
 }
 #gb-left-nav-3 .gb-link:hover {
-  opacity: 0.6;
+  opacity: 0.7;
+  background-color: #EEE;
 }
 #gb-left-nav-3 .gb-link.active {
-  background-color: #F7F7F7;
+  background-color: #F2F2F2;
 }
 #gb-left-nav-3 .gb-link .thumbnail {
   margin-bottom: 0px;
@@ -2357,7 +2359,7 @@ input.gb-form-show {
   padding: 0px 3px 0px 5px;
   font-size: 1.1em;
   font-weight: bold;
-  color: #777;
+  color: #444;
   line-height: 33px;
   text-decoration: none;
   overflow: hidden;
@@ -2365,7 +2367,7 @@ input.gb-form-show {
 #gb-left-nav-3 .gb-link .gb-description {
   padding: 3px 5px;
   font-size: 0.9em;
-  color: #999;
+  color: #777;
   text-decoration: none;
 }
 
