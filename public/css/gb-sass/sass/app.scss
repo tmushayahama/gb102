@@ -1318,7 +1318,7 @@ input.gb-form-show{
  }
 
  .gb-body {
-  @include position(absolute, 42px 0 null 0);
+  @include position(absolute, 42px 0 0 0);
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -3520,7 +3520,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  margin-bottom: 20px;
  background-color: #FFF;
  overflow: hidden;
- height: 150px;
+ height: 180px;
 
  &:hover {
   background-color: #F7F7F7;
@@ -3559,8 +3559,8 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   }
   .gb-footer {
    @include position(absolute, null 0 0 0);
-   height: 40px;
-   padding: 3px;
+   height: 50px;
+   padding: 8px 3px;
    border-top: #AAA solid 1px;
    .gb-profile-pic {
     margin-left: 5px;
@@ -3568,8 +3568,8 @@ ul .gb-sticky-note-row:nth-child(5n) a{
     width: 35px;
    }
    .gb-footer-content {
-    padding: 3px 0 0 0;
-    @include position(absolute, 0 0 0 47px);
+    padding: 10px 0 0 0;
+    @include position(absolute, 0 0 0 50px);
    }
   }
  }

@@ -6,6 +6,8 @@ define([
   function ($state, $http, $rootScope) {
    var vm = this;
 
+
+
    vm.ttt = function () {
     var credentials = {
      email: vm.email,

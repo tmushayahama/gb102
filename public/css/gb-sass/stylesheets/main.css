@@ -9606,6 +9606,7 @@ input.gb-form-show {
   position: absolute;
   top: 42px;
   right: 0;
+  bottom: 0;
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -12048,7 +12049,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   margin-bottom: 20px;
   background-color: #FFF;
   overflow: hidden;
-  height: 150px;
+  height: 180px;
 }
 .gb-box-1:hover {
   background-color: #F7F7F7;
@@ -12104,8 +12105,8 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 40px;
-  padding: 3px;
+  height: 50px;
+  padding: 8px 3px;
   border-top: #AAA solid 1px;
 }
 .gb-box-1 .gb-box-body .gb-footer .gb-profile-pic {
@@ -12114,12 +12115,12 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   width: 35px;
 }
 .gb-box-1 .gb-box-body .gb-footer .gb-footer-content {
-  padding: 3px 0 0 0;
+  padding: 10px 0 0 0;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 47px;
+  left: 50px;
 }
 
 .gb-box-2 {
