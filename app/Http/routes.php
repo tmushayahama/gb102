@@ -26,6 +26,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
  Route::get('skill/{skillId}/notes', 'Skill\SkillController@getSkillNotes');
  Route::get('skill/{skillId}/note/{noteId}', 'Skill\SkillController@getSkillNote');
+ Route::get('skill/{skillId}/timelines', 'Skill\SkillController@getSkillTimelines');
+ Route::get('skill/{skillId}/timeline/{timelineId}', 'Skill\SkillController@getSkillTimeline');
+
  Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
  Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
@@ -35,6 +38,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/todo/edit', 'Skill\SkillController@editSkillTodo');
  Route::post('skill/note/create', 'Skill\SkillController@createSkillNote');
  Route::post('skill/note/edit', 'Skill\SkillController@editSkillNote');
+ Route::post('skill/timeline/create', 'Skill\SkillController@createSkillTimeline');
+ Route::post('skill/timeline/edit', 'Skill\SkillController@editSkillTimeline');
  Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
 

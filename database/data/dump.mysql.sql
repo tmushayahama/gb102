@@ -2560,7 +2560,7 @@ CREATE TABLE `gb_skill_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill_timeline`
+-- Table structure for table `gb_skill_share`
 --
 DROP TABLE IF EXISTS `gb_skill_share`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

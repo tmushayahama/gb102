@@ -1,94 +1,57 @@
-
-<div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
- <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-  <div id="gb-middle-nav-3" class="gb-nav-parent">
-   <div class="gb-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="row gb-hide">
-     <div class="input-group gb-padding-thin">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-      <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
-      <div class="input-group-btn">
-       <button id="gb-keyword-search-btn" class="btn btn-default form-control">
-        <span class="caret"></span>
-       </button>
-      </div>
-     </div>
-    </div>
-    <div class="gb-dummy-height row"></div>
-   </div>
+<section class="gb-section-row-2 row">
+ <header class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+   <p class="gb-title gb-ellipsis">
+    DESCRIPTION
+   </p>
   </div>
- </div>
-</div>
-<div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
- <div id="gb-right-nav-3" role="navigation">
- </div>
-</div>
-
-
-
-
-
-
-
-
-<div ng-show='false' id="gb-screen-height" class="container">
- <div class="nav-container gb-skill-item row gb-app-detail col-lg-8 col-md-9 col-sm-8 col-xs-12">
-  <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <a class='gb-hide gb-close-right-nav'>
-    <i class='fa fa-times'></i> close
+  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
+       ng-show="!skillTodoCtrl.editDecriptionMode">
+   <a class="gb-ghost-btn-2 pull-right" ng-click="editDescriptionForm.$show()" ng-hide="editDescriptionForm.$visible">
+    <i class="fa fa-pencil"></i>
    </a>
-   <div class="gb-hide gb-app-item-heading row">
-    <div class="col-lg-2">
-     <img src="" class="gb-heading-img" alt="">
-    </div>
-    <div class="col-lg-7 gb-padding-left-1 text-left">
-     <p class="gb-title">
-      <a class="gb-ellipsis">
-       <?php
-       echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
-       ?>
-      </a>
-     </p>
-     <p class="gb-ellipsis gb-description">
-      <strong><?php echo $skill->level->name; ?></strong>
-     </p>
-     <div class="gb-ellipsis gb-description">
-      Created on
-      <i>
-       <a>
-        <?php echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
-       </a>
-      </i>
-     </div>
-     <p class="gb-ellipsis gb-description">
-      <a class="gb-faded-link"><i class="fa fa-share"></i> Share</a> •
-      <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone Request</a>
-     </p>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-thinner">
-     <div class="row">
-      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown" aria-expanded="false">
-       <i class="fa fa-star"></i> Subscribe
-      </a>
-      <br>
-      <a class="btn dropdown-toggle btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12"
-         data-gb-modal-target="#gb-contribute-modal">
-       <i class="fa fa-user-plus"></i> Contribute
-      </a>
-     </div>
-    </div>
-   </div>
-   <div class="tab-content">
-    <div class="tab-pane active">
-     <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-thin">
-
-      <br>
-     </div>
-    </div>
-   </div>
   </div>
+ </header>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div ng-hide="editDescriptionForm.$visible" id="gb-skill-item-todo-panel" class="row">
+   <strong>{{skillCtrl.skill.title}}</strong>
+   {{skillCtrl.skill.description}}
+  </div>
+  <form editable-form name="editDescriptionForm" onbeforesave="skillTodoCtrl.editSkillTodoSections.details($data)" ng-show="editDescriptionForm.$visible">
+   <div class="form-group row">
+    <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+     <div editable-textarea="skillCtrl.skill.title" e-name="title" e-required
+          e-rows="2" e-placeholder="title"
+          e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     </div>
+    </div>
+   </div>
+   <div class="form-group row">
+    <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+     <div editable-textarea="skillCtrl.skill.description" e-name="description"
+          e-rows="4" e-placeholder="description"
+          e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     </div>
+    </div>
+   </div>
+   <div class="row"
+        ng-show="editDescriptionForm.$visible">
+    <div class="btn-group pull-right">
+     <button type="button" class="btn gb-btn gb-btn-xs"
+             ng-disabled="editDescriptionForm.$waiting" ng-click="editDescriptionForm.$cancel()">
+      <i class="text-danger fa fa-times"></i>
+     </button>
+     <button type="submit" class="btn gb-btn gb-btn-xs"
+             ng-disabled="editDescriptionForm.$waiting">
+      <i class="text-success fa fa-check"></i>
+     </button>
+    </div>
+   </div>
+  </form>
  </div>
- <!-- ------------------------------- MODALS --------------------------->
+</section>
 
-
-</div>
+<div class="" ng-include="'public/modules/skills/views/skill-timeline.html'"></div>
+<div class="gb-dummy-height row"></div>

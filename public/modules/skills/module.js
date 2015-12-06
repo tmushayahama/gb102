@@ -65,6 +65,11 @@ define(['angular',
                  files: [
                   'public/modules/skills/services/SkillService.js',
                   'public/modules/skills/controllers/SkillOverviewCtrl.js',
+                  //Timeline
+                  'public/modules/skills/services/SkillTimelineManager.js',
+                  'public/modules/skills/services/SkillTimelinesManager.js',
+                  'public/modules/skills/controllers/SkillTimelinesCtrl.js',
+                  'public/modules/skills/controllers/modals/SkillTimelineCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -87,7 +92,7 @@ define(['angular',
                   //Todos
                   'public/modules/skills/directives/todoEscape.js',
                   'public/modules/skills/directives/todoFocus.js',
-                  'public/modules/skills/4services/SkillTodoManager.js',
+                  'public/modules/skills/services/SkillTodoManager.js',
                   'public/modules/skills/services/SkillTodosManager.js',
                   'public/modules/skills/services/SkillTodoChecklistManager.js',
                   'public/modules/skills/controllers/SkillTodosCtrl.js',

@@ -16,6 +16,7 @@ and open the template in the editor.
 @import "components/gb-navs";
 
 @import "components/gb-comments";
+@import "components/gb-timeline";
 @import "components/gb-weblinks";
 @import "components/custom-xeditable";
 
@@ -3574,6 +3575,10 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   }
  }
 }
+
+.gb-suggestions {
+ background-color: #F2F2F2;
+}
 .gb-box-2 {
  margin-bottom: 20px;
  background-color: #FAFAFA;
@@ -3834,31 +3839,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 .gb-profile-header-1 .gb-profile-header-img-1{
  max-height: 110px;
  max-width: 110px;
-}
-
-
-.gb-section-row-2 {
- margin-bottom: 40px;
-}
-
-.gb-section-row-2 .gb-heading {
- padding: 0 0 10px 0;
- margin-bottom: 10px;
- font-weight: bold;
- border-bottom: #999 solid 1px;
-}
-
-.gb-section-row-2 .gb-heading .gb-title {
- padding: 4px 0 0 0;
- font-weight: bold;
-}
-
-.gb-section-row-2 .gb-heading .gb-action {
- padding: 0px 0 0 0;
-}
-
-.gb-section-row-2 .gb-body {
- padding-top: 10px;
 }
 
 .gb-question-answer-row {
