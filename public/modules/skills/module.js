@@ -20,7 +20,7 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/services/SkillsService.js',
+                  'public/modules/skills/services/SkillsManager.js',
                   'public/modules/skills/controllers/SkillsCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
@@ -42,7 +42,7 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/services/SkillService.js',
+                  'public/modules/skills/services/SkillManager.js',
                   'public/modules/skills/controllers/SkillCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
@@ -63,7 +63,6 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/services/SkillService.js',
                   'public/modules/skills/controllers/SkillOverviewCtrl.js',
                   //Timeline
                   'public/modules/skills/services/SkillTimelineManager.js',

@@ -1,19 +1,151 @@
-angular.module("app.skills").controller('SkillsCtrl', ['SkillsService', '$state', '$http', '$rootScope',
- function (SkillsService, $state, $http, $rootScope) {
-  var vm = this;
-  //vm.theme = "public/css/ss_themes/ss_theme_1.css";
-  vm.skills = [];
-  var skillData = {
-  };
+angular.module("app.skills").controller('SkillsCtrl',
+        ['SkillsManager',
+         '$scope',
+         '$state',
+         '$stateParams',
+         '$http',
+         '$rootScope',
+         '$location',
+         '$uibModal',
+         '$log',
+         '$filter',
+         function (
+                 SkillsManager,
+                 $scope,
+                 $state,
+                 $stateParams,
+                 $http,
+                 $rootScope,
+                 $location,
+                 $uibModal,
+                 $log,
+                 $filter) {
 
-  vm.getSkills = function () {
-   SkillsService.get(skillData).success(function (response) {
-    vm.skills = response;
-   }).error(function (response) {
-    console.log(response);
-   });
-  };
+          var vm = this;
+          vm.skillsManager = new SkillsManager();
 
-  vm.getSkills();
- }
-])
+
+          vm.createSkill = function (data) {
+           vm.skillsManager.createSkill(data).then(function (response) {
+            vm.FormDisplay = false;
+            vm.newSkillData = angular.copy(vm.defaultSkillData);
+            vm.skillsCopy = angular.copy(vm.skillsManager.skills);
+           }, function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editSkill = function (data) {
+           vm.skillsManager.editSkill(data).then(function (response) {
+            vm.FormDisplay = false;
+            vm.newSkillData = angular.copy(vm.defaultSkillData);
+            vm.skillsCopy = angular.copy(vm.skillsManager.skills);
+           }, function (response) {
+            console.log(response);
+           });
+          };
+
+          vm.editSkillSections = {
+           details: function (skillId, detail) {
+            var skillData = {
+             skillId: skillId,
+             title: detail.title,
+             description: detail.description
+            };
+            vm.editSkill(skillData);
+           }
+          }
+
+          vm.cancelSkill = function (form) {
+           vm.FormDisplay = false;
+           vm.newSkillData = angular.copy(vm.defaultSkillData)
+           if (form) {
+            form.$setPristine();
+            form.$setUntouched();
+           }
+          };
+
+          vm.revertSkill = function (skill, skillCopy) {
+           skill = skillCopy;
+           /*
+            $filter('filter')
+            (vm.skillsManager.skills, {id: skillId}, true)[0]
+            = angular.copy($filter('filter')
+            (vm.skillsCopy, {id: skillId}, true)[0]);
+            if (skill.length && skillCopy.length) {
+            // vm.skillsManager.skills angular.copy(vm.skillsCopy);
+            }
+            */
+          };
+
+
+
+
+
+
+          vm.edited = null;
+
+          $scope.$watch(angular.bind(this, function () {
+           return vm.skills;
+          }), function () {
+           //vm.remainingCount = filterFilter(skills, {completed: false}).length;
+           vm.doneCount = vm.skillsManager.skills.length - vm.remainingCount;
+           vm.allChecked = !vm.remainingCount;
+           //SkillService.put(vm.skills);
+          }, true);
+          /*
+           $scope.$watch(angular.bind(this, function () {
+           return vm.location.path();
+           }), function (path) {
+           vm.statusFilter = (path === '/active') ?
+           {completed: false} : (path === '/completed') ?
+           {completed: true} : null;
+           });
+           */
+
+
+
+
+          vm.edit = function (skill) {
+           vm.edited = skill;
+           // Clone the original skill to restore it on demand.
+           vm.original = angular.copy(skill);
+          };
+
+
+          vm.doneEditing = function (skill) {
+           vm.edited = null;
+           skill.title = skill.title.trim();
+
+           if (!skill.title) {
+            vm.remove(skill);
+           }
+          };
+
+          vm.openSkill = function (skill) {
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'skill--modal.html',
+            controller: 'SkillCtrl as skillCtrl',
+            backdrop: 'static',
+            size: 'xl',
+            resolve: {
+             skillData: function () {
+              return skill;
+             }
+            }
+           });
+
+           modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+           }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+           });
+          };
+
+
+
+          //--------init------
+          vm.skillsManager.getSkills(vm.skillId);
+         }
+        ])
