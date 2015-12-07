@@ -34,45 +34,55 @@ class SkillController extends Controller {
   return \Response::json($skill);
  }
 
+ public function createSkill() {
+  $skill = Skill::createSkill();
+  return \Response::json($skill);
+ }
+
+ public function editSkill() {
+  $skill = Skill::editSkill();
+  return \Response::json($skill);
+ }
+
  public function getSkillTimelines($skillId) {
-  $skillTimelines = SkilLTimeline::getSkillTimelines($skillId);
+  $skillTimelines = SkillTimeline::getSkillTimelines($skillId);
   return \Response::json($skillTimelines);
  }
 
  public function getSkillTimeline($skillId, $timelineId) {
-  $skillTimeline = SkilLTimeline::getSkillTimeline($skillId, $timelineId);
+  $skillTimeline = SkillTimeline::getSkillTimeline($skillId, $timelineId);
   return \Response::json($skillTimeline);
  }
 
  public function createSkillTimeline() {
-  $skillTimeline = SkilLTimeline::createSkillTimeline();
+  $skillTimeline = SkillTimeline::createSkillTimeline();
   return \Response::json($skillTimeline);
  }
 
  public function editSkillTimeline() {
-  $skillTimeline = SkilLTimeline::editSkillTimeline();
+  $skillTimeline = SkillTimeline::editSkillTimeline();
   return \Response::json($skillTimeline);
  }
 
  /* TODOS */
 
  public function getSkillTodos($skillId) {
-  $skillTodos = SkilLTodo::getSkillTodos($skillId);
+  $skillTodos = SkillTodo::getSkillTodos($skillId);
   return \Response::json($skillTodos);
  }
 
  public function getSkillTodo($skillId, $todoId) {
-  $skillTodo = SkilLTodo::getSkillTodo($skillId, $todoId);
+  $skillTodo = SkillTodo::getSkillTodo($skillId, $todoId);
   return \Response::json($skillTodo);
  }
 
  public function createSkillTodo() {
-  $skillTodo = SkilLTodo::createSkillTodo();
+  $skillTodo = SkillTodo::createSkillTodo();
   return \Response::json($skillTodo);
  }
 
  public function editSkillTodo() {
-  $skillTodo = SkilLTodo::editSkillTodo();
+  $skillTodo = SkillTodo::editSkillTodo();
   return \Response::json($skillTodo);
  }
 
@@ -92,62 +102,62 @@ class SkillController extends Controller {
  }
 
  public function getSkillNotes($skillId) {
-  $skillNotes = SkilLNote::getSkillNotes($skillId);
+  $skillNotes = SkillNote::getSkillNotes($skillId);
   return \Response::json($skillNotes);
  }
 
  public function getSkillNote($skillId, $noteId) {
-  $skillNote = SkilLNote::getSkillNote($skillId, $noteId);
+  $skillNote = SkillNote::getSkillNote($skillId, $noteId);
   return \Response::json($skillNote);
  }
 
  public function createSkillNote() {
-  $skillNote = SkilLNote::createSkillNote();
+  $skillNote = SkillNote::createSkillNote();
   return \Response::json($skillNote);
  }
 
  public function editSkillNote() {
-  $skillNote = SkilLNote::editSkillNote();
+  $skillNote = SkillNote::editSkillNote();
   return \Response::json($skillNote);
  }
 
  public function getSkillComments($skillId) {
-  $skillComments = SkilLComment::getSkillComments($skillId);
+  $skillComments = SkillComment::getSkillComments($skillId);
   return \Response::json($skillComments);
  }
 
  public function getSkillComment($skillId, $commentId) {
-  $skillComment = SkilLComment::getSkillComment($skillId, $commentId);
+  $skillComment = SkillComment::getSkillComment($skillId, $commentId);
   return \Response::json($skillComment);
  }
 
  public function createSkillComment() {
-  $skillComment = SkilLComment::createSkillComment();
+  $skillComment = SkillComment::createSkillComment();
   return \Response::json($skillComment);
  }
 
  public function editSkillComment() {
-  $skillComment = SkilLComment::editSkillComment();
+  $skillComment = SkillComment::editSkillComment();
   return \Response::json($skillComment);
  }
 
  public function getSkillWeblinks($skillId) {
-  $skillWeblinks = SkilLWeblink::getSkillWeblinks($skillId);
+  $skillWeblinks = SkillWeblink::getSkillWeblinks($skillId);
   return \Response::json($skillWeblinks);
  }
 
  public function getSkillWeblink($skillId, $weblinkId) {
-  $skillWeblink = SkilLWeblink::getSkillWeblink($skillId, $weblinkId);
+  $skillWeblink = SkillWeblink::getSkillWeblink($skillId, $weblinkId);
   return \Response::json($skillWeblink);
  }
 
  public function createSkillWeblink() {
-  $skillWeblink = SkilLWeblink::createSkillWeblink();
+  $skillWeblink = SkillWeblink::createSkillWeblink();
   return \Response::json($skillWeblink);
  }
 
  public function editSkillWeblink() {
-  $skillWeblink = SkilLWeblink::editSkillWeblink();
+  $skillWeblink = SkillWeblink::editSkillWeblink();
   return \Response::json($skillWeblink);
  }
 

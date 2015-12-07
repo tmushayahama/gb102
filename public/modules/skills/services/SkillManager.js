@@ -2,7 +2,7 @@ angular.module('app.skills').service('SkillManager',
         ['$http', '$q', function ($http, $q) {
 
           var SkillManager = function () {
-           this.skills = [];
+           this.skill = [];
           };
           SkillManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
            if (!data || typeof data !== 'object') {

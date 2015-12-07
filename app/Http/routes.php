@@ -32,6 +32,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
  Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
+ Route::post('skill/edit', 'Skill\SkillController@editSkill');
+
  Route::post('skill/comment/create', 'Skill\SkillController@createSkillComment');
  Route::post('skill/comment/edit', 'Skill\SkillController@editSkillComment');
  Route::post('skill/todo/create', 'Skill\SkillController@createSkillTodo');

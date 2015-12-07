@@ -1,5 +1,5 @@
 
-angular.module("app.skill").controller('SkillCtrl',
+angular.module("app.skills").controller('SkillCtrl',
         ['SkillManager',
          '$scope',
          '$state',
@@ -11,7 +11,7 @@ angular.module("app.skill").controller('SkillCtrl',
          '$log',
          '$filter',
          function (
-                 SskillManager,
+                 SkillManager,
                  $scope,
                  $state,
                  $stateParams,
@@ -24,64 +24,26 @@ angular.module("app.skill").controller('SkillCtrl',
 
 
           var vm = this;
-          vm.sskill = [];
+          vm.skill = [];
           var skillData = {
           };
+
+
+          vm.skillId = $stateParams.skillId;
 
           vm.skillManager = new SkillManager();
           vm.skillFormDisplay = false;
 
           vm.getSkill = function (id, data) {
-           SkillManager.get(id, data).success(function (response) {
+           vm.skillManager.getSkill(id, data).success(function (response) {
             vm.skill = response;
            }).error(function (response) {
             console.log(response);
            });
           };
 
-          vm.editSkill = function (data) {
-           vm.sskillManager.editSkill(data).then(function (response) {
-            vm.skillFormDisplay = false;
-            //vm.newSkillData = angular.copy(vm.defaultSkillData);
-            //vm.sskillCopy = angular.copy(vm.sskillManager.sskill);
-           }, function (response) {
-            console.log(response);
-           });
-          };
-
-          vm.editSkillSections = {
-           details: function (skillId, detail) {
-            var skillData = {
-             skillId: skillId,
-             title: detail.title,
-             description: detail.description
-            };
-            vm.editSkill(skillData);
-           }
-          }
-
-          vm.getSkill($stateParams.skillId, skillData);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          vm.skillId = $stateParams.skillId;
-          vm.sskillCopy;
-          vm.sskillManager = new SskillManager();
-          vm.FormDisplay = false;
 
           vm.defaultSkillData = {
            skillId: $stateParams.skillId,
@@ -94,20 +56,20 @@ angular.module("app.skill").controller('SkillCtrl',
           };
 
           vm.createSkill = function (data) {
-           vm.sskillManager.createSkill(data).then(function (response) {
+           vm.skillManager.createSkill(data).then(function (response) {
             vm.FormDisplay = false;
             vm.newSkillData = angular.copy(vm.defaultSkillData);
-            vm.sskillCopy = angular.copy(vm.sskillManager.sskill);
+            vm.skillCopy = angular.copy(vm.skillManager.skill);
            }, function (response) {
             console.log(response);
            });
           };
 
           vm.editSkill = function (data) {
-           vm.sskillManager.editSkill(data).then(function (response) {
+           vm.skillManager.editSkill(data).then(function (response) {
             vm.FormDisplay = false;
             vm.newSkillData = angular.copy(vm.defaultSkillData);
-            vm.sskillCopy = angular.copy(vm.sskillManager.sskill);
+            vm.skillCopy = angular.copy(vm.skillManager.skill);
            }, function (response) {
             console.log(response);
            });
@@ -137,11 +99,11 @@ angular.module("app.skill").controller('SkillCtrl',
            skill = skillCopy;
            /*
             $filter('filter')
-            (vm.sskillManager.sskill, {id: skillId}, true)[0]
+            (vm.skillManager.skill, {id: skillId}, true)[0]
             = angular.copy($filter('filter')
-            (vm.sskillCopy, {id: skillId}, true)[0]);
+            (vm.skillCopy, {id: skillId}, true)[0]);
             if (skill.length && skillCopy.length) {
-            // vm.sskillManager.sskill angular.copy(vm.sskillCopy);
+            // vm.skillManager.skill angular.copy(vm.skillCopy);
             }
             */
           };
@@ -154,12 +116,12 @@ angular.module("app.skill").controller('SkillCtrl',
           vm.edited = null;
 
           $scope.$watch(angular.bind(this, function () {
-           return vm.sskill;
+           return vm.skill;
           }), function () {
-           //vm.remainingCount = filterFilter(sskill, {completed: false}).length;
-           vm.doneCount = vm.sskillManager.sskill.length - vm.remainingCount;
+           //vm.remainingCount = filterFilter(skill, {completed: false}).length;
+           vm.doneCount = vm.skillManager.skill.length - vm.remainingCount;
            vm.allChecked = !vm.remainingCount;
-           //SkillService.put(vm.sskill);
+           //SkillService.put(vm.skill);
           }, true);
           /*
            $scope.$watch(angular.bind(this, function () {
@@ -214,6 +176,6 @@ angular.module("app.skill").controller('SkillCtrl',
 
 
           //--------init------
-          vm.sskillManager.getSskill(vm.skillId);
+          vm.skillManager.getSkill(vm.skillId);
          }
         ])
