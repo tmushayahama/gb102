@@ -54,7 +54,7 @@ angular.module('app.skills').service('SkillsManager',
            var deferred = $q.defer();
            $http({
             method: 'POST',
-            url: '/api/skill//create',
+            url: '/api/skill/create',
             data: skillData
            }).success(function (data) {
             self.skill.unshift(data);
@@ -70,7 +70,7 @@ angular.module('app.skills').service('SkillsManager',
            var deferred = $q.defer();
            $http({
             method: 'POST',
-            url: '/api/skill//edit',
+            url: '/api/skilledit',
             data: skillData
            }).success(function (data) {
             self.deferredHandler(data, deferred);

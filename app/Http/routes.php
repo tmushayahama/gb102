@@ -33,6 +33,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
  Route::post('skill/edit', 'Skill\SkillController@editSkill');
+ Route::post('skill/create', 'Skill\SkillController@createSkill');
 
  Route::post('skill/comment/create', 'Skill\SkillController@createSkillComment');
  Route::post('skill/comment/edit', 'Skill\SkillController@editSkillComment');
@@ -44,6 +45,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/timeline/edit', 'Skill\SkillController@editSkillTimeline');
  Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
+
+ Route::post('constants/levels/{code}', 'ConstantController@getLevels');
+
 
 
  //Todos

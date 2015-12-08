@@ -20,8 +20,10 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
+                  'public/modules/app/services/ConstantManager.js',
                   'public/modules/skills/services/SkillsManager.js',
                   'public/modules/skills/controllers/SkillsCtrl.js',
+                  'public/modules/skills/controllers/modals/AddSkillCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })

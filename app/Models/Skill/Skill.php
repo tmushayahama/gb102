@@ -52,28 +52,23 @@ class Skill extends Model {
  public static function createSkill() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillId = Request::get("skillId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $todo = new Todo;
-  $skillTodo = new SkillTodo;
-  $todo->creator_id = $userId;
-  $todo->title = $title;
-  $todo->description = $description;
-  $skillTodo->skill_id = $skillId;
+  $skill = new Skill;
+  $skill->creator_id = $userId;
+  $skill->title = $title;
+  $skill->description = $description;
 
   DB::beginTransaction();
   try {
-   $todo->save();
-   $skillTodo->todo()->associate($todo);
-   $skillTodo->save();
+   $skill->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTodo;
+  return $skill;
  }
 
  public static function editSkill() {

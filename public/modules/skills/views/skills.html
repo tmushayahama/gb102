@@ -4,7 +4,7 @@
  </div>
  <div class="gb-action pull-left">
   <div class="btn-group">
-   <a class="btn btn-xs btn-link dropdown-toggle gb-backdrop-visible">
+   <a ng-click="skillsCtrl.openAddSkillModal()" class="btn btn-xs btn-link">
     <i class="fa fa-2x fa-plus-circle"></i>
    </a>
    <a class="btn btn-xs btn-link gb-form-modal-trigger"
@@ -90,3 +90,7 @@
  </div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->
+
+<script type="text/ng-template" id="add-skill-modal.html">
+  <div ng-include="'public/modules/skills/views/modals/add-skill.html'"></div>
+</script>

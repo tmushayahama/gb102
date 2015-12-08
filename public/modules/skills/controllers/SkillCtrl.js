@@ -152,26 +152,7 @@ angular.module("app.skills").controller('SkillCtrl',
            }
           };
 
-          vm.openSkill = function (skill) {
-           var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'skill--modal.html',
-            controller: 'SkillCtrl as skillCtrl',
-            backdrop: 'static',
-            size: 'xl',
-            resolve: {
-             skillData: function () {
-              return skill;
-             }
-            }
-           });
 
-           modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-           }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-           });
-          };
 
 
 
