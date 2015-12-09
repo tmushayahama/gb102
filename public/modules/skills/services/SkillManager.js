@@ -23,7 +23,6 @@ angular.module('app.skills').service('SkillManager',
            return deferred.resolve(data);
           };
 
-
           SkillManager.prototype.getSkill = function (skillId) {
            var self = this;
            var deferred = $q.defer();

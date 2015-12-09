@@ -57,7 +57,7 @@ angular.module('app.skills').service('SkillsManager',
             url: '/api/skill/create',
             data: skillData
            }).success(function (data) {
-            self.skill.unshift(data);
+            self.skills.unshift(data);
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');

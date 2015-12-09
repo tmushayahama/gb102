@@ -21,7 +21,7 @@ class Skill extends Model {
  }
 
  public function level() {
-  return $this->belongsTo('App\Models\Level', 'level_id');
+  return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
  /**
@@ -54,10 +54,13 @@ class Skill extends Model {
   $userId = $user->id;
   $title = Request::get("title");
   $description = Request::get("description");
+  $levelId = Request::get("level");
+
   $skill = new Skill;
   $skill->creator_id = $userId;
   $skill->title = $title;
   $skill->description = $description;
+  $skill->level_id = $levelId;
 
   DB::beginTransaction();
   try {

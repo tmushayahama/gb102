@@ -1,14 +1,14 @@
 angular.module("app.skills").controller('AddSkillCtrl',
-        ['ConstantManager',
-         '$uibModalInstance',
+        ['$uibModalInstance',
          '$scope',
          '$state',
          '$stateParams',
          '$http',
          '$rootScope',
          '$location',
+         '$log',
+         'skillLevels',
          function (
-                 ConstantManager,
                  $uibModalInstance,
                  $scope,
                  $state,
@@ -16,11 +16,13 @@ angular.module("app.skills").controller('AddSkillCtrl',
                  $http,
                  $rootScope,
                  $location,
-                 $log) {
+                 $log,
+                 skillLevels) {
           var vm = this;
 
           vm.skill = "";
-          vm.constantManager = new ConstantManager();
+          vm.skillLevels = skillLevels;
+
           vm.ok = function () {
            $uibModalInstance.close(vm.skill);
           };

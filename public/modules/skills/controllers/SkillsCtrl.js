@@ -26,6 +26,7 @@ angular.module("app.skills").controller('SkillsCtrl',
           var vm = this;
           vm.skillsManager = new SkillsManager();
           vm.constantsManager = new ConstantsManager();
+          vm.skillLevels;
 
 
           vm.createSkill = function (data) {
@@ -131,7 +132,12 @@ angular.module("app.skills").controller('SkillsCtrl',
             templateUrl: 'add-skill-modal.html',
             controller: 'AddSkillCtrl as addSkillCtrl',
             backdrop: 'static',
-            size: 'xl'
+            size: 'xl',
+            resolve: {
+             skillLevels: function () {
+              return vm.skillLevels;
+             }
+            }
            });
 
            modalInstance.result.then(function (skill) {
@@ -145,6 +151,8 @@ angular.module("app.skills").controller('SkillsCtrl',
 
           //--------init------
           vm.skillsManager.getSkills(vm.skillId);
-          vm.constantsManager.getLevel(1);
+          vm.constantsManager.getLevel(1).then(function (data) {
+           vm.skillLevels = data;
+          });
          }
         ])

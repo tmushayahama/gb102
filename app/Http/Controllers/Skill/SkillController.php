@@ -7,6 +7,7 @@ use JWTAuth;
 //use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Level\Level;
 use App\Models\Skill\Skill;
 use App\Models\Skill\SkillTimeline;
 use App\Models\Skill\SkillComment;

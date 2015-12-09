@@ -1,6 +1,7 @@
 
 angular.module("app.skills").controller('SkillCtrl',
-        ['SkillManager',
+        ['ConstantsManager',
+         'SkillManager',
          '$scope',
          '$state',
          '$stateParams',
@@ -11,6 +12,7 @@ angular.module("app.skills").controller('SkillCtrl',
          '$log',
          '$filter',
          function (
+                 ConstantsManager,
                  SkillManager,
                  $scope,
                  $state,
