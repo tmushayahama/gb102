@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Skill;
+namespace App\Http\Controllers;
 
 //use Illuminate\Contracts\Auth;
 use JWTAuth;
@@ -11,10 +11,10 @@ use App\Models\Level\Level;
 use Request;
 use DB;
 
-class LevelController extends Controller {
+class ConstantsController extends Controller {
 
- public function getLevels($code) {
-  $level = Level::getLevel($code);
+ public function getLevel($category) {
+  $level = Level::getLevel($category);
   return \Response::json($level);
  }
 

@@ -20,7 +20,7 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantManager.js',
+                  'public/modules/app/services/ConstantsManager.js',
                   'public/modules/skills/services/SkillsManager.js',
                   'public/modules/skills/controllers/SkillsCtrl.js',
                   'public/modules/skills/controllers/modals/AddSkillCtrl.js',
@@ -44,6 +44,7 @@ define(['angular',
                  name: 'app.skills',
                  serie: true,
                  files: [
+                  'public/modules/app/services/ConstantsManager.js',
                   'public/modules/skills/services/SkillManager.js',
                   'public/modules/skills/controllers/SkillCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'

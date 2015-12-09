@@ -1,10 +1,10 @@
-angular.module('app.skills').service('ConstantManager',
+angular.module('app').service('ConstantsManager',
         ['$http', '$q', function ($http, $q) {
 
-          var ConstantManager = function () {
+          var ConstantsManager = function () {
            // this.skills = [];
           };
-          ConstantManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+          ConstantsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
            if (!data || typeof data !== 'object') {
             this.error = 'Error';
            }
@@ -23,17 +23,16 @@ angular.module('app.skills').service('ConstantManager',
            return deferred.resolve(data);
           };
 
-          ConstantManager.prototype.getLevel = function (code) {
+          ConstantsManager.prototype.getLevel = function (category) {
            var self = this;
            var deferred = $q.defer();
-           $http.get('/api/constant/level/' + code).success(function (data) {
+           $http.get('/api/constants/level/' + category).success(function (data) {
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');
            });
            return deferred.promise;
           };
-
-          return ConstantManager;
+          return ConstantsManager;
          }
         ]);

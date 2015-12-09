@@ -32,6 +32,8 @@ angular.module("app.skills").controller('SkillCtrl',
           vm.skillId = $stateParams.skillId;
 
           vm.skillManager = new SkillManager();
+          vm.constantsManager = new ConstantsManager();
+
           vm.skillFormDisplay = false;
 
           vm.getSkill = function (id, data) {
@@ -158,5 +160,6 @@ angular.module("app.skills").controller('SkillCtrl',
 
           //--------init------
           vm.skillManager.getSkill(vm.skillId);
+          vm.constantsManager.getLevel('SK1');
          }
         ])

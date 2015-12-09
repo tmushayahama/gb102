@@ -46,7 +46,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
 
- Route::post('constants/levels/{code}', 'ConstantController@getLevels');
+ Route::get('constants/level/{code}', 'ConstantsController@getLevel');
 
 
 

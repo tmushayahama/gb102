@@ -1,10 +1,10 @@
 angular.module('app.skills').service('SkillsManager',
         ['$http', '$q', function ($http, $q) {
 
-          var SkillManager = function () {
+          var SkillsManager = function () {
            this.skills = [];
           };
-          SkillManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+          SkillsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
            if (!data || typeof data !== 'object') {
             this.error = 'Error';
            }
@@ -23,7 +23,7 @@ angular.module('app.skills').service('SkillsManager',
            return deferred.resolve(data);
           };
 
-          SkillManager.prototype.getSkills = function (skillId) {
+          SkillsManager.prototype.getSkills = function (skillId) {
            var self = this;
            var deferred = $q.defer();
            self.skills = [];
@@ -36,7 +36,7 @@ angular.module('app.skills').service('SkillsManager',
            return deferred.promise;
           };
 
-          SkillManager.prototype.getSkill = function (skillId, Id) {
+          SkillsManager.prototype.getSkill = function (skillId, Id) {
            var self = this;
            var deferred = $q.defer();
            self.skill = [];
@@ -49,7 +49,7 @@ angular.module('app.skills').service('SkillsManager',
            return deferred.promise;
           };
 
-          SkillManager.prototype.createSkill = function (skillData) {
+          SkillsManager.prototype.createSkill = function (skillData) {
            var self = this;
            var deferred = $q.defer();
            $http({
@@ -65,7 +65,7 @@ angular.module('app.skills').service('SkillsManager',
            return deferred.promise;
           };
 
-          SkillManager.prototype.editSkill = function (skillData) {
+          SkillsManager.prototype.editSkill = function (skillData) {
            var self = this;
            var deferred = $q.defer();
            $http({
@@ -81,6 +81,6 @@ angular.module('app.skills').service('SkillsManager',
           };
 
 
-          return SkillManager;
+          return SkillsManager;
          }
         ]);

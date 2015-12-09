@@ -27,10 +27,9 @@ class Level extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getLevels() {
-  $levels = Level::orderBy('id', 'desc')
-    ->with('creator')
-    ->with('level')
+ public static function getLevel($category) {
+  $levels = Level::orderBy('id', 'asc')
+    ->where('category', $category)
     ->get();
   return $levels;
  }

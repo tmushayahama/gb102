@@ -1,5 +1,6 @@
 angular.module("app.skills").controller('SkillsCtrl',
-        ['SkillsManager',
+        ['ConstantsManager',
+         'SkillsManager',
          '$scope',
          '$state',
          '$stateParams',
@@ -10,6 +11,7 @@ angular.module("app.skills").controller('SkillsCtrl',
          '$log',
          '$filter',
          function (
+                 ConstantsManager,
                  SkillsManager,
                  $scope,
                  $state,
@@ -23,6 +25,7 @@ angular.module("app.skills").controller('SkillsCtrl',
 
           var vm = this;
           vm.skillsManager = new SkillsManager();
+          vm.constantsManager = new ConstantsManager();
 
 
           vm.createSkill = function (data) {
@@ -142,5 +145,6 @@ angular.module("app.skills").controller('SkillsCtrl',
 
           //--------init------
           vm.skillsManager.getSkills(vm.skillId);
+          vm.constantsManager.getLevel(1);
          }
         ])
