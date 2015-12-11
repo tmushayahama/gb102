@@ -10,7 +10,8 @@ define([
  'bootstrap',
  'angular-xeditable',
  '../auth/module',
- '../skills/module'
+ '../skills/module',
+ '../goals/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -21,7 +22,8 @@ define([
   'ui.bootstrap',
   'xeditable',
   'app.auth',
-  'app.skills'
+  'app.skills',
+  'app.goals'
           //'app.skills'
  ]);
  // var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);

@@ -28,13 +28,11 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/note/{noteId}', 'Skill\SkillController@getSkillNote');
  Route::get('skill/{skillId}/timelines', 'Skill\SkillController@getSkillTimelines');
  Route::get('skill/{skillId}/timeline/{timelineId}', 'Skill\SkillController@getSkillTimeline');
-
  Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
  Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
  Route::post('skill/edit', 'Skill\SkillController@editSkill');
  Route::post('skill/create', 'Skill\SkillController@createSkill');
-
  Route::post('skill/comment/create', 'Skill\SkillController@createSkillComment');
  Route::post('skill/comment/edit', 'Skill\SkillController@editSkillComment');
  Route::post('skill/todo/create', 'Skill\SkillController@createSkillTodo');
@@ -45,6 +43,35 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/timeline/edit', 'Skill\SkillController@editSkillTimeline');
  Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
+
+ //Goal
+ Route::get('goals', 'Goal\GoalController@getGoals');
+ Route::get('goal/{goalId}/comments', 'Goal\GoalController@getGoalComments');
+ Route::get('goal/{goalId}/comment/{commentId}', 'Goal\GoalController@getGoalComment');
+ Route::get('goal/{goalId}/todos', 'Goal\GoalController@getGoalTodos');
+ Route::get('goal/{goalId}/todo/{todoId}', 'Goal\GoalController@getGoalTodo');
+ Route::get('goal/{goalId}/notes', 'Goal\GoalController@getGoalNotes');
+ Route::get('goal/{goalId}/note/{noteId}', 'Goal\GoalController@getGoalNote');
+ Route::get('goal/{goalId}/timelines', 'Goal\GoalController@getGoalTimelines');
+ Route::get('goal/{goalId}/timeline/{timelineId}', 'Goal\GoalController@getGoalTimeline');
+ Route::get('goal/{goalId}/weblinks', 'Goal\GoalController@getGoalWeblinks');
+ Route::get('goal/{goalId}/weblink/{weblinkId}', 'Goal\GoalController@getGoalWeblink');
+ Route::get('goal/{id}', 'Goal\GoalController@getGoal');
+ Route::post('goal/edit', 'Goal\GoalController@editGoal');
+ Route::post('goal/create', 'Goal\GoalController@createGoal');
+ Route::post('goal/comment/create', 'Goal\GoalController@createGoalComment');
+ Route::post('goal/comment/edit', 'Goal\GoalController@editGoalComment');
+ Route::post('goal/todo/create', 'Goal\GoalController@createGoalTodo');
+ Route::post('goal/todo/edit', 'Goal\GoalController@editGoalTodo');
+ Route::post('goal/note/create', 'Goal\GoalController@createGoalNote');
+ Route::post('goal/note/edit', 'Goal\GoalController@editGoalNote');
+ Route::post('goal/timeline/create', 'Goal\GoalController@createGoalTimeline');
+ Route::post('goal/timeline/edit', 'Goal\GoalController@editGoalTimeline');
+ Route::post('goal/weblink/create', 'Goal\GoalController@createGoalWeblink');
+ Route::post('goal/weblink/edit', 'Goal\GoalController@editGoalWeblink');
+
+
+
 
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
 
