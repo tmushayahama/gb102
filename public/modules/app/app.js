@@ -11,7 +11,8 @@ define([
  'angular-xeditable',
  '../auth/module',
  '../skills/module',
- '../goals/module'
+ '../goals/module',
+ '../promises/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -23,7 +24,8 @@ define([
   'xeditable',
   'app.auth',
   'app.skills',
-  'app.goals'
+  'app.goals',
+  'app.promises'
           //'app.skills'
  ]);
  // var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);

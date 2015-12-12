@@ -70,7 +70,31 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('goal/weblink/create', 'Goal\GoalController@createGoalWeblink');
  Route::post('goal/weblink/edit', 'Goal\GoalController@editGoalWeblink');
 
-
+//promise
+ Route::get('promises', 'Promise\PromiseController@getPromises');
+ Route::get('promise/{promiseId}/comments', 'Promise\PromiseController@getPromiseComments');
+ Route::get('promise/{promiseId}/comment/{commentId}', 'Promise\PromiseController@getPromiseComment');
+ Route::get('promise/{promiseId}/todos', 'Promise\PromiseController@getPromiseTodos');
+ Route::get('promise/{promiseId}/todo/{todoId}', 'Promise\PromiseController@getPromiseTodo');
+ Route::get('promise/{promiseId}/notes', 'Promise\PromiseController@getPromiseNotes');
+ Route::get('promise/{promiseId}/note/{noteId}', 'Promise\PromiseController@getPromiseNote');
+ Route::get('promise/{promiseId}/timelines', 'Promise\PromiseController@getPromiseTimelines');
+ Route::get('promise/{promiseId}/timeline/{timelineId}', 'Promise\PromiseController@getPromiseTimeline');
+ Route::get('promise/{promiseId}/weblinks', 'Promise\PromiseController@getPromiseWeblinks');
+ Route::get('promise/{promiseId}/weblink/{weblinkId}', 'Promise\PromiseController@getPromiseWeblink');
+ Route::get('promise/{id}', 'Promise\PromiseController@getPromise');
+ Route::post('promise/edit', 'Promise\PromiseController@editPromise');
+ Route::post('promise/create', 'Promise\PromiseController@createPromise');
+ Route::post('promise/comment/create', 'Promise\PromiseController@createPromiseComment');
+ Route::post('promise/comment/edit', 'Promise\PromiseController@editPromiseComment');
+ Route::post('promise/todo/create', 'Promise\PromiseController@createPromiseTodo');
+ Route::post('promise/todo/edit', 'Promise\PromiseController@editPromiseTodo');
+ Route::post('promise/note/create', 'Promise\PromiseController@createPromiseNote');
+ Route::post('promise/note/edit', 'Promise\PromiseController@editPromiseNote');
+ Route::post('promise/timeline/create', 'Promise\PromiseController@createPromiseTimeline');
+ Route::post('promise/timeline/edit', 'Promise\PromiseController@editPromiseTimeline');
+ Route::post('promise/weblink/create', 'Promise\PromiseController@createPromiseWeblink');
+ Route::post('promise/weblink/edit', 'Promise\PromiseController@editPromiseWeblink');
 
 
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
