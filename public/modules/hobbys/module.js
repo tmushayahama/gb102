@@ -4,26 +4,26 @@ define(['angular',
 ], function (angular) {
 
  "use strict";
- var module = angular.module('app.skills', ['ui.router']);
+ var module = angular.module('app.hobbys', ['ui.router']);
  module.config(function ($stateProvider) {
 
   $stateProvider
-          .state('apps.skills', {
-           url: '/skills',
+          .state('apps.hobbys', {
+           url: '/hobbys',
            views: {
             "apps": {
-             controller: 'SkillsCtrl as skillsCtrl',
-             templateUrl: 'public/modules/skills/views/skills.html',
+             controller: 'HobbysCtrl as hobbysCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobbys.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.skills',
+                 name: 'app.hobbys',
                  serie: true,
                  files: [
                   'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/skills/services/SkillsManager.js',
-                  'public/modules/skills/controllers/SkillsCtrl.js',
-                  'public/modules/skills/controllers/modals/AddSkillCtrl.js',
+                  'public/modules/hobbys/services/HobbysManager.js',
+                  'public/modules/hobbys/controllers/HobbysCtrl.js',
+                  'public/modules/hobbys/controllers/modals/AddHobbyCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -31,22 +31,22 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill', {
+          .state('apps.hobby', {
            abstract: true,
-           url: '/skill/{skillId}',
+           url: '/hobby/{hobbyId}',
            views: {
             "apps": {
-             controller: 'SkillCtrl as skillCtrl',
-             templateUrl: 'public/modules/skills/views/skill.html',
+             controller: 'HobbyCtrl as hobbyCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobby.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.skills',
+                 name: 'app.hobbys',
                  serie: true,
                  files: [
                   'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/skills/services/SkillManager.js',
-                  'public/modules/skills/controllers/SkillCtrl.js',
+                  'public/modules/hobbys/services/HobbyManager.js',
+                  'public/modules/hobbys/controllers/HobbyCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -54,24 +54,24 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.overview', {
+          .state('apps.hobby.overview', {
            url: '/overview',
            views: {
             "content": {
-             controller: 'SkillOverviewCtrl as skillOverviewCtrl',
-             templateUrl: 'public/modules/skills/views/skill-overview.html',
+             controller: 'HobbyOverviewCtrl as hobbyOverviewCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobby-overview.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.skills',
+                 name: 'app.hobbys',
                  serie: true,
                  files: [
-                  'public/modules/skills/controllers/SkillOverviewCtrl.js',
+                  'public/modules/hobbys/controllers/HobbyOverviewCtrl.js',
                   //Timeline
-                  'public/modules/skills/services/SkillTimelineManager.js',
-                  'public/modules/skills/services/SkillTimelinesManager.js',
-                  'public/modules/skills/controllers/SkillTimelinesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillTimelineCtrl.js',
+                  'public/modules/hobbys/services/HobbyTimelineManager.js',
+                  'public/modules/hobbys/services/HobbyTimelinesManager.js',
+                  'public/modules/hobbys/controllers/HobbyTimelinesCtrl.js',
+                  'public/modules/hobbys/controllers/modals/HobbyTimelineCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -79,36 +79,36 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.tools', {
+          .state('apps.hobby.tools', {
            url: '/tools',
            views: {
             "content": {
-             //controller: 'SkillTodosCtrl as skillTodosCtrl',
-             templateUrl: 'public/modules/skills/views/skill-tools.html',
+             //controller: 'HobbyTodosCtrl as hobbyTodosCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobby-tools.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.skills',
+                 name: 'app.hobbys',
                  serie: true,
                  files: [
                   //Todos
-                  'public/modules/skills/directives/todoEscape.js',
-                  'public/modules/skills/directives/todoFocus.js',
-                  'public/modules/skills/services/SkillTodoManager.js',
-                  'public/modules/skills/services/SkillTodosManager.js',
-                  'public/modules/skills/services/SkillTodoChecklistManager.js',
-                  'public/modules/skills/controllers/SkillTodosCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
+                  'public/modules/hobbys/directives/todoEscape.js',
+                  'public/modules/hobbys/directives/todoFocus.js',
+                  'public/modules/hobbys/services/HobbyTodoManager.js',
+                  'public/modules/hobbys/services/HobbyTodosManager.js',
+                  'public/modules/hobbys/services/HobbyTodoChecklistManager.js',
+                  'public/modules/hobbys/controllers/HobbyTodosCtrl.js',
+                  'public/modules/hobbys/controllers/modals/HobbyTodoCtrl.js',
                   //Notes,
-                  'public/modules/skills/services/SkillNoteManager.js',
-                  'public/modules/skills/services/SkillNotesManager.js',
-                  'public/modules/skills/controllers/SkillNotesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js',
+                  'public/modules/hobbys/services/HobbyNoteManager.js',
+                  'public/modules/hobbys/services/HobbyNotesManager.js',
+                  'public/modules/hobbys/controllers/HobbyNotesCtrl.js',
+                  'public/modules/hobbys/controllers/modals/HobbyNoteCtrl.js',
                   //Weblink
-                  'public/modules/skills/services/SkillWeblinkManager.js',
-                  'public/modules/skills/services/SkillWeblinksManager.js',
-                  'public/modules/skills/controllers/SkillWeblinksCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillWeblinkCtrl.js',
+                  'public/modules/hobbys/services/HobbyWeblinkManager.js',
+                  'public/modules/hobbys/services/HobbyWeblinksManager.js',
+                  'public/modules/hobbys/controllers/HobbyWeblinksCtrl.js',
+                  'public/modules/hobbys/controllers/modals/HobbyWeblinkCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -116,22 +116,22 @@ define(['angular',
              }
             }
            }})
-          .state('apps.skill.community', {
+          .state('apps.hobby.community', {
            url: '/community',
            views: {
             "content": {
-             //controller: 'SkillNotesCtrl as skillNotesCtrl',
-             templateUrl: 'public/modules/skills/views/skill-community.html',
+             //controller: 'HobbyNotesCtrl as hobbyNotesCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobby-community.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.skills',
+                 name: 'app.hobbys',
                  serie: true,
                  files: [
-                  'public/modules/skills/services/SkillCommentManager.js',
-                  'public/modules/skills/services/SkillCommentsManager.js',
-                  'public/modules/skills/controllers/SkillCommentsCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillCommentCtrl.js',
+                  'public/modules/hobbys/services/HobbyCommentManager.js',
+                  'public/modules/hobbys/services/HobbyCommentsManager.js',
+                  'public/modules/hobbys/controllers/HobbyCommentsCtrl.js',
+                  'public/modules/hobbys/controllers/modals/HobbyCommentCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
@@ -140,36 +140,36 @@ define(['angular',
             }
            }})
   /*
-   .state('apps.skill.management', {
+   .state('apps.hobby.management', {
    url: '/tools',
    views: {
    "content": {
-   //controller: 'SkillTodosCtrl as skillTodosCtrl',
-   templateUrl: 'public/modules/skills/views/skill-managements.html',
+   //controller: 'HobbyTodosCtrl as hobbyTodosCtrl',
+   templateUrl: 'public/modules/hobbys/views/hobby-managements.html',
    resolve: {
    load: ['$ocLazyLoad', function ($ocLazyLoad) {
    return $ocLazyLoad.load({
-   name: 'app.skills',
+   name: 'app.hobbys',
    serie: true,
    files: [
    //Todos
-   'public/modules/skills/directives/todoEscape.js',
-   'public/modules/skills/directives/todoFocus.js',
-   'public/modules/skills/4services/SkillTodoManager.js',
-   'public/modules/skills/services/SkillTodosManager.js',
-   'public/modules/skills/services/SkillTodoChecklistManager.js',
-   'public/modules/skills/controllers/SkillTodosCtrl.js',
-   'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
+   'public/modules/hobbys/directives/todoEscape.js',
+   'public/modules/hobbys/directives/todoFocus.js',
+   'public/modules/hobbys/4services/HobbyTodoManager.js',
+   'public/modules/hobbys/services/HobbyTodosManager.js',
+   'public/modules/hobbys/services/HobbyTodoChecklistManager.js',
+   'public/modules/hobbys/controllers/HobbyTodosCtrl.js',
+   'public/modules/hobbys/controllers/modals/HobbyTodoCtrl.js',
    //Notes,
-   'public/modules/skills/services/SkillNoteManager.js',
-   'public/modules/skills/services/SkillNotesManager.js',
-   'public/modules/skills/controllers/SkillNotesCtrl.js',
-   'public/modules/skills/controllers/modals/SkillNoteCtrl.js',
+   'public/modules/hobbys/services/HobbyNoteManager.js',
+   'public/modules/hobbys/services/HobbyNotesManager.js',
+   'public/modules/hobbys/controllers/HobbyNotesCtrl.js',
+   'public/modules/hobbys/controllers/modals/HobbyNoteCtrl.js',
    //Weblink
-   'public/modules/skills/services/SkillWeblinkManager.js',
-   'public/modules/skills/services/SkillWeblinksManager.js',
-   'public/modules/skills/controllers/SkillWeblinksCtrl.js',
-   'public/modules/skills/controllers/modals/SkillWeblinkCtrl.js',
+   'public/modules/hobbys/services/HobbyWeblinkManager.js',
+   'public/modules/hobbys/services/HobbyWeblinksManager.js',
+   'public/modules/hobbys/controllers/HobbyWeblinksCtrl.js',
+   'public/modules/hobbys/controllers/modals/HobbyWeblinkCtrl.js',
    'public/css/ss_themes/ss_theme_1.css'
    ]
    })

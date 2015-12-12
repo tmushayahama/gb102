@@ -96,6 +96,83 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('promise/weblink/create', 'Promise\PromiseController@createPromiseWeblink');
  Route::post('promise/weblink/edit', 'Promise\PromiseController@editPromiseWeblink');
 
+ //Hobbys
+ Route::get('hobbys', 'Hobby\HobbyController@getHobbys');
+ Route::get('hobby/{hobbyId}/comments', 'Hobby\HobbyController@getHobbyComments');
+ Route::get('hobby/{hobbyId}/comment/{commentId}', 'Hobby\HobbyController@getHobbyComment');
+ Route::get('hobby/{hobbyId}/todos', 'Hobby\HobbyController@getHobbyTodos');
+ Route::get('hobby/{hobbyId}/todo/{todoId}', 'Hobby\HobbyController@getHobbyTodo');
+ Route::get('hobby/{hobbyId}/notes', 'Hobby\HobbyController@getHobbyNotes');
+ Route::get('hobby/{hobbyId}/note/{noteId}', 'Hobby\HobbyController@getHobbyNote');
+ Route::get('hobby/{hobbyId}/timelines', 'Hobby\HobbyController@getHobbyTimelines');
+ Route::get('hobby/{hobbyId}/timeline/{timelineId}', 'Hobby\HobbyController@getHobbyTimeline');
+ Route::get('hobby/{hobbyId}/weblinks', 'Hobby\HobbyController@getHobbyWeblinks');
+ Route::get('hobby/{hobbyId}/weblink/{weblinkId}', 'Hobby\HobbyController@getHobbyWeblink');
+ Route::get('hobby/{id}', 'Hobby\HobbyController@getHobby');
+ Route::post('hobby/edit', 'Hobby\HobbyController@editHobby');
+ Route::post('hobby/create', 'Hobby\HobbyController@createHobby');
+ Route::post('hobby/comment/create', 'Hobby\HobbyController@createHobbyComment');
+ Route::post('hobby/comment/edit', 'Hobby\HobbyController@editHobbyComment');
+ Route::post('hobby/todo/create', 'Hobby\HobbyController@createHobbyTodo');
+ Route::post('hobby/todo/edit', 'Hobby\HobbyController@editHobbyTodo');
+ Route::post('hobby/note/create', 'Hobby\HobbyController@createHobbyNote');
+ Route::post('hobby/note/edit', 'Hobby\HobbyController@editHobbyNote');
+ Route::post('hobby/timeline/create', 'Hobby\HobbyController@createHobbyTimeline');
+ Route::post('hobby/timeline/edit', 'Hobby\HobbyController@editHobbyTimeline');
+ Route::post('hobby/weblink/create', 'Hobby\HobbyController@createHobbyWeblink');
+ Route::post('hobby/weblink/edit', 'Hobby\HobbyController@editHobbyWeblink');
+
+ //Mentorship
+ Route::get('mentorships', 'Mentorship\MentorshipController@getMentorships');
+ Route::get('mentorship/{mentorshipId}/comments', 'Mentorship\MentorshipController@getMentorshipComments');
+ Route::get('mentorship/{mentorshipId}/comment/{commentId}', 'Mentorship\MentorshipController@getMentorshipComment');
+ Route::get('mentorship/{mentorshipId}/todos', 'Mentorship\MentorshipController@getMentorshipTodos');
+ Route::get('mentorship/{mentorshipId}/todo/{todoId}', 'Mentorship\MentorshipController@getMentorshipTodo');
+ Route::get('mentorship/{mentorshipId}/notes', 'Mentorship\MentorshipController@getMentorshipNotes');
+ Route::get('mentorship/{mentorshipId}/note/{noteId}', 'Mentorship\MentorshipController@getMentorshipNote');
+ Route::get('mentorship/{mentorshipId}/timelines', 'Mentorship\MentorshipController@getMentorshipTimelines');
+ Route::get('mentorship/{mentorshipId}/timeline/{timelineId}', 'Mentorship\MentorshipController@getMentorshipTimeline');
+ Route::get('mentorship/{mentorshipId}/weblinks', 'Mentorship\MentorshipController@getMentorshipWeblinks');
+ Route::get('mentorship/{mentorshipId}/weblink/{weblinkId}', 'Mentorship\MentorshipController@getMentorshipWeblink');
+ Route::get('mentorship/{id}', 'Mentorship\MentorshipController@getMentorship');
+ Route::post('mentorship/edit', 'Mentorship\MentorshipController@editMentorship');
+ Route::post('mentorship/create', 'Mentorship\MentorshipController@createMentorship');
+ Route::post('mentorship/comment/create', 'Mentorship\MentorshipController@createMentorshipComment');
+ Route::post('mentorship/comment/edit', 'Mentorship\MentorshipController@editMentorshipComment');
+ Route::post('mentorship/todo/create', 'Mentorship\MentorshipController@createMentorshipTodo');
+ Route::post('mentorship/todo/edit', 'Mentorship\MentorshipController@editMentorshipTodo');
+ Route::post('mentorship/note/create', 'Mentorship\MentorshipController@createMentorshipNote');
+ Route::post('mentorship/note/edit', 'Mentorship\MentorshipController@editMentorshipNote');
+ Route::post('mentorship/timeline/create', 'Mentorship\MentorshipController@createMentorshipTimeline');
+ Route::post('mentorship/timeline/edit', 'Mentorship\MentorshipController@editMentorshipTimeline');
+ Route::post('mentorship/weblink/create', 'Mentorship\MentorshipController@createMentorshipWeblink');
+ Route::post('mentorship/weblink/edit', 'Mentorship\MentorshipController@editMentorshipWeblink');
+
+//Advice
+ Route::get('advices', 'Advice\AdviceController@getAdvices');
+ Route::get('advice/{adviceId}/comments', 'Advice\AdviceController@getAdviceComments');
+ Route::get('advice/{adviceId}/comment/{commentId}', 'Advice\AdviceController@getAdviceComment');
+ Route::get('advice/{adviceId}/todos', 'Advice\AdviceController@getAdviceTodos');
+ Route::get('advice/{adviceId}/todo/{todoId}', 'Advice\AdviceController@getAdviceTodo');
+ Route::get('advice/{adviceId}/notes', 'Advice\AdviceController@getAdviceNotes');
+ Route::get('advice/{adviceId}/note/{noteId}', 'Advice\AdviceController@getAdviceNote');
+ Route::get('advice/{adviceId}/timelines', 'Advice\AdviceController@getAdviceTimelines');
+ Route::get('advice/{adviceId}/timeline/{timelineId}', 'Advice\AdviceController@getAdviceTimeline');
+ Route::get('advice/{adviceId}/weblinks', 'Advice\AdviceController@getAdviceWeblinks');
+ Route::get('advice/{adviceId}/weblink/{weblinkId}', 'Advice\AdviceController@getAdviceWeblink');
+ Route::get('advice/{id}', 'Advice\AdviceController@getAdvice');
+ Route::post('advice/edit', 'Advice\AdviceController@editAdvice');
+ Route::post('advice/create', 'Advice\AdviceController@createAdvice');
+ Route::post('advice/comment/create', 'Advice\AdviceController@createAdviceComment');
+ Route::post('advice/comment/edit', 'Advice\AdviceController@editAdviceComment');
+ Route::post('advice/todo/create', 'Advice\AdviceController@createAdviceTodo');
+ Route::post('advice/todo/edit', 'Advice\AdviceController@editAdviceTodo');
+ Route::post('advice/note/create', 'Advice\AdviceController@createAdviceNote');
+ Route::post('advice/note/edit', 'Advice\AdviceController@editAdviceNote');
+ Route::post('advice/timeline/create', 'Advice\AdviceController@createAdviceTimeline');
+ Route::post('advice/timeline/edit', 'Advice\AdviceController@editAdviceTimeline');
+ Route::post('advice/weblink/create', 'Advice\AdviceController@createAdviceWeblink');
+ Route::post('advice/weblink/edit', 'Advice\AdviceController@editAdviceWeblink');
 
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
 

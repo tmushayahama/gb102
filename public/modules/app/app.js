@@ -12,7 +12,10 @@ define([
  '../auth/module',
  '../skills/module',
  '../goals/module',
- '../promises/module'
+ '../promises/module',
+ '../hobbys/module',
+ '../mentorships/module',
+ '../advices/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -25,7 +28,10 @@ define([
   'app.auth',
   'app.skills',
   'app.goals',
-  'app.promises'
+  'app.promises',
+  'app.hobbys',
+  'app.mentorships',
+  'app.advices'
           //'app.skills'
  ]);
  // var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);
