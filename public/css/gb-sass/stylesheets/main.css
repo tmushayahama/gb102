@@ -11862,7 +11862,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 0 10px;
+  padding: 0 10px 0 10px !important;
   list-style: none;
   border-bottom: #AAA solid 1px;
   background-color: #FFF;
@@ -11870,17 +11870,49 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   opacity: 0.7;
   z-index: 900;
 }
-
 .gb-top-nav-1:hover {
   opacity: 1;
 }
-
+.gb-top-nav-1 .gb-title {
+  margin-right: 20px;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+  line-height: 40px;
+  color: #555;
+}
+.gb-top-nav-1 .gb-action {
+  padding-top: 1px;
+}
+.gb-top-nav-1 .gb-action .btn {
+  margin-left: 10px;
+}
 .gb-top-nav-1 li {
   padding: 0;
   text-align: center;
 }
-
-.gb-nav-heading-1 {
+.gb-top-nav-1 li.active a {
+  color: #000;
+  font-weight: bold;
+}
+.gb-top-nav-1 li.active a .gb-img-sm {
+  height: 35px;
+  width: 35px;
+  margin-bottom: 10px;
+  border: #CCC solid 2px;
+}
+.gb-top-nav-1 li.active a a {
+  display: block;
+  font-size: 1.1em;
+  padding: 10px 0 0px 0;
+  text-decoration: none;
+}
+.gb-top-nav-1 li.active a a .gb-title {
+  font-size: 1.1em;
+}
+.gb-top-nav-1 li.active a a .gb-line-1 {
+  height: 5px;
+}
+.gb-top-nav-1 li .gb-nav-heading-1 {
   padding: 0;
 }
 
@@ -11908,49 +11940,6 @@ ul .gb-sticky-note-row:nth-child(5n) a {
 
 .gb-nav-heading-2 a {
   text-decoration: none;
-}
-
-.gb-top-nav-1 .gb-title {
-  margin-right: 20px;
-  padding: 0 0 0 5px;
-  font-weight: bold;
-  line-height: 40px;
-  color: #555;
-}
-
-.gb-top-nav-1 .gb-action {
-  padding-top: 5px;
-}
-
-.gb-top-nav-1 .gb-action .btn {
-  margin-left: 20px;
-}
-
-.gb-top-nav-1 li.active a {
-  color: #000;
-  font-weight: bold;
-}
-
-.gb-top-nav-1 li .gb-img-sm {
-  height: 35px;
-  width: 35px;
-  margin-bottom: 10px;
-  border: #CCC solid 2px;
-}
-
-.gb-top-nav-1 li a {
-  display: block;
-  font-size: 1.1em;
-  padding: 10px 0 0px 0;
-  text-decoration: none;
-}
-
-.gb-top-nav-1 li a .gb-title {
-  font-size: 1.1em;
-}
-
-.gb-top-nav-1 li a .gb-line-1 {
-  height: 5px;
 }
 
 .gb-icon-top-nav-1 {

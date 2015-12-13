@@ -13,10 +13,10 @@
   <div class="gb-nav-strip gb-nav-strip-mini row">
    <div class="">
     <a ui-sref-active="active" class="gb-link row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <p class="gb-ellipsis gb-title">
-       <img src="" class="gb-icon" alt="">
-       {{}}
+       <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-icon" alt="">
+       {{$root.user.firstname + " " + $root.user.lastname}}
       </p>
      </div>
     </a>

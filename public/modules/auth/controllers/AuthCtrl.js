@@ -31,24 +31,12 @@ angular.module('app').controller('AuthCtrl', ['$scope', '$auth', '$state', '$htt
     vm.loginError = true;
     vm.loginErrorText = error.data.error;
    }).then(function (response) {
-
-    // Stringify the returned data to prepare it
-    // to go into local storage
     var user = JSON.stringify(response.data.user);
-    // Set the stringified user data into local storage
     localStorageService.set('user', user);
-    // The user's authenticated state gets flipped to
-    // true so we can now show parts of the UI that rely
-    // on the user being logged in
     $rootScope.authenticated = true;
-    // Putting the user's data on $rootScope allows
-    // us to access it anywhere across the app
-    $rootScope.currentUser = response.data.user;
-    // Everything worked out so we can now redirect to
-    // the users state to view the data
-    //var loginModal =
+    $rootScope.user = response.data.user;
     $("#gb-login-modal").modal("hide");
-    $state.go('users');
+    $state.go('apps.skills');
    });
   };
  }
