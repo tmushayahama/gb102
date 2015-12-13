@@ -1,19 +1,7 @@
 'use strict';
-define([
- 'angular'
-], function (angular) {
- return ['$state', '$http', '$rootScope',
-  function ($state, $http, $rootScope) {
-   var vm = this;
+angular.module('app').controller('AppsCtrl', ['$scope', '$auth', '$state', '$http', '$rootScope', 'localStorageService',
+ function ($scope, $auth, $state, $http, $rootScope, localStorageService) {
+  var vm = this;
 
-
-
-   vm.ttt = function () {
-    var credentials = {
-     email: vm.email,
-     password: vm.password
-    }
-   }
-  }
- ];
-});
+ }
+]);

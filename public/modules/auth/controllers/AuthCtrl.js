@@ -1,7 +1,6 @@
 'use strict';
-angular.module('app').controller('AuthCtrl', ['$scope', '$auth', '$state', '$http', '$rootScope',
- function ($scope, $auth, $state, $http, $rootScope) {
-  //console.log("fffff")
+angular.module('app').controller('AuthCtrl', ['$scope', '$auth', '$state', '$http', '$rootScope', 'localStorageService',
+ function ($scope, $auth, $state, $http, $rootScope, localStorageService) {
   var vm = this;
 
   $scope.$on('ocLazyLoad.moduleLoaded', function (e, params) {
@@ -27,22 +26,17 @@ angular.module('app').controller('AuthCtrl', ['$scope', '$auth', '$state', '$htt
 
    $auth.login(credentials).then(function ()
    {
-    // Return an $http request for the now authenticated
-    // user so that we can flatten the promise chain
     return $http.get('api/authenticate/user');
-    // Handle errors
    }, function (error) {
     vm.loginError = true;
     vm.loginErrorText = error.data.error;
-    // Because we returned the $http.get request in the $auth.login
-    // promise, we can chain the next promise to the end here
    }).then(function (response) {
 
     // Stringify the returned data to prepare it
     // to go into local storage
     var user = JSON.stringify(response.data.user);
     // Set the stringified user data into local storage
-    localStorage.setItem('user', user);
+    localStorageService.set('user', user);
     // The user's authenticated state gets flipped to
     // true so we can now show parts of the UI that rely
     // on the user being logged in

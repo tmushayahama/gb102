@@ -9,6 +9,7 @@ define([
  'angular-bootstrap',
  'bootstrap',
  'angular-xeditable',
+ 'angular-local-storage',
  '../auth/module',
  '../skills/module',
  '../goals/module',
@@ -25,6 +26,7 @@ define([
   'oc.lazyLoad',
   'ui.bootstrap',
   'xeditable',
+  'LocalStorageModule',
   'app.auth',
   'app.skills',
   'app.goals',
@@ -35,14 +37,19 @@ define([
           //'app.skills'
  ]);
  // var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);
- app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', '$provide',
-  function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, $provide) {
+ app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', '$provide',
+  function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, $provide) {
 
    $ocLazyLoadProvider.config({
     debug: true,
     loadedModules: ['app'],
     asyncLoader: require
    });
+
+   localStorageServiceProvider
+           .setPrefix('gb102')
+           .setStorageType('localStorage')
+           .setNotify(true, true);
    // $urlRouterProvider.otherwise('/auth');
    function redirectWhenLoggedOut($q, $injector) {
 
@@ -87,6 +94,7 @@ define([
             abstract: true,
             views: {
              "root": {
+              controller: 'AppsCtrl as appsCtrl',
               templateUrl: 'public/modules/app/views/appsView.html',
               resolve: {
                load: function ($ocLazyLoad) {
@@ -96,31 +104,6 @@ define([
                 });
                }
               }
-             }
-            }
-           })
-           .state('module1', {
-            url: '/module1',
-            templateUrl: 'public/modules/module1/module1.html',
-            resolve: {
-             load: function ($ocLazyLoad) {
-              return $ocLazyLoad.load({
-               name: 'module1',
-               files: ['public/modules/module1/module.js']
-              });
-             }
-            }
-           })
-
-           .state('module2', {
-            url: '/module2',
-            templateUrl: 'public/modules/module2/module2.html',
-            resolve: {
-             load: function ($ocLazyLoad) {
-              return $ocLazyLoad.load({
-               name: 'module2',
-               files: ['public/modules/module2/module.js']
-              });
              }
             }
            });

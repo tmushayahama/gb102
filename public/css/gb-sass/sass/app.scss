@@ -1156,42 +1156,6 @@ input.gb-form-show{
  @include position(absolute, 0 0 0 0);
 }
 
-.gb-left-nav-2 .gb-link {
- height: 60px;
- padding:10px 8px 0 5px;
- display: block;
- width: 100%;
- border-top: #BBB solid 1px;
-}
-.gb-left-nav-2 .gb-link .gb-icon-2 {
- margin: 10px 5px auto 5px;
-}
-
-.gb-left-nav-2 .gb-link i{
- margin-top: 11px;
- color: #CCC;
-}
-.gb-left-nav-2 .gb-link .gb-heading {
- color: #FAFAFA;
-}
-.gb-left-nav-2 .gb-link .gb-title{
- padding:0;
- font-size: 1.2em;
- color: #FAFAFA;
- text-align: left;
- text-decoration: none;
- overflow: hidden;
-}
-.gb-left-nav-2 .gb-link .gb-description{
- padding:0;
- font-size: 0.8em;
- color: #E0E0E0;
- text-align: left;
- text-decoration: none;
- overflow: hidden;
- margin-bottom: 0;
-}
-
 
 #gb-main-tab-pane,
 #gb-profile-tab-pane {
@@ -1355,7 +1319,7 @@ input.gb-form-show{
   background-color: #CCC9B7;
  }
  .gb-link {
-  padding:10px 5px;
+  padding:5px 5px;
   display: block;
   width: 100%;
   border-bottom: #EEE solid 1px;
@@ -1375,11 +1339,10 @@ input.gb-form-show{
  }
 
  .gb-link:hover {
-  opacity: 0.7;
-  background-color: #EEE;
+  background-color: #CCC;
  }
  .gb-link.active {
-  background-color: #F2F2F2;
+  background-color: #BBB;
  }
 
  .gb-link .thumbnail{
@@ -1409,9 +1372,8 @@ input.gb-form-show{
  }
 
  .gb-link .gb-title {
-  padding:0px 3px 0px 5px;
-  font-size: 1.1em;
-  font-weight: bold;
+  padding:0px 5px 0px 20px;
+  font-size: 16px;
   color: #444;
   line-height: 33px;
   text-decoration: none;
@@ -2303,13 +2265,6 @@ input.gb-form-show{
  left: 0;
  right: 0;
  bottom:0px;
-}
-.gb-left-nav-1 {
- min-height: 1000px;
- border-right: #6A6B67 solid 3px;
-}
-.gb-left-nav-2 {
- min-height: 1000px;
 }
 
 .gb-middle-container-1 {
