@@ -23,11 +23,24 @@ angular.module('app.skills').service('SkillsManager',
            return deferred.resolve(data);
           };
 
-          SkillsManager.prototype.getSkills = function (skillId) {
+          SkillsManager.prototype.getAllSkills = function () {
            var self = this;
            var deferred = $q.defer();
            self.skills = [];
-           $http.get('/api/skills').success(function (data) {
+           $http.get('/api/skills/all').success(function (data) {
+            self.skills = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          SkillsManager.prototype.getMySkills = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.skills = [];
+           $http.get('/api/skills/mine').success(function (data) {
             self.skills = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

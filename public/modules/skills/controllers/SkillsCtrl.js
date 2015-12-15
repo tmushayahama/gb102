@@ -150,7 +150,7 @@ angular.module("app.skills").controller('SkillsCtrl',
 
 
           //--------init------
-          vm.skillsManager.getSkills(vm.skillId);
+          //vm.skillsManager.getSkills(vm.skillId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.skillLevels = data;
           });

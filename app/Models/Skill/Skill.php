@@ -31,8 +31,20 @@ class Skill extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getSkills() {
+ public static function getSkillsAll() {
   $skills = Skill::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
+    ->take(10)
+    ->get();
+  return $skills;
+ }
+
+ public static function getSkillsMine() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $skills = Skill::orderBy('id', 'desc')
+    ->where('creator_id', $userId)
     ->with('creator')
     ->with('level')
     ->take(10)

@@ -25,8 +25,13 @@ use DB;
 
 class SkillController extends Controller {
 
- public function getSkills() {
-  $skills = Skill::getSkills();
+ public function getSkillsAll() {
+  $skills = Skill::getSkillsAll();
+  return \Response::json($skills);
+ }
+
+ public function getSkillsMine() {
+  $skills = Skill::getSkillsMine();
   return \Response::json($skills);
  }
 

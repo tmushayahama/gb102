@@ -10,6 +10,7 @@ define(['angular',
   $stateProvider
           .state('apps.skills', {
            url: '/skills',
+           abstract: true,
            views: {
             "apps": {
              controller: 'SkillsCtrl as skillsCtrl',
@@ -25,6 +26,44 @@ define(['angular',
                   'public/modules/skills/controllers/SkillsCtrl.js',
                   'public/modules/skills/controllers/modals/AddSkillCtrl.js',
                   'public/css/ss_themes/ss_theme_1.css'
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.skills.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'SkillsAllCtrl as skillsAllCtrl',
+             templateUrl: 'public/modules/skills/views/skills-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/controllers/SkillsAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.skills.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'SkillsMineCtrl as skillsMineCtrl',
+             templateUrl: 'public/modules/skills/views/skills-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/controllers/SkillsMineCtrl.js',
                  ]
                 })
                }]

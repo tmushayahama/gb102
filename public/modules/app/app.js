@@ -111,7 +111,7 @@ define([
     $rootScope.user = user;
     if (toState.name === "auth") {
      event.preventDefault();
-     $state.go('apps.skills');
+     $state.go('apps.skills.all');
     }
    } else {
     if (toState.name !== "auth") {
