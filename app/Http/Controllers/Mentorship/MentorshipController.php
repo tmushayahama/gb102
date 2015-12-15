@@ -25,8 +25,13 @@ use DB;
 
 class MentorshipController extends Controller {
 
- public function getMentorships() {
-  $mentorships = Mentorship::getMentorships();
+ public function getMentorshipsAll() {
+  $mentorships = Mentorship::getMentorshipsAll();
+  return \Response::json($mentorships);
+ }
+
+ public function getMentorshipsMine() {
+  $mentorships = Mentorship::getMentorshipsMine();
   return \Response::json($mentorships);
  }
 

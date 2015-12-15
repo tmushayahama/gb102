@@ -31,6 +31,44 @@ define(['angular',
              }
             }
            }})
+          .state('apps.advices.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'AdvicesAllCtrl as advicesAllCtrl',
+             templateUrl: 'public/modules/advices/views/advices-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.advices',
+                 serie: true,
+                 files: [
+                  'public/modules/advices/controllers/AdvicesAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.advices.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'AdvicesMineCtrl as advicesMineCtrl',
+             templateUrl: 'public/modules/advices/views/advices-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.advices',
+                 serie: true,
+                 files: [
+                  'public/modules/advices/controllers/AdvicesMineCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
           .state('apps.advice', {
            abstract: true,
            url: '/advice/{adviceId}',

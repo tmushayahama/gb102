@@ -23,11 +23,24 @@ angular.module('app.promises').service('PromisesManager',
            return deferred.resolve(data);
           };
 
-          PromisesManager.prototype.getPromises = function (promiseId) {
+          PromisesManager.prototype.getAllPromises = function () {
            var self = this;
            var deferred = $q.defer();
            self.promises = [];
-           $http.get('/api/promises').success(function (data) {
+           $http.get('/api/promises/all').success(function (data) {
+            self.promises = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          PromisesManager.prototype.getMyPromises = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.promises = [];
+           $http.get('/api/promises/mine').success(function (data) {
             self.promises = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

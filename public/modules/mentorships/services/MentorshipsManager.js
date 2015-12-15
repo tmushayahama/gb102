@@ -23,11 +23,24 @@ angular.module('app.mentorships').service('MentorshipsManager',
            return deferred.resolve(data);
           };
 
-          MentorshipsManager.prototype.getMentorships = function (mentorshipId) {
+          MentorshipsManager.prototype.getAllMentorships = function () {
            var self = this;
            var deferred = $q.defer();
            self.mentorships = [];
-           $http.get('/api/mentorships').success(function (data) {
+           $http.get('/api/mentorships/all').success(function (data) {
+            self.mentorships = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          MentorshipsManager.prototype.getMyMentorships = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.mentorships = [];
+           $http.get('/api/mentorships/mine').success(function (data) {
             self.mentorships = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

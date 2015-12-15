@@ -150,7 +150,6 @@ angular.module("app.promises").controller('PromisesCtrl',
 
 
           //--------init------
-          vm.promisesManager.getPromises(vm.promiseId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.promiseLevels = data;
           });

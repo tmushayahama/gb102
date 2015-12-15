@@ -2869,7 +2869,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  height: 40px;
  padding: 0 10px 0 10px!important;
  list-style: none;
- border-bottom: #AAA solid 1px;
+ border-bottom: #DDD solid 3px;
  background-color: #FFF;
  margin: 0;
  z-index: 900;
@@ -2893,6 +2893,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   }
  }
 
+ /*
  li {
   padding: 0;
   text-align: center;
@@ -2927,6 +2928,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
    padding: 0;
   }
  }
+ */
 }
 
 

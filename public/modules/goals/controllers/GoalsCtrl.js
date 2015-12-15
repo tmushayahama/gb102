@@ -150,7 +150,6 @@ angular.module("app.goals").controller('GoalsCtrl',
 
 
           //--------init------
-          vm.goalsManager.getGoals(vm.goalId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.goalLevels = data;
           });

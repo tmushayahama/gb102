@@ -192,7 +192,7 @@ and open the template in the editor.
   height: 40px;
   line-height: 15px;
   background-color: transparent;
-  border-bottom: transparent solid 4px;
+  border-bottom: transparent solid 3px;
 }
 .gb-nav-1 li a {
   display: block;
@@ -202,10 +202,10 @@ and open the template in the editor.
   text-decoration: none;
 }
 .gb-nav-1 li:hover {
-  border-bottom: rgba(39, 114, 139, 0.7) solid 4px;
+  border-bottom: rgba(39, 114, 139, 0.7) solid 3px;
 }
 .gb-nav-1 li.active {
-  border-bottom: #27728B solid 4px;
+  border-bottom: #27728B solid 3px;
 }
 
 .gb-nav-2 {
@@ -227,12 +227,19 @@ and open the template in the editor.
   width: 100%;
   text-align: center;
   text-decoration: none;
+  color: rgba(39, 114, 139, 0.7);
 }
 .gb-nav-2 li:hover {
-  border-bottom: rgba(39, 114, 139, 0.7) solid 4px;
+  border-bottom: rgba(39, 114, 139, 0.5) solid 4px;
+}
+.gb-nav-2 li:hover a {
+  color: rgba(39, 114, 139, 0.9);
 }
 .gb-nav-2 li.active {
-  border-bottom: #27728B solid 4px;
+  border-bottom: rgba(39, 114, 139, 0.7) solid 4px;
+}
+.gb-nav-2 li.active a {
+  color: #27728b;
 }
 
 .gb-comments {
@@ -4157,10 +4164,46 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   height: 40px;
   padding: 0 10px 0 10px !important;
   list-style: none;
-  border-bottom: #AAA solid 1px;
+  border-bottom: #DDD solid 3px;
   background-color: #FFF;
   margin: 0;
   z-index: 900;
+ /*
+ li {
+  padding: 0;
+  text-align: center;
+
+  &.active a {
+   color: #000;
+   font-weight: bold;
+
+   .gb-img-sm {
+    height: 35px;
+    width: 35px;
+    margin-bottom: 10px;
+    border: #CCC solid 2px;
+   }
+
+   a {
+    display: block;
+    font-size: 1.1em;
+    padding: 10px 0 0px 0;
+    text-decoration: none;
+    .gb-title {
+     font-size: 1.1em;
+    }
+
+    .gb-line-1 {
+     height: 5px;
+    }
+   }
+  }
+
+  .gb-nav-heading-1 {
+   padding: 0;
+  }
+ }
+ */
 }
 .gb-top-nav-2:hover {
   opacity: 1;
@@ -4177,35 +4220,6 @@ ul .gb-sticky-note-row:nth-child(5n) a {
 }
 .gb-top-nav-2 .gb-action .btn {
   margin-left: 10px;
-}
-.gb-top-nav-2 li {
-  padding: 0;
-  text-align: center;
-}
-.gb-top-nav-2 li.active a {
-  color: #000;
-  font-weight: bold;
-}
-.gb-top-nav-2 li.active a .gb-img-sm {
-  height: 35px;
-  width: 35px;
-  margin-bottom: 10px;
-  border: #CCC solid 2px;
-}
-.gb-top-nav-2 li.active a a {
-  display: block;
-  font-size: 1.1em;
-  padding: 10px 0 0px 0;
-  text-decoration: none;
-}
-.gb-top-nav-2 li.active a a .gb-title {
-  font-size: 1.1em;
-}
-.gb-top-nav-2 li.active a a .gb-line-1 {
-  height: 5px;
-}
-.gb-top-nav-2 li .gb-nav-heading-1 {
-  padding: 0;
 }
 
 .gb-nav-heading-2 {

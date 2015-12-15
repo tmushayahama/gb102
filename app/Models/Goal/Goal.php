@@ -31,8 +31,20 @@ class Goal extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getGoals() {
+ public static function getGoalsAll() {
   $goals = Goal::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
+    ->take(10)
+    ->get();
+  return $goals;
+ }
+
+ public static function getGoalsMine() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $goals = Goal::orderBy('id', 'desc')
+    ->where('creator_id', $userId)
     ->with('creator')
     ->with('level')
     ->take(10)

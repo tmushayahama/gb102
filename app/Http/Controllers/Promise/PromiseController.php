@@ -25,8 +25,13 @@ use DB;
 
 class PromiseController extends Controller {
 
- public function getPromises() {
-  $promises = Promise::getPromises();
+ public function getPromisesAll() {
+  $promises = Promise::getPromisesAll();
+  return \Response::json($promises);
+ }
+
+ public function getPromisesMine() {
+  $promises = Promise::getPromisesMine();
   return \Response::json($promises);
  }
 

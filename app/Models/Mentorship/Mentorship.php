@@ -31,8 +31,20 @@ class Mentorship extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getMentorships() {
+ public static function getMentorshipsAll() {
   $mentorships = Mentorship::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
+    ->take(10)
+    ->get();
+  return $mentorships;
+ }
+
+ public static function getMentorshipsMine() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $mentorships = Mentorship::orderBy('id', 'desc')
+    ->where('creator_id', $userId)
     ->with('creator')
     ->with('level')
     ->take(10)

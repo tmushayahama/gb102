@@ -150,7 +150,6 @@ angular.module("app.hobbys").controller('HobbysCtrl',
 
 
           //--------init------
-          vm.hobbysManager.getHobbys(vm.hobbyId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.hobbyLevels = data;
           });

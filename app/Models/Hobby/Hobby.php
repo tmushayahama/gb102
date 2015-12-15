@@ -31,8 +31,20 @@ class Hobby extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getHobbys() {
+ public static function getHobbysAll() {
   $hobbys = Hobby::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
+    ->take(10)
+    ->get();
+  return $hobbys;
+ }
+
+ public static function getHobbysMine() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $hobbys = Hobby::orderBy('id', 'desc')
+    ->where('creator_id', $userId)
     ->with('creator')
     ->with('level')
     ->take(10)

@@ -46,7 +46,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
 
  //Goal
- Route::get('goals', 'Goal\GoalController@getGoals');
+ Route::get('goals/all', 'Goal\GoalController@getGoalsAll');
+ Route::get('goals/mine', 'Goal\GoalController@getGoalsMine');
  Route::get('goal/{goalId}/comments', 'Goal\GoalController@getGoalComments');
  Route::get('goal/{goalId}/comment/{commentId}', 'Goal\GoalController@getGoalComment');
  Route::get('goal/{goalId}/todos', 'Goal\GoalController@getGoalTodos');
@@ -72,7 +73,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('goal/weblink/edit', 'Goal\GoalController@editGoalWeblink');
 
 //promise
- Route::get('promises', 'Promise\PromiseController@getPromises');
+ Route::get('promises/all', 'Promise\PromiseController@getPromisesAll');
+ Route::get('promises/mine', 'Promise\PromiseController@getPromisesMine');
  Route::get('promise/{promiseId}/comments', 'Promise\PromiseController@getPromiseComments');
  Route::get('promise/{promiseId}/comment/{commentId}', 'Promise\PromiseController@getPromiseComment');
  Route::get('promise/{promiseId}/todos', 'Promise\PromiseController@getPromiseTodos');
@@ -98,7 +100,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('promise/weblink/edit', 'Promise\PromiseController@editPromiseWeblink');
 
  //Hobbys
- Route::get('hobbys', 'Hobby\HobbyController@getHobbys');
+ Route::get('hobbys/all', 'Hobby\HobbyController@getHobbysAll');
+ Route::get('hobbys/mine', 'Hobby\HobbyController@getHobbysMine');
  Route::get('hobby/{hobbyId}/comments', 'Hobby\HobbyController@getHobbyComments');
  Route::get('hobby/{hobbyId}/comment/{commentId}', 'Hobby\HobbyController@getHobbyComment');
  Route::get('hobby/{hobbyId}/todos', 'Hobby\HobbyController@getHobbyTodos');
@@ -124,7 +127,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('hobby/weblink/edit', 'Hobby\HobbyController@editHobbyWeblink');
 
  //Mentorship
- Route::get('mentorships', 'Mentorship\MentorshipController@getMentorships');
+ Route::get('mentorships/all', 'Mentorship\MentorshipController@getMentorshipsAll');
+ Route::get('mentorships/mine', 'Mentorship\MentorshipController@getMentorshipsMine');
  Route::get('mentorship/{mentorshipId}/comments', 'Mentorship\MentorshipController@getMentorshipComments');
  Route::get('mentorship/{mentorshipId}/comment/{commentId}', 'Mentorship\MentorshipController@getMentorshipComment');
  Route::get('mentorship/{mentorshipId}/todos', 'Mentorship\MentorshipController@getMentorshipTodos');
@@ -150,7 +154,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('mentorship/weblink/edit', 'Mentorship\MentorshipController@editMentorshipWeblink');
 
 //Advice
- Route::get('advices', 'Advice\AdviceController@getAdvices');
+ Route::get('advices/all', 'Advice\AdviceController@getAdvicesAll');
+ Route::get('advices/mine', 'Advice\AdviceController@getAdvicesMine');
  Route::get('advice/{adviceId}/comments', 'Advice\AdviceController@getAdviceComments');
  Route::get('advice/{adviceId}/comment/{commentId}', 'Advice\AdviceController@getAdviceComment');
  Route::get('advice/{adviceId}/todos', 'Advice\AdviceController@getAdviceTodos');

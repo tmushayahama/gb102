@@ -9,7 +9,7 @@
   height: 40px;
   line-height: 15px;
   background-color: transparent;
-  border-bottom: transparent solid 4px;
+  border-bottom: transparent solid 3px;
   a{
    display: block;
    height: 100%;
@@ -18,10 +18,10 @@
    text-decoration: none;
   }
   &:hover {
-   border-bottom: rgba($primary-color, 0.7) solid 4px;
+   border-bottom: rgba($primary-color, 0.7) solid 3px;
   }
   &.active {
-   border-bottom: $primary-color solid 4px;
+   border-bottom: $primary-color solid 3px;
   }
  }
 }
@@ -43,12 +43,19 @@
    width: 100%;
    text-align: center;
    text-decoration: none;
+   color: rgba($primary-color, 0.7);
   }
   &:hover {
-   border-bottom: rgba($primary-color, 0.7) solid 4px;
+   border-bottom: rgba($primary-color, 0.5) solid 4px;
+   a {
+    color: rgba($primary-color, 0.9);
+   }
   }
   &.active {
-   border-bottom: $primary-color solid 4px;
+   border-bottom: rgba($primary-color, 0.7) solid 4px;
+   a {
+    color: rgba($primary-color, 1);
+   }
   }
  }
 }

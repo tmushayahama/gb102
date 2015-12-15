@@ -31,8 +31,20 @@ class Advice extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getAdvices() {
+ public static function getAdvicesAll() {
   $advices = Advice::orderBy('id', 'desc')
+    ->with('creator')
+    ->with('level')
+    ->take(10)
+    ->get();
+  return $advices;
+ }
+
+ public static function getAdvicesMine() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $advices = Advice::orderBy('id', 'desc')
+    ->where('creator_id', $userId)
     ->with('creator')
     ->with('level')
     ->take(10)

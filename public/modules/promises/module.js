@@ -31,6 +31,44 @@ define(['angular',
              }
             }
            }})
+          .state('apps.promises.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'PromisesAllCtrl as promisesAllCtrl',
+             templateUrl: 'public/modules/promises/views/promises-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.promises',
+                 serie: true,
+                 files: [
+                  'public/modules/promises/controllers/PromisesAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.promises.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'PromisesMineCtrl as promisesMineCtrl',
+             templateUrl: 'public/modules/promises/views/promises-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.promises',
+                 serie: true,
+                 files: [
+                  'public/modules/promises/controllers/PromisesMineCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
           .state('apps.promise', {
            abstract: true,
            url: '/promise/{promiseId}',

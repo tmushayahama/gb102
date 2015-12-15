@@ -25,8 +25,13 @@ use DB;
 
 class GoalController extends Controller {
 
- public function getGoals() {
-  $goals = Goal::getGoals();
+ public function getGoalsAll() {
+  $goals = Goal::getGoalsAll();
+  return \Response::json($goals);
+ }
+
+ public function getGoalsMine() {
+  $goals = Goal::getGoalsMine();
   return \Response::json($goals);
  }
 

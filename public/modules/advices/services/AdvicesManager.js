@@ -23,11 +23,24 @@ angular.module('app.advices').service('AdvicesManager',
            return deferred.resolve(data);
           };
 
-          AdvicesManager.prototype.getAdvices = function (adviceId) {
+          AdvicesManager.prototype.getAllAdvices = function () {
            var self = this;
            var deferred = $q.defer();
            self.advices = [];
-           $http.get('/api/advices').success(function (data) {
+           $http.get('/api/advices/all').success(function (data) {
+            self.advices = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          AdvicesManager.prototype.getMyAdvices = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.advices = [];
+           $http.get('/api/advices/mine').success(function (data) {
             self.advices = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

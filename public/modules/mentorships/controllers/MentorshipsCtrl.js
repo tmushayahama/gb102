@@ -150,7 +150,6 @@ angular.module("app.mentorships").controller('MentorshipsCtrl',
 
 
           //--------init------
-          vm.mentorshipsManager.getMentorships(vm.mentorshipId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.mentorshipLevels = data;
           });

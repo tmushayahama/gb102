@@ -25,8 +25,13 @@ use DB;
 
 class HobbyController extends Controller {
 
- public function getHobbys() {
-  $hobbys = Hobby::getHobbys();
+ public function getHobbysAll() {
+  $hobbys = Hobby::getHobbysAll();
+  return \Response::json($hobbys);
+ }
+
+ public function getHobbysMine() {
+  $hobbys = Hobby::getHobbysMine();
   return \Response::json($hobbys);
  }
 

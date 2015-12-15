@@ -23,11 +23,24 @@ angular.module('app.hobbys').service('HobbysManager',
            return deferred.resolve(data);
           };
 
-          HobbysManager.prototype.getHobbys = function (hobbyId) {
+          HobbysManager.prototype.getAllHobbys = function () {
            var self = this;
            var deferred = $q.defer();
            self.hobbys = [];
-           $http.get('/api/hobbys').success(function (data) {
+           $http.get('/api/hobbys/all').success(function (data) {
+            self.hobbys = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          HobbysManager.prototype.getMyHobbys = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.hobbys = [];
+           $http.get('/api/hobbys/mine').success(function (data) {
             self.hobbys = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

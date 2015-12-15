@@ -31,6 +31,44 @@ define(['angular',
              }
             }
            }})
+          .state('apps.mentorships.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'MentorshipsAllCtrl as mentorshipsAllCtrl',
+             templateUrl: 'public/modules/mentorships/views/mentorships-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorships',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorships/controllers/MentorshipsAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.mentorships.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'MentorshipsMineCtrl as mentorshipsMineCtrl',
+             templateUrl: 'public/modules/mentorships/views/mentorships-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorships',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorships/controllers/MentorshipsMineCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
           .state('apps.mentorship', {
            abstract: true,
            url: '/mentorship/{mentorshipId}',

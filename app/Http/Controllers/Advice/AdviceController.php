@@ -25,8 +25,13 @@ use DB;
 
 class AdviceController extends Controller {
 
- public function getAdvices() {
-  $advices = Advice::getAdvices();
+ public function getAdvicesAll() {
+  $advices = Advice::getAdvicesAll();
+  return \Response::json($advices);
+ }
+
+ public function getAdvicesMine() {
+  $advices = Advice::getAdvicesMine();
   return \Response::json($advices);
  }
 

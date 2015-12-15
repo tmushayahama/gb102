@@ -23,11 +23,24 @@ angular.module('app.goals').service('GoalsManager',
            return deferred.resolve(data);
           };
 
-          GoalsManager.prototype.getGoals = function (goalId) {
+          GoalsManager.prototype.getAllGoals = function () {
            var self = this;
            var deferred = $q.defer();
            self.goals = [];
-           $http.get('/api/goals').success(function (data) {
+           $http.get('/api/goals/all').success(function (data) {
+            self.goals = data;
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
+          GoalsManager.prototype.getMyGoals = function () {
+           var self = this;
+           var deferred = $q.defer();
+           self.goals = [];
+           $http.get('/api/goals/mine').success(function (data) {
             self.goals = data;
             self.deferredHandler(data, deferred);
            }).error(function (data) {

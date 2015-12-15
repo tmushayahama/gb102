@@ -31,6 +31,44 @@ define(['angular',
              }
             }
            }})
+          .state('apps.hobbys.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'HobbysAllCtrl as hobbysAllCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobbys-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.hobbys',
+                 serie: true,
+                 files: [
+                  'public/modules/hobbys/controllers/HobbysAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.hobbys.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'HobbysMineCtrl as hobbysMineCtrl',
+             templateUrl: 'public/modules/hobbys/views/hobbys-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.hobbys',
+                 serie: true,
+                 files: [
+                  'public/modules/hobbys/controllers/HobbysMineCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
           .state('apps.hobby', {
            abstract: true,
            url: '/hobby/{hobbyId}',

@@ -31,6 +31,44 @@ define(['angular',
              }
             }
            }})
+          .state('apps.goals.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'GoalsAllCtrl as goalsAllCtrl',
+             templateUrl: 'public/modules/goals/views/goals-tab/all.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.goals',
+                 serie: true,
+                 files: [
+                  'public/modules/goals/controllers/GoalsAllCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
+          .state('apps.goals.mine', {
+           url: '/mine',
+           views: {
+            "app-tab": {
+             controller: 'GoalsMineCtrl as goalsMineCtrl',
+             templateUrl: 'public/modules/goals/views/goals-tab/mine.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.goals',
+                 serie: true,
+                 files: [
+                  'public/modules/goals/controllers/GoalsMineCtrl.js',
+                 ]
+                })
+               }]
+             }
+            }
+           }})
           .state('apps.goal', {
            abstract: true,
            url: '/goal/{goalId}',

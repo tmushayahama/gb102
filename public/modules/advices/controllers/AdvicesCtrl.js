@@ -150,7 +150,6 @@ angular.module("app.advices").controller('AdvicesCtrl',
 
 
           //--------init------
-          vm.advicesManager.getAdvices(vm.adviceId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.adviceLevels = data;
           });
