@@ -8476,11 +8476,23 @@ input[type="checkbox"] {
 }
 
 .gb-app-detail .gb-cover {
+  padding: 20px;
+  background-color: rgba(39, 114, 139, 0.4);
   height: 200px;
   overflow: hidden;
 }
 .gb-app-detail .gb-cover .gb-cover-img {
   width: 100%;
+}
+.gb-app-detail .gb-cover .gb-icons-row {
+  margin: 0;
+  margin-bottom: 15px;
+}
+.gb-app-detail .gb-cover .gb-icons-row .fa-circle {
+  color: rgba(39, 114, 139, 0.4);
+}
+.gb-app-detail .gb-cover .gb-icons-row .fa-inverse {
+  color: rgba(39, 114, 139, 0.8);
 }
 .gb-app-detail .gb-profile-row {
   position: absolute;

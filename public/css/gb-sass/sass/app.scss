@@ -18,6 +18,7 @@ and open the template in the editor.
 @import "components/gb-comments";
 @import "components/gb-timeline";
 @import "components/gb-weblinks";
+//@import "components/gb-icon-images";
 @import "components/custom-xeditable";
 
 [ng\:cloak],
@@ -53,10 +54,22 @@ input[type="checkbox"] {
 
 .gb-app-detail {
  .gb-cover {
+     padding: 20px;
+  background-color: rgba($primary-color, 0.4);
   height: 200px;
   overflow: hidden;
   .gb-cover-img {
    width: 100%;
+  }
+  .gb-icons-row {
+      margin: 0;
+      margin-bottom: 15px;
+      .fa-circle {
+           color: rgba($primary-color, 0.4);
+      }
+      .fa-inverse{
+          color: rgba($primary-color, 0.8);
+      }
   }
  }
  .gb-profile-row {

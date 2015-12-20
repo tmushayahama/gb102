@@ -1,0 +1,16 @@
+//
+// Modals
+// --------------------------------------------------
+$list: arnold sylvester dolf jean chuck;
+
+@mixin author-imgs {
+ @each $manly-man in $list {
+  .photo-#{$manly-man} {
+   // background: {$manly-man}.png") no-repeat;
+  }
+ }
+}
+
+.author-bio {
+ @include author-imgs();
+}

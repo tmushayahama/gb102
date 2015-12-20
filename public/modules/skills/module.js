@@ -86,6 +86,7 @@ define(['angular',
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/skills/services/SkillManager.js',
                   'public/modules/skills/controllers/SkillCtrl.js',
+                  'public/modules/skills/filters/randomize.js',
                   'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })

@@ -123,5 +123,7 @@ define([
 
   editableOptions.theme = 'bs3';
  });
+
+ app.constant('_', window._);
  return app;
 });

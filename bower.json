@@ -29,7 +29,8 @@
     "satellizer": "~0.12.5",
     "oclazyload": "~1.0.6",
     "angular-bootstrap": "~0.14.3",
-    "angular-local-storage": "~0.2.3"
+    "angular-local-storage": "~0.2.3",
+    "underscore": "~1.8.3"
   },
   "devDependencies": {
     "angular-bootstrap": "~0.14.3",

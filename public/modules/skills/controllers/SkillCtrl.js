@@ -1,6 +1,7 @@
 
 angular.module("app.skills").controller('SkillCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'SkillManager',
          '$scope',
          '$state',
@@ -12,6 +13,7 @@ angular.module("app.skills").controller('SkillCtrl',
          '$log',
          '$filter',
          function (
+                 _,
                  ConstantsManager,
                  SkillManager,
                  $scope,
@@ -29,6 +31,48 @@ angular.module("app.skills").controller('SkillCtrl',
           vm.skill = [];
           var skillData = {
           };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          }
+
+          vm.skillIcons = [
+           'fa-anchor',
+           'fa-car',
+           'fa-balance-scale',
+           'fa-bicycle',
+           'fa-binoculars ',
+           'fa-briefcase ',
+           'fa-book',
+           'fa-camera',
+           'fa-building',
+           'fa-code',
+           'fa-desktop',
+           'fa-cutlery',
+           'fa-film',
+           'fa-gavel',
+           'fa-microphone ',
+           'fa-futbol-o ',
+           'fa-plane',
+           'fa-video-camera',
+           'fa-music',
+           'fa-taxi',
+           'fa-university',
+           'fa-wrench',
+           'fa-ship',
+           'fa-heart-o',
+          ];
+
+          var rand;
+
+          vm.initRand = function (min, max) {
+           rand = Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomSkillIcons = function () {
+           vm.initRand(0, vm.skillIcons.length);
+           return vm.skillIcons[rand];
+          }
 
 
           vm.skillId = $stateParams.skillId;

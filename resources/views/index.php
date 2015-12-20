@@ -10,5 +10,6 @@
  <body class="">
   <div ui-view="root" id="main-container"></div>
  </body>
+ <script src="bower_components/underscore/underscore.js" type="text/javascript"></script>
  <script data-main="public/scripts/require-config" src="bower_components/requirejs/require.js" type="text/javascript"></script>
 </html>
