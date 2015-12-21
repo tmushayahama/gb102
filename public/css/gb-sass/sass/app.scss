@@ -69,8 +69,11 @@ input[type="checkbox"] {
 }
 
 
-.gb-app-detail {
+#gb-middle-nav {
  background-color: rgba($primary-color, 0.1);
+ .gb-list {
+  padding: 0px;
+ }
  .gb-cover {
   padding: 10px;
   background-color: rgba($primary-color, 0.5);
@@ -103,7 +106,10 @@ input[type="checkbox"] {
    }
   }
  }
- .container {
+ .container.gb-app-list {
+  margin-top: 90px;
+ }
+  .container.gb-app-detail {
   margin-top: 50px;
  }
  .gb-profile-row {
@@ -1136,82 +1142,6 @@ input.gb-form-show{
  height: 100%;
 }
 
-#gb-middle-nav-3 {
- padding: 0;
- @include position(absolute, 92px 0 0 0);
- .gb-body {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 10;
- }
- .gb-list {
-  padding: 0px;
- }
-
- .gb-nav-heading {
-  background-color: #F2F2F2;
-  color: #777;
-  border-bottom: #999 solid 1px;
-  margin-bottom: 15px;
- }
-
- .gb-nav-heading .gb-heading {
-  max-height: 150px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 5px 5px 15px 5px;
- }
-
- .gb-nav-heading .gb-footer {
-  border-top: #465E66 solid 1px;
-  padding: 10px;
-  background-color: #E2E2E2;
- }
-
- .gb-box {
-  padding: 0px;
- }
-
- .gb-box .gb-container {
-  padding: 3px;
-  background-color: #FFF;
-  height: 90px;
-  border-bottom: #AAA solid 1px;
- }
-
- .gb-box .gb-container:hover {
-  background-color: #EEE;
- }
- .gb-box .gb-heading {
-  height: 25px;
- }
- .gb-box .gb-heading-img{
-  height: 40px;
-  width: 40px;
-  margin-right: 5px;
- }
- .gb-box .gb-title{
-  font-size: 1.1em;
- }
- .gb-box .gb-body {
-  height: 70px;
-  overflow: hidden;
- }
- .gb-box .gb-description {
-  padding: 2px;
-  font-size: 0.8em;
- }
-
- .gb-box .gb-icon-nav-arrow{
-  margin-top: 12px;
- }
-}
 
 
 #gb-left-nav-3 {
@@ -1230,7 +1160,7 @@ input.gb-form-show{
   background-color: #FFF;
   .gb-logo {
    color: #777;
-   font-size: 12px;
+   font-size: 14px;
    .fa-lg {    
     font-size: 14px;
     text-align: center;
@@ -1246,7 +1176,7 @@ input.gb-form-show{
     color: $primary-color;
    }
    .gb-beta {
-    font-size: 7px;
+    font-size: 5px;
     color: #FF1B1B;
    }
   }
@@ -2033,8 +1963,12 @@ input.gb-form-show{
  border: none;
 }
 .btn-primary {
+ background-color: $primary-color;
  border-radius: 0;
  border: none;
+ &:hover {
+  background-color: rgba($primary-color, 0.6);
+ }
 }
 
 .input-group-addon {
@@ -2441,9 +2375,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  }
  #main-container {
   top: 50px;
- }
- #gb-middle-nav-3 {
-  border: none;
  }
  .gb-side-margin-thick {
   margin: 0!important;

@@ -36,8 +36,8 @@ define(['angular',
            url: '/all',
            views: {
             "app-tab": {
-             controller: 'SkillsAllCtrl as skillsAllCtrl',
-             templateUrl: 'public/modules/skills/views/skills-tab/all.html',
+             controller: 'SkillsAllCtrl as skillsTabCtrl',
+             templateUrl: 'public/modules/skills/views/skills-tab/skill-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -55,8 +55,8 @@ define(['angular',
            url: '/mine',
            views: {
             "app-tab": {
-             controller: 'SkillsMineCtrl as skillsMineCtrl',
-             templateUrl: 'public/modules/skills/views/skills-tab/mine.html',
+             controller: 'SkillsMineCtrl as skillsTabCtrl',
+             templateUrl: 'public/modules/skills/views/skills-tab/skill-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({

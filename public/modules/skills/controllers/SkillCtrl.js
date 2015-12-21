@@ -48,11 +48,10 @@ angular.module("app.skills").controller('SkillCtrl',
             var rowArray = [];
             for (var j = 0; j < vm.skillIcons.length; j++) {
              var rand = getRand(0, vm.skillIcons.length);
-             rowArray.push(vm.skillIcons[rand]);
+             rowArray.push(vm.skillIcons[rand].name);
             }
             vm.skillIconsArray.push(rowArray);
            }
-           var d = vm.skillIconsArray[1][3];
           };
 
 

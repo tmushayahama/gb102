@@ -167,7 +167,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(39, 114, 139, 0.6);
+  color: rgba(2, 120, 135, 0.6);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -202,10 +202,10 @@ and open the template in the editor.
   text-decoration: none;
 }
 .gb-nav-1 li:hover {
-  border-bottom: rgba(39, 114, 139, 0.7) solid 3px;
+  border-bottom: rgba(2, 120, 135, 0.7) solid 3px;
 }
 .gb-nav-1 li.active {
-  border-bottom: #27728B solid 3px;
+  border-bottom: #027887 solid 3px;
 }
 
 .gb-nav-2 {
@@ -227,19 +227,19 @@ and open the template in the editor.
   width: 100%;
   text-align: center;
   text-decoration: none;
-  color: rgba(39, 114, 139, 0.7);
+  color: rgba(2, 120, 135, 0.7);
 }
 .gb-nav-2 li:hover {
-  border-bottom: rgba(39, 114, 139, 0.5) solid 4px;
+  border-bottom: rgba(2, 120, 135, 0.5) solid 4px;
 }
 .gb-nav-2 li:hover a {
-  color: rgba(39, 114, 139, 0.9);
+  color: rgba(2, 120, 135, 0.9);
 }
 .gb-nav-2 li.active {
-  border-bottom: rgba(39, 114, 139, 0.7) solid 4px;
+  border-bottom: rgba(2, 120, 135, 0.7) solid 4px;
 }
 .gb-nav-2 li.active a {
-  color: #27728b;
+  color: #027887;
 }
 
 .gb-comments {
@@ -296,7 +296,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -408,7 +408,7 @@ and open the template in the editor.
   background-color: #FFFFFF;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(39, 114, 139, 0.5) solid 1px;
+  border-left: rgba(2, 120, 135, 0.5) solid 1px;
 }
 .gb-comments #comment-list li .gb-comment-content .gb-content-text {
   float: left;
@@ -760,7 +760,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -872,7 +872,7 @@ and open the template in the editor.
   background-color: #FFFFFF;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(39, 114, 139, 0.5) solid 1px;
+  border-left: rgba(2, 120, 135, 0.5) solid 1px;
 }
 .gb-weblinks #weblink-list li .gb-weblink-content .gb-content-text {
   float: left;
@@ -1140,12 +1140,12 @@ body {
 
 a,
 a.btn-link {
-  color: #27728B;
+  color: #027887;
 }
 
 a:hover,
 a.btn-link:hover {
-  color: rgba(39, 114, 139, 0.6);
+  color: rgba(2, 120, 135, 0.6);
 }
 
 div[class*="col-"],
@@ -1165,51 +1165,57 @@ input[type="checkbox"] {
   display: none;
 }
 
-.gb-app-detail {
-  background-color: rgba(39, 114, 139, 0.1);
+#gb-middle-nav {
+  background-color: rgba(2, 120, 135, 0.1);
 }
-.gb-app-detail .gb-cover {
+#gb-middle-nav .gb-list {
+  padding: 0px;
+}
+#gb-middle-nav .gb-cover {
   padding: 10px;
-  background-color: rgba(39, 114, 139, 0.5);
+  background-color: rgba(2, 120, 135, 0.5);
   height: 200px;
   overflow: hidden;
 }
-.gb-app-detail .gb-cover .gb-cover-img {
+#gb-middle-nav .gb-cover .gb-cover-img {
   width: 100%;
 }
-.gb-app-detail .gb-cover .gb-icons-row {
+#gb-middle-nav .gb-cover .gb-icons-row {
   margin: 0;
   margin-bottom: 10px;
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-lg {
+#gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
   font-size: 2.0em;
   text-align: center;
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-lg .fa-circle {
-  color: rgba(39, 114, 139, 0.4);
+#gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-circle {
+  color: rgba(2, 120, 135, 0.4);
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-lg .fa-inverse {
-  color: rgba(39, 114, 139, 0.8);
+#gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-inverse {
+  color: rgba(2, 120, 135, 0.8);
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
-  color: rgba(39, 114, 139, 0.7);
+#gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
+  color: rgba(2, 120, 135, 0.7);
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
-  color: #27728B;
+#gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
+  color: #027887;
 }
-.gb-app-detail .container {
+#gb-middle-nav .container.gb-app-list {
+  margin-top: 90px;
+}
+#gb-middle-nav .container.gb-app-detail {
   margin-top: 50px;
 }
-.gb-app-detail .gb-profile-row {
+#gb-middle-nav .gb-profile-row {
   margin-top: -40px;
   position: relative;
   height: 40px;
 }
-.gb-app-detail .gb-profile-row .gb-profile-pic {
+#gb-middle-nav .gb-profile-row .gb-profile-pic {
   height: 40px;
   width: 40px;
 }
-.gb-app-detail .gb-profile-row .gb-row-content {
+#gb-middle-nav .gb-profile-row .gb-row-content {
   padding: 7px 0 0 10px;
   position: absolute;
   top: 0;
@@ -1218,26 +1224,26 @@ input[type="checkbox"] {
   left: 41px;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.gb-app-detail .gb-profile-row .gb-row-content a {
+#gb-middle-nav .gb-profile-row .gb-row-content a {
   text-align: left;
   color: #FAFAFA;
   font-size: 18px;
 }
-.gb-app-detail .gb-heading-row {
+#gb-middle-nav .gb-heading-row {
   padding: 15px 5px 15px 10px;
   height: 50px;
   background-color: #FFF;
   border-bottom: #DDD solid 1px;
 }
-.gb-app-detail .gb-heading-row .gb-heading {
+#gb-middle-nav .gb-heading-row .gb-heading {
   font-size: 18px;
   color: #777;
   font-weight: normal;
 }
-.gb-app-detail .gb-heading-row .gb-heading strong {
+#gb-middle-nav .gb-heading-row .gb-heading strong {
   font-weight: bold;
 }
-.gb-app-detail .gb-menu-row {
+#gb-middle-nav .gb-menu-row {
   height: 40px;
   background-color: #FFF;
   border-bottom: #CCC solid 1px;
@@ -1326,7 +1332,7 @@ input[type="checkbox"] {
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -1357,7 +1363,7 @@ input[type="checkbox"] {
 .gb-todos .gb-todo-row {
   height: 50px;
   background-color: #FFFFFF;
-  border-bottom: rgba(39, 114, 139, 0.5) solid 1px;
+  border-bottom: rgba(2, 120, 135, 0.5) solid 1px;
 }
 .gb-todos #todo-list li .toggle {
   margin: 5px 0 0 0;
@@ -1380,7 +1386,7 @@ input[type="checkbox"] {
   height: 50px;
   font-size: 18px;
   transition: color 0.4s;
-  border-left: rgba(39, 114, 139, 0.5) solid 1px;
+  border-left: rgba(2, 120, 135, 0.5) solid 1px;
 }
 .gb-todos #todo-list li .gb-todo-content .gb-content-text {
   float: left;
@@ -1593,7 +1599,7 @@ input[type="checkbox"] {
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -1892,7 +1898,7 @@ input[type="checkbox"] {
 
 .gb-checklist .gb-checklist-row {
   background-color: #FFFFFF;
-  border-bottom: rgba(39, 114, 139, 0.7) solid 1px;
+  border-bottom: rgba(2, 120, 135, 0.7) solid 1px;
 }
 .gb-checklist .gb-checklist-nav {
   margin: 0;
@@ -1919,7 +1925,7 @@ input[type="checkbox"] {
   padding: 3px 0 3px 10px;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(39, 114, 139, 0.7) solid 1px;
+  border-left: rgba(2, 120, 135, 0.7) solid 1px;
 }
 .gb-checklist .gb-checklist-nav li .gb-checklist-item-content p {
   padding: 5px 0 0px 0px;
@@ -2219,80 +2225,6 @@ input.gb-form-show {
   height: 100%;
 }
 
-#gb-middle-nav-3 {
-  padding: 0;
-  position: absolute;
-  top: 92px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-#gb-middle-nav-3 .gb-body {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 10;
-}
-#gb-middle-nav-3 .gb-list {
-  padding: 0px;
-}
-#gb-middle-nav-3 .gb-nav-heading {
-  background-color: #F2F2F2;
-  color: #777;
-  border-bottom: #999 solid 1px;
-  margin-bottom: 15px;
-}
-#gb-middle-nav-3 .gb-nav-heading .gb-heading {
-  max-height: 150px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 5px 5px 15px 5px;
-}
-#gb-middle-nav-3 .gb-nav-heading .gb-footer {
-  border-top: #465E66 solid 1px;
-  padding: 10px;
-  background-color: #E2E2E2;
-}
-#gb-middle-nav-3 .gb-box {
-  padding: 0px;
-}
-#gb-middle-nav-3 .gb-box .gb-container {
-  padding: 3px;
-  background-color: #FFF;
-  height: 90px;
-  border-bottom: #AAA solid 1px;
-}
-#gb-middle-nav-3 .gb-box .gb-container:hover {
-  background-color: #EEE;
-}
-#gb-middle-nav-3 .gb-box .gb-heading {
-  height: 25px;
-}
-#gb-middle-nav-3 .gb-box .gb-heading-img {
-  height: 40px;
-  width: 40px;
-  margin-right: 5px;
-}
-#gb-middle-nav-3 .gb-box .gb-title {
-  font-size: 1.1em;
-}
-#gb-middle-nav-3 .gb-box .gb-body {
-  height: 70px;
-  overflow: hidden;
-}
-#gb-middle-nav-3 .gb-box .gb-description {
-  padding: 2px;
-  font-size: 0.8em;
-}
-#gb-middle-nav-3 .gb-box .gb-icon-nav-arrow {
-  margin-top: 12px;
-}
-
 #gb-left-nav-3 {
   z-index: 1000;
   position: fixed;
@@ -2316,23 +2248,23 @@ input.gb-form-show {
 }
 #gb-left-nav-3 .gb-header .gb-logo {
   color: #777;
-  font-size: 12px;
+  font-size: 14px;
 }
 #gb-left-nav-3 .gb-header .gb-logo .fa-lg {
   font-size: 14px;
   text-align: center;
 }
 #gb-left-nav-3 .gb-header .gb-logo .fa-lg .fa-circle {
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
 }
 #gb-left-nav-3 .gb-header .gb-logo .fa-lg .fa-inverse {
-  color: rgba(39, 114, 139, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 #gb-left-nav-3 .gb-header .gb-logo strong {
-  color: #27728B;
+  color: #027887;
 }
 #gb-left-nav-3 .gb-header .gb-logo .gb-beta {
-  font-size: 7px;
+  font-size: 5px;
   color: #FF1B1B;
 }
 #gb-left-nav-3 .gb-header a,
@@ -3203,8 +3135,12 @@ input.gb-form-show {
 }
 
 .btn-primary {
+  background-color: #027887;
   border-radius: 0;
   border: none;
+}
+.btn-primary:hover {
+  background-color: rgba(2, 120, 135, 0.6);
 }
 
 .input-group-addon {
@@ -3656,10 +3592,6 @@ ul .gb-sticky-note-row:nth-child(5n) a {
 
   #main-container {
     top: 50px;
-  }
-
-  #gb-middle-nav-3 {
-    border: none;
   }
 
   .gb-side-margin-thick {
@@ -4520,16 +4452,16 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   text-align: center;
 }
 .gb-box-1 .gb-icon-image .fa-lg .fa-circle {
-  color: rgba(39, 114, 139, 0.4);
+  color: rgba(2, 120, 135, 0.4);
 }
 .gb-box-1 .gb-icon-image .fa-lg .fa-inverse {
-  color: rgba(39, 114, 139, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-box-1 .gb-icon-image .fa-lg:hover .fa-circle {
-  color: rgba(39, 114, 139, 0.7);
+  color: rgba(2, 120, 135, 0.7);
 }
 .gb-box-1 .gb-icon-image .fa-lg:hover .fa-inverse {
-  color: #27728B;
+  color: #027887;
 }
 .gb-box-1 .gb-box-body .gb-heading {
   padding: 8px 5px 0 10px;
