@@ -25,7 +25,7 @@ define(['angular',
                   'public/modules/skills/services/SkillsManager.js',
                   'public/modules/skills/controllers/SkillsCtrl.js',
                   'public/modules/skills/controllers/modals/AddSkillCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          //'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
@@ -87,7 +87,7 @@ define(['angular',
                   'public/modules/skills/services/SkillManager.js',
                   'public/modules/skills/controllers/SkillCtrl.js',
                   'public/modules/skills/filters/randomize.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
@@ -112,7 +112,7 @@ define(['angular',
                   'public/modules/skills/services/SkillTimelinesManager.js',
                   'public/modules/skills/controllers/SkillTimelinesCtrl.js',
                   'public/modules/skills/controllers/modals/SkillTimelineCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          //'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
@@ -149,7 +149,7 @@ define(['angular',
                   'public/modules/skills/services/SkillWeblinksManager.js',
                   'public/modules/skills/controllers/SkillWeblinksCtrl.js',
                   'public/modules/skills/controllers/modals/SkillWeblinkCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]
@@ -172,7 +172,7 @@ define(['angular',
                   'public/modules/skills/services/SkillCommentsManager.js',
                   'public/modules/skills/controllers/SkillCommentsCtrl.js',
                   'public/modules/skills/controllers/modals/SkillCommentCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                          // 'public/css/ss_themes/ss_theme_1.css'
                  ]
                 })
                }]

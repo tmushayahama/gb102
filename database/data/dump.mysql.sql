@@ -74,6 +74,7 @@ DROP TABLE IF EXISTS `gb_advice`;
 CREATE TABLE `gb_advice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_advice_id` int(11),
+  `icon_id` int(11) NOT NULL DEFAULT '27', 
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -90,6 +91,7 @@ CREATE TABLE `gb_advice` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `advice_parent_advice_id` (`parent_advice_id`),
+  KEY `advice_icon_id` (`icon_id`),
   KEY `advice_type_id` (`type_id`),
   KEY `advice_creator_id` (`creator_id`),
   KEY `advice_mentor_id` (`mentor_id`),
@@ -97,6 +99,7 @@ CREATE TABLE `gb_advice` (
   KEY `advice_level_id` (`level_id`),
   KEY `advice_bank_id` (`bank_id`),
   CONSTRAINT `advice_parent_advice_id` FOREIGN KEY (`parent_advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `advice_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `advice_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `advice_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_advice_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -636,13 +639,14 @@ DROP TABLE IF EXISTS `gb_hobby`;
 CREATE TABLE `gb_hobby` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_hobby_id` int(11),
+  `icon_id` int(11) NOT NULL DEFAULT '27', 
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `hobby_picture_url` varchar(250) NOT NULL DEFAULT "hobby_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -650,11 +654,13 @@ CREATE TABLE `gb_hobby` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `hobby_parent_hobby_id` (`parent_hobby_id`),
+  KEY `hobby_icon_id` (`icon_id`),
   KEY `hobby_type_id` (`type_id`),
   KEY `hobby_creator_id` (`creator_id`),
   KEY `hobby_level_id` (`level_id`),
   KEY `hobby_bank_id` (`bank_id`),
   CONSTRAINT `hobby_parent_hobby_id` FOREIGN KEY (`parent_hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `hobby_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `hobby_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `hobby_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_hobby_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -939,13 +945,14 @@ DROP TABLE IF EXISTS `gb_goal`;
 CREATE TABLE `gb_goal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_goal_id` int(11),
+  `icon_id` int(11) NOT NULL DEFAULT '27', 
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `goal_picture_url` varchar(250) NOT NULL DEFAULT "goal_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -953,11 +960,13 @@ CREATE TABLE `gb_goal` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `goal_parent_goal_id` (`parent_goal_id`),
+  KEY `goal_icon_id` (`icon_id`),
   KEY `goal_type_id` (`type_id`),
   KEY `goal_creator_id` (`creator_id`),
   KEY `goal_level_id` (`level_id`),
   CONSTRAINT `goal_parent_goal_id` FOREIGN KEY (`parent_goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+   CONSTRAINT `goal_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
    CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
@@ -1249,6 +1258,17 @@ CREATE TABLE `gb_group` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `gb_icon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_icon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `type` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_journal`
 --
@@ -1319,6 +1339,7 @@ DROP TABLE IF EXISTS `gb_mentorship`;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_mentorship_id` int(11),
+  `icon_id` int(11) NOT NULL DEFAULT '27', 
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -1327,7 +1348,7 @@ CREATE TABLE `gb_mentorship` (
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -1335,6 +1356,7 @@ CREATE TABLE `gb_mentorship` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_parent_mentorship_id` (`parent_mentorship_id`),
+  KEY `mentorship_icon_id` (`icon_id`),
   KEY `mentorship_type_id` (`type_id`),
   KEY `mentorship_creator_id` (`creator_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
@@ -1342,6 +1364,7 @@ CREATE TABLE `gb_mentorship` (
   KEY `mentorship_level_id` (`level_id`),
   KEY `mentorship_bank_id` (`bank_id`),
   CONSTRAINT `mentorship_parent_mentorship_id` FOREIGN KEY (`parent_mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_mentorship_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -1985,13 +2008,14 @@ DROP TABLE IF EXISTS `gb_promise`;
 CREATE TABLE `gb_promise` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_promise_id` int(11),
+  `icon_id` int(11) NOT NULL DEFAULT '27', 
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `promise_picture_url` varchar(250) NOT NULL DEFAULT "promise_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
@@ -1999,10 +2023,12 @@ CREATE TABLE `gb_promise` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `promise_parent_promise_id` (`parent_promise_id`),
+  KEY `promise_icon_id` (`icon_id`),
   KEY `promise_type_id` (`type_id`),
   KEY `promise_creator_id` (`creator_id`),
   KEY `promise_level_id` (`level_id`),
   CONSTRAINT `promise_parent_promise_id` FOREIGN KEY (`parent_promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_promise_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -2367,6 +2393,7 @@ CREATE TABLE `gb_skill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_skill_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `skill_picture_url` varchar(250) NOT NULL DEFAULT "skill_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
@@ -2379,9 +2406,11 @@ CREATE TABLE `gb_skill` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_parent_skill_id` (`parent_skill_id`),
+  KEY `skill_icon_id` (`icon_id`),
   KEY `skill_creator_id` (`creator_id`),
   KEY `skill_level_id` (`level_id`),
   CONSTRAINT `skill_parent_skill_id` FOREIGN KEY (`parent_skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
@@ -2994,6 +3023,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillBa
     ignore 1 LINES
     (`id`, `source_id`, `creator_id`, `times_used`, `views`, `likes`);
 
+-- ----------- ICON ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.txt'
+    into table gb102.gb_icon
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `name`, `description`, `type`);
+
 -- ----------- Level ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
     into table gb102.gb_level
@@ -3013,7 +3052,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Goal.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_goal_id`,	`creator_id`,	`goal_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_goal_id`,	`creator_id`,	`icon_id`, `goal_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Hobby ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.txt'
@@ -3023,7 +3062,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_hobby_id`,	`creator_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_hobby_id`,	`creator_id`, `icon_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Promise ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise.txt'
@@ -3033,7 +3072,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_promise_id`,	`creator_id`,	`promise_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_promise_id`,	`creator_id`,	`icon_id`, `promise_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Skill ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'
@@ -3043,7 +3082,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_skill_id`,	`creator_id`,	`icon_id`, `skill_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentorship.txt'
@@ -3053,7 +3092,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
+  (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`icon_id`, `mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------Skill ----------------
 /*load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'

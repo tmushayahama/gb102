@@ -16,8 +16,11 @@
  <div id="gb-skills" class="gb-list row">
   <div ng-repeat="skill in skillsAllCtrl.skillsManager.skills" class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-padding-none">
    <div class="gb-box-1 row">
-    <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-     <img src="public/img/placeholders/skill_cover_1.png" class="img-circle" alt=""/>
+    <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa {{skill.icon.name}} fa-stack-1x fa-inverse"></i>
+     </span>
     </div>
     <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
      <div class="gb-heading row">

@@ -36,35 +36,8 @@ angular.module("app.skills").controller('SkillCtrl',
            return _.range(min, max);
           };
 
-          vm.skillIcons = [
-           'fa-anchor',
-           'fa-car',
-           'fa-balance-scale',
-           'fa-bicycle',
-           'fa-binoculars ',
-           'fa-briefcase ',
-           'fa-book',
-           'fa-camera',
-           'fa-building',
-           'fa-code',
-           'fa-desktop',
-           'fa-cutlery',
-           'fa-film',
-           'fa-gavel',
-           'fa-microphone ',
-           'fa-futbol-o ',
-           'fa-plane',
-           'fa-video-camera',
-           'fa-music',
-           'fa-taxi',
-           'fa-university',
-           'fa-wrench',
-           'fa-ship',
-           'fa-heart-o',
-          ];
-
+          vm.skillIcons = [];
           vm.skillIconsArray = [];
-
 
           var getRand = function (min, max) {
            return Math.floor((Math.random() * max) + min);
@@ -214,7 +187,9 @@ angular.module("app.skills").controller('SkillCtrl',
 
           //--------init------
           vm.skillManager.getSkill(vm.skillId);
-          vm.constantsManager.getLevel('SK1');
-          vm.getRandomSkillIcons();
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.skillIcons = data;
+           vm.getRandomSkillIcons();
+          });
          }
         ])

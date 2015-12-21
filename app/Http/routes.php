@@ -181,6 +181,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('advice/weblink/edit', 'Advice\AdviceController@editAdviceWeblink');
 
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
+ Route::get('constants/icons/{type}', 'ConstantsController@getIcons');
 
 
 

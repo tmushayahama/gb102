@@ -1,12 +1,14 @@
-<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12" id="gb-left-nav-3" role="navigation">
- <div class="gb-header navbar-header">
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-2" id="gb-left-nav-3" role="navigation">
+ <div class="gb-header">
   <a class="gb-logo gb-ellipsis" href="app/skill">
-   <span class="">
-    <i class="gb-padding-thin pull-left gb-close-middle-nav fa fa-bars hidden-lg hidden-md hidden-sm visible-xs">
-    </i>
-    <strong>SKILL</strong>SECTION
+   <span class="fa-stack fa-lg pull-left">
+    <i class="fa fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
    </span>
-   <small class="">BETA</small>
+   <div class="visible-lg visible-md visible-sm hidden-xs">
+    <strong>SKILL</strong>SECTION<br>
+    <div class="gb-beta">BETA</div>
+   </div>
   </a>
  </div>
  <div class="gb-body">
@@ -16,7 +18,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-icon" alt="">
-       {{$root.user.firstname + " " + $root.user.lastname}}
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        {{$root.user.firstname + " " + $root.user.lastname}}
+       </span>
       </p>
      </div>
     </a>
@@ -26,7 +30,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/community_icon_0.png" class="gb-icon" alt="">
-       Community
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Community
+       </span>
       </p>
      </div>
     </a>
@@ -34,7 +40,9 @@
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    PRIMARY APPS
+    <span class="visible-lg visible-md visible-sm hidden-xs">
+     PRIMARY APPS
+    </span>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.skills.all" class="gb-link row"
@@ -42,7 +50,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
-       Skills
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Skills
+       </span>
       </p>
      </div>
     </a>
@@ -53,7 +63,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
-       Goals
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Goals
+       </span>
       </p>
      </div>
     </a>
@@ -64,7 +76,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
-       Promises
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Promises
+       </span>
       </p>
      </div>
     </a>
@@ -75,7 +89,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
-       Hobbies
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Hobbies
+       </span>
       </p>
      </div>
     </a>
@@ -83,7 +99,9 @@
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    SECONDARY APPS
+    <span class="visible-lg visible-md visible-sm hidden-xs">
+     SECONDARY APPS
+    </span>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.mentorships.all" class="gb-link row"
@@ -91,7 +109,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_mentorship.png" class="gb-icon" alt="">
-       Mentorship
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Mentorship
+       </span>
       </p>
      </div>
     </a>
@@ -102,7 +122,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
-       Advice
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Advice
+       </span>
       </p>
      </div>
     </a>
@@ -113,7 +135,9 @@
     3<span class="gb-superscript">rd</span> APPS
    </h6>
    <h6 class="hidden-xs gb-heading gb-ellipsis">
-    TERTIARY APPS
+    <span class="visible-lg visible-md visible-sm hidden-xs">
+     TERTIARY APPS
+    </span>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref-active="active" class="gb-link row"
@@ -121,7 +145,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
-       Projects
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Projects
+       </span>
       </p>
      </div>
     </a>
@@ -131,7 +157,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
-       Groups
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Groups
+       </span>
       </p>
      </div>
     </a>
@@ -141,7 +169,9 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
-       Journal
+       <span class="visible-lg visible-md visible-sm hidden-xs">
+        Journal
+       </span>
       </p>
      </div>
     </a>
@@ -150,6 +180,6 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div ui-view="apps" class="col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-0 col-lg-10 col-md-9 col-sm-8 col-xs-12">
+<div ui-view="apps" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-9 col-sm-10 col-xs-10">
 </div>
 <!-- ------------------------------- MODALS --------------------------->
