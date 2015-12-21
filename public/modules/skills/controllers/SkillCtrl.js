@@ -44,7 +44,7 @@ angular.module("app.skills").controller('SkillCtrl',
           }
 
           vm.getRandomSkillIcons = function () {
-           for (var i = 0; i < 3; i++) {
+           for (var i = 0; i < 5; i++) {
             var rowArray = [];
             for (var j = 0; j < vm.skillIcons.length; j++) {
              var rand = getRand(0, vm.skillIcons.length);

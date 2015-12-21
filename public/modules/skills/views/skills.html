@@ -3,7 +3,7 @@
   <div class="gb-title pull-left">
    SKILL APP
   </div>
-  <div class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-3">
+  <div class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
    <div class="btn-group">
     <a ng-click="skillsCtrl.openAddSkillModal()" class="btn btn-xs btn-link">
      <span class="fa-stack fa-lg">
@@ -13,22 +13,20 @@
     </a>
    </div>
   </div>
-  <form id="search" class="col-lg-4 col-md-5 col-sm-5 col-xs-3">
+  <div class="btn-group visible-xs">
+    <a ng-click="skillsCtrl.openAddSkillModal()" class="btn btn-xs btn-link">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+     </span>
+    </a>
+   </div>
+  <form id="search" class="col-lg-4 col-md-6 col-sm-5 hidden-xs">
    <i class="gb-search-icon fa fa-search"></i>
    <input type="text" class="" placeholder="Search Skills">
   </form>
-  <form ng-if="false" class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-   <div class="form-group">
-    <div class="input-group">
-     <div class="input-group-addon">
-      <i class="fa fa-search"></i>
-     </div>
-     <input type="text" class="form-control" placeholder="Search Skills">
-    </div>
-   </div>
-  </form>
   <div class="gb-action pull-right">
-   <div class="btn-group">
+   <div class="hidden-sm hidden-xs btn-group">
     <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      <span class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
@@ -36,11 +34,7 @@
      </span>
     </a>
     <ul class="dropdown-menu dropdown-menu-right text-left">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
+     <li><a href="#">About</a></li>
     </ul>
    </div>
    <div class="btn-group">
@@ -51,11 +45,11 @@
      </span>
     </a>
     <ul class="dropdown-menu dropdown-menu-right text-left">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
+     <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
      <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
+     <li><a ng-click="appsCtrl.logout()">
+       <i class="fa fa-power-off"></i> Log Out</a>
+     </li>
     </ul>
    </div>
   </div>
@@ -87,7 +81,7 @@
  </div>
  <div class="container gb-app-list"> 
   <div class="row">
-   <div ui-view="app-tab" class="gb-background-white col-lg-8 col-md-8 col-sm-10 col-xs-12"></div>
+   <div ui-view="app-tab" class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12"></div>
   </div>
  </div>
 </div>

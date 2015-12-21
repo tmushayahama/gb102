@@ -115,9 +115,15 @@ input[type="checkbox"] {
  }
  .container.gb-app-list {
   margin-top: 90px;
+  @include respond-to (gb-sm) {
+   margin-top: 35px;
+  }
  }
-  .container.gb-app-detail {
+ .container.gb-app-detail {
   margin-top: 50px;
+  @include respond-to (gb-sm) {
+   margin-top: 5px;
+  }
  }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
@@ -2856,7 +2862,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  border-bottom: #DDD solid 3px;
  background-color: #FFF;
  margin: 0;
- z-index: 900;
+ z-index: 1;
 
  &:hover {
   opacity: 1;

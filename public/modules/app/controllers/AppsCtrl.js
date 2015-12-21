@@ -3,5 +3,10 @@ angular.module('app').controller('AppsCtrl', ['$scope', '$auth', '$state', '$htt
  function ($scope, $auth, $state, $http, $rootScope, localStorageService) {
   var vm = this;
 
+  vm.logout = function () {
+   localStorageService.remove('user');
+   $rootScope.authenticated = false;
+   $state.go('auth');
+  }
  }
 ]);

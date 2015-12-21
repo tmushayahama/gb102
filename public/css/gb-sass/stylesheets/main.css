@@ -8547,8 +8547,18 @@ input[type="checkbox"] {
 #gb-middle-nav .container.gb-app-list {
   margin-top: 90px;
 }
+@media (max-width: 991px) {
+  #gb-middle-nav .container.gb-app-list {
+    margin-top: 35px;
+  }
+}
 #gb-middle-nav .container.gb-app-detail {
   margin-top: 50px;
+}
+@media (max-width: 991px) {
+  #gb-middle-nav .container.gb-app-detail {
+    margin-top: 5px;
+  }
 }
 #gb-middle-nav .gb-profile-row {
   margin-top: -40px;
@@ -11477,7 +11487,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   border-bottom: #DDD solid 3px;
   background-color: #FFF;
   margin: 0;
-  z-index: 900;
+  z-index: 1;
  /*
  li {
   padding: 0;
