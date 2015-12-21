@@ -7540,6 +7540,11 @@ and open the template in the editor.
   padding: 0;
   list-style: none;
 }
+.gb-nav-2.text-center {
+  height: 100%;
+  width: 230px;
+  margin: 0 auto;
+}
 .gb-nav-2 li {
   margin-right: 20px;
   float: left;
@@ -8482,7 +8487,8 @@ li[class*="col-"] {
 }
 
 .row {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 input[type="checkbox"] {
@@ -8515,6 +8521,16 @@ input[type="checkbox"] {
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
   font-size: 2.0em;
   text-align: center;
+}
+@media (max-width: 991px) {
+  #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 767px) {
+  #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
+    font-size: 1.0em;
+  }
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-circle {
   color: rgba(2, 120, 135, 0.4);
@@ -11366,7 +11382,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 0 10px 0 10px !important;
+  padding: 0 5px 0 5px !important;
   height: 41px;
   list-style: none;
   border-bottom: #CCC solid 1px;
@@ -11409,7 +11425,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   opacity: 1;
 }
 .gb-top-nav-1 .gb-title {
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 0 0 0 5px;
   font-weight: bold;
   line-height: 40px;
@@ -11419,7 +11435,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   padding-top: 1px;
 }
 .gb-top-nav-1 .gb-action .btn {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .gb-top-nav-1 li {
   padding: 0;
@@ -11503,7 +11519,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   opacity: 1;
 }
 .gb-top-nav-2 .gb-title {
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 0 0 0 5px;
   font-weight: bold;
   line-height: 40px;
@@ -11513,7 +11529,7 @@ ul .gb-sticky-note-row:nth-child(5n) a {
   padding-top: 1px;
 }
 .gb-top-nav-2 .gb-action .btn {
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .gb-nav-heading-2 {

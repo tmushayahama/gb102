@@ -29,6 +29,11 @@
 .gb-nav-2 {
  padding: 0;
  list-style: none;
+ &.text-center {
+  height: 100%;
+  width: 230px;
+  margin: 0 auto;
+ }
  li {
   margin-right: 20px;
   float: left;

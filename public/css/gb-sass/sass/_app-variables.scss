@@ -9,4 +9,20 @@ and open the template in the editor.
 */
 
 $primary-color: #027887;
+$BREAKPOINTS: (
+   /* Custom, iPhone Retina */ 
+   'gb-xxs': (min-width: 319px) ,
+    
+    /* Extra Small Devices, Phones */ 
+   'gb-xs': (max-width: 767px),
+
+    /* Small Devices, Tablets */
+    'gb-sm': (max-width: 991px),
+    
+    /* Medium Devices, Desktops */
+    'gb-md': (max-width: 1199px),
+
+    /* Large Devices, Wide Screens */
+    'gb-lg': (min-width: 1200px),
+)
 
