@@ -1,6 +1,10 @@
 protected/runtime/*
 nbproject
 
+### Sass Cache ###
+.sass-cache
+.sass-cache/*
+
 /node_modules
 .env
 
