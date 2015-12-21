@@ -1,57 +1,133 @@
-<div class="col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-0 col-lg-10 col-md-9 col-sm-8 col-xs-12">
- <div id="gb-middle-nav-3" class="container gb-app-detail">
-  <div class="gb-cover col-lg-8 col-md-8 col-sm-12 col-xs-12">
-   <div ng-include="'public/modules/skills/views/skill-cover.html'"></div>
-   <!--
-   <img src="public/img/placeholders/skill_cover_3.png" class='gb-cover-img' alt="">
-   -->
-   <div class="gb-profile-row">
-    <img src="public/img/profile_pic/{{skillCtrl.skillManager.skill.creator.avatar_url}}" class="gb-profile-pic" alt="">
-    <div class="gb-row-content">
-     <a class="gb-ellipsis">
-      {{skillCtrl.skillManager.skill.creator.firstname + " " + skillCtrl.skillManager.skill.creator.lastname}}
-     </a>
+<div class="gb-app-detail col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="gb-top-nav-1 gb-nav col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-0 col-lg-10 col-md-9 col-sm-8 col-xs-12">
+ <div class="gb-title pull-left">
+  SKILL APP
+ </div>
+ <div class="gb-action pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3">
+  <div ng-if="false" class="btn-group">
+   <a ng-click="skillsCtrl.openAddSkillModal()" class="btn btn-xs btn-link">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <a class="btn btn-xs btn-link gb-form-modal-trigger"
+      data-gb-modal-target="#gb-skill-play-modal">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <a class="btn btn-xs btn-link">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-filter fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+  </div>
+ </div>
+ <form id="search" class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+  <i class="gb-search-icon fa fa-search"></i>
+  <input type="text" class="" placeholder="Search Skills">
+ </form>
+ <form ng-if="false" class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+  <div class="form-group">
+   <div class="input-group">
+    <div class="input-group-addon">
+     <i class="fa fa-search"></i>
     </div>
+    <input type="text" class="form-control" placeholder="Search Skills">
    </div>
   </div>
-  <div class="gb-heading-row col-lg-8 col-md-8 col-sm-12 col-xs-12">
-   <h2 class="gb-heading gb-ellipsis">
-    <strong>{{skillCtrl.skillManager.skill.title}}</strong> {{skillCtrl.skillManager.skill.description}}
-   </h2>
+ </form>
+ <div class="gb-action pull-right">
+  <div class="btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <ul class="dropdown-menu dropdown-menu-right text-left">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+   </ul>
   </div>
-  <ul class="gb-menu-row nav gb-nav-1 col-lg-8 col-md-8 col-sm-8 col-xs-8">
-   <li ui-sref-active="active" class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
-    <a href ui-sref="apps.skill.overview" class="gb-ellipsis">
-     <i class='fa fa-home'></i>
-    </a>
-   </li>
-   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <a ui-sref="apps.skill.tools" class="gb-ellipsis">
-     Tools
-    </a>
-   </li>
-   <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <a ui-sref="apps.skill.community" class="gb-ellipsis">
-     Community
-    </a>
-   </li>
-   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <a ui-sref="skill.overview" class="gb-ellipsis">
-     Apps
-    </a>
-   </li>
-   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <a ui-sref="skill.stats" class="gb-link gb-app-tab gb-ellipsis">
-     Stats
-    </a>
-   </li>
-   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <a ui-sref="skill.manage" class="gb-link gb-app-tab gb-ellipsis">
-     Manage
-    </a>
-   </li>
-  </ul>
-  <div ui-view="content" class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
-  <div class="gb-dummy-height row"></div>
+  <div class="btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <ul class="dropdown-menu dropdown-menu-right text-left">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+   </ul>
+  </div>
+ </div>
+</div>
+
+ <div class="container "> 
+  <div class="row">
+   <div class="gb-background-white col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <div class="gb-cover">
+     <div ng-include="'public/modules/skills/views/skill-cover.html'"></div>
+    </div>
+    <div class="gb-profile-row">
+     <img src="public/img/profile_pic/{{skillCtrl.skillManager.skill.creator.avatar_url}}" class="gb-profile-pic" alt="">
+     <div class="gb-row-content">
+      <a class="gb-ellipsis">
+       {{skillCtrl.skillManager.skill.creator.firstname + " " + skillCtrl.skillManager.skill.creator.lastname}}
+      </a>
+     </div>
+    </div>
+    <div class="gb-heading-row">
+     <h2 class="gb-heading gb-ellipsis">
+      <strong>{{skillCtrl.skillManager.skill.title}}</strong> {{skillCtrl.skillManager.skill.description}}
+     </h2>
+    </div>
+    <ul class="gb-menu-row nav gb-nav-1">
+     <li ui-sref-active="active" class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+      <a href ui-sref="apps.skill.overview" class="gb-ellipsis">
+       <i class='fa fa-home'></i>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <a ui-sref="apps.skill.tools" class="gb-ellipsis">
+       Tools
+      </a>
+     </li>
+     <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <a ui-sref="apps.skill.community" class="gb-ellipsis">
+       Community
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <a ui-sref="skill.overview" class="gb-ellipsis">
+       Apps
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <a ui-sref="skill.stats" class="gb-link gb-app-tab gb-ellipsis">
+       Stats
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <a ui-sref="skill.manage" class="gb-link gb-app-tab gb-ellipsis">
+       Manage
+      </a>
+     </li>
+    </ul>
+    <div ui-view="content" class="row gb-padding-medium"></div>
+    <div class="gb-dummy-height row"></div>
+   </div>
+  </div>
  </div>
 </div>

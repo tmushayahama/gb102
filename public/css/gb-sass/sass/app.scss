@@ -37,11 +37,18 @@ body {
  background: none;
  background-color: #FFF;
 }
+
+.gb-background-white {
+ background-color: #FFF;
+}
 div[class*="col-"],
 li[class*="col-"]{
  padding: 0;
 }
 
+.row {
+ margin: 0;
+}
 
 input[type="checkbox"] {
 	outline: none;
@@ -53,36 +60,54 @@ input[type="checkbox"] {
 
 
 .gb-app-detail {
+ background-color: rgba($primary-color, 0.1);
  .gb-cover {
-     padding: 20px;
-  background-color: rgba($primary-color, 0.4);
+  padding: 10px;
+  background-color: rgba($primary-color, 0.5);
   height: 200px;
   overflow: hidden;
   .gb-cover-img {
    width: 100%;
   }
   .gb-icons-row {
-      margin: 0;
-      margin-bottom: 15px;
-      .fa-circle {
-           color: rgba($primary-color, 0.4);
-      }
-      .fa-inverse{
-          color: rgba($primary-color, 0.8);
-      }
+   margin: 0;
+   margin-bottom: 10px;
+   .fa-lg {    
+    font-size: 2.0em;
+    text-align: center;
+    .fa-circle {
+     color: rgba($primary-color, 0.4);
+    }
+    .fa-inverse{
+     //font-size: 1.3em;
+     color: rgba($primary-color, 0.8);
+    }
+    &:hover { 
+     .fa-circle {
+      color: rgba($primary-color, 0.7);
+     }
+     .fa-inverse{
+      color: rgba($primary-color, 0.9);
+     }
+    }
+   }
   }
  }
+ .container {
+  margin-top: 50px;
+ }
  .gb-profile-row {
-  @include position(absolute, null 0 0 0);
+  //@include position(absolute, null 0 0 0);
+  margin-top: -40px;
+  position: relative;
   height: 40px;
-  padding: 3px 8px;
   .gb-profile-pic {
-   height: 35px;
-   width: 35px;
+   height: 40px;
+   width: 40px;
   }
   .gb-row-content {
    padding: 7px 0 0 10px;
-   @include position(absolute, 0 0 0 45px);
+   @include position(absolute, 0 0 0 41px);
    background-color: rgba(#000, 0.4);
    a {
     text-align: left;

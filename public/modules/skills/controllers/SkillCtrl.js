@@ -34,7 +34,7 @@ angular.module("app.skills").controller('SkillCtrl',
 
           vm.range = function (min, max) {
            return _.range(min, max);
-          }
+          };
 
           vm.skillIcons = [
            'fa-anchor',
@@ -63,16 +63,24 @@ angular.module("app.skills").controller('SkillCtrl',
            'fa-heart-o',
           ];
 
-          var rand;
+          vm.skillIconsArray = [];
 
-          vm.initRand = function (min, max) {
-           rand = Math.floor((Math.random() * max) + min);
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
           }
 
           vm.getRandomSkillIcons = function () {
-           vm.initRand(0, vm.skillIcons.length);
-           return vm.skillIcons[rand];
-          }
+           for (var i = 0; i < 3; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.skillIcons.length; j++) {
+             var rand = getRand(0, vm.skillIcons.length);
+             rowArray.push(vm.skillIcons[rand]);
+            }
+            vm.skillIconsArray.push(rowArray);
+           }
+           var d = vm.skillIconsArray[1][3];
+          };
 
 
           vm.skillId = $stateParams.skillId;
@@ -207,5 +215,6 @@ angular.module("app.skills").controller('SkillCtrl',
           //--------init------
           vm.skillManager.getSkill(vm.skillId);
           vm.constantsManager.getLevel('SK1');
+          vm.getRandomSkillIcons();
          }
         ])

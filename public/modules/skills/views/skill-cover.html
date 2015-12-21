@@ -3,7 +3,7 @@
  <div ng-repeat="col in skillCtrl.range(0, 12)" class="col-lg-1">
   <span class="fa-stack fa-lg">
    <i class="fa fa-circle fa-stack-2x"></i>
-   <i class="fa {{skillCtrl.getRandomSkillIcons()}} fa-stack-1x fa-inverse"></i>
+   <i class="fa {{skillCtrl.skillIconsArray[row][col]}} fa-stack-1x fa-inverse"></i>
   </span>
  </div>
 </div>

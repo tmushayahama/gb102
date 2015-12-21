@@ -1134,9 +1134,17 @@ body {
   background-color: #FFF;
 }
 
+.gb-background-white {
+  background-color: #FFF;
+}
+
 div[class*="col-"],
 li[class*="col-"] {
   padding: 0;
+}
+
+.row {
+  margin: 0;
 }
 
 input[type="checkbox"] {
@@ -1147,9 +1155,12 @@ input[type="checkbox"] {
   display: none;
 }
 
+.gb-app-detail {
+  background-color: rgba(39, 114, 139, 0.1);
+}
 .gb-app-detail .gb-cover {
-  padding: 20px;
-  background-color: rgba(39, 114, 139, 0.4);
+  padding: 10px;
+  background-color: rgba(39, 114, 139, 0.5);
   height: 200px;
   overflow: hidden;
 }
@@ -1158,25 +1169,35 @@ input[type="checkbox"] {
 }
 .gb-app-detail .gb-cover .gb-icons-row {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-circle {
+.gb-app-detail .gb-cover .gb-icons-row .fa-lg {
+  font-size: 2.0em;
+  text-align: center;
+}
+.gb-app-detail .gb-cover .gb-icons-row .fa-lg .fa-circle {
   color: rgba(39, 114, 139, 0.4);
 }
-.gb-app-detail .gb-cover .gb-icons-row .fa-inverse {
+.gb-app-detail .gb-cover .gb-icons-row .fa-lg .fa-inverse {
   color: rgba(39, 114, 139, 0.8);
 }
+.gb-app-detail .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
+  color: rgba(39, 114, 139, 0.7);
+}
+.gb-app-detail .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
+  color: rgba(39, 114, 139, 0.9);
+}
+.gb-app-detail .container {
+  margin-top: 50px;
+}
 .gb-app-detail .gb-profile-row {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  margin-top: -40px;
+  position: relative;
   height: 40px;
-  padding: 3px 8px;
 }
 .gb-app-detail .gb-profile-row .gb-profile-pic {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
 }
 .gb-app-detail .gb-profile-row .gb-row-content {
   padding: 7px 0 0 10px;
@@ -1184,7 +1205,7 @@ input[type="checkbox"] {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 45px;
+  left: 41px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 .gb-app-detail .gb-profile-row .gb-row-content a {
