@@ -3,12 +3,26 @@ module.exports = function (grunt) {
 
  // Load Grunt tasks declared in the package.json file
  grunt.loadNpmTasks("grunt-contrib-watch");
- grunt.loadNpmTasks("grunt-reload");
- grunt.loadNpmTasks("connect-livereload");
+ grunt.loadNpmTasks("grunt-contrib-copy");
+ grunt.loadNpmTasks("grunt-replace");
+ //grunt.loadNpmTasks("grunt-reload");
+ //grunt.loadNpmTasks("connect-livereload");
  grunt.loadNpmTasks("grunt-express");
 
  // Configure Grunt
  grunt.initConfig({
+  options: {
+   skill: {
+    controller_base: "app/Http/Controllers/Skill",
+    module_base: "public/modules/skills",
+    model_base: "app/Models/Skill"
+   },
+   goal: {
+    controller_base: "app/Http/Controllers/Goal",
+    module_base: "public/modules/goals",
+    model_base: "app/Models/Goal"
+   }
+  },
   // grunt-express will serve the files from the folders listed in `bases`
   // on specified `port` and `hostname`
   express: {
@@ -22,6 +36,79 @@ module.exports = function (grunt) {
      // http://stackoverflow.com/questions/14594121/express-res-sendfile-throwing-forbidden-error
      livereload: true
     }
+   }
+  },
+  copy: {
+   skillToGoalModule: {
+    files: [
+     {
+      expand: true,
+      cwd: '<%= options.skill.module_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.goal.module_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/, "goal")
+               .replace(/Skill/, "Goal");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.model_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.goal.model_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/, "goal")
+               .replace(/Skill/, "Goal");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.controller_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.goal.controller_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/, "goal")
+               .replace(/Skill/, "Goal");
+      }
+     }
+    ]
+   }
+  },
+  replace: {
+   dist: {
+    options: {
+     patterns: [
+      {
+       match: /skill/g,
+       replacement: 'goal'
+      },
+      {
+       match: /Skill/g,
+       replacement: 'Goal'
+      },
+      {
+       match: /SKILL/g,
+       replacement: 'GOAL'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['<%= options.goal.module_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.goal.model_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.goal.controller_base %>/**'],
+      dest: ''
+     }
+    ]
    }
   },
   // grunt-watch will monitor the projects files
@@ -48,6 +135,11 @@ module.exports = function (grunt) {
  });
 
  // Creates the `server` task
+ grunt.registerTask('gb_copy_replace', [
+  'copy',
+  'replace'
+ ]);
+
  grunt.registerTask('server', [
   'express',
   //'open',

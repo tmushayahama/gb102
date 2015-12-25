@@ -32,6 +32,7 @@
     "grunt-contrib-yuidoc": "^0.5.2",
     "grunt-express": "^1.4.1",
     "grunt-include-source": "^0.7.0",
+    "grunt-replace": "^0.11.0",
     "gulp": "^3.8.8"
   },
   "dependencies": {
