@@ -10,5 +10,5 @@
   <div ui-view="root"></div>
  </body>
  <script src="../bower_components/underscore/underscore-min.js" type="text/javascript"></script>
- <script data-main="public/build/require-config-build" src="bower_components/requirejs/require.js" type="text/javascript"></script>
+ <script data-main="public/scripts/require-config" src="bower_components/requirejs/require.js" type="text/javascript"></script>
 </html>
