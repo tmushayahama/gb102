@@ -1,0 +1,1 @@
+angular.module("app.promises").controller("AddPromiseCtrl",["$uibModalInstance","$scope","$state","$stateParams","$http","$rootScope","$location","$log","promiseLevels",function(a,b,c,d,e,f,g,h,i){var j=this;j.promise="",j.promiseLevels=i,j.ok=function(){a.close(j.promise)},j.close=function(){a.dismiss("cancel")}}]);

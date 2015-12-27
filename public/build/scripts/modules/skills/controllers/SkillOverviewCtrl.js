@@ -1,0 +1,1 @@
+angular.module("app.skills").controller("SkillOverviewCtrl",["SkillManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);

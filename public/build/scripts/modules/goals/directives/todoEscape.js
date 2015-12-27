@@ -1,0 +1,1 @@
+angular.module("app.goals").directive("todoEscape",function(){var a=27;return function(b,c,d){c.bind("keydown",function(c){c.keyCode===a&&b.$apply(d.todoEscape)}),b.$on("$destroy",function(){c.unbind("keydown")})}});

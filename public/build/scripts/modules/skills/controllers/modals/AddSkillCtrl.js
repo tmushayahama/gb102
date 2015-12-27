@@ -1,0 +1,1 @@
+angular.module("app.skills").controller("AddSkillCtrl",["$uibModalInstance","$scope","$state","$stateParams","$http","$rootScope","$location","$log","skillLevels",function(a,b,c,d,e,f,g,h,i){var j=this;j.skill="",j.skillLevels=i,j.ok=function(){a.close(j.skill)},j.close=function(){a.dismiss("cancel")}}]);

@@ -1,0 +1,1 @@
+"use strict";define(["angular"],function(a){var b="TodoStorageModule";return a.module(b,[]).factory("todoStorage",function(){var a="todos-angularjs-requirejs";return{get:function(){return JSON.parse(localStorage.getItem(a)||"[]")},put:function(b){localStorage.setItem(a,JSON.stringify(b))}}}),b});

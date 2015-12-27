@@ -1,0 +1,1 @@
+angular.module("app.advices").controller("AddAdviceCtrl",["$uibModalInstance","$scope","$state","$stateParams","$http","$rootScope","$location","$log","adviceLevels",function(a,b,c,d,e,f,g,h,i){var j=this;j.advice="",j.adviceLevels=i,j.ok=function(){a.close(j.advice)},j.close=function(){a.dismiss("cancel")}}]);

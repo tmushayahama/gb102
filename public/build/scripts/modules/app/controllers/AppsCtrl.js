@@ -1,0 +1,1 @@
+"use strict";angular.module("app").controller("AppsCtrl",["$scope","$auth","$state","$http","$rootScope","localStorageService",function(a,b,c,d,e,f){var g=this;g.logout=function(){f.remove("user"),e.authenticated=!1,c.go("auth")}}]);

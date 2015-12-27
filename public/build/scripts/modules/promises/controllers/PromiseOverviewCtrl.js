@@ -1,0 +1,1 @@
+angular.module("app.promises").controller("PromiseOverviewCtrl",["PromiseManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);

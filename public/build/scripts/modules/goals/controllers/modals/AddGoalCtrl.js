@@ -1,0 +1,1 @@
+angular.module("app.goals").controller("AddGoalCtrl",["$uibModalInstance","$scope","$state","$stateParams","$http","$rootScope","$location","$log","goalLevels",function(a,b,c,d,e,f,g,h,i){var j=this;j.goal="",j.goalLevels=i,j.ok=function(){a.close(j.goal)},j.close=function(){a.dismiss("cancel")}}]);

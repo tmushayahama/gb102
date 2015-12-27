@@ -4,6 +4,8 @@ module.exports = function (grunt) {
  // Load Grunt tasks declared in the package.json file
  grunt.loadNpmTasks("grunt-contrib-watch");
  grunt.loadNpmTasks("grunt-contrib-copy");
+ grunt.loadNpmTasks("grunt-contrib-concat");
+ grunt.loadNpmTasks("grunt-contrib-uglify");
  grunt.loadNpmTasks("grunt-replace");
  //grunt.loadNpmTasks("grunt-reload");
  //grunt.loadNpmTasks("connect-livereload");
@@ -12,6 +14,7 @@ module.exports = function (grunt) {
  // Configure Grunt
  grunt.initConfig({
   options: {
+   angular_base: "public",
    skill: {
     controller_base: "app/Http/Controllers/Skill",
     module_base: "public/modules/skills",
@@ -425,6 +428,23 @@ module.exports = function (grunt) {
       dest: ''
      }
     ]
+   },
+   build_scripts: {
+    options: {
+     patterns: [
+      {
+       match: /public\/modules/g,
+       replacement: 'public/build/scripts/modules'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['public/build/scripts/**'],
+      dest: ''
+     }
+    ]
    }
   },
   // grunt-watch will monitor the projects files
@@ -447,13 +467,39 @@ module.exports = function (grunt) {
     // Gets the port from the connect configuration
     path: 'http://localhost:<%= express.all.options.port%>'
    }
+  },
+  concat: {
+   options: {
+    separator: ';',
+   },
+   dist: {
+    src: ['public/modules/app/app.js',
+     'public/modules/**/module.js'],
+    dest: 'public/build/app.js',
+    //cwd: 'public'
+   }
+  },
+  uglify: {
+   build: {
+    files: [{
+      expand: true,
+      //flatten: true,
+      src: 'modules/**/*.js',
+      dest: 'public/build/scripts',
+      cwd: 'public/',
+      ext: '.js'
+     }]
+   }
   }
  });
 
- // Creates the `server` task
+ grunt.registerTask('gb_build', [
+  'uglify', 'replace:build_scripts'
+ ]);
+
  grunt.registerTask('gb_app_copy_replace', [
-  'copy',
-  'replace'
+  'copy:goal', 'copy:promise', 'copy:hobby', 'copy:mentorship', 'copy:advice',
+  'replace:goal', 'replace:promise', 'replace:hobby', 'replace:mentorship', 'replace:advice'
  ]);
 
  grunt.registerTask('server', [

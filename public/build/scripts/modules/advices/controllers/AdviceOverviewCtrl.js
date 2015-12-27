@@ -1,0 +1,1 @@
+angular.module("app.advices").controller("AdviceOverviewCtrl",["AdviceManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);

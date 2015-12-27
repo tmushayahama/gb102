@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("gbApp").controller("TimeEntryCtrl",["time",function(a){var b=this;b.timeentries=[],a.getTime().then(function(a){b.timeentries=a,console.log(b.timeentries)},function(a){console.log(a)})}])}();

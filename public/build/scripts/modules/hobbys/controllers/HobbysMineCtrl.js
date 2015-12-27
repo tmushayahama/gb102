@@ -1,0 +1,1 @@
+angular.module("app.hobbys").controller("HobbysMineCtrl",["ConstantsManager","HobbysManager","$scope","$state","$stateParams","$http","$rootScope","$location","$uibModal","$log","$filter",function(a,b,c,d,e,f,g,h,i,j,k){var l=this;l.hobbysManager=new b,l.hobbysManager.getMyHobbys()}]);

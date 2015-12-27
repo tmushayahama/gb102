@@ -1,0 +1,1 @@
+"use strict";define(["angular"],function(a){return["$http","$auth","$rootScope","$state",function(a,b,c,d){var e=this;e.users,e.error,e.getUsers=function(){a.get("api/authenticate").success(function(a){e.users=a}).error(function(a){e.error=a})},e.logout=function(){b.logout().then(function(){localStorage.removeItem("user"),c.authenticated=!1,c.currentUser=null,d.go("auth")})}}]});

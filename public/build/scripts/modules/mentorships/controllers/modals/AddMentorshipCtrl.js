@@ -1,0 +1,1 @@
+angular.module("app.mentorships").controller("AddMentorshipCtrl",["$uibModalInstance","$scope","$state","$stateParams","$http","$rootScope","$location","$log","mentorshipLevels",function(a,b,c,d,e,f,g,h,i){var j=this;j.mentorship="",j.mentorshipLevels=i,j.ok=function(){a.close(j.mentorship)},j.close=function(){a.dismiss("cancel")}}]);

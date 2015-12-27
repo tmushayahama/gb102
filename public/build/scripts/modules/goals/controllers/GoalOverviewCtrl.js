@@ -1,0 +1,1 @@
+angular.module("app.goals").controller("GoalOverviewCtrl",["GoalManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);
