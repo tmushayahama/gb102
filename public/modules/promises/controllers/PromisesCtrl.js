@@ -10,6 +10,7 @@ angular.module("app.promises").controller('PromisesCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  PromisesManager,
@@ -21,9 +22,15 @@ angular.module("app.promises").controller('PromisesCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-3.css'
+          }, $scope);
+
           vm.promisesManager = new PromisesManager();
           vm.constantsManager = new ConstantsManager();
           vm.promiseLevels;
@@ -150,6 +157,7 @@ angular.module("app.promises").controller('PromisesCtrl',
 
 
           //--------init------
+          //vm.promisesManager.getPromises(vm.promiseId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.promiseLevels = data;
           });

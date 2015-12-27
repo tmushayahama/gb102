@@ -12,6 +12,7 @@ angular.module("app.skills").controller('SkillCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  _,
                  ConstantsManager,
@@ -24,10 +25,15 @@ angular.module("app.skills").controller('SkillCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-1.css'
+          }, $scope);
+
           vm.skill = [];
           var skillData = {
           };

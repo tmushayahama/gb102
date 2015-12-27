@@ -15,6 +15,7 @@ requirejs.config({
   'dom-ready': '../../bower_components/domready/ready',
   'angular-xeditable': '../../bower_components/angular-xeditable/dist/js/xeditable',
   'angular-local-storage': '../../bower_components/angular-local-storage/dist/angular-local-storage',
+  'angular-css': '../../bower_components/angular-css/angular-css',
   //'modules-includes': 'includes'
 
  },
@@ -31,6 +32,7 @@ requirejs.config({
   'angular-couch-potato': {deps: ['angular']},
   'angular-xeditable': {deps: ['angular']},
   'angular-local-storage': {deps: ['angular']},
+  'angular-css': {deps: ['angular', 'angular-ui-router']},
  },
  priority: [
   'jquery',

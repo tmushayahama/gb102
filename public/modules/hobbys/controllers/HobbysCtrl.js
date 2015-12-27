@@ -10,6 +10,7 @@ angular.module("app.hobbys").controller('HobbysCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  HobbysManager,
@@ -21,9 +22,15 @@ angular.module("app.hobbys").controller('HobbysCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-4.css'
+          }, $scope);
+
           vm.hobbysManager = new HobbysManager();
           vm.constantsManager = new ConstantsManager();
           vm.hobbyLevels;
@@ -150,6 +157,7 @@ angular.module("app.hobbys").controller('HobbysCtrl',
 
 
           //--------init------
+          //vm.hobbysManager.getHobbys(vm.hobbyId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.hobbyLevels = data;
           });

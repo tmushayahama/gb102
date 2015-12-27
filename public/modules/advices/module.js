@@ -10,6 +10,7 @@ define(['angular',
   $stateProvider
           .state('apps.advices', {
            url: '/advices',
+           abstract: true,
            views: {
             "apps": {
              controller: 'AdvicesCtrl as advicesCtrl',
@@ -24,9 +25,8 @@ define(['angular',
                   'public/modules/advices/services/AdvicesManager.js',
                   'public/modules/advices/controllers/AdvicesCtrl.js',
                   'public/modules/advices/controllers/modals/AddAdviceCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -35,8 +35,8 @@ define(['angular',
            url: '/all',
            views: {
             "app-tab": {
-             controller: 'AdvicesAllCtrl as advicesAllCtrl',
-             templateUrl: 'public/modules/advices/views/advices-tab/all.html',
+             controller: 'AdvicesAllCtrl as advicesTabCtrl',
+             templateUrl: 'public/modules/advices/views/tabs/advices/advice-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -45,7 +45,7 @@ define(['angular',
                  files: [
                   'public/modules/advices/controllers/AdvicesAllCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -54,8 +54,8 @@ define(['angular',
            url: '/mine',
            views: {
             "app-tab": {
-             controller: 'AdvicesMineCtrl as advicesMineCtrl',
-             templateUrl: 'public/modules/advices/views/advices-tab/mine.html',
+             controller: 'AdvicesMineCtrl as advicesTabCtrl',
+             templateUrl: 'public/modules/advices/views/tabs/advices/advice-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -64,7 +64,7 @@ define(['angular',
                  files: [
                   'public/modules/advices/controllers/AdvicesMineCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -85,9 +85,9 @@ define(['angular',
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/advices/services/AdviceManager.js',
                   'public/modules/advices/controllers/AdviceCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                  'public/modules/advices/filters/randomize.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -97,7 +97,7 @@ define(['angular',
            views: {
             "content": {
              controller: 'AdviceOverviewCtrl as adviceOverviewCtrl',
-             templateUrl: 'public/modules/advices/views/advice-overview.html',
+             templateUrl: 'public/modules/advices/views/tabs/advice/advice-overview.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -110,9 +110,8 @@ define(['angular',
                   'public/modules/advices/services/AdviceTimelinesManager.js',
                   'public/modules/advices/controllers/AdviceTimelinesCtrl.js',
                   'public/modules/advices/controllers/modals/AdviceTimelineCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -122,7 +121,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'AdviceTodosCtrl as adviceTodosCtrl',
-             templateUrl: 'public/modules/advices/views/advice-tools.html',
+             templateUrl: 'public/modules/advices/views/tabs/advice/advice-tools.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -147,9 +146,8 @@ define(['angular',
                   'public/modules/advices/services/AdviceWeblinksManager.js',
                   'public/modules/advices/controllers/AdviceWeblinksCtrl.js',
                   'public/modules/advices/controllers/modals/AdviceWeblinkCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -159,7 +157,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'AdviceNotesCtrl as adviceNotesCtrl',
-             templateUrl: 'public/modules/advices/views/advice-community.html',
+             templateUrl: 'public/modules/advices/views/tabs/advice/advice-community.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -170,51 +168,14 @@ define(['angular',
                   'public/modules/advices/services/AdviceCommentsManager.js',
                   'public/modules/advices/controllers/AdviceCommentsCtrl.js',
                   'public/modules/advices/controllers/modals/AdviceCommentCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
-           }})
-  /*
-   .state('apps.advice.management', {
-   url: '/tools',
-   views: {
-   "content": {
-   //controller: 'AdviceTodosCtrl as adviceTodosCtrl',
-   templateUrl: 'public/modules/advices/views/advice-managements.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.advices',
-   serie: true,
-   files: [
-   //Todos
-   'public/modules/advices/directives/todoEscape.js',
-   'public/modules/advices/directives/todoFocus.js',
-   'public/modules/advices/4services/AdviceTodoManager.js',
-   'public/modules/advices/services/AdviceTodosManager.js',
-   'public/modules/advices/services/AdviceTodoChecklistManager.js',
-   'public/modules/advices/controllers/AdviceTodosCtrl.js',
-   'public/modules/advices/controllers/modals/AdviceTodoCtrl.js',
-   //Notes,
-   'public/modules/advices/services/AdviceNoteManager.js',
-   'public/modules/advices/services/AdviceNotesManager.js',
-   'public/modules/advices/controllers/AdviceNotesCtrl.js',
-   'public/modules/advices/controllers/modals/AdviceNoteCtrl.js',
-   //Weblink
-   'public/modules/advices/services/AdviceWeblinkManager.js',
-   'public/modules/advices/services/AdviceWeblinksManager.js',
-   'public/modules/advices/controllers/AdviceWeblinksCtrl.js',
-   'public/modules/advices/controllers/modals/AdviceWeblinkCtrl.js',
-   'public/css/ss_themes/ss_theme_1.css'
-   ]
-   })
-   }]
-   }
-   }
-   }})*/
+           }});
+
  });
+
  return module;
 });

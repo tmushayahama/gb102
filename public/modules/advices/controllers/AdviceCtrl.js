@@ -1,6 +1,7 @@
 
 angular.module("app.advices").controller('AdviceCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'AdviceManager',
          '$scope',
          '$state',
@@ -11,7 +12,9 @@ angular.module("app.advices").controller('AdviceCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
+                 _,
                  ConstantsManager,
                  AdviceManager,
                  $scope,
@@ -22,12 +25,39 @@ angular.module("app.advices").controller('AdviceCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-6.css'
+          }, $scope);
+
           vm.advice = [];
           var adviceData = {
+          };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          };
+
+          vm.adviceIcons = [];
+          vm.adviceIconsArray = [];
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomAdviceIcons = function () {
+           for (var i = 0; i < 5; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.adviceIcons.length; j++) {
+             var rand = getRand(0, vm.adviceIcons.length);
+             rowArray.push(vm.adviceIcons[rand].name);
+            }
+            vm.adviceIconsArray.push(rowArray);
+           }
           };
 
 
@@ -162,6 +192,9 @@ angular.module("app.advices").controller('AdviceCtrl',
 
           //--------init------
           vm.adviceManager.getAdvice(vm.adviceId);
-          vm.constantsManager.getLevel('SK1');
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.adviceIcons = data;
+           vm.getRandomAdviceIcons();
+          });
          }
         ])

@@ -1,6 +1,7 @@
 
 angular.module("app.mentorships").controller('MentorshipCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'MentorshipManager',
          '$scope',
          '$state',
@@ -11,7 +12,9 @@ angular.module("app.mentorships").controller('MentorshipCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
+                 _,
                  ConstantsManager,
                  MentorshipManager,
                  $scope,
@@ -22,12 +25,39 @@ angular.module("app.mentorships").controller('MentorshipCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-5.css'
+          }, $scope);
+
           vm.mentorship = [];
           var mentorshipData = {
+          };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          };
+
+          vm.mentorshipIcons = [];
+          vm.mentorshipIconsArray = [];
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomMentorshipIcons = function () {
+           for (var i = 0; i < 5; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.mentorshipIcons.length; j++) {
+             var rand = getRand(0, vm.mentorshipIcons.length);
+             rowArray.push(vm.mentorshipIcons[rand].name);
+            }
+            vm.mentorshipIconsArray.push(rowArray);
+           }
           };
 
 
@@ -162,6 +192,9 @@ angular.module("app.mentorships").controller('MentorshipCtrl',
 
           //--------init------
           vm.mentorshipManager.getMentorship(vm.mentorshipId);
-          vm.constantsManager.getLevel('SK1');
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.mentorshipIcons = data;
+           vm.getRandomMentorshipIcons();
+          });
          }
         ])

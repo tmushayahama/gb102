@@ -1,4 +1,4 @@
-angular.module("app.advices").controller('PromisesAllCtrl',
+angular.module("app.promises").controller('PromisesAllCtrl',
         ['ConstantsManager',
          'PromisesManager',
          '$scope',

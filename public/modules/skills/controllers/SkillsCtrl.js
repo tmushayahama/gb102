@@ -10,6 +10,7 @@ angular.module("app.skills").controller('SkillsCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  SkillsManager,
@@ -21,9 +22,15 @@ angular.module("app.skills").controller('SkillsCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-1.css'
+          }, $scope);
+
           vm.skillsManager = new SkillsManager();
           vm.constantsManager = new ConstantsManager();
           vm.skillLevels;

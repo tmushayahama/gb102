@@ -10,6 +10,7 @@ define(['angular',
   $stateProvider
           .state('apps.promises', {
            url: '/promises',
+           abstract: true,
            views: {
             "apps": {
              controller: 'PromisesCtrl as promisesCtrl',
@@ -24,9 +25,8 @@ define(['angular',
                   'public/modules/promises/services/PromisesManager.js',
                   'public/modules/promises/controllers/PromisesCtrl.js',
                   'public/modules/promises/controllers/modals/AddPromiseCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -35,8 +35,8 @@ define(['angular',
            url: '/all',
            views: {
             "app-tab": {
-             controller: 'PromisesAllCtrl as promisesAllCtrl',
-             templateUrl: 'public/modules/promises/views/promises-tab/all.html',
+             controller: 'PromisesAllCtrl as promisesTabCtrl',
+             templateUrl: 'public/modules/promises/views/tabs/promises/promise-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -45,7 +45,7 @@ define(['angular',
                  files: [
                   'public/modules/promises/controllers/PromisesAllCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -54,8 +54,8 @@ define(['angular',
            url: '/mine',
            views: {
             "app-tab": {
-             controller: 'PromisesMineCtrl as promisesMineCtrl',
-             templateUrl: 'public/modules/promises/views/promises-tab/mine.html',
+             controller: 'PromisesMineCtrl as promisesTabCtrl',
+             templateUrl: 'public/modules/promises/views/tabs/promises/promise-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -64,7 +64,7 @@ define(['angular',
                  files: [
                   'public/modules/promises/controllers/PromisesMineCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -85,9 +85,9 @@ define(['angular',
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/promises/services/PromiseManager.js',
                   'public/modules/promises/controllers/PromiseCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                  'public/modules/promises/filters/randomize.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -97,7 +97,7 @@ define(['angular',
            views: {
             "content": {
              controller: 'PromiseOverviewCtrl as promiseOverviewCtrl',
-             templateUrl: 'public/modules/promises/views/promise-overview.html',
+             templateUrl: 'public/modules/promises/views/tabs/promise/promise-overview.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -110,9 +110,8 @@ define(['angular',
                   'public/modules/promises/services/PromiseTimelinesManager.js',
                   'public/modules/promises/controllers/PromiseTimelinesCtrl.js',
                   'public/modules/promises/controllers/modals/PromiseTimelineCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -122,7 +121,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'PromiseTodosCtrl as promiseTodosCtrl',
-             templateUrl: 'public/modules/promises/views/promise-tools.html',
+             templateUrl: 'public/modules/promises/views/tabs/promise/promise-tools.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -147,9 +146,8 @@ define(['angular',
                   'public/modules/promises/services/PromiseWeblinksManager.js',
                   'public/modules/promises/controllers/PromiseWeblinksCtrl.js',
                   'public/modules/promises/controllers/modals/PromiseWeblinkCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -159,7 +157,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'PromiseNotesCtrl as promiseNotesCtrl',
-             templateUrl: 'public/modules/promises/views/promise-community.html',
+             templateUrl: 'public/modules/promises/views/tabs/promise/promise-community.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -170,51 +168,14 @@ define(['angular',
                   'public/modules/promises/services/PromiseCommentsManager.js',
                   'public/modules/promises/controllers/PromiseCommentsCtrl.js',
                   'public/modules/promises/controllers/modals/PromiseCommentCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
-           }})
-  /*
-   .state('apps.promise.management', {
-   url: '/tools',
-   views: {
-   "content": {
-   //controller: 'PromiseTodosCtrl as promiseTodosCtrl',
-   templateUrl: 'public/modules/promises/views/promise-managements.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.promises',
-   serie: true,
-   files: [
-   //Todos
-   'public/modules/promises/directives/todoEscape.js',
-   'public/modules/promises/directives/todoFocus.js',
-   'public/modules/promises/4services/PromiseTodoManager.js',
-   'public/modules/promises/services/PromiseTodosManager.js',
-   'public/modules/promises/services/PromiseTodoChecklistManager.js',
-   'public/modules/promises/controllers/PromiseTodosCtrl.js',
-   'public/modules/promises/controllers/modals/PromiseTodoCtrl.js',
-   //Notes,
-   'public/modules/promises/services/PromiseNoteManager.js',
-   'public/modules/promises/services/PromiseNotesManager.js',
-   'public/modules/promises/controllers/PromiseNotesCtrl.js',
-   'public/modules/promises/controllers/modals/PromiseNoteCtrl.js',
-   //Weblink
-   'public/modules/promises/services/PromiseWeblinkManager.js',
-   'public/modules/promises/services/PromiseWeblinksManager.js',
-   'public/modules/promises/controllers/PromiseWeblinksCtrl.js',
-   'public/modules/promises/controllers/modals/PromiseWeblinkCtrl.js',
-   'public/css/ss_themes/ss_theme_1.css'
-   ]
-   })
-   }]
-   }
-   }
-   }})*/
+           }});
+
  });
+
  return module;
 });

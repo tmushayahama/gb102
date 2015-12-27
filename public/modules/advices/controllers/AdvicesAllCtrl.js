@@ -1,6 +1,6 @@
-angular.module("app.skills").controller('SkillsAllCtrl',
+angular.module("app.advices").controller('AdvicesAllCtrl',
         ['ConstantsManager',
-         'SkillsManager',
+         'AdvicesManager',
          '$scope',
          '$state',
          '$stateParams',
@@ -12,7 +12,7 @@ angular.module("app.skills").controller('SkillsAllCtrl',
          '$filter',
          function (
                  ConstantsManager,
-                 SkillsManager,
+                 AdvicesManager,
                  $scope,
                  $state,
                  $stateParams,
@@ -25,7 +25,7 @@ angular.module("app.skills").controller('SkillsAllCtrl',
 
           var vm = this;
 
-          vm.skillsManager = new SkillsManager();
-          vm.skillsManager.getAllSkills();
+          vm.advicesManager = new AdvicesManager();
+          vm.advicesManager.getAllAdvices();
          }
         ])

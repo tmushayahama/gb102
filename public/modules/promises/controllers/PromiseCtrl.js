@@ -1,6 +1,7 @@
 
 angular.module("app.promises").controller('PromiseCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'PromiseManager',
          '$scope',
          '$state',
@@ -11,7 +12,9 @@ angular.module("app.promises").controller('PromiseCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
+                 _,
                  ConstantsManager,
                  PromiseManager,
                  $scope,
@@ -22,12 +25,39 @@ angular.module("app.promises").controller('PromiseCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-3.css'
+          }, $scope);
+
           vm.promise = [];
           var promiseData = {
+          };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          };
+
+          vm.promiseIcons = [];
+          vm.promiseIconsArray = [];
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomPromiseIcons = function () {
+           for (var i = 0; i < 5; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.promiseIcons.length; j++) {
+             var rand = getRand(0, vm.promiseIcons.length);
+             rowArray.push(vm.promiseIcons[rand].name);
+            }
+            vm.promiseIconsArray.push(rowArray);
+           }
           };
 
 
@@ -162,6 +192,9 @@ angular.module("app.promises").controller('PromiseCtrl',
 
           //--------init------
           vm.promiseManager.getPromise(vm.promiseId);
-          vm.constantsManager.getLevel('SK1');
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.promiseIcons = data;
+           vm.getRandomPromiseIcons();
+          });
          }
         ])

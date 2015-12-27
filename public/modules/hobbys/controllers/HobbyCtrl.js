@@ -1,6 +1,7 @@
 
 angular.module("app.hobbys").controller('HobbyCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'HobbyManager',
          '$scope',
          '$state',
@@ -11,7 +12,9 @@ angular.module("app.hobbys").controller('HobbyCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
+                 _,
                  ConstantsManager,
                  HobbyManager,
                  $scope,
@@ -22,12 +25,39 @@ angular.module("app.hobbys").controller('HobbyCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-4.css'
+          }, $scope);
+
           vm.hobby = [];
           var hobbyData = {
+          };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          };
+
+          vm.hobbyIcons = [];
+          vm.hobbyIconsArray = [];
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomHobbyIcons = function () {
+           for (var i = 0; i < 5; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.hobbyIcons.length; j++) {
+             var rand = getRand(0, vm.hobbyIcons.length);
+             rowArray.push(vm.hobbyIcons[rand].name);
+            }
+            vm.hobbyIconsArray.push(rowArray);
+           }
           };
 
 
@@ -162,6 +192,9 @@ angular.module("app.hobbys").controller('HobbyCtrl',
 
           //--------init------
           vm.hobbyManager.getHobby(vm.hobbyId);
-          vm.constantsManager.getLevel('SK1');
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.hobbyIcons = data;
+           vm.getRandomHobbyIcons();
+          });
          }
         ])

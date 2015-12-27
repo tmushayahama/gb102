@@ -20,6 +20,10 @@ class Promise extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public function icon() {
+  return $this->belongsTo('App\Models\Icon\Icon', 'icon_id');
+ }
+
  public function level() {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
@@ -33,10 +37,11 @@ class Promise extends Model {
 
  public static function getPromisesAll() {
   $promises = Promise::orderBy('id', 'desc')
-    ->with('creator')
-    ->with('level')
-    ->take(10)
-    ->get();
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->take(10)
+          ->get();
   return $promises;
  }
 
@@ -44,18 +49,20 @@ class Promise extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $promises = Promise::orderBy('id', 'desc')
-    ->where('creator_id', $userId)
-    ->with('creator')
-    ->with('level')
-    ->take(10)
-    ->get();
+          ->where('creator_id', $userId)
+          ->with('icon')
+          ->with('creator')
+          ->with('level')
+          ->take(10)
+          ->get();
   return $promises;
  }
 
  public static function getPromise($id) {
   $promise = Promise::with('creator')
-    ->with('level')
-    ->find($id);
+          ->with('icon')
+          ->with('level')
+          ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
   return $promise; //$promise;

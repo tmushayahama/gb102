@@ -21,6 +21,26 @@ module.exports = function (grunt) {
     controller_base: "app/Http/Controllers/Goal",
     module_base: "public/modules/goals",
     model_base: "app/Models/Goal"
+   },
+   promise: {
+    controller_base: "app/Http/Controllers/Promise",
+    module_base: "public/modules/promises",
+    model_base: "app/Models/Promise"
+   },
+   hobby: {
+    controller_base: "app/Http/Controllers/Hobby",
+    module_base: "public/modules/hobbys",
+    model_base: "app/Models/Hobby"
+   },
+   mentorship: {
+    controller_base: "app/Http/Controllers/Mentorship",
+    module_base: "public/modules/mentorships",
+    model_base: "app/Models/Mentorship"
+   },
+   advice: {
+    controller_base: "app/Http/Controllers/Advice",
+    module_base: "public/modules/advices",
+    model_base: "app/Models/Advice"
    }
   },
   // grunt-express will serve the files from the folders listed in `bases`
@@ -39,7 +59,7 @@ module.exports = function (grunt) {
    }
   },
   copy: {
-   skillToGoalModule: {
+   goal: {
     files: [
      {
       expand: true,
@@ -47,8 +67,8 @@ module.exports = function (grunt) {
       src: ['**/*'],
       dest: '<%= options.goal.module_base %>/',
       rename: function (dest, src) {
-       return dest + src.replace(/skill/, "goal")
-               .replace(/Skill/, "Goal");
+       return dest + src.replace(/skill/g, "goal")
+               .replace(/Skill/g, "Goal");
       }
      },
      {
@@ -57,8 +77,8 @@ module.exports = function (grunt) {
       src: ['**/*'],
       dest: '<%= options.goal.model_base %>/',
       rename: function (dest, src) {
-       return dest + src.replace(/skill/, "goal")
-               .replace(/Skill/, "Goal");
+       return dest + src.replace(/skill/g, "goal")
+               .replace(/Skill/g, "Goal");
       }
      },
      {
@@ -67,15 +87,151 @@ module.exports = function (grunt) {
       src: ['**/*'],
       dest: '<%= options.goal.controller_base %>/',
       rename: function (dest, src) {
-       return dest + src.replace(/skill/, "goal")
-               .replace(/Skill/, "Goal");
+       return dest + src.replace(/skill/g, "goal")
+               .replace(/Skill/g, "Goal");
+      }
+     }
+    ]
+   },
+   promise: {
+    files: [
+     {
+      expand: true,
+      cwd: '<%= options.skill.module_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.promise.module_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "promise")
+               .replace(/Skill/g, "Promise");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.model_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.promise.model_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "promise")
+               .replace(/Skill/g, "Promise");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.controller_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.promise.controller_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "promise")
+               .replace(/Skill/g, "Promise");
+      }
+     }
+    ]
+   },
+   hobby: {
+    files: [
+     {
+      expand: true,
+      cwd: '<%= options.skill.module_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.hobby.module_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "hobby")
+               .replace(/Skill/g, "Hobby");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.model_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.hobby.model_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "hobby")
+               .replace(/Skill/g, "Hobby");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.controller_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.hobby.controller_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "hobby")
+               .replace(/Skill/g, "Hobby");
+      }
+     }
+    ]
+   },
+   mentorship: {
+    files: [
+     {
+      expand: true,
+      cwd: '<%= options.skill.module_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.mentorship.module_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "mentorship")
+               .replace(/Skill/g, "Mentorship");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.model_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.mentorship.model_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "mentorship")
+               .replace(/Skill/g, "Mentorship");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.controller_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.mentorship.controller_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "mentorship")
+               .replace(/Skill/g, "Mentorship");
+      }
+     }
+    ]
+   },
+   advice: {
+    files: [
+     {
+      expand: true,
+      cwd: '<%= options.skill.module_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.advice.module_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "advice")
+               .replace(/Skill/g, "Advice");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.model_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.advice.model_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "advice")
+               .replace(/Skill/g, "Advice");
+      }
+     },
+     {
+      expand: true,
+      cwd: '<%= options.skill.controller_base %>/',
+      src: ['**/*'],
+      dest: '<%= options.advice.controller_base %>/',
+      rename: function (dest, src) {
+       return dest + src.replace(/skill/g, "advice")
+               .replace(/Skill/g, "Advice");
       }
      }
     ]
    }
   },
   replace: {
-   dist: {
+   goal: {
     options: {
      patterns: [
       {
@@ -89,6 +245,10 @@ module.exports = function (grunt) {
       {
        match: /SKILL/g,
        replacement: 'GOAL'
+      },
+      {
+       match: /app-theme-1/g,
+       replacement: 'app-theme-2'
       }
      ]
     },
@@ -106,6 +266,162 @@ module.exports = function (grunt) {
      {
       expand: true,
       src: ['<%= options.goal.controller_base %>/**'],
+      dest: ''
+     }
+    ]
+   },
+   promise: {
+    options: {
+     patterns: [
+      {
+       match: /skill/g,
+       replacement: 'promise'
+      },
+      {
+       match: /Skill/g,
+       replacement: 'Promise'
+      },
+      {
+       match: /SKILL/g,
+       replacement: 'GOAL'
+      },
+      {
+       match: /app-theme-1/g,
+       replacement: 'app-theme-3'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['<%= options.promise.module_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.promise.model_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.promise.controller_base %>/**'],
+      dest: ''
+     }
+    ]
+   },
+   hobby: {
+    options: {
+     patterns: [
+      {
+       match: /skill/g,
+       replacement: 'hobby'
+      },
+      {
+       match: /Skill/g,
+       replacement: 'Hobby'
+      },
+      {
+       match: /SKILL/g,
+       replacement: 'GOAL'
+      },
+      {
+       match: /app-theme-1/g,
+       replacement: 'app-theme-4'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['<%= options.hobby.module_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.hobby.model_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.hobby.controller_base %>/**'],
+      dest: ''
+     }
+    ]
+   },
+   mentorship: {
+    options: {
+     patterns: [
+      {
+       match: /skill/g,
+       replacement: 'mentorship'
+      },
+      {
+       match: /Skill/g,
+       replacement: 'Mentorship'
+      },
+      {
+       match: /SKILL/g,
+       replacement: 'GOAL'
+      },
+      {
+       match: /app-theme-1/g,
+       replacement: 'app-theme-5'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['<%= options.mentorship.module_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.mentorship.model_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.mentorship.controller_base %>/**'],
+      dest: ''
+     }
+    ]
+   },
+   advice: {
+    options: {
+     patterns: [
+      {
+       match: /skill/g,
+       replacement: 'advice'
+      },
+      {
+       match: /Skill/g,
+       replacement: 'Advice'
+      },
+      {
+       match: /SKILL/g,
+       replacement: 'GOAL'
+      },
+      {
+       match: /app-theme-1/g,
+       replacement: 'app-theme-6'
+      }
+     ]
+    },
+    files: [
+     {
+      expand: true,
+      src: ['<%= options.advice.module_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.advice.model_base %>/**'],
+      dest: ''
+     },
+     {
+      expand: true,
+      src: ['<%= options.advice.controller_base %>/**'],
       dest: ''
      }
     ]
@@ -135,7 +451,7 @@ module.exports = function (grunt) {
  });
 
  // Creates the `server` task
- grunt.registerTask('gb_copy_replace', [
+ grunt.registerTask('gb_app_copy_replace', [
   'copy',
   'replace'
  ]);
@@ -146,37 +462,3 @@ module.exports = function (grunt) {
   'watch'
  ]);
 };
-
-/*
-
- module.exports = function (grunt) {
-
- grunt.initConfig(
- {
- pkg: grunt.file.readJSON('package.json'),
- watch: {
- all: {
- files: ["public * "],
- tasks: ["default"],
- options: {
- nospawn: true,
- interrupt: false,
- debounceDelay: 250
- }
- }
- },
- reload: {
- port: 35729,
- liveReload: {},
- proxy: {
- host: "localhost",
- port: 8000
- }
- }
- });
- grunt.loadNpmTasks("grunt-contrib-watch");
- grunt.loadNpmTasks("grunt-reload");
- grunt.registerTask("default", ["reload", "watch"]);
- };
-
- */

@@ -10,6 +10,7 @@ define(['angular',
   $stateProvider
           .state('apps.hobbys', {
            url: '/hobbys',
+           abstract: true,
            views: {
             "apps": {
              controller: 'HobbysCtrl as hobbysCtrl',
@@ -24,9 +25,8 @@ define(['angular',
                   'public/modules/hobbys/services/HobbysManager.js',
                   'public/modules/hobbys/controllers/HobbysCtrl.js',
                   'public/modules/hobbys/controllers/modals/AddHobbyCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -35,8 +35,8 @@ define(['angular',
            url: '/all',
            views: {
             "app-tab": {
-             controller: 'HobbysAllCtrl as hobbysAllCtrl',
-             templateUrl: 'public/modules/hobbys/views/hobbys-tab/all.html',
+             controller: 'HobbysAllCtrl as hobbysTabCtrl',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobbys/hobby-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -45,7 +45,7 @@ define(['angular',
                  files: [
                   'public/modules/hobbys/controllers/HobbysAllCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -54,8 +54,8 @@ define(['angular',
            url: '/mine',
            views: {
             "app-tab": {
-             controller: 'HobbysMineCtrl as hobbysMineCtrl',
-             templateUrl: 'public/modules/hobbys/views/hobbys-tab/mine.html',
+             controller: 'HobbysMineCtrl as hobbysTabCtrl',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobbys/hobby-list.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -64,7 +64,7 @@ define(['angular',
                  files: [
                   'public/modules/hobbys/controllers/HobbysMineCtrl.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -85,9 +85,9 @@ define(['angular',
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/hobbys/services/HobbyManager.js',
                   'public/modules/hobbys/controllers/HobbyCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
+                  'public/modules/hobbys/filters/randomize.js',
                  ]
-                })
+                });
                }]
              }
             }
@@ -97,7 +97,7 @@ define(['angular',
            views: {
             "content": {
              controller: 'HobbyOverviewCtrl as hobbyOverviewCtrl',
-             templateUrl: 'public/modules/hobbys/views/hobby-overview.html',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobby/hobby-overview.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -110,9 +110,8 @@ define(['angular',
                   'public/modules/hobbys/services/HobbyTimelinesManager.js',
                   'public/modules/hobbys/controllers/HobbyTimelinesCtrl.js',
                   'public/modules/hobbys/controllers/modals/HobbyTimelineCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -122,7 +121,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'HobbyTodosCtrl as hobbyTodosCtrl',
-             templateUrl: 'public/modules/hobbys/views/hobby-tools.html',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobby/hobby-tools.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -147,9 +146,8 @@ define(['angular',
                   'public/modules/hobbys/services/HobbyWeblinksManager.js',
                   'public/modules/hobbys/controllers/HobbyWeblinksCtrl.js',
                   'public/modules/hobbys/controllers/modals/HobbyWeblinkCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
@@ -159,7 +157,7 @@ define(['angular',
            views: {
             "content": {
              //controller: 'HobbyNotesCtrl as hobbyNotesCtrl',
-             templateUrl: 'public/modules/hobbys/views/hobby-community.html',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobby/hobby-community.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -170,51 +168,14 @@ define(['angular',
                   'public/modules/hobbys/services/HobbyCommentsManager.js',
                   'public/modules/hobbys/controllers/HobbyCommentsCtrl.js',
                   'public/modules/hobbys/controllers/modals/HobbyCommentCtrl.js',
-                  'public/css/ss_themes/ss_theme_1.css'
                  ]
-                })
+                });
                }]
              }
             }
-           }})
-  /*
-   .state('apps.hobby.management', {
-   url: '/tools',
-   views: {
-   "content": {
-   //controller: 'HobbyTodosCtrl as hobbyTodosCtrl',
-   templateUrl: 'public/modules/hobbys/views/hobby-managements.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.hobbys',
-   serie: true,
-   files: [
-   //Todos
-   'public/modules/hobbys/directives/todoEscape.js',
-   'public/modules/hobbys/directives/todoFocus.js',
-   'public/modules/hobbys/4services/HobbyTodoManager.js',
-   'public/modules/hobbys/services/HobbyTodosManager.js',
-   'public/modules/hobbys/services/HobbyTodoChecklistManager.js',
-   'public/modules/hobbys/controllers/HobbyTodosCtrl.js',
-   'public/modules/hobbys/controllers/modals/HobbyTodoCtrl.js',
-   //Notes,
-   'public/modules/hobbys/services/HobbyNoteManager.js',
-   'public/modules/hobbys/services/HobbyNotesManager.js',
-   'public/modules/hobbys/controllers/HobbyNotesCtrl.js',
-   'public/modules/hobbys/controllers/modals/HobbyNoteCtrl.js',
-   //Weblink
-   'public/modules/hobbys/services/HobbyWeblinkManager.js',
-   'public/modules/hobbys/services/HobbyWeblinksManager.js',
-   'public/modules/hobbys/controllers/HobbyWeblinksCtrl.js',
-   'public/modules/hobbys/controllers/modals/HobbyWeblinkCtrl.js',
-   'public/css/ss_themes/ss_theme_1.css'
-   ]
-   })
-   }]
-   }
-   }
-   }})*/
+           }});
+
  });
+
  return module;
 });

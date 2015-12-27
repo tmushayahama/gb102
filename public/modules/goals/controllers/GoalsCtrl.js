@@ -10,6 +10,7 @@ angular.module("app.goals").controller('GoalsCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  GoalsManager,
@@ -21,9 +22,15 @@ angular.module("app.goals").controller('GoalsCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-2.css'
+          }, $scope);
+
           vm.goalsManager = new GoalsManager();
           vm.constantsManager = new ConstantsManager();
           vm.goalLevels;
@@ -150,6 +157,7 @@ angular.module("app.goals").controller('GoalsCtrl',
 
 
           //--------init------
+          //vm.goalsManager.getGoals(vm.goalId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.goalLevels = data;
           });

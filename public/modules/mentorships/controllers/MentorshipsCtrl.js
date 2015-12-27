@@ -10,6 +10,7 @@ angular.module("app.mentorships").controller('MentorshipsCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  MentorshipsManager,
@@ -21,9 +22,15 @@ angular.module("app.mentorships").controller('MentorshipsCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-5.css'
+          }, $scope);
+
           vm.mentorshipsManager = new MentorshipsManager();
           vm.constantsManager = new ConstantsManager();
           vm.mentorshipLevels;
@@ -150,6 +157,7 @@ angular.module("app.mentorships").controller('MentorshipsCtrl',
 
 
           //--------init------
+          //vm.mentorshipsManager.getMentorships(vm.mentorshipId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.mentorshipLevels = data;
           });

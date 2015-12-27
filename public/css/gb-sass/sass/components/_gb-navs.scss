@@ -29,16 +29,11 @@
 .gb-nav-2 {
  padding: 0;
  list-style: none;
- &.text-center {
-  height: 100%;
-  width: 230px;
-  margin: 0 auto;
- }
  li {
   margin-right: 20px;
   float: left;
   height: 40px;
-  line-height: 35px;
+  line-height: 35px; 
   background-color: transparent;
   border-bottom: transparent solid 4px;
   a{

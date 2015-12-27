@@ -1,6 +1,7 @@
 
 angular.module("app.goals").controller('GoalCtrl',
-        ['ConstantsManager',
+        ['_',
+         'ConstantsManager',
          'GoalManager',
          '$scope',
          '$state',
@@ -11,7 +12,9 @@ angular.module("app.goals").controller('GoalCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
+                 _,
                  ConstantsManager,
                  GoalManager,
                  $scope,
@@ -22,12 +25,39 @@ angular.module("app.goals").controller('GoalCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
 
           var vm = this;
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-2.css'
+          }, $scope);
+
           vm.goal = [];
           var goalData = {
+          };
+
+          vm.range = function (min, max) {
+           return _.range(min, max);
+          };
+
+          vm.goalIcons = [];
+          vm.goalIconsArray = [];
+
+          var getRand = function (min, max) {
+           return Math.floor((Math.random() * max) + min);
+          }
+
+          vm.getRandomGoalIcons = function () {
+           for (var i = 0; i < 5; i++) {
+            var rowArray = [];
+            for (var j = 0; j < vm.goalIcons.length; j++) {
+             var rand = getRand(0, vm.goalIcons.length);
+             rowArray.push(vm.goalIcons[rand].name);
+            }
+            vm.goalIconsArray.push(rowArray);
+           }
           };
 
 
@@ -162,6 +192,9 @@ angular.module("app.goals").controller('GoalCtrl',
 
           //--------init------
           vm.goalManager.getGoal(vm.goalId);
-          vm.constantsManager.getLevel('SK1');
+          vm.constantsManager.getIcons(1).then(function (data) {
+           vm.goalIcons = data;
+           vm.getRandomGoalIcons();
+          });
          }
         ])

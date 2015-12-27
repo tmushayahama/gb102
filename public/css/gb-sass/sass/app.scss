@@ -21,6 +21,8 @@ and open the template in the editor.
 //@import "components/gb-icon-images";
 @import "components/custom-xeditable";
 
+
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -54,6 +56,35 @@ a.btn-link:hover {
 div[class*="col-"],
 li[class*="col-"]{
  padding: 0;
+}
+
+.gb-container {
+ height: 100%;
+ margin-right: auto;
+ margin-left: auto;
+ padding-left: 15px;
+ padding-right: 15px;
+ width: 920px; 
+
+ &:before,
+  &:after {
+  content: " ";
+  display: table;
+ }
+ &:after {
+  clear: both;
+ }
+
+ @include respond-to (gb-md) {
+  width: 768px; 
+ }
+ @include respond-to (gb-sm) {
+  width: 768px; 
+ }
+ @include respond-to (gb-xs) {
+  width: 768px; 
+ }
+
 }
 
 .row {
@@ -113,17 +144,11 @@ input[type="checkbox"] {
    }
   }
  }
- .container.gb-app-list {
+ .gb-container.gb-app-list {
   margin-top: 90px;
-  @include respond-to (gb-sm) {
-   margin-top: 35px;
-  }
  }
- .container.gb-app-detail {
+ .gb-container.gb-app-detail {
   margin-top: 50px;
-  @include respond-to (gb-sm) {
-   margin-top: 5px;
-  }
  }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
@@ -2882,43 +2907,14 @@ ul .gb-sticky-note-row:nth-child(5n) a{
    margin-left: 0px;
   }
  }
-
- /*
- li {
-  padding: 0;
-  text-align: center;
-
-  &.active a {
-   color: #000;
-   font-weight: bold;
-
-   .gb-img-sm {
-    height: 35px;
-    width: 35px;
-    margin-bottom: 10px;
-    border: #CCC solid 2px;
-   }
-
-   a {
-    display: block;
-    font-size: 1.1em;
-    padding: 10px 0 0px 0;
-    text-decoration: none;
-    .gb-title {
-     font-size: 1.1em;
-    }
-
-    .gb-line-1 {
-     height: 5px;
-    }
-   }
-  }
-
-  .gb-nav-heading-1 {
-   padding: 0;
-  }
+ .gb-nav-2 {
+  @include position(absolute, 0 null null 50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 100%;
  }
- */
+
 }
 
 

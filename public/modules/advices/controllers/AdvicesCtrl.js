@@ -10,6 +10,7 @@ angular.module("app.advices").controller('AdvicesCtrl',
          '$uibModal',
          '$log',
          '$filter',
+         '$css',
          function (
                  ConstantsManager,
                  AdvicesManager,
@@ -21,9 +22,15 @@ angular.module("app.advices").controller('AdvicesCtrl',
                  $location,
                  $uibModal,
                  $log,
-                 $filter) {
+                 $filter,
+                 $css) {
 
           var vm = this;
+
+          $css.bind({
+           href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-6.css'
+          }, $scope);
+
           vm.advicesManager = new AdvicesManager();
           vm.constantsManager = new ConstantsManager();
           vm.adviceLevels;
@@ -150,6 +157,7 @@ angular.module("app.advices").controller('AdvicesCtrl',
 
 
           //--------init------
+          //vm.advicesManager.getAdvices(vm.adviceId);
           vm.constantsManager.getLevel(1).then(function (data) {
            vm.adviceLevels = data;
           });
