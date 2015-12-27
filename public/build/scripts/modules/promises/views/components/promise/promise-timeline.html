@@ -1,0 +1,67 @@
+<section class="gb-section-row-2 row" ng-controller="PromiseTimelinesCtrl as promiseTimelinesCtrl">
+ <header class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+   <p class="gb-title gb-ellipsis">
+    GOAL TIMELINE
+   </p>
+  </div>
+ </header>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  gb-no-margin">
+  <div class="smart-timeline">
+   <ul class="gb-block smart-timeline-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <li ng-repeat="promiseTimeline in promiseTimelinesCtrl.promiseTimelinesManager.promiseTimelines">
+     <div class ="smart-timeline-icon btn-primary">
+      <i class="fa fa-link" width="32" height="32" alt="user"></i>
+     </div>
+     <div class="smart-timeline-time">
+      <small>{{'Day ' + promiseTimeline.timeline.day}}</small>
+     </div>
+     <div class="smart-timeline-content">
+      <div class="row">
+       <div class="row gb-block gb-timeline-item">
+        <div class="col-lg-10 col-sm-10 col-xs-10  gb-no-margin">
+         <div class="row gb-panel-form gb-hide">
+          <div class="row">
+          </div>
+         </div>
+         <div class="row gb-description gb-panel-display">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+           <p>
+            {{ promiseTimeline.timeline.description}}
+           </p>
+           <p>
+            <i class="gb-small-text">{{promiseTimeline.timeline.created_at}}</i>
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="col-lg-2 ">
+         <div class="btn-group pull-right">
+          <button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">
+           <i class="fa fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+           <li>
+            <a ng-click="promiseTimelinesCtrl.openPromiseTimeline(promiseTimeline)">
+             <i class="fa fa-edit"></i> open
+            </a>
+           </li>
+           <li>
+            <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
+             <i class="fa fa-trash"></i> delete
+            </a>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </li>
+   </ul>
+  </div>
+ </div>
+</section>
+<script type="text/ng-template" id="promise-timeline-modal.html">
+ <div class="gb-comment-page" ng-include="'public/modules/promises/views/modals/promise-timeline.html'"></div>
+</script>

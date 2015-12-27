@@ -1,0 +1,9 @@
+
+<div ng-repeat="row in adviceCtrl.range(0, 6)" class="row gb-icons-row">
+ <div ng-repeat="col in adviceCtrl.range(0, 12)" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+  <span class="fa-stack fa-lg">
+   <i class="fa fa-circle fa-stack-2x"></i>
+   <i class="fa {{adviceCtrl.adviceIconsArray[row][col]}} fa-stack-1x fa-inverse"></i>
+  </span>
+ </div>
+</div>

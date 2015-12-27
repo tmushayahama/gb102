@@ -1,1 +1,1 @@
-angular.module("app.goals").controller("GoalOverviewCtrl",["GoalManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);
+var goalOverviewCtrl=function(GoalManager,$state,$stateParams,$http,$rootScope){};goalOverviewCtrl.$inject=["GoalManager","$state","$stateParams","$http","$rootScope"],angular.module("app.goals").controller("GoalOverviewCtrl",goalOverviewCtrl);

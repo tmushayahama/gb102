@@ -1,30 +1,33 @@
-angular.module("app.advices").controller('AdvicesMineCtrl',
-        ['ConstantsManager',
-         'AdvicesManager',
-         '$scope',
-         '$state',
-         '$stateParams',
-         '$http',
-         '$rootScope',
-         '$location',
-         '$uibModal',
-         '$log',
-         '$filter',
-         function (
-                 ConstantsManager,
-                 AdvicesManager,
-                 $scope,
-                 $state,
-                 $stateParams,
-                 $http,
-                 $rootScope,
-                 $location,
-                 $uibModal,
-                 $log,
-                 $filter) {
+var advicesMineCtrl = function (
+        ConstantsManager,
+        AdvicesManager,
+        $scope,
+        $state,
+        $stateParams,
+        $http,
+        $rootScope,
+        $location,
+        $uibModal,
+        $log,
+        $filter) {
 
-          var vm = this;
-          vm.advicesManager = new AdvicesManager();
-          vm.advicesManager.getMyAdvices();
-         }
-        ])
+ var vm = this;
+ vm.advicesManager = new AdvicesManager();
+ vm.advicesManager.getMyAdvices();
+};
+
+
+advicesMineCtrl.$inject = [
+ 'ConstantsManager',
+ 'AdvicesManager',
+ '$scope',
+ '$state',
+ '$stateParams',
+ '$http',
+ '$rootScope',
+ '$location',
+ '$uibModal',
+ '$log',
+ '$filter'];
+
+angular.module("app.advices").controller('AdvicesMineCtrl', advicesMineCtrl);

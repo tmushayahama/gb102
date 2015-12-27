@@ -4,8 +4,8 @@ define(['angular'
 
  "use strict";
  var module = angular.module('app.skills', ['ui.router']);
+ var skillConfig = function ($stateProvider) {
 
- var config = function ($stateProvider) {
   $stateProvider
           .state('apps.skills', {
            url: '/skills',
@@ -30,6 +30,7 @@ define(['angular'
              }
             }
            }})
+
           .state('apps.skills.all', {
            url: '/all',
            views: {
@@ -175,9 +176,10 @@ define(['angular'
            }});
  };
 
- config.$inject = ['$stateProvider'];
 
- module.config(config);
+ skillConfig.$inject = ['$stateProvider'];
+
+ module.config(skillConfig);
 
  return module;
 });

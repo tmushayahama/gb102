@@ -1,1 +1,1 @@
-angular.module("app.goals").directive("todoFocus",["$timeout",function(a){return function(b,c,d){b.$watch(d.todoFocus,function(b){b&&a(function(){c[0].focus()},0,!1)})}}]);
+angular.module("app.goals").directive("todoFocus",["$timeout",function($timeout){return function(scope,elem,attrs){scope.$watch(attrs.todoFocus,function(newval){newval&&$timeout(function(){elem[0].focus()},0,!1)})}}]);

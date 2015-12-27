@@ -1,1 +1,1 @@
-angular.module("app.promises").filter("randomize",function(){return function(a,b){return null!=a&&void 0!=a&&a>1?Math.floor(Math.random()*a+1):void 0}});
+angular.module("app.promises").filter("randomize",function(){return function(input,scope){return null!=input&&void 0!=input&&input>1?Math.floor(Math.random()*input+1):void 0}});

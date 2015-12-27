@@ -1,143 +1,145 @@
-angular.module("app.hobbys").controller('HobbyTodoCtrl',
-        ['HobbyTodoManager',
-         'HobbyTodoChecklistManager',
-         '$uibModalInstance',
-         '$scope',
-         '$state',
-         '$stateParams',
-         '$http',
-         '$rootScope',
-         '$location',
-         '$log',
-         'hobbyTodoData',
-         function (
-                 HobbyTodoManager,
-                 HobbyTodoChecklistManager,
-                 $uibModalInstance,
-                 $scope,
-                 $state,
-                 $stateParams,
-                 $http,
-                 $rootScope,
-                 $location,
-                 $log,
-                 hobbyTodoData) {
-          var vm = this;
-          vm.hobbyId = hobbyTodoData.hobby_id;
-          vm.hobbyTodoId = hobbyTodoData.id;
-          vm.hobbyTodoManager = new HobbyTodoManager();
-          vm.hobbyTodoChecklistManager = new HobbyTodoChecklistManager();
+var hobbyTodoCtrl = function (
+        HobbyTodoManager,
+        HobbyTodoChecklistManager,
+        $uibModalInstance,
+        $scope,
+        $state,
+        $stateParams,
+        $http,
+        $rootScope,
+        $location,
+        $log,
+        hobbyTodoData) {
+ var vm = this;
+ vm.hobbyId = hobbyTodoData.hobby_id;
+ vm.hobbyTodoId = hobbyTodoData.id;
+ vm.hobbyTodoManager = new HobbyTodoManager();
+ vm.hobbyTodoChecklistManager = new HobbyTodoChecklistManager();
 
 
-          vm.todoId = hobbyTodoData.todo_id;
-          vm.checklistFormVisible = false;
+ vm.todoId = hobbyTodoData.todo_id;
+ vm.checklistFormVisible = false;
 
-          vm.todoFormDisplay = false;
-
-
-          vm.defaultTodoChecklistData = {
-           todoId: vm.todoId,
-           privacy: 0
-          }
-          vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+ vm.todoFormDisplay = false;
 
 
-          vm.ok = function () {
-           $uibModalInstance.close();
-          };
+ vm.defaultTodoChecklistData = {
+  todoId: vm.todoId,
+  privacy: 0
+ }
+ vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
 
-          vm.close = function () {
-           $uibModalInstance.dismiss('cancel');
-          };
 
-          // vm.newHobbyTodoData = vm.defaultHobbyTodoData;
+ vm.ok = function () {
+  $uibModalInstance.close();
+ };
 
-          vm.getHobbyTodo = function (hobbyId, todoId) {
-           vm.hobbyTodoManager.getHobbyTodo(hobbyId, todoId).then(function (response) {
-           }, function (error) {
-            console.log(error);
-           });
-          };
+ vm.close = function () {
+  $uibModalInstance.dismiss('cancel');
+ };
 
-          vm.editHobbyTodo = function (data) {
-           vm.hobbyTodoManager.editHobbyTodo(data).then(function (response) {
-           }, function (response) {
-            console.log(response);
-           });
-          };
+ // vm.newHobbyTodoData = vm.defaultHobbyTodoData;
 
-          vm.editHobbyTodoSections = {
-           details: function (details) {
-            var hobbyTodoData = {
-             hobbyTodoId: vm.hobbyTodoId,
-             title: details.title,
-             description: details.description
-            };
-            vm.editHobbyTodo(hobbyTodoData);
-           }
-          }
+ vm.getHobbyTodo = function (hobbyId, todoId) {
+  vm.hobbyTodoManager.getHobbyTodo(hobbyId, todoId).then(function (response) {
+  }, function (error) {
+   console.log(error);
+  });
+ };
 
-          vm.getHobbyTodoChecklist = function (todoId) {
-           vm.hobbyTodoChecklistManager.getHobbyTodoChecklist(todoId).then(function (response) {
-           }, function (response) {
-            console.log(response);
-           });
-          };
+ vm.editHobbyTodo = function (data) {
+  vm.hobbyTodoManager.editHobbyTodo(data).then(function (response) {
+  }, function (response) {
+   console.log(response);
+  });
+ };
 
-          vm.showTodoForm = function () {
-           vm.todoFormDisplay = true;
-          };
+ vm.editHobbyTodoSections = {
+  details: function (details) {
+   var hobbyTodoData = {
+    hobbyTodoId: vm.hobbyTodoId,
+    title: details.title,
+    description: details.description
+   };
+   vm.editHobbyTodo(hobbyTodoData);
+  }
+ }
 
-          vm.createHobbyTodoChecklistItem = function (data) {
-           vm.hobbyTodoChecklistManager.createHobbyTodoChecklistItem(data).then(function (response) {
-            vm.checklistFormVisible = false;
-            vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
-           }, function (response) {
-            console.log(response);
-           });
-          };
+ vm.getHobbyTodoChecklist = function (todoId) {
+  vm.hobbyTodoChecklistManager.getHobbyTodoChecklist(todoId).then(function (response) {
+  }, function (response) {
+   console.log(response);
+  });
+ };
 
-          vm.editHobbyTodoChecklistItem = function (data) {
-           vm.hobbyTodoChecklistManager.editHobbyTodoChecklistItem(data).then(function (response) {
-            vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
-           }, function (response) {
-            console.log(response);
-           });
-          };
+ vm.showTodoForm = function () {
+  vm.todoFormDisplay = true;
+ };
 
-          vm.editHobbyTodoChecklistItemSections = {
-           title: function (checklistId, title) {
-            var hobbyTodoChecklistItemData = {
-             checklistId: checklistId,
-             title: title
-            };
-            vm.editHobbyTodoChecklistItem(hobbyTodoChecklistItemData);
-           }
-          }
+ vm.createHobbyTodoChecklistItem = function (data) {
+  vm.hobbyTodoChecklistManager.createHobbyTodoChecklistItem(data).then(function (response) {
+   vm.checklistFormVisible = false;
+   vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+  }, function (response) {
+   console.log(response);
+  });
+ };
+
+ vm.editHobbyTodoChecklistItem = function (data) {
+  vm.hobbyTodoChecklistManager.editHobbyTodoChecklistItem(data).then(function (response) {
+   vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+  }, function (response) {
+   console.log(response);
+  });
+ };
+
+ vm.editHobbyTodoChecklistItemSections = {
+  title: function (checklistId, title) {
+   var hobbyTodoChecklistItemData = {
+    checklistId: checklistId,
+    title: title
+   };
+   vm.editHobbyTodoChecklistItem(hobbyTodoChecklistItemData);
+  }
+ }
 
 
 
-          vm.cancelChecklistForm = function (form) {
-           vm.checklistFormVisible = false;
-           vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
-           if (form) {
-            form.$setPristine();
-            form.$setUntouched();
-           }
-           //$scope.user = angular.copy($scope.master);
-          };
+ vm.cancelChecklistForm = function (form) {
+  vm.checklistFormVisible = false;
+  vm.newHobbyTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+  if (form) {
+   form.$setPristine();
+   form.$setUntouched();
+  }
+  //$scope.user = angular.copy($scope.master);
+ };
 
-          $scope.$watch(angular.bind(this, function () {
-           return vm.hobbyTodoChecklistManager.hobbyTodoChecklist;
-          }), function () {
-           //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-           vm.doneCount = vm.hobbyTodoChecklistManager.hobbyTodoChecklist.length - vm.remainingCount;
-           vm.allChecked = !vm.remainingCount;
-           //TodoChecklistService.put(vm.todoChecklist);
-          }, true);
+ $scope.$watch(angular.bind(this, function () {
+  return vm.hobbyTodoChecklistManager.hobbyTodoChecklist;
+ }), function () {
+  //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
+  vm.doneCount = vm.hobbyTodoChecklistManager.hobbyTodoChecklist.length - vm.remainingCount;
+  vm.allChecked = !vm.remainingCount;
+  //TodoChecklistService.put(vm.todoChecklist);
+ }, true);
 
-          //--------init------
-          vm.getHobbyTodo(vm.hobbyId, vm.todoId);
-          vm.getHobbyTodoChecklist(vm.todoId);
-         }
-        ])
+ //--------init------
+ vm.getHobbyTodo(vm.hobbyId, vm.todoId);
+ vm.getHobbyTodoChecklist(vm.todoId);
+};
+
+hobbyTodoCtrl.$inject = [
+ 'HobbyTodoManager',
+ 'HobbyTodoChecklistManager',
+ '$uibModalInstance',
+ '$scope',
+ '$state',
+ '$stateParams',
+ '$http',
+ '$rootScope',
+ '$location',
+ '$log',
+ 'hobbyTodoData', ];
+
+angular.module("app.hobbys").controller('HobbyTodoCtrl', hobbyTodoCtrl);

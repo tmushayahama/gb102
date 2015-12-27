@@ -1,31 +1,33 @@
-angular.module("app.goals").controller('GoalsAllCtrl',
-        ['ConstantsManager',
-         'GoalsManager',
-         '$scope',
-         '$state',
-         '$stateParams',
-         '$http',
-         '$rootScope',
-         '$location',
-         '$uibModal',
-         '$log',
-         '$filter',
-         function (
-                 ConstantsManager,
-                 GoalsManager,
-                 $scope,
-                 $state,
-                 $stateParams,
-                 $http,
-                 $rootScope,
-                 $location,
-                 $uibModal,
-                 $log,
-                 $filter) {
+var goalsAllCtrl = function (
+        ConstantsManager,
+        GoalsManager,
+        $scope,
+        $state,
+        $stateParams,
+        $http,
+        $rootScope,
+        $location,
+        $uibModal,
+        $log,
+        $filter) {
 
-          var vm = this;
+ var vm = this;
 
-          vm.goalsManager = new GoalsManager();
-          vm.goalsManager.getAllGoals();
-         }
-        ])
+ vm.goalsManager = new GoalsManager();
+ vm.goalsManager.getAllGoals();
+};
+
+goalsAllCtrl.$inject = [
+ 'ConstantsManager',
+ 'GoalsManager',
+ '$scope',
+ '$state',
+ '$stateParams',
+ '$http',
+ '$rootScope',
+ '$location',
+ '$uibModal',
+ '$log',
+ '$filter'];
+
+angular.module("app.goals").controller('GoalsAllCtrl', goalsAllCtrl);

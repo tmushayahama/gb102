@@ -1,31 +1,33 @@
-angular.module("app.hobbys").controller('HobbysAllCtrl',
-        ['ConstantsManager',
-         'HobbysManager',
-         '$scope',
-         '$state',
-         '$stateParams',
-         '$http',
-         '$rootScope',
-         '$location',
-         '$uibModal',
-         '$log',
-         '$filter',
-         function (
-                 ConstantsManager,
-                 HobbysManager,
-                 $scope,
-                 $state,
-                 $stateParams,
-                 $http,
-                 $rootScope,
-                 $location,
-                 $uibModal,
-                 $log,
-                 $filter) {
+var hobbysAllCtrl = function (
+        ConstantsManager,
+        HobbysManager,
+        $scope,
+        $state,
+        $stateParams,
+        $http,
+        $rootScope,
+        $location,
+        $uibModal,
+        $log,
+        $filter) {
 
-          var vm = this;
+ var vm = this;
 
-          vm.hobbysManager = new HobbysManager();
-          vm.hobbysManager.getAllHobbys();
-         }
-        ])
+ vm.hobbysManager = new HobbysManager();
+ vm.hobbysManager.getAllHobbys();
+};
+
+hobbysAllCtrl.$inject = [
+ 'ConstantsManager',
+ 'HobbysManager',
+ '$scope',
+ '$state',
+ '$stateParams',
+ '$http',
+ '$rootScope',
+ '$location',
+ '$uibModal',
+ '$log',
+ '$filter'];
+
+angular.module("app.hobbys").controller('HobbysAllCtrl', hobbysAllCtrl);

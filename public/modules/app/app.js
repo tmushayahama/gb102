@@ -76,9 +76,9 @@ define([
   }
 
   // Setup for the $httpInterceptor
-  $provide.factory('redirectWhenLoggedOut', redirectWhenLoggedOut);
+  //$provide.factory('redirectWhenLoggedOut', redirectWhenLoggedOut);
   // Push the new factory onto the $http interceptor array
-  $httpProvider.interceptors.push('redirectWhenLoggedOut');
+  //$httpProvider.interceptors.push('redirectWhenLoggedOut');
   $authProvider.loginUrl = '/api/authenticate';
   $urlRouterProvider.otherwise('/auth');
   $stateProvider
@@ -127,7 +127,6 @@ define([
  }
  appRun.$inject = ['$stateParams', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
  app.run(appRun);
-
  app.constant('_', window._);
 
  return app;

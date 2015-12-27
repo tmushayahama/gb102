@@ -1,1 +1,1 @@
-angular.module("app.mentorships").controller("MentorshipOverviewCtrl",["MentorshipManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);
+var mentorshipOverviewCtrl=function(MentorshipManager,$state,$stateParams,$http,$rootScope){};mentorshipOverviewCtrl.$inject=["MentorshipManager","$state","$stateParams","$http","$rootScope"],angular.module("app.mentorships").controller("MentorshipOverviewCtrl",mentorshipOverviewCtrl);

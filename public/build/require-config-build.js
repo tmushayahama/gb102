@@ -2,7 +2,7 @@ requirejs.config({
  waitSeconds: 0,
  paths: {
   'jquery': '../../../bower_components/jquery/dist/jquery.min',
-  'angular': '../../../bower_components/angular/angular',
+  'angular': '../../../bower_components/angular/angular.min',
   'bootstrap': '../../../bower_components/bootstrap/dist/js/bootstrap.min',
   'angular-bootstrap': '../../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
   'angular-ui-router': '../../../bower_components/angular-ui-router/release/angular-ui-router.min',

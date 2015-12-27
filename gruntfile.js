@@ -6,6 +6,8 @@ module.exports = function (grunt) {
  grunt.loadNpmTasks("grunt-contrib-copy");
  grunt.loadNpmTasks("grunt-contrib-concat");
  grunt.loadNpmTasks("grunt-contrib-uglify");
+ grunt.loadNpmTasks("grunt-contrib-htmlmin");
+ grunt.loadNpmTasks("grunt-contrib-cssmin");
  grunt.loadNpmTasks("grunt-replace");
  //grunt.loadNpmTasks("grunt-reload");
  //grunt.loadNpmTasks("connect-livereload");
@@ -231,6 +233,22 @@ module.exports = function (grunt) {
       }
      }
     ]
+   },
+   copy_build_files: {
+    files: [
+     {
+      expand: true,
+      cwd: 'public/',
+      src: ['**/*.html'],
+      dest: 'public/build/scripts'
+     },
+     {
+      expand: true,
+      cwd: 'public/',
+      src: ['fonts/**', 'img/**'],
+      dest: 'public/build'
+     }
+    ]
    }
   },
   replace: {
@@ -435,6 +453,10 @@ module.exports = function (grunt) {
       {
        match: /public\/modules/g,
        replacement: 'public/build/scripts/modules'
+      },
+      {
+       match: /public\/css\/gb-sass/g,
+       replacement: 'public/build/css/gb-sass'
       }
      ]
     },
@@ -481,20 +503,53 @@ module.exports = function (grunt) {
   },
   uglify: {
    build: {
-    files: [{
+    options: {
+     mangle: false
+    },
+    files: [
+     {
       expand: true,
       //flatten: true,
-      src: 'modules/**/*.js',
+      src: ['modules/**/*.js'],
       dest: 'public/build/scripts',
-      cwd: 'public/',
+      cwd: 'public',
       ext: '.js'
+     }
+    ]
+   }
+  },
+  cssmin: {
+   target: {
+    files: [{
+      expand: true,
+      cwd: 'public/',
+      src: [
+       'css/gb-sass/stylesheets/gb-themes/*.css',
+       'css/gb-sass/stylesheets/main.css'],
+      dest: 'public/build/'
      }]
+   }
+  },
+  htmlmin: {// Task
+   dist: {// Target
+    options: {// Target options
+     removeComments: true,
+     collapseWhitespace: true
+    },
+    files: {
+     expand: true,
+     //flatten: true,
+     src: ['modules/**/*.html'],
+     dest: 'public/build/scripts',
+     cwd: 'public/'
+    }
    }
   }
  });
 
  grunt.registerTask('gb_build', [
-  'uglify', 'replace:build_scripts'
+  'uglify', 'replace:build_scripts',
+  'copy:copy_build_files', 'cssmin'
  ]);
 
  grunt.registerTask('gb_app_copy_replace', [

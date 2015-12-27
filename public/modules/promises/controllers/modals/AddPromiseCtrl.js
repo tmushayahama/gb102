@@ -1,34 +1,36 @@
-angular.module("app.promises").controller('AddPromiseCtrl',
-        ['$uibModalInstance',
-         '$scope',
-         '$state',
-         '$stateParams',
-         '$http',
-         '$rootScope',
-         '$location',
-         '$log',
-         'promiseLevels',
-         function (
-                 $uibModalInstance,
-                 $scope,
-                 $state,
-                 $stateParams,
-                 $http,
-                 $rootScope,
-                 $location,
-                 $log,
-                 promiseLevels) {
-          var vm = this;
+var addPromiseCtrl = function (
+        $uibModalInstance,
+        $scope,
+        $state,
+        $stateParams,
+        $http,
+        $rootScope,
+        $location,
+        $log,
+        promiseLevels) {
+ var vm = this;
 
-          vm.promise = "";
-          vm.promiseLevels = promiseLevels;
+ vm.promise = "";
+ vm.promiseLevels = promiseLevels;
 
-          vm.ok = function () {
-           $uibModalInstance.close(vm.promise);
-          };
+ vm.ok = function () {
+  $uibModalInstance.close(vm.promise);
+ };
 
-          vm.close = function () {
-           $uibModalInstance.dismiss('cancel');
-          };
-         }
-        ])
+ vm.close = function () {
+  $uibModalInstance.dismiss('cancel');
+ };
+};
+
+addPromiseCtrl.$inject = [
+ '$uibModalInstance',
+ '$scope',
+ '$state',
+ '$stateParams',
+ '$http',
+ '$rootScope',
+ '$location',
+ '$log',
+ 'promiseLevels'];
+
+angular.module("app.promises").controller('AddPromiseCtrl', addPromiseCtrl);

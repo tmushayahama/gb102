@@ -1,1 +1,1 @@
-angular.module("app.promises").controller("PromiseOverviewCtrl",["PromiseManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);
+var promiseOverviewCtrl=function(PromiseManager,$state,$stateParams,$http,$rootScope){};promiseOverviewCtrl.$inject=["PromiseManager","$state","$stateParams","$http","$rootScope"],angular.module("app.promises").controller("PromiseOverviewCtrl",promiseOverviewCtrl);

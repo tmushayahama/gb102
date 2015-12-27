@@ -1,1 +1,1 @@
-angular.module("app.advices").controller("AdviceOverviewCtrl",["AdviceManager","$state","$stateParams","$http","$rootScope",function(a,b,c,d,e){}]);
+var adviceOverviewCtrl=function(AdviceManager,$state,$stateParams,$http,$rootScope){};adviceOverviewCtrl.$inject=["AdviceManager","$state","$stateParams","$http","$rootScope"],angular.module("app.advices").controller("AdviceOverviewCtrl",adviceOverviewCtrl);
