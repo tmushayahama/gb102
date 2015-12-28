@@ -1,70 +1,54 @@
-<!-- top nav -->
-<link href="public/css/agency.css" rel="stylesheet" type="text/css"/>
-<div id="page-top" class="index">
- <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-   <!-- Brand and toggle get grouped for better mobile display -->
-   <div class="navbar-header page-scroll">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-     <span class="sr-only">Toggle navigation</span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-    </button>
-    <a class="gb-logo navbar-brand page-scroll" href="#page-top">
-     <strong>SKILL</strong>SECTION<small>BETA</small>
-    </a>
-   </div>
-
-   <!-- Collect the nav links, forms, and other content for toggling -->
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
-     <li class="hidden">
-      <a href="#page-top"></a>
-     </li>
-     <li>
-      <a href="#gb-registration-modal"
-         class="page-scroll"
-         data-toggle="modal">
-       <i class='fa fa-key'></i>
-       <span class=''> BETA ACCESS</span>
-      </a>
-     </li>
-     <li>
-      <a href="#gb-login-modal"
-         class=""
-         data-toggle="modal">
-       <i class='fa fa-sign-in'></i>
-       <span class=''> LOG IN</span>
-      </a>
-     </li>
-    </ul>
-   </div>
+<nav class="gb-header gb-top-nav-1 gb-nav col-lg-12 col-md-12 col-sm-12 col-xs-12"  role="navigation">
+ <div class="gb-container">
+  <div class="gb-header pull-left">
+   <a class="gb-logo btn btn-link" href="app/skill">
+    <span class="fa-stack fa-lg pull-left">
+     <i class="fa fa-square-o fa-stack-2x"></i>
+     <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
+    </span>
+    <div class="visible-lg visible-md visible-sm hidden-xs">
+     <strong>SKILL</strong>SECTION<br>
+     <div class="gb-beta text-left">BETA</div>
+    </div>
+   </a>
   </div>
- </nav>
+  <div class="gb-action pull-right">
+   <a href="#gb-registration-modal"
+      class="btn btn-link"
+      data-toggle="modal">
+    <i class='fa fa-key'></i>
+    <span class=''> BETA ACCESS</span>
+   </a>
+   <a href="#gb-login-modal"
+      class="btn btn-link"
+      data-toggle="modal">
+    <i class='fa fa-sign-in'></i>
+    <span class=''> LOG IN</span>
+   </a>
+  </div>
+ </div>
+</nav>
 
 
- <header>
-  <div class="container">
-   <div class="intro-text">
-    <div class="intro-lead-in">Tools and Apps you need to use your skills.</div>
-    <div class="intro-heading">Apply & Explore your Skills</div>
-    <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
-   </div>
+<div class=""> 
+ <header id="gb-intro-section" class="col-lg-12"> 
+  <div class="gb-icons-image">
+   <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa {{authCtrl.skillIcons[iconIndex].name}} fa-stack-1x fa-inverse"></i>
+    </span>
+   </div>    
+  </div>
+  <div class="intro-text col-lg-10">
+   <div class="intro-lead-in">Apply & ExploreTools and Apps you need to use your skills.</div>
+   <div class="intro-heading">There is more to your Skills</div>
   </div>
  </header>
 
  <!-- Services Section -->
  <section id="services">
   <div class="container">
-   <div class="row gb-hide">
-    <div class="col-lg-12 text-center">
-     <h2 class="section-heading">Start Today</h2>
-     <h3 class="section-subheading text-muted">
-      Lorem ipsum dolor sit amet consectetur.
-     </h3>
-    </div>
-   </div>
    <div class="row text-center">
     <div class="col-md-4">
      <span class="fa-stack fa-4x">
@@ -95,7 +79,7 @@
  </section>
 
  <!-- Portfolio Grid Section -->
- <section id="portfolio" class="bg-light-gray gb-hide">
+ <section id="portfolio" class="bg-light-gray ">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -193,7 +177,7 @@
  </section>
 
  <!-- About Section -->
- <section id="about" class="gb-hide">
+ <section id="about" class="">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -274,7 +258,7 @@
  </section>
 
  <!-- Team Section -->
- <section id="team" class="bg-light-gray gb-hide">
+ <section id="team" class="bg-light-gray">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -338,7 +322,7 @@
  </section>
 
  <!-- Clients Aside -->
- <aside class="clients gb-hide">
+ <aside class="clients ">
   <div class="container">
    <div class="row">
     <div class="col-md-3 col-sm-6">
@@ -367,7 +351,7 @@
 
  <!-- Contact Section -->
 
- <footer class="gb-hide">
+ <footer class="">
   <div class="container">
    <div class="row">
     <div class="col-md-4">
@@ -579,7 +563,7 @@
 
 
 
- <div class="gb-hide">
+ <div class="">
   <div class="gb-intro-header-1 row">
    <div class="container">
     <div class="row">
@@ -881,7 +865,7 @@
 
   </div>
   <div class="container">
-   <div class="gb-hide col-lg-12">
+   <div class=" col-lg-12">
     <div class="row gb-title text-center">
      <h2 class="">Sign up, get all the benefits.</h2>
     </div>
@@ -985,18 +969,18 @@
      Login
     </div>
     <div class="modal-body">
-     <p class="alert alert-danger" ng-if="auth.loginError"><strong>Error:</strong> {{auth.loginErrorText}}</p>
+     <p class="alert alert-danger" ng-if="authCtrl.loginError"><strong>Error:</strong> {{authCtrl.loginErrorText}}</p>
      <div class="form-group">
-      <input type="email" class="form-control col-lg-12 col-md-12 col-sm-12 col-sm-12" placeholder="Email" ng-model="auth.email">
+      <input type="email" class="form-control col-lg-12 col-md-12 col-sm-12 col-sm-12" placeholder="Email" ng-model="authCtrl.email">
      </div>
      <div class="form-group">
-      <input type="password" class="form-control col-lg-12 col-md-12 col-sm-12 col-sm-12" placeholder="Password" ng-model="auth.password">
+      <input type="password" class="form-control col-lg-12 col-md-12 col-sm-12 col-sm-12" placeholder="Password" ng-model="authCtrl.password">
      </div>
     </div>
     <div class="modal-footer row">
      <div class="btn-group pull-right">
       <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-      <button class="btn btn-primary" ng-click="auth.login()">Submit</button>
+      <button class="btn btn-primary" ng-click="authCtrl.login()">Submit</button>
      </div>
     </div>
    </form>

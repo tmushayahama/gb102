@@ -12,7 +12,7 @@ define(['angular',
            url: '/auth',
            views: {
             "root": {
-             controller: 'AuthCtrl as auth',
+             controller: 'AuthCtrl as authCtrl',
              templateUrl: 'public/modules/auth/views/authView.html',
             }
            },
@@ -20,7 +20,11 @@ define(['angular',
             load: ['$ocLazyLoad', function ($ocLazyLoad) {
               return $ocLazyLoad.load({
                name: 'app',
-               files: ['public/modules/auth/controllers/AuthCtrl.js']
+               serie: true,
+               files: [
+                'public/modules/app/services/ConstantsManager.js',
+                'public/modules/auth/controllers/AuthCtrl.js'
+               ]
               });
              }]
            }

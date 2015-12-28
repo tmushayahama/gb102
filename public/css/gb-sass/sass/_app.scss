@@ -34,11 +34,11 @@ html {
  font-family: sans-serif;
  -ms-text-size-adjust: 100%;
  -webkit-text-size-adjust: 100%;
- @include position(fixed, 0 0 0 0);
+ //@include position(fixed, 0 0 0 0);
 }
 body {
  background: none;
- @include position(fixed, 0 0 0 0);
+ //@include position(fixed, 0 0 0 0);
 }
 
 .gb-background-white {
