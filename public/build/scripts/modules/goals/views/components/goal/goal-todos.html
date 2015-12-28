@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!goalTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{goalCtrl.goal.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{goalCtrl.goal.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="goalTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="goalTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -116,7 +116,7 @@
    </ul>
   </div>
   <script type="text/ng-template" id="goal-todo-modal.html">
-   <div class="" ng-include="'public/modules/goals/views/modals/goal-todo.html'"></div>
+   <div class="" ng-include="'public/build/scripts/modules/goals/views/modals/goal-todo.html'"></div>
   </script>
  </div>
 </section>

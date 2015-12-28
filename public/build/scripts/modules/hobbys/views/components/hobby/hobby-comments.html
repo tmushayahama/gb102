@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!hobbyCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{hobbyCtrl.hobby.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{hobbyCtrl.hobby.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="hobbyCommentsCtrl.showCommentForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="hobbyCommentsCtrl.commentFormDisplay" name="form" novalidate>
@@ -113,7 +113,7 @@
        {{hobbyComment.comment.description}}
       </div>
       <div class="gb-footer">
-       <img src="public/img/profile_pic/{{hobbyComment.comment.creator.avatar_url}}" class='gb-profile-pic' alt="">
+       <img src="public/build/img/profile_pic/{{hobbyComment.comment.creator.avatar_url}}" class='gb-profile-pic' alt="">
        <div class="gb-footer-content">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
          <h5 class="gb-ellipsis"><a>{{hobbyComment.comment.creator.firstname + ' ' + hobbyComment.comment.creator.lastname}}</a></h5>
@@ -133,7 +133,7 @@
    </ul>
   </div>
   <script type="text/ng-template" id="hobby-comment-modal.html">
-   <div class="gb-comment-page" ng-include="'public/modules/hobbys/views/modals/hobby-comment.html'"></div>
+   <div class="gb-comment-page" ng-include="'public/build/scripts/modules/hobbys/views/modals/hobby-comment.html'"></div>
   </script>
  </div>
 </section>

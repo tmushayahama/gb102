@@ -40,7 +40,7 @@ class Hobby extends Model {
           ->with('creator')
           ->with('icon')
           ->with('level')
-          ->take(10)
+          ->take(50)
           ->get();
   return $hobbys;
  }

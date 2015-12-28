@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!skillNotesCtrl.noteFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{skillCtrl.skill.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="skillNotesCtrl.showNoteForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="skillNotesCtrl.noteFormDisplay" name="form" novalidate>
@@ -136,7 +136,7 @@
    </ul>
   </div>
   <script type="text/ng-template" id="skill-note-modal.html">
-   <div class="gb-note-page" ng-include="'public/modules/skills/views/modals/skill-note.html'"></div>
+   <div class="gb-note-page" ng-include="'public/build/scripts/modules/skills/views/modals/skill-note.html'"></div>
   </script>
  </div>
 </section>

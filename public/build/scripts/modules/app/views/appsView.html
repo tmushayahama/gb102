@@ -17,7 +17,7 @@
     <a ui-sref-active="active" class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-icon" alt="">
+       <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         {{$root.user.firstname + " " + $root.user.lastname}}
        </span>
@@ -29,7 +29,7 @@
     <a ui-sref-active="active" class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/community_icon_0.png" class="gb-icon" alt="">
+       <img src="public/build/img/community_icon_0.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Community
        </span>
@@ -49,7 +49,7 @@
        ng-class="{active: ('apps.skills' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Skills
        </span>
@@ -62,7 +62,7 @@
        ng-class="{active: ('apps.goals' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Goals
        </span>
@@ -75,7 +75,7 @@
        ng-class="{active: ('apps.promises' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_skill.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Promises
        </span>
@@ -88,7 +88,7 @@
        ng-class="{active: ('apps.hobbys' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Hobbies
        </span>
@@ -108,7 +108,7 @@
        ng-class="{active: ('apps.mentorships' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_mentorship.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_mentorship.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Mentorship
        </span>
@@ -121,7 +121,7 @@
        ng-class="{active: ('apps.advices' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Advice
        </span>
@@ -144,7 +144,7 @@
        ng-class="{active: ('apps.projects' | includedByState)}">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Projects
        </span>
@@ -156,7 +156,7 @@
     <a ui-sref-active="active"  class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Groups
        </span>
@@ -168,7 +168,7 @@
     <a ui-sref-active="active" class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
+       <img src="public/build/img/icons/apps/gb_hobby.png" class="gb-icon" alt="">
        <span class="visible-lg visible-md visible-sm hidden-xs">
         Journal
        </span>
@@ -180,6 +180,6 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div ui-view="apps" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+<div ui-view="apps" id="gb-middle-nav" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
 </div>
 <!-- ------------------------------- MODALS --------------------------->

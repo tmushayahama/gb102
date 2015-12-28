@@ -457,6 +457,10 @@ module.exports = function (grunt) {
       {
        match: /public\/css\/gb-sass/g,
        replacement: 'public/build/css/gb-sass'
+      },
+      {
+       match: /public\/img/g,
+       replacement: 'public/build/img'
       }
      ]
     },
@@ -548,8 +552,10 @@ module.exports = function (grunt) {
  });
 
  grunt.registerTask('gb_build', [
-  'uglify', 'replace:build_scripts',
-  'copy:copy_build_files', 'cssmin'
+  'uglify',
+  'copy:copy_build_files',
+  'cssmin',
+  'replace:build_scripts'
  ]);
 
  grunt.registerTask('gb_app_copy_replace', [
