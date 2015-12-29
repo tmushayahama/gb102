@@ -91,8 +91,8 @@
    <ul id="todo-list">
     <li ng-repeat="goalTodo in goalTodosCtrl.goalTodosManager.goalTodos| filter:statusFilter track by $index" ng-class="{completed: goalTodo.completed, editing: goalTodo == goalTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
-      <input class="toggle col-lg-1" type="checkbox" ng-model="goalTodo.completed">
-      <div class='gb-todo-content col-lg-10'>
+      <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="goalTodo.completed">
+      <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-10'>
        <a class="gb-content-text btn-link text-left" editable-text="goalTodo.todo.title"
           e-class="col-lg-10"
           e-form="titleForm" onbeforesave="goalTodosCtrl.editGoalTodoSections.title(goalTodo.id, $data)" e-required

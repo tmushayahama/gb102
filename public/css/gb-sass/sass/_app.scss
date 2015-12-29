@@ -21,7 +21,7 @@ and open the template in the editor.
 //@import "components/gb-icon-images";
 @import "components/custom-xeditable";
 
- 
+
 
 [ng\:cloak],
 [ng-cloak],
@@ -34,11 +34,11 @@ html {
  font-family: sans-serif;
  -ms-text-size-adjust: 100%;
  -webkit-text-size-adjust: 100%;
- //@include position(fixed, 0 0 0 0);
+ @include position(fixed, 0 0 0 0);
 }
 body {
  background: none;
- //@include position(fixed, 0 0 0 0);
+ @include position(fixed, 0 0 0 0); 
 }
 
 .gb-background-white {
@@ -157,13 +157,13 @@ input[type="checkbox"] {
  }
  .gb-container.gb-app-list {
   margin-top: 90px;
-   overflow-y: scroll;
- -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
  }
  .gb-container.gb-app-detail {
   margin-top: 50px;
-    overflow-y: scroll;
- -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
  }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
@@ -1357,11 +1357,10 @@ input.gb-form-show{
 
 
 #main-container {
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom:0;
+ @include position(absolute, 0 0 0 0);
+ overflow-y: scroll;
+ overflow-x: hidden;
+ -webkit-overflow-scrolling: touch;
 }
 
 

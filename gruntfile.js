@@ -529,7 +529,8 @@ module.exports = function (grunt) {
       cwd: 'public/',
       src: [
        'css/gb-sass/stylesheets/gb-themes/*.css',
-       'css/gb-sass/stylesheets/main.css'],
+       'css/gb-sass/stylesheets/main.css',
+       'css/gb-sass/stylesheets/gb-landing-page.css'],
       dest: 'public/build/'
      }]
    }

@@ -1,6 +1,16 @@
 'use strict';
 
-var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootScope, localStorageService, $interval, $css) {
+var authCtrl = function (
+        ConstantsManager,
+        $scope,
+        $uibModal,
+        $auth,
+        $state,
+        $http,
+        $rootScope,
+        localStorageService,
+        $interval,
+        $css) {
  var vm = this;
 
  var headerWords = [
@@ -12,7 +22,6 @@ var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootSc
   'keep a promise',
   'be mentored by someone',
   'explore a new hobby',
-  ''
  ];
  var headerWordIndex = 0;
  vm.headerWord = headerWords[0];
@@ -58,27 +67,25 @@ var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootSc
  vm.loginError = false;
  vm.loginErrorText;
 
- vm.login = function () {
-  var credentials = {
-   email: vm.email,
-   password: vm.password
-  };
+ vm.openLoginModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'login-modal.html',
+   controller: 'LoginModalCtrl as loginModalCtrl',
+   backdrop: 'static',
+   size: 'md',
+   resolve: {
+   }
+  });
 
-  $auth.login(credentials).then(function ()
-  {
-   return $http.get('api/authenticate/user');
-  }, function (error) {
-   vm.loginError = true;
-   vm.loginErrorText = error.data.error;
-  }).then(function (response) {
-   var user = JSON.stringify(response.data.user);
-   localStorageService.set('user', user);
-   $rootScope.authenticated = true;
-   $rootScope.user = response.data.user;
-   $("#gb-login-modal").modal("hide");
-   $state.go('apps.skills');
+  modalInstance.result.then(function (skill) {
+   //vm.skillsManager.createSkill(skill);
+  }, function () {
+   console.log('Modal dismissed at: ' + new Date());
   });
  };
+
+
 
  vm.constantsManager.getIcons(1).then(function (data) {
   vm.skillIcons = data;
@@ -86,6 +93,16 @@ var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootSc
  });
 };
 
-authCtrl.$inject = ['ConstantsManager', '$scope', '$auth', '$state', '$http', '$rootScope', 'localStorageService', '$interval', '$css'];
+authCtrl.$inject = [
+ 'ConstantsManager',
+ '$scope',
+ '$uibModal',
+ '$auth',
+ '$state',
+ '$http',
+ '$rootScope',
+ 'localStorageService',
+ '$interval',
+ '$css'];
 
-angular.module('app').controller('AuthCtrl', authCtrl)
+angular.module('app').controller('AuthCtrl', authCtrl);

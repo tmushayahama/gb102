@@ -27,7 +27,7 @@ and open the template in the editor.
   font-family: arial;
   color: #555;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #fff;
+  text-shadow: 0;
   border: 1px solid #a7a7a7;
   margin: 0px auto;
   box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
@@ -1131,10 +1131,20 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 body {
   background: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .gb-background-white {
@@ -2438,9 +2448,12 @@ input.gb-form-show {
 #main-container {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ----------PEOPLE ------------*/

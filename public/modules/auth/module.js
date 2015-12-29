@@ -23,7 +23,8 @@ define(['angular',
                serie: true,
                files: [
                 'public/modules/app/services/ConstantsManager.js',
-                'public/modules/auth/controllers/AuthCtrl.js'
+                'public/modules/auth/controllers/AuthCtrl.js',
+                'public/modules/auth/controllers/modals/LoginModalCtrl.js'
                ]
               });
              }]

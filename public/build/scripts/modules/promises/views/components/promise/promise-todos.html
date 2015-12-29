@@ -91,8 +91,8 @@
    <ul id="todo-list">
     <li ng-repeat="promiseTodo in promiseTodosCtrl.promiseTodosManager.promiseTodos| filter:statusFilter track by $index" ng-class="{completed: promiseTodo.completed, editing: promiseTodo == promiseTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
-      <input class="toggle col-lg-1" type="checkbox" ng-model="promiseTodo.completed">
-      <div class='gb-todo-content col-lg-10'>
+      <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="promiseTodo.completed">
+      <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-10'>
        <a class="gb-content-text btn-link text-left" editable-text="promiseTodo.todo.title"
           e-class="col-lg-10"
           e-form="titleForm" onbeforesave="promiseTodosCtrl.editPromiseTodoSections.title(promiseTodo.id, $data)" e-required
