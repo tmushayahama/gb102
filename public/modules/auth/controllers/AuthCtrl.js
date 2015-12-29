@@ -1,7 +1,25 @@
 'use strict';
 
-var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootScope, localStorageService, $css) {
+var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootScope, localStorageService, $interval, $css) {
  var vm = this;
+
+ var headerWords = [
+  'achieve a goal',
+  'mentor someone',
+  'improve a skill',
+  'give an advice',
+  'discover a new skill',
+  'keep a promise',
+  'be mentored by someone',
+  'explore a new hobby',
+  ''
+ ];
+ var headerWordIndex = 0;
+ vm.headerWord = headerWords[0];
+ $interval(function () {
+  vm.headerWord = headerWords[headerWordIndex];
+  headerWordIndex = (headerWordIndex + 1) % headerWords.length;
+ }, 3000);
 
  vm.constantsManager = new ConstantsManager();
  vm.skillIcons = [];
@@ -68,6 +86,6 @@ var authCtrl = function (ConstantsManager, $scope, $auth, $state, $http, $rootSc
  });
 };
 
-authCtrl.$inject = ['ConstantsManager', '$scope', '$auth', '$state', '$http', '$rootScope', 'localStorageService', '$css'];
+authCtrl.$inject = ['ConstantsManager', '$scope', '$auth', '$state', '$http', '$rootScope', 'localStorageService', '$interval', '$css'];
 
 angular.module('app').controller('AuthCtrl', authCtrl)

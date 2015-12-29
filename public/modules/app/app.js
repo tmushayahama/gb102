@@ -4,6 +4,7 @@ define([
  'angular',
  'angular-ui-router',
  'angular-resource',
+ 'angular-animate',
  'oc-lazy-load',
  'satellizer',
  'angular-bootstrap',
@@ -23,6 +24,7 @@ define([
  var app = angular.module('app', [
   'ui.router',
   'ngResource',
+  'ngAnimate',
   'satellizer',
   'oc.lazyLoad',
   'ui.bootstrap',

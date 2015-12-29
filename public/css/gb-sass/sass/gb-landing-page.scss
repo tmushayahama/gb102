@@ -186,11 +186,12 @@ fieldset[disabled] .btn-xl.active {
  border-bottom: #AAA solid 1px;
  background-color: rgba(#FFF, 0.8);
  .gb-logo {
-  padding-top: 3px; 
-  color: #777;
+  padding-top: 5px;   
+  line-height: 28px;
+  color: #888;
   font-size: 14px;
   .fa-lg {    
-   font-size: 16px;
+   font-size: 14px;
    text-align: center;
    .fa-circle {
     color: rgba($primary-color, 0.4);
@@ -203,10 +204,6 @@ fieldset[disabled] .btn-xl.active {
   strong {
    color: $primary-color;
   }
-  .gb-beta {
-   font-size: 8px;
-   color: #FF1B1B;
-  }
  }
  .gb-action {
   padding-top: 3px;
@@ -218,15 +215,14 @@ fieldset[disabled] .btn-xl.active {
  position: relative;
  height: 500px;
  text-align: center;
- color: #fff;
  //.gb-icons-image {
- background-color: rgba($primary-color, 0.8);
+ background-color: $primary-color;
  //@include position(absolute, 0 0 0 0);
  overflow: hidden;
  .fa-lg {  
   float: left;
   margin: 0 20px 30px 10px;  
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
   @include respond-to (gb-sm) {
    font-size: 1.2em;
@@ -234,35 +230,67 @@ fieldset[disabled] .btn-xl.active {
   @include respond-to (gb-xs) {
    font-size: 1.0em;
   }
-  .fa-circle {
-   color: rgba($primary-color, 0.1);
+  .fa-outer {
+   color: darken($primary-color, 2%);
   }
-  .fa-inverse{
+  .fa-inner{
    //font-size: 1.3em;
-   color: rgba($primary-color, 0.2);
+   color: darken($primary-color, 5%);
   }
   &:hover { 
-   .fa-circle {
-    color: rgba($primary-color, 0.3);
+   .fa-outer {
+    color: darken($primary-color, 5%);
    }
-   .fa-inverse{
-    color: rgba($primary-color, 0.5);
+   .fa-inner{
+    color: darken($primary-color, 15%);
    }
   }
  }
  .intro-text {
   @include position(absolute, 50% null null 50%);
-  //-ms-transform: translate(50%,50%);
-  //-webkit-transform: translate(50%,50%);
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%, -50%);
+  .gb-dynamic-word {
+   padding:3px 10px;
+   color: #FFF;
+   font-weight: bold;
+   transition: opacity 2s ease;
+   opacity: 1;
+  }
+  .btn-toolbar {
+   display: inline-block;
+   background-color: rgba(darken($primary-color, 15%), 0.6);
+   padding: 10px;
+   .gb-btn-lg {
+    text-decoration: none;
+    width: 150px;
+   }
+   .gb-btn-lg.gb-beta-btn {
+    background-color: #979AA72;
+    color: #FFF;
+   }
+   .gb-or {
+    float: left;
+    color: #DDD;
+   }
+  }
+
+  .gb-dynamic-word[class*="-remove"] {
+   transition: none;
+   opacity: 0;
+  }
   .intro-lead-in {
+   color: #EEE;
    margin-bottom: 25px;
-   font-size: 22px;
-   line-height: 22px;
+   font-size: 30px;
+   line-height: 40px;
   }
   .intro-heading {
+   color: #EEE;
+   text-transform: uppercase;
    margin-bottom: 25px;
-   font-size: 50px;
+   font-size: 40px;
    font-weight: 700;
    line-height: 50px;
   }
