@@ -15,8 +15,9 @@
   <link href="images/favicon/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="114x114">
 
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <link href="public/css/gb-icons.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>
-  
+
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -28,7 +29,7 @@
  <!--
  <script type="text/javascript" src="public/scripts/modernizr.custom.32033.js"></script>
   <script src="../bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
-  
+
 <script src="public/scripts/slick.min.js" type="text/javascript"></script>
  <script src="public/scripts/placeholdem.min.js" type="text/javascript"></script>
  <script src="public/scripts/rs-plugin/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
@@ -44,6 +45,6 @@
  -->
  <script src="../bower_components/underscore/underscore-min.js" type="text/javascript"></script>
  <script data-main="public/scripts/require-config" src="bower_components/requirejs/require.js" type="text/javascript"></script>
- 
- 
+
+
 </html>

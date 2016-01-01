@@ -38,7 +38,7 @@ html {
 }
 body {
  background: none;
- @include position(fixed, 0 0 0 0); 
+ @include position(fixed, 0 0 0 0);
 }
 
 .gb-background-white {
@@ -65,7 +65,7 @@ li[class*="col-"]{
  margin-left: auto;
  padding-left: 15px;
  padding-right: 15px;
- width: 920px; 
+ width: 920px;
 
  &:before,
   &:after {
@@ -77,13 +77,13 @@ li[class*="col-"]{
  }
 
  @include respond-to (gb-md) {
-  width: 768px; 
+  width: 768px;
  }
  @include respond-to (gb-sm) {
-  width: 768px; 
+  width: 768px;
  }
  @include respond-to (gb-xs) {
-  width: 768px; 
+  width: 768px;
  }
 
 }
@@ -115,7 +115,7 @@ input[type="checkbox"] {
  }
 
  .gb-list {
-  padding: 0px; 
+  padding: 0px;
  }
  .gb-cover {
   padding: 10px;
@@ -128,7 +128,7 @@ input[type="checkbox"] {
   .gb-icons-row {
    margin: 0;
    margin-bottom: 10px;
-   .fa-lg {    
+   .fa-lg {
     font-size: 2.0em;
     text-align: center;
     @include respond-to (gb-sm) {
@@ -144,7 +144,7 @@ input[type="checkbox"] {
      //font-size: 1.3em;
      color: rgba($primary-color, 0.8);
     }
-    &:hover { 
+    &:hover {
      .fa-circle {
       color: rgba($primary-color, 0.7);
      }
@@ -1214,7 +1214,7 @@ input.gb-form-show{
   .gb-logo {
    color: #777;
    font-size: 14px;
-   .fa-lg {    
+   .fa-lg {
     font-size: 14px;
     text-align: center;
     .fa-circle {
@@ -1285,6 +1285,37 @@ input.gb-form-show{
   -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
+  .fa-lg {
+   font-size: 12px;
+   text-align: center;
+   @include respond-to (gb-sm) {
+    font-size: 12px;
+   }
+   @include respond-to (gb-xs) {
+    font-size: 12px;
+   }
+   .fa-outer {
+    color: rgba($primary-color, 0.4);
+   }
+   .fa-inner {
+    top:10px;
+    left: 12px;
+    font-size: 30px;
+    color: darken($primary-color, 10%);
+   }
+   &:hover {
+    .fa-outer {
+     color: rgba($primary-color, 0.7);
+    }
+    .fa-inner {
+     color: darken($primary-color, 20%);
+    }
+   }
+  }
+  .gb-content {
+   font-size: 18px;
+   padding: 10px 5px 10px 44px;
+  }
  }
 
  .gb-nav-strip-mini .gb-link {
@@ -1296,10 +1327,10 @@ input.gb-form-show{
  }
 
  .gb-link:hover {
-  background-color: #CCC;
+  background-color: #F2F2F2;
  }
  .gb-link.active {
-  background-color: #BBB;
+  background-color: #EEE;
  }
 
  .gb-link .thumbnail{
@@ -1308,7 +1339,7 @@ input.gb-form-show{
   background-color: transparent;
  }
 
- .gb-link .gb-icon {
+ .gb-link .gb-image-icon {
   float: left;
   width: 28px;
   height: 25px;
@@ -2018,7 +2049,7 @@ input.gb-form-show{
  .gb-icon-image {
   padding: 10px 25px 0 15px;
   overflow: hidden;
-  .fa-lg {  
+  .fa-lg {
    float: right;
    font-size: 30px;
    text-align: center;
@@ -2029,7 +2060,7 @@ input.gb-form-show{
     //font-size: 1.3em;
     color: rgba($primary-color, 0.8);
    }
-   &:hover { 
+   &:hover {
     .fa-circle {
      color: rgba($primary-color, 0.7);
     }

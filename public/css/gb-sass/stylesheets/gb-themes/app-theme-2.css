@@ -92,6 +92,43 @@ and open the template in the editor.
   padding: 3px 8px;
 }
 
+.modal-md .modal-content {
+  height: 220px;
+}
+
+.modal-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #EEE;
+  background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+  background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+  padding: 11px 15px;
+  border-bottom: rgba(0, 34, 119, 0.6) solid 3px;
+  font-size: 18px;
+  font-weight: normal;
+  height: 50px;
+}
+
+.modal-body {
+  position: absolute;
+  top: 51px;
+  right: 0;
+  bottom: 46px;
+  left: 0;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 45px;
+  padding: 5px;
+}
+
 .modal-xl {
   position: absolute;
   top: 20px;
@@ -105,18 +142,6 @@ and open the template in the editor.
   right: 0;
   bottom: 0;
   left: 0;
-}
-.modal-xl .modal-header {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  background-color: #EEE;
-  background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
-  background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
-  font-size: 18px;
-  font-weight: normal;
-  height: 50px;
 }
 .modal-xl .modal-body {
   position: absolute;
@@ -2387,6 +2412,39 @@ input.gb-form-show {
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
 }
+#gb-left-nav-3 .gb-link .fa-lg {
+  font-size: 12px;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  #gb-left-nav-3 .gb-link .fa-lg {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  #gb-left-nav-3 .gb-link .fa-lg {
+    font-size: 12px;
+  }
+}
+#gb-left-nav-3 .gb-link .fa-lg .fa-outer {
+  color: rgba(0, 34, 119, 0.4);
+}
+#gb-left-nav-3 .gb-link .fa-lg .fa-inner {
+  top: 10px;
+  left: 12px;
+  font-size: 30px;
+  color: #001344;
+}
+#gb-left-nav-3 .gb-link .fa-lg:hover .fa-outer {
+  color: rgba(0, 34, 119, 0.7);
+}
+#gb-left-nav-3 .gb-link .fa-lg:hover .fa-inner {
+  color: #000511;
+}
+#gb-left-nav-3 .gb-link .gb-content {
+  font-size: 18px;
+  padding: 10px 5px 10px 44px;
+}
 #gb-left-nav-3 .gb-nav-strip-mini .gb-link {
   /*
   -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
@@ -2395,17 +2453,17 @@ input.gb-form-show {
   */
 }
 #gb-left-nav-3 .gb-link:hover {
-  background-color: #CCC;
+  background-color: #F2F2F2;
 }
 #gb-left-nav-3 .gb-link.active {
-  background-color: #BBB;
+  background-color: #EEE;
 }
 #gb-left-nav-3 .gb-link .thumbnail {
   margin-bottom: 0px;
   border: none;
   background-color: transparent;
 }
-#gb-left-nav-3 .gb-link .gb-icon {
+#gb-left-nav-3 .gb-link .gb-image-icon {
   float: left;
   width: 28px;
   height: 25px;
