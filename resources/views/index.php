@@ -15,7 +15,7 @@
   <link href="images/favicon/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="114x114">
 
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-  <link href="public/css/gb-icons.css" rel="stylesheet" type="text/css"/>
+  <link href="public/gb-icons/gb-icons.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>
 
   <!--[if lt IE 9]>

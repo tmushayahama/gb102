@@ -7,7 +7,6 @@
    </span>
    <div class="visible-lg visible-md visible-sm hidden-xs">
     <strong>SKILL</strong>SECTION<br>
-    <div class="gb-beta">BETA</div>
    </div>
   </a>
  </div>
@@ -18,7 +17,7 @@
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <p class="gb-ellipsis gb-title">
        <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
-       <span class="visible-lg visible-md visible-sm hidden-xs">
+       <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         {{$root.user.firstname + " " + $root.user.lastname}}
        </span>
       </p>
@@ -29,8 +28,11 @@
     <a ui-sref-active="active" class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
-       <img src="public/img/community_icon_0.png" class="gb-image-icon" alt="">
-       <span class="visible-lg visible-md visible-sm hidden-xs">
+       <span class="gb-icon fa-stack fa-lg pull-left">
+        <i class="fa fa-outer fa-user fa-stack-2x"></i>
+        <i class="fa fa-inner icon-users fa-stack-1x fa-inverse"></i>
+       </span>
+       <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Community
        </span>
       </p>
@@ -46,12 +48,14 @@
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.skills.all" class="gb-link row"
-       ng-class="{ active: ('apps.skills' | includedByState) }">
+       ng-class="{
+          active: ('apps.skills' | includedByState)
+         }">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-skill fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Skills
@@ -69,7 +73,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-target fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Goals
@@ -87,7 +91,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-promise fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Promises
@@ -99,12 +103,13 @@
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.hobbys.all" class="gb-link row"
        ng-class="{
-          active: ('apps.hobbys' | includedByState)}">
+          active: ('apps.hobbys' | includedByState)
+         }">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-hobby fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Hobbies
@@ -123,12 +128,13 @@
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.mentorships.all" class="gb-link row"
        ng-class="{
-          active: ('apps.mentorships' | includedByState)}">
+          active: ('apps.mentorships' | includedByState)
+         }">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-mentorship fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Mentorship
@@ -145,7 +151,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-advice fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Advice
@@ -172,7 +178,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-tree fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Projects
@@ -187,7 +193,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner fa-users fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Groups
@@ -202,7 +208,7 @@
       <p class="gb-ellipsis gb-title">
        <span class="gb-icon fa-stack fa-lg pull-left">
         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner fa-wrench fa-stack-1x fa-inverse"></i>
+        <i class="fa fa-inner icon-gb-journal fa-stack-1x fa-inverse"></i>
        </span>
        <span class="gb-content visible-lg visible-md visible-sm hidden-xs">
         Journal
