@@ -31,7 +31,7 @@ class SkillSwipe extends Model {
  }
 
  public function level() {
-  return $this->belongsTo('App\Models\Level\Level', 'skill_level_id');
+  return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
  /**
@@ -71,19 +71,16 @@ class SkillSwipe extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
-  $title = Request::get("title");
+  $level_id = Request::get("levelId");
   $description = Request::get("description");
-  $swipe = new Swipe;
   $skillSwipe = new SkillSwipe;
-  $swipe->creator_id = $userId;
-  $swipe->title = $title;
-  $swipe->description = $description;
+  $skillSwipe->creator_id = $userId;
   $skillSwipe->skill_id = $skillId;
+  $skillSwipe->level_id = $level_id;
+  $skillSwipe->description = $description;
 
   DB::beginTransaction();
   try {
-   $swipe->save();
-   $skillSwipe->swipe()->associate($swipe);
    $skillSwipe->save();
   } catch (\Exception $e) {
    //failed logic here

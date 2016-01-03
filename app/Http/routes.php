@@ -23,6 +23,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skills/mine', 'Skill\SkillController@getSkillsMine');
  Route::get('skills/swipe', 'Skill\SkillController@getSkillSwipe');
  Route::get('skills/swipes', 'Skill\SkillController@getSkillSwipes');
+ Route::post('skills/swipe/create', 'Skill\SkillController@createSkillSwipe');
 
  Route::get('skill/{skillId}/comments', 'Skill\SkillController@getSkillComments');
  Route::get('skill/{skillId}/comment/{commentId}', 'Skill\SkillController@getSkillComment');

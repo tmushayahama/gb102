@@ -22,12 +22,12 @@ var skillSwipesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillSwipesManager.prototype.getSkillSwipess = function () {
+ SkillSwipesManager.prototype.getSkillSwipes = function () {
   var self = this;
   var deferred = $q.defer();
-  self.skillSwipess = [];
+  self.skillSwipes = [];
   $http.get('/api/skills/swipes').success(function (data) {
-   self.skillSwipess = data;
+   self.skillSwipes = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -49,13 +49,13 @@ var skillSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillSwipesManager.prototype.createSkill = function (skillData) {
+ SkillSwipesManager.prototype.createSkillSwipe = function (skillSwipeData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/skill/create',
-   data: skillData
+   url: '/api/skills/swipe/create',
+   data: skillSwipeData
   }).success(function (data) {
    self.skillSwipes.unshift(data);
    self.deferredHandler(data, deferred);

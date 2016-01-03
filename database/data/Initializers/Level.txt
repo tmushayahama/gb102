@@ -32,6 +32,6 @@ id	category	code	name	description
 31	10	CONTR1	skill mentor	\N
 32	10	CONTR2	skill advice	\N
 33	10	CONTR3	skill goal	\N
-34	10	SPL1	not now	\N
-35	10	SPL2	ehh!!	\N
-36	10	SPL3	explore	\N
+34	11	SWS1	Not Now	\N
+35	11	SWS2	Ehh!!	\N
+36	11	SWS3	Explore	\N

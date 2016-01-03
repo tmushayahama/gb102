@@ -9,7 +9,8 @@
    </a>
   </li>
   <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-   <a showtab="" href="#gb-skill-swipe-history" class="gb-link text-center">
+   <a showtab="" href="#gb-skill-swipe-history"
+      ng-click="skillSwipesCtrl.viewSkillSwipes()" class="gb-link text-center">
     <i class="fa fa-2x fa-history"></i>
    </a>
   </li>
@@ -37,18 +38,11 @@
         {{skillSwipesCtrl.currentSkillSwipe.description}}
        </div>
        <div class="gb-footer row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-         <a ng-click="skillSwipesCtrl.swipeNotInterested(skillSwipesCtrl.currentSkillSwipe)"
-            class="btn btn-danger">
-          <i class="fa fa-minus"></i>
-         </a>
-         <a ng-click="skillSwipesCtrl.swipeNotNow(skillSwipesCtrl.currentSkillSwipe)"
+        <div class="gb-padding-thin">
+         <a ng-repeat="skillSwipeLevel in skillSwipesCtrl.skillSwipeLevels"
+            ng-click="skillSwipesCtrl.createSkillSwipe(skillSwipesCtrl.currentSkillSwipe.id, skillSwipeLevel.id)"
             class="btn btn-default">
-          <i class="fa fa-question"></i>
-         </a>
-         <a ng-click="skillSwipesCtrl.swipeInterested(skillSwipesCtrl.currentSkillSwipe)"
-            class="btn btn-success">
-          <i class="fa fa-plus"></i>
+          {{skillSwipeLevel.name}}
          </a>
         </div>
        </div>
@@ -75,16 +69,16 @@
       Choose what you wanna do with it</i>
     </div>
     <div id="gb-skills" class="gb-list row">
-     <div ng-repeat="skill in skillSwipeCtrl.skillsManager.skills" class="gb-box-1 row">
+     <div ng-repeat="skillSwipe in skillSwipesCtrl.skillSwipesManager.skillSwipes" class="gb-box-1 row">
       <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
        <span class="fa-stack fa-lg">
         <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa {{skill.icon.name}} fa-stack-1x fa-inverse"></i>
+        <i class="fa {{skillSwipe.skill.icon.name}} fa-stack-1x fa-inverse"></i>
        </span>
       </div>
       <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
        <div class="gb-heading row">
-        <p class="gb-title">{{skill.level.name}}</p>
+        <p class="gb-title">{{skillSwipe.level.name}}</p>
         <div class="gb-dropdown-action">
          <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-chevron-down"></i>
@@ -100,9 +94,9 @@
        </div>
        <div class="gb-description row">
         <a href ui-sref="apps.skill.overview({skillId: skill.id})" class="">
-         {{skill.title}}
+         {{skillSwipe.skill.title}}
         </a>
-        {{skill.description}}
+        {{skillSwipe.skill.description}}
        </div>
        <div class="gb-footer row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">

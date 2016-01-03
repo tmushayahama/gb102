@@ -1,5 +1,6 @@
 
 var skillsCtrl = function (
+        level_categories,
         ConstantsManager,
         SkillsManager,
         $scope,
@@ -144,12 +145,13 @@ var skillsCtrl = function (
 
  //--------init------
  //vm.skillsManager.getSkills(vm.skillId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.skill).then(function (data) {
   vm.skillLevels = data;
  });
 };
 
 skillsCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'SkillsManager',
  '$scope',

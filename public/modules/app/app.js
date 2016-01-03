@@ -131,6 +131,21 @@ define([
  appRun.$inject = ['$stateParams', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
  app.run(appRun);
  app.constant('_', window._);
+ app.constant('level_categories',
+         {
+          skill: 1,
+          goal: 2,
+          hobby: 3,
+          promise: 4,
+          mentorship: 5,
+          advice: 6,
+          skill_swipe: 11,
+          goal_swipe: 12,
+          hobby_swipe: 13,
+          promise_swipe: 14,
+          mentorship_swipe: 15,
+          advice_swipe: 16,
+         });
 
  return app;
 });

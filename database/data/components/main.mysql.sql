@@ -2398,7 +2398,7 @@ CREATE TABLE `gb_skill` (
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11) NOT NULL,
   `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',

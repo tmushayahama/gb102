@@ -29,8 +29,15 @@ class Level extends Model {
 
  public static function getLevel($category) {
   $levels = Level::orderBy('id', 'asc')
-    ->where('category', $category)
-    ->get();
+          ->where('category', $category)
+          ->get();
+  return $levels;
+ }
+
+ public static function getLevelByCode($code) {
+  $levels = Level::orderBy('id', 'asc')
+          ->where('code', $code)
+          ->get();
   return $levels;
  }
 

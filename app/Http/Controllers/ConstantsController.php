@@ -19,6 +19,11 @@ class ConstantsController extends Controller {
   return \Response::json($level);
  }
 
+ public function getLevelByCode($code) {
+  $level = Level::getLevelByCode($code);
+  return \Response::json($level);
+ }
+
  public function getIcons($type) {
   $icons = Icon::getIcons($type);
   return \Response::json($icons);
