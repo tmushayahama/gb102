@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.hobbys.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'HobbySwipesCtrl as hobbySwipesCtrl',
+             templateUrl: 'public/modules/hobbys/views/tabs/hobbys/hobby-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.hobbys',
+                 serie: true,
+                 files: [
+                  'public/modules/hobbys/controllers/HobbySwipesCtrl.js',
+                  'public/modules/hobbys/services/HobbySwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.hobby', {
            abstract: true,
            url: '/hobby/{hobbyId}',

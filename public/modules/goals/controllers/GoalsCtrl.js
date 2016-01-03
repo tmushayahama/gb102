@@ -1,5 +1,6 @@
 
 var goalsCtrl = function (
+        level_categories,
         ConstantsManager,
         GoalsManager,
         $scope,
@@ -16,7 +17,7 @@ var goalsCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-2.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-goal.css'
  }, $scope);
 
  vm.goalsManager = new GoalsManager();
@@ -144,12 +145,13 @@ var goalsCtrl = function (
 
  //--------init------
  //vm.goalsManager.getGoals(vm.goalId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.goal).then(function (data) {
   vm.goalLevels = data;
  });
 };
 
 goalsCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'GoalsManager',
  '$scope',

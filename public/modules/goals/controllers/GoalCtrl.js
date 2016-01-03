@@ -16,7 +16,7 @@ var goalCtrl = function (
 
  var vm = this;
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-2.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-goal.css'
  }, $scope);
 
  vm.goal = [];

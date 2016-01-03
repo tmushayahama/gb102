@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.promises.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'PromiseSwipesCtrl as promiseSwipesCtrl',
+             templateUrl: 'public/modules/promises/views/tabs/promises/promise-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.promises',
+                 serie: true,
+                 files: [
+                  'public/modules/promises/controllers/PromiseSwipesCtrl.js',
+                  'public/modules/promises/services/PromiseSwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.promise', {
            abstract: true,
            url: '/promise/{promiseId}',

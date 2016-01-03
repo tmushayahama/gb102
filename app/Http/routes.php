@@ -24,7 +24,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skills/swipe', 'Skill\SkillController@getSkillSwipe');
  Route::get('skills/swipes', 'Skill\SkillController@getSkillSwipes');
  Route::post('skills/swipe/create', 'Skill\SkillController@createSkillSwipe');
-
  Route::get('skill/{skillId}/comments', 'Skill\SkillController@getSkillComments');
  Route::get('skill/{skillId}/comment/{commentId}', 'Skill\SkillController@getSkillComment');
  Route::get('skill/{skillId}/todos', 'Skill\SkillController@getSkillTodos');
@@ -52,6 +51,9 @@ Route::group(['prefix' => 'api'], function() {
  //Goal
  Route::get('goals/all', 'Goal\GoalController@getGoalsAll');
  Route::get('goals/mine', 'Goal\GoalController@getGoalsMine');
+ Route::get('goals/swipe', 'Goal\GoalController@getGoalSwipe');
+ Route::get('goals/swipes', 'Goal\GoalController@getGoalSwipes');
+ Route::post('goals/swipe/create', 'Goal\GoalController@createGoalSwipe');
  Route::get('goal/{goalId}/comments', 'Goal\GoalController@getGoalComments');
  Route::get('goal/{goalId}/comment/{commentId}', 'Goal\GoalController@getGoalComment');
  Route::get('goal/{goalId}/todos', 'Goal\GoalController@getGoalTodos');
@@ -79,6 +81,9 @@ Route::group(['prefix' => 'api'], function() {
 //promise
  Route::get('promises/all', 'Promise\PromiseController@getPromisesAll');
  Route::get('promises/mine', 'Promise\PromiseController@getPromisesMine');
+ Route::get('promises/swipe', 'Promise\PromiseController@getPromiseSwipe');
+ Route::get('promises/swipes', 'Promise\PromiseController@getPromiseSwipes');
+ Route::post('promises/swipe/create', 'Promise\PromiseController@createPromiseSwipe');
  Route::get('promise/{promiseId}/comments', 'Promise\PromiseController@getPromiseComments');
  Route::get('promise/{promiseId}/comment/{commentId}', 'Promise\PromiseController@getPromiseComment');
  Route::get('promise/{promiseId}/todos', 'Promise\PromiseController@getPromiseTodos');
@@ -106,6 +111,9 @@ Route::group(['prefix' => 'api'], function() {
  //Hobbys
  Route::get('hobbys/all', 'Hobby\HobbyController@getHobbysAll');
  Route::get('hobbys/mine', 'Hobby\HobbyController@getHobbysMine');
+ Route::get('hobbys/swipe', 'Hobby\HobbyController@getHobbySwipe');
+ Route::get('hobbys/swipes', 'Hobby\HobbyController@getHobbySwipes');
+ Route::post('hobbys/swipe/create', 'Hobby\HobbyController@createHobbySwipe');
  Route::get('hobby/{hobbyId}/comments', 'Hobby\HobbyController@getHobbyComments');
  Route::get('hobby/{hobbyId}/comment/{commentId}', 'Hobby\HobbyController@getHobbyComment');
  Route::get('hobby/{hobbyId}/todos', 'Hobby\HobbyController@getHobbyTodos');
@@ -133,6 +141,9 @@ Route::group(['prefix' => 'api'], function() {
  //Mentorship
  Route::get('mentorships/all', 'Mentorship\MentorshipController@getMentorshipsAll');
  Route::get('mentorships/mine', 'Mentorship\MentorshipController@getMentorshipsMine');
+ Route::get('mentorships/swipe', 'Mentorship\MentorshipController@getMentorshipSwipe');
+ Route::get('mentorships/swipes', 'Mentorship\MentorshipController@getMentorshipSwipes');
+ Route::post('mentorships/swipe/create', 'Mentorship\MentorshipController@createMentorshipSwipe');
  Route::get('mentorship/{mentorshipId}/comments', 'Mentorship\MentorshipController@getMentorshipComments');
  Route::get('mentorship/{mentorshipId}/comment/{commentId}', 'Mentorship\MentorshipController@getMentorshipComment');
  Route::get('mentorship/{mentorshipId}/todos', 'Mentorship\MentorshipController@getMentorshipTodos');
@@ -157,9 +168,73 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('mentorship/weblink/create', 'Mentorship\MentorshipController@createMentorshipWeblink');
  Route::post('mentorship/weblink/edit', 'Mentorship\MentorshipController@editMentorshipWeblink');
 
+ //Collaboration
+ Route::get('collaborations/all', 'Collaboration\CollaborationController@getCollaborationsAll');
+ Route::get('collaborations/mine', 'Collaboration\CollaborationController@getCollaborationsMine');
+ Route::get('collaborations/swipe', 'Collaboration\CollaborationController@getCollaborationSwipe');
+ Route::get('collaborations/swipes', 'Collaboration\CollaborationController@getCollaborationSwipes');
+ Route::post('collaborations/swipe/create', 'Collaboration\CollaborationController@createCollaborationSwipe');
+ Route::get('collaboration/{collaborationId}/comments', 'Collaboration\CollaborationController@getCollaborationComments');
+ Route::get('collaboration/{collaborationId}/comment/{commentId}', 'Collaboration\CollaborationController@getCollaborationComment');
+ Route::get('collaboration/{collaborationId}/todos', 'Collaboration\CollaborationController@getCollaborationTodos');
+ Route::get('collaboration/{collaborationId}/todo/{todoId}', 'Collaboration\CollaborationController@getCollaborationTodo');
+ Route::get('collaboration/{collaborationId}/notes', 'Collaboration\CollaborationController@getCollaborationNotes');
+ Route::get('collaboration/{collaborationId}/note/{noteId}', 'Collaboration\CollaborationController@getCollaborationNote');
+ Route::get('collaboration/{collaborationId}/timelines', 'Collaboration\CollaborationController@getCollaborationTimelines');
+ Route::get('collaboration/{collaborationId}/timeline/{timelineId}', 'Collaboration\CollaborationController@getCollaborationTimeline');
+ Route::get('collaboration/{collaborationId}/weblinks', 'Collaboration\CollaborationController@getCollaborationWeblinks');
+ Route::get('collaboration/{collaborationId}/weblink/{weblinkId}', 'Collaboration\CollaborationController@getCollaborationWeblink');
+ Route::get('collaboration/{id}', 'Collaboration\CollaborationController@getCollaboration');
+ Route::post('collaboration/edit', 'Collaboration\CollaborationController@editCollaboration');
+ Route::post('collaboration/create', 'Collaboration\CollaborationController@createCollaboration');
+ Route::post('collaboration/comment/create', 'Collaboration\CollaborationController@createCollaborationComment');
+ Route::post('collaboration/comment/edit', 'Collaboration\CollaborationController@editCollaborationComment');
+ Route::post('collaboration/todo/create', 'Collaboration\CollaborationController@createCollaborationTodo');
+ Route::post('collaboration/todo/edit', 'Collaboration\CollaborationController@editCollaborationTodo');
+ Route::post('collaboration/note/create', 'Collaboration\CollaborationController@createCollaborationNote');
+ Route::post('collaboration/note/edit', 'Collaboration\CollaborationController@editCollaborationNote');
+ Route::post('collaboration/timeline/create', 'Collaboration\CollaborationController@createCollaborationTimeline');
+ Route::post('collaboration/timeline/edit', 'Collaboration\CollaborationController@editCollaborationTimeline');
+ Route::post('collaboration/weblink/create', 'Collaboration\CollaborationController@createCollaborationWeblink');
+ Route::post('collaboration/weblink/edit', 'Collaboration\CollaborationController@editCollaborationWeblink');
+
+ //Teach
+ // Route::get('teachs/all', 'Teach\TeachController@getTeachsAll');
+ Route::get('teachs/all', 'Teach\TeachController@getTeachsAll');
+ Route::get('teachs/mine', 'Teach\TeachController@getTeachsMine');
+ Route::get('teachs/swipe', 'Teach\TeachController@getTeachSwipe');
+ Route::get('teachs/swipes', 'Teach\TeachController@getTeachSwipes');
+ Route::post('teachs/swipe/create', 'Teach\TeachController@createTeachSwipe');
+ Route::get('teach/{teachId}/comments', 'Teach\TeachController@getTeachComments');
+ Route::get('teach/{teachId}/comment/{commentId}', 'Teach\TeachController@getTeachComment');
+ Route::get('teach/{teachId}/todos', 'Teach\TeachController@getTeachTodos');
+ Route::get('teach/{teachId}/todo/{todoId}', 'Teach\TeachController@getTeachTodo');
+ Route::get('teach/{teachId}/notes', 'Teach\TeachController@getTeachNotes');
+ Route::get('teach/{teachId}/note/{noteId}', 'Teach\TeachController@getTeachNote');
+ Route::get('teach/{teachId}/timelines', 'Teach\TeachController@getTeachTimelines');
+ Route::get('teach/{teachId}/timeline/{timelineId}', 'Teach\TeachController@getTeachTimeline');
+ Route::get('teach/{teachId}/weblinks', 'Teach\TeachController@getTeachWeblinks');
+ Route::get('teach/{teachId}/weblink/{weblinkId}', 'Teach\TeachController@getTeachWeblink');
+ Route::get('teach/{id}', 'Teach\TeachController@getTeach');
+ Route::post('teach/edit', 'Teach\TeachController@editTeach');
+ Route::post('teach/create', 'Teach\TeachController@createTeach');
+ Route::post('teach/comment/create', 'Teach\TeachController@createTeachComment');
+ Route::post('teach/comment/edit', 'Teach\TeachController@editTeachComment');
+ Route::post('teach/todo/create', 'Teach\TeachController@createTeachTodo');
+ Route::post('teach/todo/edit', 'Teach\TeachController@editTeachTodo');
+ Route::post('teach/note/create', 'Teach\TeachController@createTeachNote');
+ Route::post('teach/note/edit', 'Teach\TeachController@editTeachNote');
+ Route::post('teach/timeline/create', 'Teach\TeachController@createTeachTimeline');
+ Route::post('teach/timeline/edit', 'Teach\TeachController@editTeachTimeline');
+ Route::post('teach/weblink/create', 'Teach\TeachController@createTeachWeblink');
+ Route::post('teach/weblink/edit', 'Teach\TeachController@editTeachWeblink');
+
 //Advice
  Route::get('advices/all', 'Advice\AdviceController@getAdvicesAll');
  Route::get('advices/mine', 'Advice\AdviceController@getAdvicesMine');
+ Route::get('advices/swipe', 'Advice\AdviceController@getAdviceSwipe');
+ Route::get('advices/swipes', 'Advice\AdviceController@getAdviceSwipes');
+ Route::post('advices/swipe/create', 'Advice\AdviceController@createAdviceSwipe');
  Route::get('advice/{adviceId}/comments', 'Advice\AdviceController@getAdviceComments');
  Route::get('advice/{adviceId}/comment/{commentId}', 'Advice\AdviceController@getAdviceComment');
  Route::get('advice/{adviceId}/todos', 'Advice\AdviceController@getAdviceTodos');
@@ -183,6 +258,156 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('advice/timeline/edit', 'Advice\AdviceController@editAdviceTimeline');
  Route::post('advice/weblink/create', 'Advice\AdviceController@createAdviceWeblink');
  Route::post('advice/weblink/edit', 'Advice\AdviceController@editAdviceWeblink');
+
+ //Journal
+ Route::get('journals/all', 'Journal\JournalController@getJournalsAll');
+ Route::get('journals/mine', 'Journal\JournalController@getJournalsMine');
+ Route::get('journals/swipe', 'Journal\JournalController@getJournalSwipe');
+ Route::get('journals/swipes', 'Journal\JournalController@getJournalSwipes');
+ Route::post('journals/swipe/create', 'Journal\JournalController@createJournalSwipe');
+ Route::get('journal/{journalId}/comments', 'Journal\JournalController@getJournalComments');
+ Route::get('journal/{journalId}/comment/{commentId}', 'Journal\JournalController@getJournalComment');
+ Route::get('journal/{journalId}/todos', 'Journal\JournalController@getJournalTodos');
+ Route::get('journal/{journalId}/todo/{todoId}', 'Journal\JournalController@getJournalTodo');
+ Route::get('journal/{journalId}/notes', 'Journal\JournalController@getJournalNotes');
+ Route::get('journal/{journalId}/note/{noteId}', 'Journal\JournalController@getJournalNote');
+ Route::get('journal/{journalId}/timelines', 'Journal\JournalController@getJournalTimelines');
+ Route::get('journal/{journalId}/timeline/{timelineId}', 'Journal\JournalController@getJournalTimeline');
+ Route::get('journal/{journalId}/weblinks', 'Journal\JournalController@getJournalWeblinks');
+ Route::get('journal/{journalId}/weblink/{weblinkId}', 'Journal\JournalController@getJournalWeblink');
+ Route::get('journal/{id}', 'Journal\JournalController@getJournal');
+ Route::post('journal/edit', 'Journal\JournalController@editJournal');
+ Route::post('journal/create', 'Journal\JournalController@createJournal');
+ Route::post('journal/comment/create', 'Journal\JournalController@createJournalComment');
+ Route::post('journal/comment/edit', 'Journal\JournalController@editJournalComment');
+ Route::post('journal/todo/create', 'Journal\JournalController@createJournalTodo');
+ Route::post('journal/todo/edit', 'Journal\JournalController@editJournalTodo');
+ Route::post('journal/note/create', 'Journal\JournalController@createJournalNote');
+ Route::post('journal/note/edit', 'Journal\JournalController@editJournalNote');
+ Route::post('journal/timeline/create', 'Journal\JournalController@createJournalTimeline');
+ Route::post('journal/timeline/edit', 'Journal\JournalController@editJournalTimeline');
+ Route::post('journal/weblink/create', 'Journal\JournalController@createJournalWeblink');
+ Route::post('journal/weblink/edit', 'Journal\JournalController@editJournalWeblink');
+
+ //Project
+ Route::get('projects/all', 'Project\ProjectController@getProjectsAll');
+ Route::get('projects/mine', 'Project\ProjectController@getProjectsMine');
+ Route::get('projects/swipe', 'Project\ProjectController@getProjectSwipe');
+ Route::get('projects/swipes', 'Project\ProjectController@getProjectSwipes');
+ Route::post('projects/swipe/create', 'Project\ProjectController@createProjectSwipe');
+ Route::get('project/{projectId}/comments', 'Project\ProjectController@getProjectComments');
+ Route::get('project/{projectId}/comment/{commentId}', 'Project\ProjectController@getProjectComment');
+ Route::get('project/{projectId}/todos', 'Project\ProjectController@getProjectTodos');
+ Route::get('project/{projectId}/todo/{todoId}', 'Project\ProjectController@getProjectTodo');
+ Route::get('project/{projectId}/notes', 'Project\ProjectController@getProjectNotes');
+ Route::get('project/{projectId}/note/{noteId}', 'Project\ProjectController@getProjectNote');
+ Route::get('project/{projectId}/timelines', 'Project\ProjectController@getProjectTimelines');
+ Route::get('project/{projectId}/timeline/{timelineId}', 'Project\ProjectController@getProjectTimeline');
+ Route::get('project/{projectId}/weblinks', 'Project\ProjectController@getProjectWeblinks');
+ Route::get('project/{projectId}/weblink/{weblinkId}', 'Project\ProjectController@getProjectWeblink');
+ Route::get('project/{id}', 'Project\ProjectController@getProject');
+ Route::post('project/edit', 'Project\ProjectController@editProject');
+ Route::post('project/create', 'Project\ProjectController@createProject');
+ Route::post('project/comment/create', 'Project\ProjectController@createProjectComment');
+ Route::post('project/comment/edit', 'Project\ProjectController@editProjectComment');
+ Route::post('project/todo/create', 'Project\ProjectController@createProjectTodo');
+ Route::post('project/todo/edit', 'Project\ProjectController@editProjectTodo');
+ Route::post('project/note/create', 'Project\ProjectController@createProjectNote');
+ Route::post('project/note/edit', 'Project\ProjectController@editProjectNote');
+ Route::post('project/timeline/create', 'Project\ProjectController@createProjectTimeline');
+ Route::post('project/timeline/edit', 'Project\ProjectController@editProjectTimeline');
+ Route::post('project/weblink/create', 'Project\ProjectController@createProjectWeblink');
+ Route::post('project/weblink/edit', 'Project\ProjectController@editProjectWeblink');
+
+ //Groups
+ Route::get('groups/all', 'Group\GroupController@getGroupsAll');
+ Route::get('groups/mine', 'Group\GroupController@getGroupsMine');
+ Route::get('groups/swipe', 'Group\GroupController@getGroupSwipe');
+ Route::get('groups/swipes', 'Group\GroupController@getGroupSwipes');
+ Route::post('groups/swipe/create', 'Group\GroupController@createGroupSwipe');
+ Route::get('group/{groupId}/comments', 'Group\GroupController@getGroupComments');
+ Route::get('group/{groupId}/comment/{commentId}', 'Group\GroupController@getGroupComment');
+ Route::get('group/{groupId}/todos', 'Group\GroupController@getGroupTodos');
+ Route::get('group/{groupId}/todo/{todoId}', 'Group\GroupController@getGroupTodo');
+ Route::get('group/{groupId}/notes', 'Group\GroupController@getGroupNotes');
+ Route::get('group/{groupId}/note/{noteId}', 'Group\GroupController@getGroupNote');
+ Route::get('group/{groupId}/timelines', 'Group\GroupController@getGroupTimelines');
+ Route::get('group/{groupId}/timeline/{timelineId}', 'Group\GroupController@getGroupTimeline');
+ Route::get('group/{groupId}/weblinks', 'Group\GroupController@getGroupWeblinks');
+ Route::get('group/{groupId}/weblink/{weblinkId}', 'Group\GroupController@getGroupWeblink');
+ Route::get('group/{id}', 'Group\GroupController@getGroup');
+ Route::post('group/edit', 'Group\GroupController@editGroup');
+ Route::post('group/create', 'Group\GroupController@createGroup');
+ Route::post('group/comment/create', 'Group\GroupController@createGroupComment');
+ Route::post('group/comment/edit', 'Group\GroupController@editGroupComment');
+ Route::post('group/todo/create', 'Group\GroupController@createGroupTodo');
+ Route::post('group/todo/edit', 'Group\GroupController@editGroupTodo');
+ Route::post('group/note/create', 'Group\GroupController@createGroupNote');
+ Route::post('group/note/edit', 'Group\GroupController@editGroupNote');
+ Route::post('group/timeline/create', 'Group\GroupController@createGroupTimeline');
+ Route::post('group/timeline/edit', 'Group\GroupController@editGroupTimeline');
+ Route::post('group/weblink/create', 'Group\GroupController@createGroupWeblink');
+ Route::post('group/weblink/edit', 'Group\GroupController@editGroupWeblink');
+
+ //Community
+ Route::get('communitys/all', 'Community\CommunityController@getCommunitysAll');
+ Route::get('communitys/mine', 'Community\CommunityController@getCommunitysMine');
+ Route::get('communitys/swipe', 'Community\CommunityController@getCommunitySwipe');
+ Route::get('communitys/swipes', 'Community\CommunityController@getCommunitySwipes');
+ Route::post('communitys/swipe/create', 'Community\CommunityController@createCommunitySwipe');
+ Route::get('community/{communityId}/comments', 'Community\CommunityController@getCommunityComments');
+ Route::get('community/{communityId}/comment/{commentId}', 'Community\CommunityController@getCommunityComment');
+ Route::get('community/{communityId}/todos', 'Community\CommunityController@getCommunityTodos');
+ Route::get('community/{communityId}/todo/{todoId}', 'Community\CommunityController@getCommunityTodo');
+ Route::get('community/{communityId}/notes', 'Community\CommunityController@getCommunityNotes');
+ Route::get('community/{communityId}/note/{noteId}', 'Community\CommunityController@getCommunityNote');
+ Route::get('community/{communityId}/timelines', 'Community\CommunityController@getCommunityTimelines');
+ Route::get('community/{communityId}/timeline/{timelineId}', 'Community\CommunityController@getCommunityTimeline');
+ Route::get('community/{communityId}/weblinks', 'Community\CommunityController@getCommunityWeblinks');
+ Route::get('community/{communityId}/weblink/{weblinkId}', 'Community\CommunityController@getCommunityWeblink');
+ Route::get('community/{id}', 'Community\CommunityController@getCommunity');
+ Route::post('community/edit', 'Community\CommunityController@editCommunity');
+ Route::post('community/create', 'Community\CommunityController@createCommunity');
+ Route::post('community/comment/create', 'Community\CommunityController@createCommunityComment');
+ Route::post('community/comment/edit', 'Community\CommunityController@editCommunityComment');
+ Route::post('community/todo/create', 'Community\CommunityController@createCommunityTodo');
+ Route::post('community/todo/edit', 'Community\CommunityController@editCommunityTodo');
+ Route::post('community/note/create', 'Community\CommunityController@createCommunityNote');
+ Route::post('community/note/edit', 'Community\CommunityController@editCommunityNote');
+ Route::post('community/timeline/create', 'Community\CommunityController@createCommunityTimeline');
+ Route::post('community/timeline/edit', 'Community\CommunityController@editCommunityTimeline');
+ Route::post('community/weblink/create', 'Community\CommunityController@createCommunityWeblink');
+ Route::post('community/weblink/edit', 'Community\CommunityController@editCommunityWeblink');
+
+ //Profile
+ Route::get('profiles/all', 'Profile\ProfileController@getProfilesAll');
+ Route::get('profiles/mine', 'Profile\ProfileController@getProfilesMine');
+ Route::get('profiles/swipe', 'Profile\ProfileController@getProfileSwipe');
+ Route::get('profiles/swipes', 'Profile\ProfileController@getProfileSwipes');
+ Route::post('profiles/swipe/create', 'Profile\ProfileController@createProfileSwipe');
+ Route::get('profile/{profileId}/comments', 'Profile\ProfileController@getProfileComments');
+ Route::get('profile/{profileId}/comment/{commentId}', 'Profile\ProfileController@getProfileComment');
+ Route::get('profile/{profileId}/todos', 'Profile\ProfileController@getProfileTodos');
+ Route::get('profile/{profileId}/todo/{todoId}', 'Profile\ProfileController@getProfileTodo');
+ Route::get('profile/{profileId}/notes', 'Profile\ProfileController@getProfileNotes');
+ Route::get('profile/{profileId}/note/{noteId}', 'Profile\ProfileController@getProfileNote');
+ Route::get('profile/{profileId}/timelines', 'Profile\ProfileController@getProfileTimelines');
+ Route::get('profile/{profileId}/timeline/{timelineId}', 'Profile\ProfileController@getProfileTimeline');
+ Route::get('profile/{profileId}/weblinks', 'Profile\ProfileController@getProfileWeblinks');
+ Route::get('profile/{profileId}/weblink/{weblinkId}', 'Profile\ProfileController@getProfileWeblink');
+ Route::get('profile/{id}', 'Profile\ProfileController@getProfile');
+ Route::post('profile/edit', 'Profile\ProfileController@editProfile');
+ Route::post('profile/create', 'Profile\ProfileController@createProfile');
+ Route::post('profile/comment/create', 'Profile\ProfileController@createProfileComment');
+ Route::post('profile/comment/edit', 'Profile\ProfileController@editProfileComment');
+ Route::post('profile/todo/create', 'Profile\ProfileController@createProfileTodo');
+ Route::post('profile/todo/edit', 'Profile\ProfileController@editProfileTodo');
+ Route::post('profile/note/create', 'Profile\ProfileController@createProfileNote');
+ Route::post('profile/note/edit', 'Profile\ProfileController@editProfileNote');
+ Route::post('profile/timeline/create', 'Profile\ProfileController@createProfileTimeline');
+ Route::post('profile/timeline/edit', 'Profile\ProfileController@editProfileTimeline');
+ Route::post('profile/weblink/create', 'Profile\ProfileController@createProfileWeblink');
+ Route::post('profile/weblink/edit', 'Profile\ProfileController@editProfileWeblink');
 
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
  Route::get('constants/icons/{type}', 'ConstantsController@getIcons');

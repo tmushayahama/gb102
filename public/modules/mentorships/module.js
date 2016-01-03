@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.mentorships.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'MentorshipSwipesCtrl as mentorshipSwipesCtrl',
+             templateUrl: 'public/modules/mentorships/views/tabs/mentorships/mentorship-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorships',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorships/controllers/MentorshipSwipesCtrl.js',
+                  'public/modules/mentorships/services/MentorshipSwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.mentorship', {
            abstract: true,
            url: '/mentorship/{mentorshipId}',

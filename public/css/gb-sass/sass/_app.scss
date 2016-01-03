@@ -1198,7 +1198,6 @@ input.gb-form-show{
 
 
 #gb-left-nav-3 {
- z-index: 1000;
  @include position(fixed, 0 null 0 0);
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
@@ -1243,17 +1242,11 @@ input.gb-form-show{
  }
 
  .gb-body {
+  padding-bottom: 150px;
   @include position(absolute, 42px 0 0 0);
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
- }
- .gb-body .gb-cover-img-container{
-  height: 120px;
- }
-
- .gb-body .gb-cover-img-container img{
-  height: 100%;
  }
 
  .gb-heading {

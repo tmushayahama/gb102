@@ -1,5 +1,6 @@
 
 var advicesCtrl = function (
+        level_categories,
         ConstantsManager,
         AdvicesManager,
         $scope,
@@ -16,7 +17,7 @@ var advicesCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-6.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-advice.css'
  }, $scope);
 
  vm.advicesManager = new AdvicesManager();
@@ -144,12 +145,13 @@ var advicesCtrl = function (
 
  //--------init------
  //vm.advicesManager.getAdvices(vm.adviceId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.advice).then(function (data) {
   vm.adviceLevels = data;
  });
 };
 
 advicesCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'AdvicesManager',
  '$scope',

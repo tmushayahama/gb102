@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Promise\PromiseSwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class PromiseController extends Controller {
  public function editPromiseWeblink() {
   $promiseWeblink = PromiseWeblink::editPromiseWeblink();
   return \Response::json($promiseWeblink);
+ }
+
+ //SWIPE
+ public function getPromiseSwipes() {
+  $promiseSwipes = PromiseSwipe::getPromiseSwipes();
+  return \Response::json($promiseSwipes);
+ }
+
+ public function getPromiseSwipe() {
+  $promiseSwipe = PromiseSwipe::getPromiseSwipe();
+  return \Response::json($promiseSwipe);
+ }
+
+ public function createPromiseSwipe() {
+  $promiseSwipe = PromiseSwipe::createPromiseSwipe();
+  return \Response::json($promiseSwipe);
  }
 
 }

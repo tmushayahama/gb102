@@ -1,5 +1,6 @@
 
 var mentorshipsCtrl = function (
+        level_categories,
         ConstantsManager,
         MentorshipsManager,
         $scope,
@@ -16,7 +17,7 @@ var mentorshipsCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-5.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-mentorship.css'
  }, $scope);
 
  vm.mentorshipsManager = new MentorshipsManager();
@@ -144,12 +145,13 @@ var mentorshipsCtrl = function (
 
  //--------init------
  //vm.mentorshipsManager.getMentorships(vm.mentorshipId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.mentorship).then(function (data) {
   vm.mentorshipLevels = data;
  });
 };
 
 mentorshipsCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'MentorshipsManager',
  '$scope',

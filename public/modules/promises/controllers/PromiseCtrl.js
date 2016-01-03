@@ -16,7 +16,7 @@ var promiseCtrl = function (
 
  var vm = this;
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-3.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-promise.css'
  }, $scope);
 
  vm.promise = [];

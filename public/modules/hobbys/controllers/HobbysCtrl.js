@@ -1,5 +1,6 @@
 
 var hobbysCtrl = function (
+        level_categories,
         ConstantsManager,
         HobbysManager,
         $scope,
@@ -16,7 +17,7 @@ var hobbysCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-4.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-hobby.css'
  }, $scope);
 
  vm.hobbysManager = new HobbysManager();
@@ -144,12 +145,13 @@ var hobbysCtrl = function (
 
  //--------init------
  //vm.hobbysManager.getHobbys(vm.hobbyId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.hobby).then(function (data) {
   vm.hobbyLevels = data;
  });
 };
 
 hobbysCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'HobbysManager',
  '$scope',

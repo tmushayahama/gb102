@@ -13,12 +13,19 @@ define([
  'angular-local-storage',
  'angular-css',
  '../auth/module',
+ '../profiles/module',
+ '../communitys/module',
  '../skills/module',
  '../goals/module',
  '../promises/module',
  '../hobbys/module',
  '../mentorships/module',
- '../advices/module'
+ '../collaborations/module',
+ '../teachs/module',
+ '../advices/module',
+ '../projects/module',
+ '../groups/module',
+ '../journals/module',
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -31,13 +38,19 @@ define([
   'xeditable',
   'LocalStorageModule',
   'door3.css',
-  'app.auth',
+  'app.profiles',
+  'app.communitys',
   'app.skills',
   'app.goals',
   'app.promises',
   'app.hobbys',
   'app.mentorships',
-  'app.advices'
+  'app.collaborations',
+  'app.teachs',
+  'app.advices',
+  'app.projects',
+  'app.groups',
+  'app.journals',
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, $provide) {

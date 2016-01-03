@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.goals.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'GoalSwipesCtrl as goalSwipesCtrl',
+             templateUrl: 'public/modules/goals/views/tabs/goals/goal-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.goals',
+                 serie: true,
+                 files: [
+                  'public/modules/goals/controllers/GoalSwipesCtrl.js',
+                  'public/modules/goals/services/GoalSwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.goal', {
            abstract: true,
            url: '/goal/{goalId}',

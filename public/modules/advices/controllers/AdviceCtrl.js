@@ -16,7 +16,7 @@ var adviceCtrl = function (
 
  var vm = this;
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-6.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-advice.css'
  }, $scope);
 
  vm.advice = [];

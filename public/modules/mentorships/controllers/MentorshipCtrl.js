@@ -16,7 +16,7 @@ var mentorshipCtrl = function (
 
  var vm = this;
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-5.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-mentorship.css'
  }, $scope);
 
  vm.mentorship = [];

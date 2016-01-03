@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Goal\GoalSwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class GoalController extends Controller {
  public function editGoalWeblink() {
   $goalWeblink = GoalWeblink::editGoalWeblink();
   return \Response::json($goalWeblink);
+ }
+
+ //SWIPE
+ public function getGoalSwipes() {
+  $goalSwipes = GoalSwipe::getGoalSwipes();
+  return \Response::json($goalSwipes);
+ }
+
+ public function getGoalSwipe() {
+  $goalSwipe = GoalSwipe::getGoalSwipe();
+  return \Response::json($goalSwipe);
+ }
+
+ public function createGoalSwipe() {
+  $goalSwipe = GoalSwipe::createGoalSwipe();
+  return \Response::json($goalSwipe);
  }
 
 }

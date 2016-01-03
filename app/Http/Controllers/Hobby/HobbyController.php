@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Hobby\HobbySwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class HobbyController extends Controller {
  public function editHobbyWeblink() {
   $hobbyWeblink = HobbyWeblink::editHobbyWeblink();
   return \Response::json($hobbyWeblink);
+ }
+
+ //SWIPE
+ public function getHobbySwipes() {
+  $hobbySwipes = HobbySwipe::getHobbySwipes();
+  return \Response::json($hobbySwipes);
+ }
+
+ public function getHobbySwipe() {
+  $hobbySwipe = HobbySwipe::getHobbySwipe();
+  return \Response::json($hobbySwipe);
+ }
+
+ public function createHobbySwipe() {
+  $hobbySwipe = HobbySwipe::createHobbySwipe();
+  return \Response::json($hobbySwipe);
  }
 
 }

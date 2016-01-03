@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Advice\AdviceSwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class AdviceController extends Controller {
  public function editAdviceWeblink() {
   $adviceWeblink = AdviceWeblink::editAdviceWeblink();
   return \Response::json($adviceWeblink);
+ }
+
+ //SWIPE
+ public function getAdviceSwipes() {
+  $adviceSwipes = AdviceSwipe::getAdviceSwipes();
+  return \Response::json($adviceSwipes);
+ }
+
+ public function getAdviceSwipe() {
+  $adviceSwipe = AdviceSwipe::getAdviceSwipe();
+  return \Response::json($adviceSwipe);
+ }
+
+ public function createAdviceSwipe() {
+  $adviceSwipe = AdviceSwipe::createAdviceSwipe();
+  return \Response::json($adviceSwipe);
  }
 
 }

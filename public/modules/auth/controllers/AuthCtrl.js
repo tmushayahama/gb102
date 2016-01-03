@@ -46,7 +46,7 @@ var authCtrl = function (
  };
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-1.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-skill.css'
  }, $scope);
  $css.bind({
   href: 'public/css/gb-sass/stylesheets/gb-landing-page.css'

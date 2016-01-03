@@ -1,0 +1,118 @@
+
+
+
+<div class="row" role="tabpanel">
+ <ul class="nav col-lg-2 col-md-2 col-sm-2 col-xs-2">
+  <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+   <a showtab="" href="#gb-collaboration-swipe-main" class="active gb-link text-center">
+    <i class="fa fa-2x fa-exchange"></i>
+   </a>
+  </li>
+  <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+   <a showtab="" href="#gb-collaboration-swipe-history"
+      ng-click="collaborationSwipesCtrl.viewCollaborationSwipes()" class="gb-link text-center">
+    <i class="fa fa-2x fa-history"></i>
+   </a>
+  </li>
+ </ul>
+ <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-thinner">
+  <div class="tab-content">
+   <div role="tabpanel" class="tab-pane active" id="gb-collaboration-swipe-main">
+    <div class="gb-heading-3">
+     PLAY: <i>A random collaboration will appear.
+      Choose what you wanna do with it</i>
+    </div>
+    <div class="gb-body gb-padding-thin row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11 ">
+      <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+       <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa {{collaborationSwipesCtrl.currentCollaborationSwipe.icon.name}} fa-stack-1x fa-inverse"></i>
+       </span>
+      </div>
+      <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+       <div class="gb-description row">
+        <a href ui-sref="apps.collaboration.overview({collaborationId: collaboration.id})" class="">
+         {{collaborationSwipesCtrl.currentCollaborationSwipe.title}}
+        </a>
+        {{collaborationSwipesCtrl.currentCollaborationSwipe.description}}
+       </div>
+       <div class="gb-footer row">
+        <div class="gb-padding-thin">
+         <a ng-repeat="collaborationSwipeLevel in collaborationSwipesCtrl.collaborationSwipeLevels"
+            ng-click="collaborationSwipesCtrl.createCollaborationSwipe(collaborationSwipesCtrl.currentCollaborationSwipe.id, collaborationSwipeLevel.id)"
+            class="btn btn-default">
+          {{collaborationSwipeLevel.name}}
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="gb-footer row">
+     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+
+     </div>
+     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+
+
+     </div>
+     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+
+
+     </div>
+    </div>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="gb-collaboration-swipe-history">
+    <div class="gb-heading-3">
+     PLAY: <i>A random collaboration will appear.
+      Choose what you wanna do with it</i>
+    </div>
+    <div id="gb-collaborations" class="gb-list row">
+     <div ng-repeat="collaborationSwipe in collaborationSwipesCtrl.collaborationSwipesManager.collaborationSwipes" class="gb-box-1 row">
+      <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+       <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa {{collaborationSwipe.collaboration.icon.name}} fa-stack-1x fa-inverse"></i>
+       </span>
+      </div>
+      <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+       <div class="gb-heading row">
+        <p class="gb-title">{{collaborationSwipe.level.name}}</p>
+        <div class="gb-dropdown-action">
+         <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-chevron-down"></i>
+         </a>
+         <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+           <a href ui-sref="apps.collaboration.overview({collaborationId: collaboration.id})">
+            Open
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="gb-description row">
+        <a href ui-sref="apps.collaboration.overview({collaborationId: collaboration.id})" class="">
+         {{collaborationSwipe.collaboration.title}}
+        </a>
+        {{collaborationSwipe.collaboration.description}}
+       </div>
+       <div class="gb-footer row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+         <h5 class="gb-ellipsis"><a>{{collaboration.creator.firstname + ' ' + collaboration.creator.lastname}}</a></h5>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <br>
+</div>
+<div class="gb-dummy-height row"></div>
+<!-- ------------------------------- MODALS --------------------------->

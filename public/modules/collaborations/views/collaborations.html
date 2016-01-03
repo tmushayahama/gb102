@@ -1,0 +1,88 @@
+<div class="gb-top-nav-1 gb-nav col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
+ <div class="gb-title pull-left">
+  COLLABORATION APP
+ </div>
+ <div class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
+  <div class="btn-group">
+   <a ng-click="collaborationsCtrl.openAddCollaborationModal()" class="btn btn-xs btn-link">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+  </div>
+ </div>
+ <div class="btn-group visible-xs">
+  <a ng-click="collaborationsCtrl.openAddCollaborationModal()" class="btn btn-xs btn-link">
+   <span class="fa-stack fa-lg">
+    <i class="fa fa-circle fa-stack-2x"></i>
+    <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+   </span>
+  </a>
+ </div>
+ <form id="search" class="col-lg-4 col-md-6 col-sm-6 hidden-xs">
+  <i class="gb-search-icon fa fa-search"></i>
+  <input type="text" class="" placeholder="Search Collaborations">
+ </form>
+ <div class="gb-action pull-right">
+  <div class="hidden-sm hidden-xs btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <ul class="dropdown-menu dropdown-menu-right text-left">
+    <li><a href="#">About</a></li>
+   </ul>
+  </div>
+  <div class="btn-group">
+   <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="fa-stack fa-lg">
+     <i class="fa fa-circle fa-stack-2x"></i>
+     <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+    </span>
+   </a>
+   <ul class="dropdown-menu dropdown-menu-right text-left">
+    <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a ng-click="appsCtrl.logout()">
+      <i class="fa fa-power-off"></i> Log Out</a>
+    </li>
+   </ul>
+  </div>
+ </div>
+</div>
+<div class="gb-top-nav-2 gb-nav col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-0 col-lg-10 col-md-10 col-sm-9 col-xs-10">
+ <div class="gb-container "> 
+  <div class="row">
+   <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+    <ul class="gb-nav-2 text-center">
+     <li ui-sref-active="active" class="">
+      <a ui-sref="apps.collaborations.all">
+       All
+      </a>
+     </li>
+     <li ui-sref-active="active" class="">
+      <a ui-sref="apps.collaborations.mine">
+       My Collaborations
+      </a>
+     </li>
+     <li ui-sref-active="active" class="">
+      <a ui-sref="apps.collaborations.swipe">
+       Collaboration Swipe
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="gb-container gb-app-list"> 
+   <div ui-view="app-tab" class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12"></div>
+  </div>
+<!-- ------------------------------- MODALS --------------------------->
+
+<script type="text/ng-template" id="add-collaboration-modal.html">
+ <div ng-include="'public/modules/collaborations/views/modals/add-collaboration.html'"></div>
+</script>

@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Mentorship\MentorshipSwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class MentorshipController extends Controller {
  public function editMentorshipWeblink() {
   $mentorshipWeblink = MentorshipWeblink::editMentorshipWeblink();
   return \Response::json($mentorshipWeblink);
+ }
+
+ //SWIPE
+ public function getMentorshipSwipes() {
+  $mentorshipSwipes = MentorshipSwipe::getMentorshipSwipes();
+  return \Response::json($mentorshipSwipes);
+ }
+
+ public function getMentorshipSwipe() {
+  $mentorshipSwipe = MentorshipSwipe::getMentorshipSwipe();
+  return \Response::json($mentorshipSwipe);
+ }
+
+ public function createMentorshipSwipe() {
+  $mentorshipSwipe = MentorshipSwipe::createMentorshipSwipe();
+  return \Response::json($mentorshipSwipe);
  }
 
 }

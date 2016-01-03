@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.advices.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'AdviceSwipesCtrl as adviceSwipesCtrl',
+             templateUrl: 'public/modules/advices/views/tabs/advices/advice-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.advices',
+                 serie: true,
+                 files: [
+                  'public/modules/advices/controllers/AdviceSwipesCtrl.js',
+                  'public/modules/advices/services/AdviceSwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.advice', {
            abstract: true,
            url: '/advice/{adviceId}',

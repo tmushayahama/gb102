@@ -1,5 +1,6 @@
 
 var promisesCtrl = function (
+        level_categories,
         ConstantsManager,
         PromisesManager,
         $scope,
@@ -16,7 +17,7 @@ var promisesCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-3.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-promise.css'
  }, $scope);
 
  vm.promisesManager = new PromisesManager();
@@ -144,12 +145,13 @@ var promisesCtrl = function (
 
  //--------init------
  //vm.promisesManager.getPromises(vm.promiseId);
- vm.constantsManager.getLevel(1).then(function (data) {
+ vm.constantsManager.getLevel(level_categories.promise).then(function (data) {
   vm.promiseLevels = data;
  });
 };
 
 promisesCtrl.$inject = [
+ 'level_categories',
  'ConstantsManager',
  'PromisesManager',
  '$scope',
