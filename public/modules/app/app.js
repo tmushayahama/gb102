@@ -95,7 +95,8 @@ define([
               load: function ($ocLazyLoad) {
                return $ocLazyLoad.load({
                 name: 'app',
-                files: ['public/modules/app/controllers/AppsCtrl.js']
+                files: ['public/modules/common/directives/show-tab.js',
+                 'public/modules/app/controllers/AppsCtrl.js']
                });
               }
              }

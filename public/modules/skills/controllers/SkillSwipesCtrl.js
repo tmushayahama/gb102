@@ -1,6 +1,6 @@
-var skillsMineCtrl = function (
+var skillSwipesCtrl = function (
         ConstantsManager,
-        SkillsManager,
+        SkillSwipesManager,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,32 @@ var skillsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.skillsManager = new SkillsManager();
- vm.skillsManager.getMySkills();
+ vm.currentSkillSwipe;
+
+ vm.getSkillSwipe = function () {
+  vm.skillSwipesManager.getSkillSwipe().then(function (response) {
+   vm.currentSkillSwipe = response;
+  });
+ };
+
+ vm.swipeInterested = function (skill) {
+  vm.getSkillSwipe();
+ };
+ vm.swipeNotNow = function (skill) {
+  vm.getSkillSwipe();
+ };
+ vm.swipeNotInterested = function (skill) {
+  vm.getSkillSwipe();
+ };
+
+ vm.skillSwipesManager = new SkillSwipesManager();
+ vm.getSkillSwipe();
 };
 
 
-skillsMineCtrl.$inject = [
+skillSwipesCtrl.$inject = [
  'ConstantsManager',
- 'SkillsManager',
+ 'SkillSwipesManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -30,4 +48,4 @@ skillsMineCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.skills").controller('SkillsMineCtrl', skillsMineCtrl);
+angular.module("app.skills").controller('SkillSwipesCtrl', skillSwipesCtrl);

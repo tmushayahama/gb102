@@ -1278,7 +1278,7 @@ input.gb-form-show{
   background-color: #CCC9B7;
  }
  .gb-link {
-  padding:3px 5px 3px 20px;
+  padding:0px 5px 0px 20px;
   display: block;
   width: 100%;
   border-bottom: #EEE solid 1px;
@@ -1300,10 +1300,10 @@ input.gb-form-show{
     color: rgba($primary-color, 0.4);
    }
    .fa-inner {
-    top:10px;
-    left: 12px;
-    font-size: 30px;
-    color: darken($primary-color, 10%);
+    top: 4px;
+    left: 7px;
+    font-size: 25px;
+    color: darken($primary-color, 5%);
    }
    &:hover {
     .fa-outer {
@@ -2053,21 +2053,22 @@ input.gb-form-show{
   overflow: hidden;
   .fa-lg {
    float: right;
-   font-size: 30px;
-   text-align: center;
-   .fa-circle {
-    color: rgba($primary-color, 0.4);
+   font-size: 50px;
+   .fa-outer {
+    color: rgba($primary-color, 0.2);
    }
-   .fa-inverse{
-    //font-size: 1.3em;
-    color: rgba($primary-color, 0.8);
+   .fa-inner{
+    top: 45px;
+    left: 30px;
+    font-size: 50px;
+    color: darken($primary-color, 0%);
    }
    &:hover {
-    .fa-circle {
+    .fa-outer {
      color: rgba($primary-color, 0.7);
     }
-    .fa-inverse{
-     color: $primary-color;
+    .fa-inner{
+     color: darken($primary-color, 10%);
     }
    }
   }

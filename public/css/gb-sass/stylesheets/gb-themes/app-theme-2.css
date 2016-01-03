@@ -2404,7 +2404,7 @@ input.gb-form-show {
   background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
-  padding: 3px 5px 3px 20px;
+  padding: 0px 5px 0px 20px;
   display: block;
   width: 100%;
   border-bottom: #EEE solid 1px;
@@ -2432,10 +2432,10 @@ input.gb-form-show {
   color: rgba(0, 34, 119, 0.4);
 }
 #gb-left-nav-3 .gb-link .fa-lg .fa-inner {
-  top: 10px;
-  left: 12px;
-  font-size: 30px;
-  color: #001344;
+  top: 4px;
+  left: 7px;
+  font-size: 25px;
+  color: #001b5e;
 }
 #gb-left-nav-3 .gb-link .fa-lg:hover .fa-outer {
   color: rgba(0, 34, 119, 0.7);
@@ -3225,20 +3225,22 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-icon-image .fa-lg {
   float: right;
-  font-size: 30px;
-  text-align: center;
+  font-size: 50px;
 }
-.gb-box-1 .gb-icon-image .fa-lg .fa-circle {
-  color: rgba(0, 34, 119, 0.4);
+.gb-box-1 .gb-icon-image .fa-lg .fa-outer {
+  color: rgba(0, 34, 119, 0.2);
 }
-.gb-box-1 .gb-icon-image .fa-lg .fa-inverse {
-  color: rgba(0, 34, 119, 0.8);
+.gb-box-1 .gb-icon-image .fa-lg .fa-inner {
+  top: 45px;
+  left: 30px;
+  font-size: 50px;
+  color: #002277;
 }
-.gb-box-1 .gb-icon-image .fa-lg:hover .fa-circle {
+.gb-box-1 .gb-icon-image .fa-lg:hover .fa-outer {
   color: rgba(0, 34, 119, 0.7);
 }
-.gb-box-1 .gb-icon-image .fa-lg:hover .fa-inverse {
-  color: #027;
+.gb-box-1 .gb-icon-image .fa-lg:hover .fa-inner {
+  color: #001344;
 }
 .gb-box-1 .gb-box-body .gb-heading {
   padding: 8px 5px 0 10px;

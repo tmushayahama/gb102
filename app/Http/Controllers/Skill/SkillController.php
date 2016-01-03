@@ -20,6 +20,7 @@ use App\Models\Timeline\Timeline;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
+use App\Models\Skill\SkillSwipe;
 use Request;
 use DB;
 
@@ -165,6 +166,22 @@ class SkillController extends Controller {
  public function editSkillWeblink() {
   $skillWeblink = SkillWeblink::editSkillWeblink();
   return \Response::json($skillWeblink);
+ }
+
+ //SWIPE
+ public function getSkillSwipes() {
+  $skillSwipes = SkillSwipe::getSkillSwipes();
+  return \Response::json($skillSwipes);
+ }
+
+ public function getSkillSwipe() {
+  $skillSwipe = SkillSwipe::getSkillSwipe();
+  return \Response::json($skillSwipe);
+ }
+
+ public function createSkillSwipe() {
+  $skillSwipe = SkillSwipe::createSkillSwipe();
+  return \Response::json($skillSwipe);
  }
 
 }

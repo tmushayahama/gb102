@@ -2,28 +2,36 @@
 
 namespace App\Models\Skill;
 
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Note\Note;
 use Request;
 use DB;
 use JWTAuth;
 
-class SkillNote extends Model {
+class SkillSwipe extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_skill_note';
+ protected $table = 'gb_skill_swipe';
  public $timestamps = false;
 
  public function skill() {
   return $this->belongsTo('App\Models\Skill\Skill', 'skill_id');
  }
 
- public function note() {
-  return $this->belongsTo('App\Models\Note\Note', 'note_id');
+ public function skill_modified() {
+  return $this->belongsTo('App\Models\Skill\Skill', 'skill_modified_id');
+ }
+
+ public function creator() {
+  return $this->belongsTo('App\Models\User\User', 'creator_id');
+ }
+
+ public function level() {
+  return $this->belongsTo('App\Models\Level\Level', 'skill_level_id');
  }
 
  /**
@@ -33,71 +41,80 @@ class SkillNote extends Model {
   */
  protected $fillable = [];
 
- public static function getSkillNotes($skillId) {
-  $skillNotes = SkillNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('skill_id', $skillId)
-    ->get();
-  return $skillNotes;
+ public static function getSkillSwipes() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $skillSwipes = SkillSwipe::where('creator_id', $userId)
+          ->orderBy('id', 'desc')
+          ->with('skill')
+          ->with('creator')
+          ->with('skill.creator')
+          ->with('skill.icon')
+          ->with('skill.level')
+          ->take(50)
+          ->get();
+  return $skillSwipes;
  }
 
- public static function getSkillNote($skillId, $noteId) {
-  $skillNote = SkillNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('skill_id', $skillId)
-    ->where('note_id', $noteId)
-    ->first();
-  return $skillNote;
+ public static function getSkillSwipe() {
+  $howMany = 1;
+  $skillSwipes = (new Collection(
+          Skill::with('icon')
+          ->with('creator')
+          ->with('level')
+          ->get()))
+          ->random($howMany);
+  return $skillSwipes;
  }
 
- public static function createSkillNote() {
+ public static function createSkillSwipe() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $note = new Note;
-  $skillNote = new SkillNote;
-  $note->creator_id = $userId;
-  $note->title = $title;
-  $note->description = $description;
-  $skillNote->skill_id = $skillId;
+  $swipe = new Swipe;
+  $skillSwipe = new SkillSwipe;
+  $swipe->creator_id = $userId;
+  $swipe->title = $title;
+  $swipe->description = $description;
+  $skillSwipe->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $note->save();
-   $skillNote->note()->associate($note);
-   $skillNote->save();
+   $swipe->save();
+   $skillSwipe->swipe()->associate($swipe);
+   $skillSwipe->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillNote;
+  return $skillSwipe;
  }
 
- public static function editSkillNote() {
+ public static function editSkillSwipe() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillNoteId = Request::get("skillNoteId");
-  //$noteId = Request::get("noteId");
+  $skillSwipeId = Request::get("skillSwipeId");
+  //$swipeId = Request::get("swipeId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $skillNote = SkillNote::find($skillNoteId);
-  $skillNote->note->title = $title;
-  $skillNote->note->description = $description;
+  $skillSwipe = SkillSwipe::find($skillSwipeId);
+  $skillSwipe->swipe->title = $title;
+  $skillSwipe->swipe->description = $description;
 
   DB::beginTransaction();
   try {
-   $skillNote->push();
+   $skillSwipe->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillNote;
+  return $skillSwipe;
  }
 
 }

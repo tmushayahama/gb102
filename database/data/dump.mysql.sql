@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS `gb_advice`;
 CREATE TABLE `gb_advice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_advice_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27', 
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -639,7 +639,7 @@ DROP TABLE IF EXISTS `gb_hobby`;
 CREATE TABLE `gb_hobby` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_hobby_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27', 
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `hobby_picture_url` varchar(250) NOT NULL DEFAULT "hobby_default.png",
@@ -791,29 +791,29 @@ CREATE TABLE `gb_hobby_note` (
 
 
 --
--- Table structure for table `gb_hobby_play_answer`
+-- Table structure for table `gb_hobby_swipe_answer`
 --
-DROP TABLE IF EXISTS `gb_hobby_play_answer`;
+DROP TABLE IF EXISTS `gb_hobby_swipe_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_hobby_play_answer` (
+CREATE TABLE `gb_hobby_swipe_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hobby_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `hobby_modified_id` int(11),
-  `hobby_play_answer` int(11) NOT NULL,
+  `hobby_swipe_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `hobby_play_creator_id` (`creator_id`),
-  KEY `hobby_play_answer_hobby_id` (`hobby_id`),
-  KEY `hobby_play_answer_hobby_modified_id` (`hobby_modified_id`),
-  CONSTRAINT `hobby_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `hobby_play_answer_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `hobby_play_answer_hobby_modified_id` FOREIGN KEY (`hobby_modified_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `hobby_swipe_creator_id` (`creator_id`),
+  KEY `hobby_swipe_answer_hobby_id` (`hobby_id`),
+  KEY `hobby_swipe_answer_hobby_modified_id` (`hobby_modified_id`),
+  CONSTRAINT `hobby_swipe_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_swipe_answer_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_swipe_answer_hobby_modified_id` FOREIGN KEY (`hobby_modified_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -945,7 +945,7 @@ DROP TABLE IF EXISTS `gb_goal`;
 CREATE TABLE `gb_goal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_goal_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27', 
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `goal_picture_url` varchar(250) NOT NULL DEFAULT "goal_default.png",
@@ -1095,29 +1095,29 @@ CREATE TABLE `gb_goal_note` (
 
 
 --
--- Table structure for table `gb_goal_play_answer`
+-- Table structure for table `gb_goal_swipe_answer`
 --
-DROP TABLE IF EXISTS `gb_goal_play_answer`;
+DROP TABLE IF EXISTS `gb_goal_swipe_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_goal_play_answer` (
+CREATE TABLE `gb_goal_swipe_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goal_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `goal_modified_id` int(11),
-  `goal_play_answer` int(11) NOT NULL,
+  `goal_swipe_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `goal_play_creator_id` (`creator_id`),
-  KEY `goal_play_answer_goal_id` (`goal_id`),
-  KEY `goal_play_answer_goal_modified_id` (`goal_modified_id`),
-  CONSTRAINT `goal_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_play_answer_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_play_answer_goal_modified_id` FOREIGN KEY (`goal_modified_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `goal_swipe_creator_id` (`creator_id`),
+  KEY `goal_swipe_answer_goal_id` (`goal_id`),
+  KEY `goal_swipe_answer_goal_modified_id` (`goal_modified_id`),
+  CONSTRAINT `goal_swipe_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_swipe_answer_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_swipe_answer_goal_modified_id` FOREIGN KEY (`goal_modified_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1339,7 +1339,7 @@ DROP TABLE IF EXISTS `gb_mentorship`;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_mentorship_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27', 
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -2008,7 +2008,7 @@ DROP TABLE IF EXISTS `gb_promise`;
 CREATE TABLE `gb_promise` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_promise_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27', 
+  `icon_id` int(11) NOT NULL DEFAULT '27',
   `creator_id` int(11) NOT NULL,
   `type_id` int(11),
   `promise_picture_url` varchar(250) NOT NULL DEFAULT "promise_default.png",
@@ -2159,29 +2159,29 @@ CREATE TABLE `gb_promise_note` (
 
 
 --
--- Table structure for table `gb_promise_play_answer`
+-- Table structure for table `gb_promise_swipe_answer`
 --
-DROP TABLE IF EXISTS `gb_promise_play_answer`;
+DROP TABLE IF EXISTS `gb_promise_swipe_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_promise_play_answer` (
+CREATE TABLE `gb_promise_swipe_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `promise_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `promise_modified_id` int(11),
-  `promise_play_answer` int(11) NOT NULL,
+  `promise_swipe_answer` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `promise_play_creator_id` (`creator_id`),
-  KEY `promise_play_answer_promise_id` (`promise_id`),
-  KEY `promise_play_answer_promise_modified_id` (`promise_modified_id`),
-  CONSTRAINT `promise_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `promise_play_answer_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `promise_play_answer_promise_modified_id` FOREIGN KEY (`promise_modified_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `promise_swipe_creator_id` (`creator_id`),
+  KEY `promise_swipe_answer_promise_id` (`promise_id`),
+  KEY `promise_swipe_answer_promise_modified_id` (`promise_modified_id`),
+  CONSTRAINT `promise_swipe_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_swipe_answer_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_swipe_answer_promise_modified_id` FOREIGN KEY (`promise_modified_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2542,12 +2542,12 @@ CREATE TABLE `gb_skill_note` (
 
 
 --
--- Table structure for table `gb_skill_play_answer`
+-- Table structure for table `gb_skill_swipe_answer`
 --
-DROP TABLE IF EXISTS `gb_skill_play_answer`;
+DROP TABLE IF EXISTS `gb_skill_swipe_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_play_answer` (
+CREATE TABLE `gb_skill_swipe_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `skill_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
@@ -2555,18 +2555,18 @@ CREATE TABLE `gb_skill_play_answer` (
   `skill_level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_play_answer_creator_id` (`creator_id`),
-  KEY `skill_play_answer_skill_id` (`skill_id`),
-  KEY `skill_play_answer_skill_level_id` (`skill_level_id`),
-  KEY `skill_play_answer_skill_modified_id` (`skill_modified_id`),
-  CONSTRAINT `skill_play_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_play_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_play_answer_skill_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_play_answer_skill_modified_id` FOREIGN KEY (`skill_modified_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_swipe_answer_creator_id` (`creator_id`),
+  KEY `skill_swipe_answer_skill_id` (`skill_id`),
+  KEY `skill_swipe_answer_skill_level_id` (`skill_level_id`),
+  KEY `skill_swipe_answer_skill_modified_id` (`skill_modified_id`),
+  CONSTRAINT `skill_swipe_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_swipe_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_swipe_answer_skill_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_swipe_answer_skill_modified_id` FOREIGN KEY (`skill_modified_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

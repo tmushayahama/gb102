@@ -69,6 +69,26 @@ define(['angular'
              }
             }
            }})
+          .state('apps.skills.swipe', {
+           url: '/swipe',
+           views: {
+            "app-tab": {
+             controller: 'SkillSwipesCtrl as skillSwipesCtrl',
+             templateUrl: 'public/modules/skills/views/tabs/skills/skill-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.skills',
+                 serie: true,
+                 files: [
+                  'public/modules/skills/controllers/SkillSwipesCtrl.js',
+                  'public/modules/skills/services/SkillSwipesManager.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.skill', {
            abstract: true,
            url: '/skill/{skillId}',

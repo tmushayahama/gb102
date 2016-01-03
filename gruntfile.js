@@ -53,7 +53,7 @@ module.exports = function (grunt) {
   express: {
    all: {
     options: {
-     port: 8002,
+     port: 8004,
      hostname: "localhost",
      bases: ['public'], // Replace with the directory you want the files served from
      // Make sure you don't use `.` or `..` in the path as Express

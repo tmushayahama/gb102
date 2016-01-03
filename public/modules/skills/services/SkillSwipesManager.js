@@ -1,9 +1,9 @@
-var skillsManager = function ($http, $q) {
+var skillSwipesManager = function ($http, $q) {
 
- var SkillsManager = function () {
-  this.skills = [];
+ var SkillSwipesManager = function () {
+  this.skillSwipes = [];
  };
- SkillsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillSwipesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var skillsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillsManager.prototype.getAllSkills = function () {
+ SkillSwipesManager.prototype.getSkillSwipess = function () {
   var self = this;
   var deferred = $q.defer();
-  self.skills = [];
-  $http.get('/api/skills/all').success(function (data) {
-   self.skills = data;
+  self.skillSwipess = [];
+  $http.get('/api/skills/swipes').success(function (data) {
+   self.skillSwipess = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,24 +35,12 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.getMySkills = function () {
-  var self = this;
-  var deferred = $q.defer();
-  self.skills = [];
-  $http.get('/api/skills/mine').success(function (data) {
-   self.skills = data;
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
 
- SkillsManager.prototype.getSkill = function (skillId, Id) {
+ SkillSwipesManager.prototype.getSkillSwipe = function () {
   var self = this;
   var deferred = $q.defer();
   self.skill = [];
-  $http.get('/api/skill/' + skillId + '//' + Id).success(function (data) {
+  $http.get('/api/skills/swipe').success(function (data) {
    self.skill = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -61,7 +49,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.createSkill = function (skillData) {
+ SkillSwipesManager.prototype.createSkill = function (skillData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -69,7 +57,7 @@ var skillsManager = function ($http, $q) {
    url: '/api/skill/create',
    data: skillData
   }).success(function (data) {
-   self.skills.unshift(data);
+   self.skillSwipes.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -77,7 +65,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.editSkill = function (skillData) {
+ SkillSwipesManager.prototype.editSkill = function (skillData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -91,10 +79,10 @@ var skillsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return SkillsManager;
+ return SkillSwipesManager;
 };
 
-skillsManager.$inject = ['$http', '$q'];
+skillSwipesManager.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillsManager', skillsManager);
+angular.module('app.skills').service('SkillSwipesManager', skillSwipesManager);
 
