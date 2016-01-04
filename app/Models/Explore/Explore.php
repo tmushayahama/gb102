@@ -78,12 +78,14 @@ class Explore extends Model {
  public static function createExplore() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
+  $appTypeId = Request::get("appTypeId");
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
 
   $explore = new Explore;
   $explore->creator_id = $userId;
+  $explore->app_type_id = $appTypeId;
   $explore->title = $title;
   $explore->description = $description;
   $explore->level_id = $levelId;

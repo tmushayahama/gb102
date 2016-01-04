@@ -1,4 +1,6 @@
 var addExploreCtrl = function (
+        ConstantsManager,
+        level_categories,
         $uibModalInstance,
         WizardHandler,
         $scope,
@@ -8,24 +10,35 @@ var addExploreCtrl = function (
         $rootScope,
         $location,
         $log,
-        exploreLevels,
         appTypes) {
  var vm = this;
  vm.wizardHandler = WizardHandler;
- vm.explore = "";
- vm.exploreLevels = exploreLevels;
+ vm.explore = {};
+ vm.exploreLevels;
  vm.appTypes = appTypes;
+ vm.selectedAppType;
  vm.wizardCurrentStep = "Choose App";
 
- vm.next = function (appType) {
-  //vm.wizardCurrentStep = vm.wizardHandler.wizard('explore-form').currentStepNumber();
+ vm.constantsManager = new ConstantsManager();
+
+ vm.getLevels = function (appId) {
+  vm.constantsManager.getLevel(appId).then(function (data) {
+   vm.exploreLevels = data;
+  });
+ };
+
+ vm.chooseAppType = function (appType) {
+  vm.explore.appTypeId = appType.id;
+  vm.selectedAppType = appType;
+  vm.getLevels(appType.id);
+ };
+
+ vm.next = function () {
   vm.wizardHandler.wizard('explore-form').next();
  };
 
  vm.previous = function (appType) {
   vm.wizardHandler.wizard('explore-form').previous();
-  //vm.wizardCurrentStep = vm.wizardHandler.wizard('explore-form').currentStepNumber();
-
  };
 
  vm.ok = function () {
@@ -38,6 +51,8 @@ var addExploreCtrl = function (
 };
 
 addExploreCtrl.$inject = [
+ 'ConstantsManager',
+ 'level_categories',
  '$uibModalInstance',
  'WizardHandler',
  '$scope',
@@ -47,7 +62,6 @@ addExploreCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'exploreLevels',
  'appTypes'];
 
 angular.module("app.explores").controller('AddExploreCtrl', addExploreCtrl);

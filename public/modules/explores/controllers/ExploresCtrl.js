@@ -133,9 +133,6 @@ var exploresCtrl = function (
    resolve: {
     appTypes: function () {
      return vm.appTypes;
-    },
-    exploreLevels: function () {
-     return vm.exploreLevels;
     }
    }
   });

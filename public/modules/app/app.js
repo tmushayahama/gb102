@@ -16,6 +16,7 @@ define([
  //'ionic.tdcards',
  '../auth/module',
  '../explores/module',
+ '../swipes/module',
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -31,6 +32,7 @@ define([
   // 'ionic.contrib.ui.tinderCards',
   'mgo-angular-wizard',
   'app.explores',
+  'app.swipes'
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, $provide) {
@@ -131,7 +133,11 @@ define([
           hobby: 3,
           promise: 4,
           mentorship: 5,
-          advice: 6,
+          collaboration: 6,
+          teach: 7,
+          advice: 8,
+          group: 9,
+          journal: 10,
           skill_swipe: 11,
           goal_swipe: 12,
           hobby_swipe: 13,

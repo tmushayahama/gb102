@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?ifajsm');
-    src:    url('fonts/icomoon.eot?ifajsm#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?ifajsm') format('truetype'),
-        url('fonts/icomoon.woff?ifajsm') format('woff'),
-        url('fonts/icomoon.svg?ifajsm#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?ueudk8');
+    src:    url('fonts/icomoon.eot?ueudk8#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?ueudk8') format('truetype'),
+        url('fonts/icomoon.woff?ueudk8') format('woff'),
+        url('fonts/icomoon.svg?ueudk8#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,68 +36,77 @@
 .icon-gb-community:before {
     content: "\eb3a";
 }
-.icon-gb-goal:before {
+.icon-gb-discover:before {
     content: "\eb3b";
 }
-.icon-gb-group:before {
+.icon-gb-explore:before {
     content: "\eb3c";
 }
-.icon-gb-hobby:before {
+.icon-gb-goal:before {
     content: "\eb3d";
 }
-.icon-gb-journal:before {
+.icon-gb-group:before {
     content: "\eb3e";
 }
-.icon-gb-mentorship:before {
+.icon-gb-hobby:before {
     content: "\eb3f";
 }
-.icon-gb-project:before {
+.icon-gb-journal:before {
     content: "\eb40";
 }
-.icon-gb-promise:before {
+.icon-gb-mentorship:before {
     content: "\eb41";
 }
-.icon-gb-promise-2 .path1:before {
+.icon-gb-project:before {
     content: "\eb42";
+}
+.icon-gb-promise:before {
+    content: "\eb43";
+}
+.icon-gb-promise-2 .path1:before {
+    content: "\eb44";
     color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path2:before {
-    content: "\eb43";
+    content: "\eb45";
     margin-left: -1em;
     color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path3:before {
-    content: "\eb44";
+    content: "\eb46";
     margin-left: -1em;
     color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path4:before {
-    content: "\eb45";
+    content: "\eb47";
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }
 .icon-gb-skill:before {
-    content: "\eb46";
+    content: "\eb48";
+}
+.icon-gb-swipe:before {
+    content: "\eb49";
 }
 .icon-gb-teach:before {
-    content: "\eb47";
+    content: "\eb4a";
 }
 .icon-promise .path1:before {
-    content: "\eb48";
+    content: "\eb4b";
     color: rgb(0, 0, 0);
 }
 .icon-promise .path2:before {
-    content: "\eb49";
+    content: "\eb4c";
     margin-left: -1em;
     color: rgb(0, 0, 0);
 }
 .icon-promise .path3:before {
-    content: "\eb4a";
+    content: "\eb4d";
     margin-left: -1em;
     color: rgb(0, 0, 0);
 }
 .icon-promise .path4:before {
-    content: "\eb4b";
+    content: "\eb4e";
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }

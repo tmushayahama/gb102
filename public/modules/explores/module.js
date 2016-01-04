@@ -69,26 +69,6 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explores.swipe', {
-           url: '/swipe',
-           views: {
-            "app-tab": {
-             controller: 'ExploreSwipesCtrl as exploreSwipesCtrl',
-             templateUrl: 'public/modules/explores/views/tabs/explores/explore-swipes.html',
-             resolve: {
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.explores',
-                 serie: true,
-                 files: [
-                  'public/modules/explores/controllers/ExploreSwipesCtrl.js',
-                  'public/modules/explores/services/ExploreSwipesManager.js',
-                 ]
-                });
-               }]
-             }
-            }
-           }})
           .state('apps.explore', {
            abstract: true,
            url: '/explore/{exploreId}',

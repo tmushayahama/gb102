@@ -15,23 +15,27 @@ id	category	code	name	description
 14	5	MP2	"Natural, senior mentoring junior"	\N
 15	5	MP3	Formal i.e. trainer trainee	\N
 16	5	MP4	Supervisory	\N
-17	6	APC1	ways to	\N
-18	6	APC2	tips to	\N
-19	6	APC3	instructions to	\N
-20	6	APC4	methods of	\N
-21	6	APC5	things to	\N
-22	7	PTY1	low	\N
-23	7	PTY2	medium	\N
-24	7	PTY3	high	\N
-25	7	PTY4	critical	\N
-26	8	CT1	participant	\N
-27	8	CT2	monitor	\N
-28	8	CT3	judge	\N
-29	9	CT4	get a mentor	\N
-30	9	CT5	be a mentor	\N
-31	10	CONTR1	skill mentor	\N
-32	10	CONTR2	skill advice	\N
-33	10	CONTR3	skill goal	\N
+17	8	AD1	Decision Support	\N
+18	8	AD2	Information	\N
+19	8	AD3	Recommendation	\N
+20	8	AD4	"Natural, senior advising junior"	\N
+21	8	AD5	Similar Experiences	\N
+	6	CO1	Peer/Friendly	
+	6	CO2	Team Collaboration	Goal
+	6	CO3	Community Collaboration	sharing and build knowledge
+	7	TE1	Formal	
+	7	TE2	Expert/Coach	
+	7	TE3	Coordinator/Facilitator	
+	7	TE4	Peer/Friendly	
+				
+				
+				
+				
+				
+				
+				
+				
+				
 34	11	SWS1	Not Now	\N
 35	11	SWS2	Ehh!!	\N
 36	11	SWS3	Explore	\N

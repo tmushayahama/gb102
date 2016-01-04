@@ -50,6 +50,34 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/weblink/create', 'Explore\ExploreController@createExploreWeblink');
  Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
 
+ //Swipe
+ Route::get('swipes/history', 'Swipe\SwipeController@getSwipeHistory');
+ Route::get('swipes/swipe', 'Swipe\SwipeController@getSwipe');
+ Route::post('swipes/create', 'Swipe\SwipeController@createSwipe');
+ Route::get('swipe/{swipeId}/comments', 'Swipe\SwipeController@getSwipeComments');
+ Route::get('swipe/{swipeId}/comment/{commentId}', 'Swipe\SwipeController@getSwipeComment');
+ Route::get('swipe/{swipeId}/todos', 'Swipe\SwipeController@getSwipeTodos');
+ Route::get('swipe/{swipeId}/todo/{todoId}', 'Swipe\SwipeController@getSwipeTodo');
+ Route::get('swipe/{swipeId}/notes', 'Swipe\SwipeController@getSwipeNotes');
+ Route::get('swipe/{swipeId}/note/{noteId}', 'Swipe\SwipeController@getSwipeNote');
+ Route::get('swipe/{swipeId}/timelines', 'Swipe\SwipeController@getSwipeTimelines');
+ Route::get('swipe/{swipeId}/timeline/{timelineId}', 'Swipe\SwipeController@getSwipeTimeline');
+ Route::get('swipe/{swipeId}/weblinks', 'Swipe\SwipeController@getSwipeWeblinks');
+ Route::get('swipe/{swipeId}/weblink/{weblinkId}', 'Swipe\SwipeController@getSwipeWeblink');
+ Route::get('swipe/{id}', 'Swipe\SwipeController@getSwipe');
+ Route::post('swipe/edit', 'Swipe\SwipeController@editSwipe');
+ Route::post('swipe/create', 'Swipe\SwipeController@createSwipe');
+ Route::post('swipe/comment/create', 'Swipe\SwipeController@createSwipeComment');
+ Route::post('swipe/comment/edit', 'Swipe\SwipeController@editSwipeComment');
+ Route::post('swipe/todo/create', 'Swipe\SwipeController@createSwipeTodo');
+ Route::post('swipe/todo/edit', 'Swipe\SwipeController@editSwipeTodo');
+ Route::post('swipe/note/create', 'Swipe\SwipeController@createSwipeNote');
+ Route::post('swipe/note/edit', 'Swipe\SwipeController@editSwipeNote');
+ Route::post('swipe/timeline/create', 'Swipe\SwipeController@createSwipeTimeline');
+ Route::post('swipe/timeline/edit', 'Swipe\SwipeController@editSwipeTimeline');
+ Route::post('swipe/weblink/create', 'Swipe\SwipeController@createSwipeWeblink');
+ Route::post('swipe/weblink/edit', 'Swipe\SwipeController@editSwipeWeblink');
+
 
 
  Route::get('skills/all', 'Skill\SkillController@getSkillsAll');

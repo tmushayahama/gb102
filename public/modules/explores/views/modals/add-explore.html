@@ -18,9 +18,10 @@
     <div class="row">
      <div ng-repeat="appType in addExploreCtrl.appTypes"
           class=" col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin"
+          ng-click="addExploreCtrl.chooseAppType(appType)"
           wz-next value="Fill">
       <div class="gb-apptype-btn">
-       <i class="gb-icon fa icon-gb-{{appType.name}}"></i>
+       <i class="gb-icon fa icon-gb-{{appType.name.toLowerCase()}}"></i>
        <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
         {{appType.name}}
        </div>
@@ -29,6 +30,13 @@
     </div>
    </wz-step>
    <wz-step wz-title="Fill">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">App Name:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <input value="{{addExploreCtrl.selectedAppType.name}}" readonly
+             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+     </div>
+    </div>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -48,7 +56,7 @@
      </div>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{addExploreCtrl.explore.appType.name}} Level:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="addExploreCtrl.explore.level">
        <option  ng-repeat="option in addExploreCtrl.exploreLevels" value="{{option.id}}">{{option.name}}</option>
@@ -70,7 +78,7 @@
   <a ng-class="{'gb-disabled': addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.previous()">
    Previous
   </a>
-  <a ng-class="{'gb-disabled': addExploreCtrl.wizardCurrentStep === 'Privacy'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.next()">
+  <a ng-class="{'gb-disabled': addExploreCtrl.wizardCurrentStep === 'Privacy' && addExploreCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.next()">
    Next
   </a>
   <a ng-class="{'gb-disabled': addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.ok()">

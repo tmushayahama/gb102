@@ -1,9 +1,9 @@
-var exploreSwipesManager = function ($http, $q) {
+var swipeManager = function ($http, $q) {
 
- var ExploreSwipesManager = function () {
-  this.exploreSwipes = [];
+ var SwipeManager = function () {
+  this.swipes = [];
  };
- ExploreSwipesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SwipeManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var exploreSwipesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExploreSwipesManager.prototype.getExploreSwipes = function () {
+ SwipeManager.prototype.getSwipes = function () {
   var self = this;
   var deferred = $q.defer();
-  self.exploreSwipes = [];
-  $http.get('/api/explores/swipes').success(function (data) {
-   self.exploreSwipes = data;
+  self.swipes = [];
+  $http.get('/api/swipes/history').success(function (data) {
+   self.swipes = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,12 +36,12 @@ var exploreSwipesManager = function ($http, $q) {
  };
 
 
- ExploreSwipesManager.prototype.getExploreSwipe = function () {
+ SwipeManager.prototype.getSwipe = function () {
   var self = this;
   var deferred = $q.defer();
-  self.explore = [];
-  $http.get('/api/explores/swipe').success(function (data) {
-   self.explore = data;
+  //self.swipe = [];
+  $http.get('/api/swipes/swipe').success(function (data) {
+   //self.swipe = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -49,29 +49,29 @@ var exploreSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ExploreSwipesManager.prototype.createExploreSwipe = function (exploreSwipeData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/explores/swipe/create',
-   data: exploreSwipeData
-  }).success(function (data) {
-   self.exploreSwipes.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- ExploreSwipesManager.prototype.editExplore = function (exploreData) {
+ SwipeManager.prototype.createSwipe = function (swipeData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/exploreedit',
-   data: exploreData
+   url: '/api/swipes/create',
+   data: swipeData
+  }).success(function (data) {
+   self.swipe.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ SwipeManager.prototype.editSwipe = function (swipeData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/swipeedit',
+   data: swipeData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -79,10 +79,10 @@ var exploreSwipesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ExploreSwipesManager;
+ return SwipeManager;
 };
 
-exploreSwipesManager.$inject = ['$http', '$q'];
+swipeManager.$inject = ['$http', '$q'];
 
-angular.module('app.explores').service('ExploreSwipesManager', exploreSwipesManager);
+angular.module('app.swipes').service('SwipeManager', swipeManager);
 

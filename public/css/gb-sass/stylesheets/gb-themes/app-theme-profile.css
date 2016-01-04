@@ -265,7 +265,7 @@ and open the template in the editor.
   margin-right: 20px;
   float: left;
   height: 40px;
-  line-height: 35px;
+  line-height: 42px;
   background-color: transparent;
   border-bottom: transparent solid 4px;
 }
@@ -1399,6 +1399,11 @@ textarea {
   resize: none;
 }
 
+form .gb-heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 .gb-container {
   height: 100%;
   margin-right: auto;
@@ -1444,6 +1449,7 @@ input[type="checkbox"] {
 }
 
 #gb-middle-nav {
+  height: 100%;
   background-color: rgba(119, 119, 119, 0.2);
 }
 #gb-middle-nav > .gb-body {
@@ -3163,7 +3169,6 @@ input.gb-form-show {
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  min-width: 400px;
   height: 100%;
 }
 
