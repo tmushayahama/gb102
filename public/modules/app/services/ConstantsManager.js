@@ -23,6 +23,17 @@ angular.module('app').service('ConstantsManager',
            return deferred.resolve(data);
           };
 
+          ConstantsManager.prototype.getAppTypes = function () {
+           var self = this;
+           var deferred = $q.defer();
+           $http.get('/api/constants/apptypes').success(function (data) {
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
           ConstantsManager.prototype.getIcons = function (type) {
            var self = this;
            var deferred = $q.defer();

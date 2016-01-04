@@ -1,0 +1,11 @@
+id	name	description
+1	skill	\N
+2	goal	\N
+3	hobby	\N
+4	promise	\N
+5	mentorship	\N
+6	collaboration	\N
+7	teach	\N
+8	advice	\N
+9	group	\N
+10	journal	\N

@@ -18,18 +18,7 @@ module.exports = function (grunt) {
  }
 
  var apps = [
-  "goal",
-  "promise",
-  "hobby",
-  "mentorship",
-  "advice",
-  "teach",
-  "collaboration",
-  "journal",
-  "group",
-  "project",
-  "profile",
-  "community"
+  "explore",
  ];
  var srcs = [
   {

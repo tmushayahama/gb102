@@ -76,6 +76,19 @@ CREATE TABLE `gb_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_level`
+--
+DROP TABLE IF EXISTS `gb_app_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_app_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(500),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_checklist`
 --
 DROP TABLE IF EXISTS `gb_checklist`;
@@ -582,6 +595,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
+    into table gb102.gb_app_type
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `name`, `description`);
+
+
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
     into table gb102.gb_category
     fields terminated by '\t'
@@ -590,7 +613,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Categor
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `type`, `code`, `name`, `description`);
-
 
 -- ----------- ICON ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.txt'

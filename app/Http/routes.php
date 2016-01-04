@@ -19,6 +19,39 @@ Route::group(['prefix' => 'api'], function() {
  Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+
+ //Explore
+ Route::get('explores/all', 'Explore\ExploreController@getExploresAll');
+ Route::get('explores/mine', 'Explore\ExploreController@getExploresMine');
+ Route::get('explores/swipe', 'Explore\ExploreController@getExploreSwipe');
+ Route::get('explores/swipes', 'Explore\ExploreController@getExploreSwipes');
+ Route::post('explores/swipe/create', 'Explore\ExploreController@createExploreSwipe');
+ Route::get('explore/{exploreId}/comments', 'Explore\ExploreController@getExploreComments');
+ Route::get('explore/{exploreId}/comment/{commentId}', 'Explore\ExploreController@getExploreComment');
+ Route::get('explore/{exploreId}/todos', 'Explore\ExploreController@getExploreTodos');
+ Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
+ Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
+ Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');
+ Route::get('explore/{exploreId}/timelines', 'Explore\ExploreController@getExploreTimelines');
+ Route::get('explore/{exploreId}/timeline/{timelineId}', 'Explore\ExploreController@getExploreTimeline');
+ Route::get('explore/{exploreId}/weblinks', 'Explore\ExploreController@getExploreWeblinks');
+ Route::get('explore/{exploreId}/weblink/{weblinkId}', 'Explore\ExploreController@getExploreWeblink');
+ Route::get('explore/{id}', 'Explore\ExploreController@getExplore');
+ Route::post('explore/edit', 'Explore\ExploreController@editExplore');
+ Route::post('explore/create', 'Explore\ExploreController@createExplore');
+ Route::post('explore/comment/create', 'Explore\ExploreController@createExploreComment');
+ Route::post('explore/comment/edit', 'Explore\ExploreController@editExploreComment');
+ Route::post('explore/todo/create', 'Explore\ExploreController@createExploreTodo');
+ Route::post('explore/todo/edit', 'Explore\ExploreController@editExploreTodo');
+ Route::post('explore/note/create', 'Explore\ExploreController@createExploreNote');
+ Route::post('explore/note/edit', 'Explore\ExploreController@editExploreNote');
+ Route::post('explore/timeline/create', 'Explore\ExploreController@createExploreTimeline');
+ Route::post('explore/timeline/edit', 'Explore\ExploreController@editExploreTimeline');
+ Route::post('explore/weblink/create', 'Explore\ExploreController@createExploreWeblink');
+ Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
+
+
+
  Route::get('skills/all', 'Skill\SkillController@getSkillsAll');
  Route::get('skills/mine', 'Skill\SkillController@getSkillsMine');
  Route::get('skills/swipe', 'Skill\SkillController@getSkillSwipe');
@@ -409,6 +442,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('profile/weblink/create', 'Profile\ProfileController@createProfileWeblink');
  Route::post('profile/weblink/edit', 'Profile\ProfileController@editProfileWeblink');
 
+ Route::get('constants/apptypes', 'ConstantsController@getAppTypes');
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
  Route::get('constants/icons/{type}', 'ConstantsController@getIcons');
 

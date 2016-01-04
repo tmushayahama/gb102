@@ -1236,7 +1236,6 @@ input[type="checkbox"] {
 }
 
 #gb-middle-nav {
-  height: 100%;
   background-color: rgba(7, 117, 104, 0.2);
 }
 #gb-middle-nav > .gb-body {
@@ -2956,6 +2955,7 @@ input.gb-form-show {
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  min-width: 400px;
   height: 100%;
 }
 
