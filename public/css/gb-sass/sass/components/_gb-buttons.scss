@@ -11,6 +11,10 @@
 
 
 .gb-btn {
+ &.gb-disabled {
+  opacity: 0.35;
+  background-color: #FFF;
+ }
  background: #ECECEC;
  display: block;
  font-family: arial;
@@ -82,4 +86,21 @@
  font-size: 11px;
  border-radius: 10px;
  padding: 3px 8px;
+}
+
+.gb-apptype-btn {
+ width: 100%;
+ padding: 20px 5px 5px 5px;
+ text-align: center;
+ border: #BBB solid 1px;
+ height: 100px;
+ .gb-icon {
+  font-size: 50px;
+ }
+ .gb-title {
+  margin-top: 5px;
+ }
+ &:hover {
+  background-color: #EEE;
+ }
 }

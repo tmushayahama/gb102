@@ -7,7 +7,7 @@
 // --------------------------------------------------
 
 .modal-md {
- .modal-content {  
+ .modal-content {
   height: 220px;
  }
 }
@@ -40,7 +40,6 @@
  }
  .modal-body {
   @include position(absolute, 51px 0 46px 0);
-  overflow-y: auto;
  }
  .modal-footer {
   @include position(absolute, null 0 0 0);

@@ -12,6 +12,8 @@ define([
  'angular-xeditable',
  'angular-local-storage',
  'angular-css',
+ 'angular-wizard',
+ //'ionic.tdcards',
  '../auth/module',
  '../explores/module',
 ], function (angular) {
@@ -26,6 +28,8 @@ define([
   'xeditable',
   'LocalStorageModule',
   'door3.css',
+  // 'ionic.contrib.ui.tinderCards',
+  'mgo-angular-wizard',
   'app.explores',
  ]);
 

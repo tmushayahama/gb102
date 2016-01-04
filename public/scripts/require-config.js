@@ -17,6 +17,8 @@ requirejs.config({
   'angular-xeditable': '../../bower_components/angular-xeditable/dist/js/xeditable',
   'angular-local-storage': '../../bower_components/angular-local-storage/dist/angular-local-storage',
   'angular-css': '../../bower_components/angular-css/angular-css',
+  'angular-wizard': '../../bower_components/angular-wizard/dist/angular-wizard',
+  'ionic.tdcards': '../../bower_components/ionic-ion-tinder-cards/ionic.tdcards',
   //'modules-includes': 'includes'
 
  },
@@ -34,7 +36,9 @@ requirejs.config({
   'angular-couch-potato': {deps: ['angular']},
   'angular-xeditable': {deps: ['angular']},
   'angular-local-storage': {deps: ['angular']},
-  'angular-css': {deps: ['angular', 'angular-ui-router']}
+  'angular-css': {deps: ['angular', 'angular-ui-router']},
+  'angular-wizard': {deps: ['angular']},
+  'ionic.tdcards': {deps: ['angular']},
  },
  priority: [
   'jquery',

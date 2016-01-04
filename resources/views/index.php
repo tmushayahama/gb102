@@ -17,9 +17,12 @@
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
   <link href="public/gb-icons/gb-icons.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>
+  <link href="../bower_components/angular-wizard/dist/angular-wizard.css" rel="stylesheet" type="text/css"/>
+  <link href="../bower_components/ionic-ion-tinder-cards/ionic.tdcards.css" rel="stylesheet" type="text/css"/>
+
 
   <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
  </head>
