@@ -26,7 +26,7 @@ var loginModalCtrl = function (
    $rootScope.authenticated = true;
    $rootScope.user = response.data.user;
    $uibModalInstance.close();
-   $state.go('apps.skills.all');
+   $state.go('apps.explores.all');
   });
  };
 

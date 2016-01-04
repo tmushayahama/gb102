@@ -7,15 +7,18 @@ requirejs.config({
   'angular-bootstrap': '../../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
   'angular-ui-router': '../../../bower_components/angular-ui-router/release/angular-ui-router.min',
   'angular-resource': '../../../bower_components/angular-resource/angular-resource.min',
-  'angular-animate': '../../bower_components/angular-animate/angular-animate.min',
+  'angular-animate': '../../../bower_components/angular-animate/angular-animate.min',
   'satellizer': '../../../bower_components/satellizer/satellizer.min',
   'oc-lazy-load': '../../../bower_components/oclazyload/dist/ocLazyLoad.min',
-  //'moment': '../../../bower_components/moment/moment.min',
-  //'text': '../../../bower_components/requirejs-text/text.min',
+  'moment': '../../../bower_components/moment/moment.min',
+  'text': '../../../bower_components/requirejs-text/text.min',
   'dom-ready': '../../../bower_components/domready/ready.min',
   'angular-xeditable': '../../../bower_components/angular-xeditable/dist/js/xeditable.min',
   'angular-local-storage': '../../../bower_components/angular-local-storage/dist/angular-local-storage.min',
   'angular-css': '../../../bower_components/angular-css/angular-css.min',
+  'angular-wizard': '../../../bower_components/angular-wizard/dist/angular-wizard.min',
+  // 'ionic.tdcards': '../../../bower_components/ionic-ion-tinder-cards/ionic.tdcards.min',
+  //'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min',
   //'modules-includes': 'includes'
 
  },
@@ -32,7 +35,10 @@ requirejs.config({
   'moment': {exports: 'moment'},
   'angular-xeditable': {deps: ['angular']},
   'angular-local-storage': {deps: ['angular']},
-  'angular-css': {deps: ['angular', 'angular-ui-router']}
+  'angular-css': {deps: ['angular', 'angular-ui-router']},
+  'angular-wizard': {deps: ['angular']},
+  //'ionic.tdcards': {deps: ['angular']},
+  // 'angular-swing': {deps: ['angular']},
  },
  priority: [
   'jquery',
@@ -53,5 +59,11 @@ requirejs([
   angular.bootstrap(document, ['app']);
  });
 });
+
+
+
+
+
+
 
 

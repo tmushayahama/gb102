@@ -15,6 +15,7 @@ and open the template in the editor.
 @import "components/gb-sections";
 @import "components/gb-navs";
 @import "components/gb-wizard";
+//@import "components/gb-swipe";
 
 @import "components/gb-comments";
 @import "components/gb-timeline";
@@ -1770,7 +1771,7 @@ input.gb-form-show{
    padding: 0;
   }
  }
-} 
+}
 
 .gb-top-nav-2 {
  @include position(fixed, 41px 0 null null);

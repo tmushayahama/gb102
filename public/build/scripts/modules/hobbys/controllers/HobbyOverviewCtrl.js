@@ -1,1 +1,0 @@
-var hobbyOverviewCtrl=function(HobbyManager,$state,$stateParams,$http,$rootScope){};hobbyOverviewCtrl.$inject=["HobbyManager","$state","$stateParams","$http","$rootScope"],angular.module("app.hobbys").controller("HobbyOverviewCtrl",hobbyOverviewCtrl);

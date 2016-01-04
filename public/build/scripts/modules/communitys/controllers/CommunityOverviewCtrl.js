@@ -1,0 +1,1 @@
+var communityOverviewCtrl=function(CommunityManager,$state,$stateParams,$http,$rootScope){};communityOverviewCtrl.$inject=["CommunityManager","$state","$stateParams","$http","$rootScope"],angular.module("app.communitys").controller("CommunityOverviewCtrl",communityOverviewCtrl);

@@ -13,6 +13,7 @@ define([
  'angular-local-storage',
  'angular-css',
  'angular-wizard',
+ //'angular-swing',
  //'ionic.tdcards',
  '../auth/module',
  '../explores/module',
@@ -31,6 +32,8 @@ define([
   'door3.css',
   // 'ionic.contrib.ui.tinderCards',
   'mgo-angular-wizard',
+  //'gajus.swing',
+  'app.auth',
   'app.explores',
   'app.swipes'
  ]);
@@ -111,7 +114,7 @@ define([
     $rootScope.user = user;
     if (toState.name === "auth") {
      event.preventDefault();
-     $state.go('apps.skills.all');
+     $state.go('apps.explores.all');
     }
    } else {
     if (toState.name !== "auth") {

@@ -1,0 +1,1 @@
+var swipeOverviewCtrl=function(SwipeManager,$state,$stateParams,$http,$rootScope){};swipeOverviewCtrl.$inject=["SwipeManager","$state","$stateParams","$http","$rootScope"],angular.module("app.swipes").controller("SwipeOverviewCtrl",swipeOverviewCtrl);

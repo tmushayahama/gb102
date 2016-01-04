@@ -39,6 +39,7 @@
     "angular-css": "~1.0.7",
     "requirejs": "~2.1.22",
     "ionic-ion-tinder-cards": "ionic-contrib-tinder-cards#*",
-    "angular-wizard": "~0.6.1"
+    "angular-wizard": "~0.6.1",
+    "angular-swing": "*"
   }
 }
