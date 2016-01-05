@@ -172,7 +172,11 @@ var exploreCtrl = function (
  };
 
  //--------init------
- vm.exploreManager.getExplore(vm.exploreId);
+ vm.exploreManager.getExplore(vm.exploreId).then(function (data) {
+  $css.bind({
+   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.name.toLowerCase() + '.css'
+  }, $scope);
+ });
  vm.constantsManager.getIcons(1).then(function (data) {
   vm.exploreIcons = data;
   vm.getRandomExploreIcons();

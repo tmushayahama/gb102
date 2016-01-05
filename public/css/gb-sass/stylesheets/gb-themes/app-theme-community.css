@@ -1622,6 +1622,7 @@ input[type="checkbox"] {
   color: #777;
 }
 #gb-middle-nav .gb-container.gb-app-list {
+  margin-top: 90px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
