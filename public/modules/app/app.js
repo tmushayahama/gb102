@@ -15,9 +15,11 @@ define([
  'angular-wizard',
  //'angular-swing',
  //'ionic.tdcards',
+ 'hammerjs',
+ 'angular-gestures',
  '../auth/module',
  '../explores/module',
- '../swipes/module',
+ '../swipes/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -30,15 +32,17 @@ define([
   'xeditable',
   'LocalStorageModule',
   'door3.css',
-  // 'ionic.contrib.ui.tinderCards',
+  //'ionic',
+  //'ionic.contrib.ui.tinderCards',
   'mgo-angular-wizard',
   //'gajus.swing',
+  'angular-gestures',
   'app.auth',
   'app.explores',
-  'app.swipes'
+  'app.swipes',
  ]);
 
- var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, $provide) {
+ var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {
 
   $ocLazyLoadProvider.config({
    debug: true,
@@ -50,6 +54,13 @@ define([
           .setPrefix('gb102')
           .setStorageType('localStorage')
           .setNotify(true, true);
+
+  hammerDefaultOptsProvider.set({
+   recognizers: [
+    [Hammer.Tap, {time: 250}],
+    [Hammer.Swipe, {}]
+   ]
+  });
   // $urlRouterProvider.otherwise('/auth');
   function redirectWhenLoggedOut($q, $injector, localStorageService) {
    return {
@@ -102,7 +113,7 @@ define([
            }
           });
  }
- appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', '$provide'];
+ appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', 'hammerDefaultOptsProvider', '$provide'];
  app.config(appConfig);
 
  var appRun = function ($stateParams, $rootScope, $state, editableOptions, localStorageService) {

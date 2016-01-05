@@ -49,6 +49,7 @@ class Swipe extends Model {
           ->orderBy('id', 'desc')
           ->with('explore')
           ->with('creator')
+          ->with('explore.app_type')
           ->with('explore.creator')
           ->with('explore.icon')
           ->with('explore.level')
@@ -63,6 +64,7 @@ class Swipe extends Model {
           Explore::with('icon')
           ->with('creator')
           ->with('level')
+          ->with('app_type')
           ->take(500)
           ->get()))
           ->random($howMany);

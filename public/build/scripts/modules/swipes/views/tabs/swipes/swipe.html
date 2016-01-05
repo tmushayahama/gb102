@@ -1,36 +1,52 @@
 
-<div class="row" role="tabpanel">
- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
-  <div class="gb-heading-3">
-   PLAY: <i>A random swipe will appear.
-    Choose what you wanna do with it</i>
-  </div>
-  <div class="gb-body gb-padding-thin row">
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11 ">
+<div class="gb-swipe-container gb-list row">
+ <div class="gb-heading-3">
+
+  {{clicked}}
+ </div>
+ <ul class="stack col-lg-8 col-md-8 col-sm-10 col-xs-10">
+  <li hm-swipe-left="swipeCtrl.swipeLeft($event, swipeCtrl.currentExplore.id)"
+      hm-swipe-right="swipeCtrl.swipeRight($event, swipeCtrl.currentExplore.id)"
+      hm-swipe-up="swipeCtrl.swipeUp($event, swipeCtrl.currentExplore.id)"
+      hm-swipe-down="swipeCtrl.swipeDowm($event, swipeCtrl.currentExplore.id)"
+      class="">
+   <a class="row gb-box-1">
     <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
      <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa {{swipeCtrl.currentExplore.icon.name}} fa-stack-1x fa-inverse"></i>
+      <i class="fa fa-outer icon-gb-{{swipeCtrl.currentExplore.app_type.name.toLowerCase()}} fa-stack-2x"></i>
+      <i class="fa fa-inner {{swipeCtrl.currentExplore.icon.name}} fa-stack-1x fa-inverse"></i>
      </span>
     </div>
     <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+     <div class="gb-heading row">
+      <p class="gb-title">
+       {{swipeCtrl.currentExplore.app_type.name + ' - ' + swipeCtrl.currentExplore.level.name}}
+      </p>
+     </div>
      <div class="gb-description row">
-      <a href ui-sref="apps.swipe.overview({swipeId: swipe.id})" class="">
+      <p class="">
        {{swipeCtrl.currentExplore.title}}
-      </a>
+      </p>
       {{swipeCtrl.currentExplore.description}}
      </div>
-     <div class="gb-footer row">
-      <div class="gb-padding-thin">
-       <a ng-repeat="swipeLevel in swipeCtrl.swipeLevels"
-          ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplore.id, swipeLevel.id)"
-          class="btn btn-default">
-        {{swipeLevel.name}}
-       </a>
-      </div>
-     </div>
     </div>
-   </div>
+   </a>
+  </li>
+ </ul>
+ <div class="gb-footer row">
+  <div class="btn-toolbar">
+   <a ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplore.id, swipeCtrl.swipeLevels[0].id)"
+      class="btn btn-default">
+    {{swipeCtrl.swipeLevels[0].name}}
+   </a>
+   <a ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplore.id, swipeCtrl.swipeLevels[1].id)"
+      class="btn btn-default">
+    {{swipeCtrl.swipeLevels[1].name}}
+   </a>
+   <a ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplore.id, swipeCtrl.swipeLevels[2].id)"
+      class="btn btn-default">
+    {{swipeCtrl.swipeLevels[2].name}}
+   </a>
   </div>
  </div>
 </div>

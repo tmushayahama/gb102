@@ -15,27 +15,19 @@ id	category	code	name	description
 14	5	MP2	"Natural, senior mentoring junior"	\N
 15	5	MP3	Formal i.e. trainer trainee	\N
 16	5	MP4	Supervisory	\N
-17	8	AD1	Decision Support	\N
-18	8	AD2	Information	\N
-19	8	AD3	Recommendation	\N
-20	8	AD4	"Natural, senior advising junior"	\N
-21	8	AD5	Similar Experiences	\N
-	6	CO1	Peer/Friendly	
-	6	CO2	Team Collaboration	Goal
-	6	CO3	Community Collaboration	sharing and build knowledge
-	7	TE1	Formal	
-	7	TE2	Expert/Coach	
-	7	TE3	Coordinator/Facilitator	
-	7	TE4	Peer/Friendly	
-				
-				
-				
-				
-				
-				
-				
-				
-				
-34	11	SWS1	Not Now	\N
-35	11	SWS2	Ehh!!	\N
-36	11	SWS3	Explore	\N
+17	6	CO1	Peer/Friendly	\N
+18	6	CO2	Team Collaboration	Goal
+19	6	CO3	Community Collaboration	sharing and build knowledge
+20	7	TE1	Formal	\N
+21	7	TE2	Expert/Coach	\N
+22	7	TE3	Coordinator/Facilitator	\N
+23	7	TE4	Peer/Friendly	\N
+24	8	AD1	Decision Support	\N
+25	8	AD2	Information	\N
+26	8	AD3	Recommendation	\N
+27	8	AD4	"Natural, senior advising junior"	\N
+28	8	AD5	Similar Experiences	\N
+29	11	SWS1	Not Now	\N
+30	11	SWS2	Ehh!!	\N
+31	11	SWS3	Explore	\N
+32	11	SWS4	Super Explore	\N

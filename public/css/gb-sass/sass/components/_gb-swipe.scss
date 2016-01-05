@@ -1,31 +1,28 @@
-ul,
-li {
- margin: 0; padding: 0;
-}
 
-button,
-input,
-code {
- display: inline-block; outline: none; font: inherit; border: none; background: #FDE991; padding: 0;
-}
 
-button {
- color: #C7433E; cursor: pointer;
-}
 
-input {
- width: 50px;
-}
 
-#viewport {
- width: 500px; height: 500px; background: #C7433E; border: 10px solid #ED5D52; margin: 100px auto 0; position: relative;
+.gb-swipe-container {
+
 
  .stack {
-  width: 200px; height: 300px; background: #ED5D52; position: absolute; top: 100px; left: 50%; margin-left: -100px; border-radius: 10px;
+  height: 350px;
+  @include position(absolute, 100px null null 50%);
+  -ms-transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
  }
 
  li {
-  width: 200px; height: 300px; list-style: none; background: #fff; border-radius: 5px; position: absolute; top: 0; left: 0; box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2); line-height: 300px; text-align: center; font-size: 100px; border: 10px solid #ECECEC; box-sizing: border-box; cursor: default;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  background: #FFF;
+  border-radius: 5px;
+  border: 7px solid rgba($primary-color, 0.5);
+  box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);
+  box-sizing: border-box;
+  cursor: default;
 
   &.clubs,
   &.spades {
@@ -47,28 +44,70 @@ input {
    }
   }
  }
+ .gb-box-1 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #FFF;
+  padding:  5px 5px;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: #CCC solid 1px;
 
- #control {
-  position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; font-size: 0;
-
-  button {
-   background: #FFFFFF; color: #373737; font-weight: bold; border: none; font: normal 18px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif; margin: 0 5px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 0 #63211F; outline: none; position: relative;
-
-   &:hover {
-
+  &:hover {
+   background-color: #F7F7F7;
+  }
+  .gb-icon-image {
+   padding: 10px 25px 0 15px;
+   overflow: hidden;
+   .fa-lg {
+    float: right;
+    font-size: 30px;
+    .fa-outer {
+     color: rgba($primary-color, 0.2);
+    }
+    .fa-inner{
+     top: 35px;
+     left: 20px;
+     font-size: 30px;
+     color: darken($primary-color, 0%);
+    }
+    &:hover {
+     .fa-outer {
+      color: rgba($primary-color, 0.7);
+     }
+     .fa-inner{
+      color: darken($primary-color, 10%);
+     }
+    }
    }
-
-   &:active {
-    background: #63211F; color: #FFFFFF; bottom: -2px; box-shadow: none;
+   img {
+   }
+  }
+  .gb-box-body {
+   .gb-heading {
+    //@include position(absolute, 0 0 null 0);
+    padding: 8px 5px 0 10px;
+    height: 22px;
+    .gb-title {
+     color: #888;
+     font-weight: 500;
+     font-size:10px;
+     text-transform: uppercase;
+    }
+   }
+   .gb-description {
+    //@include position(absolute, 23px 0 50px 0);
+    padding: 2px 40px 2px 10px;
+    overflow: hidden;
+    font-size: 20px;
    }
   }
  }
-}
-
-#source {
- width: 500px; margin: 20px auto;
-
- a {
-  color: #C7433E;
+ .gb-footer {
+  @include position(absolute, 470px null null 50%);
+  -ms-transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
  }
 }

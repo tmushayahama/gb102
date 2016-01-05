@@ -3,6 +3,7 @@ var swipeCtrl = function (
         ConstantsManager,
         SwipeManager,
         $scope,
+        $timeout,
         $state,
         $stateParams,
         $http,
@@ -18,51 +19,43 @@ var swipeCtrl = function (
  vm.currentExplore;
  vm.swipeLevels;
 
- vm.cards = [
-  {name: 'clubs', symbol: '♣'},
-  {name: 'diamonds', symbol: '♦'},
-  {name: 'hearts', symbol: '♥'},
-  {name: 'spades', symbol: '♠'}
- ];
+ vm.swipeRight = function ($event, exploreId) {
+  vm.createSwipe(exploreId, vm.swipeLevels[2].id);
 
- vm.throwout = function (eventName, eventObject) {
-  console.log('throwout', eventObject);
+  var ele = $event.target;
+  //var x = Math.floor(Math.random() * 200) + 1,
+  $(ele).css({
+   'transform': "translate(50%, 30%) rotate(" + 20 + "deg)",
+   'opacity': "0.3"
+
+  });
+  $timeout(function () {
+   $(ele).css({
+    'transform': "translate(0%, 0%) rotate(" + 0 + "deg)",
+    'opacity': "1"
+   });
+  }, 1000);
  };
 
- vm.throwoutleft = function (eventName, eventObject) {
-  console.log('throwoutleft', eventObject);
- };
+ vm.swipeLeft = function ($event, exploreId) {
+  vm.createSwipe(exploreId, vm.swipeLevels[0].id);
+  var ele = $event.target;
+  //var x = Math.floor(Math.random() * 200) + 1,
+  $(ele).css({
+   'transform': "translate(-50%, 30%) rotate(" + -20 + "deg)",
+   'opacity': "0.3"
 
- vm.throwoutright = function (eventName, eventObject) {
-  console.log('throwoutright', eventObject);
- };
-
- vm.throwin = function (eventName, eventObject) {
-  console.log('throwin', eventObject);
- };
-
- vm.dragstart = function (eventName, eventObject) {
-  console.log('dragstart', eventObject);
- };
-
- vm.dragmove = function (eventName, eventObject) {
-  console.log('dragmove', eventObject);
- };
-
- vm.dragend = function (eventName, eventObject) {
-  console.log('dragend', eventObject);
- };
-
- vm.options = {
-  throwOutConfidence: function (offset, elementWidth) {
-   console.log('throwOutConfidence', offset, elementWidth);
-   return Math.min(Math.abs(offset) / elementWidth, 1);
-  },
-  isThrowOut: function (offset, elementWidth, throwOutConfidence) {
-   console.log('isThrowOut', offset, elementWidth, throwOutConfidence);
-   return throwOutConfidence === 1;
-  }
- };
+  });
+  $timeout(function () {
+   $(ele).css({
+    'transform': "translate(0%, 0%) rotate(" + 0 + "deg)",
+    'opacity': "1"
+   });
+  }, 1000);
+ }
+ vm.swipeDown = function ($event, exploreId) {
+  vm.createSwipe(exploreId, vm.swipeLevels[1].id);
+ }
 
  vm.getSwipe = function () {
   vm.swipeManager.getSwipe().then(function (response) {
@@ -100,6 +93,7 @@ swipeCtrl.$inject = [
  'ConstantsManager',
  'SwipeManager',
  '$scope',
+ '$timeout',
  '$state',
  '$stateParams',
  '$http',
