@@ -19,6 +19,8 @@ requirejs.config({
   'angular-wizard': '../../../bower_components/angular-wizard/dist/angular-wizard.min',
   // 'ionic.tdcards': '../../../bower_components/ionic-ion-tinder-cards/ionic.tdcards.min',
   //'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min',
+  'hammerjs': '../../bower_components/hammerjs/hammer.min',
+  'angular-gestures': '../../bower_components/angular-gestures/gestures.min',
   //'modules-includes': 'includes'
 
  },
@@ -39,6 +41,8 @@ requirejs.config({
   'angular-wizard': {deps: ['angular']},
   //'ionic.tdcards': {deps: ['angular']},
   // 'angular-swing': {deps: ['angular']},
+  'hammerjs': {deps: ['angular']},
+  'angular-gestures': {deps: ['angular', 'hammerjs']}
  },
  priority: [
   'jquery',

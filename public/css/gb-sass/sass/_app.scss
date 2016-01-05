@@ -173,14 +173,14 @@ input[type="checkbox"] {
   //margin-top: 90px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
- }
+ } 
  .gb-container.gb-app-detail {
   margin-top: 50px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
  }
  .gb-container.gb-app-swipe {
-  @include position(absolute, 80px 0 0 0);
+  @include position(absolute, 90px 0 0 0);
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
  }
@@ -192,7 +192,7 @@ input[type="checkbox"] {
   .gb-profile-pic {
    height: 40px;
    width: 40px;
-  } 
+  }
   .gb-row-content {
    padding: 7px 0 0 10px;
    @include position(absolute, 0 0 0 41px);

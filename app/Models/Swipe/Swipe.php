@@ -49,6 +49,7 @@ class Swipe extends Model {
           ->orderBy('id', 'desc')
           ->with('explore')
           ->with('creator')
+          ->with('level')
           ->with('explore.app_type')
           ->with('explore.creator')
           ->with('explore.icon')

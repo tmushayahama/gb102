@@ -111,3 +111,22 @@
   transform: translate(-50%, 0%);
  }
 }
+
+.gb-swipe-indicator {
+ @include position(absolute, 5px null null 5px);
+ width: 30px;
+ height: 10px;
+ border-radius: 5px;
+ &.gb-swipe-indicator-SWS1 {
+  background-color: rgba(red, 0.3);
+ }
+ &.gb-swipe-indicator-SWS2 {
+  background-color: grey;
+ }
+ &.gb-swipe-indicator-SWS3 {
+  background-color: rgba(green, 0.3);
+ }
+ &.gb-swipe-indicator-SWS4 {
+  background-color: rgba(green, 0.6);
+ }
+}
