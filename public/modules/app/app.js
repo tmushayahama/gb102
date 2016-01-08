@@ -18,8 +18,8 @@ define([
  'hammerjs',
  'angular-gestures',
  '../auth/module',
- '../explores/module',
- '../swipes/module'
+ '../explore/module',
+ '../swipe/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -38,8 +38,8 @@ define([
   //'gajus.swing',
   'angular-gestures',
   'app.auth',
-  'app.explores',
-  'app.swipes',
+  'app.explore',
+  'app.swipe',
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {

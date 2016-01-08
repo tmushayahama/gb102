@@ -43,6 +43,7 @@
     "ionic-ion-tinder-cards": "ionic-contrib-tinder-cards#*",
     "angular-wizard": "~0.6.1",
     "angular-swing": "*",
-    "angular-gestures": "*"
+    "angular-gestures": "*",
+    "ng-tags-input": "~3.0.0"
   }
 }

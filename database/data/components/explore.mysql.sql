@@ -52,7 +52,6 @@ CREATE TABLE `gb_explore_announcement` (
   CONSTRAINT `explore_announcement_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_explore_question`
 --
@@ -155,22 +154,25 @@ CREATE TABLE `gb_explore_note` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_questionnaire`
+-- Table structure for table `gb_explore_explore_questionnaire`
 --
 DROP TABLE IF EXISTS `gb_explore_questionnaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_explore_questionnaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `questionnaire_id` int(11) NOT NULL,
   `explore_id` int(11) NOT NULL,
+  `questionnaire_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_questionnaire_questionnaire_id` (`questionnaire_id`),
+  KEY `explore_questionnaire_creator_id` (`creator_id`),
   KEY `explore_questionnaire_explore_id` (`explore_id`),
-  CONSTRAINT `explore_questionnaire_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_questionnaire_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `explore_questionnaire_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_questionnaire_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -15,28 +15,30 @@ module.exports = function (grunt) {
 
  String.prototype.capitalizeFirstLetter = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
- }
+ };
 
  var apps = [
-  "",
+  ""
  ];
  var srcs = [
   {
    cwd: 'public/modules/',
-   src: ['skills/**']
+   src: ['swipe/**']
   },
   {
    cwd: 'app/Http/Controllers/',
-   src: ['Skill/**']
+   src: ['Swipe/**']
   },
   {
    cwd: 'app/Models/',
-   src: ['Skill/**']
+   src: ['Swipe/**']
   },
-  {
+  /*
+   {
    cwd: 'database/data/components/',
    src: ['skill.mysql.sql']
-  }
+   }
+   */
  ];
 
  var options = {
@@ -69,8 +71,8 @@ module.exports = function (grunt) {
              src: src.src,
              dest: src.cwd,
              rename: function (dest, src) {
-              return dest + src.replace(/skill/g, app)
-                      .replace(/Skill/g, app.capitalizeFirstLetter());
+              return dest + src.replace(/swipe/g, app)
+                      .replace(/Swipe/g, app.capitalizeFirstLetter());
 
              }
             });
@@ -88,19 +90,19 @@ module.exports = function (grunt) {
     options: {
      patterns: [
       {
-       match: /skill/g,
+       match: /swipe/g,
        replacement: app
       },
       {
-       match: /Skill/g,
+       match: /Swipe/g,
        replacement: app.capitalizeFirstLetter()
       },
       {
-       match: /SKILL/g,
+       match: /SWIPE/g,
        replacement: app.toUpperCase()
       },
       {
-       match: /app-theme-skill/g,
+       match: /app-theme-swipe/g,
        replacement: 'app-theme-' + app
       }
      ]

@@ -1,4 +1,0 @@
-id	question_id	question_answer_id	created_date	description	user_id	privacy	status
-1	17	33	3/2/2015 4:22	Tremayne Answer fkfjsdfss	2	0	0
-2	74	148	3/2/2015 4:22	sffffffffff	3	0	0
-3	17	33	3/2/2015 4:22	Linda answer ujghfdg dddsaddsd	3	0	0
