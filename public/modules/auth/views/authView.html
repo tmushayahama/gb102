@@ -25,14 +25,14 @@
 </nav>
 
 
-<div class=""> 
- <header id="gb-intro-section" class=""> 
+<div class="gb-landing-page">
+ <header id="gb-intro-section" class="">
   <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
    <span class="fa-stack fa-lg">
     <i class="fa fa-outer fa-circle fa-stack-2x"></i>
     <i class="fa fa-inner {{authCtrl.skillIcons[iconIndex].name}} fa-stack-1x"></i>
    </span>
-  </div> 
+  </div>
   <div class="intro-text">
    <div class="intro-heading">
     Apply, discover & explore skills
@@ -41,16 +41,16 @@
     Applications and Tools you need to <br>
     <span class="gb-dynamic-word gb-dynamic-word-{{authCtrl.headerWord}}">{{authCtrl.headerWord}}</span>
    </div>
-    <div class="btn-toolbar row">
-     <a ng-click="authCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
-      <i class="fa fa-key"></i> Beta Access Free
-     </a>
-     <div class="gb-or">
-      or
-     </div>
-     <a ng-click="authCtrl.openLoginModal()" class="btn btn-default">
-      <i class="fa fa-sign-in"></i> Login
-     </a>
+   <div class="btn-toolbar row">
+    <a ng-click="authCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
+     <i class="fa fa-key"></i> Beta Access Free
+    </a>
+    <div class="gb-or">
+     or
+    </div>
+    <a ng-click="authCtrl.openLoginModal()" class="btn btn-default">
+     <i class="fa fa-sign-in"></i> Login
+    </a>
    </div>
   </div>
  </header>
@@ -59,25 +59,25 @@
  <section id="services">
   <div class="container">
    <div class="row text-center">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
      <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-circle fa-stack-2x text-warning"></i>
       <i class="fa fa-search fa-stack-1x fa-inverse"></i>
      </span>
      <h4 class="service-heading">Explore</h4>
      <p class="text-muted">using the skill bank</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
      <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-circle fa-stack-2x text-warning"></i>
       <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
      </span>
      <h4 class="service-heading">Discover</h4>
      <p class="text-muted">from the community</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
      <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+      <i class="fa fa-circle fa-stack-2x text-warning"></i>
       <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
      </span>
      <h4 class="service-heading">Apply</h4>
@@ -88,7 +88,7 @@
  </section>
 
  <!-- Portfolio Grid Section -->
- <section id="portfolio" class="bg-light-gray ">
+ <section ng-hide="true" id="portfolio" class="bg-light-gray ">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -186,7 +186,7 @@
  </section>
 
  <!-- About Section -->
- <section id="about" class="">
+ <section ng-hide="true" id="about" class="">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -267,7 +267,7 @@
  </section>
 
  <!-- Team Section -->
- <section id="team" class="bg-light-gray">
+ <section ng-hide="true" id="team" class="bg-light-gray">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -331,7 +331,7 @@
  </section>
 
  <!-- Clients Aside -->
- <aside class="clients ">
+ <aside ng-hide="true" class="clients ">
   <div class="container">
    <div class="row">
     <div class="col-md-3 col-sm-6">
@@ -360,7 +360,7 @@
 
  <!-- Contact Section -->
 
- <footer class="">
+ <footer ng-hide="true" class="">
   <div class="container">
    <div class="row">
     <div class="col-md-4">
@@ -392,7 +392,7 @@
  <!-- Use the modals below to showcase details about your portfolio projects! -->
 
  <!-- Portfolio Modal 1 -->
- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -425,7 +425,7 @@
  </div>
 
  <!-- Portfolio Modal 2 -->
- <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -451,7 +451,7 @@
  </div>
 
  <!-- Portfolio Modal 3 -->
- <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -478,7 +478,7 @@
  </div>
 
  <!-- Portfolio Modal 4 -->
- <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -505,7 +505,7 @@
  </div>
 
  <!-- Portfolio Modal 5 -->
- <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -532,7 +532,7 @@
  </div>
 
  <!-- Portfolio Modal 6 -->
- <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -573,62 +573,6 @@
 
 
  <div class="">
-  <div class="gb-intro-header-1 row">
-   <div class="container">
-    <div class="row">
-     <?php if (Yii::app()->user->hasFlash('betaRequestSent')): ?>
-     <div class="flash-success">
-      <?php echo Yii::app()->user->getFlash('betaRequestSent'); ?>
-     </div>
-     <?php endif; ?>
-     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-      <div class="gb-title-box row">
-       <h1 class="gb-title">Apply & Explore your Skills</h1>
-       <br>
-       <p class="gb-title-description">
-        Tools and Apps you need to use your skills.
-       </p>
-      </div>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
-      <div class="gb-signup-box">
-       <h2 class="text-center">Start Today</h2>
-       <br>
-       <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Beta Access FREE</a>
-       <br>
-       <br>
-       <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
-       <br>
-       <p>Show me how it works.</p>
-       <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
-      </div>
-     </div>
-    </div>
-    <div class="row">
-     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-      <div class="thumbnail">
-       <div class="caption">
-        <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-search"></i> 1 Explore</div><small> using the skill bank</small></h2>
-       </div>
-      </div>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <div class="thumbnail">
-       <div class="caption">
-        <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from the community</small></h2>
-       </div>
-      </div>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <div class="thumbnail">
-       <div class="caption">
-        <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-wrench"></i> 3 Apply</div><small> using our applications</small></h2>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
   <div class="gb-intro-header-3 row">
    <div class="container">
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
@@ -660,17 +604,16 @@
      <br>
     </div>
     <div class="pull-right col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-     <img class="" src="public/img/screenshot_4.png" alt="">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_4.png" alt="">
     </div>
    </div>
   </div>
-
   <div class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
      <br>
-     <div class="row gb-title">
+     <div class="row gb-title text-center">
       <h2 class="">Make use of our Applications</h2>
       <p class="title-description"><b>First Generation Apps</b>, the foundation.
       </p>
@@ -748,7 +691,7 @@
   <div class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-     <img class="" src="public/img/screenshot_5.png" alt="">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_5.png" alt="">
     </div>
     <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
      <h3 class="gb-title">Skill App Example
@@ -866,14 +809,14 @@
      <br>
     </div>
     <div class="pull-right col-lg-8 col-sm-12 col-xs-12 ">
-     <img class="" src="public/img/screenshot_6.png" alt="">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_6.png" alt="">
     </div>
    </div>
   </div>
   <div class="gb-intro-header-3 row">
 
   </div>
-  <div class="container">
+  <div ng-hide="true" class="container">
    <div class=" col-lg-12">
     <div class="row gb-title text-center">
      <h2 class="">Sign up, get all the benefits.</h2>

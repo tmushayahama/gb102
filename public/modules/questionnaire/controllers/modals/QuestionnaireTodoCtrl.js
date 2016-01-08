@@ -1,6 +1,6 @@
-var swipeTodoCtrl = function (
-        SwipeTodoManager,
-        SwipeTodoChecklistManager,
+var questionnaireTodoCtrl = function (
+        QuestionnaireTodoManager,
+        QuestionnaireTodoChecklistManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -9,15 +9,15 @@ var swipeTodoCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeTodoData) {
+        questionnaireTodoData) {
  var vm = this;
- vm.swipeId = swipeTodoData.swipe_id;
- vm.swipeTodoId = swipeTodoData.id;
- vm.swipeTodoManager = new SwipeTodoManager();
- vm.swipeTodoChecklistManager = new SwipeTodoChecklistManager();
+ vm.questionnaireId = questionnaireTodoData.questionnaire_id;
+ vm.questionnaireTodoId = questionnaireTodoData.id;
+ vm.questionnaireTodoManager = new QuestionnaireTodoManager();
+ vm.questionnaireTodoChecklistManager = new QuestionnaireTodoChecklistManager();
 
 
- vm.todoId = swipeTodoData.todo_id;
+ vm.todoId = questionnaireTodoData.todo_id;
  vm.checklistFormVisible = false;
 
  vm.todoFormDisplay = false;
@@ -27,7 +27,7 @@ var swipeTodoCtrl = function (
   todoId: vm.todoId,
   privacy: 0
  }
- vm.newSwipeTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+ vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
 
 
  vm.ok = function () {
@@ -38,35 +38,35 @@ var swipeTodoCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeTodoData = vm.defaultSwipeTodoData;
+ // vm.newQuestionnaireTodoData = vm.defaultQuestionnaireTodoData;
 
- vm.getSwipeTodo = function (swipeId, todoId) {
-  vm.swipeTodoManager.getSwipeTodo(swipeId, todoId).then(function (response) {
+ vm.getQuestionnaireTodo = function (questionnaireId, todoId) {
+  vm.questionnaireTodoManager.getQuestionnaireTodo(questionnaireId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeTodo = function (data) {
-  vm.swipeTodoManager.editSwipeTodo(data).then(function (response) {
+ vm.editQuestionnaireTodo = function (data) {
+  vm.questionnaireTodoManager.editQuestionnaireTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTodoSections = {
+ vm.editQuestionnaireTodoSections = {
   details: function (details) {
-   var swipeTodoData = {
-    swipeTodoId: vm.swipeTodoId,
+   var questionnaireTodoData = {
+    questionnaireTodoId: vm.questionnaireTodoId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeTodo(swipeTodoData);
+   vm.editQuestionnaireTodo(questionnaireTodoData);
   }
  }
 
- vm.getSwipeTodoChecklist = function (todoId) {
-  vm.swipeTodoChecklistManager.getSwipeTodoChecklist(todoId).then(function (response) {
+ vm.getQuestionnaireTodoChecklist = function (todoId) {
+  vm.questionnaireTodoChecklistManager.getQuestionnaireTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -76,30 +76,30 @@ var swipeTodoCtrl = function (
   vm.todoFormDisplay = true;
  };
 
- vm.createSwipeTodoChecklistItem = function (data) {
-  vm.swipeTodoChecklistManager.createSwipeTodoChecklistItem(data).then(function (response) {
+ vm.createQuestionnaireTodoChecklistItem = function (data) {
+  vm.questionnaireTodoChecklistManager.createQuestionnaireTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
-   vm.newSwipeTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+   vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTodoChecklistItem = function (data) {
-  vm.swipeTodoChecklistManager.editSwipeTodoChecklistItem(data).then(function (response) {
-   vm.newSwipeTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+ vm.editQuestionnaireTodoChecklistItem = function (data) {
+  vm.questionnaireTodoChecklistManager.editQuestionnaireTodoChecklistItem(data).then(function (response) {
+   vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTodoChecklistItemSections = {
+ vm.editQuestionnaireTodoChecklistItemSections = {
   title: function (checklistId, title) {
-   var swipeTodoChecklistItemData = {
+   var questionnaireTodoChecklistItemData = {
     checklistId: checklistId,
     title: title
    };
-   vm.editSwipeTodoChecklistItem(swipeTodoChecklistItemData);
+   vm.editQuestionnaireTodoChecklistItem(questionnaireTodoChecklistItemData);
   }
  }
 
@@ -107,7 +107,7 @@ var swipeTodoCtrl = function (
 
  vm.cancelChecklistForm = function (form) {
   vm.checklistFormVisible = false;
-  vm.newSwipeTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
+  vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   if (form) {
    form.$setPristine();
    form.$setUntouched();
@@ -116,22 +116,22 @@ var swipeTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeTodoChecklistManager.swipeTodoChecklist;
+  return vm.questionnaireTodoChecklistManager.questionnaireTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.swipeTodoChecklistManager.swipeTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireTodoChecklistManager.questionnaireTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
 
  //--------init------
- vm.getSwipeTodo(vm.swipeId, vm.todoId);
- vm.getSwipeTodoChecklist(vm.todoId);
+ vm.getQuestionnaireTodo(vm.questionnaireId, vm.todoId);
+ vm.getQuestionnaireTodoChecklist(vm.todoId);
 };
 
-swipeTodoCtrl.$inject = [
- 'SwipeTodoManager',
- 'SwipeTodoChecklistManager',
+questionnaireTodoCtrl.$inject = [
+ 'QuestionnaireTodoManager',
+ 'QuestionnaireTodoChecklistManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -140,6 +140,6 @@ swipeTodoCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeTodoData', ];
+ 'questionnaireTodoData', ];
 
-angular.module("app.swipe").controller('SwipeTodoCtrl', swipeTodoCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireTodoCtrl', questionnaireTodoCtrl);

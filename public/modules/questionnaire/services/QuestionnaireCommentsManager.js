@@ -1,9 +1,9 @@
-var swipeCommentsManager = function ($http, $q) {
+var questionnaireCommentsManager = function ($http, $q) {
 
- var SwipeCommentsManager = function () {
-  this.swipeComments = [];
+ var QuestionnaireCommentsManager = function () {
+  this.questionnaireComments = [];
  };
- SwipeCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipeCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeCommentsManager.prototype.getSwipeComments = function (swipeId) {
+ QuestionnaireCommentsManager.prototype.getQuestionnaireComments = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeComments = [];
-  $http.get('/api/swipe/' + swipeId + '/comments').success(function (data) {
-   self.swipeComments = data;
+  self.questionnaireComments = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/comments').success(function (data) {
+   self.questionnaireComments = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var swipeCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeCommentsManager.prototype.getSwipeComment = function (swipeId, commentId) {
+ QuestionnaireCommentsManager.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeComments = [];
-  $http.get('/api/swipe/' + swipeId + '/comment/' + commentId).success(function (data) {
-   self.swipeComments = data;
+  self.questionnaireComments = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/comment/' + commentId).success(function (data) {
+   self.questionnaireComments = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var swipeCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeCommentsManager.prototype.createSwipeComment = function (swipeCommentData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/swipe/comment/create',
-   data: swipeCommentData
-  }).success(function (data) {
-   self.swipeComments.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- SwipeCommentsManager.prototype.editSwipeComment = function (swipeCommentData) {
+ QuestionnaireCommentsManager.prototype.createQuestionnaireComment = function (questionnaireCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/comment/edit',
-   data: swipeCommentData
+   url: '/api/questionnaire/comment/create',
+   data: questionnaireCommentData
+  }).success(function (data) {
+   self.questionnaireComments.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ QuestionnaireCommentsManager.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/questionnaire/comment/edit',
+   data: questionnaireCommentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var swipeCommentsManager = function ($http, $q) {
  };
 
 
- return SwipeCommentsManager;
+ return QuestionnaireCommentsManager;
 };
 
-swipeCommentsManager.$inject = ['$http', '$q'];
+questionnaireCommentsManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeCommentsManager', swipeCommentsManager);
+angular.module('app.questionnaire').service('QuestionnaireCommentsManager', questionnaireCommentsManager);

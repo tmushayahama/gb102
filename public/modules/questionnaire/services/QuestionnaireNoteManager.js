@@ -1,9 +1,9 @@
-var swipeNoteManager = function ($http, $q) {
+var questionnaireNoteManager = function ($http, $q) {
 
- var SwipeNoteManager = function () {
-  this.swipeNotes = [];
+ var QuestionnaireNoteManager = function () {
+  this.questionnaireNotes = [];
  };
- SwipeNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeNoteManager = function ($http, $q) {
  };
 
 
- SwipeNoteManager.prototype.getSwipeNote = function (swipeId, noteId) {
+ QuestionnaireNoteManager.prototype.getQuestionnaireNote = function (questionnaireId, noteId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/note/' + noteId).success(function (data) {
-   self.swipeNote = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/note/' + noteId).success(function (data) {
+   self.questionnaireNote = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeNoteManager = function ($http, $q) {
  };
 
 
- SwipeNoteManager.prototype.editSwipeNote = function (swipeNoteData) {
+ QuestionnaireNoteManager.prototype.editQuestionnaireNote = function (questionnaireNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/note/edit',
-   data: swipeNoteData
+   url: '/api/questionnaire/note/edit',
+   data: questionnaireNoteData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var swipeNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeNoteManager;
+ return QuestionnaireNoteManager;
 };
 
-swipeNoteManager.$inject = ['$http', '$q'];
+questionnaireNoteManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeNoteManager', swipeNoteManager);
+angular.module('app.questionnaire').service('QuestionnaireNoteManager', questionnaireNoteManager);

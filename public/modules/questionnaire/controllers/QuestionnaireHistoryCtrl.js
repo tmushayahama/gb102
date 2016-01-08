@@ -1,7 +1,7 @@
-var swipeHistoryCtrl = function (
+var questionnaireHistoryCtrl = function (
         level_categories,
         ConstantsManager,
-        SwipeManager,
+        QuestionnaireManager,
         $scope,
         $state,
         $stateParams,
@@ -15,37 +15,37 @@ var swipeHistoryCtrl = function (
  var vm = this;
 
  vm.constantsManager = new ConstantsManager();
- vm.swipeLevels;
+ vm.questionnaireLevels;
 
- vm.createSwipe = function (exploreId, levelId) {
+ vm.createQuestionnaire = function (exploreId, levelId) {
   var data = {
    exploreId: exploreId,
    levelId: levelId,
    description: ""
   };
-  vm.swipeManager.createSwipe(data).then(function (response) {
+  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
    //vm.currentExplore = response;
   });
-  vm.getSwipe();
+  vm.getQuestionnaire();
  };
 
- vm.getSwipeHistory = function () {
-  vm.swipeManager.getSwipes();
+ vm.getQuestionnaireHistory = function () {
+  vm.questionnaireManager.getQuestionnaires();
  };
 
- vm.swipeManager = new SwipeManager();
- vm.getSwipeHistory();
+ vm.questionnaireManager = new QuestionnaireManager();
+ vm.getQuestionnaireHistory();
  vm.constantsManager.getLevel(11).then(function (data) {
-  vm.swipeLevels = data;
+  vm.questionnaireLevels = data;
  });
 
 };
 
 
-swipeHistoryCtrl.$inject = [
+questionnaireHistoryCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
- 'SwipeManager',
+ 'QuestionnaireManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -56,4 +56,4 @@ swipeHistoryCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeHistoryCtrl', swipeHistoryCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireHistoryCtrl', questionnaireHistoryCtrl);

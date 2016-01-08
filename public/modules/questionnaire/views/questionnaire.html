@@ -1,18 +1,18 @@
 <div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="gb-top-nav-1 gb-nav col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
  <div class="gb-title pull-left">
-  SWIPE APP
+  QUESTIONNAIRE APP
  </div>
  <div class="gb-action pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3">
   <div ng-if="false" class="btn-group">
-   <a ng-click="swipesCtrl.openAddSwipeModal()" class="btn btn-xs btn-link">
+   <a ng-click="questionnairesCtrl.openAddQuestionnaireModal()" class="btn btn-xs btn-link">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
     </span>
    </a>
    <a class="btn btn-xs btn-link gb-form-modal-trigger"
-      data-gb-modal-target="#gb-swipe-play-modal">
+      data-gb-modal-target="#gb-questionnaire-play-modal">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
      <i class="fa fa-play fa-stack-1x fa-inverse"></i>
@@ -28,7 +28,7 @@
  </div>
  <form id="search" class="col-lg-4 col-md-6 col-sm-5 hidden-xs">
    <i class="gb-search-icon fa fa-search"></i>
-   <input type="text" class="" placeholder="Search Swipes">
+   <input type="text" class="" placeholder="Search Questionnaires">
   </form>
   <div class="gb-action pull-right">
     <a class="btn btn-xs btn-link hidden-lg hidden-md hidden-sm vidible-xs">
@@ -70,49 +70,49 @@
   <div class="row">
    <div class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12">
     <div class="gb-cover">
-     <div ng-include="'public/modules/swipe/views/components/swipe/swipe-cover.html'"></div>
+     <div ng-include="'public/modules/questionnaire/views/components/questionnaire/questionnaire-cover.html'"></div>
     </div>
     <div class="gb-profile-row">
-     <img src="public/img/profile_pic/{{swipeCtrl.swipeManager.swipe.creator.avatar_url}}" class="gb-profile-pic" alt="">
+     <img src="public/img/profile_pic/{{questionnaireCtrl.questionnaireManager.questionnaire.creator.avatar_url}}" class="gb-profile-pic" alt="">
      <div class="gb-row-content">
       <a class="gb-ellipsis">
-       {{swipeCtrl.swipeManager.swipe.creator.firstname + " " + swipeCtrl.swipeManager.swipe.creator.lastname}}
+       {{questionnaireCtrl.questionnaireManager.questionnaire.creator.firstname + " " + questionnaireCtrl.questionnaireManager.questionnaire.creator.lastname}}
       </a>
      </div>
     </div>
     <div class="gb-heading-row">
      <h2 class="gb-heading gb-ellipsis">
-      <strong>{{swipeCtrl.swipeManager.swipe.title}}</strong> {{swipeCtrl.swipeManager.swipe.description}}
+      <strong>{{questionnaireCtrl.questionnaireManager.questionnaire.title}}</strong> {{questionnaireCtrl.questionnaireManager.questionnaire.description}}
      </h2>
     </div>
     <ul class="gb-menu-row nav gb-nav-1">
      <li ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-      <a href ui-sref="apps.swipe.overview" class="gb-ellipsis">
+      <a href ui-sref="apps.questionnaire.overview" class="gb-ellipsis">
        <i class='fa fa-home'></i>
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a ui-sref="apps.swipe.tools" class="gb-ellipsis">
+      <a ui-sref="apps.questionnaire.tools" class="gb-ellipsis">
        Tools
       </a>
      </li>
      <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-      <a ui-sref="apps.swipe.community" class="gb-ellipsis">
+      <a ui-sref="apps.questionnaire.community" class="gb-ellipsis">
        Community
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a ui-sref="swipe.overview" class="gb-ellipsis">
+      <a ui-sref="questionnaire.overview" class="gb-ellipsis">
        Apps
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a ui-sref="swipe.stats" class="gb-link gb-app-tab gb-ellipsis">
+      <a ui-sref="questionnaire.stats" class="gb-link gb-app-tab gb-ellipsis">
        Stats
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a ui-sref="swipe.manage" class="gb-link gb-app-tab gb-ellipsis">
+      <a ui-sref="questionnaire.manage" class="gb-link gb-app-tab gb-ellipsis">
        Manage
       </a>
      </li>

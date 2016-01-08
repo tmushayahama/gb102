@@ -1,10 +1,10 @@
 <div class="gb-top-nav-1 gb-nav col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
  <div class="gb-title pull-left">
-  SWIPE APP
+  QUESTIONNAIRE APP
  </div>
  <div class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
   <div class="btn-group">
-   <a ng-click="swipesCtrl.openAddSwipeModal()" class="btn btn-xs btn-link">
+   <a ng-click="questionnairesCtrl.openAddQuestionnaireModal()" class="btn btn-xs btn-link">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
@@ -13,7 +13,7 @@
   </div>
  </div>
  <div class="btn-group visible-xs">
-  <a ng-click="swipesCtrl.openAddSwipeModal()" class="btn btn-xs btn-link">
+  <a ng-click="questionnairesCtrl.openAddQuestionnaireModal()" class="btn btn-xs btn-link">
    <span class="fa-stack fa-lg">
     <i class="fa fa-circle fa-stack-2x"></i>
     <i class="fa fa-search fa-stack-1x fa-inverse"></i>
@@ -22,7 +22,7 @@
  </div>
  <form id="search" class="col-lg-4 col-md-6 col-sm-6 hidden-xs">
   <i class="gb-search-icon fa fa-search"></i>
-  <input type="text" class="" placeholder="Search Swipes">
+  <input type="text" class="" placeholder="Search Questionnaires">
  </form>
  <div class="gb-action pull-right">
   <div class="hidden-sm hidden-xs btn-group">
@@ -59,12 +59,12 @@
    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
     <ul class="gb-nav-2 text-center">
      <li ui-sref-active="active" class="">
-      <a ui-sref="apps.swipes.swipe">
-       Swipe
+      <a ui-sref="apps.questionnaires.questionnaire">
+       Questionnaire
       </a>
      </li>
      <li ui-sref-active="active" class="">
-      <a ui-sref="apps.swipes.history">
+      <a ui-sref="apps.questionnaires.history">
        History
       </a>
      </li>
@@ -73,11 +73,11 @@
   </div>
  </div>
 </div>
-<div class="gb-container gb-app-swipe">
+<div class="gb-container gb-app-questionnaire">
  <div ui-view="app-tab" class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12"></div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->
 
-<script type="text/ng-template" id="add-swipe-modal.html">
- <div ng-include="'public/modules/swipe/views/modals/add-swipe.html'"></div>
+<script type="text/ng-template" id="add-questionnaire-modal.html">
+ <div ng-include="'public/modules/questionnaire/views/modals/add-questionnaire.html'"></div>
 </script>

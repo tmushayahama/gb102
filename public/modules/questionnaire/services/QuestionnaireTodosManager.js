@@ -1,9 +1,9 @@
-var swipeTodosManager = function ($http, $q) {
+var questionnaireTodosManager = function ($http, $q) {
 
- var SwipeTodosManager = function () {
-  this.swipeTodos = [];
+ var QuestionnaireTodosManager = function () {
+  this.questionnaireTodos = [];
  };
- SwipeTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipeTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeTodosManager.prototype.getSwipeTodos = function (swipeId) {
+ QuestionnaireTodosManager.prototype.getQuestionnaireTodos = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeTodos = [];
-  $http.get('/api/swipe/' + swipeId + '/todos').success(function (data) {
-   self.swipeTodos = data;
+  self.questionnaireTodos = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/todos').success(function (data) {
+   self.questionnaireTodos = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var swipeTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTodosManager.prototype.getSwipeTodo = function (swipeId, todoId) {
+ QuestionnaireTodosManager.prototype.getQuestionnaireTodo = function (questionnaireId, todoId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeTodos = [];
-  $http.get('/api/swipe/' + swipeId + '/todo/' + todoId).success(function (data) {
-   self.swipeTodos = data;
+  self.questionnaireTodos = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/todo/' + todoId).success(function (data) {
+   self.questionnaireTodos = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var swipeTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTodosManager.prototype.createSwipeTodo = function (swipeTodoData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/swipe/todo/create',
-   data: swipeTodoData
-  }).success(function (data) {
-   self.swipeTodos.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- SwipeTodosManager.prototype.editSwipeTodo = function (swipeTodoData) {
+ QuestionnaireTodosManager.prototype.createQuestionnaireTodo = function (questionnaireTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/todo/edit',
-   data: swipeTodoData
+   url: '/api/questionnaire/todo/create',
+   data: questionnaireTodoData
+  }).success(function (data) {
+   self.questionnaireTodos.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ QuestionnaireTodosManager.prototype.editQuestionnaireTodo = function (questionnaireTodoData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/questionnaire/todo/edit',
+   data: questionnaireTodoData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var swipeTodosManager = function ($http, $q) {
  };
 
 
- return SwipeTodosManager;
+ return QuestionnaireTodosManager;
 };
 
-swipeTodosManager.$inject = ['$http', '$q'];
+questionnaireTodosManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTodosManager', swipeTodosManager);
+angular.module('app.questionnaire').service('QuestionnaireTodosManager', questionnaireTodosManager);

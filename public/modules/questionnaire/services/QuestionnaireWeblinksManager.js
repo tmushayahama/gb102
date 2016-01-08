@@ -1,9 +1,9 @@
-var swipeWeblinksManager = function ($http, $q) {
+var questionnaireWeblinksManager = function ($http, $q) {
 
- var SwipeWeblinksManager = function () {
-  this.swipeWeblinks = [];
+ var QuestionnaireWeblinksManager = function () {
+  this.questionnaireWeblinks = [];
  };
- SwipeWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipeWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeWeblinksManager.prototype.getSwipeWeblinks = function (swipeId) {
+ QuestionnaireWeblinksManager.prototype.getQuestionnaireWeblinks = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeWeblinks = [];
-  $http.get('/api/swipe/' + swipeId + '/weblinks').success(function (data) {
-   self.swipeWeblinks = data;
+  self.questionnaireWeblinks = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/weblinks').success(function (data) {
+   self.questionnaireWeblinks = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var swipeWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeWeblinksManager.prototype.getSwipeWeblink = function (swipeId, weblinkId) {
+ QuestionnaireWeblinksManager.prototype.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeWeblinks = [];
-  $http.get('/api/swipe/' + swipeId + '/weblink/' + weblinkId).success(function (data) {
-   self.swipeWeblinks = data;
+  self.questionnaireWeblinks = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/weblink/' + weblinkId).success(function (data) {
+   self.questionnaireWeblinks = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var swipeWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeWeblinksManager.prototype.createSwipeWeblink = function (swipeWeblinkData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/swipe/weblink/create',
-   data: swipeWeblinkData
-  }).success(function (data) {
-   self.swipeWeblinks.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- SwipeWeblinksManager.prototype.editSwipeWeblink = function (swipeWeblinkData) {
+ QuestionnaireWeblinksManager.prototype.createQuestionnaireWeblink = function (questionnaireWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/weblink/edit',
-   data: swipeWeblinkData
+   url: '/api/questionnaire/weblink/create',
+   data: questionnaireWeblinkData
+  }).success(function (data) {
+   self.questionnaireWeblinks.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ QuestionnaireWeblinksManager.prototype.editQuestionnaireWeblink = function (questionnaireWeblinkData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/questionnaire/weblink/edit',
+   data: questionnaireWeblinkData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,10 +80,10 @@ var swipeWeblinksManager = function ($http, $q) {
  };
 
 
- return SwipeWeblinksManager;
+ return QuestionnaireWeblinksManager;
 };
 
 
-swipeWeblinksManager.$inject = ['$http', '$q'];
+questionnaireWeblinksManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeWeblinksManager', swipeWeblinksManager);
+angular.module('app.questionnaire').service('QuestionnaireWeblinksManager', questionnaireWeblinksManager);

@@ -1,5 +1,5 @@
-var swipeTodosCtrl = function (
-        SwipeTodosManager,
+var questionnaireTodosCtrl = function (
+        QuestionnaireTodosManager,
         $scope,
         $state,
         $stateParams,
@@ -10,51 +10,51 @@ var swipeTodosCtrl = function (
         $log) {
 
  var vm = this;
- vm.swipeId = $stateParams.swipeId;
- vm.swipeTodosManager = new SwipeTodosManager();
+ vm.questionnaireId = $stateParams.questionnaireId;
+ vm.questionnaireTodosManager = new QuestionnaireTodosManager();
  vm.todoFormDisplay = false;
 
- vm.defaultSwipeTodoData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireTodoData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  };
- vm.newSwipeTodoData = angular.copy(vm.defaultSwipeTodoData);
+ vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData);
 
  vm.showTodoForm = function () {
   vm.todoFormDisplay = true;
  };
 
- vm.createSwipeTodo = function (data) {
-  vm.swipeTodosManager.createSwipeTodo(data).then(function (response) {
+ vm.createQuestionnaireTodo = function (data) {
+  vm.questionnaireTodosManager.createQuestionnaireTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
-   vm.newSwipeTodoData = angular.copy(vm.defaultSwipeTodoData);
+   vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTodo = function (data) {
-  vm.swipeTodosManager.editSwipeTodo(data).then(function (response) {
+ vm.editQuestionnaireTodo = function (data) {
+  vm.questionnaireTodosManager.editQuestionnaireTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
-   vm.newSwipeTodoData = angular.copy(vm.defaultSwipeTodoData);
+   vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTodoSections = {
-  title: function (swipeTodoId, title) {
-   var swipeTodoData = {
-    swipeTodoId: swipeTodoId,
+ vm.editQuestionnaireTodoSections = {
+  title: function (questionnaireTodoId, title) {
+   var questionnaireTodoData = {
+    questionnaireTodoId: questionnaireTodoId,
     title: title
    };
-   vm.editSwipeTodo(swipeTodoData);
+   vm.editQuestionnaireTodo(questionnaireTodoData);
   }
  }
 
- vm.cancelSwipeTodo = function (form) {
+ vm.cancelQuestionnaireTodo = function (form) {
   vm.todoFormDisplay = false;
-  vm.newSwipeTodoData = angular.copy(vm.defaultSwipeTodoData)
+  vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
@@ -69,12 +69,12 @@ var swipeTodosCtrl = function (
  vm.editedTodo = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeTodos;
+  return vm.questionnaireTodos;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeTodos, {completed: false}).length;
-  vm.doneCount = vm.swipeTodosManager.swipeTodos.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireTodos, {completed: false}).length;
+  vm.doneCount = vm.questionnaireTodosManager.questionnaireTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeTodoService.put(vm.swipeTodos);
+  //QuestionnaireTodoService.put(vm.questionnaireTodos);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -89,32 +89,32 @@ var swipeTodosCtrl = function (
 
 
 
- vm.editTodo = function (swipeTodo) {
-  vm.editedTodo = swipeTodo;
-  // Clone the original swipeTodo to restore it on demand.
-  vm.originalTodo = angular.copy(swipeTodo);
+ vm.editTodo = function (questionnaireTodo) {
+  vm.editedTodo = questionnaireTodo;
+  // Clone the original questionnaireTodo to restore it on demand.
+  vm.originalTodo = angular.copy(questionnaireTodo);
  };
 
 
- vm.doneEditing = function (swipeTodo) {
+ vm.doneEditing = function (questionnaireTodo) {
   vm.editedTodo = null;
-  swipeTodo.title = swipeTodo.title.trim();
+  questionnaireTodo.title = questionnaireTodo.title.trim();
 
-  if (!swipeTodo.title) {
-   vm.removeTodo(swipeTodo);
+  if (!questionnaireTodo.title) {
+   vm.removeTodo(questionnaireTodo);
   }
  };
 
- vm.openSwipeTodo = function (swipeTodo) {
+ vm.openQuestionnaireTodo = function (questionnaireTodo) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-todo-modal.html',
-   controller: 'SwipeTodoCtrl as swipeTodoCtrl',
+   templateUrl: 'questionnaire-todo-modal.html',
+   controller: 'QuestionnaireTodoCtrl as questionnaireTodoCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeTodoData: function () {
-     return swipeTodo;
+    questionnaireTodoData: function () {
+     return questionnaireTodo;
     }
    }
   });
@@ -129,11 +129,11 @@ var swipeTodosCtrl = function (
 
 
  //--------init------
- vm.swipeTodosManager.getSwipeTodos(vm.swipeId);
+ vm.questionnaireTodosManager.getQuestionnaireTodos(vm.questionnaireId);
 };
 
-swipeTodosCtrl.$inject = [
- 'SwipeTodosManager',
+questionnaireTodosCtrl.$inject = [
+ 'QuestionnaireTodosManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -143,4 +143,4 @@ swipeTodosCtrl.$inject = [
  '$uibModal',
  '$log'];
 
-angular.module("app.swipe").controller('SwipeTodosCtrl', swipeTodosCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireTodosCtrl', questionnaireTodosCtrl);

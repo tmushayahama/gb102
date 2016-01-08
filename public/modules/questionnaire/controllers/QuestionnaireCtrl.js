@@ -1,7 +1,7 @@
-var swipeCtrl = function (
+var questionnaireCtrl = function (
         level_categories,
         ConstantsManager,
-        SwipeManager,
+        QuestionnaireManager,
         $scope,
         $timeout,
         $state,
@@ -17,10 +17,10 @@ var swipeCtrl = function (
 
  vm.constantsManager = new ConstantsManager();
  vm.currentExplore;
- vm.swipeLevels;
+ vm.questionnaireLevels;
 
- vm.swipeRight = function ($event, exploreId) {
-  vm.createSwipe(exploreId, vm.swipeLevels[2].id);
+ vm.questionnaireRight = function ($event, exploreId) {
+  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[2].id);
 
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
@@ -37,8 +37,8 @@ var swipeCtrl = function (
   }, 1000);
  };
 
- vm.swipeLeft = function ($event, exploreId) {
-  vm.createSwipe(exploreId, vm.swipeLevels[0].id);
+ vm.questionnaireLeft = function ($event, exploreId) {
+  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[0].id);
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
   $(ele).css({
@@ -53,45 +53,45 @@ var swipeCtrl = function (
    });
   }, 1000);
  }
- vm.swipeDown = function ($event, exploreId) {
-  vm.createSwipe(exploreId, vm.swipeLevels[1].id);
+ vm.questionnaireDown = function ($event, exploreId) {
+  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[1].id);
  }
 
- vm.getSwipe = function () {
-  vm.swipeManager.getSwipe().then(function (response) {
+ vm.getQuestionnaire = function () {
+  vm.questionnaireManager.getQuestionnaire().then(function (response) {
    vm.currentExplore = response;
   });
  };
 
- vm.createSwipe = function (exploreId, levelId) {
+ vm.createQuestionnaire = function (exploreId, levelId) {
   var data = {
    exploreId: exploreId,
    levelId: levelId,
    description: ""
   };
-  vm.swipeManager.createSwipe(data).then(function (response) {
+  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
    //vm.currentExplore = response;
   });
-  vm.getSwipe();
+  vm.getQuestionnaire();
  };
 
- vm.viewSwipe = function () {
-  vm.swipeManager.getSwipes();
+ vm.viewQuestionnaire = function () {
+  vm.questionnaireManager.getQuestionnaires();
  };
 
- vm.swipeManager = new SwipeManager();
- vm.getSwipe();
+ vm.questionnaireManager = new QuestionnaireManager();
+ vm.getQuestionnaire();
  vm.constantsManager.getLevel(11).then(function (data) {
-  vm.swipeLevels = data;
+  vm.questionnaireLevels = data;
  });
 
 };
 
 
-swipeCtrl.$inject = [
+questionnaireCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
- 'SwipeManager',
+ 'QuestionnaireManager',
  '$scope',
  '$timeout',
  '$state',
@@ -103,4 +103,4 @@ swipeCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeCtrl', swipeCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireCtrl', questionnaireCtrl);

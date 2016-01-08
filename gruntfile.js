@@ -18,7 +18,7 @@ module.exports = function (grunt) {
  };
 
  var apps = [
-  ""
+  "questionnaire"
  ];
  var srcs = [
   {
@@ -110,7 +110,7 @@ module.exports = function (grunt) {
     files: [
      {
       expand: true,
-      src: ['public/modules/' + app + 's/**'],
+      src: ['public/modules/' + app + '/**'],
       dest: ''
      },
      {

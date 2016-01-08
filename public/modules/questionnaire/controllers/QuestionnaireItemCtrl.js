@@ -1,8 +1,8 @@
 
-var swipeCtrl = function (
+var questionnaireCtrl = function (
         _,
         ConstantsManager,
-        SwipeManager,
+        QuestionnaireManager,
         $scope,
         $state,
         $stateParams,
@@ -16,46 +16,46 @@ var swipeCtrl = function (
 
  var vm = this;
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-swipe.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-questionnaire.css'
  }, $scope);
 
- vm.swipe = [];
- var swipeData = {
+ vm.questionnaire = [];
+ var questionnaireData = {
  };
 
  vm.range = function (min, max) {
   return _.range(min, max);
  };
 
- vm.swipeIcons = [];
- vm.swipeIconsArray = [];
+ vm.questionnaireIcons = [];
+ vm.questionnaireIconsArray = [];
 
  var getRand = function (min, max) {
   return Math.floor((Math.random() * max) + min);
  }
 
- vm.getRandomSwipeIcons = function () {
+ vm.getRandomQuestionnaireIcons = function () {
   for (var i = 0; i < 5; i++) {
    var rowArray = [];
-   for (var j = 0; j < vm.swipeIcons.length; j++) {
-    var rand = getRand(0, vm.swipeIcons.length);
-    rowArray.push(vm.swipeIcons[rand].name);
+   for (var j = 0; j < vm.questionnaireIcons.length; j++) {
+    var rand = getRand(0, vm.questionnaireIcons.length);
+    rowArray.push(vm.questionnaireIcons[rand].name);
    }
-   vm.swipeIconsArray.push(rowArray);
+   vm.questionnaireIconsArray.push(rowArray);
   }
  };
 
 
- vm.swipeId = $stateParams.swipeId;
+ vm.questionnaireId = $stateParams.questionnaireId;
 
- vm.swipeManager = new SwipeManager();
+ vm.questionnaireManager = new QuestionnaireManager();
  vm.constantsManager = new ConstantsManager();
 
- vm.swipeFormDisplay = false;
+ vm.questionnaireFormDisplay = false;
 
- vm.getSwipe = function (id, data) {
-  vm.swipeManager.getSwipe(id, data).success(function (response) {
-   vm.swipe = response;
+ vm.getQuestionnaire = function (id, data) {
+  vm.questionnaireManager.getQuestionnaire(id, data).success(function (response) {
+   vm.questionnaire = response;
   }).error(function (response) {
    console.log(response);
   });
@@ -64,65 +64,65 @@ var swipeCtrl = function (
 
 
 
- vm.defaultSwipeData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newSwipeData = angular.copy(vm.defaultSwipeData);
+ vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
 
  vm.showForm = function () {
   vm.FormDisplay = true;
  };
 
- vm.createSwipe = function (data) {
-  vm.swipeManager.createSwipe(data).then(function (response) {
+ vm.createQuestionnaire = function (data) {
+  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
-   vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipeCopy = angular.copy(vm.swipeManager.swipe);
+   vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
+   vm.questionnaireCopy = angular.copy(vm.questionnaireManager.questionnaire);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipe = function (data) {
-  vm.swipeManager.editSwipe(data).then(function (response) {
+ vm.editQuestionnaire = function (data) {
+  vm.questionnaireManager.editQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
-   vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipeCopy = angular.copy(vm.swipeManager.swipe);
+   vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
+   vm.questionnaireCopy = angular.copy(vm.questionnaireManager.questionnaire);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeSections = {
-  details: function (swipeId, detail) {
-   var swipeData = {
-    swipeId: swipeId,
+ vm.editQuestionnaireSections = {
+  details: function (questionnaireId, detail) {
+   var questionnaireData = {
+    questionnaireId: questionnaireId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipe(swipeData);
+   vm.editQuestionnaire(questionnaireData);
   }
  }
 
- vm.cancelSwipe = function (form) {
+ vm.cancelQuestionnaire = function (form) {
   vm.FormDisplay = false;
-  vm.newSwipeData = angular.copy(vm.defaultSwipeData)
+  vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipe = function (swipe, swipeCopy) {
-  swipe = swipeCopy;
+ vm.revertQuestionnaire = function (questionnaire, questionnaireCopy) {
+  questionnaire = questionnaireCopy;
   /*
    $filter('filter')
-   (vm.swipeManager.swipe, {id: swipeId}, true)[0]
+   (vm.questionnaireManager.questionnaire, {id: questionnaireId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeCopy, {id: swipeId}, true)[0]);
-   if (swipe.length && swipeCopy.length) {
-   // vm.swipeManager.swipe angular.copy(vm.swipeCopy);
+   (vm.questionnaireCopy, {id: questionnaireId}, true)[0]);
+   if (questionnaire.length && questionnaireCopy.length) {
+   // vm.questionnaireManager.questionnaire angular.copy(vm.questionnaireCopy);
    }
    */
  };
@@ -135,12 +135,12 @@ var swipeCtrl = function (
  vm.edited = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipe;
+  return vm.questionnaire;
  }), function () {
-  //vm.remainingCount = filterFilter(swipe, {completed: false}).length;
-  vm.doneCount = vm.swipeManager.swipe.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaire, {completed: false}).length;
+  vm.doneCount = vm.questionnaireManager.questionnaire.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeService.put(vm.swipe);
+  //QuestionnaireService.put(vm.questionnaire);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -155,33 +155,33 @@ var swipeCtrl = function (
 
 
 
- vm.edit = function (swipe) {
-  vm.edited = swipe;
-  // Clone the original swipe to restore it on demand.
-  vm.original = angular.copy(swipe);
+ vm.edit = function (questionnaire) {
+  vm.edited = questionnaire;
+  // Clone the original questionnaire to restore it on demand.
+  vm.original = angular.copy(questionnaire);
  };
 
 
- vm.doneEditing = function (swipe) {
+ vm.doneEditing = function (questionnaire) {
   vm.edited = null;
-  swipe.title = swipe.title.trim();
+  questionnaire.title = questionnaire.title.trim();
 
-  if (!swipe.title) {
-   vm.remove(swipe);
+  if (!questionnaire.title) {
+   vm.remove(questionnaire);
   }
  };
 
  //--------init------
- vm.swipeManager.getSwipe(vm.swipeId);
+ vm.questionnaireManager.getQuestionnaire(vm.questionnaireId);
  vm.constantsManager.getIcons(1).then(function (data) {
-  vm.swipeIcons = data;
-  vm.getRandomSwipeIcons();
+  vm.questionnaireIcons = data;
+  vm.getRandomQuestionnaireIcons();
  });
 };
 
-swipeCtrl.$inject = ['_',
+questionnaireCtrl.$inject = ['_',
  'ConstantsManager',
- 'SwipeManager',
+ 'QuestionnaireManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -193,4 +193,4 @@ swipeCtrl.$inject = ['_',
  '$filter',
  '$css'];
 
-angular.module("app.swipe").controller('SwipeCtrl', swipeCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireCtrl', questionnaireCtrl);

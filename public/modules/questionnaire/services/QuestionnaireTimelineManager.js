@@ -1,9 +1,9 @@
-var swipeTimelineManager = function ($http, $q) {
+var questionnaireTimelineManager = function ($http, $q) {
 
- var SwipeTimelineManager = function () {
-  this.swipeTimelines = [];
+ var QuestionnaireTimelineManager = function () {
+  this.questionnaireTimelines = [];
  };
- SwipeTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeTimelineManager = function ($http, $q) {
  };
 
 
- SwipeTimelineManager.prototype.getSwipeTimeline = function (swipeId, timelineId) {
+ QuestionnaireTimelineManager.prototype.getQuestionnaireTimeline = function (questionnaireId, timelineId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/timeline/' + timelineId).success(function (data) {
-   self.swipeTimeline = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/timeline/' + timelineId).success(function (data) {
+   self.questionnaireTimeline = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeTimelineManager = function ($http, $q) {
  };
 
 
- SwipeTimelineManager.prototype.editSwipeTimeline = function (swipeTimelineData) {
+ QuestionnaireTimelineManager.prototype.editQuestionnaireTimeline = function (questionnaireTimelineData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/timeline/edit',
-   data: swipeTimelineData
+   url: '/api/questionnaire/timeline/edit',
+   data: questionnaireTimelineData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var swipeTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeTimelineManager;
+ return QuestionnaireTimelineManager;
 };
 
-swipeTimelineManager.$inject = ['$http', '$q'];
+questionnaireTimelineManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTimelineManager', swipeTimelineManager);
+angular.module('app.questionnaire').service('QuestionnaireTimelineManager', questionnaireTimelineManager);

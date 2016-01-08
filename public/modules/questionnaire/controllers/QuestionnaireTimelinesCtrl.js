@@ -1,5 +1,5 @@
-var swipeTimelinesCtrl = function (
-        SwipeTimelinesManager,
+var questionnaireTimelinesCtrl = function (
+        QuestionnaireTimelinesManager,
         $scope,
         $state,
         $stateParams,
@@ -11,70 +11,70 @@ var swipeTimelinesCtrl = function (
         $filter) {
 
  var vm = this;
- vm.swipeId = $stateParams.swipeId;
- vm.swipeTimelinesCopy;
- vm.swipeTimelinesManager = new SwipeTimelinesManager();
+ vm.questionnaireId = $stateParams.questionnaireId;
+ vm.questionnaireTimelinesCopy;
+ vm.questionnaireTimelinesManager = new QuestionnaireTimelinesManager();
  vm.timelineFormDisplay = false;
 
- vm.defaultSwipeTimelineData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireTimelineData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
+ vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
 
  vm.showTimelineForm = function () {
   vm.timelineFormDisplay = true;
  };
 
- vm.createSwipeTimeline = function (data) {
-  vm.swipeTimelinesManager.createSwipeTimeline(data).then(function (response) {
+ vm.createQuestionnaireTimeline = function (data) {
+  vm.questionnaireTimelinesManager.createQuestionnaireTimeline(data).then(function (response) {
    vm.timelineFormDisplay = false;
-   vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
-   vm.swipeTimelinesCopy = angular.copy(vm.swipeTimelinesManager.swipeTimelines);
+   vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
+   vm.questionnaireTimelinesCopy = angular.copy(vm.questionnaireTimelinesManager.questionnaireTimelines);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimeline = function (data) {
-  vm.swipeTimelinesManager.editSwipeTimeline(data).then(function (response) {
+ vm.editQuestionnaireTimeline = function (data) {
+  vm.questionnaireTimelinesManager.editQuestionnaireTimeline(data).then(function (response) {
    vm.timelineFormDisplay = false;
-   vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
-   vm.swipeTimelinesCopy = angular.copy(vm.swipeTimelinesManager.swipeTimelines);
+   vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
+   vm.questionnaireTimelinesCopy = angular.copy(vm.questionnaireTimelinesManager.questionnaireTimelines);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimelineSections = {
-  details: function (swipeTimelineId, detail) {
-   var swipeTimelineData = {
-    swipeTimelineId: swipeTimelineId,
+ vm.editQuestionnaireTimelineSections = {
+  details: function (questionnaireTimelineId, detail) {
+   var questionnaireTimelineData = {
+    questionnaireTimelineId: questionnaireTimelineId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipeTimeline(swipeTimelineData);
+   vm.editQuestionnaireTimeline(questionnaireTimelineData);
   }
  }
 
- vm.cancelSwipeTimeline = function (form) {
+ vm.cancelQuestionnaireTimeline = function (form) {
   vm.timelineFormDisplay = false;
-  vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData)
+  vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipeTimeline = function (swipeTimeline, swipeTimelineCopy) {
-  swipeTimeline = swipeTimelineCopy;
+ vm.revertQuestionnaireTimeline = function (questionnaireTimeline, questionnaireTimelineCopy) {
+  questionnaireTimeline = questionnaireTimelineCopy;
   /*
    $filter('filter')
-   (vm.swipeTimelinesManager.swipeTimelines, {id: swipeTimelineId}, true)[0]
+   (vm.questionnaireTimelinesManager.questionnaireTimelines, {id: questionnaireTimelineId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeTimelinesCopy, {id: swipeTimelineId}, true)[0]);
-   if (swipeTimeline.length && swipeTimelineCopy.length) {
-   // vm.swipeTimelinesManager.swipeTimelines angular.copy(vm.swipeTimelinesCopy);
+   (vm.questionnaireTimelinesCopy, {id: questionnaireTimelineId}, true)[0]);
+   if (questionnaireTimeline.length && questionnaireTimelineCopy.length) {
+   // vm.questionnaireTimelinesManager.questionnaireTimelines angular.copy(vm.questionnaireTimelinesCopy);
    }
    */
  };
@@ -87,12 +87,12 @@ var swipeTimelinesCtrl = function (
  vm.editedTimeline = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeTimelines;
+  return vm.questionnaireTimelines;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeTimelines, {completed: false}).length;
-  vm.doneCount = vm.swipeTimelinesManager.swipeTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireTimelines, {completed: false}).length;
+  vm.doneCount = vm.questionnaireTimelinesManager.questionnaireTimelines.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeTimelineService.put(vm.swipeTimelines);
+  //QuestionnaireTimelineService.put(vm.questionnaireTimelines);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var swipeTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (swipeTimeline) {
-  vm.editedTimeline = swipeTimeline;
-  // Clone the original swipeTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(swipeTimeline);
+ vm.editTimeline = function (questionnaireTimeline) {
+  vm.editedTimeline = questionnaireTimeline;
+  // Clone the original questionnaireTimeline to restore it on demand.
+  vm.originalTimeline = angular.copy(questionnaireTimeline);
  };
 
 
- vm.doneEditing = function (swipeTimeline) {
+ vm.doneEditing = function (questionnaireTimeline) {
   vm.editedTimeline = null;
-  swipeTimeline.title = swipeTimeline.title.trim();
+  questionnaireTimeline.title = questionnaireTimeline.title.trim();
 
-  if (!swipeTimeline.title) {
-   vm.removeTimeline(swipeTimeline);
+  if (!questionnaireTimeline.title) {
+   vm.removeTimeline(questionnaireTimeline);
   }
  };
 
- vm.openSwipeTimeline = function (swipeTimeline) {
+ vm.openQuestionnaireTimeline = function (questionnaireTimeline) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-timeline-modal.html',
-   controller: 'SwipeTimelineCtrl as swipeTimelineCtrl',
+   templateUrl: 'questionnaire-timeline-modal.html',
+   controller: 'QuestionnaireTimelineCtrl as questionnaireTimelineCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeTimelineData: function () {
-     return swipeTimeline;
+    questionnaireTimelineData: function () {
+     return questionnaireTimeline;
     }
    }
   });
@@ -147,11 +147,11 @@ var swipeTimelinesCtrl = function (
 
 
  //--------init------
- vm.swipeTimelinesManager.getSwipeTimelines(vm.swipeId);
+ vm.questionnaireTimelinesManager.getQuestionnaireTimelines(vm.questionnaireId);
 };
 
-swipeTimelinesCtrl.$inject = [
- 'SwipeTimelinesManager',
+questionnaireTimelinesCtrl.$inject = [
+ 'QuestionnaireTimelinesManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ swipeTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeTimelinesCtrl', swipeTimelinesCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireTimelinesCtrl', questionnaireTimelinesCtrl);

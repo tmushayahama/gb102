@@ -1,5 +1,5 @@
-var swipeTimelineCtrl = function (
-        SwipeTimelineManager,
+var questionnaireTimelineCtrl = function (
+        QuestionnaireTimelineManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,14 +8,14 @@ var swipeTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeTimelineData) {
+        questionnaireTimelineData) {
  var vm = this;
- vm.swipeId = swipeTimelineData.swipe_id;
- vm.swipeTimelineId = swipeTimelineData.id;
- vm.swipeTimelineManager = new SwipeTimelineManager();
+ vm.questionnaireId = questionnaireTimelineData.questionnaire_id;
+ vm.questionnaireTimelineId = questionnaireTimelineData.id;
+ vm.questionnaireTimelineManager = new QuestionnaireTimelineManager();
 
 
- vm.timelineId = swipeTimelineData.timeline_id;
+ vm.timelineId = questionnaireTimelineData.timeline_id;
 
  vm.timelineFormDisplay = false;
 
@@ -30,30 +30,30 @@ var swipeTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeTimelineData = vm.defaultSwipeTimelineData;
+ // vm.newQuestionnaireTimelineData = vm.defaultQuestionnaireTimelineData;
 
- vm.getSwipeTimeline = function (swipeId, timelineId) {
-  vm.swipeTimelineManager.getSwipeTimeline(swipeId, timelineId).then(function (response) {
+ vm.getQuestionnaireTimeline = function (questionnaireId, timelineId) {
+  vm.questionnaireTimelineManager.getQuestionnaireTimeline(questionnaireId, timelineId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeTimeline = function (data) {
-  vm.swipeTimelineManager.editSwipeTimeline(data).then(function (response) {
+ vm.editQuestionnaireTimeline = function (data) {
+  vm.questionnaireTimelineManager.editQuestionnaireTimeline(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimelineSections = {
+ vm.editQuestionnaireTimelineSections = {
   details: function (details) {
-   var swipeTimelineData = {
-    swipeTimelineId: vm.swipeTimelineId,
+   var questionnaireTimelineData = {
+    questionnaireTimelineId: vm.questionnaireTimelineId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeTimeline(swipeTimelineData);
+   vm.editQuestionnaireTimeline(questionnaireTimelineData);
   }
  }
 
@@ -66,12 +66,12 @@ var swipeTimelineCtrl = function (
 
 
  //--------init------
- vm.getSwipeTimeline(vm.swipeId, vm.timelineId);
+ vm.getQuestionnaireTimeline(vm.questionnaireId, vm.timelineId);
 };
 
 
-swipeTimelineCtrl.$inject = [
- 'SwipeTimelineManager',
+questionnaireTimelineCtrl.$inject = [
+ 'QuestionnaireTimelineManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ swipeTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeTimelineData'];
+ 'questionnaireTimelineData'];
 
-angular.module("app.swipe").controller('SwipeTimelineCtrl', swipeTimelineCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireTimelineCtrl', questionnaireTimelineCtrl);

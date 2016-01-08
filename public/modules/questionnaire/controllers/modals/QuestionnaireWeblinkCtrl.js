@@ -1,5 +1,5 @@
-var swipeWeblinkCtrl = function (
-        SwipeWeblinkManager,
+var questionnaireWeblinkCtrl = function (
+        QuestionnaireWeblinkManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,14 +8,14 @@ var swipeWeblinkCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeWeblinkData) {
+        questionnaireWeblinkData) {
  var vm = this;
- vm.swipeId = swipeWeblinkData.swipe_id;
- vm.swipeWeblinkId = swipeWeblinkData.id;
- vm.swipeWeblinkManager = new SwipeWeblinkManager();
+ vm.questionnaireId = questionnaireWeblinkData.questionnaire_id;
+ vm.questionnaireWeblinkId = questionnaireWeblinkData.id;
+ vm.questionnaireWeblinkManager = new QuestionnaireWeblinkManager();
 
 
- vm.weblinkId = swipeWeblinkData.weblink_id;
+ vm.weblinkId = questionnaireWeblinkData.weblink_id;
 
  vm.weblinkFormDisplay = false;
 
@@ -30,30 +30,30 @@ var swipeWeblinkCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeWeblinkData = vm.defaultSwipeWeblinkData;
+ // vm.newQuestionnaireWeblinkData = vm.defaultQuestionnaireWeblinkData;
 
- vm.getSwipeWeblink = function (swipeId, weblinkId) {
-  vm.swipeWeblinkManager.getSwipeWeblink(swipeId, weblinkId).then(function (response) {
+ vm.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
+  vm.questionnaireWeblinkManager.getQuestionnaireWeblink(questionnaireId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeWeblink = function (data) {
-  vm.swipeWeblinkManager.editSwipeWeblink(data).then(function (response) {
+ vm.editQuestionnaireWeblink = function (data) {
+  vm.questionnaireWeblinkManager.editQuestionnaireWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeWeblinkSections = {
+ vm.editQuestionnaireWeblinkSections = {
   details: function (details) {
-   var swipeWeblinkData = {
-    swipeWeblinkId: vm.swipeWeblinkId,
+   var questionnaireWeblinkData = {
+    questionnaireWeblinkId: vm.questionnaireWeblinkId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeWeblink(swipeWeblinkData);
+   vm.editQuestionnaireWeblink(questionnaireWeblinkData);
   }
  }
 
@@ -66,12 +66,12 @@ var swipeWeblinkCtrl = function (
 
 
  //--------init------
- vm.getSwipeWeblink(vm.swipeId, vm.weblinkId);
+ vm.getQuestionnaireWeblink(vm.questionnaireId, vm.weblinkId);
 };
 
 
-swipeWeblinkCtrl.$inject = [
- 'SwipeWeblinkManager',
+questionnaireWeblinkCtrl.$inject = [
+ 'QuestionnaireWeblinkManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ swipeWeblinkCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeWeblinkData'];
+ 'questionnaireWeblinkData'];
 
-angular.module("app.swipe").controller('SwipeWeblinkCtrl', swipeWeblinkCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireWeblinkCtrl', questionnaireWeblinkCtrl);

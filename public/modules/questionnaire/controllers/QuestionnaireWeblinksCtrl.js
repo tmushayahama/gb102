@@ -1,5 +1,5 @@
-var swipeWeblinksCtrl = function (
-        SwipeWeblinksManager,
+var questionnaireWeblinksCtrl = function (
+        QuestionnaireWeblinksManager,
         $scope,
         $state,
         $stateParams,
@@ -11,70 +11,70 @@ var swipeWeblinksCtrl = function (
         $filter) {
 
  var vm = this;
- vm.swipeId = $stateParams.swipeId;
- vm.swipeWeblinksCopy;
- vm.swipeWeblinksManager = new SwipeWeblinksManager();
+ vm.questionnaireId = $stateParams.questionnaireId;
+ vm.questionnaireWeblinksCopy;
+ vm.questionnaireWeblinksManager = new QuestionnaireWeblinksManager();
  vm.weblinkFormDisplay = false;
 
- vm.defaultSwipeWeblinkData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireWeblinkData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newSwipeWeblinkData = angular.copy(vm.defaultSwipeWeblinkData);
+ vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData);
 
  vm.showWeblinkForm = function () {
   vm.weblinkFormDisplay = true;
  };
 
- vm.createSwipeWeblink = function (data) {
-  vm.swipeWeblinksManager.createSwipeWeblink(data).then(function (response) {
+ vm.createQuestionnaireWeblink = function (data) {
+  vm.questionnaireWeblinksManager.createQuestionnaireWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
-   vm.newSwipeWeblinkData = angular.copy(vm.defaultSwipeWeblinkData);
-   vm.swipeWeblinksCopy = angular.copy(vm.swipeWeblinksManager.swipeWeblinks);
+   vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData);
+   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksManager.questionnaireWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeWeblink = function (data) {
-  vm.swipeWeblinksManager.editSwipeWeblink(data).then(function (response) {
+ vm.editQuestionnaireWeblink = function (data) {
+  vm.questionnaireWeblinksManager.editQuestionnaireWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
-   vm.newSwipeWeblinkData = angular.copy(vm.defaultSwipeWeblinkData);
-   vm.swipeWeblinksCopy = angular.copy(vm.swipeWeblinksManager.swipeWeblinks);
+   vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData);
+   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksManager.questionnaireWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeWeblinkSections = {
-  details: function (swipeWeblinkId, detail) {
-   var swipeWeblinkData = {
-    swipeWeblinkId: swipeWeblinkId,
+ vm.editQuestionnaireWeblinkSections = {
+  details: function (questionnaireWeblinkId, detail) {
+   var questionnaireWeblinkData = {
+    questionnaireWeblinkId: questionnaireWeblinkId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipeWeblink(swipeWeblinkData);
+   vm.editQuestionnaireWeblink(questionnaireWeblinkData);
   }
  }
 
- vm.cancelSwipeWeblink = function (form) {
+ vm.cancelQuestionnaireWeblink = function (form) {
   vm.weblinkFormDisplay = false;
-  vm.newSwipeWeblinkData = angular.copy(vm.defaultSwipeWeblinkData)
+  vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipeWeblink = function (swipeWeblink, swipeWeblinkCopy) {
-  swipeWeblink = swipeWeblinkCopy;
+ vm.revertQuestionnaireWeblink = function (questionnaireWeblink, questionnaireWeblinkCopy) {
+  questionnaireWeblink = questionnaireWeblinkCopy;
   /*
    $filter('filter')
-   (vm.swipeWeblinksManager.swipeWeblinks, {id: swipeWeblinkId}, true)[0]
+   (vm.questionnaireWeblinksManager.questionnaireWeblinks, {id: questionnaireWeblinkId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeWeblinksCopy, {id: swipeWeblinkId}, true)[0]);
-   if (swipeWeblink.length && swipeWeblinkCopy.length) {
-   // vm.swipeWeblinksManager.swipeWeblinks angular.copy(vm.swipeWeblinksCopy);
+   (vm.questionnaireWeblinksCopy, {id: questionnaireWeblinkId}, true)[0]);
+   if (questionnaireWeblink.length && questionnaireWeblinkCopy.length) {
+   // vm.questionnaireWeblinksManager.questionnaireWeblinks angular.copy(vm.questionnaireWeblinksCopy);
    }
    */
  };
@@ -87,12 +87,12 @@ var swipeWeblinksCtrl = function (
  vm.editedWeblink = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeWeblinks;
+  return vm.questionnaireWeblinks;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeWeblinks, {completed: false}).length;
-  vm.doneCount = vm.swipeWeblinksManager.swipeWeblinks.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireWeblinks, {completed: false}).length;
+  vm.doneCount = vm.questionnaireWeblinksManager.questionnaireWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeWeblinkService.put(vm.swipeWeblinks);
+  //QuestionnaireWeblinkService.put(vm.questionnaireWeblinks);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var swipeWeblinksCtrl = function (
 
 
 
- vm.editWeblink = function (swipeWeblink) {
-  vm.editedWeblink = swipeWeblink;
-  // Clone the original swipeWeblink to restore it on demand.
-  vm.originalWeblink = angular.copy(swipeWeblink);
+ vm.editWeblink = function (questionnaireWeblink) {
+  vm.editedWeblink = questionnaireWeblink;
+  // Clone the original questionnaireWeblink to restore it on demand.
+  vm.originalWeblink = angular.copy(questionnaireWeblink);
  };
 
 
- vm.doneEditing = function (swipeWeblink) {
+ vm.doneEditing = function (questionnaireWeblink) {
   vm.editedWeblink = null;
-  swipeWeblink.title = swipeWeblink.title.trim();
+  questionnaireWeblink.title = questionnaireWeblink.title.trim();
 
-  if (!swipeWeblink.title) {
-   vm.removeWeblink(swipeWeblink);
+  if (!questionnaireWeblink.title) {
+   vm.removeWeblink(questionnaireWeblink);
   }
  };
 
- vm.openSwipeWeblink = function (swipeWeblink) {
+ vm.openQuestionnaireWeblink = function (questionnaireWeblink) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-weblink-modal.html',
-   controller: 'SwipeWeblinkCtrl as swipeWeblinkCtrl',
+   templateUrl: 'questionnaire-weblink-modal.html',
+   controller: 'QuestionnaireWeblinkCtrl as questionnaireWeblinkCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeWeblinkData: function () {
-     return swipeWeblink;
+    questionnaireWeblinkData: function () {
+     return questionnaireWeblink;
     }
    }
   });
@@ -147,11 +147,11 @@ var swipeWeblinksCtrl = function (
 
 
  //--------init------
- vm.swipeWeblinksManager.getSwipeWeblinks(vm.swipeId);
+ vm.questionnaireWeblinksManager.getQuestionnaireWeblinks(vm.questionnaireId);
 };
 
-swipeWeblinksCtrl.$inject = [
- 'SwipeWeblinksManager',
+questionnaireWeblinksCtrl.$inject = [
+ 'QuestionnaireWeblinksManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ swipeWeblinksCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeWeblinksCtrl', swipeWeblinksCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireWeblinksCtrl', questionnaireWeblinksCtrl);

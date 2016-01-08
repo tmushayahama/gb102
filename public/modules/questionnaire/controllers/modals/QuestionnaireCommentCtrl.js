@@ -1,5 +1,5 @@
-var swipeCommentCtrl = function (
-        SwipeCommentManager,
+var questionnaireCommentCtrl = function (
+        QuestionnaireCommentManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,14 +8,14 @@ var swipeCommentCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeCommentData) {
+        questionnaireCommentData) {
  var vm = this;
- vm.swipeId = swipeCommentData.swipe_id;
- vm.swipeCommentId = swipeCommentData.id;
- vm.swipeCommentManager = new SwipeCommentManager();
+ vm.questionnaireId = questionnaireCommentData.questionnaire_id;
+ vm.questionnaireCommentId = questionnaireCommentData.id;
+ vm.questionnaireCommentManager = new QuestionnaireCommentManager();
 
 
- vm.commentId = swipeCommentData.comment_id;
+ vm.commentId = questionnaireCommentData.comment_id;
 
  vm.commentFormDisplay = false;
 
@@ -30,30 +30,30 @@ var swipeCommentCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeCommentData = vm.defaultSwipeCommentData;
+ // vm.newQuestionnaireCommentData = vm.defaultQuestionnaireCommentData;
 
- vm.getSwipeComment = function (swipeId, commentId) {
-  vm.swipeCommentManager.getSwipeComment(swipeId, commentId).then(function (response) {
+ vm.getQuestionnaireComment = function (questionnaireId, commentId) {
+  vm.questionnaireCommentManager.getQuestionnaireComment(questionnaireId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeComment = function (data) {
-  vm.swipeCommentManager.editSwipeComment(data).then(function (response) {
+ vm.editQuestionnaireComment = function (data) {
+  vm.questionnaireCommentManager.editQuestionnaireComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeCommentSections = {
+ vm.editQuestionnaireCommentSections = {
   details: function (details) {
-   var swipeCommentData = {
-    swipeCommentId: vm.swipeCommentId,
+   var questionnaireCommentData = {
+    questionnaireCommentId: vm.questionnaireCommentId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeComment(swipeCommentData);
+   vm.editQuestionnaireComment(questionnaireCommentData);
   }
  }
 
@@ -66,11 +66,11 @@ var swipeCommentCtrl = function (
 
 
  //--------init------
- vm.getSwipeComment(vm.swipeId, vm.commentId);
+ vm.getQuestionnaireComment(vm.questionnaireId, vm.commentId);
 };
 
-swipeCommentCtrl.$inject = [
- 'SwipeCommentManager',
+questionnaireCommentCtrl.$inject = [
+ 'QuestionnaireCommentManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -79,6 +79,6 @@ swipeCommentCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeCommentData'];
+ 'questionnaireCommentData'];
 
-angular.module("app.swipe").controller('SwipeCommentCtrl', swipeCommentCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireCommentCtrl', questionnaireCommentCtrl);

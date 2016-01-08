@@ -1,4 +1,4 @@
-var addSwipeCtrl = function (
+var addQuestionnaireCtrl = function (
         $uibModalInstance,
         $scope,
         $state,
@@ -7,14 +7,14 @@ var addSwipeCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeLevels) {
+        questionnaireLevels) {
  var vm = this;
 
- vm.swipe = "";
- vm.swipeLevels = swipeLevels;
+ vm.questionnaire = "";
+ vm.questionnaireLevels = questionnaireLevels;
 
  vm.ok = function () {
-  $uibModalInstance.close(vm.swipe);
+  $uibModalInstance.close(vm.questionnaire);
  };
 
  vm.close = function () {
@@ -22,7 +22,7 @@ var addSwipeCtrl = function (
  };
 };
 
-addSwipeCtrl.$inject = [
+addQuestionnaireCtrl.$inject = [
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -31,6 +31,6 @@ addSwipeCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeLevels'];
+ 'questionnaireLevels'];
 
-angular.module("app.swipe").controller('AddSwipeCtrl', addSwipeCtrl);
+angular.module("app.questionnaire").controller('AddQuestionnaireCtrl', addQuestionnaireCtrl);

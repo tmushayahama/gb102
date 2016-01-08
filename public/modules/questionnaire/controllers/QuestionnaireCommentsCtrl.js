@@ -1,5 +1,5 @@
-var swipeCommentsCtrl = function (
-        SwipeCommentsManager,
+var questionnaireCommentsCtrl = function (
+        QuestionnaireCommentsManager,
         $scope,
         $state,
         $stateParams,
@@ -11,75 +11,75 @@ var swipeCommentsCtrl = function (
         $filter) {
 
  var vm = this;
- vm.swipeId = $stateParams.swipeId;
- vm.swipeCommentsCopy;
- vm.swipeCommentsManager = new SwipeCommentsManager();
+ vm.questionnaireId = $stateParams.questionnaireId;
+ vm.questionnaireCommentsCopy;
+ vm.questionnaireCommentsManager = new QuestionnaireCommentsManager();
  vm.commentFormDisplay = false;
- vm.defaultSwipeCommentData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireCommentData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newSwipeCommentData = angular.copy(vm.defaultSwipeCommentData);
+ vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData);
  vm.showCommentForm = function () {
   vm.commentFormDisplay = true;
  };
- vm.createSwipeComment = function (data) {
-  vm.swipeCommentsManager.createSwipeComment(data).then(function (response) {
+ vm.createQuestionnaireComment = function (data) {
+  vm.questionnaireCommentsManager.createQuestionnaireComment(data).then(function (response) {
    vm.commentFormDisplay = false;
-   vm.newSwipeCommentData = angular.copy(vm.defaultSwipeCommentData);
-   vm.swipeCommentsCopy = angular.copy(vm.swipeCommentsManager.swipeComments);
+   vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData);
+   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsManager.questionnaireComments);
   }, function (response) {
    console.log(response);
   });
  };
- vm.editSwipeComment = function (data) {
-  vm.swipeCommentsManager.editSwipeComment(data).then(function (response) {
+ vm.editQuestionnaireComment = function (data) {
+  vm.questionnaireCommentsManager.editQuestionnaireComment(data).then(function (response) {
    vm.commentFormDisplay = false;
-   vm.newSwipeCommentData = angular.copy(vm.defaultSwipeCommentData);
-   vm.swipeCommentsCopy = angular.copy(vm.swipeCommentsManager.swipeComments);
+   vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData);
+   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsManager.questionnaireComments);
   }, function (response) {
    console.log(response);
   });
  };
- vm.editSwipeCommentSections = {
-  details: function (swipeCommentId, detail) {
-   var swipeCommentData = {
-    swipeCommentId: swipeCommentId,
+ vm.editQuestionnaireCommentSections = {
+  details: function (questionnaireCommentId, detail) {
+   var questionnaireCommentData = {
+    questionnaireCommentId: questionnaireCommentId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipeComment(swipeCommentData);
+   vm.editQuestionnaireComment(questionnaireCommentData);
   }
  }
 
- vm.cancelSwipeComment = function (form) {
+ vm.cancelQuestionnaireComment = function (form) {
   vm.commentFormDisplay = false;
-  vm.newSwipeCommentData = angular.copy(vm.defaultSwipeCommentData)
+  vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
- vm.revertSwipeComment = function (swipeComment, swipeCommentCopy) {
-  swipeComment = swipeCommentCopy;
+ vm.revertQuestionnaireComment = function (questionnaireComment, questionnaireCommentCopy) {
+  questionnaireComment = questionnaireCommentCopy;
   /*
    $filter('filter')
-   (vm.swipeCommentsManager.swipeComments, {id: swipeCommentId}, true)[0]
+   (vm.questionnaireCommentsManager.questionnaireComments, {id: questionnaireCommentId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeCommentsCopy, {id: swipeCommentId}, true)[0]);
-   if (swipeComment.length && swipeCommentCopy.length) {
-   // vm.swipeCommentsManager.swipeComments angular.copy(vm.swipeCommentsCopy);
+   (vm.questionnaireCommentsCopy, {id: questionnaireCommentId}, true)[0]);
+   if (questionnaireComment.length && questionnaireCommentCopy.length) {
+   // vm.questionnaireCommentsManager.questionnaireComments angular.copy(vm.questionnaireCommentsCopy);
    }
    */
  };
  vm.editedComment = null;
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeComments;
+  return vm.questionnaireComments;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeComments, {completed: false}).length;
-  vm.doneCount = vm.swipeCommentsManager.swipeComments.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireComments, {completed: false}).length;
+  vm.doneCount = vm.questionnaireCommentsManager.questionnaireComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeCommentService.put(vm.swipeComments);
+  //QuestionnaireCommentService.put(vm.questionnaireComments);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -94,28 +94,28 @@ var swipeCommentsCtrl = function (
 
 
 
- vm.editComment = function (swipeComment) {
-  vm.editedComment = swipeComment;
-  // Clone the original swipeComment to restore it on demand.
-  vm.originalComment = angular.copy(swipeComment);
+ vm.editComment = function (questionnaireComment) {
+  vm.editedComment = questionnaireComment;
+  // Clone the original questionnaireComment to restore it on demand.
+  vm.originalComment = angular.copy(questionnaireComment);
  };
- vm.doneEditing = function (swipeComment) {
+ vm.doneEditing = function (questionnaireComment) {
   vm.editedComment = null;
-  swipeComment.title = swipeComment.title.trim();
-  if (!swipeComment.title) {
-   vm.removeComment(swipeComment);
+  questionnaireComment.title = questionnaireComment.title.trim();
+  if (!questionnaireComment.title) {
+   vm.removeComment(questionnaireComment);
   }
  };
- vm.openSwipeComment = function (swipeComment) {
+ vm.openQuestionnaireComment = function (questionnaireComment) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-comment-modal.html',
-   controller: 'SwipeCommentCtrl as swipeCommentCtrl',
+   templateUrl: 'questionnaire-comment-modal.html',
+   controller: 'QuestionnaireCommentCtrl as questionnaireCommentCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeCommentData: function () {
-     return swipeComment;
+    questionnaireCommentData: function () {
+     return questionnaireComment;
     }
    }
   });
@@ -126,11 +126,11 @@ var swipeCommentsCtrl = function (
   });
  };
  //--------init------
- vm.swipeCommentsManager.getSwipeComments(vm.swipeId);
+ vm.questionnaireCommentsManager.getQuestionnaireComments(vm.questionnaireId);
 };
 
-swipeCommentsCtrl.$inject = [
- 'SwipeCommentsManager',
+questionnaireCommentsCtrl.$inject = [
+ 'QuestionnaireCommentsManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -141,4 +141,4 @@ swipeCommentsCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeCommentsCtrl', swipeCommentsCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireCommentsCtrl', questionnaireCommentsCtrl);

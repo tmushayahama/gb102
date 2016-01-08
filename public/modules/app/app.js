@@ -19,7 +19,8 @@ define([
  'angular-gestures',
  '../auth/module',
  '../explore/module',
- '../swipe/module'
+ '../swipe/module',
+ '../questionnaire/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -40,6 +41,7 @@ define([
   'app.auth',
   'app.explore',
   'app.swipe',
+  'app.questionnaire',
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {

@@ -1,4 +1,4 @@
-angular.module('app.swipe').directive('todoFocus',
+angular.module('app.questionnaire').directive('todoFocus',
         ['$timeout', function ($timeout) {
           return function (scope, elem, attrs) {
            scope.$watch(attrs.todoFocus, function (newval) {

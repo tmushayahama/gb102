@@ -1,9 +1,9 @@
-var swipeManager = function ($http, $q) {
+var questionnaireManager = function ($http, $q) {
 
- var SwipeManager = function () {
-  this.swipe = [];
+ var QuestionnaireManager = function () {
+  this.questionnaire = [];
  };
- SwipeManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,11 +22,11 @@ var swipeManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeManager.prototype.getSwipe = function (swipeId) {
+ QuestionnaireManager.prototype.getQuestionnaire = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId).success(function (data) {
-   self.swipe = data;
+  $http.get('/api/questionnaire/' + questionnaireId).success(function (data) {
+   self.questionnaire = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,13 +35,13 @@ var swipeManager = function ($http, $q) {
  };
 
 
- SwipeManager.prototype.editSwipe = function (swipeData) {
+ QuestionnaireManager.prototype.editQuestionnaire = function (questionnaireData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/edit',
-   data: swipeData
+   url: '/api/questionnaire/edit',
+   data: questionnaireData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -50,9 +50,9 @@ var swipeManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeManager;
+ return QuestionnaireManager;
 };
 
-swipeManager.$inject = ['$http', '$q'];
+questionnaireManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeManager', swipeManager);
+angular.module('app.questionnaire').service('QuestionnaireManager', questionnaireManager);

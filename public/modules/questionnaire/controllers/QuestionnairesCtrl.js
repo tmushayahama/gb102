@@ -1,8 +1,8 @@
 
-var swipesCtrl = function (
+var questionnairesCtrl = function (
         level_categories,
         ConstantsManager,
-        SwipesManager,
+        QuestionnairesManager,
         $scope,
         $state,
         $stateParams,
@@ -17,63 +17,63 @@ var swipesCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-swipe.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-questionnaire.css'
  }, $scope);
 
- vm.swipesManager = new SwipesManager();
+ vm.questionnairesManager = new QuestionnairesManager();
  vm.constantsManager = new ConstantsManager();
- vm.swipeLevels;
+ vm.questionnaireLevels;
 
 
- vm.createSwipe = function (data) {
-  vm.swipesManager.createSwipe(data).then(function (response) {
+ vm.createQuestionnaire = function (data) {
+  vm.questionnairesManager.createQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
-   vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipesCopy = angular.copy(vm.swipesManager.swipes);
+   vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
+   vm.questionnairesCopy = angular.copy(vm.questionnairesManager.questionnaires);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipe = function (data) {
-  vm.swipesManager.editSwipe(data).then(function (response) {
+ vm.editQuestionnaire = function (data) {
+  vm.questionnairesManager.editQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
-   vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipesCopy = angular.copy(vm.swipesManager.swipes);
+   vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
+   vm.questionnairesCopy = angular.copy(vm.questionnairesManager.questionnaires);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeSections = {
-  details: function (swipeId, detail) {
-   var swipeData = {
-    swipeId: swipeId,
+ vm.editQuestionnaireSections = {
+  details: function (questionnaireId, detail) {
+   var questionnaireData = {
+    questionnaireId: questionnaireId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipe(swipeData);
+   vm.editQuestionnaire(questionnaireData);
   }
  }
 
- vm.cancelSwipe = function (form) {
+ vm.cancelQuestionnaire = function (form) {
   vm.FormDisplay = false;
-  vm.newSwipeData = angular.copy(vm.defaultSwipeData)
+  vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipe = function (swipe, swipeCopy) {
-  swipe = swipeCopy;
+ vm.revertQuestionnaire = function (questionnaire, questionnaireCopy) {
+  questionnaire = questionnaireCopy;
   /*
    $filter('filter')
-   (vm.swipesManager.swipes, {id: swipeId}, true)[0]
+   (vm.questionnairesManager.questionnaires, {id: questionnaireId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipesCopy, {id: swipeId}, true)[0]);
-   if (swipe.length && swipeCopy.length) {
-   // vm.swipesManager.swipes angular.copy(vm.swipesCopy);
+   (vm.questionnairesCopy, {id: questionnaireId}, true)[0]);
+   if (questionnaire.length && questionnaireCopy.length) {
+   // vm.questionnairesManager.questionnaires angular.copy(vm.questionnairesCopy);
    }
    */
  };
@@ -86,12 +86,12 @@ var swipesCtrl = function (
  vm.edited = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipes;
+  return vm.questionnaires;
  }), function () {
-  //vm.remainingCount = filterFilter(swipes, {completed: false}).length;
-  vm.doneCount = vm.swipesManager.swipes.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaires, {completed: false}).length;
+  vm.doneCount = vm.questionnairesManager.questionnaires.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeService.put(vm.swipes);
+  //QuestionnaireService.put(vm.questionnaires);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -106,54 +106,54 @@ var swipesCtrl = function (
 
 
 
- vm.edit = function (swipe) {
-  vm.edited = swipe;
-  // Clone the original swipe to restore it on demand.
-  vm.original = angular.copy(swipe);
+ vm.edit = function (questionnaire) {
+  vm.edited = questionnaire;
+  // Clone the original questionnaire to restore it on demand.
+  vm.original = angular.copy(questionnaire);
  };
 
 
- vm.doneEditing = function (swipe) {
+ vm.doneEditing = function (questionnaire) {
   vm.edited = null;
-  swipe.title = swipe.title.trim();
+  questionnaire.title = questionnaire.title.trim();
 
-  if (!swipe.title) {
-   vm.remove(swipe);
+  if (!questionnaire.title) {
+   vm.remove(questionnaire);
   }
  };
 
- vm.openAddSwipeModal = function () {
+ vm.openAddQuestionnaireModal = function () {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'add-swipe-modal.html',
-   controller: 'AddSwipeCtrl as addSwipeCtrl',
+   templateUrl: 'add-questionnaire-modal.html',
+   controller: 'AddQuestionnaireCtrl as addQuestionnaireCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeLevels: function () {
-     return vm.swipeLevels;
+    questionnaireLevels: function () {
+     return vm.questionnaireLevels;
     }
    }
   });
 
-  modalInstance.result.then(function (swipe) {
-   vm.swipesManager.createSwipe(swipe);
+  modalInstance.result.then(function (questionnaire) {
+   vm.questionnairesManager.createQuestionnaire(questionnaire);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- //vm.swipesManager.getSwipes(vm.swipeId);
- vm.constantsManager.getLevel(level_categories.swipe).then(function (data) {
-  vm.swipeLevels = data;
+ //vm.questionnairesManager.getQuestionnaires(vm.questionnaireId);
+ vm.constantsManager.getLevel(level_categories.questionnaire).then(function (data) {
+  vm.questionnaireLevels = data;
  });
 };
 
-swipesCtrl.$inject = [
+questionnairesCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
- 'SwipesManager',
+ 'QuestionnairesManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -165,4 +165,4 @@ swipesCtrl.$inject = [
  '$filter',
  '$css'];
 
-angular.module("app.swipe").controller('SwipesCtrl', swipesCtrl);
+angular.module("app.questionnaire").controller('QuestionnairesCtrl', questionnairesCtrl);

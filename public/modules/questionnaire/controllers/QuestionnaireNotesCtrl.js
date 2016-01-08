@@ -1,5 +1,5 @@
-var swipeNotesCtrl = function (
-        SwipeNotesManager,
+var questionnaireNotesCtrl = function (
+        QuestionnaireNotesManager,
         $scope,
         $state,
         $stateParams,
@@ -11,70 +11,70 @@ var swipeNotesCtrl = function (
         $filter) {
 
  var vm = this;
- vm.swipeId = $stateParams.swipeId;
- vm.swipeNotesCopy;
- vm.swipeNotesManager = new SwipeNotesManager();
+ vm.questionnaireId = $stateParams.questionnaireId;
+ vm.questionnaireNotesCopy;
+ vm.questionnaireNotesManager = new QuestionnaireNotesManager();
  vm.noteFormDisplay = false;
 
- vm.defaultSwipeNoteData = {
-  swipeId: $stateParams.swipeId,
+ vm.defaultQuestionnaireNoteData = {
+  questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newSwipeNoteData = angular.copy(vm.defaultSwipeNoteData);
+ vm.newQuestionnaireNoteData = angular.copy(vm.defaultQuestionnaireNoteData);
 
  vm.showNoteForm = function () {
   vm.noteFormDisplay = true;
  };
 
- vm.createSwipeNote = function (data) {
-  vm.swipeNotesManager.createSwipeNote(data).then(function (response) {
+ vm.createQuestionnaireNote = function (data) {
+  vm.questionnaireNotesManager.createQuestionnaireNote(data).then(function (response) {
    vm.noteFormDisplay = false;
-   vm.newSwipeNoteData = angular.copy(vm.defaultSwipeNoteData);
-   vm.swipeNotesCopy = angular.copy(vm.swipeNotesManager.swipeNotes);
+   vm.newQuestionnaireNoteData = angular.copy(vm.defaultQuestionnaireNoteData);
+   vm.questionnaireNotesCopy = angular.copy(vm.questionnaireNotesManager.questionnaireNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeNote = function (data) {
-  vm.swipeNotesManager.editSwipeNote(data).then(function (response) {
+ vm.editQuestionnaireNote = function (data) {
+  vm.questionnaireNotesManager.editQuestionnaireNote(data).then(function (response) {
    vm.noteFormDisplay = false;
-   vm.newSwipeNoteData = angular.copy(vm.defaultSwipeNoteData);
-   vm.swipeNotesCopy = angular.copy(vm.swipeNotesManager.swipeNotes);
+   vm.newQuestionnaireNoteData = angular.copy(vm.defaultQuestionnaireNoteData);
+   vm.questionnaireNotesCopy = angular.copy(vm.questionnaireNotesManager.questionnaireNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeNoteSections = {
-  details: function (swipeNoteId, detail) {
-   var swipeNoteData = {
-    swipeNoteId: swipeNoteId,
+ vm.editQuestionnaireNoteSections = {
+  details: function (questionnaireNoteId, detail) {
+   var questionnaireNoteData = {
+    questionnaireNoteId: questionnaireNoteId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipeNote(swipeNoteData);
+   vm.editQuestionnaireNote(questionnaireNoteData);
   }
  }
 
- vm.cancelSwipeNote = function (form) {
+ vm.cancelQuestionnaireNote = function (form) {
   vm.noteFormDisplay = false;
-  vm.newSwipeNoteData = angular.copy(vm.defaultSwipeNoteData)
+  vm.newQuestionnaireNoteData = angular.copy(vm.defaultQuestionnaireNoteData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipeNote = function (swipeNote, swipeNoteCopy) {
-  swipeNote = swipeNoteCopy;
+ vm.revertQuestionnaireNote = function (questionnaireNote, questionnaireNoteCopy) {
+  questionnaireNote = questionnaireNoteCopy;
   /*
    $filter('filter')
-   (vm.swipeNotesManager.swipeNotes, {id: swipeNoteId}, true)[0]
+   (vm.questionnaireNotesManager.questionnaireNotes, {id: questionnaireNoteId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeNotesCopy, {id: swipeNoteId}, true)[0]);
-   if (swipeNote.length && swipeNoteCopy.length) {
-   // vm.swipeNotesManager.swipeNotes angular.copy(vm.swipeNotesCopy);
+   (vm.questionnaireNotesCopy, {id: questionnaireNoteId}, true)[0]);
+   if (questionnaireNote.length && questionnaireNoteCopy.length) {
+   // vm.questionnaireNotesManager.questionnaireNotes angular.copy(vm.questionnaireNotesCopy);
    }
    */
  };
@@ -87,12 +87,12 @@ var swipeNotesCtrl = function (
  vm.editedNote = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeNotes;
+  return vm.questionnaireNotes;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeNotes, {completed: false}).length;
-  vm.doneCount = vm.swipeNotesManager.swipeNotes.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireNotes, {completed: false}).length;
+  vm.doneCount = vm.questionnaireNotesManager.questionnaireNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeNoteService.put(vm.swipeNotes);
+  //QuestionnaireNoteService.put(vm.questionnaireNotes);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var swipeNotesCtrl = function (
 
 
 
- vm.editNote = function (swipeNote) {
-  vm.editedNote = swipeNote;
-  // Clone the original swipeNote to restore it on demand.
-  vm.originalNote = angular.copy(swipeNote);
+ vm.editNote = function (questionnaireNote) {
+  vm.editedNote = questionnaireNote;
+  // Clone the original questionnaireNote to restore it on demand.
+  vm.originalNote = angular.copy(questionnaireNote);
  };
 
 
- vm.doneEditing = function (swipeNote) {
+ vm.doneEditing = function (questionnaireNote) {
   vm.editedNote = null;
-  swipeNote.title = swipeNote.title.trim();
+  questionnaireNote.title = questionnaireNote.title.trim();
 
-  if (!swipeNote.title) {
-   vm.removeNote(swipeNote);
+  if (!questionnaireNote.title) {
+   vm.removeNote(questionnaireNote);
   }
  };
 
- vm.openSwipeNote = function (swipeNote) {
+ vm.openQuestionnaireNote = function (questionnaireNote) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-note-modal.html',
-   controller: 'SwipeNoteCtrl as swipeNoteCtrl',
+   templateUrl: 'questionnaire-note-modal.html',
+   controller: 'QuestionnaireNoteCtrl as questionnaireNoteCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeNoteData: function () {
-     return swipeNote;
+    questionnaireNoteData: function () {
+     return questionnaireNote;
     }
    }
   });
@@ -147,12 +147,12 @@ var swipeNotesCtrl = function (
 
 
  //--------init------
- vm.swipeNotesManager.getSwipeNotes(vm.swipeId);
+ vm.questionnaireNotesManager.getQuestionnaireNotes(vm.questionnaireId);
 };
 
 
-swipeNotesCtrl.$inject = [
- 'SwipeNotesManager',
+questionnaireNotesCtrl.$inject = [
+ 'QuestionnaireNotesManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -163,4 +163,4 @@ swipeNotesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeNotesCtrl', swipeNotesCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireNotesCtrl', questionnaireNotesCtrl);

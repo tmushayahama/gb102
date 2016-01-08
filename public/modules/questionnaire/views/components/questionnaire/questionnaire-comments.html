@@ -1,4 +1,4 @@
-<section class="gb-section-row-2 row gb-comments" ng-controller="SwipeCommentsCtrl as swipeCommentsCtrl">
+<section class="gb-section-row-2 row gb-comments" ng-controller="QuestionnaireCommentsCtrl as questionnaireCommentsCtrl">
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
@@ -13,16 +13,16 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
-   <div ng-show="!swipeCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{swipeCtrl.swipe.creator.avatar_url}}" class="gb-img" alt="">
-    <input class="" ng-click="swipeCommentsCtrl.showCommentForm()" placeholder="What needs to be done?" readonly>
+   <div ng-show="!questionnaireCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
+    <img src="public/img/profile_pic/{{questionnaireCtrl.questionnaire.creator.avatar_url}}" class="gb-img" alt="">
+    <input class="" ng-click="questionnaireCommentsCtrl.showCommentForm()" placeholder="What needs to be done?" readonly>
    </div>
-   <form class="gb-form-1" ng-show="swipeCommentsCtrl.commentFormDisplay" name="form" novalidate>
+   <form class="gb-form-1" ng-show="questionnaireCommentsCtrl.commentFormDisplay" name="form" novalidate>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Comment:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Swipe Comment" ng-model="swipeCommentsCtrl.newSwipeCommentData.title"
+                placeholder="Questionnaire Comment" ng-model="questionnaireCommentsCtrl.newQuestionnaireCommentData.title"
                 name="title" required="" rows="2">
       </textarea>
       <div ng-show="form.$submitted || form.title.$touched">
@@ -34,7 +34,7 @@
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Swipe Comment Description (optional)" ng-model="swipeCommentsCtrl.newSwipeCommentData.description"
+                placeholder="Questionnaire Comment Description (optional)" ng-model="questionnaireCommentsCtrl.newQuestionnaireCommentData.description"
                 name="description" required="" rows="4">
       </textarea>
      </div>
@@ -44,25 +44,25 @@
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div class="radio gb-radio-row">
        <label class="">
-        <input type="radio" ng-model="swipeCommentsCtrl.newSwipeCommentData.privacy" value="0" />
+        <input type="radio" ng-model="questionnaireCommentsCtrl.newQuestionnaireCommentData.privacy" value="0" />
         <strong>public</strong> All people can see this comment
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="swipeCommentsCtrl.newSwipeCommentData.privacy" value="1" />
+        <input type="radio" ng-model="questionnaireCommentsCtrl.newQuestionnaireCommentData.privacy" value="1" />
         <strong>private</strong> only you can see this comment
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="swipeCommentsCtrl.newSwipeCommentData.privacy" value="2" />
+        <input type="radio" ng-model="questionnaireCommentsCtrl.newQuestionnaireCommentData.privacy" value="2" />
         <strong>custom</strong> choose who to see this comment
        </label>
       </div>
      </div>
     </div>
-    <div class="form-group row" ng-class="{'gb-disabled-2': swipeCommentsCtrl.newSwipeCommentData.privacy != 2}">
+    <div class="form-group row" ng-class="{'gb-disabled-2': questionnaireCommentsCtrl.newQuestionnaireCommentData.privacy != 2}">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <input type="text" class="form-control" placeholder="Select members"/>
@@ -70,26 +70,26 @@
     </div>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-      <a class="btn btn-link" ng-click="swipeCommentsCtrl.showAdvanced()">
+      <a class="btn btn-link" ng-click="questionnaireCommentsCtrl.showAdvanced()">
        Show Advanced
       </a>
      </label>
     </div>
     <div class="gb-form-footer row">
      <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="swipeCommentsCtrl.cancelSwipeComment(form)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="questionnaireCommentsCtrl.cancelQuestionnaireComment(form)">
        Cancel
       </a>
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="swipeCommentsCtrl.createSwipeComment(swipeCommentsCtrl.newSwipeCommentData)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="questionnaireCommentsCtrl.createQuestionnaireComment(questionnaireCommentsCtrl.newQuestionnaireCommentData)">
        Add Comment
       </a>
      </div>
     </div>
    </form>
   </div>
-  <div class="gb-comment-body row" ng-show="swipeCommentsCtrl.swipeCommentsManager.swipeComments.length" ng-cloak>
+  <div class="gb-comment-body row" ng-show="questionnaireCommentsCtrl.questionnaireCommentsManager.questionnaireComments.length" ng-cloak>
    <ul id="comment-list">
-    <li ng-repeat="swipeComment in swipeCommentsCtrl.swipeCommentsManager.swipeComments| filter:statusFilter track by $index" ng-class="{completed: swipeComment.completed, editing: swipeComment == swipeCommentsCtrl.editedComment}">
+    <li ng-repeat="questionnaireComment in questionnaireCommentsCtrl.questionnaireCommentsManager.questionnaireComments| filter:statusFilter track by $index" ng-class="{completed: questionnaireComment.completed, editing: questionnaireComment == questionnaireCommentsCtrl.editedComment}">
      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-comment-heading">
        <p class="gb-title">COMMENT</p>
@@ -99,7 +99,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
          <li>
-          <a ng-click="swipeCommentsCtrl.openSwipeComment(swipeComment)">
+          <a ng-click="questionnaireCommentsCtrl.openQuestionnaireComment(questionnaireComment)">
            Open
           </a>
          </li>
@@ -107,21 +107,21 @@
        </div>
       </div>
       <div class="gb-description">
-       <a ng-click="swipeCommentsCtrl.openSwipeComment(swipeComment)" class="">
-        {{swipeComment.comment.title}}
+       <a ng-click="questionnaireCommentsCtrl.openQuestionnaireComment(questionnaireComment)" class="">
+        {{questionnaireComment.comment.title}}
        </a>
-       {{swipeComment.comment.description}}
+       {{questionnaireComment.comment.description}}
       </div>
       <div class="gb-footer">
-       <img src="public/img/profile_pic/{{swipeComment.comment.creator.avatar_url}}" class='gb-profile-pic' alt="">
+       <img src="public/img/profile_pic/{{questionnaireComment.comment.creator.avatar_url}}" class='gb-profile-pic' alt="">
        <div class="gb-footer-content">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-         <h5 class="gb-ellipsis"><a>{{swipeComment.comment.creator.firstname + ' ' + swipeComment.comment.creator.lastname}}</a></h5>
-         <p>{{swipeComment.comment.created_at| date:'MM/dd/yyyy'}}</p>
+         <h5 class="gb-ellipsis"><a>{{questionnaireComment.comment.creator.firstname + ' ' + questionnaireComment.comment.creator.lastname}}</a></h5>
+         <p>{{questionnaireComment.comment.created_at| date:'MM/dd/yyyy'}}</p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
          <div class="pull-right btn-group">
-          <a ng-click="swipeCommentsCtrl.openSwipeComment(swipeComment)" class="btn gb-btn-xs gb-ghost-btn-2">
+          <a ng-click="questionnaireCommentsCtrl.openQuestionnaireComment(questionnaireComment)" class="btn gb-btn-xs gb-ghost-btn-2">
            Open
           </a>
          </div>
@@ -132,8 +132,8 @@
     </li>
    </ul>
   </div>
-  <script type="text/ng-template" id="swipe-comment-modal.html">
-   <div class="gb-comment-page" ng-include="'public/modules/swipe/views/modals/swipe-comment.html'"></div>
+  <script type="text/ng-template" id="questionnaire-comment-modal.html">
+   <div class="gb-comment-page" ng-include="'public/modules/questionnaire/views/modals/questionnaire-comment.html'"></div>
   </script>
  </div>
 </section>

@@ -1,9 +1,9 @@
-var swipeWeblinkManager = function ($http, $q) {
+var questionnaireWeblinkManager = function ($http, $q) {
 
- var SwipeWeblinkManager = function () {
-  this.swipeWeblinks = [];
+ var QuestionnaireWeblinkManager = function () {
+  this.questionnaireWeblinks = [];
  };
- SwipeWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeWeblinkManager = function ($http, $q) {
  };
 
 
- SwipeWeblinkManager.prototype.getSwipeWeblink = function (swipeId, weblinkId) {
+ QuestionnaireWeblinkManager.prototype.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/weblink/' + weblinkId).success(function (data) {
-   self.swipeWeblink = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/weblink/' + weblinkId).success(function (data) {
+   self.questionnaireWeblink = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeWeblinkManager = function ($http, $q) {
  };
 
 
- SwipeWeblinkManager.prototype.editSwipeWeblink = function (swipeWeblinkData) {
+ QuestionnaireWeblinkManager.prototype.editQuestionnaireWeblink = function (questionnaireWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/weblink/edit',
-   data: swipeWeblinkData
+   url: '/api/questionnaire/weblink/edit',
+   data: questionnaireWeblinkData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var swipeWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeWeblinkManager;
+ return QuestionnaireWeblinkManager;
 };
 
-swipeWeblinkManager.$inject = ['$http', '$q'];
+questionnaireWeblinkManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeWeblinkManager', swipeWeblinkManager);
+angular.module('app.questionnaire').service('QuestionnaireWeblinkManager', questionnaireWeblinkManager);

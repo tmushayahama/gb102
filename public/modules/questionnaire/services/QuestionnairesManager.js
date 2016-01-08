@@ -1,9 +1,9 @@
-var swipesManager = function ($http, $q) {
+var questionnairesManager = function ($http, $q) {
 
- var SwipesManager = function () {
-  this.swipes = [];
+ var QuestionnairesManager = function () {
+  this.questionnaires = [];
  };
- SwipesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnairesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipesManager.prototype.getAllSwipes = function () {
+ QuestionnairesManager.prototype.getAllQuestionnaires = function () {
   var self = this;
   var deferred = $q.defer();
-  self.swipes = [];
-  $http.get('/api/swipes/all').success(function (data) {
-   self.swipes = data;
+  self.questionnaires = [];
+  $http.get('/api/questionnaires/all').success(function (data) {
+   self.questionnaires = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var swipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipesManager.prototype.getMySwipes = function () {
+ QuestionnairesManager.prototype.getMyQuestionnaires = function () {
   var self = this;
   var deferred = $q.defer();
-  self.swipes = [];
-  $http.get('/api/swipes/mine').success(function (data) {
-   self.swipes = data;
+  self.questionnaires = [];
+  $http.get('/api/questionnaires/mine').success(function (data) {
+   self.questionnaires = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,12 +48,12 @@ var swipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipesManager.prototype.getSwipe = function (swipeId, Id) {
+ QuestionnairesManager.prototype.getQuestionnaire = function (questionnaireId, Id) {
   var self = this;
   var deferred = $q.defer();
-  self.swipe = [];
-  $http.get('/api/swipe/' + swipeId + '//' + Id).success(function (data) {
-   self.swipe = data;
+  self.questionnaire = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '//' + Id).success(function (data) {
+   self.questionnaire = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -61,15 +61,15 @@ var swipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipesManager.prototype.createSwipe = function (swipeData) {
+ QuestionnairesManager.prototype.createQuestionnaire = function (questionnaireData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/create',
-   data: swipeData
+   url: '/api/questionnaire/create',
+   data: questionnaireData
   }).success(function (data) {
-   self.swipes.unshift(data);
+   self.questionnaires.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -77,13 +77,13 @@ var swipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipesManager.prototype.editSwipe = function (swipeData) {
+ QuestionnairesManager.prototype.editQuestionnaire = function (questionnaireData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipeedit',
-   data: swipeData
+   url: '/api/questionnaireedit',
+   data: questionnaireData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -91,10 +91,10 @@ var swipesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return SwipesManager;
+ return QuestionnairesManager;
 };
 
-swipesManager.$inject = ['$http', '$q'];
+questionnairesManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipesManager', swipesManager);
+angular.module('app.questionnaire').service('QuestionnairesManager', questionnairesManager);
 

@@ -1,9 +1,9 @@
-var swipeTodoChecklistManager = function ($http, $q) {
+var questionnaireTodoChecklistManager = function ($http, $q) {
 
- var SwipeTodoChecklistManager = function () {
-  this.swipeTodoChecklist = [];
+ var QuestionnaireTodoChecklistManager = function () {
+  this.questionnaireTodoChecklist = [];
  };
- SwipeTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipeTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeTodoChecklistManager.prototype.getSwipeTodoChecklist = function (todoId) {
+ QuestionnaireTodoChecklistManager.prototype.getQuestionnaireTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeTodoChecklist = [];
+  self.questionnaireTodoChecklist = [];
   $http.get('/api/todo/' + todoId + '/checklist').success(function (data) {
-   self.swipeTodoChecklist = data;
+   self.questionnaireTodoChecklist = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,10 +35,10 @@ var swipeTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTodoChecklistManager.prototype.getSwipeTodoChecklistItem = function (swipeId, todoId) {
+ QuestionnaireTodoChecklistManager.prototype.getQuestionnaireTodoChecklistItem = function (questionnaireId, todoId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/todo/' + todoId).success(function (data) {
+  $http.get('/api/questionnaire/' + questionnaireId + '/todo/' + todoId).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -46,15 +46,15 @@ var swipeTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTodoChecklistManager.prototype.createSwipeTodoChecklistItem = function (swipeTodoChecklistData) {
+ QuestionnaireTodoChecklistManager.prototype.createQuestionnaireTodoChecklistItem = function (questionnaireTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
    url: '/api/todo/checklist/create',
-   data: swipeTodoChecklistData
+   data: questionnaireTodoChecklistData
   }).success(function (data) {
-   self.swipeTodoChecklist.unshift(data);
+   self.questionnaireTodoChecklist.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -62,13 +62,13 @@ var swipeTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTodoChecklistManager.prototype.editSwipeTodoChecklistItem = function (swipeTodoData) {
+ QuestionnaireTodoChecklistManager.prototype.editQuestionnaireTodoChecklistItem = function (questionnaireTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
    url: '/api/todo/checklist/edit',
-   data: swipeTodoData
+   data: questionnaireTodoData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -78,9 +78,9 @@ var swipeTodoChecklistManager = function ($http, $q) {
  };
 
 
- return SwipeTodoChecklistManager;
+ return QuestionnaireTodoChecklistManager;
 };
 
-swipeTodoChecklistManager.$inject = ['$http', '$q'];
+questionnaireTodoChecklistManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTodoChecklistManager', swipeTodoChecklistManager);
+angular.module('app.questionnaire').service('QuestionnaireTodoChecklistManager', questionnaireTodoChecklistManager);

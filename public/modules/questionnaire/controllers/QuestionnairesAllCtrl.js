@@ -1,6 +1,6 @@
-var swipesAllCtrl = function (
+var questionnairesAllCtrl = function (
         ConstantsManager,
-        SwipesManager,
+        QuestionnairesManager,
         $scope,
         $state,
         $stateParams,
@@ -13,13 +13,13 @@ var swipesAllCtrl = function (
 
  var vm = this;
 
- vm.swipesManager = new SwipesManager();
- vm.swipesManager.getAllSwipes();
+ vm.questionnairesManager = new QuestionnairesManager();
+ vm.questionnairesManager.getAllQuestionnaires();
 };
 
-swipesAllCtrl.$inject = [
+questionnairesAllCtrl.$inject = [
  'ConstantsManager',
- 'SwipesManager',
+ 'QuestionnairesManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -30,4 +30,4 @@ swipesAllCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipesAllCtrl', swipesAllCtrl);
+angular.module("app.questionnaire").controller('QuestionnairesAllCtrl', questionnairesAllCtrl);

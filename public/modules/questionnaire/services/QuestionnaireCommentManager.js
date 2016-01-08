@@ -1,9 +1,9 @@
-var swipeCommentManager = function ($http, $q) {
+var questionnaireCommentManager = function ($http, $q) {
 
- var SwipeCommentManager = function () {
-  this.swipeComments = [];
+ var QuestionnaireCommentManager = function () {
+  this.questionnaireComments = [];
  };
- SwipeCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeCommentManager = function ($http, $q) {
  };
 
 
- SwipeCommentManager.prototype.getSwipeComment = function (swipeId, commentId) {
+ QuestionnaireCommentManager.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/comment/' + commentId).success(function (data) {
-   self.swipeComment = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/comment/' + commentId).success(function (data) {
+   self.questionnaireComment = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeCommentManager = function ($http, $q) {
  };
 
 
- SwipeCommentManager.prototype.editSwipeComment = function (swipeCommentData) {
+ QuestionnaireCommentManager.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/comment/edit',
-   data: swipeCommentData
+   url: '/api/questionnaire/comment/edit',
+   data: questionnaireCommentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var swipeCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeCommentManager;
+ return QuestionnaireCommentManager;
 };
 
-swipeCommentManager.$inject = ['$http', '$q'];
+questionnaireCommentManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeCommentManager', swipeCommentManager);
+angular.module('app.questionnaire').service('QuestionnaireCommentManager', questionnaireCommentManager);

@@ -1,9 +1,9 @@
-var swipeTodoManager = function ($http, $q) {
+var questionnaireTodoManager = function ($http, $q) {
 
- var SwipeTodoManager = function () {
-  this.swipeTodos = [];
+ var QuestionnaireTodoManager = function () {
+  this.questionnaireTodos = [];
  };
- SwipeTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeTodoManager = function ($http, $q) {
  };
 
 
- SwipeTodoManager.prototype.getSwipeTodo = function (swipeId, todoId) {
+ QuestionnaireTodoManager.prototype.getQuestionnaireTodo = function (questionnaireId, todoId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/todo/' + todoId).success(function (data) {
-   self.swipeTodo = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/todo/' + todoId).success(function (data) {
+   self.questionnaireTodo = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeTodoManager = function ($http, $q) {
  };
 
 
- SwipeTodoManager.prototype.editSwipeTodo = function (swipeTodoData) {
+ QuestionnaireTodoManager.prototype.editQuestionnaireTodo = function (questionnaireTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/todo/edit',
-   data: swipeTodoData
+   url: '/api/questionnaire/todo/edit',
+   data: questionnaireTodoData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,8 +51,8 @@ var swipeTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeTodoManager;
+ return QuestionnaireTodoManager;
 };
-swipeTodoManager.$inject = ['$http', '$q'];
+questionnaireTodoManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTodoManager', swipeTodoManager);
+angular.module('app.questionnaire').service('QuestionnaireTodoManager', questionnaireTodoManager);

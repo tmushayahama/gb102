@@ -1,5 +1,5 @@
-var swipeNoteCtrl = function (
-        SwipeNoteManager,
+var questionnaireNoteCtrl = function (
+        QuestionnaireNoteManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,14 +8,14 @@ var swipeNoteCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeNoteData) {
+        questionnaireNoteData) {
  var vm = this;
- vm.swipeId = swipeNoteData.swipe_id;
- vm.swipeNoteId = swipeNoteData.id;
- vm.swipeNoteManager = new SwipeNoteManager();
+ vm.questionnaireId = questionnaireNoteData.questionnaire_id;
+ vm.questionnaireNoteId = questionnaireNoteData.id;
+ vm.questionnaireNoteManager = new QuestionnaireNoteManager();
 
 
- vm.noteId = swipeNoteData.note_id;
+ vm.noteId = questionnaireNoteData.note_id;
 
  vm.noteFormDisplay = false;
 
@@ -30,30 +30,30 @@ var swipeNoteCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeNoteData = vm.defaultSwipeNoteData;
+ // vm.newQuestionnaireNoteData = vm.defaultQuestionnaireNoteData;
 
- vm.getSwipeNote = function (swipeId, noteId) {
-  vm.swipeNoteManager.getSwipeNote(swipeId, noteId).then(function (response) {
+ vm.getQuestionnaireNote = function (questionnaireId, noteId) {
+  vm.questionnaireNoteManager.getQuestionnaireNote(questionnaireId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeNote = function (data) {
-  vm.swipeNoteManager.editSwipeNote(data).then(function (response) {
+ vm.editQuestionnaireNote = function (data) {
+  vm.questionnaireNoteManager.editQuestionnaireNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeNoteSections = {
+ vm.editQuestionnaireNoteSections = {
   details: function (details) {
-   var swipeNoteData = {
-    swipeNoteId: vm.swipeNoteId,
+   var questionnaireNoteData = {
+    questionnaireNoteId: vm.questionnaireNoteId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeNote(swipeNoteData);
+   vm.editQuestionnaireNote(questionnaireNoteData);
   }
  };
 
@@ -66,12 +66,12 @@ var swipeNoteCtrl = function (
 
 
  //--------init------
- vm.getSwipeNote(vm.swipeId, vm.noteId);
+ vm.getQuestionnaireNote(vm.questionnaireId, vm.noteId);
 };
 
 
-swipeNoteCtrl.$inject = [
- 'SwipeNoteManager',
+questionnaireNoteCtrl.$inject = [
+ 'QuestionnaireNoteManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ swipeNoteCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeNoteData'];
+ 'questionnaireNoteData'];
 
-angular.module("app.swipe").controller('SwipeNoteCtrl', swipeNoteCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireNoteCtrl', questionnaireNoteCtrl);

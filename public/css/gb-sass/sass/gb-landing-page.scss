@@ -5,7 +5,11 @@ $primary-color: #027887;
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
 
-
+.gb-landing-page {
+ .gb-title {
+  margin:30px 10px 30px;
+ }
+}
 .text-muted {
  color: #777;
 }
@@ -57,11 +61,11 @@ $primary-color: #027887;
  background-color: rgba(#FFF, 0.8);
  .gb-logo {
   text-decoration: none;
-  padding-top: 5px;   
+  padding-top: 5px;
   line-height: 28px;
   color: #888;
   font-size: 14px;
-  .fa-lg {    
+  .fa-lg {
    font-size: 14px;
    text-align: center;
    .fa-circle {
@@ -82,7 +86,7 @@ $primary-color: #027887;
 }
 
 
-#gb-intro-section { 
+#gb-intro-section {
  position: relative;
  height: 500px;
  text-align: center;
@@ -90,9 +94,9 @@ $primary-color: #027887;
  background-color: $primary-color;
  //@include position(absolute, 0 0 0 0);
  overflow: hidden;
- .fa-lg {  
+ .fa-lg {
   float: left;
-  margin: 0 20px 30px 10px;  
+  margin: 0 20px 30px 10px;
   font-size: 40px;
   text-align: center;
   @include respond-to (gb-sm) {
@@ -108,7 +112,7 @@ $primary-color: #027887;
    //font-size: 1.3em;
    color: darken($primary-color, 5%);
   }
-  &:hover { 
+  &:hover {
    .fa-outer {
     color: darken($primary-color, 5%);
    }

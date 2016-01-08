@@ -1,5 +1,5 @@
-var swipeOverviewCtrl = function (
-        SwipeManager,
+var questionnaireOverviewCtrl = function (
+        QuestionnaireManager,
         $state,
         $stateParams,
         $http,
@@ -8,11 +8,11 @@ var swipeOverviewCtrl = function (
 
 };
 
-swipeOverviewCtrl.$inject = [
- 'SwipeManager',
+questionnaireOverviewCtrl.$inject = [
+ 'QuestionnaireManager',
  '$state',
  '$stateParams',
  '$http',
  '$rootScope'];
 
-angular.module("app.swipe").controller('SwipeOverviewCtrl', swipeOverviewCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireOverviewCtrl', questionnaireOverviewCtrl);

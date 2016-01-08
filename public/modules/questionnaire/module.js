@@ -3,27 +3,27 @@ define(['angular'
 ], function (angular) {
 
  "use strict";
- var module = angular.module('app.swipe', ['ui.router']);
- var swipeConfig = function ($stateProvider) {
+ var module = angular.module('app.questionnaire', ['ui.router']);
+ var questionnaireConfig = function ($stateProvider) {
 
   $stateProvider
-          .state('apps.swipes', {
-           url: '/swipes',
+          .state('apps.questionnaires', {
+           url: '/questionnaires',
            abstract: true,
            views: {
             "apps": {
-             controller: 'SwipesCtrl as swipesCtrl',
-             templateUrl: 'public/modules/swipe/views/swipes.html',
+             controller: 'QuestionnairesCtrl as questionnairesCtrl',
+             templateUrl: 'public/modules/questionnaire/views/questionnaires.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.swipe',
+                 name: 'app.questionnaire',
                  serie: true,
                  files: [
                   'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/swipe/services/SwipesManager.js',
-                  'public/modules/swipe/controllers/SwipesCtrl.js',
-                  'public/modules/swipe/controllers/modals/AddSwipeCtrl.js',
+                  'public/modules/questionnaire/services/QuestionnairesManager.js',
+                  'public/modules/questionnaire/controllers/QuestionnairesCtrl.js',
+                  'public/modules/questionnaire/controllers/modals/AddQuestionnaireCtrl.js',
                  ]
                 });
                }]
@@ -31,40 +31,40 @@ define(['angular'
             }
            }})
 
-          .state('apps.swipes.history', {
+          .state('apps.questionnaires.history', {
            url: '/history',
            views: {
             "app-tab": {
-             controller: 'SwipeHistoryCtrl as swipeHistoryCtrl',
-             templateUrl: 'public/modules/swipe/views/tabs/swipes/swipe-history.html',
+             controller: 'QuestionnaireHistoryCtrl as questionnaireHistoryCtrl',
+             templateUrl: 'public/modules/questionnaire/views/tabs/questionnaires/questionnaire-history.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.swipe',
+                 name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/swipe/services/SwipeManager.js',
-                  'public/modules/swipe/controllers/SwipeHistoryCtrl.js',
+                  'public/modules/questionnaire/services/QuestionnaireManager.js',
+                  'public/modules/questionnaire/controllers/QuestionnaireHistoryCtrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-          .state('apps.swipes.swipe', {
-           url: '/swipe',
+          .state('apps.questionnaires.questionnaire', {
+           url: '/questionnaire',
            views: {
             "app-tab": {
-             controller: 'SwipeCtrl as swipeCtrl',
-             templateUrl: 'public/modules/swipe/views/tabs/swipes/swipe.html',
+             controller: 'QuestionnaireCtrl as questionnaireCtrl',
+             templateUrl: 'public/modules/questionnaire/views/tabs/questionnaires/questionnaire.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.swipe',
+                 name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/swipe/controllers/SwipeCtrl.js',
-                  'public/modules/swipe/services/SwipeManager.js',
+                  'public/modules/questionnaire/controllers/QuestionnaireCtrl.js',
+                  'public/modules/questionnaire/services/QuestionnaireManager.js',
                  ]
                 });
                }]
@@ -73,105 +73,105 @@ define(['angular'
            }})
 
   /*
-   .state('apps.swipe', {
+   .state('apps.questionnaire', {
    abstract: true,
-   url: '/swipe/{swipeId}',
+   url: '/questionnaire/{questionnaireId}',
    views: {
    "apps": {
-   controller: 'SwipeCtrl as swipeCtrl',
-   templateUrl: 'public/modules/swipe/views/swipe.html',
+   controller: 'QuestionnaireCtrl as questionnaireCtrl',
+   templateUrl: 'public/modules/questionnaire/views/questionnaire.html',
    resolve: {
    load: ['$ocLazyLoad', function ($ocLazyLoad) {
    return $ocLazyLoad.load({
-   name: 'app.swipe',
+   name: 'app.questionnaire',
    serie: true,
    files: [
    'public/modules/app/services/ConstantsManager.js',
-   'public/modules/swipe/services/SwipeManager.js',
-   'public/modules/swipe/controllers/SwipeCtrl.js',
-   'public/modules/swipe/filters/randomize.js',
+   'public/modules/questionnaire/services/QuestionnaireManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireCtrl.js',
+   'public/modules/questionnaire/filters/randomize.js',
    ]
    });
    }]
    }
    }
    }})
-   .state('apps.swipe.overview', {
+   .state('apps.questionnaire.overview', {
    url: '/overview',
    views: {
    "content": {
-   controller: 'SwipeOverviewCtrl as swipeOverviewCtrl',
-   templateUrl: 'public/modules/swipe/views/tabs/swipe/swipe-overview.html',
+   controller: 'QuestionnaireOverviewCtrl as questionnaireOverviewCtrl',
+   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-overview.html',
    resolve: {
    load: ['$ocLazyLoad', function ($ocLazyLoad) {
    return $ocLazyLoad.load({
-   name: 'app.swipe',
+   name: 'app.questionnaire',
    serie: true,
    files: [
-   'public/modules/swipe/controllers/SwipeOverviewCtrl.js',
+   'public/modules/questionnaire/controllers/QuestionnaireOverviewCtrl.js',
    //Timeline
-   'public/modules/swipe/services/SwipeTimelineManager.js',
-   'public/modules/swipe/services/SwipeTimelinesManager.js',
-   'public/modules/swipe/controllers/SwipeTimelinesCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeTimelineCtrl.js',
+   'public/modules/questionnaire/services/QuestionnaireTimelineManager.js',
+   'public/modules/questionnaire/services/QuestionnaireTimelinesManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireTimelinesCtrl.js',
+   'public/modules/questionnaire/controllers/modals/QuestionnaireTimelineCtrl.js',
    ]
    });
    }]
    }
    }
    }})
-   .state('apps.swipe.tools', {
+   .state('apps.questionnaire.tools', {
    url: '/tools',
    views: {
    "content": {
-   //controller: 'SwipeTodosCtrl as swipeTodosCtrl',
-   templateUrl: 'public/modules/swipe/views/tabs/swipe/swipe-tools.html',
+   //controller: 'QuestionnaireTodosCtrl as questionnaireTodosCtrl',
+   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-tools.html',
    resolve: {
    load: ['$ocLazyLoad', function ($ocLazyLoad) {
    return $ocLazyLoad.load({
-   name: 'app.swipe',
+   name: 'app.questionnaire',
    serie: true,
    files: [
    //Todos
-   'public/modules/swipe/directives/todoEscape.js',
-   'public/modules/swipe/directives/todoFocus.js',
-   'public/modules/swipe/services/SwipeTodoManager.js',
-   'public/modules/swipe/services/SwipeTodosManager.js',
-   'public/modules/swipe/services/SwipeTodoChecklistManager.js',
-   'public/modules/swipe/controllers/SwipeTodosCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeTodoCtrl.js',
+   'public/modules/questionnaire/directives/todoEscape.js',
+   'public/modules/questionnaire/directives/todoFocus.js',
+   'public/modules/questionnaire/services/QuestionnaireTodoManager.js',
+   'public/modules/questionnaire/services/QuestionnaireTodosManager.js',
+   'public/modules/questionnaire/services/QuestionnaireTodoChecklistManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireTodosCtrl.js',
+   'public/modules/questionnaire/controllers/modals/QuestionnaireTodoCtrl.js',
    //Notes,
-   'public/modules/swipe/services/SwipeNoteManager.js',
-   'public/modules/swipe/services/SwipeNotesManager.js',
-   'public/modules/swipe/controllers/SwipeNotesCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeNoteCtrl.js',
+   'public/modules/questionnaire/services/QuestionnaireNoteManager.js',
+   'public/modules/questionnaire/services/QuestionnaireNotesManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireNotesCtrl.js',
+   'public/modules/questionnaire/controllers/modals/QuestionnaireNoteCtrl.js',
    //Weblink
-   'public/modules/swipe/services/SwipeWeblinkManager.js',
-   'public/modules/swipe/services/SwipeWeblinksManager.js',
-   'public/modules/swipe/controllers/SwipeWeblinksCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeWeblinkCtrl.js',
+   'public/modules/questionnaire/services/QuestionnaireWeblinkManager.js',
+   'public/modules/questionnaire/services/QuestionnaireWeblinksManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireWeblinksCtrl.js',
+   'public/modules/questionnaire/controllers/modals/QuestionnaireWeblinkCtrl.js',
    ]
    });
    }]
    }
    }
    }})
-   .state('apps.swipe.community', {
+   .state('apps.questionnaire.community', {
    url: '/community',
    views: {
    "content": {
-   //controller: 'SwipeNotesCtrl as swipeNotesCtrl',
-   templateUrl: 'public/modules/swipe/views/tabs/swipe/swipe-community.html',
+   //controller: 'QuestionnaireNotesCtrl as questionnaireNotesCtrl',
+   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-community.html',
    resolve: {
    load: ['$ocLazyLoad', function ($ocLazyLoad) {
    return $ocLazyLoad.load({
-   name: 'app.swipe',
+   name: 'app.questionnaire',
    serie: true,
    files: [
-   'public/modules/swipe/services/SwipeCommentManager.js',
-   'public/modules/swipe/services/SwipeCommentsManager.js',
-   'public/modules/swipe/controllers/SwipeCommentsCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeCommentCtrl.js',
+   'public/modules/questionnaire/services/QuestionnaireCommentManager.js',
+   'public/modules/questionnaire/services/QuestionnaireCommentsManager.js',
+   'public/modules/questionnaire/controllers/QuestionnaireCommentsCtrl.js',
+   'public/modules/questionnaire/controllers/modals/QuestionnaireCommentCtrl.js',
    ]
    });
    }]
@@ -182,9 +182,9 @@ define(['angular'
  };
 
 
- swipeConfig.$inject = ['$stateProvider'];
+ questionnaireConfig.$inject = ['$stateProvider'];
 
- module.config(swipeConfig);
+ module.config(questionnaireConfig);
 
  return module;
 });
