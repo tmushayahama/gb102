@@ -636,7 +636,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `creator_id`, `description`, `type`, `status`);
+  (`id`, `creator_id`, `description`, `level_id`,	`created_at`,	`updated_at`,	`type`, `status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AnswerChoice.txt'
@@ -976,8 +976,8 @@ CREATE TABLE `gb_questionnaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_questionnaire_id` int(11),
   `creator_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
+  `level_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int(11) NOT NULL NULL DEFAULT '1',
@@ -1024,7 +1024,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `parent_questionnaire_id`, `creator_id`, `description`, `type`, `status`);
+  (`id`,	`parent_questionnaire_id`,	`creator_id`,	`description`,	`level_id`, `created_at`,	`updated_at`, `type`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/QuestionnaireQuestion.txt'
     into table gb102.gb_questionnaire_question
@@ -1033,7 +1033,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `question_id`, `questionnaire_id`, `creator_id`, `description`, `type`, `status`);
+  (`id`,	`question_id`,	`questionnaire_id`,	`creator_id`,	`description`,	`created_at`,	`updated_at`,	`type`,	`status`);
 
 --
 -- Table structure for table `gb_explore_swipe`

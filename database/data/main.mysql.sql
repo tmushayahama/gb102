@@ -636,7 +636,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `creator_id`, `description`, `type`, `status`);
+  (`id`, `creator_id`, `description`, `level_id`,	`created_at`,	`updated_at`,	`type`, `status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AnswerChoice.txt'

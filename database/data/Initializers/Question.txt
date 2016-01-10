@@ -1,115 +1,119 @@
-id	creator_id	description	type	status
-1	1	What are the mentorship primary functions	1	0
-2	1	Prerequisites	1	0
-3	1	Requirements	1	0
-4	1	After the mentorship	1	0
-5	1	Beyond the scope of this mentorship?	1	0
-6	1	List Subskills	2	0
-7	1	What would you like to learn?	2	0
-8	1	What skill applications have you done?	2	0
-9	1	What feedback have you taken?	2	0
-10	1	What corrections have you made	2	0
-11	1	What have you learned?	2	0
-12	1	Requirements and prerequisite	2	0
-13	1	Specific topics/skills to mentor	2	0
-14	1	Specific topics/skills which cannot mentored	2	0
-15	1	Is the mentorship running as you planned? Why or why not?	5	0
-16	1	Is the mentorship running as you planned? Why or why not?	6	0
-17	1	What are you hoping to achieve with your mentee?	5	0
-18	1	What are you hoping to achieve with your mentor?	6	0
-19	1	Are you able to provide enough resources and assistance to your mentee?	5	0
-20	1	Is your mentor providing enough resources and assistance to you?	6	0
-21	1	"Are you finding your interactions with your mentee constructive? If so, please give examples."	5	0
-22	1	"Are you finding your interactions with your mentor constructive? If so, please give examples."	6	0
-23	1	How often do you meet or interact with your mentee?	5	0
-24	1	How often do you meet or interact with your mentor?	6	0
-25	1	Do you feel that you providing your mentee with enough practical assistance and knowledge?	5	0
-26	1	Do you feel that you are being provided by your mentor with enough practical assistance and knowledge?	6	0
-27	1	"Based on my daily routines and actions, where can I expect to be in five years?"	10	0
-28	1	How do you feel right now? What are you thinking about?	10	0
-29	1	What is your favorite color?	10	0
-30	1	What is your favorite food?	10	0
-31	1	What is your favorite dessert?	10	0
-32	1	What have you learned today?	10	0
-33	1	What was your favorite subject in school?	10	0
-34	1	What do you do?	10	0
-35	1	What are some of your favorite books?	10	0
-36	1	What are some of your favorite movies?	10	0
-37	1	What kind of music are you into?	10	0
-38	1	"If you were going to write a book, what would you call it and what would it be about?"	10	0
-39	1	What is one of the scariest things you have ever done?	10	0
-40	1	What accomplishment are you most proud of?	10	0
-41	1	How did you meet your spouse / girlfriend / boyfriend?	10	0
-42	1	"When you were a kid, what did you want to be when you grew up?"	10	0
-43	1	How did you get into your career path?	10	0
-44	1	Would you recommend your career for other people? Why / Why not?	10	0
-45	1	What do you do for fun?	10	0
-46	1	Do you like traveling?	10	0
-47	1	"If you could visit any country in the world, where would you go?"	10	0
-48	1	Who are some people you would like to meet someday?	10	0
-49	1	"If someone asked you to give them a random piece of advice, what would you say?"	10	0
-50	1	What is one of your favorite habits you have?	10	0
-51	1	What are some things that make you really happy?	10	0
-52	1	What are some things that make you really sad?	10	0
-53	1	What are some things that scare you?	10	0
-54	1	Do you like to plan things out in detail or be spontaneous?	10	0
-55	1	"If you could go back in history, who would you like to meet?"	10	0
-56	1	Would you rather live in the country or in the city?	10	0
-57	1	What was your life like growing up?	10	0
-58	1	What were you like in high school?	10	0
-59	1	Do you have any brothers or sisters? How many?	10	0
-60	1	What is your favorite part about today so far?	10	0
-61	1	Who in your life has influenced you the most? How did they do it?	10	0
-62	1	What is your favorite joke?	10	0
-63	1	Have you ever tried sushi? (Did you like it?)	10	0
-64	1	Do you like spicy food?	10	0
-65	1	How do you like your steak cooked?	10	0
-66	1	Do you have a favorite number? Any particular reason why you like that number?	10	0
-67	1	"If you were a type of animal, what would you be and why?"	10	0
-68	1	What is one of the strangest things you have ever done?	10	0
-69	1	What kind of vacations do you like?	10	0
-70	1	What are some of your major goals in life?	10	0
-71	1	What are some of your smaller goals in life?	10	0
-72	1	What do you like least about yourself?	10	0
-73	1	What embarrasses you?	10	0
-74	1	"If you could try out any job for a day, what would you like to try?"	10	0
-75	1	What is your earliest memory?	10	0
-76	1	What is the best decision you ever made?	10	0
-77	1	Who is your best / closest friend?	10	0
-78	1	What do you think people think of you?	10	0
-79	1	What does a typical day look like?	10	0
-80	1	"If you could learn one random skill, what would you learn?"	10	0
-81	1	Are you an introvert or an extrovert?	10	0
-82	1	Have you ever taken a personality test? (How did the results turn out?)	10	0
-83	1	What is the first thing you notice about people?	10	0
-84	1	Do you think people can control their own destiny?	10	0
-85	1	Do you think all people are equally valuable?	10	0
-86	1	Do you think people are basically bad or basically good?	10	0
-87	1	What I am most grateful about for right now?	10	0
-88	1	What is the biggest personal change you have ever made?	10	0
-89	1	What is the stupidest thing you have ever done?	10	0
-90	1	What do you think would be one of the best steps we could take toward ending poverty around the world?	10	0
-91	1	What do you think we could do to best improve the education system?	10	0
-92	1	"In general, what do you think about art?"	10	0
-93	1	What are some of your favorite websites?	10	0
-94	1	What is the biggest turnoff in a man/woman?	10	0
-95	1	What is the biggest lie you have ever told?	10	0
-96	1	What is something most people do not know about you?	10	0
-97	1	What is something you wish everyone knew about you?	10	0
-98	1	What are some of the first things you do in the morning?	10	0
-99	1	What is the worst thing that is ever happened to you?	10	0
-100	1	Do you cry easily?	10	0
-101	1	How do you feel about public speaking?	10	0
-102	1	Do you like to talk on the phone?	10	0
-103	1	"How many emails do you get each week, roughly?"	10	0
-104	1	"If someone were to make a movie about your life, who would you hope would play you?"	10	0
-105	1	What is one of your favorite questions to ask new friends or to get a conversation going?	10	0
-106	1	Would you ever sky dive or bungee jump?	10	0
-107	1	Have you ever been in a fist fight?	10	0
-108	1	What is the best prank you have ever pulled?	10	0
-109	1	What did you do on your 16th birthday?	10	0
-110	1	What do you think is one of the most undervalued professions right now?	10	0
-111	1	How would you explain your basic life philosophy?	10	0
-112	1	Would you rather be hated or forgotten?	10	0
-113	1	"If you knew you would die tomorrow, would you feel cheated today?"	10	0
-114	1	Are you a morning or night person?	10	0
+id	creator_id	description	level_id	created_at	updated_at	type	status	rand
+1	1	Can you make an important decision without having to consult others?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.906056671
+2	1	Have you ever taken a personality test?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.486468501
+3	1	What do you think would be one of the best steps we could take toward ending poverty around the world?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.874237855
+4	1	Do you like to plan things out in detail or be spontaneous?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.823255981
+5	1	What is the biggest lie you have ever told?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.683504906
+6	1	What is one of the scariest things you have ever done?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.444706051
+7	1	"Based on my daily routines and actions, where can I expect to be in five years?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.53187467
+8	1	Can you handle heavy manual work without problems?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.38812146
+9	1	What is one of your favorite habits you have?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.639936427
+10	1	"If you were going to write a book, what would you call it and what would it be about?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.911497566
+11	1	Do you feel that the education you have received at the university has been satisfactory?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.253368252
+12	1	Are you good at dancing alone or with a partner?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.04146582
+13	1	What do you think people think of you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.030270399
+14	1	Would you ever sky dive or bungee jump?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.430250111
+15	1	"If you knew you would die tomorrow, would you feel cheated today?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.481063958
+16	1	"How many emails do you get each week, roughly?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.385041548
+17	1	What is your favorite food?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.257706153
+18	1	Are you a recognized personality in your group?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.352110772
+19	1	Do you have a favorite number? Any particular reason why you like that number?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.480568748
+20	1	What are some of the first things you do in the morning?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.884561831
+21	1	What have you learned today?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.847047897
+22	1	"If you could learn one random skill, what would you learn?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.212792035
+23	1	"If you could try out any job for a day, what would you like to try?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.891968236
+24	1	Do you think all people are equally valuable?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.552445047
+25	1	Are you working in a position related to your degree?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.8953671
+26	1	Do you think people are basically bad or basically good?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.901249803
+27	1	Do you think people can control their own destiny?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.766690496
+28	1	Are you a morning or night person?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.05908101
+29	1	Are you very particular about cleanliness?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.856316049
+30	1	What is something most people do not know about you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.5135426
+31	1	What is one of the strangest things you have ever done?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.777262755
+32	1	Do you cry easily?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.684342312
+33	1	Would you rather live in the country or in the city?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.330494219
+34	1	Do you have a best/closest friend?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.124862681
+35	1	What is the first thing you notice about people?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.829609832
+36	1	What is your favorite part about today so far?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.662685319
+37	1	What are some things that make you really sad?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.153069254
+38	1	What are some things that scare you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.880069649
+39	1	Have you ever tried sushi? (Did you like it?)	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.062311929
+40	1	How many instruments can you play?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.89860776
+41	1	Do you like to talk on the phone?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.293959465
+42	1	How would you explain your basic life philosophy?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.53310379
+43	1	How do you feel about public speaking?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.015325176
+44	1	"In general, what do you think about art?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.218064511
+45	1	What are some of your favorite books?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.598088538
+46	1	"If you take something apart, do you remember how to put it together again?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.282714951
+47	1	What is the stupidest thing you have ever done?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.488467656
+48	1	"If someone asked you to give them a random piece of advice, what would you say?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.882165083
+49	1	What is one of your favorite questions to ask new friends or to get a conversation going?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.480586281
+50	1	Are you able to calm others down?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.574751945
+51	1	What does a typical day look like?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.018451863
+52	1	What are some things that make you really happy?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.892715241
+53	1	Can you listen to others and understand their problems	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.316922038
+54	1	Are you good at solving technical problems?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.08899676
+55	1	Do you have any brothers or sisters? How many?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.453672225
+56	1	Can you persuade people by talking to them?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.951483216
+57	1	Who are some people you would like to meet someday?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.596705467
+58	1	What were you like in high school?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.573409809
+59	1	Are you able to express what you think in a clear and intelligible manner?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.548379665
+60	1	"If you could go back in history, who would you like to meet?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.461239462
+61	1	Are you artistic?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.506761108
+62	1	Do you like traveling?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.880072467
+63	1	"Can you plan your work in advance, in detail?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.936201109
+64	1	What is your favorite joke?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.561046133
+65	1	Would you recommend your career for other people? Why/Why not?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.116649323
+66	1	How did you get into your career path?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.654259369
+67	1	What is the worst thing that is ever happened to you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.340356593
+68	1	Do you have a planner?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.559214613
+69	1	What I am most grateful about for right now?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.49084909
+70	1	Would you rather be hated or forgotten?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.983235375
+71	1	What is the biggest personal change you have ever made?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.339273889
+72	1	How do you like your steak cooked?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.119695197
+73	1	What accomplishment are you most proud of?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.017775529
+74	1	Is it easy for you to ask somebody a question?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.867709793
+75	1	Do you like spicy food?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.66651403
+76	1	What is your earliest memory?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.193346545
+77	1	What is the biggest turnoff in a man/woman?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.083217436
+78	1	"Do you have your notes, documents and other paperwork in good order?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.546416519
+79	1	What did you do on your 18th birthday?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.973406955
+80	1	What is the best decision you ever made?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.081940281
+81	1	What do you think is one of the most undervalued professions right now?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.908383848
+82	1	Have you ever been in a fist fight?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.26548684
+83	1	What do you do for fun?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.214272161
+84	1	Do you think that you are able to respond quickly without panicking in unexpected situations?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.935740404
+85	1	"When you were a kid, what did you want to be when you grew up?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.878749351
+86	1	What was your life like growing up?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.998291315
+87	1	What are some of your favorite websites?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.546298958
+88	1	What kind of music are you into?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.100980435
+89	1	How did you meet your spouse/girlfriend/boyfriend?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.657024348
+90	1	"If someone were to make a movie about your life, who would you hope would play you?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.455595612
+91	1	What are some of your smaller goals in life?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.55527277
+92	1	What do you do?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.174383268
+93	1	"If you could visit any country in the world, where would you go?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.808157946
+94	1	How do you feel right now?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.431906885
+95	1	What embarrasses you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.708648422
+96	1	What are some of your favorite movies?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.7802758
+97	1	Do you work in an orderly way?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.428749809
+98	1	"If you were a type of animal, what would you be and why?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.848434075
+99	1	Do you have a demonstrable talent for singing?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.1683538
+100	1	What is the best prank you have ever pulled?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.029915937
+101	1	What is something you wish everyone knew about you?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.26535999
+102	1	Do you enjoy indoor or outdoor activities?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.798784237
+103	1	What kind of vacations do you like?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.651581264
+104	1	What are you thinking about right now?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.553368658
+105	1	What is your favorite color?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.754300031
+106	1	What do you think we could do to best improve the education system?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.023129476
+107	1	What is your favorite dessert?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.290493281
+108	1	Who in your life has influenced you the most? How did they do it?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.45633034
+109	1	Are you an introvert or an extrovert?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.477594475
+110	1	What are some of your major goals in life?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.24307147
+111	1	What do you like least about yourself?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.665209754
+112	1	Can you usually anticipate what will happen after you have taken some action?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.631962683
+113	1	Are you good at writing essays?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.569225286
+114	1	What was your favorite subject in school?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.155561375
+115	1	Are you clever with your hands?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.532651143
+116	1	Can you put up with unpleasant behavior in another person without losing your temper?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.163415748
+117	1	 Can you usually find what you need without searching?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.385727566
+118	1	"Do you measure twice, cut once or look before you leap?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.907208267

@@ -78,6 +78,34 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('swipe/weblink/create', 'Swipe\SwipeController@createSwipeWeblink');
  Route::post('swipe/weblink/edit', 'Swipe\SwipeController@editSwipeWeblink');
 
+//Questionnaire
+ Route::get('questionnaires/history', 'Questionnaire\QuestionnaireController@getQuestionnaireHistory');
+ Route::get('questionnaires/questionnaire', 'Questionnaire\QuestionnaireController@getQuestionnaire');
+ Route::post('questionnaires/create', 'Questionnaire\QuestionnaireController@createQuestionnaire');
+ Route::get('questionnaire/{questionnaireId}/comments', 'Questionnaire\QuestionnaireController@getQuestionnaireComments');
+ Route::get('questionnaire/{questionnaireId}/comment/{commentId}', 'Questionnaire\QuestionnaireController@getQuestionnaireComment');
+ Route::get('questionnaire/{questionnaireId}/todos', 'Questionnaire\QuestionnaireController@getQuestionnaireTodos');
+ Route::get('questionnaire/{questionnaireId}/todo/{todoId}', 'Questionnaire\QuestionnaireController@getQuestionnaireTodo');
+ Route::get('questionnaire/{questionnaireId}/notes', 'Questionnaire\QuestionnaireController@getQuestionnaireNotes');
+ Route::get('questionnaire/{questionnaireId}/note/{noteId}', 'Questionnaire\QuestionnaireController@getQuestionnaireNote');
+ Route::get('questionnaire/{questionnaireId}/timelines', 'Questionnaire\QuestionnaireController@getQuestionnaireTimelines');
+ Route::get('questionnaire/{questionnaireId}/timeline/{timelineId}', 'Questionnaire\QuestionnaireController@getQuestionnaireTimeline');
+ Route::get('questionnaire/{questionnaireId}/weblinks', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblinks');
+ Route::get('questionnaire/{questionnaireId}/weblink/{weblinkId}', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblink');
+ Route::get('questionnaire/{id}', 'Questionnaire\QuestionnaireController@getQuestionnaire');
+ Route::post('questionnaire/edit', 'Questionnaire\QuestionnaireController@editQuestionnaire');
+ Route::post('questionnaire/create', 'Questionnaire\QuestionnaireController@createQuestionnaire');
+ Route::post('questionnaire/comment/create', 'Questionnaire\QuestionnaireController@createQuestionnaireComment');
+ Route::post('questionnaire/comment/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireComment');
+ Route::post('questionnaire/todo/create', 'Questionnaire\QuestionnaireController@createQuestionnaireTodo');
+ Route::post('questionnaire/todo/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireTodo');
+ Route::post('questionnaire/note/create', 'Questionnaire\QuestionnaireController@createQuestionnaireNote');
+ Route::post('questionnaire/note/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireNote');
+ Route::post('questionnaire/timeline/create', 'Questionnaire\QuestionnaireController@createQuestionnaireTimeline');
+ Route::post('questionnaire/timeline/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireTimeline');
+ Route::post('questionnaire/weblink/create', 'Questionnaire\QuestionnaireController@createQuestionnaireWeblink');
+ Route::post('questionnaire/weblink/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireWeblink');
+
 
 
  Route::get('skills/all', 'Skill\SkillController@getSkillsAll');
