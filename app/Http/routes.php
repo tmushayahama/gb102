@@ -80,6 +80,7 @@ Route::group(['prefix' => 'api'], function() {
 
 //Questionnaire
  Route::get('questionnaires/history', 'Questionnaire\QuestionnaireController@getQuestionnaireHistory');
+ Route::get('questionnaire/{questionnaireId}/question', 'Questionnaire\QuestionnaireController@getQuestionnaireQuestion');
  Route::get('questionnaires/questionnaire', 'Questionnaire\QuestionnaireController@getQuestionnaire');
  Route::post('questionnaires/create', 'Questionnaire\QuestionnaireController@createQuestionnaire');
  Route::get('questionnaire/{questionnaireId}/comments', 'Questionnaire\QuestionnaireController@getQuestionnaireComments');

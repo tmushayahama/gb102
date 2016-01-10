@@ -4,7 +4,6 @@ namespace App\Models\Questionnaire;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Explore\Explore;
 use Request;
 use DB;
 use JWTAuth;
@@ -18,14 +17,6 @@ class Questionnaire extends Model {
   */
  protected $table = 'gb_questionnaire';
  public $timestamps = false;
-
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
- }
-
- public function explore_modified() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_modified_id');
- }
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');

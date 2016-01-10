@@ -36,11 +36,11 @@ var questionnaireManager = function ($http, $q) {
  };
 
 
- QuestionnaireManager.prototype.getQuestionnaire = function () {
+ QuestionnaireManager.prototype.getQuestionnaireQuestion = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
   //self.questionnaire = [];
-  $http.get('/api/questionnaires/questionnaire').success(function (data) {
+  $http.get('/api/questionnaire/' + questionnaireId + '/question').success(function (data) {
    //self.questionnaire = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

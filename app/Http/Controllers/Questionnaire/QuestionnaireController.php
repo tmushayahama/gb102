@@ -9,9 +9,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Questionnaire\Questionnaire;
-use App\Models\Questionnaire\QuestionnaireTimeline;
 use App\Models\Questionnaire\QuestionnaireComment;
 use App\Models\Questionnaire\QuestionnaireNote;
+use App\Models\Questionnaire\QuestionnaireQuestion;
+use App\Models\Questionnaire\QuestionnaireTimeline;
 use App\Models\Questionnaire\QuestionnaireTodo;
 use App\Models\Questionnaire\QuestionnaireWeblink;
 use App\Models\Todo\Todo;
@@ -29,6 +30,11 @@ class QuestionnaireController extends Controller {
  public function getQuestionnaireHistory() {
   $questionnaires = Questionnaire::getQuestionnaireHistory();
   return \Response::json($questionnaires);
+ }
+
+ public function getQuestionnaireQuestion($questionnaireId) {
+  $questionnaireQuestion = QuestionnaireQuestion::getQuestionnaireQuestion($questionnaireId);
+  return \Response::json($questionnaireQuestion);
  }
 
  public function getQuestionnairesMine() {

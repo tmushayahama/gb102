@@ -16,11 +16,11 @@ var questionnaireCtrl = function (
  var vm = this;
 
  vm.constantsManager = new ConstantsManager();
- vm.currentExplore;
+ vm.currentQuestionnaireQuestion;
  vm.questionnaireLevels;
 
- vm.questionnaireRight = function ($event, exploreId) {
-  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[2].id);
+ vm.questionnaireRight = function ($event, questionnaireQuestionId) {
+  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[2].id);
 
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
@@ -37,8 +37,8 @@ var questionnaireCtrl = function (
   }, 1000);
  };
 
- vm.questionnaireLeft = function ($event, exploreId) {
-  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[0].id);
+ vm.questionnaireLeft = function ($event, questionnaireQuestionId) {
+  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[0].id);
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
   $(ele).css({
@@ -53,24 +53,24 @@ var questionnaireCtrl = function (
    });
   }, 1000);
  }
- vm.questionnaireDown = function ($event, exploreId) {
-  vm.createQuestionnaire(exploreId, vm.questionnaireLevels[1].id);
+ vm.questionnaireDown = function ($event, questionnaireQuestionId) {
+  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[1].id);
  }
 
- vm.getQuestionnaire = function () {
-  vm.questionnaireManager.getQuestionnaire().then(function (response) {
-   vm.currentExplore = response;
+ vm.getQuestionnaireQuestion = function () {
+  vm.questionnaireManager.getQuestionnaireQuestion(1).then(function (response) {
+   vm.currentQuestionnaireQuestion = response;
   });
  };
 
- vm.createQuestionnaire = function (exploreId, levelId) {
+ vm.createQuestionnaire = function (questionnaireQuestionId, levelId) {
   var data = {
-   exploreId: exploreId,
+   questionnaireQuestionId: questionnaireQuestionId,
    levelId: levelId,
    description: ""
   };
   vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
-   //vm.currentExplore = response;
+   //vm.currentQuestionnaireQuestion = response;
   });
   vm.getQuestionnaire();
  };
@@ -80,7 +80,7 @@ var questionnaireCtrl = function (
  };
 
  vm.questionnaireManager = new QuestionnaireManager();
- vm.getQuestionnaire();
+ vm.getQuestionnaireQuestion();
  vm.constantsManager.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
  });

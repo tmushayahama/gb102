@@ -5,29 +5,28 @@
   {{clicked}}
  </div>
  <ul class="stack col-lg-8 col-md-8 col-sm-10 col-xs-10">
-  <li hm-questionnaire-left="questionnaireCtrl.questionnaireLeft($event, questionnaireCtrl.currentExplore.id)"
-      hm-questionnaire-right="questionnaireCtrl.questionnaireRight($event, questionnaireCtrl.currentExplore.id)"
-      hm-questionnaire-up="questionnaireCtrl.questionnaireUp($event, questionnaireCtrl.currentExplore.id)"
-      hm-questionnaire-down="questionnaireCtrl.questionnaireDowm($event, questionnaireCtrl.currentExplore.id)"
+  <li hm-questionnaire-left="questionnaireCtrl.questionnaireLeft($event, questionnaireCtrl.currentQuestionnaireQuestion.id)"
+      hm-questionnaire-right="questionnaireCtrl.questionnaireRight($event, questionnaireCtrl.currentQuestionnaireQuestion.id)"
+      hm-questionnaire-up="questionnaireCtrl.questionnaireUp($event, questionnaireCtrl.currentQuestionnaireQuestion.id)"
+      hm-questionnaire-down="questionnaireCtrl.questionnaireDowm($event, questionnaireCtrl.currentQuestionnaireQuestion.id)"
       class="">
    <a class="row gb-box-1">
     <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
      <span class="fa-stack fa-lg">
-      <i class="fa fa-outer icon-gb-{{questionnaireCtrl.currentExplore.app_type.name.toLowerCase()}} fa-stack-2x"></i>
-      <i class="fa fa-inner {{questionnaireCtrl.currentExplore.icon.name}} fa-stack-1x fa-inverse"></i>
+      <i class="fa fa-outer icon-gb-{{questionnaireCtrl.currentQuestionnaireQuestion.app_type.name.toLowerCase()}} fa-stack-2x"></i>
+      <i class="fa fa-inner {{questionnaireCtrl.currentQuestionnaireQuestion.icon.name}} fa-stack-1x fa-inverse"></i>
      </span>
     </div>
     <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
      <div class="gb-heading row">
       <p class="gb-title">
-       {{questionnaireCtrl.currentExplore.app_type.name + ' - ' + questionnaireCtrl.currentExplore.level.name}}
+       {{questionnaireCtrl.currentQuestionnaireQuestion.app_type.name + ' - ' + questionnaireCtrl.currentQuestionnaireQuestion.level.name}}
       </p>
      </div>
      <div class="gb-description row">
       <p class="">
-       {{questionnaireCtrl.currentExplore.title}}
+       {{questionnaireCtrl.currentQuestionnaireQuestion.question.description}}
       </p>
-      {{questionnaireCtrl.currentExplore.description}}
      </div>
     </div>
    </a>
@@ -35,18 +34,6 @@
  </ul>
  <div class="gb-footer row">
   <div class="btn-toolbar">
-   <a ng-click="questionnaireCtrl.createQuestionnaire(questionnaireCtrl.currentExplore.id, questionnaireCtrl.questionnaireLevels[0].id)"
-      class="btn btn-default">
-    {{questionnaireCtrl.questionnaireLevels[0].name}}
-   </a>
-   <a ng-click="questionnaireCtrl.createQuestionnaire(questionnaireCtrl.currentExplore.id, questionnaireCtrl.questionnaireLevels[1].id)"
-      class="btn btn-default">
-    {{questionnaireCtrl.questionnaireLevels[1].name}}
-   </a>
-   <a ng-click="questionnaireCtrl.createQuestionnaire(questionnaireCtrl.currentExplore.id, questionnaireCtrl.questionnaireLevels[2].id)"
-      class="btn btn-default">
-    {{questionnaireCtrl.questionnaireLevels[2].name}}
-   </a>
   </div>
  </div>
 </div>
