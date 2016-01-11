@@ -1,7 +1,7 @@
 var communityManager = function ($http, $q) {
 
  var CommunityManager = function () {
-  this.users = [];
+  this.community = [];
  };
  CommunityManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -22,12 +22,27 @@ var communityManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CommunityManager.prototype.getUsers = function () {
+ CommunityManager.prototype.getCommunity = function (communityId) {
   var self = this;
   var deferred = $q.defer();
-  self.users = [];
-  $http.get('/api/community/users').success(function (data) {
-   self.users = data;
+  $http.get('/api/community/' + communityId).success(function (data) {
+   self.community = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+
+ CommunityManager.prototype.editCommunity = function (communityData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/community/edit',
+   data: communityData
+  }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -40,5 +55,4 @@ var communityManager = function ($http, $q) {
 
 communityManager.$inject = ['$http', '$q'];
 
-angular.module('app.community').service('CommunityManager', communityManager);
-
+angular.module('app.communitys').service('CommunityManager', communityManager);

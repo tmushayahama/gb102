@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?luq170');
-    src:    url('fonts/icomoon.eot?luq170#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?luq170') format('truetype'),
-        url('fonts/icomoon.woff?luq170') format('woff'),
-        url('fonts/icomoon.svg?luq170#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?wqyzvw');
+    src:    url('fonts/icomoon.eot?wqyzvw#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?wqyzvw') format('truetype'),
+        url('fonts/icomoon.woff?wqyzvw') format('woff'),
+        url('fonts/icomoon.svg?wqyzvw#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,10 +24,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-gb_matcher:before {
+.icon-gb-advise:before {
     content: "\e900";
 }
-.icon-gb-advice:before {
+.icon-gb-apply:before {
     content: "\eb38";
 }
 .icon-gb-apps:before {
@@ -57,61 +57,29 @@
 .icon-gb-journal:before {
     content: "\eb41";
 }
-.icon-gb-mentorship:before {
+.icon-gb-matcher:before {
     content: "\eb42";
 }
-.icon-gb-project:before {
+.icon-gb-mentorship:before {
     content: "\eb43";
 }
-.icon-gb-promise:before {
+.icon-gb-organize:before {
     content: "\eb44";
 }
-.icon-gb-promise-2 .path1:before {
+.icon-gb-project:before {
     content: "\eb45";
-    color: rgb(0, 0, 0);
 }
-.icon-gb-promise-2 .path2:before {
+.icon-gb-promise:before {
     content: "\eb46";
-    margin-left: -1.1435546875em;
-    color: rgb(0, 0, 0);
-}
-.icon-gb-promise-2 .path3:before {
-    content: "\eb47";
-    margin-left: -1.1435546875em;
-    color: rgb(0, 0, 0);
-}
-.icon-gb-promise-2 .path4:before {
-    content: "\eb48";
-    margin-left: -1.1435546875em;
-    color: rgb(255, 255, 255);
 }
 .icon-gb-skill:before {
-    content: "\eb49";
+    content: "\eb47";
 }
 .icon-gb-swipe:before {
-    content: "\eb4a";
+    content: "\eb48";
 }
 .icon-gb-teach:before {
-    content: "\eb4b";
-}
-.icon-promise .path1:before {
-    content: "\eb4c";
-    color: rgb(0, 0, 0);
-}
-.icon-promise .path2:before {
-    content: "\eb4d";
-    margin-left: -1.1435546875em;
-    color: rgb(0, 0, 0);
-}
-.icon-promise .path3:before {
-    content: "\eb4e";
-    margin-left: -1.1435546875em;
-    color: rgb(0, 0, 0);
-}
-.icon-promise .path4:before {
-    content: "\eb4f";
-    margin-left: -1.1435546875em;
-    color: rgb(255, 255, 255);
+    content: "\eb49";
 }
 .icon-telescope:before {
     content: "\e02a";

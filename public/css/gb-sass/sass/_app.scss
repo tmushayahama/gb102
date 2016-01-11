@@ -1270,7 +1270,7 @@ input.gb-form-show{
 
  .gb-heading {
   font-size: 0.8em;
-  padding: 15px 3px 15px 5px;
+  padding: 15px 3px 15px 27px;
   margin: 0;
   color: #999;
   border-bottom: #CCC solid 1px;
@@ -1312,9 +1312,9 @@ input.gb-form-show{
     color: rgba($primary-color, 0.4);
    }
    .fa-inner {
-    top: 4px;
+    top: 10px;
     left: 7px;
-    font-size: 25px;
+    font-size: 20px;
     color: darken($primary-color, 5%);
    }
    &:hover {

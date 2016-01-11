@@ -1,5 +1,5 @@
 
-var communityCtrl = function (
+var usersCtrl = function (
         level_categories,
         ConstantsManager,
         CommunityManager,
@@ -20,12 +20,14 @@ var communityCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-community.css'
  }, $scope);
 
+ vm.communityManager = new CommunityManager();
  vm.constantsManager = new ConstantsManager();
 
+ vm.communityManager.getUsers();
 
 };
 
-communityCtrl.$inject = [
+usersCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
  'CommunityManager',
@@ -40,4 +42,4 @@ communityCtrl.$inject = [
  '$filter',
  '$css'];
 
-angular.module("app.community").controller('CommunityCtrl', communityCtrl);
+angular.module("app.community").controller('UsersCtrl', usersCtrl);

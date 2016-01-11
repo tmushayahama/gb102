@@ -20,6 +20,38 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 
+//Community
+ Route::get('community/users', 'Community\CommunityController@getUsers');
+ Route::get('community/mine', 'Community\CommunityController@getCommunitysMine');
+ Route::get('community/swipe', 'Community\CommunityController@getCommunitySwipe');
+ Route::get('community/swipes', 'Community\CommunityController@getCommunitySwipes');
+ Route::post('community/swipe/create', 'Community\CommunityController@createCommunitySwipe');
+ Route::get('community/{communityId}/comments', 'Community\CommunityController@getCommunityComments');
+ Route::get('community/{communityId}/comment/{commentId}', 'Community\CommunityController@getCommunityComment');
+ Route::get('community/{communityId}/todos', 'Community\CommunityController@getCommunityTodos');
+ Route::get('community/{communityId}/todo/{todoId}', 'Community\CommunityController@getCommunityTodo');
+ Route::get('community/{communityId}/notes', 'Community\CommunityController@getCommunityNotes');
+ Route::get('community/{communityId}/note/{noteId}', 'Community\CommunityController@getCommunityNote');
+ Route::get('community/{communityId}/timelines', 'Community\CommunityController@getCommunityTimelines');
+ Route::get('community/{communityId}/timeline/{timelineId}', 'Community\CommunityController@getCommunityTimeline');
+ Route::get('community/{communityId}/weblinks', 'Community\CommunityController@getCommunityWeblinks');
+ Route::get('community/{communityId}/weblink/{weblinkId}', 'Community\CommunityController@getCommunityWeblink');
+ Route::get('community/{id}', 'Community\CommunityController@getCommunity');
+ Route::post('community/edit', 'Community\CommunityController@editCommunity');
+ Route::post('community/create', 'Community\CommunityController@createCommunity');
+ Route::post('community/comment/create', 'Community\CommunityController@createCommunityComment');
+ Route::post('community/comment/edit', 'Community\CommunityController@editCommunityComment');
+ Route::post('community/todo/create', 'Community\CommunityController@createCommunityTodo');
+ Route::post('community/todo/edit', 'Community\CommunityController@editCommunityTodo');
+ Route::post('community/note/create', 'Community\CommunityController@createCommunityNote');
+ Route::post('community/note/edit', 'Community\CommunityController@editCommunityNote');
+ Route::post('community/timeline/create', 'Community\CommunityController@createCommunityTimeline');
+ Route::post('community/timeline/edit', 'Community\CommunityController@editCommunityTimeline');
+ Route::post('community/weblink/create', 'Community\CommunityController@createCommunityWeblink');
+ Route::post('community/weblink/edit', 'Community\CommunityController@editCommunityWeblink');
+
+
+
  //Explore
  Route::get('explores/all', 'Explore\ExploreController@getExploresAll');
  Route::get('explores/mine', 'Explore\ExploreController@getExploresMine');
@@ -439,35 +471,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('group/weblink/create', 'Group\GroupController@createGroupWeblink');
  Route::post('group/weblink/edit', 'Group\GroupController@editGroupWeblink');
 
- //Community
- Route::get('communitys/all', 'Community\CommunityController@getCommunitysAll');
- Route::get('communitys/mine', 'Community\CommunityController@getCommunitysMine');
- Route::get('communitys/swipe', 'Community\CommunityController@getCommunitySwipe');
- Route::get('communitys/swipes', 'Community\CommunityController@getCommunitySwipes');
- Route::post('communitys/swipe/create', 'Community\CommunityController@createCommunitySwipe');
- Route::get('community/{communityId}/comments', 'Community\CommunityController@getCommunityComments');
- Route::get('community/{communityId}/comment/{commentId}', 'Community\CommunityController@getCommunityComment');
- Route::get('community/{communityId}/todos', 'Community\CommunityController@getCommunityTodos');
- Route::get('community/{communityId}/todo/{todoId}', 'Community\CommunityController@getCommunityTodo');
- Route::get('community/{communityId}/notes', 'Community\CommunityController@getCommunityNotes');
- Route::get('community/{communityId}/note/{noteId}', 'Community\CommunityController@getCommunityNote');
- Route::get('community/{communityId}/timelines', 'Community\CommunityController@getCommunityTimelines');
- Route::get('community/{communityId}/timeline/{timelineId}', 'Community\CommunityController@getCommunityTimeline');
- Route::get('community/{communityId}/weblinks', 'Community\CommunityController@getCommunityWeblinks');
- Route::get('community/{communityId}/weblink/{weblinkId}', 'Community\CommunityController@getCommunityWeblink');
- Route::get('community/{id}', 'Community\CommunityController@getCommunity');
- Route::post('community/edit', 'Community\CommunityController@editCommunity');
- Route::post('community/create', 'Community\CommunityController@createCommunity');
- Route::post('community/comment/create', 'Community\CommunityController@createCommunityComment');
- Route::post('community/comment/edit', 'Community\CommunityController@editCommunityComment');
- Route::post('community/todo/create', 'Community\CommunityController@createCommunityTodo');
- Route::post('community/todo/edit', 'Community\CommunityController@editCommunityTodo');
- Route::post('community/note/create', 'Community\CommunityController@createCommunityNote');
- Route::post('community/note/edit', 'Community\CommunityController@editCommunityNote');
- Route::post('community/timeline/create', 'Community\CommunityController@createCommunityTimeline');
- Route::post('community/timeline/edit', 'Community\CommunityController@editCommunityTimeline');
- Route::post('community/weblink/create', 'Community\CommunityController@createCommunityWeblink');
- Route::post('community/weblink/edit', 'Community\CommunityController@editCommunityWeblink');
 
  //Profile
  Route::get('profiles/all', 'Profile\ProfileController@getProfilesAll');

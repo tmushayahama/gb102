@@ -3,6 +3,7 @@
 namespace App\Models\Community;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User\User;
 use Request;
 use DB;
 use JWTAuth;
@@ -35,14 +36,11 @@ class Community extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getCommunitysAll() {
-  $communitys = Community::orderBy('id', 'desc')
-          ->with('creator')
-          ->with('icon')
-          ->with('level')
+ public static function getUsers() {
+  $users = User::orderBy('id', 'desc')
           ->take(50)
           ->get();
-  return $communitys;
+  return $users;
  }
 
  public static function getCommunitysMine() {

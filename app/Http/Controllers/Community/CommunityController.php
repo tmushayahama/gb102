@@ -26,9 +26,9 @@ use DB;
 
 class CommunityController extends Controller {
 
- public function getCommunitysAll() {
-  $communitys = Community::getCommunitysAll();
-  return \Response::json($communitys);
+ public function getUsers() {
+  $users = Community::getUsers();
+  return \Response::json($users);
  }
 
  public function getCommunitysMine() {

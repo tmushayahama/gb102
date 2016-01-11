@@ -1,1 +1,0 @@
-var exploreOverviewCtrl=function(ExploreManager,$state,$stateParams,$http,$rootScope){};exploreOverviewCtrl.$inject=["ExploreManager","$state","$stateParams","$http","$rootScope"],angular.module("app.explore").controller("ExploreOverviewCtrl",exploreOverviewCtrl);

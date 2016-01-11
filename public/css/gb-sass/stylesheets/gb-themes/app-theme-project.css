@@ -2720,7 +2720,7 @@ input.gb-form-show {
 }
 #gb-left-nav-3 .gb-heading {
   font-size: 0.8em;
-  padding: 15px 3px 15px 5px;
+  padding: 15px 3px 15px 27px;
   margin: 0;
   color: #999;
   border-bottom: #CCC solid 1px;
@@ -2766,9 +2766,9 @@ input.gb-form-show {
   color: rgba(109, 96, 60, 0.4);
 }
 #gb-left-nav-3 .gb-link .fa-lg .fa-inner {
-  top: 4px;
+  top: 10px;
   left: 7px;
-  font-size: 25px;
+  font-size: 20px;
   color: #5d5233;
 }
 #gb-left-nav-3 .gb-link .fa-lg:hover .fa-outer {

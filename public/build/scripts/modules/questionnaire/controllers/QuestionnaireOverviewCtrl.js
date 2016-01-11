@@ -1,1 +1,0 @@
-var questionnaireOverviewCtrl=function(QuestionnaireManager,$state,$stateParams,$http,$rootScope){};questionnaireOverviewCtrl.$inject=["QuestionnaireManager","$state","$stateParams","$http","$rootScope"],angular.module("app.questionnaire").controller("QuestionnaireOverviewCtrl",questionnaireOverviewCtrl);

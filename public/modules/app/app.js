@@ -18,6 +18,7 @@ define([
  'hammerjs',
  'angular-gestures',
  '../auth/module',
+ '../community/module',
  '../explore/module',
  '../swipe/module',
  '../questionnaire/module'
@@ -39,6 +40,7 @@ define([
   //'gajus.swing',
   'angular-gestures',
   'app.auth',
+  'app.community',
   'app.explore',
   'app.swipe',
   'app.questionnaire',
