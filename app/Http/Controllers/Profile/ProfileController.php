@@ -26,18 +26,8 @@ use DB;
 
 class ProfileController extends Controller {
 
- public function getProfilesAll() {
-  $profiles = Profile::getProfilesAll();
-  return \Response::json($profiles);
- }
-
- public function getProfilesMine() {
-  $profiles = Profile::getProfilesMine();
-  return \Response::json($profiles);
- }
-
  public function getProfile($id) {
-  $profile = Profile::getProfile($id);
+  $profile = User::getProfile($id);
   return \Response::json($profile);
  }
 

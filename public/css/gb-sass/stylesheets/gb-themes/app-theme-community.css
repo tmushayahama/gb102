@@ -18,7 +18,7 @@ and open the template in the editor.
     Author     : Tremmillicious
 */
 .btn-primary {
-  background-color: #777;
+  background-color: #4D1616;
 }
 
 .gb-btn {
@@ -126,7 +126,7 @@ and open the template in the editor.
   background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   padding: 11px 15px;
-  border-bottom: rgba(119, 119, 119, 0.6) solid 3px;
+  border-bottom: rgba(77, 22, 22, 0.6) solid 3px;
   font-size: 18px;
   font-weight: normal;
   height: 50px;
@@ -216,7 +216,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(119, 119, 119, 0.6);
+  color: rgba(77, 22, 22, 0.6);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -251,10 +251,10 @@ and open the template in the editor.
   text-decoration: none;
 }
 .gb-nav-1 li:hover {
-  border-bottom: rgba(119, 119, 119, 0.7) solid 3px;
+  border-bottom: rgba(77, 22, 22, 0.7) solid 3px;
 }
 .gb-nav-1 li.active {
-  border-bottom: #777 solid 3px;
+  border-bottom: #4D1616 solid 3px;
 }
 
 .gb-nav-2 {
@@ -276,19 +276,19 @@ and open the template in the editor.
   width: 100%;
   text-align: center;
   text-decoration: none;
-  color: rgba(119, 119, 119, 0.7);
+  color: rgba(77, 22, 22, 0.7);
 }
 .gb-nav-2 li:hover {
-  border-bottom: rgba(119, 119, 119, 0.5) solid 4px;
+  border-bottom: rgba(77, 22, 22, 0.5) solid 4px;
 }
 .gb-nav-2 li:hover a {
-  color: rgba(119, 119, 119, 0.9);
+  color: rgba(77, 22, 22, 0.9);
 }
 .gb-nav-2 li.active {
-  border-bottom: rgba(119, 119, 119, 0.7) solid 4px;
+  border-bottom: rgba(77, 22, 22, 0.7) solid 4px;
 }
 .gb-nav-2 li.active a {
-  color: #777777;
+  color: #4d1616;
 }
 
 .steps-indicator {
@@ -468,11 +468,11 @@ and open the template in the editor.
 }
 
 .steps-indicator li.done a:before {
-  background-color: rgba(119, 119, 119, 0.9);
+  background-color: rgba(77, 22, 22, 0.9);
 }
 
 .steps-indicator li.editing a:before {
-  background-color: rgba(119, 119, 119, 0.4);
+  background-color: rgba(77, 22, 22, 0.4);
 }
 
 .gb-swipe-container .stack {
@@ -490,7 +490,7 @@ and open the template in the editor.
   list-style: none;
   background: #FFF;
   border-radius: 5px;
-  border: 7px solid rgba(119, 119, 119, 0.5);
+  border: 7px solid rgba(77, 22, 22, 0.5);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   cursor: default;
@@ -531,19 +531,19 @@ and open the template in the editor.
   font-size: 30px;
 }
 .gb-swipe-container .gb-box-1 .gb-icon-image .fa-lg .fa-outer {
-  color: rgba(119, 119, 119, 0.2);
+  color: rgba(77, 22, 22, 0.2);
 }
 .gb-swipe-container .gb-box-1 .gb-icon-image .fa-lg .fa-inner {
   top: 35px;
   left: 20px;
   font-size: 30px;
-  color: #777777;
+  color: #4d1616;
 }
 .gb-swipe-container .gb-box-1 .gb-icon-image .fa-lg:hover .fa-outer {
-  color: rgba(119, 119, 119, 0.7);
+  color: rgba(77, 22, 22, 0.7);
 }
 .gb-swipe-container .gb-box-1 .gb-icon-image .fa-lg:hover .fa-inner {
-  color: #5e5e5e;
+  color: #250b0b;
 }
 .gb-swipe-container .gb-box-1 .gb-box-body .gb-heading {
   padding: 8px 5px 0 10px;
@@ -644,7 +644,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -756,7 +756,7 @@ and open the template in the editor.
   background-color: #FFFFFF;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(119, 119, 119, 0.5) solid 1px;
+  border-left: rgba(77, 22, 22, 0.5) solid 1px;
 }
 .gb-comments #comment-list li .gb-comment-content .gb-content-text {
   float: left;
@@ -1108,7 +1108,7 @@ and open the template in the editor.
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -1220,7 +1220,7 @@ and open the template in the editor.
   background-color: #FFFFFF;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(119, 119, 119, 0.5) solid 1px;
+  border-left: rgba(77, 22, 22, 0.5) solid 1px;
 }
 .gb-weblinks #weblink-list li .gb-weblink-content .gb-content-text {
   float: left;
@@ -1497,12 +1497,12 @@ body {
 
 a,
 a.btn-link {
-  color: #777;
+  color: #4D1616;
 }
 
 a:hover,
 a.btn-link:hover {
-  color: rgba(119, 119, 119, 0.6);
+  color: rgba(77, 22, 22, 0.6);
 }
 
 div[class*="col-"],
@@ -1568,7 +1568,7 @@ input[type="checkbox"] {
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  background-color: rgba(119, 119, 119, 0.2);
+  background-color: rgba(77, 22, 22, 0.2);
 }
 #gb-middle-nav > .gb-body {
   position: absolute;
@@ -1584,7 +1584,7 @@ input[type="checkbox"] {
 }
 #gb-middle-nav .gb-cover {
   padding: 10px;
-  background-color: rgba(119, 119, 119, 0.5);
+  background-color: rgba(77, 22, 22, 0.5);
   height: 200px;
   overflow: hidden;
 }
@@ -1610,16 +1610,16 @@ input[type="checkbox"] {
   }
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-circle {
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-inverse {
-  color: rgba(119, 119, 119, 0.8);
+  color: rgba(77, 22, 22, 0.8);
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
-  color: rgba(119, 119, 119, 0.7);
+  color: rgba(77, 22, 22, 0.7);
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
-  color: #777;
+  color: #4D1616;
 }
 #gb-middle-nav .gb-container.gb-app-list {
   margin-top: 90px;
@@ -1766,7 +1766,7 @@ input[type="checkbox"] {
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -1797,7 +1797,7 @@ input[type="checkbox"] {
 .gb-todos .gb-todo-row {
   height: 50px;
   background-color: #FFFFFF;
-  border-bottom: rgba(119, 119, 119, 0.5) solid 1px;
+  border-bottom: rgba(77, 22, 22, 0.5) solid 1px;
 }
 .gb-todos #todo-list li .toggle {
   margin: 5px 0 0 0;
@@ -1820,7 +1820,7 @@ input[type="checkbox"] {
   height: 50px;
   font-size: 18px;
   transition: color 0.4s;
-  border-left: rgba(119, 119, 119, 0.5) solid 1px;
+  border-left: rgba(77, 22, 22, 0.5) solid 1px;
 }
 .gb-todos #todo-list li .gb-todo-content .gb-content-text {
   float: left;
@@ -2033,7 +2033,7 @@ input[type="checkbox"] {
   width: 100%;
   font-size: 30px;
   font-weight: 100;
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -2332,7 +2332,7 @@ input[type="checkbox"] {
 
 .gb-checklist .gb-checklist-row {
   background-color: #FFFFFF;
-  border-bottom: rgba(119, 119, 119, 0.7) solid 1px;
+  border-bottom: rgba(77, 22, 22, 0.7) solid 1px;
 }
 .gb-checklist .gb-checklist-nav {
   margin: 0;
@@ -2359,7 +2359,7 @@ input[type="checkbox"] {
   padding: 3px 0 3px 10px;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(119, 119, 119, 0.7) solid 1px;
+  border-left: rgba(77, 22, 22, 0.7) solid 1px;
 }
 .gb-checklist .gb-checklist-nav li .gb-checklist-item-content p {
   padding: 5px 0 0px 0px;
@@ -2690,13 +2690,13 @@ input.gb-form-show {
   text-align: center;
 }
 #gb-left-nav-3 .gb-header .gb-logo .fa-lg .fa-circle {
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
 }
 #gb-left-nav-3 .gb-header .gb-logo .fa-lg .fa-inverse {
-  color: rgba(119, 119, 119, 0.8);
+  color: rgba(77, 22, 22, 0.8);
 }
 #gb-left-nav-3 .gb-header .gb-logo strong {
-  color: #777;
+  color: #4D1616;
 }
 #gb-left-nav-3 .gb-header .gb-logo .gb-beta {
   font-size: 5px;
@@ -2763,19 +2763,19 @@ input.gb-form-show {
   }
 }
 #gb-left-nav-3 .gb-link .fa-lg .fa-outer {
-  color: rgba(119, 119, 119, 0.4);
+  color: rgba(77, 22, 22, 0.4);
 }
 #gb-left-nav-3 .gb-link .fa-lg .fa-inner {
   top: 10px;
   left: 7px;
   font-size: 20px;
-  color: #6a6a6a;
+  color: #391010;
 }
 #gb-left-nav-3 .gb-link .fa-lg:hover .fa-outer {
-  color: rgba(119, 119, 119, 0.7);
+  color: rgba(77, 22, 22, 0.7);
 }
 #gb-left-nav-3 .gb-link .fa-lg:hover .fa-inner {
-  color: #444444;
+  color: black;
 }
 #gb-left-nav-3 .gb-link .gb-content {
   font-size: 14px;
@@ -3562,19 +3562,19 @@ input.gb-form-show {
   font-size: 50px;
 }
 .gb-box-1 .gb-icon-image .fa-lg .fa-outer {
-  color: rgba(119, 119, 119, 0.2);
+  color: rgba(77, 22, 22, 0.2);
 }
 .gb-box-1 .gb-icon-image .fa-lg .fa-inner {
   top: 45px;
   left: 30px;
   font-size: 50px;
-  color: #777777;
+  color: #4d1616;
 }
 .gb-box-1 .gb-icon-image .fa-lg:hover .fa-outer {
-  color: rgba(119, 119, 119, 0.7);
+  color: rgba(77, 22, 22, 0.7);
 }
 .gb-box-1 .gb-icon-image .fa-lg:hover .fa-inner {
-  color: #5e5e5e;
+  color: #250b0b;
 }
 .gb-box-1 .gb-box-body .gb-heading {
   padding: 8px 5px 0 10px;

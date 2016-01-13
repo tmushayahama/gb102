@@ -1,0 +1,1 @@
+var skillOverviewCtrl=function(SkillManager,$state,$stateParams,$http,$rootScope){};skillOverviewCtrl.$inject=["SkillManager","$state","$stateParams","$http","$rootScope"],angular.module("app.skills").controller("SkillOverviewCtrl",skillOverviewCtrl);

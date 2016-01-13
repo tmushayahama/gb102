@@ -27,6 +27,25 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   return $this->hasMany('App\Models\Skill\Skill', 'creator_id');
  }
 
+ public static function getProfile($id) {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $profile;
+  if ($userId) {
+   if ($userId == $id) {
+    $profile = User::where('id', $userId)
+            ->find();
+   } else {
+    $profile = User::where('id', $userId)
+            ->find();
+   }
+   return $profile;
+  }
+  $profile = User::where('id', $userId)
+          ->find();
+  return $profile;
+ }
+
  /**
   * The attributes that are mass assignable.
   *
