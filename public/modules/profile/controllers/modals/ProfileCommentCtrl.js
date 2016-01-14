@@ -81,4 +81,4 @@ profileCommentCtrl.$inject = [
  '$log',
  'profileCommentData'];
 
-angular.module("app.profiles").controller('ProfileCommentCtrl', profileCommentCtrl);
+angular.module("app.profile").controller('ProfileCommentCtrl', profileCommentCtrl);

@@ -82,4 +82,4 @@ profileNoteCtrl.$inject = [
  '$log',
  'profileNoteData'];
 
-angular.module("app.profiles").controller('ProfileNoteCtrl', profileNoteCtrl);
+angular.module("app.profile").controller('ProfileNoteCtrl', profileNoteCtrl);

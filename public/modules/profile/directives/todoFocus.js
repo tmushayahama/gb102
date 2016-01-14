@@ -1,4 +1,4 @@
-angular.module('app.profiles').directive('todoFocus',
+angular.module('app.profile').directive('todoFocus',
         ['$timeout', function ($timeout) {
           return function (scope, elem, attrs) {
            scope.$watch(attrs.todoFocus, function (newval) {

@@ -162,4 +162,4 @@ profileTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfileTimelinesCtrl', profileTimelinesCtrl);
+angular.module("app.profile").controller('ProfileTimelinesCtrl', profileTimelinesCtrl);

@@ -33,4 +33,4 @@ addProfileCtrl.$inject = [
  '$log',
  'profileLevels'];
 
-angular.module("app.profiles").controller('AddProfileCtrl', addProfileCtrl);
+angular.module("app.profile").controller('AddProfileCtrl', addProfileCtrl);

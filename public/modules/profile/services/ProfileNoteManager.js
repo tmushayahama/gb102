@@ -56,4 +56,4 @@ var profileNoteManager = function ($http, $q) {
 
 profileNoteManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileNoteManager', profileNoteManager);
+angular.module('app.profile').service('ProfileNoteManager', profileNoteManager);

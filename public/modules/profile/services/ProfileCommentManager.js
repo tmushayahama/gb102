@@ -56,4 +56,4 @@ var profileCommentManager = function ($http, $q) {
 
 profileCommentManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileCommentManager', profileCommentManager);
+angular.module('app.profile').service('ProfileCommentManager', profileCommentManager);

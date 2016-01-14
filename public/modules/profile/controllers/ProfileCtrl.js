@@ -114,46 +114,6 @@ var profileCtrl = function (
   }
  };
 
- vm.revertProfile = function (profile, profileCopy) {
-  profile = profileCopy;
-  /*
-   $filter('filter')
-   (vm.profileManager.profile, {id: profileId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.profileCopy, {id: profileId}, true)[0]);
-   if (profile.length && profileCopy.length) {
-   // vm.profileManager.profile angular.copy(vm.profileCopy);
-   }
-   */
- };
-
-
-
-
-
-
- vm.edited = null;
-
- $scope.$watch(angular.bind(this, function () {
-  return vm.profile;
- }), function () {
-  //vm.remainingCount = filterFilter(profile, {completed: false}).length;
-  vm.doneCount = vm.profileManager.profile.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //ProfileService.put(vm.profile);
- }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
-
 
  vm.edit = function (profile) {
   vm.edited = profile;
@@ -193,4 +153,4 @@ profileCtrl.$inject = ['_',
  '$filter',
  '$css'];
 
-angular.module("app.profiles").controller('ProfileCtrl', profileCtrl);
+angular.module("app.profile").controller('ProfileCtrl', profileCtrl);

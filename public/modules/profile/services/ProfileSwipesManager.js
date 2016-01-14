@@ -26,7 +26,7 @@ var profileSwipesManager = function ($http, $q) {
   var self = this;
   var deferred = $q.defer();
   self.profileSwipes = [];
-  $http.get('/api/profiles/swipes').success(function (data) {
+  $http.get('/api/profile/swipes').success(function (data) {
    self.profileSwipes = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -40,7 +40,7 @@ var profileSwipesManager = function ($http, $q) {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
-  $http.get('/api/profiles/swipe').success(function (data) {
+  $http.get('/api/profile/swipe').success(function (data) {
    self.profile = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -54,7 +54,7 @@ var profileSwipesManager = function ($http, $q) {
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/profiles/swipe/create',
+   url: '/api/profile/swipe/create',
    data: profileSwipeData
   }).success(function (data) {
    self.profileSwipes.unshift(data);
@@ -84,5 +84,5 @@ var profileSwipesManager = function ($http, $q) {
 
 profileSwipesManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileSwipesManager', profileSwipesManager);
+angular.module('app.profile').service('ProfileSwipesManager', profileSwipesManager);
 

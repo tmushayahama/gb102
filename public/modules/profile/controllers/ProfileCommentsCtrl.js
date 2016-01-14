@@ -141,4 +141,4 @@ profileCommentsCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfileCommentsCtrl', profileCommentsCtrl);
+angular.module("app.profile").controller('ProfileCommentsCtrl', profileCommentsCtrl);

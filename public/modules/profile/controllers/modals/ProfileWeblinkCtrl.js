@@ -82,4 +82,4 @@ profileWeblinkCtrl.$inject = [
  '$log',
  'profileWeblinkData'];
 
-angular.module("app.profiles").controller('ProfileWeblinkCtrl', profileWeblinkCtrl);
+angular.module("app.profile").controller('ProfileWeblinkCtrl', profileWeblinkCtrl);

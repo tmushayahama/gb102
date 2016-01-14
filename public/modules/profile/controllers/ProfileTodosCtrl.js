@@ -143,4 +143,4 @@ profileTodosCtrl.$inject = [
  '$uibModal',
  '$log'];
 
-angular.module("app.profiles").controller('ProfileTodosCtrl', profileTodosCtrl);
+angular.module("app.profile").controller('ProfileTodosCtrl', profileTodosCtrl);

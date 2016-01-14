@@ -19,7 +19,7 @@ define(['angular',
            resolve: {
             load: ['$ocLazyLoad', function ($ocLazyLoad) {
               return $ocLazyLoad.load({
-               name: 'app',
+               name: 'app.auth',
                serie: true,
                files: [
                 'public/modules/app/services/ConstantsManager.js',

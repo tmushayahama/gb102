@@ -85,4 +85,4 @@ var profileTimelinesManager = function ($http, $q) {
 
 profileTimelinesManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileTimelinesManager', profileTimelinesManager);
+angular.module('app.profile').service('ProfileTimelinesManager', profileTimelinesManager);

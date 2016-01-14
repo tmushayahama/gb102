@@ -162,4 +162,4 @@ profileWeblinksCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfileWeblinksCtrl', profileWeblinksCtrl);
+angular.module("app.profile").controller('ProfileWeblinksCtrl', profileWeblinksCtrl);

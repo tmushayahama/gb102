@@ -8,7 +8,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
-use App\Models\Profile\Profile;
+use App\Models\User\User;
 use App\Models\Profile\ProfileTimeline;
 use App\Models\Profile\ProfileComment;
 use App\Models\Profile\ProfileNote;

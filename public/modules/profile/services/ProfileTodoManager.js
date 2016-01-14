@@ -55,4 +55,4 @@ var profileTodoManager = function ($http, $q) {
 };
 profileTodoManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileTodoManager', profileTodoManager);
+angular.module('app.profile').service('ProfileTodoManager', profileTodoManager);

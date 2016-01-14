@@ -142,4 +142,4 @@ profileTodoCtrl.$inject = [
  '$log',
  'profileTodoData', ];
 
-angular.module("app.profiles").controller('ProfileTodoCtrl', profileTodoCtrl);
+angular.module("app.profile").controller('ProfileTodoCtrl', profileTodoCtrl);

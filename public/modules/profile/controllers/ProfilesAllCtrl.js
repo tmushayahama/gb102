@@ -1,6 +1,6 @@
-var profilesAllCtrl = function (
+var profileAllCtrl = function (
         ConstantsManager,
-        ProfilesManager,
+        ProfileManager,
         $scope,
         $state,
         $stateParams,
@@ -13,13 +13,13 @@ var profilesAllCtrl = function (
 
  var vm = this;
 
- vm.profilesManager = new ProfilesManager();
- vm.profilesManager.getAllProfiles();
+ vm.profileManager = new ProfileManager();
+ vm.profileManager.getAllProfile();
 };
 
-profilesAllCtrl.$inject = [
+profileAllCtrl.$inject = [
  'ConstantsManager',
- 'ProfilesManager',
+ 'ProfileManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -30,4 +30,4 @@ profilesAllCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfilesAllCtrl', profilesAllCtrl);
+angular.module("app.profile").controller('ProfileAllCtrl', profileAllCtrl);

@@ -15,4 +15,4 @@ profileOverviewCtrl.$inject = [
  '$http',
  '$rootScope'];
 
-angular.module("app.profiles").controller('ProfileOverviewCtrl', profileOverviewCtrl);
+angular.module("app.profile").controller('ProfileOverviewCtrl', profileOverviewCtrl);

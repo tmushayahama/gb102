@@ -63,4 +63,4 @@ profileSwipesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfileSwipesCtrl', profileSwipesCtrl);
+angular.module("app.profile").controller('ProfileSwipesCtrl', profileSwipesCtrl);

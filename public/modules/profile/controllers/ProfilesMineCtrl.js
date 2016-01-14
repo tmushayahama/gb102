@@ -1,6 +1,6 @@
-var profilesMineCtrl = function (
+var profileMineCtrl = function (
         ConstantsManager,
-        ProfilesManager,
+        ProfileManager,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var profilesMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.profilesManager = new ProfilesManager();
- vm.profilesManager.getMyProfiles();
+ vm.profileManager = new ProfileManager();
+ vm.profileManager.getMyProfile();
 };
 
 
-profilesMineCtrl.$inject = [
+profileMineCtrl.$inject = [
  'ConstantsManager',
- 'ProfilesManager',
+ 'ProfileManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -30,4 +30,4 @@ profilesMineCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfilesMineCtrl', profilesMineCtrl);
+angular.module("app.profile").controller('ProfileMineCtrl', profileMineCtrl);

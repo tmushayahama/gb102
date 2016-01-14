@@ -44,6 +44,7 @@
     "angular-wizard": "~0.6.1",
     "angular-swing": "*",
     "angular-gestures": "*",
-    "ng-tags-input": "~3.0.0"
+    "ng-tags-input": "~3.0.0",
+    "angular-loading-bar": "~0.8.0"
   }
 }

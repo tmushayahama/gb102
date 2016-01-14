@@ -26,6 +26,9 @@
     <![endif]-->
  </head>
  <body class="">
+  <div id="loadingProgressG">
+   <div id="loadingProgressG_1" class="loadingProgressG"></div>
+  </div>
   <div id="main-container" ui-view="root"></div>
  </body>
  <!--

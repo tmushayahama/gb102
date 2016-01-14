@@ -163,4 +163,4 @@ profileNotesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.profiles").controller('ProfileNotesCtrl', profileNotesCtrl);
+angular.module("app.profile").controller('ProfileNotesCtrl', profileNotesCtrl);

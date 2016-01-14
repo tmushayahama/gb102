@@ -17,10 +17,12 @@ define([
  //'ionic.tdcards',
  'hammerjs',
  'angular-gestures',
+ 'angular-loading-bar',
  '../auth/module',
  '../community/module',
  '../explore/module',
  '../swipe/module',
+ '../profile/module',
  '../questionnaire/module'
 ], function (angular) {
 
@@ -39,10 +41,12 @@ define([
   'mgo-angular-wizard',
   //'gajus.swing',
   'angular-gestures',
+  'angular-loading-bar',
   'app.auth',
   'app.community',
   'app.explore',
   'app.swipe',
+  'app.profile',
   'app.questionnaire',
  ]);
 
@@ -50,7 +54,7 @@ define([
 
   $ocLazyLoadProvider.config({
    debug: true,
-   loadedModules: ['app'],
+   loadedModules: ['app', 'app.auth'],
    asyncLoader: require
   });
 

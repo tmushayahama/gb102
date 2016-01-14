@@ -4,7 +4,7 @@
  </div>
  <div class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
   <div class="btn-group">
-   <a ng-click="profilesCtrl.openAddProfileModal()" class="btn btn-xs btn-link">
+   <a ng-click="profileCtrl.openAddProfileModal()" class="btn btn-xs btn-link">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
@@ -13,7 +13,7 @@
   </div>
  </div>
  <div class="btn-group visible-xs">
-  <a ng-click="profilesCtrl.openAddProfileModal()" class="btn btn-xs btn-link">
+  <a ng-click="profileCtrl.openAddProfileModal()" class="btn btn-xs btn-link">
    <span class="fa-stack fa-lg">
     <i class="fa fa-circle fa-stack-2x"></i>
     <i class="fa fa-search fa-stack-1x fa-inverse"></i>
@@ -22,7 +22,7 @@
  </div>
  <form id="search" class="col-lg-4 col-md-6 col-sm-6 hidden-xs">
   <i class="gb-search-icon fa fa-search"></i>
-  <input type="text" class="" placeholder="Search Profiles">
+  <input type="text" class="" placeholder="Search Profile">
  </form>
  <div class="gb-action pull-right">
   <div class="hidden-sm hidden-xs btn-group">
@@ -59,17 +59,17 @@
    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
     <ul class="gb-nav-2 text-center">
      <li ui-sref-active="active" class="">
-      <a ui-sref="apps.profiles.all">
+      <a ui-sref="apps.profile.all">
        All
       </a>
      </li>
      <li ui-sref-active="active" class="">
-      <a ui-sref="apps.profiles.mine">
-       My Profiles
+      <a ui-sref="apps.profile.mine">
+       My Profile
       </a>
      </li>
      <li ui-sref-active="active" class="">
-      <a ui-sref="apps.profiles.swipe">
+      <a ui-sref="apps.profile.swipe">
        Profile Swipe
       </a>
      </li>
@@ -84,5 +84,5 @@
 <!-- ------------------------------- MODALS --------------------------->
 
 <script type="text/ng-template" id="add-profile-modal.html">
- <div ng-include="'public/modules/profiles/views/modals/add-profile.html'"></div>
+ <div ng-include="'public/modules/profile/views/modals/add-profile.html'"></div>
 </script>

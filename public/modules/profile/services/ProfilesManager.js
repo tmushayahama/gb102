@@ -1,9 +1,9 @@
-var profilesManager = function ($http, $q) {
+var profileManager = function ($http, $q) {
 
- var ProfilesManager = function () {
-  this.profiles = [];
+ var ProfileManager = function () {
+  this.profile = [];
  };
- ProfilesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var profilesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfilesManager.prototype.getAllProfiles = function () {
+ ProfileManager.prototype.getAllProfile = function () {
   var self = this;
   var deferred = $q.defer();
-  self.profiles = [];
-  $http.get('/api/profiles/all').success(function (data) {
-   self.profiles = data;
+  self.profile = [];
+  $http.get('/api/profile/all').success(function (data) {
+   self.profile = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var profilesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfilesManager.prototype.getMyProfiles = function () {
+ ProfileManager.prototype.getMyProfile = function () {
   var self = this;
   var deferred = $q.defer();
-  self.profiles = [];
-  $http.get('/api/profiles/mine').success(function (data) {
-   self.profiles = data;
+  self.profile = [];
+  $http.get('/api/profile/mine').success(function (data) {
+   self.profile = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,7 +48,7 @@ var profilesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfilesManager.prototype.getProfile = function (profileId, Id) {
+ ProfileManager.prototype.getProfile = function (profileId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
@@ -61,7 +61,7 @@ var profilesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfilesManager.prototype.createProfile = function (profileData) {
+ ProfileManager.prototype.createProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -69,7 +69,7 @@ var profilesManager = function ($http, $q) {
    url: '/api/profile/create',
    data: profileData
   }).success(function (data) {
-   self.profiles.unshift(data);
+   self.profile.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -77,7 +77,7 @@ var profilesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfilesManager.prototype.editProfile = function (profileData) {
+ ProfileManager.prototype.editProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -91,10 +91,10 @@ var profilesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ProfilesManager;
+ return ProfileManager;
 };
 
-profilesManager.$inject = ['$http', '$q'];
+profileManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfilesManager', profilesManager);
+angular.module('app.profile').service('ProfileManager', profileManager);
 

@@ -1,7 +1,7 @@
 var profileManager = function ($http, $q) {
 
  var ProfileManager = function () {
-  this.profile = [];
+  this.profile;
  };
  ProfileManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -55,4 +55,4 @@ var profileManager = function ($http, $q) {
 
 profileManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileManager', profileManager);
+angular.module('app.profile').service('ProfileManager', profileManager);

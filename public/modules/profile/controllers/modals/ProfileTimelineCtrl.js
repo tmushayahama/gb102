@@ -82,4 +82,4 @@ profileTimelineCtrl.$inject = [
  '$log',
  'profileTimelineData'];
 
-angular.module("app.profiles").controller('ProfileTimelineCtrl', profileTimelineCtrl);
+angular.module("app.profile").controller('ProfileTimelineCtrl', profileTimelineCtrl);

@@ -83,4 +83,4 @@ var profileTodoChecklistManager = function ($http, $q) {
 
 profileTodoChecklistManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileTodoChecklistManager', profileTodoChecklistManager);
+angular.module('app.profile').service('ProfileTodoChecklistManager', profileTodoChecklistManager);

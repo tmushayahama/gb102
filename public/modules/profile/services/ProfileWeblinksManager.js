@@ -86,4 +86,4 @@ var profileWeblinksManager = function ($http, $q) {
 
 profileWeblinksManager.$inject = ['$http', '$q'];
 
-angular.module('app.profiles').service('ProfileWeblinksManager', profileWeblinksManager);
+angular.module('app.profile').service('ProfileWeblinksManager', profileWeblinksManager);

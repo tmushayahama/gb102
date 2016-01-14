@@ -1,8 +1,8 @@
 
-var profilesCtrl = function (
+var profileCtrl = function (
         level_categories,
         ConstantsManager,
-        ProfilesManager,
+        ProfileManager,
         $scope,
         $state,
         $stateParams,
@@ -20,26 +20,26 @@ var profilesCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-profile.css'
  }, $scope);
 
- vm.profilesManager = new ProfilesManager();
+ vm.profileManager = new ProfileManager();
  vm.constantsManager = new ConstantsManager();
  vm.profileLevels;
 
 
  vm.createProfile = function (data) {
-  vm.profilesManager.createProfile(data).then(function (response) {
+  vm.profileManager.createProfile(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProfileData = angular.copy(vm.defaultProfileData);
-   vm.profilesCopy = angular.copy(vm.profilesManager.profiles);
+   vm.profileCopy = angular.copy(vm.profileManager.profile);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProfile = function (data) {
-  vm.profilesManager.editProfile(data).then(function (response) {
+  vm.profileManager.editProfile(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProfileData = angular.copy(vm.defaultProfileData);
-   vm.profilesCopy = angular.copy(vm.profilesManager.profiles);
+   vm.profileCopy = angular.copy(vm.profileManager.profile);
   }, function (response) {
    console.log(response);
   });
@@ -69,11 +69,11 @@ var profilesCtrl = function (
   profile = profileCopy;
   /*
    $filter('filter')
-   (vm.profilesManager.profiles, {id: profileId}, true)[0]
+   (vm.profileManager.profile, {id: profileId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.profilesCopy, {id: profileId}, true)[0]);
+   (vm.profileCopy, {id: profileId}, true)[0]);
    if (profile.length && profileCopy.length) {
-   // vm.profilesManager.profiles angular.copy(vm.profilesCopy);
+   // vm.profileManager.profile angular.copy(vm.profileCopy);
    }
    */
  };
@@ -86,12 +86,12 @@ var profilesCtrl = function (
  vm.edited = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.profiles;
+  return vm.profile;
  }), function () {
-  //vm.remainingCount = filterFilter(profiles, {completed: false}).length;
-  vm.doneCount = vm.profilesManager.profiles.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(profile, {completed: false}).length;
+  vm.doneCount = vm.profileManager.profile.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //ProfileService.put(vm.profiles);
+  //ProfileService.put(vm.profile);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -137,23 +137,23 @@ var profilesCtrl = function (
   });
 
   modalInstance.result.then(function (profile) {
-   vm.profilesManager.createProfile(profile);
+   vm.profileManager.createProfile(profile);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- //vm.profilesManager.getProfiles(vm.profileId);
+ //vm.profileManager.getProfile(vm.profileId);
  vm.constantsManager.getLevel(level_categories.profile).then(function (data) {
   vm.profileLevels = data;
  });
 };
 
-profilesCtrl.$inject = [
+profileCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
- 'ProfilesManager',
+ 'ProfileManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -165,4 +165,4 @@ profilesCtrl.$inject = [
  '$filter',
  '$css'];
 
-angular.module("app.profiles").controller('ProfilesCtrl', profilesCtrl);
+angular.module("app.profile").controller('ProfileCtrl', profileCtrl);
