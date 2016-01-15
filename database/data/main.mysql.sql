@@ -322,6 +322,24 @@ CREATE TABLE `gb_notification` (
   CONSTRAINT `notification_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_profile_section`
+--
+DROP TABLE IF EXISTS `gb_profile_section`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_profile_section` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `type` int(1) NOT NULL DEFAULT '1',
+  `status` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `gb_profile_section` (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_question`
@@ -495,11 +513,6 @@ CREATE TABLE `gb_user` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastname` varchar(100) NOT NULL DEFAULT '',
   `firstname` varchar(100) NOT NULL DEFAULT '',
-  `welcome_message` varchar(1000) NOT NULL DEFAULT '',
-  `summary` varchar(1000) NOT NULL DEFAULT '',
-  `experience` varchar(1000) NOT NULL DEFAULT '',
-  `interests` varchar(1000) NOT NULL DEFAULT '',
-  `favorite_quote` varchar(1000) NOT NULL DEFAULT '',
   `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
   `gender` varchar(3) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
@@ -512,9 +525,31 @@ CREATE TABLE `gb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_user_profile_section`
+--
+DROP TABLE IF EXISTS `gb_user_profile_section`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_user_profile_section` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `profile_section_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `type` int(11) NOT NULL DEFAULT '1',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `user_profile_section_creator_id` (`creator_id`),
+  KEY `user_profile_section_profile_section_id` (`profile_section_id`),
+  CONSTRAINT `user_profile_section_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_profile_section_profile_section_id` FOREIGN KEY (`profile_section_id`) REFERENCES `gb_profile_section` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_weblink`
 --
-
 DROP TABLE IF EXISTS `gb_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -546,8 +581,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
-
+    (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
     into table gb102.gb_app_type
@@ -558,6 +592,23 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType
     ignore 1 LINES
     (`id`, `name`, `description`);
 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/ProfileSection.txt'
+    into table gb102.gb_profile_section
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `title`,	`description`,	`creator_id`,	`created_at`,	`updated_at`, `type`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserProfileSection.txt'
+    into table gb102.gb_user_profile_section
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`,	`creator_id`,	`profile_section_id`,	`description`,	`created_at`,	`updated_at`,	`type`, `order`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
     into table gb102.gb_category

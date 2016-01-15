@@ -6,7 +6,7 @@ id	creator_id	description	level_id	created_at	updated_at	type	status	rand
 5	1	What is the biggest lie you have ever told?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.683504906
 6	1	What is one of the scariest things you have ever done?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.444706051
 7	1	"Based on my daily routines and actions, where can I expect to be in five years?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.53187467
-8	1	Can you handle heavy manual work without problems?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.38812146
+8	1	Can you handdle heavy manual work without problems?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.38812146
 9	1	What is one of your favorite habits you have?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.639936427
 10	1	"If you were going to write a book, what would you call it and what would it be about?"	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.911497566
 11	1	Do you feel that the education you have received at the university has been satisfactory?	1	5/5/2014 10:00	5/5/2014 10:00	1	0	0.253368252

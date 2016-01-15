@@ -488,8 +488,11 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('profile/{profileId}/timeline/{timelineId}', 'Profile\ProfileController@getProfileTimeline');
  Route::get('profile/{profileId}/weblinks', 'Profile\ProfileController@getProfileWeblinks');
  Route::get('profile/{profileId}/weblink/{weblinkId}', 'Profile\ProfileController@getProfileWeblink');
+
+ Route::get('profile/{id}/sections', 'Profile\ProfileController@getUserProfileSections');
  Route::get('profile/{id}', 'Profile\ProfileController@getProfile');
  Route::post('profile/edit', 'Profile\ProfileController@editProfile');
+
  Route::post('profile/create', 'Profile\ProfileController@createProfile');
  Route::post('profile/comment/create', 'Profile\ProfileController@createProfileComment');
  Route::post('profile/comment/edit', 'Profile\ProfileController@editProfileComment');
