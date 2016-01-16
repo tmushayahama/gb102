@@ -22,6 +22,7 @@ define(['angular'
                  files: [
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/profile/services/ProfileManager.js',
+                  'public/modules/profile/services/UserProfileSectionManager.js',
                   'public/modules/profile/controllers/ProfileCtrl.js',
                   'public/modules/profile/filters/randomize.js',
                  ]

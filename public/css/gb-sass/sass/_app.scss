@@ -119,6 +119,18 @@ input[type="checkbox"] {
 	display: none;
 }
 
+.gb-container.gb-app-list {
+ margin-top: 90px;
+ overflow-y: scroll;
+ -webkit-overflow-scrolling: touch;
+}
+.gb-container.gb-app-detail {
+ margin-top: 50px;
+ overflow-y: scroll;
+ -webkit-overflow-scrolling: touch;
+}
+
+
 #gb-middle-nav {
  //@include position(absolute, 80px 0 0 null);
  height: 100%;
@@ -176,21 +188,6 @@ input[type="checkbox"] {
     }
    }
   }
- }
- .gb-container.gb-app-list {
-  margin-top: 90px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
- }
- .gb-container.gb-app-detail {
-  margin-top: 50px;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
- }
- .gb-container.gb-app-swipe {
-  @include position(absolute, 90px 0 0 0);
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
  }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
@@ -1403,7 +1400,7 @@ input.gb-form-show{
 }
 
 
-#gb-profile-left-nav {
+#gb-profile-left-pane {
  height: 100%;
  background-color: #FFF;
  border-right: #999 solid 1px;
@@ -1553,6 +1550,14 @@ input.gb-form-show{
   color: #777;
   text-decoration: none;
  }
+}
+
+#gb-profile-right-pane {
+ height: 100%;
+ background-color: #FFF;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ -webkit-overflow-scrolling: touch;
 }
 
 .gb-profile-logo {
@@ -2207,7 +2212,10 @@ input.gb-form-show{
     }
    }
   }
-  img {
+  .gb-profile-img {
+   @include position(absolute, null 0 0 null);
+   width: 60px;
+   height: 60px;
   }
  }
  .gb-box-body {

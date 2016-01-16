@@ -3,7 +3,7 @@
 namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ProfileSection\ProfileSection;
+use App\Models\Profile\ProfileSection;
 use Request;
 use DB;
 use JWTAuth;
@@ -33,13 +33,21 @@ class UserProfileSection extends Model {
   */
  protected $fillable = [];
 
- public static function getUserProfileSection($userId) {
+ public static function getUserProfileSections($id) {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
   $profileSectionProfileSection = UserProfileSection::
-          where('creator_id', $userId)
-          ->orderBy('id', 'ASC')
+          orderBy('id', 'ASC')
           ->with('creator')
-          ->with('profile_section')
-          ->get();
+          ->with('profile_section');
+  if ($userId) {
+   if ($userId == $id) {
+    $profileSectionProfileSection = $profileSectionProfileSection->where('creator_id', $id);
+   } else {
+    $profileSectionProfileSection = $profileSectionProfileSection->where('creator_id', $id);
+   }
+  }
+  $profileSectionProfileSection = $profileSectionProfileSection->get();
   return $profileSectionProfileSection;
  }
 

@@ -30,7 +30,11 @@
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-     <h5 class="gb-ellipsis"><a>{{explore.creator.firstname + ' ' + explore.creator.lastname}}</a></h5>
+     <h5 class="gb-ellipsis">
+      <a ui-sref="profile.overview({profileId: explore.creator.id})">
+       {{explore.creator.firstname + ' ' + explore.creator.lastname}}
+      </a>
+     </h5>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
 

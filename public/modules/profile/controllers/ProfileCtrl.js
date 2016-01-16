@@ -3,6 +3,7 @@ var profileCtrl = function (
         _,
         ConstantsManager,
         ProfileManager,
+        UserProfileSectionManager,
         $scope,
         $state,
         $stateParams,
@@ -49,7 +50,7 @@ var profileCtrl = function (
  vm.profileId = $stateParams.profileId;
 
  vm.profileManager = new ProfileManager();
- vm.userProfileSection = new UserProfileSection();
+ vm.userProfileSectionManager = new UserProfileSectionManager();
  vm.constantsManager = new ConstantsManager();
 
  vm.profileFormDisplay = false;
@@ -133,8 +134,10 @@ var profileCtrl = function (
  };
 
  //--------init------
- vm.userProfileSectionManager.getUserProfileSection(vm.profileId);
- vm.profileManager.getProfile(vm.profileId);
+ vm.profileManager.getProfile(vm.profileId).then(function (data) {
+  vm.userProfileSectionManager.getUserProfileSection(vm.profileId)
+ });
+
  vm.constantsManager.getIcons(1).then(function (data) {
   vm.profileIcons = data;
   vm.getRandomProfileIcons();
@@ -144,6 +147,7 @@ var profileCtrl = function (
 profileCtrl.$inject = ['_',
  'ConstantsManager',
  'ProfileManager',
+ 'UserProfileSectionManager',
  '$scope',
  '$state',
  '$stateParams',
