@@ -1,7 +1,7 @@
 var questionnaireManager = function ($http, $q) {
 
  var QuestionnaireManager = function () {
-  this.questionnaires = [];
+  this.questionAnswers = [];
  };
  QuestionnaireManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -22,12 +22,12 @@ var questionnaireManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireManager.prototype.getQuestionnaires = function () {
+ QuestionnaireManager.prototype.getQuestionAnswers = function () {
   var self = this;
   var deferred = $q.defer();
-  self.questionnaires = [];
-  $http.get('/api/questionnaires/history').success(function (data) {
-   self.questionnaires = data;
+  self.questionAnswers = [];
+  $http.get('/api/questionnaire/answers').success(function (data) {
+   self.questionAnswers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -49,15 +49,15 @@ var questionnaireManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireManager.prototype.createQuestionnaire = function (questionnaireData) {
+ QuestionnaireManager.prototype.createQuestionAnswer = function (questionAnswerData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/questionnaires/create',
-   data: questionnaireData
+   url: '/api/questionnaire/answer/create',
+   data: questionAnswerData
   }).success(function (data) {
-   self.questionnaire.unshift(data);
+   self.questionAnswer.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

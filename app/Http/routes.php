@@ -111,10 +111,13 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('swipe/weblink/edit', 'Swipe\SwipeController@editSwipeWeblink');
 
 //Questionnaire
- Route::get('questionnaires/history', 'Questionnaire\QuestionnaireController@getQuestionnaireHistory');
  Route::get('questionnaire/{questionnaireId}/question', 'Questionnaire\QuestionnaireController@getQuestionnaireQuestion');
  Route::get('questionnaires/questionnaire', 'Questionnaire\QuestionnaireController@getQuestionnaire');
  Route::post('questionnaires/create', 'Questionnaire\QuestionnaireController@createQuestionnaire');
+
+ Route::get('questionnaire/answers', 'Questionnaire\QuestionnaireController@getQuestionAnswers');
+ Route::post('questionnaire/answer/create', 'Questionnaire\QuestionnaireController@createQuestionAnswer');
+
  Route::get('questionnaire/{questionnaireId}/comments', 'Questionnaire\QuestionnaireController@getQuestionnaireComments');
  Route::get('questionnaire/{questionnaireId}/comment/{commentId}', 'Questionnaire\QuestionnaireController@getQuestionnaireComment');
  Route::get('questionnaire/{questionnaireId}/todos', 'Questionnaire\QuestionnaireController@getQuestionnaireTodos');

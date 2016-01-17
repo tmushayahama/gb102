@@ -8,6 +8,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
+use App\Models\Question\QuestionAnswer;
 use App\Models\Questionnaire\Questionnaire;
 use App\Models\Questionnaire\QuestionnaireComment;
 use App\Models\Questionnaire\QuestionnaireNote;
@@ -27,9 +28,14 @@ use DB;
 
 class QuestionnaireController extends Controller {
 
- public function getQuestionnaireHistory() {
-  $questionnaires = Questionnaire::getQuestionnaireHistory();
-  return \Response::json($questionnaires);
+ public function getQuestionAnswers() {
+  $questionAnswers = QuestionAnswer::getQuestionAnswers();
+  return \Response::json($questionAnswers);
+ }
+
+ public function createQuestionAnswer() {
+  $questionAnswer = QuestionAnswer::createQuestionAnswer();
+  return \Response::json($questionAnswer);
  }
 
  public function getQuestionnaireQuestion($questionnaireId) {

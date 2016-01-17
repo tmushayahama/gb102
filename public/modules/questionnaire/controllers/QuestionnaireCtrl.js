@@ -20,7 +20,6 @@ var questionnaireCtrl = function (
  vm.questionnaireLevels;
 
  vm.questionnaireRight = function ($event, questionnaireQuestionId) {
-  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[2].id);
 
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
@@ -37,8 +36,8 @@ var questionnaireCtrl = function (
   }, 1000);
  };
 
- vm.questionnaireLeft = function ($event, questionnaireQuestionId) {
-  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[0].id);
+ vm.notNow = function ($event) {
+  vm.getQuestionnaireQuestion();
   var ele = $event.target;
   //var x = Math.floor(Math.random() * 200) + 1,
   $(ele).css({
@@ -52,10 +51,14 @@ var questionnaireCtrl = function (
     'opacity': "1"
    });
   }, 1000);
- }
- vm.questionnaireDown = function ($event, questionnaireQuestionId) {
-  vm.createQuestionnaire(questionnaireQuestionId, vm.questionnaireLevels[1].id);
- }
+ };
+
+ vm.answer = function (currentQuestionnaireQuestion, data) {
+  vm.createQuestionAnswer(
+          currentQuestionnaireQuestion.question.id,
+          data.description);
+ };
+
 
  vm.getQuestionnaireQuestion = function () {
   vm.questionnaireManager.getQuestionnaireQuestion(1).then(function (response) {
@@ -63,16 +66,15 @@ var questionnaireCtrl = function (
   });
  };
 
- vm.createQuestionnaire = function (questionnaireQuestionId, levelId) {
+ vm.createQuestionAnswer = function (questionId, description) {
   var data = {
-   questionnaireQuestionId: questionnaireQuestionId,
-   levelId: levelId,
-   description: ""
+   questionId: questionId,
+   description: description
   };
-  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
-   //vm.currentQuestionnaireQuestion = response;
+  vm.questionnaireManager.createQuestionAnswer(data).then(function (response) {
+
+   vm.getQuestionnaireQuestion();
   });
-  vm.getQuestionnaire();
  };
 
  vm.viewQuestionnaire = function () {

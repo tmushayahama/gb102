@@ -590,6 +590,129 @@ and open the template in the editor.
   background-color: rgba(0, 128, 0, 0.6);
 }
 
+.gb-questionnaire-container .stack {
+  height: 350px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+.gb-questionnaire-container li {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  background: #FFF;
+  border-radius: 5px;
+  border: 7px solid rgba(94, 45, 53, 0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: default;
+}
+.gb-questionnaire-container li.clubs, .gb-questionnaire-container li.spades {
+  color: #373737;
+}
+.gb-questionnaire-container li.diamonds, .gb-questionnaire-container li.hearts {
+  color: #ED5D52;
+}
+.gb-questionnaire-container li.in-deck:nth-child(3) {
+  top: 2px;
+  transform: translate(2px, 2px) rotate(0.4deg);
+}
+.gb-questionnaire-container li.in-deck:nth-child(2) {
+  top: 4px;
+  transform: translate(-4px, -2px) rotate(-1deg);
+}
+.gb-questionnaire-container .gb-box-1 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #FFF;
+  padding: 5px 5px;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: #CCC solid 1px;
+}
+.gb-questionnaire-container .gb-box-1:hover {
+  background-color: #F7F7F7;
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image {
+  padding: 10px 25px 0 15px;
+  overflow: hidden;
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image .fa-lg {
+  float: right;
+  font-size: 30px;
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image .fa-lg .fa-outer {
+  color: rgba(94, 45, 53, 0.2);
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image .fa-lg .fa-inner {
+  top: 35px;
+  left: 20px;
+  font-size: 30px;
+  color: #5e2d35;
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image .fa-lg:hover .fa-outer {
+  color: rgba(94, 45, 53, 0.7);
+}
+.gb-questionnaire-container .gb-box-1 .gb-icon-image .fa-lg:hover .fa-inner {
+  color: #3c1c22;
+}
+.gb-questionnaire-container .gb-box-1 .gb-box-body .gb-heading {
+  padding: 8px 5px 0 10px;
+  height: 22px;
+}
+.gb-questionnaire-container .gb-box-1 .gb-box-body .gb-heading .gb-title {
+  color: #888;
+  font-weight: 500;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-questionnaire-container .gb-box-1 .gb-box-body .gb-description {
+  padding: 2px 40px 2px 10px;
+  overflow: hidden;
+  font-size: 20px;
+}
+.gb-questionnaire-container .gb-footer {
+  position: absolute;
+  top: 470px;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+.gb-questionnaire-container .gb-answer-form {
+  position: absolute;
+  top: 470px;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+.gb-questionnaire-indicator {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 10px;
+  border-radius: 5px;
+}
+.gb-questionnaire-indicator.gb-questionnaire-indicator-SWS1 {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+.gb-questionnaire-indicator.gb-questionnaire-indicator-SWS2 {
+  background-color: grey;
+}
+.gb-questionnaire-indicator.gb-questionnaire-indicator-SWS3 {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+.gb-questionnaire-indicator.gb-questionnaire-indicator-SWS4 {
+  background-color: rgba(0, 128, 0, 0.6);
+}
+
 .gb-comments {
   /*
    Hack to remove background from Mobile Safari.

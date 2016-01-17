@@ -1,4 +1,4 @@
-var questionnaireHistoryCtrl = function (
+var questionAnswersCtrl = function (
         level_categories,
         ConstantsManager,
         QuestionnaireManager,
@@ -29,12 +29,12 @@ var questionnaireHistoryCtrl = function (
   vm.getQuestionnaire();
  };
 
- vm.getQuestionnaireHistory = function () {
-  vm.questionnaireManager.getQuestionnaires();
+ vm.getQuestionAnswers = function () {
+  vm.questionnaireManager.getQuestionAnswers();
  };
 
  vm.questionnaireManager = new QuestionnaireManager();
- vm.getQuestionnaireHistory();
+ vm.getQuestionAnswers();
  vm.constantsManager.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
  });
@@ -42,7 +42,7 @@ var questionnaireHistoryCtrl = function (
 };
 
 
-questionnaireHistoryCtrl.$inject = [
+questionAnswersCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
  'QuestionnaireManager',
@@ -56,4 +56,4 @@ questionnaireHistoryCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.questionnaire").controller('QuestionnaireHistoryCtrl', questionnaireHistoryCtrl);
+angular.module("app.questionnaire").controller('QuestionAnswersCtrl', questionAnswersCtrl);

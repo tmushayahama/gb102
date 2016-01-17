@@ -33,7 +33,7 @@ class Questionnaire extends Model {
   */
  protected $fillable = [];
 
- public static function getQuestionnaireHistory() {
+ public static function getQuestionAnswers() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $questionnaires = Questionnaire::where('creator_id', $userId)

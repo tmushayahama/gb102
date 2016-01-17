@@ -35,7 +35,7 @@ define(['angular'
            url: '/history',
            views: {
             "app-tab": {
-             controller: 'QuestionnaireHistoryCtrl as questionnaireHistoryCtrl',
+             controller: 'QuestionAnswersCtrl as questionAnswersCtrl',
              templateUrl: 'public/modules/questionnaire/views/tabs/questionnaires/questionnaire-history.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -44,7 +44,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/questionnaire/services/QuestionnaireManager.js',
-                  'public/modules/questionnaire/controllers/QuestionnaireHistoryCtrl.js',
+                  'public/modules/questionnaire/controllers/QuestionAnswersCtrl.js',
                  ]
                 });
                }]
