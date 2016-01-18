@@ -83,8 +83,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
 
  //Swipe
- Route::get('swipe/answers', 'Swipe\SwipeController@getSwipeAnswers');
- Route::get('swipe/answers/{userId}', 'Swipe\SwipeController@getAllSwipeAnswers');
+ Route::get('swipe/answers', 'Swipe\SwipeController@getAllSwipeAnswers');
+ Route::get('swipe/answers/{userId}', 'Swipe\SwipeController@getSwipeAnswers');
  Route::get('swipes/swipe', 'Swipe\SwipeController@getSwipe');
  Route::post('swipes/create', 'Swipe\SwipeController@createSwipe');
  Route::get('swipe/{swipeId}/comments', 'Swipe\SwipeController@getSwipeComments');

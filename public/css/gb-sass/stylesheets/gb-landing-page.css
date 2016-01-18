@@ -150,6 +150,9 @@ and open the template in the editor.
     line-height: 75px;
   }
 }
+.gb-landing-page .gb-icon-service {
+  color: #027887;
+}
 .gb-landing-page .gb-title {
   margin: 30px 10px 30px;
 }
@@ -201,7 +204,7 @@ and open the template in the editor.
 }
 @media (min-width: 768px) {
   .gb-landing-page section {
-    padding: 150px 0;
+    padding: 100px 0;
   }
 }
 .gb-landing-page .service-heading {

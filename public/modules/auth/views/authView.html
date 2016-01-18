@@ -56,20 +56,30 @@
  </header>
 
  <!-- Services Section -->
- <section id="services">
+ <section ng-hide="false" id="services">
   <div class="container">
    <div class="row text-center">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-     <i class="gb-icon-service fa icon-gb-discover fa-stack-1x fa-inverse"></i>
+     <i class="gb-icon-service fa fa-5x icon-gb-discover"></i>
      <h4 class="service-heading">Discover</h4>
-     <p class="text-muted">using the skill bank and from the community</p>
+     <p class="text-muted">using skill explorers</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     <i class="gb-icon-service fa fa-5x icon-gb-apply"></i>
+     <h4 class="service-heading">Apply</h4>
+     <p class="text-muted">using skill applications</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     <i class="gb-icon-service fa fa-5x icon-gb-organize"></i>
+     <h4 class="service-heading">Organize</h4>
+     <p class="text-muted">using skill organizers</p>
     </div>
    </div>
   </div>
  </section>
 
  <!-- Portfolio Grid Section -->
- <section ng-hide="false" id="portfolio" class="bg-light-gray ">
+ <section ng-hide="true" id="portfolio" class="bg-light-gray ">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -167,7 +177,7 @@
  </section>
 
  <!-- About Section -->
- <section ng-hide="false" id="about" class="">
+ <section ng-hide="true" id="about" class="">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -248,7 +258,7 @@
  </section>
 
  <!-- Team Section -->
- <section ng-hide="false" id="team" class="bg-light-gray">
+ <section ng-hide="true" id="team" class="bg-light-gray">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -312,7 +322,7 @@
  </section>
 
  <!-- Clients Aside -->
- <aside ng-hide="false" class="clients ">
+ <aside ng-hide="true" class="clients ">
   <div class="container">
    <div class="row">
     <div class="col-md-3 col-sm-6">
@@ -341,7 +351,7 @@
 
  <!-- Contact Section -->
 
- <footer ng-hide="false" class="">
+ <footer ng-hide="true" class="">
   <div class="container">
    <div class="row">
     <div class="col-md-4">
@@ -373,7 +383,7 @@
  <!-- Use the modals below to showcase details about your portfolio projects! -->
 
  <!-- Portfolio Modal 1 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -406,7 +416,7 @@
  </div>
 
  <!-- Portfolio Modal 2 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -432,7 +442,7 @@
  </div>
 
  <!-- Portfolio Modal 3 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -459,7 +469,7 @@
  </div>
 
  <!-- Portfolio Modal 4 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -486,7 +496,7 @@
  </div>
 
  <!-- Portfolio Modal 5 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -513,7 +523,7 @@
  </div>
 
  <!-- Portfolio Modal 6 -->
- <div ng-hide="false" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="false">
+ <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -556,40 +566,12 @@
  <div class="">
   <div class="gb-intro-header-3 row">
    <div class="container">
-    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-     <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
-      <small>
-       your stuff in one home.
-      </small>
-     </h3>
-     <br>
-     <p class="gb-titlei-description">
-      <i class="fa fa-th"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Quickly access your <strong>SkillSection Apps</strong>
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Get a glimpse of what you and others are doing with the app.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-file-text-o"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Select for more details and use the app's features.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-user-plus"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Contribute to what others are doing.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-link"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Link apps together
-     </p>
-     <br>
-    </div>
-    <div class="pull-right col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_4.png" alt="">
+    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0 col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_7.png" alt="">
     </div>
    </div>
   </div>
-  <div class="row gb-intro-header-2">
+  <div ng-hide="true" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -669,7 +651,7 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-4 row">
+  <div ng-hide="true" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
      <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_5.png" alt="">
@@ -699,7 +681,7 @@
     </div>
    </div>
   </div>
-  <div class="row gb-intro-header-2">
+  <div ng-hide="true" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -763,7 +745,7 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-4 row">
+  <div ng-hide="true" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
      <h3 class="gb-title">Mentorship App Example
@@ -794,10 +776,10 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-3 row">
+  <div ng-hide="true" class="gb-intro-header-3 row">
 
   </div>
-  <div ng-hide="false" class="container">
+  <div ng-hide="true" class="container">
    <div class=" col-lg-12">
     <div class="row gb-title text-center">
      <h2 class="">Sign up, get all the benefits.</h2>

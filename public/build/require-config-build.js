@@ -21,6 +21,7 @@ requirejs.config({
   //'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min',
   'hammerjs': '../../bower_components/hammerjs/hammer.min',
   'angular-gestures': '../../bower_components/angular-gestures/gestures.min',
+  'angular-loading-bar': '../../bower_components/angular-loading-bar/build/loading-bar.min',
   //'modules-includes': 'includes'
 
  },
@@ -42,7 +43,8 @@ requirejs.config({
   //'ionic.tdcards': {deps: ['angular']},
   // 'angular-swing': {deps: ['angular']},
   'hammerjs': {deps: ['angular']},
-  'angular-gestures': {deps: ['angular', 'hammerjs']}
+  'angular-gestures': {deps: ['angular', 'hammerjs']},
+  'angular-loading-bar': {deps: ['angular', 'angular-animate']}
  },
  priority: [
   'jquery',

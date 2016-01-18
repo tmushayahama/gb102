@@ -1,4 +1,4 @@
-<nav class="gb-header gb-top-nav-1 gb-nav col-lg-12 col-md-12 col-sm-12 col-xs-12"  role="navigation">
+<nav class="gb-landing-page gb-header gb-top-nav-1 gb-nav col-lg-12 col-md-12 col-sm-12 col-xs-12"  role="navigation">
  <div class="gb-container">
   <div class="gb-header pull-left">
    <a class="gb-logo btn btn-link" href="app/skill">
@@ -35,7 +35,7 @@
   </div>
   <div class="intro-text">
    <div class="intro-heading">
-    Apply, discover & explore skills
+    Discover, Apply & Organize skills
    </div>
    <div class="intro-lead-in">
     Applications and Tools you need to <br>
@@ -56,32 +56,23 @@
  </header>
 
  <!-- Services Section -->
- <section id="services">
+ <section ng-hide="false" id="services">
   <div class="container">
    <div class="row text-center">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-     <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-warning"></i>
-      <i class="fa fa-search fa-stack-1x fa-inverse"></i>
-     </span>
-     <h4 class="service-heading">Explore</h4>
-     <p class="text-muted">using the skill bank</p>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-     <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-warning"></i>
-      <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
-     </span>
+     <i class="gb-icon-service fa fa-5x icon-gb-discover"></i>
      <h4 class="service-heading">Discover</h4>
-     <p class="text-muted">from the community</p>
+     <p class="text-muted">using skill explorers</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-     <span class="fa-stack fa-4x">
-      <i class="fa fa-circle fa-stack-2x text-warning"></i>
-      <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
-     </span>
+     <i class="gb-icon-service fa fa-5x icon-gb-apply"></i>
      <h4 class="service-heading">Apply</h4>
-     <p class="text-muted">using our applications</p>
+     <p class="text-muted">using skill applications</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     <i class="gb-icon-service fa fa-5x icon-gb-organize"></i>
+     <h4 class="service-heading">Organize</h4>
+     <p class="text-muted">using skill organizers</p>
     </div>
    </div>
   </div>
@@ -575,40 +566,12 @@
  <div class="">
   <div class="gb-intro-header-3 row">
    <div class="container">
-    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-     <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
-      <small>
-       your stuff in one home.
-      </small>
-     </h3>
-     <br>
-     <p class="gb-titlei-description">
-      <i class="fa fa-th"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Quickly access your <strong>SkillSection Apps</strong>
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Get a glimpse of what you and others are doing with the app.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-file-text-o"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Select for more details and use the app's features.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-user-plus"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Contribute to what others are doing.
-     </p>
-     <br>
-     <p class="gb-title-description">
-      <i class="fa fa-link"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Link apps together
-     </p>
-     <br>
-    </div>
-    <div class="pull-right col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/screenshot_4.png" alt="">
+    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0 col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/screenshot_7.png" alt="">
     </div>
    </div>
   </div>
-  <div class="row gb-intro-header-2">
+  <div ng-hide="true" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -688,7 +651,7 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-4 row">
+  <div ng-hide="true" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
      <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/screenshot_5.png" alt="">
@@ -718,7 +681,7 @@
     </div>
    </div>
   </div>
-  <div class="row gb-intro-header-2">
+  <div ng-hide="true" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -782,7 +745,7 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-4 row">
+  <div ng-hide="true" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
      <h3 class="gb-title">Mentorship App Example
@@ -813,7 +776,7 @@
     </div>
    </div>
   </div>
-  <div class="gb-intro-header-3 row">
+  <div ng-hide="true" class="gb-intro-header-3 row">
 
   </div>
   <div ng-hide="true" class="container">

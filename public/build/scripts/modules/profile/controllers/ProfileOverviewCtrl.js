@@ -1,1 +1,1 @@
-var profileOverviewCtrl=function(ProfileManager,$state,$stateParams,$http,$rootScope){};profileOverviewCtrl.$inject=["ProfileManager","$state","$stateParams","$http","$rootScope"],angular.module("app.profiles").controller("ProfileOverviewCtrl",profileOverviewCtrl);
+var profileOverviewCtrl=function(ProfileManager,$state,$stateParams,$http,$rootScope){};profileOverviewCtrl.$inject=["ProfileManager","$state","$stateParams","$http","$rootScope"],angular.module("app.profile").controller("ProfileOverviewCtrl",profileOverviewCtrl);

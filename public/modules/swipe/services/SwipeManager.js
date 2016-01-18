@@ -26,7 +26,7 @@ var swipeManager = function ($http, $q) {
   var self = this;
   var deferred = $q.defer();
   self.swipeAnswers = [];
-  $http.get('/api/swipes/answers').success(function (data) {
+  $http.get('/api/swipe/answers').success(function (data) {
    self.swipeAnswers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

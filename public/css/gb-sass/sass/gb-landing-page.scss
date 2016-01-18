@@ -148,7 +148,9 @@ $primary-color: #027887;
   }
  }
 
-
+ .gb-icon-service {
+  color: $primary-color;
+ }
  .gb-title {
   margin:30px 10px 30px;
  }
@@ -217,7 +219,7 @@ $primary-color: #027887;
 
  @media(min-width:768px) {
   section {
-   padding: 150px 0;
+   padding: 100px 0;
   }
  }
 
