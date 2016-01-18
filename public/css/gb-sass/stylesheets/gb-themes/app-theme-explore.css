@@ -1823,12 +1823,19 @@ input[type="checkbox"] {
 }
 
 .gb-container.gb-app-list {
-  margin-top: 90px;
+  -webkit-overflow-scrolling: touch;
+}
+.gb-container.gb-app-list .gb-list {
+  padding-top: 90px;
+}
+
+.gb-container.gb-app-detail {
+  margin-top: 50px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
-.gb-container.gb-app-detail {
+.gb-container.gb-app-detail-2 {
   margin-top: 50px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;

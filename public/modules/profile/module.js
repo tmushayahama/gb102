@@ -55,64 +55,54 @@ define(['angular'
              }
             }
            }})
-          .state('apps.profile.tools', {
-           url: '/tools',
+          .state('profile.about', {
+           url: '/about',
            views: {
             "content": {
-             //controller: 'ProfileTodosCtrl as profileTodosCtrl',
-             templateUrl: 'public/modules/profile/views/tabs/profile/profile-tools.html',
+             controller: 'ProfileAboutCtrl as profileAboutCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/profile-about.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  //Todos
-                  'public/modules/profile/directives/todoEscape.js',
-                  'public/modules/profile/directives/todoFocus.js',
-                  'public/modules/profile/services/ProfileTodoManager.js',
-                  'public/modules/profile/services/ProfileTodosManager.js',
-                  'public/modules/profile/services/ProfileTodoChecklistManager.js',
-                  'public/modules/profile/controllers/ProfileTodosCtrl.js',
-                  'public/modules/profile/controllers/modals/ProfileTodoCtrl.js',
-                  //Notes,
-                  'public/modules/profile/services/ProfileNoteManager.js',
-                  'public/modules/profile/services/ProfileNotesManager.js',
-                  'public/modules/profile/controllers/ProfileNotesCtrl.js',
-                  'public/modules/profile/controllers/modals/ProfileNoteCtrl.js',
-                  //Weblink
-                  'public/modules/profile/services/ProfileWeblinkManager.js',
-                  'public/modules/profile/services/ProfileWeblinksManager.js',
-                  'public/modules/profile/controllers/ProfileWeblinksCtrl.js',
-                  'public/modules/profile/controllers/modals/ProfileWeblinkCtrl.js',
+                  'public/modules/profile/controllers/ProfileAboutCtrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-          .state('apps.profile.community', {
-           url: '/community',
+          .state('profile.discover', {
+           abstract: true,
+           url: '/discover',
            views: {
             "content": {
-             //controller: 'ProfileNotesCtrl as profileNotesCtrl',
-             templateUrl: 'public/modules/profile/views/tabs/profile/profile-community.html',
+             // controller: 'ProfileDiscoverCtrl as profileDiscoverCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/profile-discover.html',
+            }
+           }})
+          .state('profile.discover.questions', {
+           url: '/questions',
+           views: {
+            "content": {
+             controller: 'ProfileQuestionnaresCtrl as profileQuestionnaresCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/discover/profile-questions.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/services/ProfileCommentManager.js',
-                  'public/modules/profile/services/ProfileCommentsManager.js',
-                  'public/modules/profile/controllers/ProfileCommentsCtrl.js',
-                  'public/modules/profile/controllers/modals/ProfileCommentCtrl.js',
+                  'public/modules/profile/services/ProfileQuestionnairesManager.js',
+                  'public/modules/profile/controllers/ProfileQuestionnairesCtrl.js',
                  ]
                 });
                }]
              }
             }
-           }});
+           }})
  };
 
 
