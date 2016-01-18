@@ -28,8 +28,13 @@ use DB;
 
 class QuestionnaireController extends Controller {
 
- public function getQuestionAnswers() {
-  $questionAnswers = QuestionAnswer::getQuestionAnswers();
+ public function getAllQuestionAnswers() {
+  $questionAnswers = QuestionAnswer::getAllQuestionAnswers();
+  return \Response::json($questionAnswers);
+ }
+
+ public function getQuestionAnswers($userId) {
+  $questionAnswers = QuestionAnswer::getQuestionAnswers($userId);
   return \Response::json($questionAnswers);
  }
 

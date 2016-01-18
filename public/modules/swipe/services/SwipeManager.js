@@ -1,7 +1,7 @@
 var swipeManager = function ($http, $q) {
 
  var SwipeManager = function () {
-  this.swipes = [];
+  this.swipeAnswers = [];
  };
  SwipeManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -22,12 +22,25 @@ var swipeManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeManager.prototype.getSwipes = function () {
+ SwipeManager.prototype.getAllSwipes = function () {
   var self = this;
   var deferred = $q.defer();
-  self.swipes = [];
-  $http.get('/api/swipes/history').success(function (data) {
-   self.swipes = data;
+  self.swipeAnswers = [];
+  $http.get('/api/swipes/answers').success(function (data) {
+   self.swipeAnswers = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ SwipeManager.prototype.getSwipes = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  self.swipeAnswers = [];
+  $http.get('/api/swipe/answers/' + userId).success(function (data) {
+   self.swipeAnswers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

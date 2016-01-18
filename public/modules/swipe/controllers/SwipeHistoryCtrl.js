@@ -30,7 +30,7 @@ var swipeHistoryCtrl = function (
  };
 
  vm.getSwipeHistory = function () {
-  vm.swipeManager.getSwipes();
+  vm.swipeManager.getAllSwipes();
  };
 
  vm.swipeManager = new SwipeManager();

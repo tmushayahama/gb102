@@ -83,7 +83,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
 
  //Swipe
- Route::get('swipes/history', 'Swipe\SwipeController@getSwipeHistory');
+ Route::get('swipe/answers', 'Swipe\SwipeController@getSwipeAnswers');
+ Route::get('swipe/answers/{userId}', 'Swipe\SwipeController@getAllSwipeAnswers');
  Route::get('swipes/swipe', 'Swipe\SwipeController@getSwipe');
  Route::post('swipes/create', 'Swipe\SwipeController@createSwipe');
  Route::get('swipe/{swipeId}/comments', 'Swipe\SwipeController@getSwipeComments');
@@ -115,7 +116,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('questionnaires/questionnaire', 'Questionnaire\QuestionnaireController@getQuestionnaire');
  Route::post('questionnaires/create', 'Questionnaire\QuestionnaireController@createQuestionnaire');
 
- Route::get('questionnaire/answers', 'Questionnaire\QuestionnaireController@getQuestionAnswers');
+ Route::get('questionnaire/answers', 'Questionnaire\QuestionnaireController@getAllQuestionAnswers');
+ Route::get('questionnaire/answers/{userId}', 'Questionnaire\QuestionnaireController@getQuestionAnswers');
  Route::post('questionnaire/answer/create', 'Questionnaire\QuestionnaireController@createQuestionAnswer');
 
  Route::get('questionnaire/{questionnaireId}/comments', 'Questionnaire\QuestionnaireController@getQuestionnaireComments');

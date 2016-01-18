@@ -22,11 +22,24 @@ var questionnaireManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireManager.prototype.getQuestionAnswers = function () {
+ QuestionnaireManager.prototype.getAllQuestionAnswers = function () {
   var self = this;
   var deferred = $q.defer();
   self.questionAnswers = [];
   $http.get('/api/questionnaire/answers').success(function (data) {
+   self.questionAnswers = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ QuestionnaireManager.prototype.getQuestionAnswers = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  self.questionAnswers = [];
+  $http.get('/api/questionnaire/answers/' + userId).success(function (data) {
    self.questionAnswers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

@@ -1,4 +1,4 @@
-var questionAnswersCtrl = function (
+var profileQuestionAnswersCtrl = function (
         level_categories,
         ConstantsManager,
         QuestionnaireManager,
@@ -13,28 +13,17 @@ var questionAnswersCtrl = function (
         $filter) {
 
  var vm = this;
+ vm.profileId = $stateParams.profileId;
 
  vm.constantsManager = new ConstantsManager();
  vm.questionnaireLevels;
 
- vm.createQuestionnaire = function (exploreId, levelId) {
-  var data = {
-   exploreId: exploreId,
-   levelId: levelId,
-   description: ""
-  };
-  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
-   //vm.currentExplore = response;
-  });
-  vm.getQuestionnaire();
- };
-
- vm.getQuestionAnswers = function () {
-  vm.questionnaireManager.getAllQuestionAnswers();
+ vm.getProfileQuestionAnswers = function () {
+  vm.questionnaireManager.getQuestionAnswers(vm.profileId);
  };
 
  vm.questionnaireManager = new QuestionnaireManager();
- vm.getQuestionAnswers();
+ vm.getProfileQuestionAnswers();
  vm.constantsManager.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
  });
@@ -42,7 +31,7 @@ var questionAnswersCtrl = function (
 };
 
 
-questionAnswersCtrl.$inject = [
+profileQuestionAnswersCtrl.$inject = [
  'level_categories',
  'ConstantsManager',
  'QuestionnaireManager',
@@ -56,4 +45,4 @@ questionAnswersCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.questionnaire").controller('QuestionAnswersCtrl', questionAnswersCtrl);
+angular.module("app.profile").controller('ProfileQuestionAnswersCtrl', profileQuestionAnswersCtrl);

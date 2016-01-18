@@ -42,9 +42,21 @@ class Swipe extends Model {
   */
  protected $fillable = [];
 
- public static function getSwipeHistory() {
-  $user = JWTAuth::parseToken()->toUser();
-  $userId = $user->id;
+ public static function getAllSwipeAnswers() {
+  $swipes = Swipe::orderBy('id', 'desc')
+          ->with('explore')
+          ->with('creator')
+          ->with('level')
+          ->with('explore.app_type')
+          ->with('explore.creator')
+          ->with('explore.icon')
+          ->with('explore.level')
+          ->take(50)
+          ->get();
+  return $swipes;
+ }
+
+ public static function getSwipeAnswers($userId) {
   $swipes = Swipe::where('creator_id', $userId)
           ->orderBy('id', 'desc')
           ->with('explore')

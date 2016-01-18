@@ -1890,6 +1890,7 @@ input[type="checkbox"] {
   color: rgba(7, 117, 104, 0.4);
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-inverse {
+  line-height: 2.0em;
   color: rgba(7, 117, 104, 0.8);
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {

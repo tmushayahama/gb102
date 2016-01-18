@@ -1,19 +1,32 @@
 
+
 <div class="row">
- <div class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12">
-  <ul class="gb-menu-row nav gb-nav-1">
-   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <a ui-sref="apps.explore.tools" class="gb-ellipsis">
-     Questions
-    </a>
-   </li>
-   <li  ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <a ui-sref="apps.explore.community" class="gb-ellipsis">
-     Matcher
-    </a>
-   </li>
-  </ul>
-  <div ui-view="content" class="row gb-padding-medium"></div>
-  <div class="gb-dummy-height row"></div>
- </div>
+ <ul class="row gb-nav-2">
+  <li ui-sref-active="active" class="">
+   <a ui-sref="profile.discover.questions" class="gb-ellipsis">
+    <i class="fa icon-gb-matcher"></i>
+    Questions
+   </a>
+  </li>
+  <li ui-sref-active="active" class="">
+   <a ui-sref="profile.discover.swipes" class="gb-ellipsis">
+    <i class="fa icon-gb-swipes"></i>
+    Swipes
+   </a>
+  </li>
+  <li  ui-sref-active="active" class="">
+   <a ui-sref="profile.discover.matcher" class="gb-ellipsis">
+    <i class="fa icon-gb-matcher"></i>
+    Play Matcher
+   </a>
+  </li>
+  <li  ui-sref-active="active" class="">
+   <a ui-sref="profile.discover.matcher" class="gb-ellipsis">
+    <i class="fa icon-gb-swipe"></i>
+    Play Swipe
+   </a>
+  </li>
+ </ul>
+ <div ui-view="content" class="row gb-padding-medium"></div>
+ <div class="gb-dummy-height row"></div>
 </div>

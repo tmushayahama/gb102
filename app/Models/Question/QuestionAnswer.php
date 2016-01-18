@@ -31,9 +31,21 @@ class QuestionAnswer extends Model {
   */
  protected $fillable = ['title', 'description'];
 
- public static function getQuestionAnswers() {
-  $user = JWTAuth::parseToken()->toUser();
-  $userId = $user->id;
+ public static function getAllQuestionAnswers() {
+  $questions = QuestionAnswer::orderBy('id', 'desc')
+          ->with('question')
+          ->with('creator')
+          ->with('question.creator')
+          ->take(50)
+          ->get();
+  return $questions;
+ }
+
+ public static function getQuestionAnswers($userId) {
+  if (!$userId) {
+   $user = JWTAuth::parseToken()->toUser();
+   $userId = $user->id;
+  }
   $questions = QuestionAnswer::where('creator_id', $userId)
           ->orderBy('id', 'desc')
           ->with('question')

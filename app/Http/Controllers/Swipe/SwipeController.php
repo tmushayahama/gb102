@@ -26,8 +26,13 @@ use DB;
 
 class SwipeController extends Controller {
 
- public function getSwipeHistory() {
-  $swipes = Swipe::getSwipeHistory();
+ public function getAllSwipeAnswers() {
+  $swipes = Swipe::getAllSwipeAnswers();
+  return \Response::json($swipes);
+ }
+
+ public function getSwipeAnswers($userId) {
+  $swipes = Swipe::getSwipeAnswers($userId);
   return \Response::json($swipes);
  }
 

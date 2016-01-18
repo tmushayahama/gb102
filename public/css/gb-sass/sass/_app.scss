@@ -183,7 +183,7 @@ input[type="checkbox"] {
      color: rgba($primary-color, 0.4);
     }
     .fa-inverse{
-     //font-size: 1.3em;
+     line-height:2.0em;
      color: rgba($primary-color, 0.8);
     }
     &:hover {
@@ -1947,7 +1947,7 @@ input.gb-form-show{
    margin-left: 0px;
   }
  }
- .gb-nav-2 {
+ .gb-nav-2 { 
   @include position(absolute, 0 null null 50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);

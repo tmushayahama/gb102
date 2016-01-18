@@ -87,7 +87,7 @@ define(['angular'
            url: '/questions',
            views: {
             "content": {
-             controller: 'ProfileQuestionnaresCtrl as profileQuestionnaresCtrl',
+             controller: 'ProfileQuestionAnswersCtrl as profileQuestionAnswersCtrl',
              templateUrl: 'public/modules/profile/views/tabs/profile/discover/profile-questions.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -95,8 +95,68 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/services/ProfileQuestionnairesManager.js',
-                  'public/modules/profile/controllers/ProfileQuestionnairesCtrl.js',
+                  'public/modules/questionnaire/services/QuestionnaireManager.js',
+                  'public/modules/profile/controllers/ProfileQuestionAnswersCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('profile.discover.matcher', {
+           url: '/matcher',
+           views: {
+            "content": {
+             controller: 'ProfileQuestionnaireCtrl as profileQuestionnaireCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/discover/profile-matcher.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/questionnaire/services/QuestionnaireManager.js',
+                  'public/modules/profile/controllers/ProfileQuestionnaireCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('profile.discover.swipes', {
+           url: '/swipes',
+           views: {
+            "content": {
+             controller: 'ProfileSwipeAnswersCtrl as profileSwipeAnswersCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/discover/profile-swipes.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/swipe/services/SwipeManager.js',
+                  'public/modules/profile/controllers/ProfileSwipeAnswersCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('profile.discover.swipe', {
+           url: '/swipe',
+           views: {
+            "content": {
+             controller: 'ProfileSwipeCtrl as profileSwipeCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/discover/profile-matcher.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/swipe/services/SwipeManager.js',
+                  'public/modules/profile/controllers/ProfileSwipeCtrl.js',
                  ]
                 });
                }]

@@ -17,7 +17,7 @@
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
   <link href="public/gb-icons/gb-icons.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>
-  <link href="../bower_components/ionic-ion-tinder-cards/ionic.tdcards.css" rel="stylesheet" type="text/css"/>
+  <link href="public/css/gb-sass/stylesheets/gb-landing-page.css" rel="stylesheet" type="text/css"/>
 
 
   <!--[if lt IE 9]>
