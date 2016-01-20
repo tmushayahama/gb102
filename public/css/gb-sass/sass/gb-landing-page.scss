@@ -37,6 +37,7 @@ $primary-color: #027887;
    padding-top: 3px;
   }
  }
+
  #gb-intro-section {
   position: relative;
   height: 550px;
@@ -126,24 +127,9 @@ $primary-color: #027887;
   }
 
   @include respond-to (gb-sm) {
-   header .intro-text {
+   .intro-text {
     padding-top: 300px;
     padding-bottom: 200px;
-   }
-
-   header .intro-text .intro-lead-in {
-    margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 40px;
-    line-height: 40px;
-   }
-
-   header .intro-text .intro-heading {
-    margin-bottom: 50px;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 75px;
-    font-weight: 700;
-    line-height: 75px;
    }
   }
  }
@@ -368,8 +354,12 @@ $primary-color: #027887;
   border: 7px solid #f1f1f1;
   border-radius: 100%;
   text-align: center;
-  color: #fff;
-  background-color: #fed136;
+  border-color: $primary-color;
+  .gb-icon-inner {
+   font-size: 80px;
+   line-height: 80px;
+   color: rgba($primary-color, 0.8);
+  }
  }
 
  .timeline>li .timeline-image h4 {

@@ -23,8 +23,6 @@
   </div>
  </div>
 </nav>
-
-
 <div class="gb-landing-page">
  <header id="gb-intro-section" class="">
   <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
@@ -56,7 +54,7 @@
  </header>
 
  <!-- Services Section -->
- <section ng-hide="false" id="services">
+ <section ng-if="true" id="services">
   <div class="container">
    <div class="row text-center">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -77,9 +75,16 @@
    </div>
   </div>
  </section>
+ <section class="gb-background-white">
+  <div class="container">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/landing-page/screen-1.png" alt="">
+   </div>
+  </div>
+ </section>
 
  <!-- Portfolio Grid Section -->
- <section ng-hide="true" id="portfolio" class="bg-light-gray ">
+ <section ng-if="false" id="portfolio" class="bg-light-gray ">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -95,7 +100,7 @@
         <i class="fa fa-plus fa-3x"></i>
        </div>
       </div>
-      <img src="public/img/portfolio/roundicons.png" class="img-responsive" alt="">
+      <img src="public/img/scree-1/roundicons.png" class="img-responsive" alt="">
      </a>
      <div class="portfolio-caption">
       <h4>Round Icons</h4>
@@ -177,70 +182,100 @@
  </section>
 
  <!-- About Section -->
- <section ng-hide="true" id="about" class="">
+ <section ng-if="false" id="about" class="gb-background-white">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
-     <h2 class="section-heading">About</h2>
-     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+     <h2 class="section-heading">Skill Section</h2>
+     <h3 class="section-subheading text-muted">.</h3>
     </div>
    </div>
    <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-5 col-md-5 col-sm-5">
+     <div class="timeline-heading">
+      <h4>Skill App</h4>
+      <h4 class="subheading">Discover your Skills</h4>
+     </div>
+     <div class="timeline-body">
+      <p class="text-muted">
+       Skills gained<br>
+       Skills to improve<br>
+       Skills to learn </p>
+     </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+     <h4 class="fa gb-icon-inner icon-gb-skill"></h4>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-5">
+
+    </div>
+    <div ng-if="false"class="col-lg-12">
      <ul class="timeline">
       <li>
        <div class="timeline-image">
-        <img class="img-circle img-responsive" src="public/img/about/1.jpg" alt="">
+        <h4 class="fa gb-icon-inner icon-gb-skill"></h4>
        </div>
        <div class="timeline-panel">
         <div class="timeline-heading">
-         <h4>2009-2011</h4>
-         <h4 class="subheading">Our Humble Beginnings</h4>
+         <h4>Skill App</h4>
+         <h4 class="subheading">Discover your Skills</h4>
         </div>
         <div class="timeline-body">
-         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+         <p class="text-muted">
+          Skills gained<br>
+          Skills to improve<br>
+          Skills to learn </p>
         </div>
        </div>
       </li>
       <li class="timeline-inverted">
        <div class="timeline-image">
-        <img class="img-circle img-responsive" src="public/img/about/2.jpg" alt="">
+        <h4 class="fa gb-icon-inner icon-gb-goal"></h4>
        </div>
        <div class="timeline-panel">
         <div class="timeline-heading">
-         <h4>March 2011</h4>
-         <h4 class="subheading">An Agency is Born</h4>
+         <h4>Goal App</h4>
+         <h4 class="subheading">Discover your goals</h4>
         </div>
         <div class="timeline-body">
-         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+         <p class="text-muted">
+          Goals Achieved<br>
+          Goals to Accomplish<br>
+         </p>
         </div>
        </div>
       </li>
       <li>
        <div class="timeline-image">
-        <img class="img-circle img-responsive" src="public/img/about/3.jpg" alt="">
+        <h4 class="fa gb-icon-inner icon-gb-promise"></h4>
        </div>
        <div class="timeline-panel">
         <div class="timeline-heading">
-         <h4>December 2012</h4>
-         <h4 class="subheading">Transition to Full Service</h4>
+         <h4>Promise App</h4>
+         <h4 class="subheading">Your promises</h4>
         </div>
         <div class="timeline-body">
-         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+         <p class="text-muted">
+          Promises to keep
+          Promises to develop
+         </p>
         </div>
        </div>
       </li>
       <li class="timeline-inverted">
        <div class="timeline-image">
-        <img class="img-circle img-responsive" src="public/img/about/4.jpg" alt="">
+        <h4 class="fa gb-icon-inner icon-gb-hobby"></h4>
        </div>
        <div class="timeline-panel">
         <div class="timeline-heading">
-         <h4>July 2014</h4>
-         <h4 class="subheading">Phase Two Expansion</h4>
+         <h4>Hobby App</h4>
+         <h4 class="subheading">Discover your hobbies</h4>
         </div>
         <div class="timeline-body">
-         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+         <p class="text-muted">
+          Hobbies Developed<br>
+          Hobbies of Interest
+         </p>
         </div>
        </div>
       </li>
@@ -258,7 +293,7 @@
  </section>
 
  <!-- Team Section -->
- <section ng-hide="true" id="team" class="bg-light-gray">
+ <section ng-if="false" id="team" class="bg-light-gray">
   <div class="container">
    <div class="row">
     <div class="col-lg-12 text-center">
@@ -322,7 +357,7 @@
  </section>
 
  <!-- Clients Aside -->
- <aside ng-hide="true" class="clients ">
+ <aside ng-if="false" class="clients ">
   <div class="container">
    <div class="row">
     <div class="col-md-3 col-sm-6">
@@ -351,7 +386,7 @@
 
  <!-- Contact Section -->
 
- <footer ng-hide="true" class="">
+ <footer ng-if="false" class="">
   <div class="container">
    <div class="row">
     <div class="col-md-4">
@@ -383,7 +418,7 @@
  <!-- Use the modals below to showcase details about your portfolio projects! -->
 
  <!-- Portfolio Modal 1 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -416,7 +451,7 @@
  </div>
 
  <!-- Portfolio Modal 2 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -442,7 +477,7 @@
  </div>
 
  <!-- Portfolio Modal 3 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -469,7 +504,7 @@
  </div>
 
  <!-- Portfolio Modal 4 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -496,7 +531,7 @@
  </div>
 
  <!-- Portfolio Modal 5 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -523,7 +558,7 @@
  </div>
 
  <!-- Portfolio Modal 6 -->
- <div ng-hide="true" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="false">
   <div class="modal-content">
    <div class="close-modal" data-dismiss="modal">
     <div class="lr">
@@ -563,15 +598,33 @@
 
 
 
- <div class="">
+ <div ng-if="false"class="">
   <div class="gb-intro-header-3 row">
    <div class="container">
-    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0 col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
-     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_7.png" alt="">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+     <ul>
+      <li>
+       <a>
+        <i class="fa icon-gb-skill"></i>
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/landing-page/screen-1.png" alt="">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+     <ul>
+      <li>
+       <a>
+        <i class="fa icon-gb-skill"></i>
+       </a>
+      </li>
+     </ul>
     </div>
    </div>
   </div>
-  <div ng-hide="true" class="row gb-intro-header-2">
+  <div ng-if="false" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -651,7 +704,7 @@
     </div>
    </div>
   </div>
-  <div ng-hide="true" class="gb-intro-header-4 row">
+  <div ng-if="false" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
      <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/img/screenshot_5.png" alt="">
@@ -681,7 +734,7 @@
     </div>
    </div>
   </div>
-  <div ng-hide="true" class="row gb-intro-header-2">
+  <div ng-if="false" class="row gb-intro-header-2">
    <div class="gb-intro-header-2-top row">
     <div class="container">
      <br>
@@ -745,7 +798,7 @@
     </div>
    </div>
   </div>
-  <div ng-hide="true" class="gb-intro-header-4 row">
+  <div ng-if="false" class="gb-intro-header-4 row">
    <div class="container">
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
      <h3 class="gb-title">Mentorship App Example
@@ -776,10 +829,10 @@
     </div>
    </div>
   </div>
-  <div ng-hide="true" class="gb-intro-header-3 row">
+  <div ng-if="false" class="gb-intro-header-3 row">
 
   </div>
-  <div ng-hide="true" class="container">
+  <div ng-if="false" class="container">
    <div class=" col-lg-12">
     <div class="row gb-title text-center">
      <h2 class="">Sign up, get all the benefits.</h2>
@@ -877,5 +930,5 @@
 </div>
 
 <script type="text/ng-template" id="login-modal.html">
- <div ng-include="'public/modules/auth/views/modals/login.html'"></div>
+  <div ng-include="'public/modules/auth/views/modals/login.html'"></div>
 </script>

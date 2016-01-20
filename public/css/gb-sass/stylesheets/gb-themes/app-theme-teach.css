@@ -100,17 +100,21 @@ and open the template in the editor.
   width: 100%;
   padding: 20px 5px 5px 5px;
   text-align: center;
-  border: #BBB solid 1px;
-  height: 100px;
+  border: rgba(65, 29, 29, 0.4) solid 1px;
+  height: 120px;
 }
 .gb-apptype-btn .gb-icon {
-  font-size: 50px;
+  color: rgba(65, 29, 29, 0.8);
+  font-size: 60px;
 }
 .gb-apptype-btn .gb-title {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .gb-apptype-btn:hover {
-  background-color: #EEE;
+  background-color: rgba(65, 29, 29, 0.2);
+}
+.gb-apptype-btn:hover .gb-icon {
+  color: #2f1515;
 }
 
 .modal-md .modal-content {
@@ -3027,9 +3031,10 @@ input.gb-form-show {
   color: rgba(65, 29, 29, 0.4);
 }
 #gb-left-nav-3 .gb-link .fa-lg .fa-inner {
-  top: 10px;
+  top: 0px;
   left: 7px;
   font-size: 20px;
+  line-height: 2.0em;
   color: #2f1515;
 }
 #gb-left-nav-3 .gb-link .fa-lg:hover .fa-outer {
@@ -3170,9 +3175,10 @@ input.gb-form-show {
   color: rgba(65, 29, 29, 0.4);
 }
 #gb-profile-left-pane .gb-link .fa-lg .fa-inner {
-  top: 10px;
+  top: 0px;
   left: 7px;
   font-size: 20px;
+  line-height: 2.0em;
   color: #2f1515;
 }
 #gb-profile-left-pane .gb-link .fa-lg:hover .fa-outer {
@@ -3329,6 +3335,10 @@ input.gb-form-show {
 #gb-profile-header .gb-title {
   text-transform: uppercase;
   font-weight: normal;
+}
+
+#gb-left-nav-3::-webkit-scrollbar {
+  display: none;
 }
 
 .gb-play-form {
@@ -3923,9 +3933,10 @@ input.gb-form-show {
   color: rgba(65, 29, 29, 0.2);
 }
 .gb-box-1 .gb-icon-image .fa-lg .fa-inner {
-  top: 45px;
+  top: 25px;
   left: 30px;
   font-size: 50px;
+  line-height: 2.0em;
   color: #411d1d;
 }
 .gb-box-1 .gb-icon-image .fa-lg:hover .fa-outer {
@@ -4287,7 +4298,6 @@ input.gb-form-show {
   font-size: 0.9em;
 }
 
-/*---------------------MENTORSHIP-----------------------------*/
 .gb-item-heading-1 {
   padding: 10px;
   background-color: #FFF;

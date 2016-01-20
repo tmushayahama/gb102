@@ -92,15 +92,19 @@
  width: 100%;
  padding: 20px 5px 5px 5px;
  text-align: center;
- border: #BBB solid 1px;
- height: 100px;
+ border: rgba($primary-color, 0.4) solid 1px;
+ height: 120px;
  .gb-icon {
-  font-size: 50px;
+  color: rgba($primary-color, 0.8);
+  font-size: 60px;
  }
  .gb-title {
-  margin-top: 5px;
+  margin-top: 10px;
  }
  &:hover {
-  background-color: #EEE;
+  background-color: rgba($primary-color, 0.2);
+  .gb-icon {
+   color: darken($primary-color, 5%);
+  }
  }
 }

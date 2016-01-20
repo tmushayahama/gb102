@@ -11,7 +11,7 @@ id	category	code	name	description
 10	4	PS1	Promise Kept	\N
 11	4	PS2	Promise to Develop	\N
 12	4	PS3	Promise of Interest	\N
-13	5	MP1	"Peer/Friendly i.e. support, advice"	\N
+13	5	MP1	Peer/Friendly	\N
 14	5	MP2	"Natural, senior mentoring junior"	\N
 15	5	MP3	Formal i.e. trainer trainee	\N
 16	5	MP4	Supervisory	\N

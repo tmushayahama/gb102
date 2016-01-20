@@ -11,7 +11,7 @@ id	name	description	type
 10	fa-code		1
 11	fa-cutlery		1
 12	fa-desktop		1
-13	fa-excel-o		1
+13	fa-file-excel-o		1
 14	fa-fighter-jet		1
 15	fa-film		1
 16	fa-futbol-o		1
@@ -20,14 +20,14 @@ id	name	description	type
 19	fa-microphone		1
 20	fa-music		1
 21	fa-plane		1
-22	fa-powerpoint-o		1
+22	fa-file-powerpoint-o		1
 23	fa-rocket		1
 24	fa-ship		1
 25	fa-taxi		1
 26	fa-truck		1
 27	fa-university		1
 28	fa-video-camera		1
-29	fa-word-o		1
+29	fa-file-word-o		1
 30	fa-wrench		1
 31	icon-accessibility		1
 32	icon-address-book		1

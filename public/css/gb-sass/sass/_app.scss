@@ -1022,7 +1022,7 @@ input[type="checkbox"] {
  opacity: 0.5;
  filter: alpha(opacity=50);
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar{
  display: none;
  width: 12px;
 }
@@ -1327,9 +1327,10 @@ input.gb-form-show{
     color: rgba($primary-color, 0.4);
    }
    .fa-inner {
-    top: 10px;
+    top: 0px;
     left: 7px;
     font-size: 20px;
+    line-height: 2.0em;
     color: darken($primary-color, 5%);
    }
    &:hover {
@@ -1480,9 +1481,10 @@ input.gb-form-show{
     color: rgba($primary-color, 0.4);
    }
    .fa-inner {
-    top: 10px;
+    top: 0px;
     left: 7px;
     font-size: 20px;
+    line-height:2.0em;
     color: darken($primary-color, 5%);
    }
    &:hover {
@@ -1661,6 +1663,7 @@ input.gb-form-show{
 
 
 #gb-left-nav-3::-webkit-scrollbar {
+ display: none;
 }
 
 
@@ -1947,7 +1950,7 @@ input.gb-form-show{
    margin-left: 0px;
   }
  }
- .gb-nav-2 { 
+ .gb-nav-2 {
   @include position(absolute, 0 null null 50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -2171,7 +2174,7 @@ input.gb-form-show{
 
 .gb-stat-row .gb-heading .gb-number{
  font-size: 4.5em;
-}
+} 
 .gb-stat-row .gb-body .gb-number{
  padding: 5px 0px 5px 3px;
  background-color: #DDD;
@@ -2206,9 +2209,10 @@ input.gb-form-show{
     color: rgba($primary-color, 0.2);
    }
    .fa-inner{
-    top: 45px;
+    top: 25px;
     left: 30px;
     font-size: 50px;
+    line-height:2.0em;
     color: darken($primary-color, 0%);
    }
    &:hover {
@@ -2549,11 +2553,6 @@ input.gb-form-show{
  font-size: 0.9em;
 }
 
-
-/*---------------------MENTORSHIP-----------------------------*/
-.gb-mentorship-item {
-
-}
 
 .gb-item-heading-1 {
  padding: 10px;

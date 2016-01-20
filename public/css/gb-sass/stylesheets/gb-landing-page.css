@@ -132,22 +132,9 @@ and open the template in the editor.
   line-height: 50px;
 }
 @media (max-width: 991px) {
-  .gb-landing-page #gb-intro-section header .intro-text {
+  .gb-landing-page #gb-intro-section .intro-text {
     padding-top: 300px;
     padding-bottom: 200px;
-  }
-  .gb-landing-page #gb-intro-section header .intro-text .intro-lead-in {
-    margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 40px;
-    line-height: 40px;
-  }
-  .gb-landing-page #gb-intro-section header .intro-text .intro-heading {
-    margin-bottom: 50px;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 75px;
-    font-weight: 700;
-    line-height: 75px;
   }
 }
 .gb-landing-page .gb-icon-service {
@@ -331,8 +318,12 @@ and open the template in the editor.
   border: 7px solid #f1f1f1;
   border-radius: 100%;
   text-align: center;
-  color: #fff;
-  background-color: #fed136;
+  border-color: #027887;
+}
+.gb-landing-page .timeline > li .timeline-image .gb-icon-inner {
+  font-size: 80px;
+  line-height: 80px;
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-landing-page .timeline > li .timeline-image h4 {
   margin-top: 12px;
