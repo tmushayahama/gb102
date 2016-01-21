@@ -50,6 +50,25 @@ define(['angular'
              }
             }
            }})
+          .state('apps.explores.app', {
+           url: '/all/{app_name}',
+           views: {
+            "app-tab": {
+             controller: 'ExploresAppCtrl as exploresTabCtrl',
+             templateUrl: 'public/modules/explore/views/tabs/explores/explore-list.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explore',
+                 serie: true,
+                 files: [
+                  'public/modules/explore/controllers/ExploresAppCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.explores.mine', {
            url: '/mine',
            views: {

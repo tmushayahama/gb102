@@ -60,3 +60,76 @@
  }
 }
 
+
+
+.gb-icon-top-nav-1 {
+ padding: 0;
+ margin-bottom: 20px;
+ list-style: none;
+ background-color: #FFF;
+ text-align: center;
+ a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  .gb-icon {
+   color: rgba($primary-color, 0.8);
+  }
+  .gb-title {
+   color: #777;
+  }
+ }
+ &:hover {
+  a {
+   color: rgba($primary-color, 0.5);
+  }
+ }
+ &.active {
+  a {
+   color: rgba($primary-color, 1);
+  }
+ }
+
+ >li {
+  border-bottom: transparent solid 4px;
+  a{
+   padding: 10px 2px 10px 2px;
+   .gb-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+   }
+   .gb-title {
+    font-size: 10px;
+    font-weight: 100;
+   }
+  }
+  &:hover {
+   border-bottom: rgba($primary-color, 0.4) solid 4px;
+  }
+  &.active {
+   border-bottom: rgba($primary-color, 0.7) solid 4px;
+  }
+  li {
+   a{
+    padding: 5px 2px 5px 2px;
+    .gb-icon {
+     float: left;
+     font-size: 24px;
+    }
+    .gb-title {
+     float: left;
+     padding-top: 5px;
+     font-size: 12px;
+     font-weight: 100;
+    }
+   }
+   &:hover {
+    border-left: rgba($primary-color, 0.4) solid 4px;
+   }
+   &.active {
+    border-left: rgba($primary-color, 0.8) solid 4px;
+   }
+  }
+ }
+}

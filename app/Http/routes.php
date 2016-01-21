@@ -54,7 +54,9 @@ Route::group(['prefix' => 'api'], function() {
 
  //Explore
  Route::get('explores/all', 'Explore\ExploreController@getExploresAll');
- Route::get('explores/mine', 'Explore\ExploreController@getExploresMine');
+ Route::get('explores/all/{appName}', 'Explore\ExploreController@getExplores');
+
+
  Route::get('explores/swipe', 'Explore\ExploreController@getExploreSwipe');
  Route::get('explores/swipes', 'Explore\ExploreController@getExploreSwipes');
  Route::post('explores/swipe/create', 'Explore\ExploreController@createExploreSwipe');

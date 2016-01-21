@@ -31,6 +31,11 @@ class ExploreController extends Controller {
   return \Response::json($explores);
  }
 
+ public function getExplores($appName) {
+  $explores = Explore::getExplores($appName);
+  return \Response::json($explores);
+ }
+
  public function getExploresMine() {
   $explores = Explore::getExploresMine();
   return \Response::json($explores);

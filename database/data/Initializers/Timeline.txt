@@ -13,4 +13,3 @@ id	parent_timeline_id	creator_id	description	created_date	timeline_date	day	time
 12	NULL	15	Applying your current skills to your new career	7/9/2015 11:07	7/9/2015 11:07	2	FFFFFF	1	0
 13	NULL	15	Gain more experience 	7/9/2015 11:07	7/9/2015 11:07	3	FFFFFF	1	0
 14	NULL	15	Coming up with a good conversation topic	7/9/2015 11:07	7/9/2015 11:07	1	FFFFFF	1	0
-									

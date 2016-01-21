@@ -35,6 +35,19 @@ var exploresManager = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExploresManager.prototype.getAppExplores = function (appName) {
+  var self = this;
+  var deferred = $q.defer();
+  self.explores = [];
+  $http.get('/api/explores/all/' + appName).success(function (data) {
+   self.explores = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExploresManager.prototype.getMyExplores = function () {
   var self = this;
   var deferred = $q.defer();

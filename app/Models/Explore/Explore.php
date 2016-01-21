@@ -3,6 +3,7 @@
 namespace App\Models\Explore;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AppType\AppType;
 use Request;
 use DB;
 use JWTAuth;
@@ -47,6 +48,21 @@ class Explore extends Model {
           ->with('level')
           ->take(100)
           ->get();
+  return $explores;
+ }
+
+ public static function getExplores($appName) {
+  $appId = AppType::where('name', $appName)->first();
+  if ($appId) {
+   $explores = Explore::where('app_type_id', $appId->id)
+           ->orderBy('id', 'desc')
+           ->with('app_type')
+           ->with('creator')
+           ->with('icon')
+           ->with('level')
+           ->take(100)
+           ->get();
+  }
   return $explores;
  }
 
