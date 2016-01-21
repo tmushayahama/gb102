@@ -51,6 +51,7 @@
 .modal-menu {
  .gb-close {
   @include position(absolute, 0 0 null null);
+  z-index: 1;
   margin: 0 0 0 0;
   padding: 6px 14px;
   font-size: 20px;
@@ -62,6 +63,7 @@
   }
  }
  .modal-body {
+  padding: 0;
   @include position(absolute, 0 0 0 0);
  }
 }

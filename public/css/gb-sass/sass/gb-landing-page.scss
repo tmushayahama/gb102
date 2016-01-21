@@ -124,12 +124,33 @@ $primary-color: #027887;
     font-weight: 700;
     line-height: 50px;
    }
-  }
 
-  @include respond-to (gb-sm) {
-   .intro-text {
+
+   @include respond-to (gb-sm) {
     padding-top: 300px;
     padding-bottom: 200px;
+   }
+
+   @include respond-to (gb-xs) {
+    padding-top: 300px;
+    padding-bottom: 200px;
+    btn-toolbar {
+     .btn {
+      width: 130px;
+     }
+    }
+    .intro-lead-in {
+     color: #EEE;
+     margin-bottom: 15px;
+     font-size: 20px;
+     line-height: 20px;
+    }
+    .intro-heading {
+     margin-bottom: 10px;
+     font-size: 30px;
+     font-weight: 700;
+     line-height: 30px;
+    }
    }
   }
  }

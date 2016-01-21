@@ -14,14 +14,15 @@ var authCtrl = function (
  var vm = this;
 
  var headerWords = [
-  'achieve a goal',
+  'achieve goals',
   'mentor someone',
-  'improve a skill',
-  'give an advice',
-  'discover a new skill',
-  'keep a promise',
-  'be mentored by someone',
-  'explore a new hobby',
+  'improve skills',
+  'give advice',
+  'discover skills',
+  'keep promises',
+  'get mentorship',
+  'explore hobby',
+  'collaborate on skills',
  ];
  var headerWordIndex = 0;
  vm.headerWord = headerWords[0];

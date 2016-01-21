@@ -4,6 +4,8 @@ var profileCtrl = function (
         ConstantsManager,
         ProfileManager,
         UserProfileSectionManager,
+        $uibModal,
+        $aside,
         $scope,
         $state,
         $stateParams,
@@ -26,6 +28,21 @@ var profileCtrl = function (
 
  vm.range = function (min, max) {
   return _.range(min, max);
+ };
+
+
+ vm.openProfileMenuModal = function (position) {
+  var modalInstance = $aside.open({
+   placement: position,
+   templateUrl: 'profile-menu-modal.html',
+   controller: 'ProfileMenuModalCtrl as menuProfileModalCtrl',
+   // backdrop: 'static',
+   size: 'menu'
+  });
+
+  modalInstance.result.then(function () {
+  }, function () {
+  });
  };
 
  vm.profileIcons = [];
@@ -148,6 +165,8 @@ profileCtrl.$inject = ['_',
  'ConstantsManager',
  'ProfileManager',
  'UserProfileSectionManager',
+ '$uibModal',
+ '$aside',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,9 +1,9 @@
 <div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="gb-profile-logo col-lg-2 col-md-2 col-sm-3 col-xs-2">
+  <div class="gb-profile-logo col-lg-2 col-md-2 col-sm-3 col-xs-4">
    <div class="gb-header">
-    <a ng-click="appsCtrl.openMenuModal('left')"
-       class="gb-menu-bars hidden-lg hidden-md hidden-sm visible-xs btn btn-link">
+    <a ng-click="profileCtrl.openProfileMenuModal('left')"
+       class="gb-menu-bars visible-lg hidden-md hidden-sm visible-xs btn btn-link">
      <i class="fa fa-bars"></i>
     </a>
     <a ui-sref="auth" class="gb-logo gb-ellipsis">
@@ -80,9 +80,8 @@
    </div>
   </div>
  </div>
-
  <div class="gb-container gb-app-detail">
-  <div id="gb-profile-left-pane" class="col-lg-3 col-md-4 col-sm-4 col-xs-2">
+  <div id="gb-profile-left-pane" class="col-lg-3 col-md-4 col-sm-4 hidden-xs">
    <div class="gb-nav-strip gb-nav-strip-mini row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="gb-profile-pic">
@@ -345,7 +344,7 @@
     </h6>
    </div>
   </div>
-  <div id="gb-profile-right-pane" class="col-lg-9 col-md-8 col-sm-8 col-xs-10">
+  <div id="gb-profile-right-pane" class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
    <div class="gb-cover">
     <div ng-include="'public/modules/profile/views/components/profile/profile-cover.html'"></div>
    </div>
@@ -362,3 +361,6 @@
   </div>
  </div>
 </div>
+<script type="text/ng-template" id="profile-menu-modal.html">
+ <div ng-include="'public/modules/profile/views/modals/profile-menu-modal.html'"></div>
+</script>

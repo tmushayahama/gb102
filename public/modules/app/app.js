@@ -116,7 +116,8 @@ define([
                 name: 'app',
                 files: ['public/modules/common/directives/show-tab.js',
                  'public/modules/app/controllers/AppsCtrl.js',
-                 'public/modules/app/controllers/modals/MenuModalCtrl.js']
+                 'public/modules/app/controllers/modals/MenuModalCtrl.js',
+                ]
                });
               }
              }

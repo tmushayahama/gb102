@@ -1,0 +1,292 @@
+<div class="modal-body gb-modal-body">
+ <div class="gb-menu-nav" role="navigation">
+  <div class="gb-header">
+   <a class="gb-logo gb-ellipsis" href="app/skill">
+    <span class="fa-stack fa-lg pull-left">
+     <i class="fa fa-outer fa-square-o fa-stack-2x"></i>
+     <i class="fa fa-inner fa-wrench fa-stack-1x"></i>
+    </span>
+    <div class="">
+     <strong>SKILL</strong>SECTION<br>
+    </div>
+   </a>
+  </div>
+  <a ng-click="menuModalCtrl.close()" class="gb-close btn btn-primary">
+   X
+  </a>
+  <div class="gb-body">
+   <div class="gb-nav-strip gb-nav-strip-mini row">
+    <div class="">
+     <a ui-sref="profile.overview({profileId: $root.user.id})"
+        ng-click="menuModalCtrl.close()" class="gb-link row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <p class="gb-ellipsis gb-title">
+        <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
+        <span class="gb-content">
+         {{$root.user.firstname + " " + $root.user.lastname}}
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.community.users"
+        ng-click="menuModalCtrl.close()" class="gb-link row"
+        ng-class="{
+          active: ('apps.community' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-community fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Community
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div class="gb-nav-strip row">
+    <h6 class="gb-heading gb-ellipsis">
+     <span class="visible-lg visible-md visible-sm hidden-xs">
+      <i class="fa icon-gb-discover"></i> DISCOVER
+     </span>
+    </h6>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.explores.all" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.explores' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-explore fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Explore
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.swipes.swipe" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.swipes' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-swipe fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Swipe
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.questionnaires.questionnaire" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.questionnaires' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-matcher fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Matcher
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div class="gb-nav-strip row">
+    <h6 class="gb-heading gb-ellipsis">
+     <span class="visible-lg visible-md visible-sm hidden-xs">
+      <i class="fa icon-gb-discover"></i> APPLICATION
+     </span>
+    </h6>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.mentorships.all" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.mentorships' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-mentorship fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Mentorship
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.teachs.teach" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.teachs' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-teach fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Teach
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.advises.advise" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.advises' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-advise fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Advise
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.collaborations.collaboration" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.collaborations' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-collaboration fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Collaboration
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.goals.goal" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.goals' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-goal fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Goals
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div class="gb-nav-strip row">
+    <h6 class="gb-heading gb-ellipsis">
+     <span class="visible-lg visible-md visible-sm hidden-xs">
+      <i class="fa icon-gb-organize"></i> ORGANIZE
+     </span>
+    </h6>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.journal.all" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.journal' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-journal fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Journal
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.journal.all" ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.journal' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-project fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Project
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a ui-sref="apps.journal.all"ng-click="menuModalCtrl.close()"
+        class="gb-link row"
+        ng-class="{
+          active: ('apps.journal' | includedByState)
+         }">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+       <p class="gb-ellipsis gb-title">
+        <span class="gb-icon fa-stack fa-lg pull-left">
+         <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+         <i class="fa fa-inner icon-gb-group fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="gb-content">
+         Groups
+        </span>
+       </p>
+      </div>
+     </a>
+    </div>
+   </div>
+   <div class="gb-nav-strip row">
+    <h6 class="gb-heading gb-ellipsis">
+     <span class="visible-lg visible-md visible-sm hidden-xs">
+      <i class="fa icon-tools"></i> TOOLS
+     </span>
+    </h6>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->

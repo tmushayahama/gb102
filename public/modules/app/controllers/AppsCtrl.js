@@ -24,12 +24,7 @@ var appsCtrl = function (
    templateUrl: 'menu-modal.html',
    controller: 'MenuModalCtrl as menuModalCtrl',
    // backdrop: 'static',
-   size: 'menu',
-   resolve: {
-    appTypes: function () {
-     return vm.appTypes;
-    }
-   }
+   size: 'menu'
   });
 
   modalInstance.result.then(function () {
@@ -37,7 +32,6 @@ var appsCtrl = function (
   });
  };
 };
-
 appsCtrl.$inject = [
  '$scope',
  '$auth',

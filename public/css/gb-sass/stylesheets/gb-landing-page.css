@@ -137,6 +137,27 @@ and open the template in the editor.
     padding-bottom: 200px;
   }
 }
+@media (max-width: 767px) {
+  .gb-landing-page #gb-intro-section .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+  .gb-landing-page #gb-intro-section .intro-text btn-toolbar .btn {
+    width: 130px;
+  }
+  .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
+    color: #EEE;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .gb-landing-page #gb-intro-section .intro-text .intro-heading {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+}
 .gb-landing-page .gb-icon-service {
   color: #027887;
 }

@@ -3,8 +3,8 @@
   <div class="gb-header pull-left">
    <a class="gb-logo btn btn-link" href="app/skill">
     <span class="fa-stack fa-lg pull-left">
-     <i class="fa fa-square-o fa-stack-2x"></i>
-     <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
+     <i class="fa fa-outer fa-square-o fa-stack-2x"></i>
+     <i class="fa fa-inner fa-wrench fa-stack-1x"></i>
     </span>
     <div class="visible-lg visible-md visible-sm hidden-xs">
      <strong>SKILL</strong>SECTION<br>
@@ -31,7 +31,7 @@
     <i class="fa fa-inner {{authCtrl.skillIcons[iconIndex].name}} fa-stack-1x"></i>
    </span>
   </div>
-  <div class="intro-text">
+  <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
    <div class="intro-heading">
     Discover, Apply & Organize skills
    </div>
@@ -930,5 +930,5 @@
 </div>
 
 <script type="text/ng-template" id="login-modal.html">
-  <div ng-include="'public/build/scripts/modules/auth/views/modals/login.html'"></div>
+ <div ng-include="'public/build/scripts/modules/auth/views/modals/login.html'"></div>
 </script>

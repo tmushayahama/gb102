@@ -17,12 +17,13 @@ define(['angular'
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'profile',
+                 name: 'app.profile',
                  serie: true,
                  files: [
                   'public/modules/app/services/ConstantsManager.js',
                   'public/modules/profile/services/ProfileManager.js',
                   'public/modules/profile/services/UserProfileSectionManager.js',
+                  'public/modules/profile/controllers/modals/ProfileMenuModalCtrl.js',
                   'public/modules/profile/controllers/ProfileCtrl.js',
                   'public/modules/profile/filters/randomize.js',
                  ]

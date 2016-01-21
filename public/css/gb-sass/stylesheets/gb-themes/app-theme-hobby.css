@@ -200,6 +200,7 @@ and open the template in the editor.
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1;
   margin: 0 0 0 0;
   padding: 6px 14px;
   font-size: 20px;
@@ -213,6 +214,7 @@ and open the template in the editor.
   }
 }
 .modal-menu .modal-body {
+  padding: 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -2300,7 +2302,7 @@ form .gb-heading {
 }
 @media (max-width: 767px) {
   .gb-container {
-    width: 768px;
+    width: 100%;
   }
 }
 
