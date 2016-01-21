@@ -72,8 +72,8 @@ var questionnaireCtrl = function (
    description: description
   };
   vm.questionnaireManager.createQuestionAnswer(data).then(function (response) {
-
    vm.getQuestionnaireQuestion();
+   $scope.description = '';
   });
  };
 

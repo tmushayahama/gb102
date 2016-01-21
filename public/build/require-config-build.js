@@ -21,8 +21,9 @@ requirejs.config({
   //'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min',
   'hammerjs': '../../bower_components/hammerjs/hammer.min',
   'angular-gestures': '../../bower_components/angular-gestures/gestures.min',
-  'angular-loading-bar': '../../bower_components/angular-loading-bar/build/loading-bar.min',
-  //'modules-includes': 'includes'
+  'angular-loading-bar': '../../../bower_components/angular-loading-bar/build/loading-bar.min',
+  'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min'
+          //'modules-includes': 'includes'
 
  },
  shim: {
@@ -44,7 +45,8 @@ requirejs.config({
   // 'angular-swing': {deps: ['angular']},
   'hammerjs': {deps: ['angular']},
   'angular-gestures': {deps: ['angular', 'hammerjs']},
-  'angular-loading-bar': {deps: ['angular', 'angular-animate']}
+  'angular-loading-bar': {deps: ['angular', 'angular-animate']},
+  'angular-aside': {deps: ['angular', 'angular-animate']}
  },
  priority: [
   'jquery',

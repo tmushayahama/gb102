@@ -1,9 +1,9 @@
-<div class="col-lg-2 col-md-2 col-sm-3 col-xs-2" id="gb-left-nav-3" role="navigation">
+<div class="col-lg-2 col-md-2 col-sm-3 hidden-xs" id="gb-left-nav-3" role="navigation">
  <div class="gb-header">
   <a class="gb-logo gb-ellipsis" href="app/skill">
    <span class="fa-stack fa-lg pull-left">
-    <i class="fa fa-square-o fa-stack-2x"></i>
-    <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
+    <i class="fa fa-outer fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-inner fa-wrench fa-stack-1x"></i>
    </span>
    <div class="visible-lg visible-md visible-sm hidden-xs">
     <strong>SKILL</strong>SECTION<br>
@@ -271,6 +271,9 @@
   </div>
  </div>
 </div>
-<div ui-view="apps" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
+<div ui-view="apps" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-0 col-lg-10 col-md-10 col-sm-9 col-xs-12">
 </div>
 <!-- ------------------------------- MODALS --------------------------->
+<script type="text/ng-template" id="menu-modal.html">
+ <div ng-include="'public/modules/app/views/modals/menu-modal.html'"></div>
+</script>

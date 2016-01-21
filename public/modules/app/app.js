@@ -18,6 +18,7 @@ define([
  'hammerjs',
  'angular-gestures',
  'angular-loading-bar',
+ 'angular-aside',
  '../auth/module',
  '../community/module',
  '../explore/module',
@@ -42,6 +43,7 @@ define([
   //'gajus.swing',
   'angular-gestures',
   'angular-loading-bar',
+  'ngAside',
   'app.auth',
   'app.community',
   'app.explore',
@@ -113,7 +115,8 @@ define([
                return $ocLazyLoad.load({
                 name: 'app',
                 files: ['public/modules/common/directives/show-tab.js',
-                 'public/modules/app/controllers/AppsCtrl.js']
+                 'public/modules/app/controllers/AppsCtrl.js',
+                 'public/modules/app/controllers/modals/MenuModalCtrl.js']
                });
               }
              }

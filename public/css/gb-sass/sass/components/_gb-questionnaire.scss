@@ -3,11 +3,9 @@
 
 
 .gb-questionnaire-container {
-
-
  .stack {
   height: 350px;
-  @include position(absolute, 100px null null 50%);
+  @include position(absolute, 10px null null 50%);
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
@@ -105,13 +103,13 @@
   }
  }
  .gb-footer {
-  @include position(absolute, 470px null null 50%);
+  @include position(absolute, 380px null null 50%);
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
  }
  .gb-answer-form {
-  @include position(absolute, 470px null null 50%);
+  @include position(absolute, 380px null null 50%);
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);

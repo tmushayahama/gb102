@@ -112,10 +112,12 @@
   }
   li {
    a{
+    border-left: transparent solid 4px;
     padding: 5px 2px 5px 2px;
     .gb-icon {
      float: left;
      font-size: 24px;
+     margin-right: 5px;
     }
     .gb-title {
      float: left;
@@ -125,9 +127,11 @@
     }
    }
    &:hover {
+    background-color: transparent;
     border-left: rgba($primary-color, 0.4) solid 4px;
    }
    &.active {
+    background-color: transparent;
     border-left: rgba($primary-color, 0.8) solid 4px;
    }
   }

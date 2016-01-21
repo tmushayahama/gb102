@@ -70,7 +70,7 @@ var questionnaireManager = function ($http, $q) {
    url: '/api/questionnaire/answer/create',
    data: questionAnswerData
   }).success(function (data) {
-   self.questionAnswer.unshift(data);
+   //self.questionAnswer.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
