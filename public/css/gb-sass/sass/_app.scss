@@ -1252,6 +1252,26 @@ input.gb-form-show{
 #gb-left-nav-3 {
  @include position(fixed, 0 null 0 0);
 }
+
+.gb-menu-nav {
+ .gb-profile-pic{
+  margin-bottom: 10px;
+  img {
+   width: 100%;
+   border-radius: 0;
+   border: 6px solid #FFF;
+   outline: #555 solid 1px;
+  }
+  .gb-profile-name {
+   @include position(absolute, null 5px 15px 5px);
+   background-color: rgba(#000, 0.4);
+   color: #F2F2F2;
+   height: 25px;
+   padding: 5px 5px;
+   font-size: 12px;
+  }
+ }
+}
 #gb-left-nav-3, .gb-menu-nav {
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
@@ -1457,7 +1477,7 @@ input.gb-form-show{
  .gb-sidenav-app-heading.gb-link:hover {
   background-color: #CCC9B7;
  }
- .gb-link { 
+ .gb-link {
   padding:0px 5px 0px 20px;
   display: block;
   width: 100%;

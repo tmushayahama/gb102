@@ -37,7 +37,8 @@ var profileCtrl = function (
    templateUrl: 'profile-menu-modal.html',
    controller: 'ProfileMenuModalCtrl as menuProfileModalCtrl',
    // backdrop: 'static',
-   size: 'menu'
+   size: 'menu',
+   scope: $scope,
   });
 
   modalInstance.result.then(function () {

@@ -3444,6 +3444,27 @@ input.gb-form-show {
   left: 0;
 }
 
+.gb-menu-nav .gb-profile-pic {
+  margin-bottom: 10px;
+}
+.gb-menu-nav .gb-profile-pic img {
+  width: 100%;
+  border-radius: 0;
+  border: 6px solid #FFF;
+  outline: #555 solid 1px;
+}
+.gb-menu-nav .gb-profile-pic .gb-profile-name {
+  position: absolute;
+  right: 5px;
+  bottom: 15px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #F2F2F2;
+  height: 25px;
+  padding: 5px 5px;
+  font-size: 12px;
+}
+
 #gb-left-nav-3, .gb-menu-nav {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;

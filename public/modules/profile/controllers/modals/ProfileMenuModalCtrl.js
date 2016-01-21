@@ -1,4 +1,4 @@
-var menuProfileModalCtrl = function (
+var profileMenuModalCtrl = function (
         ConstantsManager,
         $uibModalInstance,
         $scope
@@ -10,10 +10,10 @@ var menuProfileModalCtrl = function (
  };
 };
 
-menuProfileModalCtrl.$inject = [
+profileMenuModalCtrl.$inject = [
  'ConstantsManager',
  '$uibModalInstance',
  '$scope',
 ];
 
-angular.module("app").controller('MenuProfileModalCtrl', menuProfileModalCtrl);
+angular.module("app").controller('ProfileMenuModalCtrl', profileMenuModalCtrl);
