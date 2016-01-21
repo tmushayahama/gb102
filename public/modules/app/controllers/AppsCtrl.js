@@ -24,7 +24,7 @@ var appsCtrl = function (
    templateUrl: 'menu-modal.html',
    controller: 'MenuModalCtrl as menuModalCtrl',
    // backdrop: 'static',
-   size: 'sm',
+   size: 'menu',
    resolve: {
     appTypes: function () {
      return vm.appTypes;

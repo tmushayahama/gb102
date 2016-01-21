@@ -1231,7 +1231,7 @@ input.gb-form-show{
  font-size: 14px;
  .fa-lg {
   font-size: 14px;
-  text-align: center; 
+  text-align: center;
   .fa-outer {
    color: rgba($primary-color, 0.4);
   }
@@ -1249,9 +1249,10 @@ input.gb-form-show{
  }
 }
 
-
 #gb-left-nav-3 {
  @include position(fixed, 0 null 0 0);
+}
+#gb-left-nav-3, .gb-menu-nav {
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
@@ -1340,6 +1341,7 @@ input.gb-form-show{
    }
   }
   .gb-content {
+   display: block;
    font-size: 14px;
    padding: 10px 5px 10px 44px;
   }
@@ -1451,7 +1453,7 @@ input.gb-form-show{
   padding:10px 2px 5px 10px;
   display: block;
   width: 100%;
- }
+ } 
  .gb-sidenav-app-heading.gb-link:hover {
   background-color: #CCC9B7;
  }

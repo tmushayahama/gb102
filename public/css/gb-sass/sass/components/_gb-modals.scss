@@ -48,6 +48,24 @@
  }
 }
 
+.modal-menu {
+ .gb-close {
+  @include position(absolute, 0 0 null null);
+  margin: 0 0 0 0;
+  padding: 6px 14px;
+  font-size: 20px;
+ }
+ .modal-content {
+  width: 300px;
+  @include respond-to (gb-xs) {
+   font-size: 250px;
+  }
+ }
+ .modal-body {
+  @include position(absolute, 0 0 0 0);
+ }
+}
+
 
 
 /*!
