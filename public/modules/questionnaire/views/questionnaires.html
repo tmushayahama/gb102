@@ -31,10 +31,15 @@
    </span>
   </a>
  </div>
- <form id="search" class="col-lg-4 col-md-6 col-sm-6 hidden-xs">
-  <i class="gb-search-icon fa fa-search"></i>
-  <input type="text" class="" placeholder="Search Questionnaires">
+ <form class="col-lg-4 col-md-6 col-sm-6 gb-padding-none hidden-xs">
+  <nit-advanced-searchbox ng-model="appsCtrl.searchParams"
+                          parameters-label="Search For.."
+                          parameters="appsCtrl.availableSearchParams">
+  </nit-advanced-searchbox>
  </form>
+ <a ng-click="appsCtrl.search()" class="gb-search-btn hidden-xs btn btn-primary">
+  <i class="fa fa-search"></i>
+ </a>
  <div class="gb-action pull-right">
   <div class="hidden-sm hidden-xs btn-group">
    <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

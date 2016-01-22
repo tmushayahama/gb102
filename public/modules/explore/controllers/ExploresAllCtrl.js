@@ -1,6 +1,8 @@
 var exploresAllCtrl = function (
         ConstantsManager,
         ExploresManager,
+        SearchManager,
+        isSearch,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +14,29 @@ var exploresAllCtrl = function (
         $filter) {
 
  var vm = this;
+ vm.explores = [];
 
  vm.exploresManager = new ExploresManager();
- vm.exploresManager.getAllExplores();
+
+ if (isSearch) {
+  vm.searchManager = new SearchManager();
+  vm.searchManager.simpleSearch($rootScope.searchParams).then(function (data) {
+   vm.explores = data;
+  });
+ } else {
+  vm.exploresManager.getAllExplores().then(function (data) {
+   vm.explores = data;
+  });
+ }
+
+
 };
 
 exploresAllCtrl.$inject = [
  'ConstantsManager',
  'ExploresManager',
+ 'SearchManager',
+ 'isSearch',
  '$scope',
  '$state',
  '$stateParams',

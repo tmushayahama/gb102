@@ -20,13 +20,38 @@ and open the template in the editor.
 .advancedSearchBox {
   display: block;
   position: relative;
-  margin: 3px 5px;
+  margin: 3px 0px 3px 5px;
   border: 1px solid #ccc;
   min-height: 30px;
   padding: 0 9px;
   background-color: #fff;
   cursor: text;
   line-height: 30px;
+}
+.advancedSearchBox .dropdown-menu {
+  padding: 0;
+}
+.advancedSearchBox .dropdown-menu li {
+  padding: 0;
+  border-left: #CCC solid 2px;
+  color: #555;
+}
+.advancedSearchBox .dropdown-menu li:hover, .advancedSearchBox .dropdown-menu li.active {
+  border-left: rgba(0, 85, 66, 0.6) solid 2px;
+}
+.advancedSearchBox .dropdown-menu li:hover a, .advancedSearchBox .dropdown-menu li.active a {
+  background-color: #DDD;
+  color: #222;
+}
+.advancedSearchBox .dropdown-menu li a {
+  text-align: left;
+  display: block;
+  padding: 7px 5px 7px 10px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
 }
 
 .advancedSearchBox.active {
@@ -121,6 +146,11 @@ and open the template in the editor.
   cursor: pointer;
   background-color: #bdbdbd;
   color: #fff;
+}
+
+.gb-search-btn {
+  margin: 3px 0px 3px 0px;
+  height: 33px;
 }
 
 .btn-primary {
@@ -2412,6 +2442,8 @@ form .gb-heading {
 @media (max-width: 767px) {
   .gb-container {
     width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
@@ -4284,7 +4316,6 @@ input.gb-form-show {
 }
 .gb-top-nav-1 li.active a {
   color: #000;
-  font-weight: bold;
 }
 .gb-top-nav-1 li.active a .gb-img-sm {
   height: 35px;

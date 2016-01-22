@@ -11,9 +11,16 @@ var searchCtrl = function (
         $location,
         $uibModal,
         $log,
-        $filter) {
+        $filter,
+        $css) {
+
+ $css.bind({
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-search.css'
+ }, $scope);
 
  var vm = this;
+
+
 
  vm.constantsManager = new ConstantsManager();
  vm.currentExplore;
@@ -64,6 +71,7 @@ searchCtrl.$inject = [
  '$location',
  '$uibModal',
  '$log',
- '$filter'];
+ '$filter',
+ '$css'];
 
 angular.module("app.search").controller('SearchCtrl', searchCtrl);

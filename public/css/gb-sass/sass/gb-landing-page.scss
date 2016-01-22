@@ -156,7 +156,11 @@ $primary-color: #027887;
  }
 
  .gb-icon-service {
+  font-size: 70px;
   color: $primary-color;
+  @include respond-to (gb-xs) {
+   font-size: 40px;
+  }
  }
  .gb-title {
   margin:30px 10px 30px;

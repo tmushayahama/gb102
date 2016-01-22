@@ -23,38 +23,9 @@ var exploresCtrl = function (
 
  vm.exploresManager = new ExploresManager();
  vm.constantsManager = new ConstantsManager();
- vm.searchManager = new SearchManager();
  vm.exploreLevels;
  vm.appTypes;
 
- vm.searchParams;
- vm.availableSearchParams = [
-  {key: "skill",
-   name: "skill",
-   placeholder: "skill...",
-   restrictToSuggestedValues: false,
-   suggestedValues: ['soccer', 'art', 'sushi making']
-  },
-  {key: "goal", name: "goal", placeholder: "goal..."},
-  {key: "hobby", name: "hobby", placeholder: "hobby..."},
-  {key: "promise", name: "promise", placeholder: "promise..."},
-  {key: "mentorship", name: "mentorship", placeholder: "mentorship..."}
- ];
-
- vm.search = function () {
-  vm.searchManager.simpleSearch(vm.searchParams);
- }
-
- $scope.addPredefinedNameSearchParam = function () {
-  vm.searchParams.name = 'Max Mustermann';
- };
-
- $scope.loadPredefinedSearchParamSet = function () {
-  vm.searchParams = {
-   name: "Max M.",
-   job: "Boss"
-  };
- };
 
 
  vm.createExplore = function (data) {

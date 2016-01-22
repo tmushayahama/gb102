@@ -159,7 +159,13 @@ and open the template in the editor.
   }
 }
 .gb-landing-page .gb-icon-service {
+  font-size: 70px;
   color: #027887;
+}
+@media (max-width: 767px) {
+  .gb-landing-page .gb-icon-service {
+    font-size: 40px;
+  }
 }
 .gb-landing-page .gb-title {
   margin: 30px 10px 30px;

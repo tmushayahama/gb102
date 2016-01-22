@@ -25,9 +25,9 @@ var exploresManager = function ($http, $q) {
  ExploresManager.prototype.getAllExplores = function () {
   var self = this;
   var deferred = $q.defer();
-  self.explores = [];
+  //self.explores = [];
   $http.get('/api/explores/all').success(function (data) {
-   self.explores = data;
+   //self.explores = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -38,9 +38,9 @@ var exploresManager = function ($http, $q) {
  ExploresManager.prototype.getAppExplores = function (appName) {
   var self = this;
   var deferred = $q.defer();
-  self.explores = [];
+  // self.explores = [];
   $http.get('/api/explores/all/' + appName).success(function (data) {
-   self.explores = data;
+   //self.explores = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -51,9 +51,9 @@ var exploresManager = function ($http, $q) {
  ExploresManager.prototype.getMyExplores = function () {
   var self = this;
   var deferred = $q.defer();
-  self.explores = [];
+  //self.explores = [];
   $http.get('/api/explores/mine').success(function (data) {
-   self.explores = data;
+   //self.explores = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

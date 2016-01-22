@@ -26,6 +26,41 @@ var profileCtrl = function (
  var profileData = {
  };
 
+
+ vm.searchParams;
+
+
+ vm.availableSearchParams = [
+  {key: "skill",
+   name: "skill",
+   placeholder: "skill...",
+   restrictToSuggestedValues: true,
+   suggestedValues: ['soccer', 'art', 'sushi making']
+  },
+  {key: "goal", name: "goal", placeholder: "goal..."},
+  {key: "hobby", name: "hobby", placeholder: "hobby..."},
+  {key: "promise", name: "promise", placeholder: "promise..."},
+  {key: "mentorship", name: "mentorship", placeholder: "mentorship..."}
+ ];
+
+ vm.search = function () {
+  $rootScope.searchParams = vm.searchParams;
+  $state.go('apps.search.all', null, {reload: 'apps.search.all'});
+  //vm.searchManager.simpleSearch(vm.searchParams);
+ }
+
+ $scope.addPredefinedNameSearchParam = function () {
+  vm.searchParams.name = 'Max Mustermann';
+ };
+
+ $scope.loadPredefinedSearchParamSet = function () {
+  vm.searchParams = {
+   name: "Max M.",
+   job: "Boss"
+  };
+ };
+
+
  vm.range = function (min, max) {
   return _.range(min, max);
  };

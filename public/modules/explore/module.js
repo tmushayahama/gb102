@@ -38,6 +38,9 @@ define(['angular'
              controller: 'ExploresAllCtrl as exploresTabCtrl',
              templateUrl: 'public/modules/explore/views/tabs/explores/explore-list.html',
              resolve: {
+              isSearch: function () {
+               return false;
+              },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.explore',
@@ -57,6 +60,9 @@ define(['angular'
              controller: 'ExploresAppCtrl as exploresTabCtrl',
              templateUrl: 'public/modules/explore/views/tabs/explores/explore-list.html',
              resolve: {
+              isSearch: function () {
+               return false;
+              },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.explore',

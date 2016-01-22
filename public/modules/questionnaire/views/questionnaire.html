@@ -1,37 +1,42 @@
 <div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="gb-top-nav-1 gb-nav col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-2 col-lg-10 col-md-10 col-sm-9 col-xs-10">
- <div class="gb-title pull-left">
-  QUESTIONNAIRE APP
- </div>
- <div class="gb-action pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3">
-  <div ng-if="false" class="btn-group">
-   <a ng-click="questionnairesCtrl.openAddQuestionnaireModal()" class="btn btn-xs btn-link">
-    <span class="fa-stack fa-lg">
-     <i class="fa fa-circle fa-stack-2x"></i>
-     <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-    </span>
-   </a>
-   <a class="btn btn-xs btn-link gb-form-modal-trigger"
-      data-gb-modal-target="#gb-questionnaire-play-modal">
-    <span class="fa-stack fa-lg">
-     <i class="fa fa-circle fa-stack-2x"></i>
-     <i class="fa fa-play fa-stack-1x fa-inverse"></i>
-    </span>
-   </a>
-   <a class="btn btn-xs btn-link">
-    <span class="fa-stack fa-lg">
-     <i class="fa fa-circle fa-stack-2x"></i>
-     <i class="fa fa-filter fa-stack-1x fa-inverse"></i>
-    </span>
-   </a>
+  <div class="gb-title pull-left">
+   QUESTIONNAIRE APP
   </div>
- </div>
- <form id="search" class="col-lg-4 col-md-6 col-sm-5 hidden-xs">
-   <i class="gb-search-icon fa fa-search"></i>
-   <input type="text" class="" placeholder="Search Questionnaires">
+  <div class="gb-action pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3">
+   <div ng-if="false" class="btn-group">
+    <a ng-click="questionnairesCtrl.openAddQuestionnaireModal()" class="btn btn-xs btn-link">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+     </span>
+    </a>
+    <a class="btn btn-xs btn-link gb-form-modal-trigger"
+       data-gb-modal-target="#gb-questionnaire-play-modal">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+     </span>
+    </a>
+    <a class="btn btn-xs btn-link">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-filter fa-stack-1x fa-inverse"></i>
+     </span>
+    </a>
+   </div>
+  </div>
+  <form class="col-lg-4 col-md-6 col-sm-6 gb-padding-none hidden-xs">
+   <nit-advanced-searchbox ng-model="appsCtrl.searchParams"
+                           parameters-label="Search For.."
+                           parameters="appsCtrl.availableSearchParams">
+   </nit-advanced-searchbox>
   </form>
+  <a ng-click="appsCtrl.search()" class="gb-search-btn hidden-xs btn btn-primary">
+   <i class="fa fa-search"></i>
+  </a>
   <div class="gb-action pull-right">
-    <a class="btn btn-xs btn-link hidden-lg hidden-md hidden-sm vidible-xs">
+   <a class="btn btn-xs btn-link hidden-lg hidden-md hidden-sm vidible-xs">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
      <i class="fa fa-search fa-stack-1x fa-inverse"></i>
@@ -64,9 +69,9 @@
     </ul>
    </div>
   </div>
-</div>
+ </div>
 
- <div class="gb-container gb-app-detail"> 
+ <div class="gb-container gb-app-detail">
   <div class="row">
    <div class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12">
     <div class="gb-cover">

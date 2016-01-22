@@ -18,7 +18,13 @@ class SearchController extends Controller {
 
  function simpleSearch() {
   $keyword = Request::get("query");
-  $results = Explore::SearchByKeyword($keyword)->get();
+  $results = Explore::SearchByKeyword($keyword)
+          ->take(100)
+          ->with('app_type')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->get();
   return \Response::json($results);
  }
 

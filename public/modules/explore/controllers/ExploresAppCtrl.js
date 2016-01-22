@@ -1,6 +1,8 @@
 var exploresAppCtrl = function (
         ConstantsManager,
         ExploresManager,
+        SearchManager,
+        isSearch,
         $scope,
         $state,
         $stateParams,
@@ -16,12 +18,24 @@ var exploresAppCtrl = function (
  vm.appName = $stateParams.app_name;
 
  vm.exploresManager = new ExploresManager();
- vm.exploresManager.getAppExplores(vm.appName);
+
+ if (isSearch) {
+  vm.searchManager = new SearchManager();
+  vm.searchManager.simpleSearch($rootScope.searchParams).then(function (data) {
+   vm.explores = data;
+  });
+ } else {
+  vm.exploresManager.getAppExplores(vm.appName).then(function (data) {
+   vm.explores = data;
+  });
+ }
 };
 
 exploresAppCtrl.$inject = [
  'ConstantsManager',
  'ExploresManager',
+ 'SearchManager',
+ 'isSearch',
  '$scope',
  '$state',
  '$stateParams',

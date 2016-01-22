@@ -23,34 +23,25 @@
    </a>
   </div>
  </div>
- <div class="btn-group visible-xs">
-  <a ng-click="exploresCtrl.openAddExploreModal()" class="btn btn-xs btn-link">
-   <span class="fa-stack fa-lg">
-    <i class="fa fa-circle fa-stack-2x"></i>
-    <i class="fa fa-search fa-stack-1x fa-inverse"></i>
-   </span>
-  </a>
- </div>
- <form class="col-lg-4 col-md-6 col-sm-6 hidden-xs">
-  <nit-advanced-searchbox ng-model="exploresCtrl.searchParams"
+ <form class="col-lg-4 col-md-6 col-sm-6 gb-padding-none hidden-xs">
+  <nit-advanced-searchbox ng-model="appsCtrl.searchParams"
                           parameters-label="Search For.."
-                          parameters="exploresCtrl.availableSearchParams">
+                          parameters="appsCtrl.availableSearchParams">
   </nit-advanced-searchbox>
  </form>
- <a ng-click="exploresCtrl.search()" class="btn btn-primary">
+ <a ng-click="appsCtrl.search()" class="gb-search-btn hidden-xs hidden-xs btn btn-primary">
   <i class="fa fa-search"></i>
  </a>
  <div class="gb-action pull-right">
-  <div class="hidden-sm hidden-xs btn-group">
+  <div class="vidible-xs btn-group">
    <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="fa-stack fa-lg">
      <i class="fa fa-circle fa-stack-2x"></i>
-     <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+     <i class="fa fa-search fa-stack-1x fa-inverse"></i>
     </span>
    </a>
-   <ul class="dropdown-menu dropdown-menu-right text-left">
-    <li><a href="#">About</a></li>
-   </ul>
+   <div class="dropdown-menu dropdown-menu-right text-left">
+   </div>
   </div>
   <div class="btn-group">
    <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +62,7 @@
 </div>
 <div class="gb-container gb-app-list">
  <div class="row">
-  <ul class="nav gb-icon-top-nav-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+  <ul class="nav gb-icon-top-nav-1 col-lg-8 col-md-8 col-sm-9 col-xs-12">
    <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
     <a class="gb-ellipsis" ui-sref="apps.explores.all">
      <i class="gb-icon fa icon-gb-discover"></i>

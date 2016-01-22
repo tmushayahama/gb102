@@ -94,7 +94,7 @@ form {
  }
  &:after {
   clear: both;
- }
+ } 
 
  @include respond-to (gb-md) {
   width: 768px;
@@ -104,6 +104,8 @@ form {
  }
  @include respond-to (gb-xs) {
   width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
  }
 
 }
@@ -1913,7 +1915,7 @@ input.gb-form-show{
  border-bottom: #CCC solid 1px;
  background-color: #F2F2F2;
  margin: 0;
- z-index: 900; 
+ z-index: 900;
 
  .search {
   height: 100%;
@@ -1965,7 +1967,6 @@ input.gb-form-show{
 
   &.active a {
    color: #000;
-   font-weight: bold;
 
    .gb-img-sm {
     height: 35px;
