@@ -22,7 +22,8 @@ requirejs.config({
   'hammerjs': '../../bower_components/hammerjs/hammer',
   'angular-gestures': '../../bower_components/angular-gestures/gestures',
   'angular-loading-bar': '../../bower_components/angular-loading-bar/build/loading-bar',
-  'angular-aside': '../../bower_components/angular-aside/dist/js/angular-aside'
+  'angular-aside': '../../bower_components/angular-aside/dist/js/angular-aside',
+  'angular-advanced-searchbox': '../modules/search/lib/angular-advanced-searchbox'
 
  },
  shim: {
@@ -45,7 +46,8 @@ requirejs.config({
   'hammerjs': {deps: ['angular']},
   'angular-gestures': {deps: ['angular', 'hammerjs']},
   'angular-loading-bar': {deps: ['angular', 'angular-animate']},
-  'angular-aside': {deps: ['angular', 'angular-animate']}
+  'angular-aside': {deps: ['angular', 'angular-animate']},
+  'angular-advanced-searchbox': {deps: ['angular']},
  },
  priority: [
   'jquery',

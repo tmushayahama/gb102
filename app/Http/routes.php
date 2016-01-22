@@ -20,6 +20,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 
+ Route::post('search/simple', 'SearchController@simpleSearch');
+
+
 //Community
  Route::get('community/users', 'Community\CommunityController@getUsers');
  Route::get('community/mine', 'Community\CommunityController@getCommunitysMine');
@@ -523,5 +526,3 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('todo/checklist/create', 'Skill\SkillController@createSkillTodoChecklist');
  Route::post('todo/checklist/edit', 'Skill\SkillController@editSkillTodoChecklist');
 });
-
-

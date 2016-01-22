@@ -10,6 +10,7 @@ and open the template in the editor.
 @import "app-variables";
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
+@import "components/gb-search";
 @import "components/gb-buttons";
 @import "components/gb-modals";
 @import "components/gb-sections";
@@ -203,6 +204,11 @@ input[type="checkbox"] {
    height: 40px;
    width: 40px;
   }
+  .gb-icon {
+   height: 40px;
+   width: 40px;
+   font-size: 40px;
+  }
   .gb-row-content {
    padding: 7px 0 0 10px;
    @include position(absolute, 0 0 0 41px);
@@ -214,6 +220,55 @@ input[type="checkbox"] {
    }
   }
  }
+
+ .gb-profile-row-2 {
+  //@include position(absolute, null 0 0 0);
+  margin-top: -50px;
+  position: relative;
+  height: 50px;
+  .gb-profile-pic {
+   margin-right: 5px;
+   float: left;
+   height: 20px;
+   width: 20px;
+  }
+  .gb-icon {
+   text-align: center;
+   background-color: #FAFAFA;
+   height: 50px;
+   width: 50px;
+   i {
+    font-size: 30px;
+    line-height: 50px;
+    color: rgba($primary-color, 0.7);
+   }
+  }
+  .gb-row-content {
+   padding: 7px 0 0 10px;
+   @include position(absolute, 0 0 0 51px);
+   background-color: rgba(#000, 0.4);
+   .gb-title {
+    margin-bottom: 3px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #FAFAFA;
+   }
+   .gb-description {
+    .gb-heading {
+     margin-top: 2px;
+     font-weight: normal;
+     font-size: 14px;
+     color: #EEE;
+    }
+   }
+   a {
+    text-align: left;
+    color: #FAFAFA;
+    font-size: 18px;
+   }
+  }
+ }
+
  .gb-heading-row {
   padding: 15px 5px 15px 10px;
   height: 50px;
@@ -1858,9 +1913,9 @@ input.gb-form-show{
  border-bottom: #CCC solid 1px;
  background-color: #F2F2F2;
  margin: 0;
- z-index: 900;
+ z-index: 900; 
 
- #search {
+ .search {
   height: 100%;
   .gb-search-icon {
    @include position(absolute, 12px null 0 15px);

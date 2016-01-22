@@ -7,7 +7,7 @@
 
  .stack {
   height: 350px;
-  @include position(absolute, 100px null null 50%);
+  @include position(absolute, 10px null null 50%);
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
@@ -45,6 +45,7 @@
   }
  }
  .gb-box-1 {
+  text-align: center;
   position: relative;
   height: 100%;
   width: 100%;
@@ -58,10 +59,11 @@
    background-color: #F7F7F7;
   }
   .gb-icon-image {
-   padding: 10px 25px 0 15px;
+   height: 120px;
+   padding: 10px 5px 0 5px;
    overflow: hidden;
    .fa-lg {
-    float: right;
+    float: none;
     font-size: 30px;
     .fa-outer {
      color: rgba($primary-color, 0.2);
@@ -98,14 +100,14 @@
    }
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 40px 2px 10px;
+    padding: 5px 10px;
     overflow: hidden;
-    font-size: 20px;
+    font-size: 15px;
    }
   }
  }
  .gb-footer {
-  @include position(absolute, 470px null null 50%);
+  @include position(absolute, 380px null null 50%);
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);

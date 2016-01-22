@@ -19,6 +19,7 @@ define([
  'angular-gestures',
  'angular-loading-bar',
  'angular-aside',
+ 'angular-advanced-searchbox',
  '../auth/module',
  '../community/module',
  '../explore/module',
@@ -44,6 +45,7 @@ define([
   'angular-gestures',
   'angular-loading-bar',
   'ngAside',
+  'angular-advanced-searchbox',
   'app.auth',
   'app.community',
   'app.explore',
@@ -115,6 +117,7 @@ define([
                return $ocLazyLoad.load({
                 name: 'app',
                 files: ['public/modules/common/directives/show-tab.js',
+                 'public/modules/search/services/SearchManager.js',
                  'public/modules/app/controllers/AppsCtrl.js',
                  'public/modules/app/controllers/modals/MenuModalCtrl.js',
                 ]
