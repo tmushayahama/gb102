@@ -23,8 +23,8 @@ requirejs.config({
   'angular-gestures': '../../bower_components/angular-gestures/gestures',
   'angular-loading-bar': '../../bower_components/angular-loading-bar/build/loading-bar',
   'angular-aside': '../../bower_components/angular-aside/dist/js/angular-aside',
-  'angular-advanced-searchbox': '../modules/search/lib/angular-advanced-searchbox'
-
+  'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
+  'angular-ui-select': '../../bower_components/ui-select/dist/select'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
@@ -47,7 +47,8 @@ requirejs.config({
   'angular-gestures': {deps: ['angular', 'hammerjs']},
   'angular-loading-bar': {deps: ['angular', 'angular-animate']},
   'angular-aside': {deps: ['angular', 'angular-animate']},
-  'angular-advanced-searchbox': {deps: ['angular']},
+  'angular-sanitize': {deps: ['angular']},
+  'angular-ui-select': {deps: ['angular']},
  },
  priority: [
   'jquery',

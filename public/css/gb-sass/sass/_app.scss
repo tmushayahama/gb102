@@ -25,7 +25,9 @@ and open the template in the editor.
 //@import "components/gb-icon-images";
 @import "components/custom-xeditable";
 
-@import "components/gb-spinner";
+//@import "components/gb-spinner";
+
+@import "components/gb-ui-select";
 
 [ng\:cloak],
 [ng-cloak],
@@ -94,7 +96,7 @@ form {
  }
  &:after {
   clear: both;
- } 
+ }
 
  @include respond-to (gb-md) {
   width: 768px;
@@ -104,8 +106,6 @@ form {
  }
  @include respond-to (gb-xs) {
   width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
  }
 
 }
@@ -1161,6 +1161,7 @@ ul,li{
  width: 60px;
 }
 .form-control{
+ width: 100%;
  border-radius: 0!important;
  box-shadow:0 0 0;
  border: #BBB solid 1px;
@@ -1282,10 +1283,19 @@ input.gb-form-show{
 }
 
 .gb-logo {
+ margin-right: 5px;
+ float: left;
+ height: 100%;
  padding-top: 5px;
- line-height: 28px;
+ line-height: 33px;
  color: #777;
- font-size: 14px;
+ font-size: 18px;
+ .gb-logo-icon {
+  float: left;
+  margin-right: 5px;
+  line-height: 33px;
+  color: rgba($primary-color, 0.8);
+ }
  .fa-lg {
   font-size: 14px;
   text-align: center;
@@ -1307,7 +1317,7 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 {
- @include position(fixed, 0 null 0 0);
+ @include position(fixed, 50px null 0 0);
 }
 
 .gb-menu-nav {
@@ -1912,38 +1922,33 @@ input.gb-form-show{
  padding: 0 5px 0 5px!important;
  height: 41px;
  list-style: none;
- border-bottom: #CCC solid 1px;
- background-color: #F2F2F2;
+ border-bottom: rgba($primary-color, 0.6) solid 3px;
+ background-color: #FFF;
  margin: 0;
  z-index: 900;
 
- .search {
-  height: 100%;
-  .gb-search-icon {
-   @include position(absolute, 12px null 0 15px);
-   color: #AAA;
-   z-index: 1;
-  }
-
-  input[type="text"] {
-   @include position(absolute, 3px 0 3px 0);
-   width: 100%;
-   border: 0 none;
-   background-color: #FFF;
-   border: #CCC solid 1px;
-   padding: 1px 10px 1px 35px;
-   -webkit-border-radius: 20px;
-   -moz-border-radius: 20px;
-   border-radius: 20px;
-   outline: none;
-
-   input[type="text"]:focus {
-    color: #6a6f75;   }
-  }
- }
-
  &:hover {
   opacity: 1;
+ } 
+
+ .gb-header {
+  padding: 0 5px 0 20px;
+  a,
+  a:hover{
+   text-decoration: none;
+   color:  #000;
+  }
+  .gb-app-name {
+   float: left;
+   padding-top: 0;
+   height: 38px;
+   color: #777;
+   .btn {
+    height: 100%;
+    border: none;
+    line-height: 12px;
+   }
+  }
  }
 
  .gb-title {
@@ -1958,40 +1963,6 @@ input.gb-form-show{
   padding-top: 1px;
   .btn{
    margin-left: 5px;
-  }
- }
-
- li {
-  padding: 0;
-  text-align: center;
-
-  &.active a {
-   color: #000;
-
-   .gb-img-sm {
-    height: 35px;
-    width: 35px;
-    margin-bottom: 10px;
-    border: #CCC solid 2px;
-   }
-
-   a {
-    display: block;
-    font-size: 1.1em;
-    padding: 10px 0 0px 0;
-    text-decoration: none;
-    .gb-title {
-     font-size: 1.1em;
-    }
-
-    .gb-line-1 {
-     height: 5px;
-    }
-   }
-  }
-
-  .gb-nav-heading-1 {
-   padding: 0;
   }
  }
 }

@@ -27,6 +27,17 @@ var exploresCtrl = function (
  vm.appTypes;
 
 
+ $scope.superhero = {
+  selected: 'Batman'
+ };
+
+ $scope.$watch('superhero.selected', function (newVal, oldVal) {
+  /*      if (newVal !== oldVal) {
+   if ($scope.superheroes.indexOf(newVal) === -1) {
+   $scope.superheroes.unshift(newVal);
+   }
+   }*/
+ });
 
  vm.createExplore = function (data) {
   vm.exploresManager.createExplore(data).then(function (response) {

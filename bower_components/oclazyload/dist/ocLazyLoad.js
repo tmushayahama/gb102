@@ -1,6 +1,6 @@
 /**
  * oclazyload - Load modules on demand (lazy load) with angularJS
- * @version v1.0.6
+ * @version v1.0.9
  * @link https://github.com/ocombe/ocLazyLoad
  * @license MIT
  * @author Olivier Combe <olivier.combe@gmail.com>
@@ -629,7 +629,7 @@
                         if (angular.isArray(moduleName)) {
                             var promisesList = [];
                             angular.forEach(moduleName, function (module) {
-                                promisesList.push(self.inject(moduleName, localParams, real));
+                                promisesList.push(self.inject(module, localParams, real));
                             });
                             return $q.all(promisesList);
                         } else {
@@ -719,7 +719,21 @@
                  * @param force
                  * @private
                  */
-                _addToLoadList: _addToLoadList
+                _addToLoadList: _addToLoadList,
+
+                /**
+                 * Unregister modules (you shouldn't have to use this)
+                 * @param modules
+                 */
+                _unregister: function _unregister(modules) {
+                    if (angular.isDefined(modules)) {
+                        if (angular.isArray(modules)) {
+                            angular.forEach(modules, function (module) {
+                                regInvokes[module] = undefined;
+                            });
+                        }
+                    }
+                }
             };
         }];
 
@@ -759,14 +773,14 @@
 (function (angular) {
     'use strict';
 
-    angular.module('oc.lazyLoad').directive('ocLazyLoad', ["$ocLazyLoad", "$compile", "$animate", "$parse", function ($ocLazyLoad, $compile, $animate, $parse) {
+    angular.module('oc.lazyLoad').directive('ocLazyLoad', ["$ocLazyLoad", "$compile", "$animate", "$parse", "$timeout", function ($ocLazyLoad, $compile, $animate, $parse, $timeout) {
         return {
             restrict: 'A',
             terminal: true,
             priority: 1000,
             compile: function compile(element, attrs) {
                 // we store the content and remove it before compilation
-                var content = element.contents();
+                var content = element[0].innerHTML;
                 element.html('');
 
                 return function ($scope, $element, $attr) {
@@ -776,7 +790,12 @@
                     }, function (moduleName) {
                         if (angular.isDefined(moduleName)) {
                             $ocLazyLoad.load(moduleName).then(function () {
-                                $animate.enter($compile(content)($scope), $element);
+                                // Attach element contents to DOM and then compile them.
+                                // This prevents an issue where IE invalidates saved element objects (HTMLCollections)
+                                // of the compiled contents when attaching to the parent DOM.
+                                $animate.enter(content, $element);
+                                // get the new content & compile it
+                                $compile($element.contents())($scope);
                             });
                         }
                     }, true);
@@ -958,7 +977,7 @@
                             if ((m = /[.](css|less|html|htm|js)?((\?|#).*)?$/.exec(path)) !== null) {
                                 // Detect file type via file extension
                                 file_type = m[1];
-                            } else if (!$delegate.jsLoader.hasOwnProperty('ocLazyLoadLoader') && $delegate.jsLoader.hasOwnProperty('load')) {
+                            } else if (!$delegate.jsLoader.hasOwnProperty('ocLazyLoadLoader') && $delegate.jsLoader.hasOwnProperty('requirejs')) {
                                 // requirejs
                                 file_type = 'js';
                             } else {
@@ -1018,7 +1037,7 @@
                 if (jsFiles.length > 0) {
                     var jsDeferred = $q.defer();
                     $delegate.jsLoader(jsFiles, function (err) {
-                        if (angular.isDefined(err) && $delegate.jsLoader.hasOwnProperty('ocLazyLoadLoader')) {
+                        if (angular.isDefined(err) && ($delegate.jsLoader.hasOwnProperty("ocLazyLoadLoader") || $delegate.jsLoader.hasOwnProperty("requirejs"))) {
                             $delegate._$log.error(err);
                             jsDeferred.reject(err);
                         } else {

@@ -5,9 +5,22 @@
 
 // Base styles
 // --------------------------------------------------
+btn:focus {
+ border: none;
+ box-shadow: none;
+}
+.btn-default {
+ background-color: #EEE;
+ border: 1px solid #DDD;
+ border-radius: 0;
+ &:hover {
+  background-color: #F5F5F5;
+ }
+}
+
 .btn-primary {
  background-color: $primary-color;
- border:none;
+ border: 1px solid rgba($primary-color, 0.7);
  border-radius: 0;
  &:hover {
   background-color: rgba($primary-color, 0.5);

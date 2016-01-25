@@ -17,145 +17,73 @@ and open the template in the editor.
     Created on : Nov 3, 2015, 7:59:19 PM
     Author     : Tremmillicious
 */
-.advancedSearchBox {
-  display: block;
-  position: relative;
-  margin: 3px 0px 3px 5px;
-  border: 1px solid #ccc;
-  min-height: 30px;
-  padding: 0 9px;
-  background-color: #fff;
-  cursor: text;
-  line-height: 30px;
-}
-.advancedSearchBox .dropdown-menu {
-  padding: 0;
-}
-.advancedSearchBox .dropdown-menu li {
-  padding: 0;
-  border-left: #CCC solid 2px;
-  color: #555;
-}
-.advancedSearchBox .dropdown-menu li:hover, .advancedSearchBox .dropdown-menu li.active {
-  border-left: rgba(0, 34, 119, 0.6) solid 2px;
-}
-.advancedSearchBox .dropdown-menu li:hover a, .advancedSearchBox .dropdown-menu li.active a {
-  background-color: #DDD;
-  color: #222;
-}
-.advancedSearchBox .dropdown-menu li a {
-  text-align: left;
-  display: block;
-  padding: 7px 5px 7px 10px;
-  clear: both;
-  font-weight: 400;
-  line-height: 1.42857143;
-  color: #333;
-  white-space: nowrap;
+.gb-search-btn-grp {
+  margin: 3px 0px 0px 0px;
 }
 
-.advancedSearchBox.active {
-  border-color: rgba(0, 34, 119, 0.5);
+.ui-select-container .form-control {
+  height: 38px;
+  border: none !important;
+  border-left: #DDD solid 1px !important;
 }
 
-.advancedSearchBox .search-icon {
-  float: right;
-  padding: 7px 0 0 10px;
+.gb-top-nav-1 .gb-search {
+  height: 100%;
 }
-
-.advancedSearchBox .remove-all-icon {
-  float: right;
-  padding: 7px 0 0 10px;
-  cursor: pointer;
+.gb-top-nav-1 .gb-search .gb-search-icon {
+  position: absolute;
+  top: 12px;
+  bottom: 0;
+  left: 15px;
+  color: #AAA;
+  z-index: 1;
 }
-
-.advancedSearchBox .search-parameter {
-  display: inline-block;
-  height: 24px;
-  margin: 0 7px 0 0;
-  background-color: #5bc0de;
-  padding: 0 5px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  line-height: 24px;
-  cursor: default;
-  transition: box-shadow 100ms linear;
+.gb-top-nav-1 .gb-search .ui-select-bootstrap .ui-select-toggle > .caret {
+  display: none;
 }
-
-.advancedSearchBox .search-parameter:hover {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-}
-
-.advancedSearchBox .search-parameter div {
-  float: left;
-  margin: 0 2px;
-}
-
-.advancedSearchBox .search-parameter .remove {
-  color: #fff;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.advancedSearchBox .search-parameter .key {
-  color: #fff;
-}
-
-.advancedSearchBox .search-parameter .value span {
-  color: #fff;
-}
-
-.advancedSearchBox .search-parameter .value input {
-  height: 24px;
-}
-
-.advancedSearchBox .search-parameter-input {
-  display: inline-block;
-  width: auto;
-  height: 24px;
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.advancedSearchBox .search-parameter-input:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.advancedSearchBox .search-parameter-suggestions {
-  cursor: auto;
-  display: block;
-}
-
-.advancedSearchBox .search-parameter-suggestions .title {
-  display: block;
-  float: left;
-  height: 25px;
-  margin: 7px 7px 0 0;
-  background-color: transparent;
-  color: #888;
-  font-weight: bold;
-  padding: 0 5px;
-  font-size: 14px;
+.gb-top-nav-1 .gb-search .ui-select-placeholder {
   line-height: 25px;
+  font-size: 15px;
+  color: #777;
+  font-weight: 200;
+}
+.gb-top-nav-1 .gb-search .form-control {
+  height: 38px;
+  border: none !important;
+  border-left: #DDD solid 1px !important;
+}
+.gb-top-nav-1 .gb-search .gb-input-form-group {
+  padding-right: 58px;
+}
+.gb-top-nav-1 .gb-search .gb-input-btn-group {
+  height: 38px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.gb-top-nav-1 .gb-search .gb-input-btn-group .btn {
+  height: 100%;
+  border: none;
 }
 
-.advancedSearchBox .search-parameter-suggestions .search-parameter {
-  cursor: pointer;
-  background-color: #bdbdbd;
-  color: #fff;
+btn:focus {
+  border: none;
+  box-shadow: none;
 }
 
-.gb-search-btn {
-  margin: 3px 0px 3px 0px;
-  height: 33px;
+.btn-default {
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  border-radius: 0;
+}
+.btn-default:hover {
+  background-color: #F5F5F5;
 }
 
 .btn-primary {
   background-color: #027;
-  border: none;
+  border: 1px solid rgba(0, 34, 119, 0.7);
   border-radius: 0;
 }
 .btn-primary:hover {
@@ -2223,136 +2151,279 @@ a.editable-empty:focus {
   text-decoration: none;
 }
 
-/* Make clicks pass-through */
-#loading-bar,
-#loading-bar-spinner {
-  pointer-events: none;
-  -webkit-pointer-events: none;
-  -webkit-transition: 350ms linear all;
-  -moz-transition: 350ms linear all;
-  -o-transition: 350ms linear all;
-  transition: 350ms linear all;
+/*!
+ * ui-select
+ * http://github.com/angular-ui/ui-select
+ * Version: 0.13.2 - 2015-10-09T15:34:24.045Z
+ * License: MIT
+ */
+/* Style when highlighting a search. */
+.ui-select-highlight {
+  font-weight: bold;
 }
 
-#loading-bar.ng-enter,
-#loading-bar.ng-leave.ng-leave-active,
-#loading-bar-spinner.ng-enter,
-#loading-bar-spinner.ng-leave.ng-leave-active {
-  opacity: 0;
+.ui-select-offscreen {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important;
 }
 
-#loading-bar.ng-enter.ng-enter-active,
-#loading-bar.ng-leave,
-#loading-bar-spinner.ng-enter.ng-enter-active,
-#loading-bar-spinner.ng-leave {
-  opacity: 1;
+.ui-select-choices-row:hover {
+  background-color: #f5f5f5;
 }
 
-#loading-bar .bar {
-  -webkit-transition: width 350ms;
-  -moz-transition: width 350ms;
-  -o-transition: width 350ms;
-  transition: width 350ms;
-  background: #027;
-  position: fixed;
-  z-index: 10002;
-  top: 0;
-  left: 0;
+/* Select2 theme */
+/* Mark invalid Select2 */
+.ng-dirty.ng-invalid > a.select2-choice {
+  border-color: #D44950;
+}
+
+.select2-result-single {
+  padding-left: 0;
+}
+
+.select2-locked > .select2-search-choice-close {
+  display: none;
+}
+
+.select-locked > .ui-select-match-close {
+  display: none;
+}
+
+body > .select2-container.open {
+  z-index: 9999;
+  /* The z-index Select2 applies to the select2-drop */
+}
+
+/* Handle up direction Select2 */
+.ui-select-container[theme="select2"].direction-up .ui-select-match {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-width: 1px;
+  /* FIXME hardcoded value :-/ */
+  border-top-style: solid;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -4px;
+  /* FIXME hardcoded value :-/ */
+}
+
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search {
+  margin-top: 4px;
+  /* FIXME hardcoded value :-/ */
+}
+
+.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match {
+  border-bottom-color: #5897fb;
+}
+
+/* Selectize theme */
+/* Helper class to show styles when focus */
+.selectize-input.selectize-focus {
+  border-color: #007FBB !important;
+}
+
+/* Fix input width for Selectize theme */
+.selectize-control > .selectize-input > input {
   width: 100%;
-  height: 2px;
-  border-bottom-right-radius: 1px;
-  border-top-right-radius: 1px;
 }
 
-/* Fancy blur effect */
-#loading-bar .peg {
+/* Fix dropdown width for Selectize theme */
+.selectize-control > .selectize-dropdown {
+  width: 100%;
+}
+
+/* Mark invalid Selectize */
+.ng-dirty.ng-invalid > div.selectize-input {
+  border-color: #D44950;
+}
+
+/* Handle up direction Selectize */
+.ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -2px;
+  /* FIXME hardcoded value :-/ */
+}
+
+/* Bootstrap theme */
+/* Helper class to show styles when focus */
+.btn-default-focus {
+  color: #333;
+  background-color: #EBEBEB;
+  border-color: #ADADAD;
+  text-decoration: none;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.ui-select-bootstrap .ui-select-toggle {
+  position: relative;
+}
+
+.ui-select-bootstrap .ui-select-toggle > .caret {
   position: absolute;
-  width: 70px;
-  right: 0;
+  height: 10px;
+  top: 50%;
+  right: 10px;
+  margin-top: -2px;
+}
+
+/* Fix Bootstrap dropdown position when inside a input-group */
+.input-group > .ui-select-bootstrap.dropdown {
+  /* Instead of relative */
+  position: static;
+}
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+  border-radius: 4px;
+  /* FIXME hardcoded value :-/ */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up {
+  border-radius: 4px !important;
+  /* FIXME hardcoded value :-/ */
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.ui-select-bootstrap > .ui-select-match > .btn {
+  /* Instead of center because of .btn */
+  text-align: left !important;
+}
+
+.ui-select-bootstrap > .ui-select-match > .caret {
+  position: absolute;
+  top: 45%;
+  right: 15px;
+}
+
+/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+.ui-select-bootstrap > .ui-select-choices {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+  margin-top: -1px;
+}
+
+body > .ui-select-bootstrap.open {
+  z-index: 1000;
+  /* Standard Bootstrap dropdown z-index */
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+  height: auto;
+  padding: 3px 3px 0 3px;
+}
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+  background-color: transparent !important;
+  /* To prevent double background when disabled */
+  border: none;
+  outline: none;
+  height: 1.666666em;
+  margin-bottom: 3px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+  font-size: 1.6em;
+  line-height: 0.75;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  outline: 0;
+  margin: 0 3px 3px 0;
+}
+
+.ui-select-multiple .ui-select-match-item {
+  position: relative;
+}
+
+.ui-select-multiple .ui-select-match-item.dropping-before:before {
+  content: "";
+  position: absolute;
   top: 0;
-  height: 2px;
-  opacity: .45;
-  -moz-box-shadow: #027 1px 0 6px 1px;
-  -ms-box-shadow: #027 1px 0 6px 1px;
-  -webkit-box-shadow: #027 1px 0 6px 1px;
-  box-shadow: #027 1px 0 6px 1px;
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
+  right: 100%;
+  height: 100%;
+  margin-right: 2px;
+  border-left: 1px solid #428bca;
 }
 
-#loading-bar-spinner {
+.ui-select-multiple .ui-select-match-item.dropping-after:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  margin-left: 2px;
+  border-right: 1px solid #428bca;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
   display: block;
-  position: fixed;
-  z-index: 10002;
-  top: 10px;
-  left: 10px;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
 }
 
-#loading-bar-spinner .spinner-icon {
-  width: 14px;
-  height: 14px;
-  border: solid 2px transparent;
-  border-top-color: #027;
-  border-left-color: #027;
-  border-radius: 50%;
-  -webkit-animation: loading-bar-spinner 400ms linear infinite;
-  -moz-animation: loading-bar-spinner 400ms linear infinite;
-  -ms-animation: loading-bar-spinner 400ms linear infinite;
-  -o-animation: loading-bar-spinner 400ms linear infinite;
-  animation: loading-bar-spinner 400ms linear infinite;
+.ui-select-bootstrap .ui-select-choices-row > a:hover, .ui-select-bootstrap .ui-select-choices-row > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
 }
 
-@-webkit-keyframes loading-bar-spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
 }
-@-moz-keyframes loading-bar-spinner {
-  0% {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+
+.ui-select-bootstrap .ui-select-choices-row.disabled > a,
+.ui-select-bootstrap .ui-select-choices-row.active.disabled > a {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
 }
-@-o-keyframes loading-bar-spinner {
-  0% {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+
+/* fix hide/show angular animation */
+.ui-select-match.ng-hide-add,
+.ui-select-search.ng-hide-add {
+  display: none !important;
 }
-@-ms-keyframes loading-bar-spinner {
-  0% {
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+
+/* Mark invalid Bootstrap */
+.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+  border-color: #D44950;
 }
-@keyframes loading-bar-spinner {
-  0% {
-    transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+
+/* Handle up direction Bootstrap */
+.ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
 }
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -2442,8 +2513,6 @@ form .gb-heading {
 @media (max-width: 767px) {
   .gb-container {
     width: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
   }
 }
 
@@ -3456,6 +3525,7 @@ ul, li {
 }
 
 .form-control {
+  width: 100%;
   border-radius: 0 !important;
   box-shadow: 0 0 0;
   border: #BBB solid 1px;
@@ -3608,10 +3678,19 @@ input.gb-form-show {
 }
 
 .gb-logo {
+  margin-right: 5px;
+  float: left;
+  height: 100%;
   padding-top: 5px;
-  line-height: 28px;
+  line-height: 33px;
   color: #777;
-  font-size: 14px;
+  font-size: 18px;
+}
+.gb-logo .gb-logo-icon {
+  float: left;
+  margin-right: 5px;
+  line-height: 33px;
+  color: rgba(0, 34, 119, 0.8);
 }
 .gb-logo .fa-lg {
   font-size: 14px;
@@ -3633,7 +3712,7 @@ input.gb-form-show {
 
 #gb-left-nav-3 {
   position: fixed;
-  top: 0;
+  top: 50px;
   bottom: 0;
   left: 0;
 }
@@ -4259,43 +4338,32 @@ input.gb-form-show {
   padding: 0 5px 0 5px !important;
   height: 41px;
   list-style: none;
-  border-bottom: #CCC solid 1px;
-  background-color: #F2F2F2;
+  border-bottom: rgba(0, 34, 119, 0.6) solid 3px;
+  background-color: #FFF;
   margin: 0;
   z-index: 900;
 }
-.gb-top-nav-1 .search {
-  height: 100%;
-}
-.gb-top-nav-1 .search .gb-search-icon {
-  position: absolute;
-  top: 12px;
-  bottom: 0;
-  left: 15px;
-  color: #AAA;
-  z-index: 1;
-}
-.gb-top-nav-1 .search input[type="text"] {
-  position: absolute;
-  top: 3px;
-  right: 0;
-  bottom: 3px;
-  left: 0;
-  width: 100%;
-  border: 0 none;
-  background-color: #FFF;
-  border: #CCC solid 1px;
-  padding: 1px 10px 1px 35px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  outline: none;
-}
-.gb-top-nav-1 .search input[type="text"] input[type="text"]:focus {
-  color: #6a6f75;
-}
 .gb-top-nav-1:hover {
   opacity: 1;
+}
+.gb-top-nav-1 .gb-header {
+  padding: 0 5px 0 20px;
+}
+.gb-top-nav-1 .gb-header a,
+.gb-top-nav-1 .gb-header a:hover {
+  text-decoration: none;
+  color: #000;
+}
+.gb-top-nav-1 .gb-header .gb-app-name {
+  float: left;
+  padding-top: 0;
+  height: 38px;
+  color: #777;
+}
+.gb-top-nav-1 .gb-header .gb-app-name .btn {
+  height: 100%;
+  border: none;
+  line-height: 12px;
 }
 .gb-top-nav-1 .gb-title {
   margin-right: 10px;
@@ -4309,34 +4377,6 @@ input.gb-form-show {
 }
 .gb-top-nav-1 .gb-action .btn {
   margin-left: 5px;
-}
-.gb-top-nav-1 li {
-  padding: 0;
-  text-align: center;
-}
-.gb-top-nav-1 li.active a {
-  color: #000;
-}
-.gb-top-nav-1 li.active a .gb-img-sm {
-  height: 35px;
-  width: 35px;
-  margin-bottom: 10px;
-  border: #CCC solid 2px;
-}
-.gb-top-nav-1 li.active a a {
-  display: block;
-  font-size: 1.1em;
-  padding: 10px 0 0px 0;
-  text-decoration: none;
-}
-.gb-top-nav-1 li.active a a .gb-title {
-  font-size: 1.1em;
-}
-.gb-top-nav-1 li.active a a .gb-line-1 {
-  height: 5px;
-}
-.gb-top-nav-1 li .gb-nav-heading-1 {
-  padding: 0;
 }
 
 .gb-top-nav-2 {
