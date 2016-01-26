@@ -37,11 +37,17 @@
     </a>
    </div>
   </div>
-  <form class="gb-search col-lg-4 col-md-6 col-sm-6 gb-padding-none hidden-xs">
+  <form class="gb-search col-lg-4 col-md-6 col-sm-6 hidden-xs">
    <div class="form-group gb-input-form-group">
     <ui-select ng-model="$root.searchSuggestions.selected"
+               refresh="main.refreshResults($select)"
+               refresh-delay="0"
                search-enabled="true"
                append-to-body="true">
+     <a class="gb-clear-btn btn btn-link"
+        ng-click="main.clear($event, $select)">
+      <i class="fa -fa-times"></i>
+     </a>
      <ui-select-match placeholder="Search SkillSection">
       {{$select.selected}}
      </ui-select-match>

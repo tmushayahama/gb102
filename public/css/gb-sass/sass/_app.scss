@@ -1283,17 +1283,16 @@ input.gb-form-show{
 }
 
 .gb-logo {
- margin-right: 5px;
+ padding: 0 20px 0 0;
  float: left;
  height: 100%;
- padding-top: 5px;
- line-height: 33px;
+ line-height: 40px;
  color: #777;
- font-size: 18px;
+ font-size: 15px;
  .gb-logo-icon {
   float: left;
   margin-right: 5px;
-  line-height: 33px;
+  line-height: 38px;
   color: rgba($primary-color, 0.8);
  }
  .fa-lg {
@@ -1929,7 +1928,7 @@ input.gb-form-show{
 
  &:hover {
   opacity: 1;
- } 
+ }
 
  .gb-header {
   padding: 0 5px 0 20px;
@@ -1938,15 +1937,16 @@ input.gb-form-show{
    text-decoration: none;
    color:  #000;
   }
-  .gb-app-name {
+  .gb-app-name { 
    float: left;
-   padding-top: 0;
-   height: 38px;
+   padding: 8px 20px;
+   border-left: #CCC solid 1px;
+   border-right: #CCC solid 1px;
    color: #777;
    .btn {
+    padding: 4px 10px 4px 10px;
     height: 100%;
-    border: none;
-    line-height: 12px;
+    font-size: 10px;
    }
   }
  }

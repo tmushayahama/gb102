@@ -1,18 +1,13 @@
 .gb-search-btn-grp {
  margin: 3px 0px 0px 0px;
 }
-.ui-select-container {
- .form-control {
-  height: 38px;
-  border: none !important;
-  border-left: #DDD solid 1px !important;
- }
-}
+
 .gb-top-nav-1 {
  .gb-search {
   height: 100%;
-  .gb-search-icon {
-   @include position(absolute, 12px null 0 15px);
+  padding: 5px 0;
+  .gb-clear-btn {
+   @include position(absolute, 12px 15px 0 null);
    color: #AAA;
    z-index: 1;
   }
@@ -20,26 +15,27 @@
    display: none;
   }
   .ui-select-placeholder {
-   line-height: 25px;
-   font-size: 15px;
+   font-size: 12px;
    color: #777;
    font-weight: 200;
   }
   .form-control {
-   height: 38px;
-   border: none !important;
-   border-left: #DDD solid 1px !important;
+   padding: 3px 10px;
+   height: 30px;
+   margin-bottom: 0;
+   &.btn-default {
+    background-color: #F5F5F5;
+   }
   }
 
   .gb-input-form-group {
    padding-right: 58px;
+   margin-bottom: 0;
   }
   .gb-input-btn-group {
-   height: 38px;
-   @include position(absolute, 0 0 0 null);
+   @include position(absolute, 5px 0 5px null);
    .btn {
     height: 100%;
-    border: none;
    }
   }
 

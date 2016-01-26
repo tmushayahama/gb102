@@ -21,20 +21,15 @@ and open the template in the editor.
   margin: 3px 0px 0px 0px;
 }
 
-.ui-select-container .form-control {
-  height: 38px;
-  border: none !important;
-  border-left: #DDD solid 1px !important;
-}
-
 .gb-top-nav-1 .gb-search {
   height: 100%;
+  padding: 5px 0;
 }
-.gb-top-nav-1 .gb-search .gb-search-icon {
+.gb-top-nav-1 .gb-search .gb-clear-btn {
   position: absolute;
   top: 12px;
+  right: 15px;
   bottom: 0;
-  left: 15px;
   color: #AAA;
   z-index: 1;
 }
@@ -42,29 +37,30 @@ and open the template in the editor.
   display: none;
 }
 .gb-top-nav-1 .gb-search .ui-select-placeholder {
-  line-height: 25px;
-  font-size: 15px;
+  font-size: 12px;
   color: #777;
   font-weight: 200;
 }
 .gb-top-nav-1 .gb-search .form-control {
-  height: 38px;
-  border: none !important;
-  border-left: #DDD solid 1px !important;
+  padding: 3px 10px;
+  height: 30px;
+  margin-bottom: 0;
+}
+.gb-top-nav-1 .gb-search .form-control.btn-default {
+  background-color: #F5F5F5;
 }
 .gb-top-nav-1 .gb-search .gb-input-form-group {
   padding-right: 58px;
+  margin-bottom: 0;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group {
-  height: 38px;
   position: absolute;
-  top: 0;
+  top: 5px;
   right: 0;
-  bottom: 0;
+  bottom: 5px;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group .btn {
   height: 100%;
-  border: none;
 }
 
 btn:focus {
@@ -3678,18 +3674,17 @@ input.gb-form-show {
 }
 
 .gb-logo {
-  margin-right: 5px;
+  padding: 0 20px 0 0;
   float: left;
   height: 100%;
-  padding-top: 5px;
-  line-height: 33px;
+  line-height: 40px;
   color: #777;
-  font-size: 18px;
+  font-size: 15px;
 }
 .gb-logo .gb-logo-icon {
   float: left;
   margin-right: 5px;
-  line-height: 33px;
+  line-height: 38px;
   color: rgba(65, 100, 42, 0.8);
 }
 .gb-logo .fa-lg {
@@ -4356,14 +4351,15 @@ input.gb-form-show {
 }
 .gb-top-nav-1 .gb-header .gb-app-name {
   float: left;
-  padding-top: 0;
-  height: 38px;
+  padding: 8px 20px;
+  border-left: #CCC solid 1px;
+  border-right: #CCC solid 1px;
   color: #777;
 }
 .gb-top-nav-1 .gb-header .gb-app-name .btn {
+  padding: 4px 10px 4px 10px;
   height: 100%;
-  border: none;
-  line-height: 12px;
+  font-size: 10px;
 }
 .gb-top-nav-1 .gb-title {
   margin-right: 10px;
