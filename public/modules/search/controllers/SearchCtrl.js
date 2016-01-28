@@ -19,7 +19,7 @@ var searchCtrl = function (
  }, $scope);
 
  var vm = this;
-
+ $rootScope.appName = 'SEARCH';
 
 
  vm.constantsManager = new ConstantsManager();

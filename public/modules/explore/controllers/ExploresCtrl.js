@@ -23,6 +23,7 @@ var exploresCtrl = function (
 
  vm.exploresManager = new ExploresManager();
  vm.constantsManager = new ConstantsManager();
+ $rootScope.appName = 'EXPLORER';
  vm.exploreLevels;
  vm.appTypes;
 

@@ -1,89 +1,105 @@
-<div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
- <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="gb-profile-logo col-lg-2 col-md-2 col-sm-3 col-xs-4">
+<div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="row">
+  <div class="gb-header col-lg-4 col-md-4 col-sm-2 col-xs-2">
    <a ng-click="profileCtrl.openProfileMenuModal('left')"
-      class="gb-menu-bars hidden-lg hidden-md hidden-sm visible-xs btn btn-link">
+      class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
     <i class="fa fa-bars"></i>
    </a>
-   <div class="gb-header">
-    <a ui-sref="auth" class="gb-logo gb-ellipsis">
-     <span class="fa-stack fa-lg pull-left">
-      <i class="fa fa-outer fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-inner fa-wrench fa-stack-1x"></i>
-     </span>
-     <div class="visible-lg visible-md visible-sm hidden-xs">
-      <strong>SKILL</strong>SECTION<br>
-     </div>
-    </a>
+   <a class="gb-logo" ui-sref="apps.explores.all">
+    <i class="gb-logo-icon fa icon-gb-logo"></i>
+    <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
+     <strong>SKILL</strong>SECTION<br>
+    </div>
+   </a>
+   <div class="gb-app-name">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     {{$root.user.firstname + " " + $root.user.lastname| chars: 10:true}} <span class="caret"></span>
+    </button>
+    <button type="button" class="btn btn-default">
+     <i class="fa fa-plus"></i>
+    </button>
+    <ul class="dropdown-menu">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li role="separator" class="divider"></li>
+     <li><a href="#">Separated link</a></li>
+    </ul>
    </div>
   </div>
-  <div class="gb-action pull-left col-lg-2 col-md-2 col-sm-3 col-xs-3">
-   <div ng-if="false" class="btn-group">
-    <a ng-click="profileCtrl.openAddProfileModal()" class="btn btn-xs btn-link">
+  <div ng-hide="true" class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
+   <div class="btn-group">
+    <a ng-click="exploresCtrl.openAddExploreModal()" class="btn btn-xs btn-link">
      <span class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
      </span>
     </a>
-    <a class="btn btn-xs btn-link gb-form-modal-trigger"
-       data-gb-modal-target="#gb-profile-play-modal">
-     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-play fa-stack-1x fa-inverse"></i>
-     </span>
-    </a>
-    <a class="btn btn-xs btn-link">
-     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-filter fa-stack-1x fa-inverse"></i>
-     </span>
-    </a>
    </div>
   </div>
-  <form class="col-lg-4 col-md-6 col-sm-6 gb-padding-none hidden-xs">
-   <nit-advanced-searchbox ng-model="profileCtrl.searchParams"
-                           parameters-label="Search For.."
-                           parameters="profileCtrl.availableSearchParams">
-   </nit-advanced-searchbox>
-  </form>
-  <a ng-click="profileCtrl.search()" class="gb-search-btn hidden-xs btn btn-primary">
-   <i class="fa fa-search"></i>
-  </a>
-  <div class="gb-action pull-right">
-   <a class="btn btn-xs btn-link hidden-lg hidden-md hidden-sm vidible-xs">
-    <span class="fa-stack fa-lg">
-     <i class="fa fa-circle fa-stack-2x"></i>
-     <i class="fa fa-search fa-stack-1x fa-inverse"></i>
-    </span>
-   </a>
-   <div class="hidden-sm hidden-xs btn-group">
-    <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-question fa-stack-1x fa-inverse"></i>
-     </span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right text-left">
-     <li><a href="#">About</a></li>
+  <form class="gb-search col-lg-4 col-md-6 col-sm-6 hidden-xs">
+   <div class="form-group gb-input-form-group">
+    <ui-select ng-model="$root.searchSuggestions.selected"
+               refresh="main.refreshResults($select)"
+               refresh-delay="0"
+               search-enabled="true"
+               append-to-body="true">
+     <a class="gb-clear-btn btn btn-link"
+        ng-click="main.clear($event, $select)">
+      <i class="fa -fa-times"></i>
+     </a>
+     <ui-select-match placeholder="Search SkillSection">
+      {{$select.selected}}
+     </ui-select-match>
+     <ui-select-choices repeat="searchSuggestion in appsCtrl.getSearchSuggestions($select.search) | filter: $select.search">
+      <div ng-bind="searchSuggestion"></div>
+     </ui-select-choices>
+    </ui-select>
+   </div>
+   <div class="gb-input-btn-group btn-group">
+    <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
+     <i class="fa fa-search"></i>
+    </button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li role="separator" class="divider"></li>
+     <li><a href="#">Separated link</a></li>
     </ul>
    </div>
-   <div class="btn-group">
-    <a class="btn btn-xs btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-user fa-stack-1x fa-inverse"></i>
-     </span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right text-left">
-     <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a ng-click="appsCtrl.logout()">
-       <i class="fa fa-power-off"></i> Log Out</a>
-     </li>
-    </ul>
+  </form>
+  <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+   <div class="gb-action pull-right">
+    <div class="hidden-lg hidden-md hidden-sm vidible-xs btn-group">
+     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="gb-menu-icon fa fa-search"></i>
+     </a>
+     <div class="dropdown-menu dropdown-menu-right text-left">
+     </div>
+    </div>
+    <div class="btn-group">
+     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="gb-menu-icon fa fa-user"></i>
+     </a>
+     <ul class="dropdown-menu dropdown-menu-right text-left">
+      <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a ng-click="appsCtrl.logout()">
+        <i class="fa fa-power-off"></i> Log Out</a>
+      </li>
+     </ul>
+    </div>
    </div>
   </div>
  </div>
+</div>
+
+
+<div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="gb-container gb-app-detail">
   <div id="gb-profile-left-pane" class="col-lg-3 col-md-4 col-sm-4 hidden-xs">
    <div class="gb-nav-strip gb-nav-strip-mini row">

@@ -22,6 +22,7 @@ var questionnairesCtrl = function (
 
  vm.questionnairesManager = new QuestionnairesManager();
  vm.constantsManager = new ConstantsManager();
+ $rootScope.appName = 'MATCHER';
  vm.questionnaireLevels;
 
 

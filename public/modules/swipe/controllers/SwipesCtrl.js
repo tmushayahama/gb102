@@ -20,6 +20,8 @@ var swipesCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-swipe.css'
  }, $scope);
 
+ $rootScope.appName = 'SWIPE';
+
  vm.swipesManager = new SwipesManager();
  vm.constantsManager = new ConstantsManager();
  vm.swipeLevels;

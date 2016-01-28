@@ -37,6 +37,16 @@ var searchManager = function ($http, $q) {
   });
   return deferred.promise;
  };
+
+ SearchManager.prototype.simpleSearch2 = function (searchData) {
+  var self = this;
+  return $http({
+   method: 'POST',
+   url: '/api/search/simple',
+   data: searchData
+  });
+ };
+
  return SearchManager;
 };
 

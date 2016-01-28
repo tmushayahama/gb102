@@ -20,6 +20,8 @@ var usersCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-community.css'
  }, $scope);
 
+ $rootScope.appName = 'COMMUNITY';
+
  vm.communityManager = new CommunityManager();
  vm.constantsManager = new ConstantsManager();
 

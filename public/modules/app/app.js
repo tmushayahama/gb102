@@ -19,6 +19,7 @@ define([
  'angular-aside',
  'angular-sanitize',
  'angular-ui-select',
+ 'truncate-filters',
  '../auth/module',
  '../search/module',
  '../community/module',
@@ -44,6 +45,7 @@ define([
   'ngAside',
   'ui.select',
   'ngSanitize',
+  'gb-filters.truncate',
   'app.auth',
   'app.search',
   'app.community',
@@ -115,6 +117,7 @@ define([
               load: function ($ocLazyLoad) {
                return $ocLazyLoad.load({
                 name: 'app',
+                serie: true,
                 files: ['public/modules/common/directives/show-tab.js',
                  'public/modules/search/services/SearchManager.js',
                  'public/modules/app/controllers/AppsCtrl.js',
@@ -173,6 +176,7 @@ define([
           mentorship_swipe: 15,
           advice_swipe: 16,
          });
+
 
  return app;
 });
