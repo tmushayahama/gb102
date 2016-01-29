@@ -1,29 +1,93 @@
+<div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="row">
+  <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
+   <a ng-click="appsCtrl.openMenuModal('left')"
+      class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
+    <i class="fa fa-bars"></i>
+   </a>
+   <a class="gb-logo" ui-sref="apps.explores.all">
+    <i class="gb-logo-icon fa icon-gb-logo"></i>
+    <div class="pull-left visible-lg visible-md hidden-sm hidden-xs">
+     <strong>SKILL</strong>SECTION<br>
+    </div>
+   </a>
+   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     {{$root.appName}} <span class="caret"></span>
+    </button>
+    <button ng-click="$root.openAddExploreModal()" type="button" class="btn btn-default">
+     <i class="fa fa-plus"></i>
+    </button>
+    <ul class="dropdown-menu">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li role="separator" class="divider"></li>
+     <li><a href="#">Separated link</a></li>
+    </ul>
+   </div>
+  </div>
+  <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
+   <div class="form-group gb-input-form-group">
+    <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
+           typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+    <a class="gb-clear-btn btn btn-link"
+       ng-click="main.clear($event, $select)">
+     <i class="fa fa-times"></i>
+    </a>
+   </div>
+   <div class="gb-input-btn-group btn-group">
+    <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
+     <i class="fa fa-search"></i>
+    </button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li role="separator" class="divider"></li>
+     <li><a href="#">Separated link</a></li>
+    </ul>
+   </div>
+  </form>
+  <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+   <div class="gb-action pull-right">
+    <div class="btn-group">
+     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="gb-menu-icon fa fa-user"></i>
+     </a>
+     <ul class="dropdown-menu dropdown-menu-right text-left">
+      <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a ng-click="appsCtrl.logout()">
+        <i class="fa fa-power-off"></i> Log Out</a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
 <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs" id="gb-left-nav-3" role="navigation">
  <div class="gb-header">
-  <a class="gb-logo gb-ellipsis" ui-sref="apps.explores.all">
-   <span class="fa-stack fa-lg pull-left">
-    <i class="fa fa-outer fa-square-o fa-stack-2x"></i>
-    <i class="fa fa-inner fa-wrench fa-stack-1x"></i>
-   </span>
-   <div class="visible-lg visible-md visible-sm hidden-xs">
-    <strong>SKILL</strong>SECTION<br>
-   </div>
-  </a>
+  <div class="">
+   <a ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <p class="gb-ellipsis gb-title">
+      <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
+      <span class="gb-content">
+       {{$root.user.firstname + " " + $root.user.lastname}}
+      </span>
+     </p>
+    </div>
+   </a>
+  </div>
  </div>
  <div class="gb-body">
   <div class="gb-nav-strip gb-nav-strip-mini row">
-   <div class="">
-    <a ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <p class="gb-ellipsis gb-title">
-       <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
-       <span class="gb-content">
-        {{$root.user.firstname + " " + $root.user.lastname}}
-       </span>
-      </p>
-     </div>
-    </a>
-   </div>
+
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.community.users" class="gb-link row"
        ng-class="{
@@ -276,4 +340,29 @@
 <!-- ------------------------------- MODALS --------------------------->
 <script type="text/ng-template" id="menu-modal.html">
  <div ng-include="'public/build/scripts/modules/app/views/modals/menu-modal.html'"></div>
+</script>
+
+<script type="text/ng-template" id="customTemplate.html">
+ <a>
+ <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+ <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+ {{match|json}}
+ </a>
+</script>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+ <div class="custom-popup-wrapper"
+ ng-style="{top: position().top+'px', left: position().left+'px'}"
+ style="display: block;"
+ ng-show="isOpen() && !moveInProgress"
+ aria-hidden="{{!isOpen()}}">
+ <p class="message">select location from drop down.</p>
+
+ <ul class="dropdown-menu" role="listbox">
+ <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+ ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+ <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+ </li>
+ </ul>
+ </div>
 </script>

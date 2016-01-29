@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!exploreTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{exploreCtrl.explore.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{exploreCtrl.exploreManager.explore.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="exploreTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="exploreTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -92,7 +92,7 @@
     <li ng-repeat="exploreTodo in exploreTodosCtrl.exploreTodosManager.exploreTodos| filter:statusFilter track by $index" ng-class="{completed: exploreTodo.completed, editing: exploreTodo == exploreTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="exploreTodo.completed">
-      <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-10'>
+      <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-9'>
        <a class="gb-content-text btn-link text-left" editable-text="exploreTodo.todo.title"
           e-class="col-lg-10"
           e-form="titleForm" onbeforesave="exploreTodosCtrl.editExploreTodoSections.title(exploreTodo.id, $data)" e-required

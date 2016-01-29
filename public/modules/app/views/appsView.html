@@ -29,7 +29,7 @@
   </div>
   <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
    <div class="form-group gb-input-form-group">
-    <input type="text" ng-model="$root.searchKeyword" placeholder="Custom template" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
+    <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
            typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
     <a class="gb-clear-btn btn btn-link"
        ng-click="main.clear($event, $select)">

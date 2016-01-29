@@ -126,8 +126,8 @@
      <ul class="gb-checklist-nav">
       <li ng-repeat="todoChecklistItem in exploreTodoCtrl.exploreTodoChecklistManager.exploreTodoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == exploreTodoCtrl.editedTodo}">
        <div class="gb-checklist-row row">
-        <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklistItem.completed">
-        <div class='gb-checklist-item-content col-lg-9'>
+        <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="todoChecklistItem.completed">
+        <div class='gb-checklist-item-content col-lg-9 col-md-9 col-sm-9 col-xs-9'>
          <p class="text-left" editable-text="todoChecklistItem.checklist.title"
             e-class="col-lg-10 col-md-10 col-sm-10 col-xs-9"
             e-form="todoChecklistForm" onbeforesave="exploreTodoCtrl.editExploreTodoChecklistItemSections.title(todoChecklistItem.checklist.id, $data)" e-required>
@@ -137,7 +137,7 @@
           </a>
          </p>
         </div>
-        <div class="gb-checklist-item-action btn-group col-lg-2">
+        <div class="gb-checklist-item-action btn-group pull-right">
          <a class="btn btn-xs pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-chevron-down"></i>
          </a>

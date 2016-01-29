@@ -3,7 +3,9 @@ var profileCtrl = function (
         _,
         ConstantsManager,
         ProfileManager,
+        SearchManager,
         UserProfileSectionManager,
+        localStorageService,
         $uibModal,
         $aside,
         $scope,
@@ -22,42 +24,30 @@ var profileCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-profile.css'
  }, $scope);
 
+ vm.logout = function () {
+  localStorageService.remove('user');
+  $rootScope.authenticated = false;
+  $state.go('auth');
+ };
+
  vm.profile = [];
  var profileData = {
  };
 
+ vm.searchManager = new SearchManager();
 
- vm.searchParams;
-
-
- vm.availableSearchParams = [
-  {key: "skill",
-   name: "skill",
-   placeholder: "skill...",
-   restrictToSuggestedValues: true,
-   suggestedValues: ['soccer', 'art', 'sushi making']
-  },
-  {key: "goal", name: "goal", placeholder: "goal..."},
-  {key: "hobby", name: "hobby", placeholder: "hobby..."},
-  {key: "promise", name: "promise", placeholder: "promise..."},
-  {key: "mentorship", name: "mentorship", placeholder: "mentorship..."}
- ];
-
- vm.search = function () {
-  $rootScope.searchParams = vm.searchParams;
-  $state.go('apps.search.all', null, {reload: 'apps.search.all'});
-  //vm.searchManager.simpleSearch(vm.searchParams);
- }
-
- $scope.addPredefinedNameSearchParam = function () {
-  vm.searchParams.name = 'Max Mustermann';
- };
-
- $scope.loadPredefinedSearchParamSet = function () {
-  vm.searchParams = {
-   name: "Max M.",
-   job: "Boss"
+ vm.getSearchSuggestions = function (val) {
+  var searchData = {
+   query: val
   };
+  return vm.searchManager.simpleSearchSuggestion(searchData)
+          .then(function (response) {
+           var results = response.data.map(function (item) {
+            return item.title;
+           });
+           vm.suggestions = results;
+           return results;
+          });
  };
 
 
@@ -200,7 +190,9 @@ var profileCtrl = function (
 profileCtrl.$inject = ['_',
  'ConstantsManager',
  'ProfileManager',
+ 'SearchManager',
  'UserProfileSectionManager',
+ 'localStorageService',
  '$uibModal',
  '$aside',
  '$scope',

@@ -24,7 +24,7 @@ requirejs.config({
   'angular-loading-bar': '../../bower_components/angular-loading-bar/build/loading-bar',
   'angular-aside': '../../bower_components/angular-aside/dist/js/angular-aside',
   'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
-  'angular-ui-select': '../../bower_components/ui-select/dist/select',
+  //'angular-ui-select': '../../bower_components/ui-select/dist/select',
   //Local pugins--common
   'truncate-filters': '../modules/common/filters/truncate'
  },
@@ -50,7 +50,7 @@ requirejs.config({
   'angular-loading-bar': {deps: ['angular', 'angular-animate']},
   'angular-aside': {deps: ['angular', 'angular-animate']},
   'angular-sanitize': {deps: ['angular']},
-  'angular-ui-select': {deps: ['angular']},
+  //'angular-ui-select': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

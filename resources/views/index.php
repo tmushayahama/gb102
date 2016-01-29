@@ -9,6 +9,7 @@
   <title>SkillSection</title>
 
   <!-- Favicons -->
+  <link href='http://fonts.googleapis.com/css?family=Schoolbell&v1' rel='stylesheet' type='text/css'>
   <link href="images/favicon/favicon.png" rel="shortcut icon">
   <link href="images/favicon/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon">
   <link href="images/favicon/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72">

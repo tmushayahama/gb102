@@ -23,7 +23,9 @@ requirejs.config({
   'angular-gestures': '../../bower_components/angular-gestures/gestures.min',
   'angular-loading-bar': '../../../bower_components/angular-loading-bar/build/loading-bar.min',
   'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min',
-  'angular-advanced-searchbox': 'scripts/modules/search/lib/angular-advanced-searchbox'
+  'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
+  //Local pugins--common
+  'truncate-filters': 'scripts/modules/common/filters/truncate'
 
  },
  shim: {
@@ -47,7 +49,8 @@ requirejs.config({
   'angular-gestures': {deps: ['angular', 'hammerjs']},
   'angular-loading-bar': {deps: ['angular', 'angular-animate']},
   'angular-aside': {deps: ['angular', 'angular-animate']},
-  'angular-advanced-searchbox': {deps: ['angular']},
+  'angular-sanitize': {deps: ['angular']},
+  'truncate-filters': {deps: ['angular']},
  },
  priority: [
   'jquery',

@@ -29,25 +29,15 @@
   </div>
   <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
    <div class="form-group gb-input-form-group">
-    <ui-select ng-model="$root.searchSuggestions.selected"
-               refresh="main.refreshResults($select)"
-               refresh-delay="0"
-               search-enabled="true"
-               append-to-body="true">
-     <a class="gb-clear-btn btn btn-link"
-        ng-click="main.clear($event, $select)">
-      <i class="fa -fa-times"></i>
-     </a>
-     <ui-select-match placeholder="Search SkillSection">
-      {{$select.selected}}
-     </ui-select-match>
-     <ui-select-choices repeat="searchSuggestion in appsCtrl.getSearchSuggestions($select.search) | filter: $select.search">
-      <div ng-bind="searchSuggestion"></div>
-     </ui-select-choices>
-    </ui-select>
+    <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in profileCtrl.getSearchSuggestions($viewValue)"
+           typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+    <a class="gb-clear-btn btn btn-link"
+       ng-click="main.clear($event, $select)">
+     <i class="fa fa-times"></i>
+    </a>
    </div>
    <div class="gb-input-btn-group btn-group">
-    <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
+    <button ng-click="profileCtrl.search()" type="button" class="btn btn-primary">
      <i class="fa fa-search"></i>
     </button>
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,7 +61,7 @@
      <ul class="dropdown-menu dropdown-menu-right text-left">
       <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
       <li role="separator" class="divider"></li>
-      <li><a ng-click="appsCtrl.logout()">
+      <li><a ng-click="profileCtrl.logout()">
         <i class="fa fa-power-off"></i> Log Out</a>
       </li>
      </ul>

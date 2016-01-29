@@ -33,9 +33,9 @@
   height: 100%;
   padding: 5px 0;
   .gb-clear-btn {
-   @include position(absolute, 12px 15px 0 null);
-   color: #AAA;
-   z-index: 1;
+   @include position(absolute, 3px 58px null null);
+   color: #BBB;
+   font-weight: normal;
   }
   .ui-select-bootstrap .ui-select-toggle > .caret {
    display: none;

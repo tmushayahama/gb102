@@ -14,8 +14,8 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!exploreNotesCtrl.noteFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{exploreCtrl.explore.creator.avatar_url}}" class="gb-img" alt="">
-    <input class="" ng-click="exploreNotesCtrl.showNoteForm()" placeholder="What needs to be done?" readonly>
+    <img src="public/img/profile_pic/{{exploreCtrl.exploreManager.explore.creator.avatar_url}}" class="gb-img" alt="">
+    <input class="" ng-click="exploreNotesCtrl.showNoteForm()" placeholder="Jot down some notes" readonly>
    </div>
    <form class="gb-form-1" ng-show="exploreNotesCtrl.noteFormDisplay" name="form" novalidate>
     <div class="form-group row">
@@ -93,7 +93,7 @@
      <div class="gb-note-row row" ng-init="exploreNoteCopy = angular.copy(exploreNote)">
       <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
        <div class="gb-content-text">
-        <textarea autofocus ng-model="exploreNote.note.description"></textarea>
+        <textarea ng-model="exploreNote.note.description"></textarea>
        </div>
        <a ng-hide="true" class="gb-content-text btn-link text-left" editable-text="exploreNote.note.description"
           e-class="col-lg-10"
@@ -120,7 +120,7 @@
        <div class="row">
         <button type="button" class="btn gb-btn gb-btn-xs"
                 ng-click="exploreNotesCtrl.editExploreNoteSections.details(exploreNote.id, exploreNote.note);
-                         exploreNoteCopy = exploreNote;">
+                    exploreNoteCopy = exploreNote;">
          <i class="fa fa-save"></i>
         </button>
        </div>

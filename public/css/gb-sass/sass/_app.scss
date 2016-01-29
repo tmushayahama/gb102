@@ -101,7 +101,7 @@ form {
  @include respond-to (gb-md) {
   width: 768px;
  }
- @include respond-to (gb-sm) {
+ @include respond-to (gb-sm) { 
   width: 768px;
  }
  @include respond-to (gb-xs) {
@@ -372,9 +372,6 @@ input[type="checkbox"] {
  }
 
 
- .gb-todos .gb-todo-body {
-
- }
 
  #toggle-all {
   top: -55px;
@@ -413,21 +410,8 @@ input[type="checkbox"] {
 
  #todo-list  {
   li .toggle {
-   margin: 5px 0 0 0;
+   margin-top: 15px;
    text-align: center;
-   /* auto, since non-WebKit browsers doesn't support input styling */
-   height: auto;
-   border: none; /* Mobile Safari */
-   -webkit-appearance: none;
-   appearance: none;
-  }
-
-  li .toggle:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#BBBBBB" stroke-width="3"/></svg>');
-  }
-
-  li .toggle:checked:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
   }
 
   li .gb-todo-content {
@@ -595,38 +579,6 @@ input[type="checkbox"] {
  #info a:hover {
   text-decoration: underline;
  }
-
- /*
-  Hack to remove background from Mobile Safari.
-  Can't use it globally since it destroys checkboxes in Firefox
- */
- @media screen and (-webkit-min-device-pixel-ratio:0) {
-  #toggle-all,
-  #todo-list li .toggle {
-   background: none;
-  }
-
-  #todo-list li .toggle {
-   height: 40px;
-  }
-
-  #toggle-all {
-   -webkit-transform: rotate(90deg);
-   transform: rotate(90deg);
-   -webkit-appearance: none;
-   appearance: none;
-  }
- }
-
- @media (max-width: 430px) {
-  #footer {
-   height: 50px;
-  }
-
-  #filters {
-   bottom: 10px;
-  }
- }
 }
 
 
@@ -696,7 +648,7 @@ input[type="checkbox"] {
 
  #note-list  {
   li .toggle {
-   margin: 5px 0 0 0;
+   margin-top: 15px;
    text-align: center;
    /* auto, since non-WebKit browsers doesn't support input styling */
    height: auto;
@@ -705,13 +657,6 @@ input[type="checkbox"] {
    appearance: none;
   }
 
-  li .toggle:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#BBBBBB" stroke-width="3"/></svg>');
-  }
-
-  li .toggle:checked:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-  }
 
 
   li .gb-note-content {
@@ -748,7 +693,7 @@ input[type="checkbox"] {
     outline: 0;
     background: transparent;
     color: mediumblue;
-    font-family: 'Handlee', cursive;
+    font-family: 'Schoolbell', arial, serif;
     font-weight: bold;
     font-size: 18px;
     box-sizing: border-box;
@@ -907,38 +852,6 @@ input[type="checkbox"] {
  #info a:hover {
   text-decoration: underline;
  }
-
- /*
-  Hack to remove background from Mobile Safari.
-  Can't use it globally since it destroys checkboxes in Firefox
- */
- @media screen and (-webkit-min-device-pixel-ratio:0) {
-  #toggle-all,
-  #note-list li .toggle {
-   background: none;
-  }
-
-  #note-list li .toggle {
-   height: 40px;
-  }
-
-  #toggle-all {
-   -webkit-transform: rotate(90deg);
-   transform: rotate(90deg);
-   -webkit-appearance: none;
-   appearance: none;
-  }
- }
-
- @media (max-width: 430px) {
-  #footer {
-   height: 50px;
-  }
-
-  #filters {
-   bottom: 10px;
-  }
- }
 }
 
 .gb-note-page {
@@ -1011,21 +924,8 @@ input[type="checkbox"] {
   list-style: none;
 
   li .toggle {
-   margin: 3px 0 0 0;
+   margin-top: 10px;
    text-align: center;
-   /* auto, since non-WebKit browsers doesn't support input styling */
-   height: auto;
-   border: none; /* Mobile Safari */
-   -webkit-appearance: none;
-   appearance: none;
-  }
-
-  li .toggle:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#BBBBBB" stroke-width="3"/></svg>');
-  }
-
-  li .toggle:checked:after {
-   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#999999" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
   }
 
   li .gb-checklist-item-content {

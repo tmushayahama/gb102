@@ -14,8 +14,8 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!exploreCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{exploreCtrl.explore.creator.avatar_url}}" class="gb-img" alt="">
-    <input class="" ng-click="exploreCommentsCtrl.showCommentForm()" placeholder="What needs to be done?" readonly>
+    <img src="public/build/img/profile_pic/{{exploreCtrl.exploreManager.explore.creator.avatar_url}}" class="gb-img" alt="">
+    <input class="" ng-click="exploreCommentsCtrl.showCommentForm()" placeholder="Say something" readonly>
    </div>
    <form class="gb-form-1" ng-show="exploreCommentsCtrl.commentFormDisplay" name="form" novalidate>
     <div class="form-group row">

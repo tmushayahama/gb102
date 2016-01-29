@@ -28,7 +28,6 @@ var appsCtrl = function (
 
  vm.searchManager = new SearchManager();
 
- vm.suggestions = ["poo", "soc"];
  vm.getSearchSuggestions = function (val) {
   var searchData = {
    query: val
