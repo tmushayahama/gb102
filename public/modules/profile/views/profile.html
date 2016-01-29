@@ -1,6 +1,6 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="row">
-  <div class="gb-header col-lg-4 col-md-4 col-sm-2 col-xs-2">
+  <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
    <a ng-click="profileCtrl.openProfileMenuModal('left')"
       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
     <i class="fa fa-bars"></i>
@@ -11,7 +11,7 @@
      <strong>SKILL</strong>SECTION<br>
     </div>
    </a>
-   <div class="gb-app-name">
+   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      {{$root.user.firstname + " " + $root.user.lastname| chars: 10:true}} <span class="caret"></span>
     </button>
@@ -27,17 +27,7 @@
     </ul>
    </div>
   </div>
-  <div ng-hide="true" class="gb-action pull-left col-lg-2 col-md-1 col-sm-1 col-xs-2">
-   <div class="btn-group">
-    <a ng-click="exploresCtrl.openAddExploreModal()" class="btn btn-xs btn-link">
-     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-     </span>
-    </a>
-   </div>
-  </div>
-  <form class="gb-search col-lg-4 col-md-6 col-sm-6 hidden-xs">
+  <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
    <div class="form-group gb-input-form-group">
     <ui-select ng-model="$root.searchSuggestions.selected"
                refresh="main.refreshResults($select)"
@@ -74,13 +64,6 @@
   </form>
   <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
    <div class="gb-action pull-right">
-    <div class="hidden-lg hidden-md hidden-sm vidible-xs btn-group">
-     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="gb-menu-icon fa fa-search"></i>
-     </a>
-     <div class="dropdown-menu dropdown-menu-right text-left">
-     </div>
-    </div>
     <div class="btn-group">
      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="gb-menu-icon fa fa-user"></i>
@@ -97,8 +80,6 @@
   </div>
  </div>
 </div>
-
-
 <div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="gb-container gb-app-detail">
   <div id="gb-profile-left-pane" class="col-lg-3 col-md-4 col-sm-4 hidden-xs">

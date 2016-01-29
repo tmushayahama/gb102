@@ -296,7 +296,7 @@ btn:focus {
 }
 @media (max-width: 767px) {
   .modal-menu .modal-content {
-    font-size: 250px;
+    width: 250px;
   }
 }
 .modal-menu .modal-body {
@@ -729,7 +729,6 @@ Copyright (c) 2014 Daniel Eden
 .gb-section-row-2 .gb-heading .gb-title {
   width: 100%;
   font-size: 30px;
-  font-weight: 100;
   color: rgba(7, 117, 104, 0.6);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -842,7 +841,6 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-icon-top-nav-1 > li a .gb-title {
   font-size: 10px;
-  font-weight: 100;
 }
 .gb-icon-top-nav-1 > li:hover {
   border-bottom: rgba(7, 117, 104, 0.4) solid 4px;
@@ -863,7 +861,6 @@ Copyright (c) 2014 Daniel Eden
   float: left;
   padding-top: 5px;
   font-size: 12px;
-  font-weight: 100;
 }
 .gb-icon-top-nav-1 > li li:hover {
   background-color: transparent;
@@ -1136,7 +1133,6 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-swipe-container .gb-box-1 .gb-box-body .gb-heading .gb-title {
   color: #888;
-  font-weight: 500;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -1352,7 +1348,6 @@ Copyright (c) 2014 Daniel Eden
   padding: 30px 5px 30px 5px;
   width: 100%;
   font-size: 30px;
-  font-weight: 100;
   color: rgba(7, 117, 104, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -1816,7 +1811,6 @@ Copyright (c) 2014 Daniel Eden
   padding: 30px 5px 30px 5px;
   width: 100%;
   font-size: 30px;
-  font-weight: 100;
   color: rgba(7, 117, 104, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -2535,6 +2529,7 @@ form .gb-heading {
 @media (max-width: 767px) {
   .gb-container {
     width: 100%;
+    padding: 0;
   }
 }
 
@@ -2600,17 +2595,17 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-  font-size: 2.0em;
+  font-size: 20px;
   text-align: center;
 }
 @media (max-width: 991px) {
   #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-    font-size: 1.2em;
+    font-size: 15px;
   }
 }
 @media (max-width: 767px) {
   #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-    font-size: 1.0em;
+    font-size: 12px;
   }
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-circle {
@@ -2804,7 +2799,6 @@ input[type="checkbox"] {
   padding: 30px 5px 30px 5px;
   width: 100%;
   font-size: 30px;
-  font-weight: 100;
   color: rgba(7, 117, 104, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -3071,7 +3065,6 @@ input[type="checkbox"] {
   padding: 30px 5px 30px 5px;
   width: 100%;
   font-size: 30px;
-  font-weight: 100;
   color: rgba(7, 117, 104, 0.4);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -3225,9 +3218,6 @@ input[type="checkbox"] {
   float: left;
   text-align: left;
 }
-.gb-notes #note-count strong {
-  font-weight: 300;
-}
 .gb-notes #filters {
   margin: 0;
   padding: 0;
@@ -3277,7 +3267,6 @@ input[type="checkbox"] {
 .gb-notes #info a {
   color: inherit;
   text-decoration: none;
-  font-weight: 400;
 }
 .gb-notes #info a:hover {
   text-decoration: underline;
@@ -3729,6 +3718,11 @@ input.gb-form-show {
 .gb-logo .gb-beta {
   font-size: 5px;
   color: #FF1B1B;
+}
+@media (max-width: 767px) {
+  .gb-logo {
+    padding: 0 2px 0 0;
+  }
 }
 
 #gb-left-nav-3 {
@@ -4414,6 +4408,16 @@ input.gb-form-show {
 .gb-top-nav-1 .gb-menu-icon {
   font-size: 20px;
 }
+@media (max-width: 991px) {
+  .gb-top-nav-1 .gb-header {
+    padding: 0 5px 0 10px;
+  }
+}
+@media (max-width: 767px) {
+  .gb-top-nav-1 .gb-header {
+    padding: 0 5px 0 5px;
+  }
+}
 
 .gb-top-nav-2 {
   position: fixed;
@@ -4697,7 +4701,6 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-box-body .gb-heading .gb-title {
   color: #888;
-  font-weight: 500;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -5047,29 +5050,6 @@ input.gb-form-show {
   width: 30px;
 }
 
-@media (max-width: 1170px) {
-  .profile-pic > img {
-    height: auto;
-    top: -42px;
-  }
-}
-@media (max-width: 960px) {
-  .profile-pic > img {
-    top: -49px;
-    width: 70px;
-  }
-
-  .gb-opacity-5 {
-    max-width: 600px;
-    opacity: 0.8;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: alpha(opacity=80);
-  }
-
-  .gb-opacity-5 .gb-title {
-    font-size: 1.0em;
-  }
-}
 @media (max-width: 767px) {
   ::-webkit-scrollbar {
     display: none;
@@ -5135,10 +5115,5 @@ input.gb-form-show {
 
   .gb-top-nav-1 {
     right: 0px;
-  }
-}
-@media (max-width: 660px) {
-  .gb-opacity-5 {
-    max-width: 170px;
   }
 }

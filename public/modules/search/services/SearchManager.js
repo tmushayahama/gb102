@@ -38,11 +38,11 @@ var searchManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SearchManager.prototype.simpleSearch2 = function (searchData) {
+ SearchManager.prototype.simpleSearchSuggestion = function (searchData) {
   var self = this;
   return $http({
    method: 'POST',
-   url: '/api/search/simple',
+   url: '/api/search/suggestion',
    data: searchData
   });
  };

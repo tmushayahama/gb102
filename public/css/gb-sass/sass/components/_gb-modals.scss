@@ -59,7 +59,7 @@
  .modal-content {
   width: 300px;
   @include respond-to (gb-xs) {
-   font-size: 250px;
+   width: 250px;
   }
  }
  .modal-body {

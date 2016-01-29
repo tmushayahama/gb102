@@ -21,6 +21,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 
  Route::post('search/simple', 'SearchController@simpleSearch');
+ Route::post('search/suggestion', 'SearchController@suggestionSearch');
 
 
 //Community

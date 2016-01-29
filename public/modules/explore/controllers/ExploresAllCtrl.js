@@ -20,7 +20,10 @@ var exploresAllCtrl = function (
 
  if (isSearch) {
   vm.searchManager = new SearchManager();
-  vm.searchManager.simpleSearch($rootScope.searchSuggestions.selected).then(function (data) {
+  var searchData = {
+   query: $rootScope.searchKeyword
+  };
+  vm.searchManager.simpleSearch(searchData).then(function (data) {
    vm.explores = data;
   });
  } else {

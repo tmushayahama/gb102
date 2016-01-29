@@ -29,8 +29,11 @@ var appsCtrl = function (
  vm.searchManager = new SearchManager();
 
  vm.suggestions = ["poo", "soc"];
- vm.getSearchResults = function (val) {
-  return vm.searchManager.simpleSearch2(val)
+ vm.getSearchSuggestions = function (val) {
+  var searchData = {
+   query: val
+  };
+  return vm.searchManager.simpleSearchSuggestion(searchData)
           .then(function (response) {
            var results = response.data.map(function (item) {
             return item.title;
@@ -39,7 +42,7 @@ var appsCtrl = function (
            return results;
           });
  };
- vm.getSearchResults('so');
+ //vm.getSearchResults('so');
  $scope.ngModelOptionsSelected = function (value) {
   if (arguments.length) {
    _selected = value;

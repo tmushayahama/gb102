@@ -137,7 +137,7 @@ var exploresCtrl = function (
   }
  };
 
- vm.openAddExploreModal = function () {
+ $rootScope.openAddExploreModal = function () {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'add-explore-modal.html',

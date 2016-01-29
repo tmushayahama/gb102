@@ -28,6 +28,18 @@ class SearchController extends Controller {
   return \Response::json($results);
  }
 
+ function suggestionSearch() {
+  $keyword = Request::get("query");
+  $results = Explore::SearchByKeyword($keyword)
+          ->take(10)
+          ->with('app_type')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->get();
+  return \Response::json($results);
+ }
+
  public function getAppTypes() {
   $appType = AppType::getAppTypes();
   return \Response::json($appType);
