@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : Nov 3, 2015, 7:59:19 PM
     Author     : Tremmillicious
 */
+.gb-landing-page {
+  background-color: #FFF;
+}
 .gb-landing-page.gb-top-nav-1 {
   padding: 1px 5px 5px 20px;
   position: fixed;
@@ -16,26 +19,6 @@ and open the template in the editor.
   height: 41px;
   border-bottom: rgba(2, 120, 135, 0.8) solid 3px;
   background-color: rgba(255, 255, 255, 0.8);
-}
-.gb-landing-page.gb-top-nav-1 .gb-logo {
-  text-decoration: none;
-  padding-top: 5px;
-  line-height: 28px;
-  color: #888;
-  font-size: 14px;
-}
-.gb-landing-page.gb-top-nav-1 .gb-logo .fa-lg {
-  font-size: 14px;
-  text-align: center;
-}
-.gb-landing-page.gb-top-nav-1 .gb-logo .fa-lg .fa-circle {
-  color: rgba(2, 120, 135, 0.4);
-}
-.gb-landing-page.gb-top-nav-1 .gb-logo .fa-lg .fa-inverse {
-  color: rgba(2, 120, 135, 0.8);
-}
-.gb-landing-page.gb-top-nav-1 .gb-logo strong {
-  color: #027887;
 }
 .gb-landing-page.gb-top-nav-1 .gb-action {
   padding-top: 3px;
@@ -187,23 +170,102 @@ and open the template in the editor.
 .gb-landing-page .open .dropdown-toggle.btn-primary {
   background-image: none;
 }
-.gb-landing-page .btn-xl {
-  padding: 20px 40px;
-  border-color: #fed136;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  background-color: #fed136;
+.gb-landing-page .gb-icon-service {
+  font-size: 70px;
+  color: #027887;
 }
-.gb-landing-page .btn-xl .badge {
-  color: #fed136;
-  background-color: #fff;
+@media (max-width: 767px) {
+  .gb-landing-page .gb-icon-service {
+    font-size: 40px;
+  }
+}
+.gb-landing-page .gb-icon-feature {
+  margin-bottom: 100px;
+  color: #555 !important;
+  font-size: 40px;
+  text-align: center;
+  color: #027887;
+}
+.gb-landing-page .gb-icon-feature h4 {
+  padding-top: 15px;
+  font-size: 20px;
+}
+@media (max-width: 767px) {
+  .gb-landing-page .gb-icon-feature {
+    font-size: 30px;
+  }
+  .gb-landing-page .gb-icon-feature h4 {
+    font-size: 12px;
+  }
 }
 .gb-landing-page section {
-  padding: 100px 0;
+  padding: 70px 0;
+}
+.gb-landing-page section h1 {
+  font-weight: normal;
+  font-size: 50px;
+}
+.gb-landing-page section h2 {
+  font-weight: normal;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.gb-landing-page section p {
+  font-size: 15px;
+  line-height: 25px;
+}
+.gb-landing-page section.gb-heading-row {
+  background-color: #FFF;
+}
+.gb-landing-page section.gb-services {
+  background-color: rgba(2, 120, 135, 0.3);
+}
+.gb-landing-page section.gb-explorer-row {
+  background-color: rgba(2, 120, 135, 0.1);
+  border-top: #027887 solid 5px;
+  color: #027887;
+}
+.gb-landing-page section.gb-swipe-row {
+  background-color: rgba(94, 45, 53, 0.1);
+  border-top: #5E2D35 solid 5px;
+  color: #5E2D35;
+}
+.gb-landing-page section.gb-matcher-row {
+  background-color: rgba(0, 34, 119, 0.1);
+  border-top: #027 solid 5px;
+  color: #027;
+}
+.gb-landing-page section.gb-features-row {
+  background-color: rgba(238, 238, 238, 0.1);
+  border-top: #EEE solid 5px;
+  color: #EEE;
+}
+@media (max-width: 991px) {
+  .gb-landing-page section h1 {
+    font-size: 40px;
+  }
+  .gb-landing-page section h2 {
+    font-size: 30px;
+  }
+  .gb-landing-page section p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .gb-landing-page section {
+    text-align: center;
+  }
+  .gb-landing-page section h1 {
+    font-size: 25px;
+  }
+  .gb-landing-page section h2 {
+    font-size: 21px;
+  }
+  .gb-landing-page section p {
+    font-size: 15px;
+    line-height: 22px;
+  }
 }
 .gb-landing-page section h2.section-heading {
   margin-top: 0;

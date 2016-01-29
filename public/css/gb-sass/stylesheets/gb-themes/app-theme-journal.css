@@ -3641,9 +3641,17 @@ input.gb-form-show {
   font-size: 5px;
   color: #FF1B1B;
 }
+@media (max-width: 991px) {
+  .gb-logo .gb-logo-icon {
+    font-size: 26px;
+  }
+}
 @media (max-width: 767px) {
   .gb-logo {
     padding: 0 2px 0 0;
+  }
+  .gb-logo .gb-logo-icon {
+    font-size: 14px;
   }
 }
 

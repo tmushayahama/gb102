@@ -1,38 +1,24 @@
 
 
 $primary-color: #027887;
+$explorer-color: #027887;
+$swipe-color: #5E2D35;
+$matcher-color:#027;
+$features-color:#EEE;
+
+
 @import "app-variables";
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
 
 .gb-landing-page {
+ background-color: #FFF;
  &.gb-top-nav-1 {
   padding: 1px 5px 5px 20px;
   @include position(fixed, 0 0 null 0);
   height: 41px;
   border-bottom: rgba($primary-color, 0.8) solid 3px;
   background-color: rgba(#FFF, 0.8);
-  .gb-logo {
-   text-decoration: none;
-   padding-top: 5px;
-   line-height: 28px;
-   color: #888;
-   font-size: 14px;
-   .fa-lg {
-    font-size: 14px;
-    text-align: center;
-    .fa-circle {
-     color: rgba($primary-color, 0.4);
-    }
-    .fa-inverse{
-     //font-size: 1.3em;
-     color: rgba($primary-color, 0.8);
-    }
-   }
-   strong {
-    color: $primary-color;
-   }
-  }
   .gb-action {
    padding-top: 3px;
   }
@@ -189,30 +175,102 @@ $primary-color: #027887;
   background-image: none;
  }
 
- .btn-xl {
-  padding: 20px 40px;
-  border-color: #fed136;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  background-color: #fed136;
+
+ .gb-icon-service {
+  font-size: 70px;
+  color: $primary-color;
+  @include respond-to (gb-xs) {
+   font-size: 40px;
+  }
  }
 
- .btn-xl .badge {
-  color: #fed136;
-  background-color: #fff;
+ .gb-icon-feature {
+  margin-bottom: 100px;
+  color: #555!important;
+  font-size: 40px;
+  text-align: center;
+  h4 {
+   padding-top: 15px;
+   font-size:20px;
+  }
+  color: $primary-color;
+  @include respond-to (gb-xs) {
+   font-size: 30px;
+   h4 {
+    font-size:12px;
+   }
+  }
+
  }
-
-
-
-
-
 
  section {
-  padding: 100px 0;
+  padding: 70px 0;
+  h1 {
+   font-weight: normal;
+   font-size: 50px;
+  }
+  h2  {
+   font-weight: normal;
+   font-size: 30px;
+   margin-bottom: 20px;
+  }
+  p {
+   font-size: 15px;
+   line-height: 25px;
+  }
+  &.gb-heading-row {
+   background-color: #FFF;
+
+  }
+  &.gb-services {
+   background-color: rgba($primary-color, 0.3);
+  }
+  &.gb-explorer-row {
+   background-color: rgba($explorer-color, 0.1);
+   border-top: $explorer-color solid 5px;
+   color: $explorer-color;
+  }
+  &.gb-swipe-row {
+   background-color: rgba($swipe-color, 0.1);
+   border-top: $swipe-color solid 5px;
+   color: $swipe-color;
+  }
+  &.gb-matcher-row {
+   background-color: rgba($matcher-color, 0.1);
+   border-top: $matcher-color solid 5px;
+   color: $matcher-color;
+  }
+  &.gb-features-row {
+   background-color: rgba($features-color, 0.1);
+   border-top: $features-color solid 5px;
+   color: $features-color;
+  }
+  @include respond-to (gb-sm) {
+   h1 {
+    font-size: 40px;
+   }
+   h2  {
+    font-size: 30px;
+   }
+   p {
+    font-size: 18px;
+    line-height: 25px;
+   }
+  }
+
+  @include respond-to (gb-xs) {
+   text-align: center;
+   h1 {
+    font-size: 25px;
+   }
+   h2  {
+    font-size: 21px;
+   }
+   p {
+    font-size: 15px;
+    line-height: 22px;
+   }
+  }
  }
 
  section h2.section-heading {

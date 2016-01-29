@@ -101,7 +101,7 @@ form {
  @include respond-to (gb-md) {
   width: 768px;
  }
- @include respond-to (gb-sm) { 
+ @include respond-to (gb-sm) {
   width: 768px;
  }
  @include respond-to (gb-xs) {
@@ -1211,8 +1211,17 @@ input.gb-form-show{
   color: #FF1B1B;
  }
 
+ @include respond-to (gb-sm) {
+  .gb-logo-icon {
+   font-size: 26px;
+  }
+ }
+
  @include respond-to (gb-xs) {
   padding: 0 2px 0 0;
+  .gb-logo-icon {
+   font-size: 14px;
+  }
  }
 }
 
