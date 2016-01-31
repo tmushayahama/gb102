@@ -26,7 +26,8 @@ define([
  '../explore/module',
  '../swipe/module',
  '../profile/module',
- '../questionnaire/module'
+ '../questionnaire/module',
+ '../mentorship/module'
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -53,6 +54,7 @@ define([
   'app.swipe',
   'app.profile',
   'app.questionnaire',
+  'app.mentorship',
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {

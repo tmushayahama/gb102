@@ -18,20 +18,20 @@ module.exports = function (grunt) {
  };
 
  var apps = [
-  "questionnaire"
+  "mentorship"
  ];
  var srcs = [
   {
    cwd: 'public/modules/',
-   src: ['swipe/**']
+   src: ['explore/**']
   },
   {
    cwd: 'app/Http/Controllers/',
-   src: ['Swipe/**']
+   src: ['Explore/**']
   },
   {
    cwd: 'app/Models/',
-   src: ['Swipe/**']
+   src: ['Explore/**']
   },
   /*
    {
@@ -71,8 +71,8 @@ module.exports = function (grunt) {
              src: src.src,
              dest: src.cwd,
              rename: function (dest, src) {
-              return dest + src.replace(/swipe/g, app)
-                      .replace(/Swipe/g, app.capitalizeFirstLetter());
+              return dest + src.replace(/explore/g, app)
+                      .replace(/Explore/g, app.capitalizeFirstLetter());
 
              }
             });
@@ -90,19 +90,19 @@ module.exports = function (grunt) {
     options: {
      patterns: [
       {
-       match: /swipe/g,
+       match: /explore/g,
        replacement: app
       },
       {
-       match: /Swipe/g,
+       match: /Explore/g,
        replacement: app.capitalizeFirstLetter()
       },
       {
-       match: /SWIPE/g,
+       match: /EXPLORE/g,
        replacement: app.toUpperCase()
       },
       {
-       match: /app-theme-swipe/g,
+       match: /app-theme-explore/g,
        replacement: 'app-theme-' + app
       }
      ]

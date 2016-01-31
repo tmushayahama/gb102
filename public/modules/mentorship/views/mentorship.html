@@ -1,0 +1,128 @@
+<div id="gb-middle-nav" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="gb-container gb-app-detail">
+  <div class="row">
+   <div class="gb-background-white col-lg-8 col-md-9 col-sm-9 col-xs-12">
+    <div class="gb-cover">
+     <div ng-include="'public/modules/mentorship/views/components/mentorship/mentorship-cover.html'"></div>
+    </div>
+    <div class="gb-profile-row-2">
+     <div class="gb-icon">
+      <i class="fa {{mentorshipCtrl.mentorshipManager.mentorship.icon.name}}"></i>
+     </div>
+     <div class="gb-row-content">
+      <div class="gb-ellipsis">
+       <h1 class="gb-title">
+        <strong>{{mentorshipCtrl.mentorshipManager.mentorship.title}}</strong> {{mentorshipCtrl.mentorshipManager.mentorship.description}}
+       </h1>
+       <a class="gb-description"
+          ui-sref="profile.overview({profileId: mentorshipCtrl.mentorshipManager.mentorship.creator.id})">
+        <img src="public/img/profile_pic/{{mentorshipCtrl.mentorshipManager.mentorship.creator.avatar_url}}" class="gb-profile-pic" alt="">
+        <h2 class="gb-heading">
+         <i>by: </i>{{mentorshipCtrl.mentorshipManager.mentorship.creator.firstname + " " + mentorshipCtrl.mentorshipManager.mentorship.creator.lastname}}
+        </h2>
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+     <ul class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <li ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
+       <a class="gb-ellipsis" ui-sref="apps.mentorship.overview">
+        <i class="gb-icon fa fa-home"></i>
+        <div class="gb-title">
+         HOME
+        </div>
+       </a>
+      </li>
+      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+       <a class="gb-ellipsis" ui-sref="apps.mentorship.tools">
+        <i class="gb-icon fa icon-tools2"></i>
+        <div class="gb-title">
+         TOOLS
+        </div>
+       </a>
+      </li>
+      <li ui-sref-active="active" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+       <a class="gb-ellipsis" ui-sref="apps.mentorship.community">
+        <i class="gb-icon fa icon-gb-community"></i>
+        <div class="gb-title">
+         COMMUNITY
+        </div>
+       </a>
+      </li>
+      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+       <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'promise'})">
+        <i class="gb-icon fa fa-bar-chart-o"></i>
+        <div class="gb-title">
+         STATS
+        </div>
+       </a>
+      </li>
+      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+       <a class="gb-ellipsis" ui-sref="apps.mentorships.manage">
+        <i class="gb-icon fa fa-cogs"></i>
+        <div class="gb-title">
+         MANAGE
+        </div>
+       </a>
+      </li>
+      <li class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+       <a class="gb-ellipsis dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" ui-sref="apps.mentorships.skill">
+        <i class="gb-icon fa fa-ellipsis-h"></i>
+        <div class="gb-title">
+         MORE
+        </div>
+       </a>
+       <ul class="dropdown-menu dropdown-menu-right">
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs">
+         <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'hobby'})">
+          <i class="gb-icon fa icon-gb-hobby"></i>
+          <div class="gb-title">
+           HOBBIES
+          </div>
+         </a>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'mentorship'})">
+          <i class="gb-icon fa icon-gb-mentorship"></i>
+          <div class="gb-title">
+           MENTORSHIP
+          </div>
+         </a>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'advice'})">
+          <i class="gb-icon fa icon-gb-advice"></i>
+          <div class="gb-title">
+           ADVICE
+          </div>
+         </a>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'teach'})">
+          <i class="gb-icon fa icon-gb-teach"></i>
+          <div class="gb-title">
+           TEACH
+          </div>
+         </a>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <a class="gb-ellipsis" ui-sref="apps.mentorships.app({'app_name': 'collaboration'})">
+          <i class="gb-icon fa icon-gb-collaboration"></i>
+          <div class="gb-title">
+           COLLABORATION
+          </div>
+         </a>
+        </li>
+        <li role="separator" class="divider"></li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+    <div ui-view="content" class="row gb-padding-medium"></div>
+    <div class="gb-dummy-height row"></div>
+   </div>
+  </div>
+ </div>
+</div>
