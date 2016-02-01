@@ -1,5 +1,17 @@
-<div id="gb-mentorships" class="gb-list row">
- <div ng-repeat="mentorship in mentorshipsTabCtrl.mentorships" class="gb-box-1 row">
+<section class="gb-section-row-2 row">
+ <header class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+   <p class="gb-title gb-ellipsis">
+    MENTORSHIPS
+   </p>
+  </div>
+  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3">
+   <a class="gb-ghost-btn-2 pull-right" ng-click="editDescriptionForm.$show()" ng-hide="editDescriptionForm.$visible">
+    <i class="fa fa-pencil"></i>
+   </a>
+  </div>
+ </header>
+ <div ng-repeat="mentorship in mentorshipManageCtrl.mentorships" class="gb-box-1 row">
   <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <span class="fa-stack fa-lg">
     <i class="fa fa-outer icon-gb-{{mentorship.explore.app_type.name.toLowerCase()}} fa-stack-2x"></i>
@@ -27,18 +39,16 @@
      {{mentorship.explore.title}}
     </a>
     {{mentorship.explore.description}}
-    <a ui-sref="profile.overview({profileId: mentorship.explore.creator.id})">
-     {{mentorship.mentor.firstname + ' ' + mentorship.mentor.lastname}}
-    </a>
-    <a ui-sref="profile.overview({profileId: mentorship.explore.creator.id})">
-     {{mentorship.mentee.firstname + ' ' + mentorship.mentee.lastname}}
-    </a>
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
      <h5 class="gb-ellipsis">
-      <a ui-sref="profile.overview({profileId: mentorship.explore.creator.id})">
-       {{mentorship.explore.creator.firstname + ' ' + mentorship.explore.creator.lastname}}
+      <a ui-sref="profile.overview({profileId: mentorship.mentor_id})">
+       {{mentorship.mentor.firstname + ' ' + mentorship.mentor.lastname}}
+      </a>
+      <i class='gb-faded-icon fa fa-play'></i>
+      <a ui-sref="profile.overview({profileId: mentorship.mentee_id})">
+       {{mentorship.mentee.firstname + ' ' + mentorship.mentee.lastname}}
       </a>
      </h5>
     </div>
@@ -48,6 +58,8 @@
    </div>
   </div>
  </div>
-</div>
+</section>
+
+
+<div class="" ng-include="'public/modules/mentorship/views/components/mentorship/mentorship-timeline.html'"></div>
 <div class="gb-dummy-height row"></div>
-<!-- ------------------------------- MODALS --------------------------->

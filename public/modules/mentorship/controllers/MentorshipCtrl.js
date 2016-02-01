@@ -19,7 +19,7 @@ var mentorshipCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-mentorship.css'
  }, $scope);
 
- vm.mentorship = [];
+ vm.mentorship;
  var mentorshipData = {
  };
 
@@ -53,11 +53,9 @@ var mentorshipCtrl = function (
 
  vm.mentorshipFormDisplay = false;
 
- vm.getMentorship = function (id, data) {
-  vm.mentorshipManager.getMentorship(id, data).success(function (response) {
-   vm.mentorship = response;
-  }).error(function (response) {
-   console.log(response);
+ vm.getMentorship = function (id) {
+  vm.mentorshipManager.getMentorship(id).then(function (data) {
+   vm.mentorship = data;
   });
  };
 
@@ -94,89 +92,11 @@ var mentorshipCtrl = function (
   });
  };
 
- vm.editMentorshipSections = {
-  details: function (mentorshipId, detail) {
-   var mentorshipData = {
-    mentorshipId: mentorshipId,
-    title: detail.title,
-    description: detail.description
-   };
-   vm.editMentorship(mentorshipData);
-  }
- }
 
- vm.cancelMentorship = function (form) {
-  vm.FormDisplay = false;
-  vm.newMentorshipData = angular.copy(vm.defaultMentorshipData)
-  if (form) {
-   form.$setPristine();
-   form.$setUntouched();
-  }
- };
-
- vm.revertMentorship = function (mentorship, mentorshipCopy) {
-  mentorship = mentorshipCopy;
-  /*
-   $filter('filter')
-   (vm.mentorshipManager.mentorship, {id: mentorshipId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.mentorshipCopy, {id: mentorshipId}, true)[0]);
-   if (mentorship.length && mentorshipCopy.length) {
-   // vm.mentorshipManager.mentorship angular.copy(vm.mentorshipCopy);
-   }
-   */
- };
-
-
-
-
-
-
- vm.edited = null;
-
- $scope.$watch(angular.bind(this, function () {
-  return vm.mentorship;
- }), function () {
-  //vm.remainingCount = filterFilter(mentorship, {completed: false}).length;
-  vm.doneCount = vm.mentorshipManager.mentorship.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //MentorshipService.put(vm.mentorship);
- }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
-
-
- vm.edit = function (mentorship) {
-  vm.edited = mentorship;
-  // Clone the original mentorship to restore it on demand.
-  vm.original = angular.copy(mentorship);
- };
-
-
- vm.doneEditing = function (mentorship) {
-  vm.edited = null;
-  mentorship.title = mentorship.title.trim();
-
-  if (!mentorship.title) {
-   vm.remove(mentorship);
-  }
- };
 
  //--------init------
- vm.mentorshipManager.getMentorship(vm.mentorshipId).then(function (data) {
-  $css.bind({
-   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.name.toLowerCase() + '.css'
-  }, $scope);
- });
+
+ vm.getMentorship(vm.mentorshipId);
  vm.constantsManager.getIcons(1).then(function (data) {
   vm.mentorshipIcons = data;
   vm.getRandomMentorshipIcons();

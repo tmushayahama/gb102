@@ -273,6 +273,7 @@ Route::group(['prefix' => 'api'], function() {
 
  //Mentorship
  Route::get('mentorships/all', 'Mentorship\MentorshipController@getMentorshipsAll');
+ Route::get('mentorships/submentorships/{mentorshipId}', 'Mentorship\MentorshipController@getSubMentorships');
  Route::get('mentorships/all/{mentorshipType}', 'Mentorship\MentorshipController@getMentorships');
 
  Route::get('mentorships/mine', 'Mentorship\MentorshipController@getMentorshipsMine');

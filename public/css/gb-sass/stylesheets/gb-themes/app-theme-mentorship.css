@@ -4634,6 +4634,18 @@ input.gb-form-show {
   font-size: 10px;
   text-transform: uppercase;
 }
+.gb-box-1 .gb-box-body .gb-faded-icon {
+  color: #999;
+}
+.gb-box-1 .gb-box-body .gb-relation {
+  padding: 8px 5px 0 10px;
+  height: 22px;
+}
+.gb-box-1 .gb-box-body .gb-relation .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
 .gb-box-1 .gb-box-body .gb-description {
   padding: 2px 40px 2px 10px;
   overflow: hidden;

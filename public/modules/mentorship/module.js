@@ -53,8 +53,8 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorships.app', {
-           url: '/all/{app_name}',
+          .state('apps.mentorships.type', {
+           url: '/all/{type_id}',
            views: {
             "app-tab": {
              controller: 'MentorshipsAppCtrl as mentorshipsTabCtrl',
@@ -113,7 +113,7 @@ define(['angular'
                   'public/modules/mentorship/filters/randomize.js',
                  ]
                 });
-               }]
+               }],
              }
             }
            }})
@@ -130,6 +130,30 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/mentorship/controllers/MentorshipOverviewCtrl.js',
+                  //Timeline
+                  'public/modules/mentorship/services/MentorshipTimelineManager.js',
+                  'public/modules/mentorship/services/MentorshipTimelinesManager.js',
+                  'public/modules/mentorship/controllers/MentorshipTimelinesCtrl.js',
+                  'public/modules/mentorship/controllers/modals/MentorshipTimelineCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.mentorship.manage', {
+           url: '/manage',
+           views: {
+            "content": {
+             controller: 'MentorshipManageCtrl as mentorshipManageCtrl',
+             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-manage.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorship',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorship/controllers/MentorshipManageCtrl.js',
                   //Timeline
                   'public/modules/mentorship/services/MentorshipTimelineManager.js',
                   'public/modules/mentorship/services/MentorshipTimelinesManager.js',

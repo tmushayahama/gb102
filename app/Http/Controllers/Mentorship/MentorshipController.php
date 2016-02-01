@@ -31,6 +31,11 @@ class MentorshipController extends Controller {
   return \Response::json($mentorships);
  }
 
+ public function getSubMentorships($mentorshipId) {
+  $mentorships = Mentorship::getSubMentorships($mentorshipId);
+  return \Response::json($mentorships);
+ }
+
  public function getMentorships($appName) {
   $mentorships = Mentorship::getMentorships($appName);
   return \Response::json($mentorships);

@@ -7,18 +7,18 @@
     </div>
     <div class="gb-profile-row-2">
      <div class="gb-icon">
-      <i class="fa {{mentorshipCtrl.mentorshipManager.mentorship.icon.name}}"></i>
+      <i class="fa {{mentorshipCtrl.mentorship.explore.icon.name}}"></i>
      </div>
      <div class="gb-row-content">
       <div class="gb-ellipsis">
        <h1 class="gb-title">
-        <strong>{{mentorshipCtrl.mentorshipManager.mentorship.title}}</strong> {{mentorshipCtrl.mentorshipManager.mentorship.description}}
+        <strong>{{mentorshipCtrl.mentorship.explore.title}}</strong> {{mentorshipCtrl.mentorship.explore.description}}
        </h1>
        <a class="gb-description"
-          ui-sref="profile.overview({profileId: mentorshipCtrl.mentorshipManager.mentorship.creator.id})">
-        <img src="public/img/profile_pic/{{mentorshipCtrl.mentorshipManager.mentorship.creator.avatar_url}}" class="gb-profile-pic" alt="">
+          ui-sref="profile.overview({profileId: mentorshipCtrl.mentorship.explore.creator.id})">
+        <img src="public/img/profile_pic/{{mentorshipCtrl.mentorship.explore.creator.avatar_url}}" class="gb-profile-pic" alt="">
         <h2 class="gb-heading">
-         <i>by: </i>{{mentorshipCtrl.mentorshipManager.mentorship.creator.firstname + " " + mentorshipCtrl.mentorshipManager.mentorship.creator.lastname}}
+         <i>by: </i>{{mentorshipCtrl.mentorship.explore.creator.firstname + " " + mentorshipCtrl.mentorship.explore.creator.lastname}}
         </h2>
        </a>
       </div>
@@ -31,6 +31,14 @@
         <i class="gb-icon fa fa-home"></i>
         <div class="gb-title">
          HOME
+        </div>
+       </a>
+      </li>
+      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+       <a class="gb-ellipsis" ui-sref="apps.mentorship.manage">
+        <i class="gb-icon fa fa-cogs"></i>
+        <div class="gb-title">
+         MANAGE
         </div>
        </a>
       </li>
@@ -55,14 +63,6 @@
         <i class="gb-icon fa fa-bar-chart-o"></i>
         <div class="gb-title">
          STATS
-        </div>
-       </a>
-      </li>
-      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-       <a class="gb-ellipsis" ui-sref="apps.mentorships.manage">
-        <i class="gb-icon fa fa-cogs"></i>
-        <div class="gb-title">
-         MANAGE
         </div>
        </a>
       </li>

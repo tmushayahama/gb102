@@ -16,9 +16,14 @@ class Mentorship extends Model {
   * @var string
   */
  protected $table = 'gb_mentorship';
+ public $count = 41;
 
  public function explore() {
   return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ }
+
+ public function creator() {
+  return $this->belongsTo('App\Models\User\User', 'mentor_id');
  }
 
  public function mentor() {
@@ -38,9 +43,27 @@ class Mentorship extends Model {
 
  public static function getMentorshipsAll() {
   $mentorships = Mentorship::orderBy('id', 'desc')
+          ->with('explore')
+          ->whereHas('explore', function($q) {
+           $q->whereNull('parent_explore_id');
+          })
+          ->with('explore.app_type')
+          ->with('explore.creator')
+          ->with('explore.icon')
+          ->with('explore.level')
+          ->take(100)
+          ->get();
+  return $mentorships;
+ }
+
+ public static function getSubMentorships($mentorshipId) {
+  $mentorships = Mentorship::orderBy('id', 'desc')
+          ->with('explore')
           ->with('mentor')
           ->with('mentee')
-          ->with('explore')
+          ->whereHas('explore', function($q) use ($mentorshipId) {
+           $q->where('parent_explore_id', $mentorshipId);
+          })
           ->with('explore.app_type')
           ->with('explore.creator')
           ->with('explore.icon')
@@ -82,9 +105,13 @@ class Mentorship extends Model {
 
  public static function getMentorship($id) {
   $mentorship = Mentorship::with('creator')
-          ->with('app_type')
-          ->with('icon')
-          ->with('level')
+          ->with('mentor')
+          ->with('mentee')
+          ->with('explore')
+          ->with('explore.app_type')
+          ->with('explore.creator')
+          ->with('explore.icon')
+          ->with('explore.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
