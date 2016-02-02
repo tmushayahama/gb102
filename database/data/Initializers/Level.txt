@@ -31,3 +31,11 @@ id	category	code	name	description
 30	11	SWS2	Ehh!!	\N
 31	11	SWS3	Explore	\N
 32	11	SWS4	Super Explore	\N
+33	12	EAPP1	Can Mentor	\N
+34	12	EAPP2	Needs Mentorship	\N
+35	12	EAPP3	Need Advice	\N
+36	12	EAPP4	Can Give An Advise	\N
+37	12	EAPP5	Needs Collaboration	\N
+38	12	EAPP6	Make it a Goal	\N
+39	12	EAPP7	Help Keep it a Promise	\N
+40	12	EAPP8	Write it in Journal	\N

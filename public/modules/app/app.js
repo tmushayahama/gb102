@@ -27,7 +27,12 @@ define([
  '../swipe/module',
  '../profile/module',
  '../questionnaire/module',
- '../mentorship/module'
+ '../mentorship/module',
+ '../teach/module',
+ '../advice/module',
+ '../collaboration/module',
+ '../goal/module',
+ '../journal/module',
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -55,6 +60,11 @@ define([
   'app.profile',
   'app.questionnaire',
   'app.mentorship',
+  'app.teach',
+  'app.advice',
+  'app.collaboration',
+  'app.goal',
+  'app.journal'
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {

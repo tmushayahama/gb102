@@ -1,0 +1,104 @@
+<div class="gb-container gb-app-list">
+ <div class="row">
+  <ul class="nav gb-icon-top-nav-1 col-lg-8 col-md-8 col-sm-9 col-xs-12">
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis" ui-sref="apps.journals.all">
+     <i class="gb-icon fa icon-gb-discover"></i>
+     <div class="gb-title">
+      ALL
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'skill'})">
+     <i class="gb-icon fa icon-gb-skill"></i>
+     <div class="gb-title">
+      PEER
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+    <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'goal'})">
+     <i class="gb-icon fa icon-gb-goal"></i>
+     <div class="gb-title">
+      NATURAL
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+    <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'promise'})">
+     <i class="gb-icon fa icon-gb-promise"></i>
+     <div class="gb-title">
+      TRAINING
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+    <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'hobby'})">
+     <i class="gb-icon fa icon-gb-hobby"></i>
+     <div class="gb-title">
+      SUPERVISORY
+     </div>
+    </a>
+   </li>
+   <li class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis dropdown-toggle" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false" ui-sref="apps.journals.skill">
+     <i class="gb-icon fa fa-ellipsis-h"></i>
+     <div class="gb-title">
+      MORE
+     </div>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs">
+      <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'hobby'})">
+       <i class="gb-icon fa icon-gb-hobby"></i>
+       <div class="gb-title">
+
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'journal'})">
+       <i class="gb-icon fa icon-gb-journal"></i>
+       <div class="gb-title">
+        MY JOURNALS
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'advice'})">
+       <i class="gb-icon fa icon-gb-advice"></i>
+       <div class="gb-title">
+        ADVICE
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'teach'})">
+       <i class="gb-icon fa icon-gb-teach"></i>
+       <div class="gb-title">
+        TEACH
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.journals.app({'app_name': 'collaboration'})">
+       <i class="gb-icon fa icon-gb-collaboration"></i>
+       <div class="gb-title">
+        COLLABORATION
+       </div>
+      </a>
+     </li>
+     <li role="separator" class="divider"></li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+ <div ui-view="app-tab" class="col-lg-8 col-md-9 col-sm-9 col-xs-12"></div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->
+
+<script type="text/ng-template" id="create-journal-modal.html">
+ <div ng-include="'public/modules/journal/views/modals/create-journal.html'"></div>
+</script>

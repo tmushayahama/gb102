@@ -24,6 +24,7 @@ define(['angular'
                   'public/modules/explore/services/ExploresManager.js',
                   'public/modules/explore/controllers/ExploresCtrl.js',
                   'public/modules/explore/controllers/modals/AddExploreCtrl.js',
+                  'public/modules/explore/controllers/modals/CreateRequestExploreCtrl.js',
                  ]
                 });
                }]

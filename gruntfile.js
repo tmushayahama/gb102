@@ -18,20 +18,19 @@ module.exports = function (grunt) {
  };
 
  var apps = [
-  "mentorship"
  ];
  var srcs = [
   {
    cwd: 'public/modules/',
-   src: ['explore/**']
+   src: ['mentorship/**']
   },
   {
    cwd: 'app/Http/Controllers/',
-   src: ['Explore/**']
+   src: ['Mentorship/**']
   },
   {
    cwd: 'app/Models/',
-   src: ['Explore/**']
+   src: ['Mentorship/**']
   },
   /*
    {
@@ -71,8 +70,8 @@ module.exports = function (grunt) {
              src: src.src,
              dest: src.cwd,
              rename: function (dest, src) {
-              return dest + src.replace(/explore/g, app)
-                      .replace(/Explore/g, app.capitalizeFirstLetter());
+              return dest + src.replace(/mentorship/g, app)
+                      .replace(/Mentorship/g, app.capitalizeFirstLetter());
 
              }
             });
@@ -90,19 +89,19 @@ module.exports = function (grunt) {
     options: {
      patterns: [
       {
-       match: /explore/g,
+       match: /mentorship/g,
        replacement: app
       },
       {
-       match: /Explore/g,
+       match: /Mentorship/g,
        replacement: app.capitalizeFirstLetter()
       },
       {
-       match: /EXPLORE/g,
+       match: /MENTORSHIP/g,
        replacement: app.toUpperCase()
       },
       {
-       match: /app-theme-explore/g,
+       match: /app-theme-mentorship/g,
        replacement: 'app-theme-' + app
       }
      ]

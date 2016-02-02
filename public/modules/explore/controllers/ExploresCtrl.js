@@ -28,18 +28,6 @@ var exploresCtrl = function (
  vm.appTypes;
 
 
- $scope.superhero = {
-  selected: 'Batman'
- };
-
- $scope.$watch('superhero.selected', function (newVal, oldVal) {
-  /*      if (newVal !== oldVal) {
-   if ($scope.superheroes.indexOf(newVal) === -1) {
-   $scope.superheroes.unshift(newVal);
-   }
-   }*/
- });
-
  vm.createExplore = function (data) {
   vm.exploresManager.createExplore(data).then(function (response) {
    vm.FormDisplay = false;
@@ -93,13 +81,6 @@ var exploresCtrl = function (
    */
  };
 
-
-
-
-
-
- vm.edited = null;
-
  $scope.$watch(angular.bind(this, function () {
   return vm.explores;
  }), function () {
@@ -142,6 +123,27 @@ var exploresCtrl = function (
    animation: true,
    templateUrl: 'add-explore-modal.html',
    controller: 'AddExploreCtrl as addExploreCtrl',
+   backdrop: 'static',
+   size: 'xl',
+   resolve: {
+    appTypes: function () {
+     return vm.appTypes;
+    }
+   }
+  });
+
+  modalInstance.result.then(function (explore) {
+   vm.exploresManager.createExplore(explore);
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
+
+ $rootScope.openCreateRequestExploreModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'add-request-explore-modal.html',
+   controller: 'CreateRequestExploreCtrl as createRequestExploreCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
