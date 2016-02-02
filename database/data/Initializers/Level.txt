@@ -31,11 +31,19 @@ id	category	code	name	description
 30	11	SWS2	Ehh!!	\N
 31	11	SWS3	Explore	\N
 32	11	SWS4	Super Explore	\N
-33	12	EAPP1	Can Mentor	\N
-34	12	EAPP2	Needs Mentorship	\N
-35	12	EAPP3	Need Advice	\N
-36	12	EAPP4	Can Give An Advise	\N
-37	12	EAPP5	Needs Collaboration	\N
-38	12	EAPP6	Make it a Goal	\N
-39	12	EAPP7	Help Keep it a Promise	\N
-40	12	EAPP8	Write it in Journal	\N
+33	1001	EAPP1	Can Mentor	\N
+34	1001	EAPP2	Needs Mentorship	\N
+35	1001	EAPP3	Needs Advice	\N
+36	1001	EAPP4	Can Give Advise	\N
+37	1001	EAPP5	Needs Collaboration	\N
+38	1001	EAPP6	Needs to Achieve a Goal	\N
+39	1001	EAPP7	Make it a Hobby	\N
+40	1001	EAPP8	Write it in Journal	\N
+33	1002	EAPP1	Can Mentor	\N
+34	1002	EAPP2	Needs Mentorship	\N
+35	1002	EAPP3	Needs Advice	\N
+36	1002	EAPP4	Can Give Advise	\N
+37	1002	EAPP5	Needs Collaboration	\N
+38	1002	EAPP6	Needs to Achieve a Goal	\N
+39	1002	EAPP7	Make it a Hobby	\N
+40	1002	EAPP8	Write it in Journal	\N

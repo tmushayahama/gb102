@@ -15,6 +15,7 @@ var addExploreCtrl = function (
  vm.wizardHandler = WizardHandler;
  vm.explore = {};
  vm.exploreLevels;
+ vm.requestTypes;
  vm.appTypes = appTypes;
  vm.selectedAppType;
  vm.wizardCurrentStep = "Choose App";
@@ -27,10 +28,29 @@ var addExploreCtrl = function (
   });
  };
 
+ vm.getRequestTypes = function (appId) {
+  vm.constantsManager.getLevel(appId + level_categories.request_type_offset).then(function (data) {
+   vm.requestTypes = [];
+   angular.forEach(data, function (requestLevel) {
+    vm.requestTypes.push(
+            {
+             requestLevel: requestLevel,
+             exploreRequest: {
+              levelId: data.id,
+              description: ''
+             }
+            }
+    );
+   });
+  }
+  )
+ };
+
  vm.chooseAppType = function (appType) {
   vm.explore.appTypeId = appType.id;
   vm.selectedAppType = appType;
   vm.getLevels(appType.id);
+  vm.getRequestTypes(appType.id);
  };
 
  vm.next = function () {

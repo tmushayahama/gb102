@@ -19,6 +19,7 @@ define([
  'angular-aside',
  //'angular-sanitize',
  //'angular-ui-select',
+ 'checklist-model',
  'truncate-filters',
  '../auth/module',
  '../search/module',
@@ -51,6 +52,7 @@ define([
   'ngAside',
   //'ui.select',
   //'ngSanitize',
+  'checklist-model',
   'gb-filters.truncate',
   'app.auth',
   'app.search',
@@ -171,6 +173,7 @@ define([
  app.constant('_', window._);
  app.constant('level_categories',
          {
+          request_type_offset: 1000,
           skill: 1,
           goal: 2,
           hobby: 3,
@@ -181,12 +184,8 @@ define([
           advice: 8,
           group: 9,
           journal: 10,
-          skill_swipe: 11,
-          goal_swipe: 12,
-          hobby_swipe: 13,
-          promise_swipe: 14,
-          mentorship_swipe: 15,
-          advice_swipe: 16,
+          request_type_skill: 1001,
+          request_type_goal: 1002,
          });
 
 

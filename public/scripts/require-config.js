@@ -26,6 +26,7 @@ requirejs.config({
   'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
   //'angular-ui-select': '../../bower_components/ui-select/dist/select',
   //Local pugins--common
+  'checklist-model': '../../bower_components/checklist-model/checklist-model',
   'truncate-filters': '../modules/common/filters/truncate'
  },
  shim: {
@@ -51,6 +52,7 @@ requirejs.config({
   'angular-aside': {deps: ['angular', 'angular-animate']},
   'angular-sanitize': {deps: ['angular']},
   //'angular-ui-select': {deps: ['angular']},
+  'checklist-model': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [
