@@ -69,11 +69,11 @@
       <div ng-repeat="requestType in addExploreCtrl.requestTypes" class="row">
        <div class="checkbox">
         <label>
-         <input type="checkbox" data-checklist-model="addExploreCtrl.requestTypes" data-checklist-value="requestType">
+         <input type="checkbox" data-checklist-model="addExploreCtrl.selectedRequestTypes" data-checklist-value="requestType">
          {{requestType.requestLevel.name}}
         </label>
        </div>
-       <textarea ng-model="requestType.exploreRequest.description" name="description" required
+       <textarea ng-model="requestType.exploreRequest.description" name="description"
                  rows="3" placeholder="Display Message"
                  class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
        </textarea>
@@ -81,10 +81,6 @@
       </div>
      </div>
     </div>
-    <pre>
-     {{addExploreCtrl.requestTypes| json}}
-    </pre>
-
    </wz-step>
    <wz-step wz-title="Privacy">
     Privacy
@@ -99,16 +95,17 @@
   </a>
   <a ng-class="{
     'gb-disabled'
-    : addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.previous()">
+            : addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.previous()">
    Previous
   </a>
   <a ng-class="{
     'gb-disabled'
-    : addExploreCtrl.wizardCurrentStep === 'Privacy' && addExploreCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.next()">
+            : addExploreCtrl.wizardCurrentStep === 'Privacy' && addExploreCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.next()">
    Next
   </a>
   <a ng-class="{
-    'gb-disabled': addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.ok()">
+    'gb-disabled'
+    : addExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExploreCtrl.ok()">
    Add
   </a>
  </div>

@@ -36,7 +36,7 @@ var addExploreCtrl = function (
             {
              requestLevel: requestLevel,
              exploreRequest: {
-              levelId: data.id,
+              levelId: requestLevel.id,
               description: ''
              }
             }
@@ -62,6 +62,11 @@ var addExploreCtrl = function (
  };
 
  vm.ok = function () {
+  vm.explore.exploreRequests = [];
+  angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
+   vm.explore.exploreRequests.push(selectedRequestType.exploreRequest);
+  });
+
   $uibModalInstance.close(vm.explore);
  };
 

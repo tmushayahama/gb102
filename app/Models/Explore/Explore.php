@@ -98,6 +98,7 @@ class Explore extends Model {
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
+  $exploreRequests = Request::get("exploreRequests");
 
   $explore = new Explore;
   $explore->creator_id = $userId;
@@ -115,6 +116,7 @@ class Explore extends Model {
    throw $e;
   }
   DB::commit();
+  ExploreRequest::createExploreRequest($userId, $explore->id, $exploreRequests);
   return $explore;
  }
 
