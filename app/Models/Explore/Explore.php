@@ -41,7 +41,8 @@ class Explore extends Model {
  protected $fillable = ['title', 'description', 'level_id'];
 
  public static function getExploresAll() {
-  $explores = Explore::orderBy('id', 'desc')
+  $explores = Explore::orderBy('creator_id', 'desc')
+          ->orderBy('id', 'desc')
           ->with('app_type')
           ->with('creator')
           ->with('icon')
@@ -55,6 +56,7 @@ class Explore extends Model {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
    $explores = Explore::where('app_type_id', $appId->id)
+           ->orderBy('creator_id', 'desc')
            ->orderBy('id', 'desc')
            ->with('app_type')
            ->with('creator')

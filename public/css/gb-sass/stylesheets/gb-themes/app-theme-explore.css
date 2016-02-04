@@ -4627,6 +4627,7 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-box-body .gb-heading {
   padding: 8px 5px 0 10px;
+  margin-bottom: 10px;
   height: 22px;
 }
 .gb-box-1 .gb-box-body .gb-heading .gb-title {

@@ -24,6 +24,7 @@ requirejs.config({
   'angular-loading-bar': '../../../bower_components/angular-loading-bar/build/loading-bar.min',
   'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min',
   'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
+  'checklist-model': '../../../bower_components/checklist-model/checklist-model',
   //Local pugins--common
   'truncate-filters': 'scripts/modules/common/filters/truncate'
 
@@ -50,6 +51,7 @@ requirejs.config({
   'angular-loading-bar': {deps: ['angular', 'angular-animate']},
   'angular-aside': {deps: ['angular', 'angular-animate']},
   'angular-sanitize': {deps: ['angular']},
+  'checklist-model': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

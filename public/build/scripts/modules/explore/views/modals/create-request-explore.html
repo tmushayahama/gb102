@@ -1,0 +1,91 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-modal-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   Add To Explorer
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="createRequestExploreCtrl.close()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <form editable-form name="addExploreForm">
+  <wizard template="public/build/scripts/modules/app/views/templates/wizard.html"
+          on-finish="finishedWizard()"
+          name="explore-form"
+          current-step="createRequestExploreCtrl.wizardCurrentStep">
+   <wz-step wz-title="Choose App">
+    <div class="row">
+     <div ng-repeat="request in createRequestExploreCtrl.requests"
+          class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
+          ng-click="createRequestExploreCtrl.chooseAppType(request)"
+          wz-next value="Fill">
+      <div class="gb-apptype-btn">
+       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <i class="gb-icon fa icon-gb-mentorship"></i>
+       </div>
+       <div class="gb-title gb-ellipsis col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <h4>Mentee Request</h4>
+        <p>I can mentor </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Fill">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">App Name:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <input value="{{createRequestExploreCtrl.selectedAppType.name}}" readonly
+             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="createRequestExploreCtrl.explore.title" name="title" required
+                rows="2" placeholder="title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="createRequestExploreCtrl.explore.description" name="description" required
+                rows="4" placeholder="description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{createRequestExploreCtrl.explore.appType.name}} Level:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="createRequestExploreCtrl.explore.level">
+       <option  ng-repeat="option in createRequestExploreCtrl.exploreLevels" value="{{option.id}}">{{option.name}}</option>
+      </select>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Privacy">
+    Privacy
+   </wz-step>
+  </wizard>
+ </form>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.close()">
+   Close
+  </a>
+  <a ng-class="{'gb-disabled': createRequestExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.previous()">
+   Previous
+  </a>
+  <a ng-class="{'gb-disabled': createRequestExploreCtrl.wizardCurrentStep === 'Privacy' && createRequestExploreCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.next()">
+   Next
+  </a>
+  <a ng-class="{'gb-disabled': createRequestExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.ok()">
+   Add
+  </a>
+ </div>
+</div>

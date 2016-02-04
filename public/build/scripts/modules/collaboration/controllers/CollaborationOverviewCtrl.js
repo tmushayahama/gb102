@@ -1,0 +1,1 @@
+var collaborationOverviewCtrl=function(CollaborationManager,$state,$stateParams,$http,$rootScope){};collaborationOverviewCtrl.$inject=["CollaborationManager","$state","$stateParams","$http","$rootScope"],angular.module("app.collaboration").controller("CollaborationOverviewCtrl",collaborationOverviewCtrl);

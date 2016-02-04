@@ -9,8 +9,12 @@
   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="gb-heading row">
     <p class="gb-title">{{explore.app_type.name + ' - ' + explore.level.name}}</p>
-    <div class="gb-dropdown-action">
-     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="btn-group gb-dropdown-action">
+     <a class="btn gb-ghost-btn-2"
+        ng-click="$root.openCreateRequestExploreModal()">
+      Request
+     </a>
+     <a class="btn gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa fa-chevron-down"></i>
      </a>
      <ul class="dropdown-menu dropdown-menu-right">
@@ -29,7 +33,7 @@
     {{explore.description}}
    </div>
    <div class="gb-footer row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <h5 class="gb-ellipsis">
       <a ui-sref="profile.overview({profileId: explore.creator.id})">
        {{explore.creator.firstname + ' ' + explore.creator.lastname}}
@@ -37,10 +41,7 @@
      </h5>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-     <a class="btn gb-ghost-btn-2 gb-ellipsis"
-        ng-click="$root.openCreateRequestExploreModal()">
-      Request
-     </a>
+
     </div>
    </div>
   </div>
