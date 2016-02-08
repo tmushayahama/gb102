@@ -6291,14 +6291,14 @@ id	app_type_id	parent_skill_id	creator_id	skill_icon	skill_picture_url	title	des
 6290	1	\N	2	45	skill_default.png	Adventurous	Being creative when going out whether with friends and family or on dates. 	0000-00-00 00:00:00	3	0	1	0	0.368307197
 6291	5	6286	2	252	sushi_making_1.png	Sushi Making	Beginners guide to making sushi from scratch	11/4/2015 10:00	14	0	1	0	0.807788336
 6292	1	\N	2	70	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	0000-00-00 00:00:00	2	0	1	0	0.359141627
-6293	1	\N	15	166	skill_default.png	Sushi Making	I have gained some skill of making sushi from scratch. I continue to improve by reading from different recipes.	0000-00-00 00:00:00	1	0	1	0	0.087366193
+6293	1	\N	14	166	skill_default.png	Sushi Making	I have gained some skill of making sushi from scratch. I continue to improve by reading from different recipes.	0000-00-00 00:00:00	1	0	1	0	0.087366193
 6294	1	\N	2	180	skill_default.png	Drawing	I used to like drawing with pencil and paper but somehow stopped.	0000-00-00 00:00:00	2	0	1	0	0.272543318
 6295	5	6288	2	129	career_path_1.png	Career Path (Me in 5 years)	Career Planning	6/4/2015 10:00	16	0	1	0	0.932404757
 6296	5	6287	3	17	mentorship_default.png	Organizing your kitchen area	Have your kitchen in order. The kitchen gets used more often than most other areas.	6/15/2015 0:00	14	0	1	1	0.035848313
 6297	5	6288	2	226	career_path_1.png	Career Path (Me in 5 years)	Career Planning	5/4/2015 10:00	16	0	1	0	0.114086423
 6298	1	\N	2	17	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	0000-00-00 00:00:00	2	0	1	0	0.526031583
 6299	1	\N	2	207	skill_default.png	"Ms Powerpoint: designing icons, greeting cards and creative Powerpoints"	"To some, Photoshop is a default program to go when designing, but if you know deep MS PowerPoint features, you can  d wonderful things design. I have gained a huge amount of designing experience using MS PowerPoint and would like to share my random skills I have used in PowerPoint. Note, almost all the default customised pictures and icons in this application were made using MS PowerPoint."	0000-00-00 00:00:00	3	0	1	0	0.681349871
-6300	1	\N	15	222	skill_default.png	Improving Excel skills. Advanced features 	How I can use and integrate it to help in my data science field of study.	0000-00-00 00:00:00	2	0	1	0	0.160620561
+6300	1	\N	14	222	skill_default.png	Improving Excel skills. Advanced features 	How I can use and integrate it to help in my data science field of study.	0000-00-00 00:00:00	2	0	1	0	0.160620561
 6301	5	\N	2	194	apartment_decoration_1.png	Apartment Decoration Ideas	Mi casa es su casa. How to  make my apartment awesome	5/4/2015 10:00	13	0	1	0	0.423149974
 6302	1	\N	2	153	skill_default.png	Teamwork	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	0000-00-00 00:00:00	2	0	1	0	0.155478804
 6303	1	\N	2	212	skill_default.png	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	0000-00-00 00:00:00	1	0	1	0	0.692143521
@@ -6309,7 +6309,7 @@ id	app_type_id	parent_skill_id	creator_id	skill_icon	skill_picture_url	title	des
 6308	1	\N	2	255	skill_default.png	Web Designing	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio."	0000-00-00 00:00:00	1	0	1	0	0.86757691
 6309	1	\N	2	13	skill_default.png	"Excel, to be awesome in excel. It's hidden functions"	"Excel is one of my favorite software. I have gained so much knowledge and I want to share with the world. However, I am still way less to be an excel expert, so I want to learn from the community."	0000-00-00 00:00:00	2	0	1	0	0.274384242
 6310	1	\N	3	72	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	0000-00-00 00:00:00	1	0	1	0	0.409188026
-6311	5	6286	15	231	sushi_making_1.png	Sushi Making	Showing my friend how to make sushi from scratch	11/4/2015 10:00	13	0	1	0	0.243875111
+6311	5	6286	14	231	sushi_making_1.png	Sushi Making	Showing my friend how to make sushi from scratch	11/4/2015 10:00	13	0	1	0	0.243875111
 6312	1	\N	2	184	skill_default.png	Organizing and cleaning my apartment. Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	0000-00-00 00:00:00	2	0	1	0	0.319441808
 6313	8	\N	1	255	advice_default.png	"As soon as you can, buy some art."		3/27/2016 10:00	13	0	1	0	0.243875111
 6314	8	\N	1	138	advice_default.png	True wisdom and insight is always free.		2/3/2016 10:00	13	0	1	0	0.243875111

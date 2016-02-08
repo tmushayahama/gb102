@@ -118,7 +118,7 @@ class Explore extends Model {
    throw $e;
   }
   DB::commit();
-  ExploreRequest::createExploreRequest($userId, $explore->id, $exploreRequests);
+  ExploreRequestOption::createExploreRequestOption($userId, $explore->id, $exploreRequests);
   return $explore;
  }
 

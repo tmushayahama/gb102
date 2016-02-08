@@ -61,9 +61,6 @@ var exploreCtrl = function (
   });
  };
 
-
-
-
  vm.defaultExploreData = {
   exploreId: $stateParams.exploreId,
   privacy: 0
@@ -126,10 +123,6 @@ var exploreCtrl = function (
    }
    */
  };
-
-
-
-
 
 
  vm.edited = null;

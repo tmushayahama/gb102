@@ -1253,53 +1253,17 @@ input.gb-form-show{
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
  -webkit-backface-visibility: hidden;
- background-color: #FFF;
- border-right: #BBB solid 1px;
-
- .gb-header {
-  padding: 0;
-  @include position(absolute, 0 0 null 0);
-  height: 41px;
-  border-bottom: #AAA solid 1px;
-  background-color: #FFF;
-  a,
-  a:hover{
-   text-decoration: none;
-   color:  #000;
-  }
-  .gb-link {
-   padding:0px 5px 0px 20px;
-   display: block;
-   width: 100%;
-   .gb-image-icon {
-    margin-top: 5px;
-    width: 30px;
-    height: 30px;
-   }
-   .gb-content {
-    display: block;
-    font-size: 12px;
-    padding: 8px 5px;
-   }
-  }
-
- }
+ //background-color: rgba($primary-color, 0.2);
 
  .gb-body {
   padding-bottom: 150px;
-  @include position(absolute, 42px 0 0 0);
+  @include position(absolute, -10px 0 0 0);
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
  }
 
- .gb-heading {
-  font-size: 0.8em;
-  padding: 15px 3px 15px 27px;
-  margin: 0;
-  color: #999;
-  border-bottom: #CCC solid 1px;
- }
+
 
  .gb-heading .gb-superscript {
   font-size: 0.8em;
@@ -1314,19 +1278,37 @@ input.gb-form-show{
  .gb-sidenav-app-heading.gb-link:hover {
   background-color: #CCC9B7;
  }
+
+ .gb-nav-strip {
+  padding: 0;
+  background-color: #FFF;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  .gb-heading {
+   font-size: 8px;
+   padding: 5px 2px 5px 2px;
+   margin: 0;
+   color: #DDD;
+   background-color: #777;
+  }
+ }
+
  .gb-link {
-  padding:0px 5px 0px 20px;
+  text-align: center;
+  padding:5px 2px 5px 2px;
   display: block;
+  text-decoration: none;
   width: 100%;
-  border-bottom: #EEE solid 1px;
+  border-bottom: #DDD solid 1px;
   /*
   -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
-  .fa-lg {
+  .gb-icon {
    font-size: 12px;
-   text-align: center;
    @include respond-to (gb-sm) {
     font-size: 12px;
    }
@@ -1348,71 +1330,51 @@ input.gb-form-show{
      color: rgba($primary-color, 0.7);
     }
     .fa-inner {
-     color: darken($primary-color, 20%);
+     color: darken($primary-color, 15%);
     }
    }
   }
-  .gb-content {
-   display: block;
-   font-size: 14px;
-   padding: 10px 5px 10px 44px;
+
+  .gb-title {
+   padding:10px 0px 0px 0px;
+   font-size: 10px;
+   color: #333;
+   line-height: 25px;
+   overflow: hidden;
   }
- }
+  .gb-description{
+   padding: 3px 5px;
+   font-size: 0.9em;
+   color: #777;
+   text-decoration: none;
+  }
 
- .gb-nav-strip-mini .gb-link {
-  /*
-  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
-  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
-  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
-  */
- }
+  &:hover {
+   background-color: #EEE;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+  }
+  &.active {
+   background-color: #E2E2E2;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+  }
 
- .gb-link:hover {
-  background-color: #F2F2F2;
- }
- .gb-link.active {
-  background-color: #EEE;
- }
+  .thumbnail{
+   margin-bottom: 0px;
+   border: none;
+   background-color: transparent;
+  }
 
- .gb-link .thumbnail{
-  margin-bottom: 0px;
-  border: none;
-  background-color: transparent;
- }
-
- .gb-link .gb-image-icon {
-  float: left;
-  width: 40px;
-  height: 40px;
-  padding: 0px;
-  margin-right: 7px;
- }
-
-
-
- .gb-link i{
-  margin-top: 7px;
-  color: #919599;
- }
-
- .gb-link .gb-heading {
-  color: #333;
- }
-
- .gb-link .gb-title {
-  padding:0px 5px 0px 0px;
-  font-size: 12px;
-  color: #333;
-  line-height: 25px;
-  text-decoration: none;
-  overflow: hidden;
- }
-
- .gb-link .gb-description{
-  padding: 3px 5px;
-  font-size: 0.9em;
-  color: #777;
-  text-decoration: none;
+  .gb-image-icon {
+   width: 100%;
+   padding: 0px;
+   margin-right: 7px;
+  }
  }
 }
 
@@ -1665,16 +1627,9 @@ input.gb-form-show{
  font-weight: normal;
 }
 
-
-
-
-
-
 #gb-left-nav-3::-webkit-scrollbar {
  display: none;
 }
-
-
 
 .gb-play-form {
  overflow: hidden;
@@ -2105,17 +2060,6 @@ input.gb-form-show{
 }
 
 
-
-.gb-stat-row .gb-heading .gb-number{
- font-size: 4.5em;
-}
-.gb-stat-row .gb-body .gb-number{
- padding: 5px 0px 5px 3px;
- background-color: #DDD;
-}
-.gb-stat-row .gb-body .gb-link{
- padding: 5px 0px 5px 3px;
-}
 
 /*----------------- Gb Large Boxes --------------*/
 .gb-box-1 {

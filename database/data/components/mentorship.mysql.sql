@@ -30,6 +30,7 @@ CREATE TABLE `gb_mentorship` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentorship/Mentorship.txt'
     into table gb102.gb_mentorship
     fields terminated by '\t'

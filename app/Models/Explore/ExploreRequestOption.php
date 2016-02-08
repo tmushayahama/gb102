@@ -7,14 +7,14 @@ use Request;
 use DB;
 use JWTAuth;
 
-class ExploreRequest extends Model {
+class ExploreRequestOption extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_explore_request';
+ protected $table = 'gb_explore_request_option';
  public $timestamps = false;
 
  public function explore() {
@@ -32,35 +32,34 @@ class ExploreRequest extends Model {
   */
  protected $fillable = [];
 
- public static function getExploreRequests($exploreId) {
-  $exploreRequests = ExploreRequest::with('request')
-          ->with('request.creator')
+ public static function getExploreRequestOptions($exploreId) {
+  $exploreRequestOptions = ExploreRequestOption::with('level')
           ->orderBy('id', 'DESC')
           ->where('explore_id', $exploreId)
           ->get();
-  return $exploreRequests;
+  return $exploreRequestOptions;
  }
 
- public static function getExploreRequest($exploreId, $requestId) {
-  $exploreRequest = ExploreRequest::with('request')
+ public static function getExploreRequestOption($exploreId, $requestId) {
+  $exploreRequestOption = ExploreRequestOption::with('request')
           ->orderBy('id', 'DESC')
           ->where('explore_id', $exploreId)
           ->where('request_id', $requestId)
           ->first();
-  return $exploreRequest;
+  return $exploreRequestOption;
  }
 
- public static function createExploreRequest($userId, $exploreId, $exploreRequests) {
+ public static function createExploreRequestOption($userId, $exploreId, $exploreRequestOptions) {
 
   DB::beginTransaction();
   try {
-   foreach ($exploreRequests as $request) {
-    $exploreRequest = new ExploreRequest;
-    $exploreRequest->creator_id = $userId;
-    $exploreRequest->explore_id = $exploreId;
-    $exploreRequest->level_id = $request["levelId"];
-    $exploreRequest->description = $request["description"];
-    $exploreRequest->save();
+   foreach ($exploreRequestOptions as $request) {
+    $exploreRequestOption = new ExploreRequestOption;
+    $exploreRequestOption->creator_id = $userId;
+    $exploreRequestOption->explore_id = $exploreId;
+    $exploreRequestOption->level_id = $request["levelId"];
+    $exploreRequestOption->description = $request["description"];
+    $exploreRequestOption->save();
    }
   } catch (\Exception $e) {
    //failed logic here
@@ -71,27 +70,27 @@ class ExploreRequest extends Model {
   return true;
  }
 
- public static function editExploreRequest() {
+ public static function editExploreRequestOption() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $exploreRequestId = Request::get("exploreRequestId");
+  $exploreRequestOptionId = Request::get("exploreRequestOptionId");
   //$requestId = Request::get("requestId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $exploreRequest = ExploreRequest::find($exploreRequestId);
-  $exploreRequest->request->title = $title;
-  $exploreRequest->request->description = $description;
+  $exploreRequestOption = ExploreRequestOption::find($exploreRequestOptionId);
+  $exploreRequestOption->request->title = $title;
+  $exploreRequestOption->request->description = $description;
 
   DB::beginTransaction();
   try {
-   $exploreRequest->push();
+   $exploreRequestOption->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $exploreRequest;
+  return $exploreRequestOption;
  }
 
 }

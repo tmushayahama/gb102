@@ -12,6 +12,7 @@ use App\Models\Explore\Explore;
 use App\Models\Explore\ExploreTimeline;
 use App\Models\Explore\ExploreComment;
 use App\Models\Explore\ExploreNote;
+use App\Models\Explore\ExploreRequestOption;
 use App\Models\Explore\ExploreTodo;
 use App\Models\Explore\ExploreWeblink;
 use App\Models\Todo\Todo;
@@ -54,6 +55,11 @@ class ExploreController extends Controller {
  public function editExplore() {
   $explore = Explore::editExplore();
   return \Response::json($explore);
+ }
+
+ public function getExploreRequestOptions($exploreId) {
+  $exploreRequestOptions = ExploreRequestOption::getExploreRequestOptions($exploreId);
+  return \Response::json($exploreRequestOptions);
  }
 
  public function getExploreTimelines($exploreId) {

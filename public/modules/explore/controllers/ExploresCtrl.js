@@ -139,7 +139,7 @@ var exploresCtrl = function (
   });
  };
 
- $rootScope.openCreateRequestExploreModal = function () {
+ $rootScope.openCreateRequestExploreModal = function (exploreId) {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'add-request-explore-modal.html',
@@ -147,8 +147,8 @@ var exploresCtrl = function (
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    appTypes: function () {
-     return vm.appTypes;
+    requestOptions: function () {
+     return vm.exploresManager.getExploreRequestOptions(exploreId);
     }
    }
   });

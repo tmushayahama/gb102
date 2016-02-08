@@ -104,6 +104,17 @@ var exploresManager = function ($http, $q) {
   });
   return deferred.promise;
  };
+
+ ExploresManager.prototype.getExploreRequestOptions = function (exploreId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/explore/' + exploreId + '/requestoptions').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
  return ExploresManager;
 };
 

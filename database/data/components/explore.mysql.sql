@@ -30,6 +30,30 @@ CREATE TABLE `gb_explore` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_explore_activity`
+--
+DROP TABLE IF EXISTS `gb_explore_activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explore_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_activity_id` int(11),
+  `activity_id` int(11) NOT NULL,
+  `explore_id` int(11) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+`  created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explore_activity_activity_id` (`activity_id`),
+  KEY `explore_activity_explore_id` (`explore_id`),
+  CONSTRAINT `explore_activity_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_activity_activity_id` FOREIGN KEY (`activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_explore_anouncement`
@@ -200,10 +224,10 @@ CREATE TABLE `gb_explore_observer` (
 --
 -- Table structure for table `gb_explore_anouncement`
 --
-DROP TABLE IF EXISTS `gb_explore_request`;
+DROP TABLE IF EXISTS `gb_explore_request_option`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_request` (
+CREATE TABLE `gb_explore_request_option` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `explore_id` int(11) NOT NULL,
@@ -215,12 +239,12 @@ CREATE TABLE `gb_explore_request` (
   `status` int(11) NOT NULL DEFAULT '0',
 
   PRIMARY KEY (`id`),
-  KEY `explore_request_creator_id` (`creator_id`),
-  KEY `explore_request_explore_id` (`explore_id`),
-  KEY `explore_request_level_id` (`level_id`),
-  CONSTRAINT `explore_request_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_request_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_request_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explore_request_option_creator_id` (`creator_id`),
+  KEY `explore_request_option_explore_id` (`explore_id`),
+  KEY `explore_request_option_level_id` (`level_id`),
+  CONSTRAINT `explore_request_option_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_request_option_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_request_option_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -328,6 +352,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `app_type_id`,	`parent_explore_id`,	`creator_id`,	`icon_id`, `explore_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreRequestOption.txt'
+    into table gb102.gb_explore_request_option
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `creator_id`,	`explore_id`,	`level_id`,	`description`,	`created_at`,	`updated_at`,	`privacy`,	`status`);
+
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreNote.txt'
     into table gb102.gb_explore_note

@@ -60,6 +60,54 @@ CREATE TABLE `gb_action` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_activity`
+--
+DROP TABLE IF EXISTS `gb_activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_activity_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `activity_creator_id` (`creator_id`),
+  KEY `activity_parent_activity_id` (`parent_activity_id`),
+  CONSTRAINT `activity_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `activity_parent_activity_id` FOREIGN KEY (`parent_activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_assignment`
+--
+DROP TABLE IF EXISTS `gb_assignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_assignment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `assigner_id` int(11) NOT NULL,
+  `assignee_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `assignment_assigner_id` (`assigner_id`),
+  KEY `assignment_assignee_id` (`assignee_id`),
+  CONSTRAINT `assignment_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `assignment_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_answer_choice`
 --
@@ -245,7 +293,7 @@ CREATE TABLE `gb_message` (
   `subject` int(11) NOT NULL,
   `body` varchar(5000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ ` updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -396,13 +444,13 @@ DROP TABLE IF EXISTS `gb_tag`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tag_creator_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `tag` varchar(1000) NOT NULL,
   `type` int(11),
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `tag_tag_creator_id` (`tag_creator_id`),
-  CONSTRAINT `tag_tag_creator_id` FOREIGN KEY (`tag_creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `tag_creator_id` (`creator_id`),
+  CONSTRAINT `tag_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -514,7 +562,7 @@ CREATE TABLE `gb_user` (
   `lastname` varchar(100) NOT NULL DEFAULT '',
   `firstname` varchar(100) NOT NULL DEFAULT '',
   `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
-  `gender` varchar(3) DEFAULT NULL,
+  `gender` varchar(1) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL DEFAULT '',
   `address` varchar(255) NOT NULL DEFAULT '',
@@ -522,6 +570,29 @@ CREATE TABLE `gb_user` (
   `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `gb_user_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_user_connection`
+--
+DROP TABLE IF EXISTS `gb_user_connection`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_user_connection` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `friend_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `user_connection_creator_id` (`creator_id`),
+  KEY `user_connection_friend_id` (`friend_id`),
+  KEY `user_connection_level_id` (`level_id`),
+  CONSTRAINT `user_connection_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_connection_friend_id` FOREIGN KEY (`friend_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_connection_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -572,8 +643,17 @@ CREATE TABLE `gb_weblink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- ----------- LEVEL ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
+    into table gb102.gb_level
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `category`, `code`, `name`, `description`);
 
--- ------------------Initial Users ------------------
+-- ------------------ USER ------------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.txt'
     into table gb102.gb_user
     fields terminated by '\t'
@@ -583,6 +663,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     ignore 1 LINES
     (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
+-- ----------- USER CONNECTION ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserConnection.txt'
+    into table gb102.gb_user_connection
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `creator_id`,	`friend_id`,	`level_id`,	`created_at`,	`updated_at`,	`status`);
+
+-- ----------- APP TYPE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
     into table gb102.gb_app_type
     fields terminated by '\t'
@@ -592,6 +683,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType
     ignore 1 LINES
     (`id`, `name`, `description`);
 
+-- ----------- PROFILE SECTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/ProfileSection.txt'
     into table gb102.gb_profile_section
     fields terminated by '\t'
@@ -601,6 +693,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Profile
     ignore 1 LINES
     (`id`, `title`,	`description`,	`creator_id`,	`created_at`,	`updated_at`, `type`,	`status`);
 
+-- ----------- USER PROFILE SECTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserProfileSection.txt'
     into table gb102.gb_user_profile_section
     fields terminated by '\t'
@@ -610,6 +703,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserPro
     ignore 1 LINES
     (`id`,	`creator_id`,	`profile_section_id`,	`description`,	`created_at`,	`updated_at`,	`type`, `order`,	`status`);
 
+-- ----------- CATEGORY ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
     into table gb102.gb_category
     fields terminated by '\t'
@@ -629,16 +723,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.tx
     ignore 1 LINES
     (`id`, `name`, `description`, `type`);
 
--- ----------- Level ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
-    into table gb102.gb_level
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `category`, `code`, `name`, `description`);
-
+-- ----------- TODO ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.txt'
     into table gb102.gb_todo
     fields terminated by '\t'
@@ -648,8 +733,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     ignore 1 LINES
    (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_at`,	`due_date`,	`todo_color`,	`title`, `description`,	`type`,	`status`);
 
-
-
+-- ----------- NOTE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.txt'
     into table gb102.gb_note
     fields terminated by '\t'
@@ -659,8 +743,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.tx
     ignore 1 LINES
    (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
-
-
+-- ----------- IWEBLINK ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink.txt'
     into table gb102.gb_weblink
     fields terminated by '\t'
@@ -670,6 +753,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
     ignore 1 LINES
    (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
+-- ----------- TIMELINE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Timeline.txt'
     into table gb102.gb_timeline
     fields terminated by '\t'
@@ -679,7 +763,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Timelin
     ignore 1 LINES
    (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_at`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
 
-
+-- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
     into table gb102.gb_question
     fields terminated by '\t'
@@ -689,7 +773,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`, `creator_id`, `description`, `level_id`,	`created_at`,	`updated_at`,	`type`, `status`);
 
-
+-- ----------- ANSWER CHOIICE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AnswerChoice.txt'
     into table gb102.gb_answer_choice
     fields terminated by '\t'

@@ -11,7 +11,7 @@
     <p class="gb-title">{{explore.app_type.name + ' - ' + explore.level.name}}</p>
     <div class="btn-group gb-dropdown-action">
      <a class="btn gb-ghost-btn-2"
-        ng-click="$root.openCreateRequestExploreModal()">
+        ng-click="$root.openCreateRequestExploreModal(explore.id)">
       Request
      </a>
      <a class="btn gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

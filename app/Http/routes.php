@@ -70,6 +70,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
  Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
  Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');
+ Route::get('explore/{exploreId}/requestoptions', 'Explore\ExploreController@getExploreRequestOptions');
  Route::get('explore/{exploreId}/timelines', 'Explore\ExploreController@getExploreTimelines');
  Route::get('explore/{exploreId}/timeline/{timelineId}', 'Explore\ExploreController@getExploreTimeline');
  Route::get('explore/{exploreId}/weblinks', 'Explore\ExploreController@getExploreWeblinks');

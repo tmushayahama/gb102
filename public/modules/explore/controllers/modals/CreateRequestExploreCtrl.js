@@ -10,34 +10,34 @@ var createRequestExploreCtrl = function (
         $rootScope,
         $location,
         $log,
-        appTypes) {
+        requestOptions) {
  var vm = this;
  vm.wizardHandler = WizardHandler;
  vm.explore = {};
- vm.exploreLevels;
- vm.appTypes = appTypes;
+ ///vm.exploreRequestOptions;
+ vm.requestOptions = requestOptions;
  vm.selectedAppType;
  vm.wizardCurrentStep = "Choose App";
 
  vm.constantsManager = new ConstantsManager();
 
- vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
-   vm.exploreLevels = data;
+ vm.getRequestOptions = function (appId) {
+  vm.constantsManager.getRequestOption(appId).then(function (data) {
+   vm.exploreRequestOptions = data;
   });
  };
 
- vm.chooseAppType = function (appType) {
-  vm.explore.appTypeId = appType.id;
-  vm.selectedAppType = appType;
-  vm.getLevels(appType.id);
+ vm.chooseAppType = function (requestOption) {
+  vm.explore.requestOptionId = requestOption.id;
+  vm.selectedAppType = requestOption;
+  vm.getRequestOptions(requestOption.id);
  };
 
  vm.next = function () {
   vm.wizardHandler.wizard('explore-form').next();
  };
 
- vm.previous = function (appType) {
+ vm.previous = function (requestOption) {
   vm.wizardHandler.wizard('explore-form').previous();
  };
 
@@ -62,6 +62,6 @@ createRequestExploreCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'appTypes'];
+ 'requestOptions'];
 
 angular.module("app.explore").controller('CreateRequestExploreCtrl', createRequestExploreCtrl);
