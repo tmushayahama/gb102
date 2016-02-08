@@ -1,70 +1,76 @@
-id	category	code	name	description
-1	1	SK1	Skill Gained	\N
-2	1	SK2	Skill to Improve	\N
-3	1	SK3	Skill to Learn	\N
-4	2	GL1	Goal Achieved	\N
-5	2	GL2	Goal to Accomplish	\N
-6	2	GL3	Goal of Interest	\N
-7	3	HB1	Hobby Developed	\N
-8	3	HB2	Hobby to Learn	\N
-9	3	HB3	Hobby of Interest	\N
-10	4	PS1	Promise Kept	\N
-11	4	PS2	Promise to Develop	\N
-12	4	PS3	Promise of Interest	\N
-13	5	MP1	Peer/Friendly	\N
-14	5	MP2	"Natural, senior mentoring junior"	\N
-15	5	MP3	Formal i.e. trainer trainee	\N
-16	5	MP4	Supervisory	\N
-17	6	CO1	Peer/Friendly	\N
-18	6	CO2	Team Collaboration	Goal
-19	6	CO3	Community Collaboration	sharing and build knowledge
-20	7	TE1	Formal	\N
-21	7	TE2	Expert/Coach	\N
-22	7	TE3	Coordinator/Facilitator	\N
-23	7	TE4	Peer/Friendly	\N
-24	8	AD1	Decision Support	\N
-25	8	AD2	Information	\N
-26	8	AD3	Recommendation	\N
-27	8	AD4	"Natural, senior advising junior"	\N
-28	8	AD5	Similar Experiences	\N
-29	11	SWS1	Not Now	\N
-30	11	SWS2	Ehh!!	\N
-31	11	SWS3	Explore	\N
-32	11	SWS4	Super Explore	\N
-1000	1001	EAPP1	I can provide mentorship	Request Mentorship
-1001	1001	EAPP2	I want mentorship	Be a mentor
-1002	1001	EAPP3	I need advice	Advise
-1003	1001	EAPP4	I can give advise	Get Advice
-1004	1001	EAPP5	I want to collaborate	Start Collaboration
-1005	1001	EAPP6	I want to make it a hobby	Make a hobby
-1006	1001	EAPP7	Write it in journal	Put it in Journal
-1007	1002	EAPP8	I can provide mentorship	Request Mentorship
-1008	1002	EAPP9	I want mentorship	Be a mentor
-1009	1002	EAPP10	I need advice	Advise
-1010	1002	EAPP11	I can give advise	Get Advice
-1011	1002	EAPP12	I want to collaborate	Start Collaboration
-1012	1002	EAPP14	I want to make it a hobby	Make a hobby
-1013	1002	EAPP15	Write it in journal	Put it in Journal
-1014	1003	EAPP16	I can provide mentorship	Request Mentorship
-1015	1003	EAPP17	I want mentorship	Be a mentor
-1016	1003	EAPP18	I need advice	Advise
-1017	1003	EAPP19	I can give advise	Get Advice
-1018	1003	EAPP20	I want to collaborate	Start Collaboration
-1019	1003	EAPP22	Write it in journal	Put it in Journal
-1020	1004	EAPP23	Write it in journal	Put it in Journal
-1021	1004	EAPP24	I can provide mentorship	Request Mentorship
-1022	1004	EAPP25	I want mentorship	Be a mentor
-1023	1004	EAPP26	I need advice	Advise
-1024	1004	EAPP27	I can give advise	Get Advice
-1025	1004	EAPP28	I want to collaborate	Start Collaboration
-1026	1005	EAPP29	I can provide more mentorship	Request Mentorship
-1027	1005	EAPP30	I want more mentorship	Be a mentor
-1028	1005	EAPP31	I need advice	Advise
-1029	1005	EAPP32	I can give advise	Get Advice
-1030	1005	EAPP33	I want to collaborate	Start Collaboration
-1031	1005	EAPP34	Write it in journal	Put it in Journal
-5000	5000	FRND	Connection	
-5001	5000	FRND	Friend	
-5002	5000	FRND	Family	
-5003	5000	FRND	Follower	
-5004	5000	FRND	Co Worker	
+id	category	code	name	description	icon	app_type_id
+1	1	SK1	Skill Gained	\N		1
+2	1	SK2	Skill to Improve	\N		1
+3	1	SK3	Skill to Learn	\N		1
+4	2	GL1	Goal Achieved	\N		2
+5	2	GL2	Goal to Accomplish	\N		2
+6	2	GL3	Goal of Interest	\N		2
+7	3	HB1	Hobby Developed	\N		3
+8	3	HB2	Hobby to Learn	\N		3
+9	3	HB3	Hobby of Interest	\N		3
+10	4	PS1	Promise Kept	\N		4
+11	4	PS2	Promise to Develop	\N		4
+12	4	PS3	Promise of Interest	\N		4
+13	5	MP1	Peer/Friendly	\N		5
+14	5	MP2	"Natural, senior mentoring junior"	\N		5
+15	5	MP3	Formal i.e. trainer trainee	\N		5
+16	5	MP4	Supervisory	\N		
+17	6	CO1	Peer/Friendly	\N		
+18	6	CO2	Team Collaboration	Goal		
+19	6	CO3	Community Collaboration	sharing and build knowledge		
+20	7	TE1	Formal	\N		
+21	7	TE2	Expert/Coach	\N		
+22	7	TE3	Coordinator/Facilitator	\N		
+23	7	TE4	Peer/Friendly	\N		
+24	8	AD1	Decision Support	\N		
+25	8	AD2	Information	\N		
+26	8	AD3	Recommendation	\N		
+27	8	AD4	"Natural, senior advising junior"	\N		
+28	8	AD5	Similar Experiences	\N		
+29	11	SWS1	Not Now	\N		
+30	11	SWS2	Ehh!!	\N		
+31	11	SWS3	Explore	\N		
+32	11	SWS4	Super Explore	\N		
+1000	1001	EAPP1	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
+1001	1001	EAPP2	I want mentorship	Be a mentor	icon-gb-mentorship	5
+1002	1001	EAPP3	I need advice	Advise	icon-gb-advice	8
+1003	1001	EAPP4	I can give advise	Get Advice	icon-gb-advice	8
+1004	1001	EAPP5	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1005	1001	EAPP6	I want to make it a hobby	Make a hobby	icon-gb-journal	10
+1006	1001	EAPP7	Write it in journal	Put it in Journal	icon-gb-journal	10
+1007	1002	EAPP8	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
+1008	1002	EAPP9	I want mentorship	Be a mentor	icon-gb-mentorship	5
+1009	1002	EAPP10	I need advice	Advise	icon-gb-advice	8
+1010	1002	EAPP11	I can give advise	Get Advice	icon-gb-advice	8
+1011	1002	EAPP12	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1012	1002	EAPP14	I want to make it a hobby	Make a hobby	icon-gb-hobby	3
+1013	1002	EAPP15	Write it in journal	Put it in Journal	icon-gb-journal	10
+1014	1003	EAPP16	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
+1015	1003	EAPP17	I want mentorship	Be a mentor	icon-gb-mentorship	5
+1016	1003	EAPP18	I need advice	Advise	icon-gb-advice	8
+1017	1003	EAPP19	I can give advise	Get Advice	icon-gb-advice	8
+1018	1003	EAPP20	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1019	1003	EAPP22	Write it in journal	Put it in Journal	icon-gb-journal	10
+1020	1004	EAPP23	Write it in journal	Put it in Journal	icon-gb-journal	10
+1021	1004	EAPP24	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
+1022	1004	EAPP25	I want mentorship	Be a mentor	icon-gb-mentorship	5
+1023	1004	EAPP26	I need advice	Advise	icon-gb-advice	8
+1024	1004	EAPP27	I can give advise	Get Advice	icon-gb-advice	8
+1025	1004	EAPP28	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1026	1005	EAPP29	I can provide more mentorship	Request Mentorship	icon-gb-mentorship	5
+1027	1005	EAPP30	I want more mentorship	Be a mentor	icon-gb-mentorship	5
+1028	1005	EAPP31	I need advice	Advise	icon-gb-advice	8
+1029	1005	EAPP32	I can give advise	Get Advice	icon-gb-advice	8
+1030	1005	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1031	1005	EAPP34	Write it in journal	Put it in Journal	icon-gb-journal	10
+5000	5000	FRND	Connection			
+5001	5000	FRND	Friend			
+5002	5000	FRND	Family			
+5003	5000	FRND	Follower			
+5004	5000	FRND	Co Worker			
+1032	1008	EAPP29	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
+1033	1008	EAPP30	I want mentorship	Be a mentor	icon-gb-mentorship	5
+1034	1008	EAPP31	I need more advice	Advise	icon-gb-advice	8
+1035	1008	EAPP32	I can give more advise	Get Advice	icon-gb-advice	8
+1036	1008	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
+1037	1008	EAPP34	Write it in journal	Put it in Journal	icon-gb-journal	10

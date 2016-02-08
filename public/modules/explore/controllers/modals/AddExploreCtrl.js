@@ -47,7 +47,7 @@ var addExploreCtrl = function (
  };
 
  vm.chooseAppType = function (appType) {
-  vm.explore.appTypeId = appType.id;
+  vm.explore.app_type_id = appType.id;
   vm.selectedAppType = appType;
   vm.getLevels(appType.id);
   vm.getRequestTypes(appType.id);
@@ -62,9 +62,9 @@ var addExploreCtrl = function (
  };
 
  vm.ok = function () {
-  vm.explore.exploreRequests = [];
+  vm.explore.explore_requests = [];
   angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
-   vm.explore.exploreRequests.push(selectedRequestType.exploreRequest);
+   vm.explore.explore_requests.push(selectedRequestType.exploreRequest);
   });
 
   $uibModalInstance.close(vm.explore);

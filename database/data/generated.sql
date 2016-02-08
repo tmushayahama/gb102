@@ -275,7 +275,12 @@ CREATE TABLE `gb_level` (
   `code` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(150),
-  PRIMARY KEY (`id`)
+  `icon` varchar(50) NOT NULL,
+  `app_type_id` int(11) NOT NULL,
+
+  PRIMARY KEY (`id`),
+  KEY `level_app_type_id` (`app_type_id`),
+  CONSTRAINT `level_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -643,6 +648,16 @@ CREATE TABLE `gb_weblink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- ----------- APP TYPE ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
+    into table gb102.gb_app_type
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `name`, `description`);
+
 -- ----------- LEVEL ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
     into table gb102.gb_level
@@ -651,7 +666,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `category`, `code`, `name`, `description`);
+    (`id`, `category`, `code`, `name`, `description`, `icon`, `app_type_id`);
 
 -- ------------------ USER ------------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.txt'
@@ -673,15 +688,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserCon
     ignore 1 LINES
     (`id`, `creator_id`,	`friend_id`,	`level_id`,	`created_at`,	`updated_at`,	`status`);
 
--- ----------- APP TYPE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
-    into table gb102.gb_app_type
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `name`, `description`);
 
 -- ----------- PROFILE SECTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/ProfileSection.txt'
@@ -879,7 +885,6 @@ CREATE TABLE `gb_explore_question` (
   CONSTRAINT `explore_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_explore_comment`
 --
@@ -898,27 +903,6 @@ CREATE TABLE `gb_explore_comment` (
   CONSTRAINT `explore_comment_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
---
--- Table structure for table `gb_explore_discussion`
---
-DROP TABLE IF EXISTS `gb_explore_discussion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_discussion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `discussion_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `explore_discussion_discussion_id` (`discussion_id`),
-  KEY `explore_discussion_explore_id` (`explore_id`),
-  CONSTRAINT `explore_discussion_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Table structure for table `gb_explore_contributor`
@@ -943,6 +927,25 @@ CREATE TABLE `gb_explore_contributor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_explore_discussion`
+--
+DROP TABLE IF EXISTS `gb_explore_discussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explore_discussion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `discussion_id` int(11) NOT NULL,
+  `explore_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explore_discussion_discussion_id` (`discussion_id`),
+  KEY `explore_discussion_explore_id` (`explore_id`),
+  CONSTRAINT `explore_discussion_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_explore_note`
 --
 DROP TABLE IF EXISTS `gb_explore_note`;
@@ -959,6 +962,29 @@ CREATE TABLE `gb_explore_note` (
   KEY `explore_note_explore_id` (`explore_id`),
   CONSTRAINT `explore_note_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_explore_anouncement`
+--
+DROP TABLE IF EXISTS `gb_explore_observer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explore_observer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `observer_id` int(11) NOT NULL,
+  `explore_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explore_observer_creator_id` (`creator_id`),
+  KEY `explore_observer_observer_id` (`observer_id`),
+  KEY `explore_observer_explore_id` (`explore_id`),
+  CONSTRAINT `explore_observer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_observer_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -986,29 +1012,6 @@ CREATE TABLE `gb_explore_questionnaire` (
 --
 -- Table structure for table `gb_explore_anouncement`
 --
-DROP TABLE IF EXISTS `gb_explore_observer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_observer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creator_id` int(11) NOT NULL,
-  `observer_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `explore_observer_creator_id` (`creator_id`),
-  KEY `explore_observer_observer_id` (`observer_id`),
-  KEY `explore_observer_explore_id` (`explore_id`),
-  CONSTRAINT `explore_observer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_observer_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_explore_anouncement`
---
 DROP TABLE IF EXISTS `gb_explore_request_option`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1030,7 +1033,7 @@ CREATE TABLE `gb_explore_request_option` (
   CONSTRAINT `explore_request_option_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_request_option_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_request_option_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_explore_todo`

@@ -14,23 +14,46 @@ var createRequestExploreCtrl = function (
  var vm = this;
  vm.wizardHandler = WizardHandler;
  vm.explore = {};
- ///vm.exploreRequestOptions;
+ vm.exploreLevels;
  vm.requestOptions = requestOptions;
- vm.selectedAppType;
+ vm.selectedRequestOption;
  vm.wizardCurrentStep = "Choose App";
 
  vm.constantsManager = new ConstantsManager();
 
- vm.getRequestOptions = function (appId) {
-  vm.constantsManager.getRequestOption(appId).then(function (data) {
-   vm.exploreRequestOptions = data;
+ vm.getLevels = function (appId) {
+  vm.constantsManager.getLevel(appId).then(function (data) {
+   vm.exploreLevels = data;
   });
  };
 
- vm.chooseAppType = function (requestOption) {
+ vm.getRequestTypes = function (appId) {
+  vm.constantsManager.getLevel(appId + level_categories.request_type_offset).then(function (data) {
+   vm.requestTypes = [];
+   angular.forEach(data, function (requestLevel) {
+    vm.requestTypes.push(
+            {
+             requestLevel: requestLevel,
+             exploreRequest: {
+              levelId: requestLevel.id,
+              description: ''
+             }
+            }
+    );
+   });
+  }
+  )
+ };
+
+ vm.chooseRequestOption = function (requestOption) {
   vm.explore.requestOptionId = requestOption.id;
-  vm.selectedAppType = requestOption;
-  vm.getRequestOptions(requestOption.id);
+  vm.explore.app_type_id = requestOption.level.app_type_id;
+  vm.explore.parent_explore_id = requestOption.explore_id;
+  vm.explore.title = requestOption.explore.title;
+  vm.explore.description = requestOption.explore.description;
+  vm.selectedRequestOption = requestOption;
+  vm.getLevels(requestOption.level.app_type_id);
+  vm.getRequestTypes(requestOption.level.app_type_id);
  };
 
  vm.next = function () {
@@ -42,6 +65,10 @@ var createRequestExploreCtrl = function (
  };
 
  vm.ok = function () {
+  vm.explore.explore_requests = [];
+  angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
+   vm.explore.explore_requests.push(selectedRequestType.exploreRequest);
+  });
   $uibModalInstance.close(vm.explore);
  };
 

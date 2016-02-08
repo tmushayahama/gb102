@@ -275,7 +275,12 @@ CREATE TABLE `gb_level` (
   `code` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(150),
-  PRIMARY KEY (`id`)
+  `icon` varchar(50) NOT NULL,
+  `app_type_id` int(11) NOT NULL,
+
+  PRIMARY KEY (`id`),
+  KEY `level_app_type_id` (`app_type_id`),
+  CONSTRAINT `level_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -643,6 +648,16 @@ CREATE TABLE `gb_weblink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- ----------- APP TYPE ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
+    into table gb102.gb_app_type
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `name`, `description`);
+
 -- ----------- LEVEL ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
     into table gb102.gb_level
@@ -651,7 +666,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `category`, `code`, `name`, `description`);
+    (`id`, `category`, `code`, `name`, `description`, `icon`, `app_type_id`);
 
 -- ------------------ USER ------------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.txt'
@@ -673,15 +688,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserCon
     ignore 1 LINES
     (`id`, `creator_id`,	`friend_id`,	`level_id`,	`created_at`,	`updated_at`,	`status`);
 
--- ----------- APP TYPE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
-    into table gb102.gb_app_type
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `name`, `description`);
 
 -- ----------- PROFILE SECTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/ProfileSection.txt'

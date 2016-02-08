@@ -34,7 +34,8 @@ class ExploreRequestOption extends Model {
 
  public static function getExploreRequestOptions($exploreId) {
   $exploreRequestOptions = ExploreRequestOption::with('level')
-          ->orderBy('id', 'DESC')
+          ->with('explore')
+          ->orderBy('id', 'ASC')
           ->where('explore_id', $exploreId)
           ->get();
   return $exploreRequestOptions;
@@ -42,7 +43,7 @@ class ExploreRequestOption extends Model {
 
  public static function getExploreRequestOption($exploreId, $requestId) {
   $exploreRequestOption = ExploreRequestOption::with('request')
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'ASC')
           ->where('explore_id', $exploreId)
           ->where('request_id', $requestId)
           ->first();

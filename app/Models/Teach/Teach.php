@@ -121,7 +121,7 @@ class Teach extends Model {
  public static function createTeach() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("appTypeId");
+  $appTypeId = Request::get("app_type_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
