@@ -2662,6 +2662,9 @@ input[type="checkbox"] {
   left: 41px;
   background-color: rgba(0, 0, 0, 0.4);
 }
+#gb-middle-nav .gb-profile-row .gb-row-content.gb-full {
+  left: 0;
+}
 #gb-middle-nav .gb-profile-row .gb-row-content a {
   text-align: left;
   color: #FAFAFA;

@@ -1,0 +1,1 @@
+var projectOverviewCtrl=function(ProjectManager,$state,$stateParams,$http,$rootScope){};projectOverviewCtrl.$inject=["ProjectManager","$state","$stateParams","$http","$rootScope"],angular.module("app.project").controller("ProjectOverviewCtrl",projectOverviewCtrl);

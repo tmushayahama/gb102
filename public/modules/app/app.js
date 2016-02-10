@@ -34,6 +34,7 @@ define([
  '../collaboration/module',
  '../goal/module',
  '../journal/module',
+ '../project/module',
 ], function (angular) {
 
  var app = angular.module('app', [
@@ -66,7 +67,8 @@ define([
   'app.advice',
   'app.collaboration',
   'app.goal',
-  'app.journal'
+  'app.journal',
+  'app.project'
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {

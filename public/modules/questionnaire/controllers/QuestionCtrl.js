@@ -166,9 +166,6 @@ var questionCtrl = function (
 
  //--------init------
  vm.questionManager.getQuestion(vm.questionId).then(function (data) {
-  $css.bind({
-   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.name.toLowerCase() + '.css'
-  }, $scope);
  });
  vm.constantsManager.getIcons(1).then(function (data) {
   vm.questionIcons = data;

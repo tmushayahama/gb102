@@ -47,7 +47,7 @@ class Explore extends Model {
           ->with('creator')
           ->with('icon')
           ->with('level')
-          ->take(100)
+          ->take(50)
           ->get();
   return $explores;
  }
@@ -62,7 +62,7 @@ class Explore extends Model {
            ->with('creator')
            ->with('icon')
            ->with('level')
-           ->take(100)
+           ->take(50)
            ->get();
   }
   return $explores;
