@@ -126,6 +126,29 @@ btn:focus {
  }
 }
 
+.gb-apptype-btn-2 {
+ overflow: hidden;
+ width: 100%;
+ padding: 5px 5px 5px 5px;
+ text-align: center;
+ border: rgba($primary-color, 0.4) solid 1px;
+ height: 90px;
+ .gb-icon {
+  margin-top: 10px;
+  color: rgba($primary-color, 0.8);
+  font-size: 50px;
+ }
+ .gb-title {
+  margin-top: 10px;
+ }
+ &:hover {
+  background-color: rgba($primary-color, 0.2);
+  .gb-icon {
+   color: darken($primary-color, 5%);
+  }
+ }
+}
+
 .gb-menu-bars {
  float: left;
  margin: 0 5px 0 0;

@@ -17,12 +17,14 @@
    <wz-step wz-title="Choose App">
     <div class="row">
      <div ng-repeat="requestOption in createRequestExploreCtrl.requestOptions"
-          class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+          class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
           ng-click="createRequestExploreCtrl.chooseRequestOption(requestOption)"
           wz-next value="Fill">
-      <div class="gb-apptype-btn">
-       <i class="gb-icon fa {{requestOption.level.icon}}"></i>
-       <div class="gb-title">
+      <div class="gb-apptype-btn-2">
+       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <i class="gb-icon fa {{requestOption.level.icon}}"></i>
+       </div>
+       <div class="gb-title text-left col-lg-9 col-md-9 col-sm-9 col-xs-9">
         <h5>{{requestOption.level.description}}</h5>
         <p>{{requestOption.description}}</p>
        </div>

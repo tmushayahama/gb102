@@ -71,114 +71,53 @@ define(['angular'
              }
             }
            }})
-
-  /*
-   .state('apps.questionnaire', {
-   abstract: true,
-   url: '/questionnaire/{questionnaireId}',
-   views: {
-   "apps": {
-   controller: 'QuestionnaireCtrl as questionnaireCtrl',
-   templateUrl: 'public/modules/questionnaire/views/questionnaire.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.questionnaire',
-   serie: true,
-   files: [
-   'public/modules/app/services/ConstantsManager.js',
-   'public/modules/questionnaire/services/QuestionnaireManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireCtrl.js',
-   'public/modules/questionnaire/filters/randomize.js',
-   ]
-   });
-   }]
-   }
-   }
-   }})
-   .state('apps.questionnaire.overview', {
-   url: '/overview',
-   views: {
-   "content": {
-   controller: 'QuestionnaireOverviewCtrl as questionnaireOverviewCtrl',
-   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-overview.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.questionnaire',
-   serie: true,
-   files: [
-   'public/modules/questionnaire/controllers/QuestionnaireOverviewCtrl.js',
-   //Timeline
-   'public/modules/questionnaire/services/QuestionnaireTimelineManager.js',
-   'public/modules/questionnaire/services/QuestionnaireTimelinesManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireTimelinesCtrl.js',
-   'public/modules/questionnaire/controllers/modals/QuestionnaireTimelineCtrl.js',
-   ]
-   });
-   }]
-   }
-   }
-   }})
-   .state('apps.questionnaire.tools', {
-   url: '/tools',
-   views: {
-   "content": {
-   //controller: 'QuestionnaireTodosCtrl as questionnaireTodosCtrl',
-   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-tools.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.questionnaire',
-   serie: true,
-   files: [
-   //Todos
-   'public/modules/questionnaire/directives/todoEscape.js',
-   'public/modules/questionnaire/directives/todoFocus.js',
-   'public/modules/questionnaire/services/QuestionnaireTodoManager.js',
-   'public/modules/questionnaire/services/QuestionnaireTodosManager.js',
-   'public/modules/questionnaire/services/QuestionnaireTodoChecklistManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireTodosCtrl.js',
-   'public/modules/questionnaire/controllers/modals/QuestionnaireTodoCtrl.js',
-   //Notes,
-   'public/modules/questionnaire/services/QuestionnaireNoteManager.js',
-   'public/modules/questionnaire/services/QuestionnaireNotesManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireNotesCtrl.js',
-   'public/modules/questionnaire/controllers/modals/QuestionnaireNoteCtrl.js',
-   //Weblink
-   'public/modules/questionnaire/services/QuestionnaireWeblinkManager.js',
-   'public/modules/questionnaire/services/QuestionnaireWeblinksManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireWeblinksCtrl.js',
-   'public/modules/questionnaire/controllers/modals/QuestionnaireWeblinkCtrl.js',
-   ]
-   });
-   }]
-   }
-   }
-   }})
-   .state('apps.questionnaire.community', {
-   url: '/community',
-   views: {
-   "content": {
-   //controller: 'QuestionnaireNotesCtrl as questionnaireNotesCtrl',
-   templateUrl: 'public/modules/questionnaire/views/tabs/questionnaire/questionnaire-community.html',
-   resolve: {
-   load: ['$ocLazyLoad', function ($ocLazyLoad) {
-   return $ocLazyLoad.load({
-   name: 'app.questionnaire',
-   serie: true,
-   files: [
-   'public/modules/questionnaire/services/QuestionnaireCommentManager.js',
-   'public/modules/questionnaire/services/QuestionnaireCommentsManager.js',
-   'public/modules/questionnaire/controllers/QuestionnaireCommentsCtrl.js',
-   'public/modules/questionnaire/controllers/modals/QuestionnaireCommentCtrl.js',
-   ]
-   });
-   }]
-   }
-   }
-   }});
-   */
+          .state('apps.question', {
+           url: '/question/{questionId}',
+           abstract: true,
+           views: {
+            "apps": {
+             controller: 'QuestionCtrl as questionCtrl',
+             templateUrl: 'public/modules/questionnaire/views/question.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.questionnaire',
+                 serie: true,
+                 files: [
+                  'public/modules/app/services/ConstantsManager.js',
+                  'public/modules/questionnaire/services/QuestionManager.js',
+                  'public/modules/questionnaire/controllers/QuestionCtrl.js',
+                  'public/modules/explore/filters/randomize.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.question.overview', {
+           url: '/overview',
+           views: {
+            "content": {
+             controller: 'QuestionOverviewCtrl as questionOverviewCtrl',
+             templateUrl: 'public/modules/questionnaire/views/tabs/question/question-overview.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.questionnaire',
+                 serie: true,
+                 files: [
+                  'public/modules/questionnaire/controllers/question/QuestionOverviewCtrl.js',
+                          //Timeline
+                          //'public/modules/question/services/QuestionTimelineManager.js',
+                          //'public/modules/question/services/QuestionTimelinesManager.js',
+                          //'public/modules/question/controllers/QuestionTimelinesCtrl.js',
+                          //'public/modules/question/controllers/modals/QuestionTimelineCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
  };
 
 

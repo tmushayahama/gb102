@@ -57,9 +57,10 @@
   font-size: 20px;
  }
  .modal-content {
-  width: 300px;
+  width: 150px;
+  background-color: transparent;
   @include respond-to (gb-xs) {
-   width: 250px;
+   width: 150px;
   }
  }
  .modal-body {

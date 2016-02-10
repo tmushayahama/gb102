@@ -24,6 +24,15 @@ class Question extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
+ public static function getQuestion($id) {
+  $question = Question::with('creator')
+          ->with('level')
+          ->find($id);
+  //$user = JWTAuth::parseToken()->toUser();
+  //$userId = $user->id;
+  return $question; //$question;
+ }
+
  /**
   * The attributes that are mass assignable.
   *

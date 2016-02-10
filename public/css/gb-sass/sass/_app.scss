@@ -43,14 +43,14 @@ html {
  font-family: sans-serif;
  -ms-text-size-adjust: 100%;
  -webkit-text-size-adjust: 100%;
- @include position(fixed, 0 0 0 0);
+ //@include position(fixed, 0 0 0 0);
 }
 body {
  background: none;
  display: block;
  padding: 0;
  margin: 0;
- @include position(fixed, 0 0 0 0);
+ //@include position(fixed, 0 0 0 0);
 }
 
 .gb-background-white {
@@ -81,13 +81,17 @@ form {
  }
 }
 
+.gb-flex-container{
+ display: flex;
+ flex-direction: column; /* put this if you want to stack elements vertically */
+}
 .gb-container {
+ display: inline-block;
  height: 100%;
- margin-right: auto;
- margin-left: auto;
+ margin: 0 auto;
  padding-left: 15px;
  padding-right: 15px;
- width: 920px;
+ //width: 920px;
 
  &:before,
   &:after {
@@ -99,13 +103,13 @@ form {
  }
 
  @include respond-to (gb-md) {
-  width: 768px;
+  //width: auto;
  }
  @include respond-to (gb-sm) {
-  width: 768px;
+  //  width: 768px;
  }
  @include respond-to (gb-xs) {
-  width: 100%;
+  //width: 100%;
   padding: 0;
  }
 
@@ -142,7 +146,7 @@ input[type="checkbox"] {
 
 #gb-middle-nav {
  //@include position(absolute, 80px 0 0 null);
- height: 100%;
+ height: auto;
 
  //overflow-y: hidden;
  overflow-y: scroll;
@@ -1845,6 +1849,16 @@ input.gb-form-show{
  }
  .gb-menu-icon {
   font-size: 20px;
+ }
+
+ @include respond-to (gb-md) {
+  .gb-header {
+   padding: 0 5px 0 5px;
+   .gb-app-name {
+    float: left;
+    padding: 8px 5px;
+   }
+  }
  }
 
  @include respond-to (gb-sm) {

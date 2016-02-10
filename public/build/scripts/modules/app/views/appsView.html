@@ -13,7 +13,7 @@
    </a>
    <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{$root.appName}} <span class="caret"></span>
+     {{$root.appName}} <div class="caret"></div>
     </button>
     <button ng-click="$root.openAddExploreModal()" type="button" class="btn btn-default">
      <i class="fa fa-plus"></i>
@@ -41,7 +41,7 @@
      <i class="fa fa-search"></i>
     </button>
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <span class="caret"></span>
+     <div class="caret"></div>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li><a href="#">Action</a></li>
@@ -52,7 +52,7 @@
     </ul>
    </div>
   </form>
-  <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+  <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">
    <div class="gb-action pull-right">
     <div class="btn-group">
      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,64 +70,49 @@
   </div>
  </div>
 </div>
-<div class="col-lg-2 col-md-2 col-sm-3 hidden-xs" id="gb-left-nav-3" role="navigation">
- <div class="gb-header">
-  <div class="">
-   <a ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <p class="gb-ellipsis gb-title">
-      <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
-      <span class="gb-content">
-       {{$root.user.firstname + " " + $root.user.lastname}}
-      </span>
-     </p>
-    </div>
-   </a>
-  </div>
- </div>
+<div class="col-lg-1 col-md-2 col-sm-2 hidden-xs" id="gb-left-nav-3" role="navigation">
  <div class="gb-body">
   <div class="gb-nav-strip gb-nav-strip-mini row">
-
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <a ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link row">
+     <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
+     <div class="gb-title gb-ellipsis gb-padding-none">
+      {{$root.user.firstname + " " + $root.user.lastname}}
+     </div>
+    </a>
+   </div>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.community.users" class="gb-link row"
        ng-class="{
           active: ('apps.community' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-community fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Community
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apps fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-community fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      COMMUNITY
      </div>
     </a>
    </div>
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    <span class="visible-lg visible-md visible-sm hidden-xs">
+    <div class="visible-lg visible-md visible-sm hidden-xs">
      <i class="fa icon-gb-discover"></i> DISCOVER
-    </span>
+    </div>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.explores.all" class="gb-link row"
        ng-class="{
           active: ('apps.explores' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-explore fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Explore
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-explore fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      EXPLORE
      </div>
     </a>
    </div>
@@ -136,16 +121,12 @@
        ng-class="{
           active: ('apps.swipes' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-swipe fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Swipe
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-swipe fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      SWIPE
      </div>
     </a>
    </div>
@@ -154,41 +135,33 @@
        ng-class="{
           active: ('apps.questionnaires' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-matcher fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Matcher
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-discover fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-matcher fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      MATCHER
      </div>
     </a>
    </div>
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    <span class="visible-lg visible-md visible-sm hidden-xs">
-     <i class="fa icon-gb-discover"></i> APPLICATION
-    </span>
+    <div class="visible-lg visible-md visible-sm hidden-xs">
+     <i class="fa icon-gb-apply"></i> APPLICATION
+    </div>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.mentorships.all" class="gb-link row"
        ng-class="{
           active: ('apps.mentorships' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-mentorship fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Mentorship
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-mentorship fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      MENTORSHIP
      </div>
     </a>
    </div>
@@ -197,16 +170,12 @@
        ng-class="{
           active: ('apps.teachs' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-teach fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Teach
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-teach fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      TEACH
      </div>
     </a>
    </div>
@@ -215,16 +184,12 @@
        ng-class="{
           active: ('apps.advices' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-advice fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Advice
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-advice fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      ADVISE
      </div>
     </a>
    </div>
@@ -233,16 +198,12 @@
        ng-class="{
           active: ('apps.collaborations' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-collaboration fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Collaboration
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-collaboration fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      COLLABORATION
      </div>
     </a>
    </div>
@@ -251,41 +212,33 @@
        ng-class="{
           active: ('apps.goals' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-goal fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Goals
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-apply fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-goal fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      GOAL
      </div>
     </a>
    </div>
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    <span class="visible-lg visible-md visible-sm hidden-xs">
+    <div class="visible-lg visible-md visible-sm hidden-xs">
      <i class="fa icon-gb-organize"></i> ORGANIZE
-    </span>
+    </div>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <a ui-sref="apps.journals.all" class="gb-link row"
        ng-class="{
           active: ('apps.journal' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-journal fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Journal
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-journal fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      JOURNAL
      </div>
     </a>
    </div>
@@ -294,16 +247,12 @@
        ng-class="{
           active: ('apps.projects' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-project fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Project
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-project fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      PROJECTS
      </div>
     </a>
    </div>
@@ -312,30 +261,54 @@
        ng-class="{
           active: ('apps.group' | includedByState)
          }">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <p class="gb-ellipsis gb-title">
-       <span class="gb-icon fa-stack fa-lg pull-left">
-        <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
-        <i class="fa fa-inner icon-gb-group fa-stack-1x fa-inverse"></i>
-       </span>
-       <span class="gb-content">
-        Groups
-       </span>
-      </p>
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+      <i class="fa fa-inner icon-gb-group fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      GROUPS
      </div>
     </a>
    </div>
   </div>
   <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    <span class="visible-lg visible-md visible-sm hidden-xs">
+    <div class="visible-lg visible-md visible-sm hidden-xs">
      <i class="fa icon-tools"></i> TOOLS
-    </span>
+    </div>
    </h6>
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <a ui-sref="apps.todos.all" class="gb-link row"
+       ng-class="{
+          active: ('apps.todo' | includedByState)
+         }">
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+      <i class="fa fa-inner fa-check-circle-o fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      TODOS
+     </div>
+    </a>
+   </div>
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <a ui-sref="apps.calendar" class="gb-link row"
+       ng-class="{
+          active: ('apps.calendar' | includedByState)
+         }">
+     <div class="gb-icon fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-organize fa-stack-2x"></i>
+      <i class="fa fa-inner fa-calendar fa-stack-1x fa-inverse"></i>
+     </div>
+     <div class="gb-title gb-ellipsis">
+      CALENDAR
+     </div>
+    </a>
+   </div>
   </div>
  </div>
 </div>
-<div ui-view="apps" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3 col-xs-offset-0 col-lg-10 col-md-10 col-sm-9 col-xs-12">
+<div ui-view="apps" class="gb-flex-container col-lg-offset-1 col-md-offset-2 col-sm-offset-2 col-xs-offset-0 col-lg-11 col-md-10 col-sm-10 col-xs-12">
 </div>
 <!-- ------------------------------- MODALS --------------------------->
 <script type="text/ng-template" id="menu-modal.html">
@@ -345,7 +318,7 @@
 <script type="text/ng-template" id="customTemplate.html">
  <a>
  <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
- <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+ <div ng-bind-html="match.label | uibTypeaheadHighlight:query"></div>
  {{match|json}}
  </a>
 </script>

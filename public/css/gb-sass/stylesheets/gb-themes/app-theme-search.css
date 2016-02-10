@@ -207,6 +207,29 @@ btn:focus {
   color: #384237;
 }
 
+.gb-apptype-btn-2 {
+  overflow: hidden;
+  width: 100%;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+  border: rgba(68, 80, 67, 0.4) solid 1px;
+  height: 90px;
+}
+.gb-apptype-btn-2 .gb-icon {
+  margin-top: 10px;
+  color: rgba(68, 80, 67, 0.8);
+  font-size: 50px;
+}
+.gb-apptype-btn-2 .gb-title {
+  margin-top: 10px;
+}
+.gb-apptype-btn-2:hover {
+  background-color: rgba(68, 80, 67, 0.2);
+}
+.gb-apptype-btn-2:hover .gb-icon {
+  color: #384237;
+}
+
 .gb-menu-bars {
   float: left;
   margin: 0 5px 0 0;
@@ -291,11 +314,12 @@ btn:focus {
   font-size: 20px;
 }
 .modal-menu .modal-content {
-  width: 300px;
+  width: 150px;
+  background-color: transparent;
 }
 @media (max-width: 767px) {
   .modal-menu .modal-content {
-    width: 250px;
+    width: 150px;
   }
 }
 .modal-menu .modal-body {
@@ -1068,7 +1092,7 @@ Copyright (c) 2014 Daniel Eden
 .gb-swipe-container .stack {
   height: 350px;
   position: absolute;
-  top: 10px;
+  top: 150px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
@@ -1153,7 +1177,7 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-swipe-container .gb-footer {
   position: absolute;
-  top: 380px;
+  top: 510px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
@@ -1184,7 +1208,7 @@ Copyright (c) 2014 Daniel Eden
 .gb-questionnaire-container .stack {
   height: 350px;
   position: absolute;
-  top: 10px;
+  top: 150px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
@@ -1269,7 +1293,7 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-questionnaire-container .gb-footer {
   position: absolute;
-  top: 380px;
+  top: 510px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
@@ -1277,7 +1301,7 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-questionnaire-container .gb-answer-form {
   position: absolute;
-  top: 380px;
+  top: 510px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
@@ -2464,11 +2488,6 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 body {
@@ -2476,11 +2495,6 @@ body {
   display: block;
   padding: 0;
   margin: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 .gb-background-white {
@@ -2511,13 +2525,18 @@ form .gb-heading {
   margin-bottom: 10px;
 }
 
+.gb-flex-container {
+  display: flex;
+  flex-direction: column;
+  /* put this if you want to stack elements vertically */
+}
+
 .gb-container {
+  display: inline-block;
   height: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 920px;
 }
 .gb-container:before, .gb-container:after {
   content: " ";
@@ -2526,19 +2545,8 @@ form .gb-heading {
 .gb-container:after {
   clear: both;
 }
-@media (max-width: 1199px) {
-  .gb-container {
-    width: 768px;
-  }
-}
-@media (max-width: 991px) {
-  .gb-container {
-    width: 768px;
-  }
-}
 @media (max-width: 767px) {
   .gb-container {
-    width: 100%;
     padding: 0;
   }
 }
@@ -2574,7 +2582,7 @@ input[type="checkbox"] {
 }
 
 #gb-middle-nav {
-  height: 100%;
+  height: auto;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -4299,6 +4307,15 @@ input.gb-form-show {
 }
 .gb-top-nav-1 .gb-menu-icon {
   font-size: 20px;
+}
+@media (max-width: 1199px) {
+  .gb-top-nav-1 .gb-header {
+    padding: 0 5px 0 5px;
+  }
+  .gb-top-nav-1 .gb-header .gb-app-name {
+    float: left;
+    padding: 8px 5px;
+  }
 }
 @media (max-width: 991px) {
   .gb-top-nav-1 .gb-header {
