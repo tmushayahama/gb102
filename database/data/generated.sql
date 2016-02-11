@@ -801,8 +801,8 @@ CREATE TABLE `gb_explore` (
   `explore_picture_url` varchar(250) NOT NULL DEFAULT "explore_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
   `level_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
@@ -1139,7 +1139,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explore_id`,	`creator_id`,	`icon_id`, `explore_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`, `app_type_id`,	`parent_explore_id`,	`creator_id`,	`icon_id`, `explore_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreRequestOption.txt'
     into table gb102.gb_explore_request_option

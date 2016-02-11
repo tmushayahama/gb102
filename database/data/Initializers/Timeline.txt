@@ -8,8 +8,8 @@ id	parent_timeline_id	creator_id	description	created_date	timeline_date	day	time
 7	NULL	2	Mastered to remove all distractions	5/4/2015 10:00	5/4/2015 10:00	2	FFFFFF	1	0
 8	NULL	2	Want to improve to take breaks despite the time constraints	5/4/2015 10:00	5/4/2015 10:00	2	FFFFFF	1	0
 9	NULL	2	I should learn to prioritize what to clean first	5/4/2015 10:00	5/4/2015 10:00	3	FFFFFF	1	0
-10	NULL	15	Assessment of likes and dislikes	7/9/2015 7:07	7/9/2015 7:07	1	FFFFFF	1	0
-11	NULL	15	"After you have discovered/rediscovered your passion, research the types of careers that center around your passion"	7/9/2015 7:07	7/9/2015 7:07	1	FFFFFF	1	0
-12	NULL	15	Applying your current skills to your new career	7/9/2015 11:07	7/9/2015 11:07	2	FFFFFF	1	0
-13	NULL	15	Gain more experience 	7/9/2015 11:07	7/9/2015 11:07	3	FFFFFF	1	0
-14	NULL	15	Coming up with a good conversation topic	7/9/2015 11:07	7/9/2015 11:07	1	FFFFFF	1	0
+10	NULL	3	Assessment of likes and dislikes	7/9/2015 7:07	7/9/2015 7:07	1	FFFFFF	1	0
+11	NULL	3	"After you have discovered/rediscovered your passion, research the types of careers that center around your passion"	7/9/2015 7:07	7/9/2015 7:07	1	FFFFFF	1	0
+12	NULL	3	Applying your current skills to your new career	7/9/2015 11:07	7/9/2015 11:07	2	FFFFFF	1	0
+13	NULL	3	Gain more experience 	7/9/2015 11:07	7/9/2015 11:07	3	FFFFFF	1	0
+14	NULL	3	Coming up with a good conversation topic	7/9/2015 11:07	7/9/2015 11:07	1	FFFFFF	1	0

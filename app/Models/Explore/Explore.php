@@ -41,8 +41,7 @@ class Explore extends Model {
  protected $fillable = ['title', 'description', 'level_id'];
 
  public static function getExploresAll() {
-  $explores = Explore::orderBy('creator_id', 'desc')
-          ->orderBy('id', 'desc')
+  $explores = Explore::orderBy('updated_at', 'desc')
           ->with('app_type')
           ->with('creator')
           ->with('icon')
@@ -56,8 +55,7 @@ class Explore extends Model {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
    $explores = Explore::where('app_type_id', $appId->id)
-           ->orderBy('creator_id', 'desc')
-           ->orderBy('id', 'desc')
+           ->orderBy('updated_at', 'desc')
            ->with('app_type')
            ->with('creator')
            ->with('icon')
@@ -72,7 +70,7 @@ class Explore extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $explores = Explore::orderBy('id', 'desc')
-          ->where('creator_id', $userId)
+          ->where('updated_at', $userId)
           ->with('app_type')
           ->with('icon')
           ->with('creator')

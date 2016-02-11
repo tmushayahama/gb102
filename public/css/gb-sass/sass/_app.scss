@@ -220,9 +220,7 @@ input[type="checkbox"] {
    padding: 7px 0 0 10px;
    @include position(absolute, 0 0 0 41px);
    background-color: rgba(#000, 0.4);
-   &.gb-full {
-    left: 0;
-   }
+
    a {
     text-align: left;
     color: #FAFAFA;
@@ -257,6 +255,10 @@ input[type="checkbox"] {
    padding: 7px 0 0 10px;
    @include position(absolute, 0 0 0 51px);
    background-color: rgba(#000, 0.4);
+
+   &.gb-full {
+    left: 0;
+   }
    .gb-title {
     margin-bottom: 3px;
     font-weight: normal;
