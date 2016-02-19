@@ -1,5 +1,5 @@
-var goalTimelineCtrl = function (
-        GoalTimelineManager,
+var goalProgressCtrl = function (
+        GoalProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var goalTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        goalTimelineData) {
+        goalProgressData) {
  var vm = this;
- vm.goalId = goalTimelineData.goal_id;
- vm.goalTimelineId = goalTimelineData.id;
- vm.goalTimelineManager = new GoalTimelineManager();
+ vm.goalId = goalProgressData.goal_id;
+ vm.goalProgressId = goalProgressData.id;
+ vm.goalProgressManager = new GoalProgressManager();
 
 
- vm.timelineId = goalTimelineData.timeline_id;
+ vm.progressId = goalProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var goalTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newGoalTimelineData = vm.defaultGoalTimelineData;
+ // vm.newGoalProgressData = vm.defaultGoalProgressData;
 
- vm.getGoalTimeline = function (goalId, timelineId) {
-  vm.goalTimelineManager.getGoalTimeline(goalId, timelineId).then(function (response) {
+ vm.getGoalProgress = function (goalId, progressId) {
+  vm.goalProgressManager.getGoalProgress(goalId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editGoalTimeline = function (data) {
-  vm.goalTimelineManager.editGoalTimeline(data).then(function (response) {
+ vm.editGoalProgress = function (data) {
+  vm.goalProgressManager.editGoalProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editGoalTimelineSections = {
+ vm.editGoalProgressSections = {
   details: function (details) {
-   var goalTimelineData = {
-    goalTimelineId: vm.goalTimelineId,
+   var goalProgressData = {
+    goalProgressId: vm.goalProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editGoalTimeline(goalTimelineData);
+   vm.editGoalProgress(goalProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getGoalTimeline(vm.goalId, vm.timelineId);
+ vm.getGoalProgress(vm.goalId, vm.progressId);
 };
 
 
-goalTimelineCtrl.$inject = [
- 'GoalTimelineManager',
+goalProgressCtrl.$inject = [
+ 'GoalProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ goalTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'goalTimelineData'];
+ 'goalProgressData'];
 
-angular.module("app.goal").controller('GoalTimelineCtrl', goalTimelineCtrl);
+angular.module("app.goal").controller('GoalProgressCtrl', goalProgressCtrl);

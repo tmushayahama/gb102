@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Community\Community;
-use App\Models\Community\CommunityTimeline;
+use App\Models\Community\CommunityProgress;
 use App\Models\Community\CommunityComment;
 use App\Models\Community\CommunityNote;
 use App\Models\Community\CommunityTodo;
 use App\Models\Community\CommunityWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -51,24 +51,24 @@ class CommunityController extends Controller {
   return \Response::json($community);
  }
 
- public function getCommunityTimelines($communityId) {
-  $communityTimelines = CommunityTimeline::getCommunityTimelines($communityId);
-  return \Response::json($communityTimelines);
+ public function getCommunityProgress($communityId) {
+  $communityProgress = CommunityProgress::getCommunityProgress($communityId);
+  return \Response::json($communityProgress);
  }
 
- public function getCommunityTimeline($communityId, $timelineId) {
-  $communityTimeline = CommunityTimeline::getCommunityTimeline($communityId, $timelineId);
-  return \Response::json($communityTimeline);
+ public function getCommunityProgressItem($communityId, $progressId) {
+  $communityProgress = CommunityProgress::getCommunityProgress($communityId, $progressId);
+  return \Response::json($communityProgress);
  }
 
- public function createCommunityTimeline() {
-  $communityTimeline = CommunityTimeline::createCommunityTimeline();
-  return \Response::json($communityTimeline);
+ public function createCommunityProgress() {
+  $communityProgress = CommunityProgress::createCommunityProgress();
+  return \Response::json($communityProgress);
  }
 
- public function editCommunityTimeline() {
-  $communityTimeline = CommunityTimeline::editCommunityTimeline();
-  return \Response::json($communityTimeline);
+ public function editCommunityProgress() {
+  $communityProgress = CommunityProgress::editCommunityProgress();
+  return \Response::json($communityProgress);
  }
 
  /* TODOS */

@@ -1,9 +1,9 @@
-var journalTimelinesManager = function ($http, $q) {
+var journalProgressManager = function ($http, $q) {
 
- var JournalTimelinesManager = function () {
-  this.journalTimelines = [];
+ var JournalProgressManager = function () {
+  this.journalProgress = [];
  };
- JournalTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var journalTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalTimelinesManager.prototype.getJournalTimelines = function (journalId) {
+ JournalProgressManager.prototype.getJournalProgress = function (journalId) {
   var self = this;
   var deferred = $q.defer();
-  self.journalTimelines = [];
-  $http.get('/api/journal/' + journalId + '/timelines').success(function (data) {
-   self.journalTimelines = data;
+  self.journalProgress = [];
+  $http.get('/api/journal/' + journalId + '/progress').success(function (data) {
+   self.journalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var journalTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTimelinesManager.prototype.getJournalTimeline = function (journalId, timelineId) {
+ JournalProgressManager.prototype.getJournalProgress = function (journalId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.journalTimelines = [];
-  $http.get('/api/journal/' + journalId + '/timeline/' + timelineId).success(function (data) {
-   self.journalTimelines = data;
+  self.journalProgress = [];
+  $http.get('/api/journal/' + journalId + '/progress/' + progressId).success(function (data) {
+   self.journalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var journalTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTimelinesManager.prototype.createJournalTimeline = function (journalTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/journal/timeline/create',
-   data: journalTimelineData
-  }).success(function (data) {
-   self.journalTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- JournalTimelinesManager.prototype.editJournalTimeline = function (journalTimelineData) {
+ JournalProgressManager.prototype.createJournalProgress = function (journalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/journal/timeline/edit',
-   data: journalTimelineData
+   url: '/api/journal/progress/create',
+   data: journalProgressData
+  }).success(function (data) {
+   self.journalProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ JournalProgressManager.prototype.editJournalProgress = function (journalProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/journal/progress/edit',
+   data: journalProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var journalTimelinesManager = function ($http, $q) {
  };
 
 
- return JournalTimelinesManager;
+ return JournalProgressManager;
 };
 
-journalTimelinesManager.$inject = ['$http', '$q'];
+journalProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalTimelinesManager', journalTimelinesManager);
+angular.module('app.journal').service('JournalProgressManager', journalProgressManager);

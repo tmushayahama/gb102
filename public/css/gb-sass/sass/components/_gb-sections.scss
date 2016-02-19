@@ -35,15 +35,15 @@
 }
 
 .gb-section-row-2 {
- border-bottom: #CCC solid 1px;
- padding-bottom: 20px;
+ padding-bottom: 30px;
  .gb-heading {
-  padding: 30px 5px 30px 5px;
+  padding: 15px 5px 15px 5px;
  }
  .gb-heading .gb-title {
+  padding: 3px 0 0 0;
   width: 100%;
-  font-size: 30px;
-  color: rgba($primary-color, 0.6);
+  font-size: 15px;
+  color: rgba($primary-color, 0.8);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -55,7 +55,7 @@
  }
 
  .gb-heading .gb-action {
-  padding: 10px 0 0 0;
+  padding: 0 0 0 0;
  }
 
  .gb-section-row-1 .gb-body {

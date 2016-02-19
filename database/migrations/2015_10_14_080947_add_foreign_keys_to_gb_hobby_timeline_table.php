@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbHobbyTimelineTable extends Migration {
+class AddForeignKeysToGbHobbyProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbHobbyTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_hobby_timeline', function(Blueprint $table)
+		Schema::table('gb_hobby_progress', function(Blueprint $table)
 		{
-			$table->foreign('hobby_id', 'hobby_timeline_hobby_id')->references('id')->on('gb_hobby')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('timeline_id', 'hobby_timeline_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('hobby_id', 'hobby_progress_hobby_id')->references('id')->on('gb_hobby')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('progress_id', 'hobby_progress_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbHobbyTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_hobby_timeline', function(Blueprint $table)
+		Schema::table('gb_hobby_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('hobby_timeline_hobby_id');
-			$table->dropForeign('hobby_timeline_timeline_id');
+			$table->dropForeign('hobby_progress_hobby_id');
+			$table->dropForeign('hobby_progress_progress_id');
 		});
 	}
 

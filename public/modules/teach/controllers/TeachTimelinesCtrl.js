@@ -1,5 +1,5 @@
-var teachTimelinesCtrl = function (
-        TeachTimelinesManager,
+var teachProgressCtrl = function (
+        TeachProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,44 +12,44 @@ var teachTimelinesCtrl = function (
 
  var vm = this;
  vm.teachId = $stateParams.teachId;
- vm.teachTimelinesCopy;
- vm.teachTimelinesManager = new TeachTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.teachProgressCopy;
+ vm.teachProgressManager = new TeachProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultTeachTimelineData = {
+ vm.defaultTeachProgressData = {
   teachId: $stateParams.teachId,
   privacy: 0
  }
- vm.newTeachTimelineData = angular.copy(vm.defaultTeachTimelineData);
+ vm.newTeachProgressData = angular.copy(vm.defaultTeachProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createTeachTimeline = function (data) {
-  vm.teachTimelinesManager.createTeachTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newTeachTimelineData = angular.copy(vm.defaultTeachTimelineData);
-   vm.teachTimelinesCopy = angular.copy(vm.teachTimelinesManager.teachTimelines);
+ vm.createTeachProgress = function (data) {
+  vm.teachProgressManager.createTeachProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newTeachProgressData = angular.copy(vm.defaultTeachProgressData);
+   vm.teachProgressCopy = angular.copy(vm.teachProgressManager.teachProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editTeachTimeline = function (data) {
-  vm.teachTimelinesManager.editTeachTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newTeachTimelineData = angular.copy(vm.defaultTeachTimelineData);
-   vm.teachTimelinesCopy = angular.copy(vm.teachTimelinesManager.teachTimelines);
+ vm.editTeachProgress = function (data) {
+  vm.teachProgressManager.editTeachProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newTeachProgressData = angular.copy(vm.defaultTeachProgressData);
+   vm.teachProgressCopy = angular.copy(vm.teachProgressManager.teachProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editTeachTimelineSections = {
-  details: function (teachTimelineId, detail) {
-   var teachTimelineData = {
-    teachTimelineId: teachTimelineId,
+ vm.editTeachProgressSections = {
+  details: function (teachProgressId, detail) {
+   var teachProgressData = {
+    teachProgressId: teachProgressId,
     title: detail.title,
     description: detail.description
    };
@@ -58,7 +58,7 @@ var teachTimelinesCtrl = function (
  }
 
  vm.cancelTeachTimeline = function (form) {
-  vm.timelineFormDisplay = false;
+  vm.progressFormDisplay = false;
   vm.newTeachTimelineData = angular.copy(vm.defaultTeachTimelineData)
   if (form) {
    form.$setPristine();
@@ -126,7 +126,7 @@ var teachTimelinesCtrl = function (
  vm.openTeachTimeline = function (teachTimeline) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'teach-timeline-modal.html',
+   templateUrl: 'teach-progress-modal.html',
    controller: 'TeachTimelineCtrl as teachTimelineCtrl',
    backdrop: 'static',
    size: 'xl',

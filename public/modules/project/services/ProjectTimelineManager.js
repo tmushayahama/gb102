@@ -1,9 +1,9 @@
-var projectTimelineManager = function ($http, $q) {
+var projectProgressManager = function ($http, $q) {
 
- var ProjectTimelineManager = function () {
-  this.projectTimelines = [];
+ var ProjectProgressManager = function () {
+  this.projectProgress = [];
  };
- ProjectTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var projectTimelineManager = function ($http, $q) {
  };
 
 
- ProjectTimelineManager.prototype.getProjectTimeline = function (projectId, timelineId) {
+ ProjectProgressManager.prototype.getProjectProgress = function (projectId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/project/' + projectId + '/timeline/' + timelineId).success(function (data) {
-   self.projectTimeline = data;
+  $http.get('/api/project/' + projectId + '/progress/' + progressId).success(function (data) {
+   self.projectProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var projectTimelineManager = function ($http, $q) {
  };
 
 
- ProjectTimelineManager.prototype.editProjectTimeline = function (projectTimelineData) {
+ ProjectProgressManager.prototype.editProjectProgress = function (projectProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/project/timeline/edit',
-   data: projectTimelineData
+   url: '/api/project/progress/edit',
+   data: projectProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var projectTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProjectTimelineManager;
+ return ProjectProgressManager;
 };
 
-projectTimelineManager.$inject = ['$http', '$q'];
+projectProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectTimelineManager', projectTimelineManager);
+angular.module('app.project').service('ProjectProgressManager', projectProgressManager);

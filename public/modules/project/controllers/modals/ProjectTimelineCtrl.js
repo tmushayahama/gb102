@@ -1,5 +1,5 @@
-var projectTimelineCtrl = function (
-        ProjectTimelineManager,
+var projectProgressCtrl = function (
+        ProjectProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var projectTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        projectTimelineData) {
+        projectProgressData) {
  var vm = this;
- vm.projectId = projectTimelineData.project_id;
- vm.projectTimelineId = projectTimelineData.id;
- vm.projectTimelineManager = new ProjectTimelineManager();
+ vm.projectId = projectProgressData.project_id;
+ vm.projectProgressId = projectProgressData.id;
+ vm.projectProgressManager = new ProjectProgressManager();
 
 
- vm.timelineId = projectTimelineData.timeline_id;
+ vm.progressId = projectProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var projectTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newProjectTimelineData = vm.defaultProjectTimelineData;
+ // vm.newProjectProgressData = vm.defaultProjectProgressData;
 
- vm.getProjectTimeline = function (projectId, timelineId) {
-  vm.projectTimelineManager.getProjectTimeline(projectId, timelineId).then(function (response) {
+ vm.getProjectProgress = function (projectId, progressId) {
+  vm.projectProgressManager.getProjectProgress(projectId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editProjectTimeline = function (data) {
-  vm.projectTimelineManager.editProjectTimeline(data).then(function (response) {
+ vm.editProjectProgress = function (data) {
+  vm.projectProgressManager.editProjectProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editProjectTimelineSections = {
+ vm.editProjectProgressSections = {
   details: function (details) {
-   var projectTimelineData = {
-    projectTimelineId: vm.projectTimelineId,
+   var projectProgressData = {
+    projectProgressId: vm.projectProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editProjectTimeline(projectTimelineData);
+   vm.editProjectProgress(projectProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getProjectTimeline(vm.projectId, vm.timelineId);
+ vm.getProjectProgress(vm.projectId, vm.progressId);
 };
 
 
-projectTimelineCtrl.$inject = [
- 'ProjectTimelineManager',
+projectProgressCtrl.$inject = [
+ 'ProjectProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ projectTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'projectTimelineData'];
+ 'projectProgressData'];
 
-angular.module("app.project").controller('ProjectTimelineCtrl', projectTimelineCtrl);
+angular.module("app.project").controller('ProjectProgressCtrl', projectProgressCtrl);

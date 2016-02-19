@@ -23,10 +23,10 @@ var teachTimelineManager = function ($http, $q) {
  };
 
 
- TeachTimelineManager.prototype.getTeachTimeline = function (teachId, timelineId) {
+ TeachTimelineManager.prototype.getTeachTimeline = function (teachId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/teach/' + teachId + '/timeline/' + timelineId).success(function (data) {
+  $http.get('/api/teach/' + teachId + '/progress/' + progressId).success(function (data) {
    self.teachTimeline = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -41,7 +41,7 @@ var teachTimelineManager = function ($http, $q) {
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/teach/timeline/edit',
+   url: '/api/teach/progress/edit',
    data: teachTimelineData
   }).success(function (data) {
    self.deferredHandler(data, deferred);

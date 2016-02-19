@@ -1,5 +1,5 @@
-var collaborationTimelineCtrl = function (
-        CollaborationTimelineManager,
+var collaborationProgressCtrl = function (
+        CollaborationProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var collaborationTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        collaborationTimelineData) {
+        collaborationProgressData) {
  var vm = this;
- vm.collaborationId = collaborationTimelineData.collaboration_id;
- vm.collaborationTimelineId = collaborationTimelineData.id;
- vm.collaborationTimelineManager = new CollaborationTimelineManager();
+ vm.collaborationId = collaborationProgressData.collaboration_id;
+ vm.collaborationProgressId = collaborationProgressData.id;
+ vm.collaborationProgressManager = new CollaborationProgressManager();
 
 
- vm.timelineId = collaborationTimelineData.timeline_id;
+ vm.progressId = collaborationProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var collaborationTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newCollaborationTimelineData = vm.defaultCollaborationTimelineData;
+ // vm.newCollaborationProgressData = vm.defaultCollaborationProgressData;
 
- vm.getCollaborationTimeline = function (collaborationId, timelineId) {
-  vm.collaborationTimelineManager.getCollaborationTimeline(collaborationId, timelineId).then(function (response) {
+ vm.getCollaborationProgress = function (collaborationId, progressId) {
+  vm.collaborationProgressManager.getCollaborationProgress(collaborationId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editCollaborationTimeline = function (data) {
-  vm.collaborationTimelineManager.editCollaborationTimeline(data).then(function (response) {
+ vm.editCollaborationProgress = function (data) {
+  vm.collaborationProgressManager.editCollaborationProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editCollaborationTimelineSections = {
+ vm.editCollaborationProgressSections = {
   details: function (details) {
-   var collaborationTimelineData = {
-    collaborationTimelineId: vm.collaborationTimelineId,
+   var collaborationProgressData = {
+    collaborationProgressId: vm.collaborationProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editCollaborationTimeline(collaborationTimelineData);
+   vm.editCollaborationProgress(collaborationProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getCollaborationTimeline(vm.collaborationId, vm.timelineId);
+ vm.getCollaborationProgress(vm.collaborationId, vm.progressId);
 };
 
 
-collaborationTimelineCtrl.$inject = [
- 'CollaborationTimelineManager',
+collaborationProgressCtrl.$inject = [
+ 'CollaborationProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ collaborationTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'collaborationTimelineData'];
+ 'collaborationProgressData'];
 
-angular.module("app.collaboration").controller('CollaborationTimelineCtrl', collaborationTimelineCtrl);
+angular.module("app.collaboration").controller('CollaborationProgressCtrl', collaborationProgressCtrl);

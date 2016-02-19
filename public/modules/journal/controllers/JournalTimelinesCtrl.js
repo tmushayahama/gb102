@@ -1,5 +1,5 @@
-var journalTimelinesCtrl = function (
-        JournalTimelinesManager,
+var journalProgressCtrl = function (
+        JournalProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var journalTimelinesCtrl = function (
 
  var vm = this;
  vm.journalId = $stateParams.journalId;
- vm.journalTimelinesCopy;
- vm.journalTimelinesManager = new JournalTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.journalProgressCopy;
+ vm.journalProgressManager = new JournalProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultJournalTimelineData = {
+ vm.defaultJournalProgressData = {
   journalId: $stateParams.journalId,
   privacy: 0
  }
- vm.newJournalTimelineData = angular.copy(vm.defaultJournalTimelineData);
+ vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createJournalTimeline = function (data) {
-  vm.journalTimelinesManager.createJournalTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newJournalTimelineData = angular.copy(vm.defaultJournalTimelineData);
-   vm.journalTimelinesCopy = angular.copy(vm.journalTimelinesManager.journalTimelines);
+ vm.createJournalProgress = function (data) {
+  vm.journalProgressManager.createJournalProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData);
+   vm.journalProgressCopy = angular.copy(vm.journalProgressManager.journalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editJournalTimeline = function (data) {
-  vm.journalTimelinesManager.editJournalTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newJournalTimelineData = angular.copy(vm.defaultJournalTimelineData);
-   vm.journalTimelinesCopy = angular.copy(vm.journalTimelinesManager.journalTimelines);
+ vm.editJournalProgress = function (data) {
+  vm.journalProgressManager.editJournalProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData);
+   vm.journalProgressCopy = angular.copy(vm.journalProgressManager.journalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editJournalTimelineSections = {
-  details: function (journalTimelineId, detail) {
-   var journalTimelineData = {
-    journalTimelineId: journalTimelineId,
+ vm.editJournalProgressSections = {
+  details: function (journalProgressId, detail) {
+   var journalProgressData = {
+    journalProgressId: journalProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editJournalTimeline(journalTimelineData);
+   vm.editJournalProgress(journalProgressData);
   }
  }
 
- vm.cancelJournalTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newJournalTimelineData = angular.copy(vm.defaultJournalTimelineData)
+ vm.cancelJournalProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertJournalTimeline = function (journalTimeline, journalTimelineCopy) {
-  journalTimeline = journalTimelineCopy;
+ vm.revertJournalProgress = function (journalProgress, journalProgressCopy) {
+  journalProgress = journalProgressCopy;
   /*
    $filter('filter')
-   (vm.journalTimelinesManager.journalTimelines, {id: journalTimelineId}, true)[0]
+   (vm.journalProgressManager.journalProgress, {id: journalProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.journalTimelinesCopy, {id: journalTimelineId}, true)[0]);
-   if (journalTimeline.length && journalTimelineCopy.length) {
-   // vm.journalTimelinesManager.journalTimelines angular.copy(vm.journalTimelinesCopy);
+   (vm.journalProgressCopy, {id: journalProgressId}, true)[0]);
+   if (journalProgress.length && journalProgressCopy.length) {
+   // vm.journalProgressManager.journalProgress angular.copy(vm.journalProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var journalTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.journalTimelines;
+  return vm.journalProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(journalTimelines, {completed: false}).length;
-  vm.doneCount = vm.journalTimelinesManager.journalTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(journalProgress, {completed: false}).length;
+  vm.doneCount = vm.journalProgressManager.journalProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //JournalTimelineService.put(vm.journalTimelines);
+  //JournalProgressService.put(vm.journalProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var journalTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (journalTimeline) {
-  vm.editedTimeline = journalTimeline;
-  // Clone the original journalTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(journalTimeline);
+ vm.editProgress = function (journalProgress) {
+  vm.editedProgress = journalProgress;
+  // Clone the original journalProgress to restore it on demand.
+  vm.originalProgress = angular.copy(journalProgress);
  };
 
 
- vm.doneEditing = function (journalTimeline) {
-  vm.editedTimeline = null;
-  journalTimeline.title = journalTimeline.title.trim();
+ vm.doneEditing = function (journalProgress) {
+  vm.editedProgress = null;
+  journalProgress.title = journalProgress.title.trim();
 
-  if (!journalTimeline.title) {
-   vm.removeTimeline(journalTimeline);
+  if (!journalProgress.title) {
+   vm.removeProgress(journalProgress);
   }
  };
 
- vm.openJournalTimeline = function (journalTimeline) {
+ vm.openJournalProgress = function (journalProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'journal-timeline-modal.html',
-   controller: 'JournalTimelineCtrl as journalTimelineCtrl',
+   templateUrl: 'journal-progress-modal.html',
+   controller: 'JournalProgressCtrl as journalProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    journalTimelineData: function () {
-     return journalTimeline;
+    journalProgressData: function () {
+     return journalProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var journalTimelinesCtrl = function (
 
 
  //--------init------
- vm.journalTimelinesManager.getJournalTimelines(vm.journalId);
+ vm.journalProgressManager.getJournalProgress(vm.journalId);
 };
 
-journalTimelinesCtrl.$inject = [
- 'JournalTimelinesManager',
+journalProgressCtrl.$inject = [
+ 'JournalProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ journalTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.journal").controller('JournalTimelinesCtrl', journalTimelinesCtrl);
+angular.module("app.journal").controller('JournalProgressCtrl', journalProgressCtrl);

@@ -107,11 +107,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/questionnaire/controllers/question/QuestionOverviewCtrl.js',
-                          //Timeline
-                          //'public/modules/question/services/QuestionTimelineManager.js',
-                          //'public/modules/question/services/QuestionTimelinesManager.js',
-                          //'public/modules/question/controllers/QuestionTimelinesCtrl.js',
-                          //'public/modules/question/controllers/modals/QuestionTimelineCtrl.js',
+                          //Progress
+                          //'public/modules/question/services/QuestionProgressManager.js',
+                          //'public/modules/question/services/QuestionProgressManager.js',
+                          //'public/modules/question/controllers/QuestionProgressCtrl.js',
+                          //'public/modules/question/controllers/modals/QuestionProgressCtrl.js',
                  ]
                 });
                }]

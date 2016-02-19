@@ -1,5 +1,5 @@
-var adviceTimelineCtrl = function (
-        AdviceTimelineManager,
+var adviceProgressCtrl = function (
+        AdviceProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var adviceTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        adviceTimelineData) {
+        adviceProgressData) {
  var vm = this;
- vm.adviceId = adviceTimelineData.advice_id;
- vm.adviceTimelineId = adviceTimelineData.id;
- vm.adviceTimelineManager = new AdviceTimelineManager();
+ vm.adviceId = adviceProgressData.advice_id;
+ vm.adviceProgressId = adviceProgressData.id;
+ vm.adviceProgressManager = new AdviceProgressManager();
 
 
- vm.timelineId = adviceTimelineData.timeline_id;
+ vm.progressId = adviceProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var adviceTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newAdviceTimelineData = vm.defaultAdviceTimelineData;
+ // vm.newAdviceProgressData = vm.defaultAdviceProgressData;
 
- vm.getAdviceTimeline = function (adviceId, timelineId) {
-  vm.adviceTimelineManager.getAdviceTimeline(adviceId, timelineId).then(function (response) {
+ vm.getAdviceProgress = function (adviceId, progressId) {
+  vm.adviceProgressManager.getAdviceProgress(adviceId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editAdviceTimeline = function (data) {
-  vm.adviceTimelineManager.editAdviceTimeline(data).then(function (response) {
+ vm.editAdviceProgress = function (data) {
+  vm.adviceProgressManager.editAdviceProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editAdviceTimelineSections = {
+ vm.editAdviceProgressSections = {
   details: function (details) {
-   var adviceTimelineData = {
-    adviceTimelineId: vm.adviceTimelineId,
+   var adviceProgressData = {
+    adviceProgressId: vm.adviceProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editAdviceTimeline(adviceTimelineData);
+   vm.editAdviceProgress(adviceProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getAdviceTimeline(vm.adviceId, vm.timelineId);
+ vm.getAdviceProgress(vm.adviceId, vm.progressId);
 };
 
 
-adviceTimelineCtrl.$inject = [
- 'AdviceTimelineManager',
+adviceProgressCtrl.$inject = [
+ 'AdviceProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ adviceTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'adviceTimelineData'];
+ 'adviceProgressData'];
 
-angular.module("app.advice").controller('AdviceTimelineCtrl', adviceTimelineCtrl);
+angular.module("app.advice").controller('AdviceProgressCtrl', adviceProgressCtrl);

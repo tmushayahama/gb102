@@ -25,6 +25,7 @@ requirejs.config({
   'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min',
   'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
   'checklist-model': '../../../bower_components/checklist-model/checklist-model',
+  'angular-svg-round-progress': '../../../bower_components/angular-svg-round-progressbar/build/roundProgress.min',
   //Local pugins--common
   'truncate-filters': 'scripts/modules/common/filters/truncate'
 
@@ -52,6 +53,7 @@ requirejs.config({
   'angular-aside': {deps: ['angular', 'angular-animate']},
   'angular-sanitize': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
+  'angular-svg-round-progress': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

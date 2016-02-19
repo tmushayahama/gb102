@@ -3,27 +3,27 @@
 namespace App\Models\Skill;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class SkillTimeline extends Model {
+class SkillProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_skill_timeline';
+ protected $table = 'gb_skill_progress';
  public $timestamps = false;
 
  public function skill() {
   return $this->belongsTo('App\Models\Skill\Skill', 'skill_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class SkillTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getSkillTimelines($skillId) {
-  $skillTimelines = SkillTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getSkillProgress($skillId) {
+  $skillProgress = SkillProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
     ->get();
-  return $skillTimelines;
+  return $skillProgress;
  }
 
- public static function getSkillTimeline($skillId, $timelineId) {
-  $skillTimeline = SkillTimeline::with('timeline')
+ public static function getSkillProgress($skillId, $progressId) {
+  $skillProgress = SkillProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('skill_id', $skillId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $skillTimeline;
+  return $skillProgress;
  }
 
- public static function createSkillTimeline() {
+ public static function createSkillProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $skillId = Request::get("skillId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $skillTimeline = new SkillTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $skillTimeline->skill_id = $skillId;
+  $progress = new Progress;
+  $skillProgress = new SkillProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $skillProgress->skill_id = $skillId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $skillTimeline->timeline()->associate($timeline);
-   $skillTimeline->save();
+   $progress->save();
+   $skillProgress->progress()->associate($progress);
+   $skillProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTimeline;
+  return $skillProgress;
  }
 
- public static function editSkillTimeline() {
+ public static function editSkillProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $skillTimelineId = Request::get("skillTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $skillProgressId = Request::get("skillProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $skillTimeline = SkillTimeline::find($skillTimelineId);
-  $skillTimeline->timeline->title = $title;
-  $skillTimeline->timeline->description = $description;
+  $skillProgress = SkillProgress::find($skillProgressId);
+  $skillProgress->progress->title = $title;
+  $skillProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $skillTimeline->push();
+   $skillProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $skillTimeline;
+  return $skillProgress;
  }
 
 }

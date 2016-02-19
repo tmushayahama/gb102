@@ -3,27 +3,27 @@
 namespace App\Models\Questionnaire;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class QuestionnaireTimeline extends Model {
+class QuestionnaireProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_questionnaire_timeline';
+ protected $table = 'gb_questionnaire_progress';
  public $timestamps = false;
 
  public function questionnaire() {
   return $this->belongsTo('App\Models\Questionnaire\Questionnaire', 'questionnaire_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class QuestionnaireTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getQuestionnaireTimelines($questionnaireId) {
-  $questionnaireTimelines = QuestionnaireTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getQuestionnaireProgress($questionnaireId) {
+  $questionnaireProgress = QuestionnaireProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('questionnaire_id', $questionnaireId)
     ->get();
-  return $questionnaireTimelines;
+  return $questionnaireProgress;
  }
 
- public static function getQuestionnaireTimeline($questionnaireId, $timelineId) {
-  $questionnaireTimeline = QuestionnaireTimeline::with('timeline')
+ public static function getQuestionnaireProgress($questionnaireId, $progressId) {
+  $questionnaireProgress = QuestionnaireProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('questionnaire_id', $questionnaireId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $questionnaireTimeline;
+  return $questionnaireProgress;
  }
 
- public static function createQuestionnaireTimeline() {
+ public static function createQuestionnaireProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $questionnaireId = Request::get("questionnaireId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $questionnaireTimeline = new QuestionnaireTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $questionnaireTimeline->questionnaire_id = $questionnaireId;
+  $progress = new Progress;
+  $questionnaireProgress = new QuestionnaireProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $questionnaireProgress->questionnaire_id = $questionnaireId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $questionnaireTimeline->timeline()->associate($timeline);
-   $questionnaireTimeline->save();
+   $progress->save();
+   $questionnaireProgress->progress()->associate($progress);
+   $questionnaireProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $questionnaireTimeline;
+  return $questionnaireProgress;
  }
 
- public static function editQuestionnaireTimeline() {
+ public static function editQuestionnaireProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $questionnaireTimelineId = Request::get("questionnaireTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $questionnaireProgressId = Request::get("questionnaireProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $questionnaireTimeline = QuestionnaireTimeline::find($questionnaireTimelineId);
-  $questionnaireTimeline->timeline->title = $title;
-  $questionnaireTimeline->timeline->description = $description;
+  $questionnaireProgress = QuestionnaireProgress::find($questionnaireProgressId);
+  $questionnaireProgress->progress->title = $title;
+  $questionnaireProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $questionnaireTimeline->push();
+   $questionnaireProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $questionnaireTimeline;
+  return $questionnaireProgress;
  }
 
 }

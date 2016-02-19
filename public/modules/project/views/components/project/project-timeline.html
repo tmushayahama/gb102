@@ -1,24 +1,24 @@
-<section class="gb-section-row-2 row" ng-controller="ProjectTimelinesCtrl as projectTimelinesCtrl">
+<section class="gb-section-row-2 row" ng-controller="ProjectProgressCtrl as projectProgressCtrl">
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
-    PROJECT TIMELINE
+    PROJECT PROGRESS
    </p>
   </div>
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  gb-no-margin">
-  <div class="smart-timeline">
-   <ul class="gb-block smart-timeline-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <li ng-repeat="projectTimeline in projectTimelinesCtrl.projectTimelinesManager.projectTimelines">
-     <div class ="smart-timeline-icon btn-primary">
+  <div class="smart-progress">
+   <ul class="gb-block smart-progress-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <li ng-repeat="projectProgress in projectProgressCtrl.projectProgressManager.projectProgress">
+     <div class ="smart-progress-icon btn-primary">
       <i class="fa fa-link" width="32" height="32" alt="user"></i>
      </div>
-     <div class="smart-timeline-time">
-      <small>{{'Day ' + projectTimeline.timeline.day}}</small>
+     <div class="smart-progress-time">
+      <small>{{'Day ' + projectProgress.progress.day}}</small>
      </div>
-     <div class="smart-timeline-content">
+     <div class="smart-progress-content">
       <div class="row">
-       <div class="row gb-block gb-timeline-item">
+       <div class="row gb-block gb-progress-item">
         <div class="col-lg-10 col-sm-10 col-xs-10  gb-no-margin">
          <div class="row gb-panel-form gb-hide">
           <div class="row">
@@ -27,10 +27,10 @@
          <div class="row gb-description gb-panel-display">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
            <p>
-            {{ projectTimeline.timeline.description}}
+            {{ projectProgress.progress.description}}
            </p>
            <p>
-            <i class="gb-small-text">{{projectTimeline.timeline.created_at}}</i>
+            <i class="gb-small-text">{{projectProgress.progress.created_at}}</i>
            </p>
           </div>
          </div>
@@ -42,7 +42,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
            <li>
-            <a ng-click="projectTimelinesCtrl.openProjectTimeline(projectTimeline)">
+            <a ng-click="projectProgressCtrl.openProjectProgress(projectProgress)">
              <i class="fa fa-edit"></i> open
             </a>
            </li>
@@ -62,6 +62,6 @@
   </div>
  </div>
 </section>
-<script type="text/ng-template" id="project-timeline-modal.html">
- <div class="gb-comment-page" ng-include="'public/modules/project/views/modals/project-timeline.html'"></div>
+<script type="text/ng-template" id="project-progress-modal.html">
+ <div class="gb-comment-page" ng-include="'public/modules/project/views/modals/project-progress.html'"></div>
 </script>

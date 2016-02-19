@@ -1,9 +1,9 @@
-var collaborationTimelinesManager = function ($http, $q) {
+var collaborationProgressManager = function ($http, $q) {
 
- var CollaborationTimelinesManager = function () {
-  this.collaborationTimelines = [];
+ var CollaborationProgressManager = function () {
+  this.collaborationProgress = [];
  };
- CollaborationTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var collaborationTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationTimelinesManager.prototype.getCollaborationTimelines = function (collaborationId) {
+ CollaborationProgressManager.prototype.getCollaborationProgress = function (collaborationId) {
   var self = this;
   var deferred = $q.defer();
-  self.collaborationTimelines = [];
-  $http.get('/api/collaboration/' + collaborationId + '/timelines').success(function (data) {
-   self.collaborationTimelines = data;
+  self.collaborationProgress = [];
+  $http.get('/api/collaboration/' + collaborationId + '/progress').success(function (data) {
+   self.collaborationProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var collaborationTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTimelinesManager.prototype.getCollaborationTimeline = function (collaborationId, timelineId) {
+ CollaborationProgressManager.prototype.getCollaborationProgress = function (collaborationId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.collaborationTimelines = [];
-  $http.get('/api/collaboration/' + collaborationId + '/timeline/' + timelineId).success(function (data) {
-   self.collaborationTimelines = data;
+  self.collaborationProgress = [];
+  $http.get('/api/collaboration/' + collaborationId + '/progress/' + progressId).success(function (data) {
+   self.collaborationProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var collaborationTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTimelinesManager.prototype.createCollaborationTimeline = function (collaborationTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/collaboration/timeline/create',
-   data: collaborationTimelineData
-  }).success(function (data) {
-   self.collaborationTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- CollaborationTimelinesManager.prototype.editCollaborationTimeline = function (collaborationTimelineData) {
+ CollaborationProgressManager.prototype.createCollaborationProgress = function (collaborationProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/collaboration/timeline/edit',
-   data: collaborationTimelineData
+   url: '/api/collaboration/progress/create',
+   data: collaborationProgressData
+  }).success(function (data) {
+   self.collaborationProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ CollaborationProgressManager.prototype.editCollaborationProgress = function (collaborationProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/collaboration/progress/edit',
+   data: collaborationProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var collaborationTimelinesManager = function ($http, $q) {
  };
 
 
- return CollaborationTimelinesManager;
+ return CollaborationProgressManager;
 };
 
-collaborationTimelinesManager.$inject = ['$http', '$q'];
+collaborationProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationTimelinesManager', collaborationTimelinesManager);
+angular.module('app.collaboration').service('CollaborationProgressManager', collaborationProgressManager);

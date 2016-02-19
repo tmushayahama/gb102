@@ -1,9 +1,9 @@
-var swipeTimelineManager = function ($http, $q) {
+var swipeProgressManager = function ($http, $q) {
 
- var SwipeTimelineManager = function () {
-  this.swipeTimelines = [];
+ var SwipeProgressManager = function () {
+  this.swipeProgress = [];
  };
- SwipeTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SwipeProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var swipeTimelineManager = function ($http, $q) {
  };
 
 
- SwipeTimelineManager.prototype.getSwipeTimeline = function (swipeId, timelineId) {
+ SwipeProgressManager.prototype.getSwipeProgress = function (swipeId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/swipe/' + swipeId + '/timeline/' + timelineId).success(function (data) {
-   self.swipeTimeline = data;
+  $http.get('/api/swipe/' + swipeId + '/progress/' + progressId).success(function (data) {
+   self.swipeProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var swipeTimelineManager = function ($http, $q) {
  };
 
 
- SwipeTimelineManager.prototype.editSwipeTimeline = function (swipeTimelineData) {
+ SwipeProgressManager.prototype.editSwipeProgress = function (swipeProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/timeline/edit',
-   data: swipeTimelineData
+   url: '/api/swipe/progress/edit',
+   data: swipeProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var swipeTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SwipeTimelineManager;
+ return SwipeProgressManager;
 };
 
-swipeTimelineManager.$inject = ['$http', '$q'];
+swipeProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTimelineManager', swipeTimelineManager);
+angular.module('app.swipe').service('SwipeProgressManager', swipeProgressManager);

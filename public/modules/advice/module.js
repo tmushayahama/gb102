@@ -130,11 +130,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/advice/controllers/AdviceOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/advice/services/AdviceTimelineManager.js',
-                  'public/modules/advice/services/AdviceTimelinesManager.js',
-                  'public/modules/advice/controllers/AdviceTimelinesCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceTimelineCtrl.js',
+                  //Progress
+                  'public/modules/advice/services/AdviceProgressManager.js',
+                  'public/modules/advice/services/AdviceProgressManager.js',
+                  'public/modules/advice/controllers/AdviceProgressCtrl.js',
+                  'public/modules/advice/controllers/modals/AdviceProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +154,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/advice/controllers/AdviceManageCtrl.js',
-                  //Timeline
-                  'public/modules/advice/services/AdviceTimelineManager.js',
-                  'public/modules/advice/services/AdviceTimelinesManager.js',
-                  'public/modules/advice/controllers/AdviceTimelinesCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceTimelineCtrl.js',
+                  //Progress
+                  'public/modules/advice/services/AdviceProgressManager.js',
+                  'public/modules/advice/services/AdviceProgressManager.js',
+                  'public/modules/advice/controllers/AdviceProgressCtrl.js',
+                  'public/modules/advice/controllers/modals/AdviceProgressCtrl.js',
                  ]
                 });
                }]

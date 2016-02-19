@@ -3,27 +3,27 @@
 namespace App\Models\Project;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class ProjectTimeline extends Model {
+class ProjectProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_project_timeline';
+ protected $table = 'gb_project_progress';
  public $timestamps = false;
 
  public function project() {
   return $this->belongsTo('App\Models\Project\Project', 'project_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class ProjectTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getProjectTimelines($projectId) {
-  $projectTimelines = ProjectTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getProjectProgress($projectId) {
+  $projectProgress = ProjectProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('project_id', $projectId)
     ->get();
-  return $projectTimelines;
+  return $projectProgress;
  }
 
- public static function getProjectTimeline($projectId, $timelineId) {
-  $projectTimeline = ProjectTimeline::with('timeline')
+ public static function getProjectProgress($projectId, $progressId) {
+  $projectProgress = ProjectProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('project_id', $projectId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $projectTimeline;
+  return $projectProgress;
  }
 
- public static function createProjectTimeline() {
+ public static function createProjectProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $projectId = Request::get("projectId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $projectTimeline = new ProjectTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $projectTimeline->project_id = $projectId;
+  $progress = new Progress;
+  $projectProgress = new ProjectProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $projectProgress->project_id = $projectId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $projectTimeline->timeline()->associate($timeline);
-   $projectTimeline->save();
+   $progress->save();
+   $projectProgress->progress()->associate($progress);
+   $projectProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $projectTimeline;
+  return $projectProgress;
  }
 
- public static function editProjectTimeline() {
+ public static function editProjectProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $projectTimelineId = Request::get("projectTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $projectProgressId = Request::get("projectProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $projectTimeline = ProjectTimeline::find($projectTimelineId);
-  $projectTimeline->timeline->title = $title;
-  $projectTimeline->timeline->description = $description;
+  $projectProgress = ProjectProgress::find($projectProgressId);
+  $projectProgress->progress->title = $title;
+  $projectProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $projectTimeline->push();
+   $projectProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $projectTimeline;
+  return $projectProgress;
  }
 
 }

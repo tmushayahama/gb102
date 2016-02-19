@@ -1,9 +1,9 @@
-var exploreTimelineManager = function ($http, $q) {
+var exploreProgressManager = function ($http, $q) {
 
- var ExploreTimelineManager = function () {
-  this.exploreTimelines = [];
+ var ExploreProgressManager = function () {
+  this.exploreProgress = [];
  };
- ExploreTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExploreProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var exploreTimelineManager = function ($http, $q) {
  };
 
 
- ExploreTimelineManager.prototype.getExploreTimeline = function (exploreId, timelineId) {
+ ExploreProgressManager.prototype.getExploreProgress = function (exploreId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explore/' + exploreId + '/timeline/' + timelineId).success(function (data) {
-   self.exploreTimeline = data;
+  $http.get('/api/explore/' + exploreId + '/progress/' + progressId).success(function (data) {
+   self.exploreProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var exploreTimelineManager = function ($http, $q) {
  };
 
 
- ExploreTimelineManager.prototype.editExploreTimeline = function (exploreTimelineData) {
+ ExploreProgressManager.prototype.editExploreProgress = function (exploreProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explore/timeline/edit',
-   data: exploreTimelineData
+   url: '/api/explore/progress/edit',
+   data: exploreProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var exploreTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExploreTimelineManager;
+ return ExploreProgressManager;
 };
 
-exploreTimelineManager.$inject = ['$http', '$q'];
+exploreProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.explore').service('ExploreTimelineManager', exploreTimelineManager);
+angular.module('app.explore').service('ExploreProgressManager', exploreProgressManager);

@@ -3,27 +3,27 @@
 namespace App\Models\Journal;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class JournalTimeline extends Model {
+class JournalProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_journal_timeline';
+ protected $table = 'gb_journal_progress';
  public $timestamps = false;
 
  public function journal() {
   return $this->belongsTo('App\Models\Journal\Journal', 'journal_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class JournalTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getJournalTimelines($journalId) {
-  $journalTimelines = JournalTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getJournalProgress($journalId) {
+  $journalProgress = JournalProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('journal_id', $journalId)
     ->get();
-  return $journalTimelines;
+  return $journalProgress;
  }
 
- public static function getJournalTimeline($journalId, $timelineId) {
-  $journalTimeline = JournalTimeline::with('timeline')
+ public static function getJournalProgress($journalId, $progressId) {
+  $journalProgress = JournalProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('journal_id', $journalId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $journalTimeline;
+  return $journalProgress;
  }
 
- public static function createJournalTimeline() {
+ public static function createJournalProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $journalId = Request::get("journalId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $journalTimeline = new JournalTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $journalTimeline->journal_id = $journalId;
+  $progress = new Progress;
+  $journalProgress = new JournalProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $journalProgress->journal_id = $journalId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $journalTimeline->timeline()->associate($timeline);
-   $journalTimeline->save();
+   $progress->save();
+   $journalProgress->progress()->associate($progress);
+   $journalProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $journalTimeline;
+  return $journalProgress;
  }
 
- public static function editJournalTimeline() {
+ public static function editJournalProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $journalTimelineId = Request::get("journalTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $journalProgressId = Request::get("journalProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $journalTimeline = JournalTimeline::find($journalTimelineId);
-  $journalTimeline->timeline->title = $title;
-  $journalTimeline->timeline->description = $description;
+  $journalProgress = JournalProgress::find($journalProgressId);
+  $journalProgress->progress->title = $title;
+  $journalProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $journalTimeline->push();
+   $journalProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $journalTimeline;
+  return $journalProgress;
  }
 
 }

@@ -1,5 +1,5 @@
-var questionnaireTimelineCtrl = function (
-        QuestionnaireTimelineManager,
+var questionnaireProgressCtrl = function (
+        QuestionnaireProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var questionnaireTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        questionnaireTimelineData) {
+        questionnaireProgressData) {
  var vm = this;
- vm.questionnaireId = questionnaireTimelineData.questionnaire_id;
- vm.questionnaireTimelineId = questionnaireTimelineData.id;
- vm.questionnaireTimelineManager = new QuestionnaireTimelineManager();
+ vm.questionnaireId = questionnaireProgressData.questionnaire_id;
+ vm.questionnaireProgressId = questionnaireProgressData.id;
+ vm.questionnaireProgressManager = new QuestionnaireProgressManager();
 
 
- vm.timelineId = questionnaireTimelineData.timeline_id;
+ vm.progressId = questionnaireProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var questionnaireTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newQuestionnaireTimelineData = vm.defaultQuestionnaireTimelineData;
+ // vm.newQuestionnaireProgressData = vm.defaultQuestionnaireProgressData;
 
- vm.getQuestionnaireTimeline = function (questionnaireId, timelineId) {
-  vm.questionnaireTimelineManager.getQuestionnaireTimeline(questionnaireId, timelineId).then(function (response) {
+ vm.getQuestionnaireProgress = function (questionnaireId, progressId) {
+  vm.questionnaireProgressManager.getQuestionnaireProgress(questionnaireId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editQuestionnaireTimeline = function (data) {
-  vm.questionnaireTimelineManager.editQuestionnaireTimeline(data).then(function (response) {
+ vm.editQuestionnaireProgress = function (data) {
+  vm.questionnaireProgressManager.editQuestionnaireProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editQuestionnaireTimelineSections = {
+ vm.editQuestionnaireProgressSections = {
   details: function (details) {
-   var questionnaireTimelineData = {
-    questionnaireTimelineId: vm.questionnaireTimelineId,
+   var questionnaireProgressData = {
+    questionnaireProgressId: vm.questionnaireProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editQuestionnaireTimeline(questionnaireTimelineData);
+   vm.editQuestionnaireProgress(questionnaireProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getQuestionnaireTimeline(vm.questionnaireId, vm.timelineId);
+ vm.getQuestionnaireProgress(vm.questionnaireId, vm.progressId);
 };
 
 
-questionnaireTimelineCtrl.$inject = [
- 'QuestionnaireTimelineManager',
+questionnaireProgressCtrl.$inject = [
+ 'QuestionnaireProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ questionnaireTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'questionnaireTimelineData'];
+ 'questionnaireProgressData'];
 
-angular.module("app.questionnaire").controller('QuestionnaireTimelineCtrl', questionnaireTimelineCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireProgressCtrl', questionnaireProgressCtrl);

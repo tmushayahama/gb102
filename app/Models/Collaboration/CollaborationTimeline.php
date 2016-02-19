@@ -3,27 +3,27 @@
 namespace App\Models\Collaboration;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class CollaborationTimeline extends Model {
+class CollaborationProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_collaboration_timeline';
+ protected $table = 'gb_collaboration_progress';
  public $timestamps = false;
 
  public function collaboration() {
   return $this->belongsTo('App\Models\Collaboration\Collaboration', 'collaboration_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class CollaborationTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getCollaborationTimelines($collaborationId) {
-  $collaborationTimelines = CollaborationTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getCollaborationProgress($collaborationId) {
+  $collaborationProgress = CollaborationProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('collaboration_id', $collaborationId)
     ->get();
-  return $collaborationTimelines;
+  return $collaborationProgress;
  }
 
- public static function getCollaborationTimeline($collaborationId, $timelineId) {
-  $collaborationTimeline = CollaborationTimeline::with('timeline')
+ public static function getCollaborationProgress($collaborationId, $progressId) {
+  $collaborationProgress = CollaborationProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('collaboration_id', $collaborationId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $collaborationTimeline;
+  return $collaborationProgress;
  }
 
- public static function createCollaborationTimeline() {
+ public static function createCollaborationProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $collaborationId = Request::get("collaborationId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $collaborationTimeline = new CollaborationTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $collaborationTimeline->collaboration_id = $collaborationId;
+  $progress = new Progress;
+  $collaborationProgress = new CollaborationProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $collaborationProgress->collaboration_id = $collaborationId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $collaborationTimeline->timeline()->associate($timeline);
-   $collaborationTimeline->save();
+   $progress->save();
+   $collaborationProgress->progress()->associate($progress);
+   $collaborationProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $collaborationTimeline;
+  return $collaborationProgress;
  }
 
- public static function editCollaborationTimeline() {
+ public static function editCollaborationProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $collaborationTimelineId = Request::get("collaborationTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $collaborationProgressId = Request::get("collaborationProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $collaborationTimeline = CollaborationTimeline::find($collaborationTimelineId);
-  $collaborationTimeline->timeline->title = $title;
-  $collaborationTimeline->timeline->description = $description;
+  $collaborationProgress = CollaborationProgress::find($collaborationProgressId);
+  $collaborationProgress->progress->title = $title;
+  $collaborationProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $collaborationTimeline->push();
+   $collaborationProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $collaborationTimeline;
+  return $collaborationProgress;
  }
 
 }

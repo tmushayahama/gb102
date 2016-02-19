@@ -130,11 +130,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/collaboration/controllers/CollaborationOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/collaboration/services/CollaborationTimelineManager.js',
-                  'public/modules/collaboration/services/CollaborationTimelinesManager.js',
-                  'public/modules/collaboration/controllers/CollaborationTimelinesCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationTimelineCtrl.js',
+                  //Progress
+                  'public/modules/collaboration/services/CollaborationProgressManager.js',
+                  'public/modules/collaboration/services/CollaborationProgressManager.js',
+                  'public/modules/collaboration/controllers/CollaborationProgressCtrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +154,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/collaboration/controllers/CollaborationManageCtrl.js',
-                  //Timeline
-                  'public/modules/collaboration/services/CollaborationTimelineManager.js',
-                  'public/modules/collaboration/services/CollaborationTimelinesManager.js',
-                  'public/modules/collaboration/controllers/CollaborationTimelinesCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationTimelineCtrl.js',
+                  //Progress
+                  'public/modules/collaboration/services/CollaborationProgressManager.js',
+                  'public/modules/collaboration/services/CollaborationProgressManager.js',
+                  'public/modules/collaboration/controllers/CollaborationProgressCtrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationProgressCtrl.js',
                  ]
                 });
                }]

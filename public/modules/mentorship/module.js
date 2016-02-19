@@ -130,11 +130,10 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/mentorship/controllers/MentorshipOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/mentorship/services/MentorshipTimelineManager.js',
-                  'public/modules/mentorship/services/MentorshipTimelinesManager.js',
-                  'public/modules/mentorship/controllers/MentorshipTimelinesCtrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipTimelineCtrl.js',
+                  //Progress
+                  'public/modules/mentorship/services/MentorshipProgressManager.js',
+                  'public/modules/mentorship/controllers/MentorshipProgressCtrl.js',
+                          //'public/modules/mentorship/controllers/modals/MentorshipProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +153,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/mentorship/controllers/MentorshipManageCtrl.js',
-                  //Timeline
-                  'public/modules/mentorship/services/MentorshipTimelineManager.js',
-                  'public/modules/mentorship/services/MentorshipTimelinesManager.js',
-                  'public/modules/mentorship/controllers/MentorshipTimelinesCtrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipTimelineCtrl.js',
+                  //Progress
+                  'public/modules/mentorship/services/MentorshipProgressManager.js',
+                  'public/modules/mentorship/services/MentorshipProgressManager.js',
+                  'public/modules/mentorship/controllers/MentorshipProgressCtrl.js',
+                  'public/modules/mentorship/controllers/modals/MentorshipProgressCtrl.js',
                  ]
                 });
                }]

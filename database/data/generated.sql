@@ -459,26 +459,23 @@ CREATE TABLE `gb_tag` (
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `gb_timeline`;
+DROP TABLE IF EXISTS `gb_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_timeline` (
+CREATE TABLE `gb_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_timeline_id` int(11),
+  `parent_progress_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `timeline_date` datetime NOT NULL,
-  `day` int(11) NOT NULL DEFAULT '1',
-  `timeline_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `timeline_creator_id` (`creator_id`),
-  KEY `timeline_parent_timeline_id` (`parent_timeline_id`),
-  CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `timeline_parent_timeline_id` FOREIGN KEY (`parent_timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `progress_creator_id` (`creator_id`),
+  KEY `progress_parent_progress_id` (`parent_progress_id`),
+  CONSTRAINT `progress_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `progress_parent_progress_id` FOREIGN KEY (`parent_progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -623,6 +620,24 @@ CREATE TABLE `gb_user_profile_section` (
   CONSTRAINT `user_profile_section_profile_section_id` FOREIGN KEY (`profile_section_id`) REFERENCES `gb_profile_section` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `gb_user_progress`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_user_progress` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `progress_id` int(11),
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `user_progress_creator_id` (`creator_id`),
+  KEY `user_progress_progress_id` (`progress_id`),
+  CONSTRAINT `user_progress_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_weblink`
 --
@@ -759,15 +774,15 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
     ignore 1 LINES
    (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
--- ----------- TIMELINE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Timeline.txt'
-    into table gb102.gb_timeline
+-- ----------- PROGRESS ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Progress.txt'
+    into table gb102.gb_progress
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_at`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
+   (`id`, `parent_progress_id`,	`creator_id`,	`description`,	`created_at`,	`updated_at`,	`importance`, `status`);
 
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
@@ -818,7 +833,6 @@ CREATE TABLE `gb_explore` (
   CONSTRAINT `explore_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explore_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1055,22 +1069,22 @@ CREATE TABLE `gb_explore_todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_timeline`
+-- Table structure for table `gb_explore_progress`
 --
-DROP TABLE IF EXISTS `gb_explore_timeline`;
+DROP TABLE IF EXISTS `gb_explore_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_timeline` (
+CREATE TABLE `gb_explore_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `explore_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_timeline_timeline_id` (`timeline_id`),
-  KEY `explore_timeline_explore_id` (`explore_id`),
-  CONSTRAINT `explore_timeline_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explore_progress_progress_id` (`progress_id`),
+  KEY `explore_progress_explore_id` (`explore_id`),
+  CONSTRAINT `explore_progress_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1169,14 +1183,14 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     ignore 1 LINES
    (`id`, `todo_id`,	`explore_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreTimeline.txt'
-    into table gb102.gb_explore_timeline
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreProgress.txt'
+    into table gb102.gb_explore_progress
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `timeline_id`,	`explore_id`,	`privacy`,	`status`);
+   (`id`, `progress_id`,	`explore_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreWeblink.txt'
     into table gb102.gb_explore_weblink

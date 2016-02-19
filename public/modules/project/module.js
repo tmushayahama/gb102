@@ -130,11 +130,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/project/controllers/ProjectOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/project/services/ProjectTimelineManager.js',
-                  'public/modules/project/services/ProjectTimelinesManager.js',
-                  'public/modules/project/controllers/ProjectTimelinesCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectTimelineCtrl.js',
+                  //Progress
+                  'public/modules/project/services/ProjectProgressManager.js',
+                  'public/modules/project/services/ProjectProgressManager.js',
+                  'public/modules/project/controllers/ProjectProgressCtrl.js',
+                  'public/modules/project/controllers/modals/ProjectProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +154,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/project/controllers/ProjectManageCtrl.js',
-                  //Timeline
-                  'public/modules/project/services/ProjectTimelineManager.js',
-                  'public/modules/project/services/ProjectTimelinesManager.js',
-                  'public/modules/project/controllers/ProjectTimelinesCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectTimelineCtrl.js',
+                  //Progress
+                  'public/modules/project/services/ProjectProgressManager.js',
+                  'public/modules/project/services/ProjectProgressManager.js',
+                  'public/modules/project/controllers/ProjectProgressCtrl.js',
+                  'public/modules/project/controllers/modals/ProjectProgressCtrl.js',
                  ]
                 });
                }]

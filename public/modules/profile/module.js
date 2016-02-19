@@ -46,11 +46,6 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/profile/controllers/ProfileOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/profile/services/ProfileTimelineManager.js',
-                  'public/modules/profile/services/ProfileTimelinesManager.js',
-                  'public/modules/profile/controllers/ProfileTimelinesCtrl.js',
-                  'public/modules/profile/controllers/modals/ProfileTimelineCtrl.js',
                  ]
                 });
                }]

@@ -1,30 +1,30 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-modal-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{collaborationTimelineCtrl.collaborationTimelineManager.collaborationTimeline.timeline.title}}
+   {{collaborationProgressCtrl.collaborationProgressManager.collaborationProgress.progress.title}}
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="collaborationTimelineCtrl.close()">
+ <a class="pull-right gb-ghost-btn-2" ng-click="collaborationProgressCtrl.close()">
   x
  </a>
 </div>
 <div class="modal-body gb-modal-body">
  <section class="gb-section-row-1 row">
-  <div class="gb-timeline-row row">
-   <div class='gb-timeline-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
+  <div class="gb-progress-row row">
+   <div class='gb-progress-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
     <div class="gb-content-text">
-     <textarea autofocus ng-model="collaborationTimelineCtrl.collaborationTimelineManager.collaborationTimeline.timeline.description"></textarea>
+     <textarea autofocus ng-model="collaborationProgressCtrl.collaborationProgressManager.collaborationProgress.progress.description"></textarea>
     </div>
    </div>
-   <div class="gb-timeline-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
+   <div class="gb-progress-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
     <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="collaborationTimelinesCtrl.editCollaborationTimelineSections.details(collaborationTimeline.id, collaborationTimeline.timeline)">
+     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="collaborationProgressCtrl.editCollaborationProgressSections.details(collaborationProgress.id, collaborationProgress.progress)">
       <i class="fa fa-save"></i>
      </button>
     </div>
     <br>
     <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="collaborationTimelinesCtrl.revertCollaborationTimeline(collaborationTimeline.id)">
+     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="collaborationProgressCtrl.revertCollaborationProgress(collaborationProgress.id)">
       <i class="fa fa-refresh"></i>
      </button>
     </div>
@@ -34,7 +34,7 @@
 </div>
 <div class="modal-footer">
  <div class="btn-group pull-right col-lg-2 col-md-2 col-sm-4 col-xs-4">
-  <a class="btn gb-btn gb-btn-sm col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="collaborationTimelineCtrl.close()">
+  <a class="btn gb-btn gb-btn-sm col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="collaborationProgressCtrl.close()">
    Close
   </a>
  </div>

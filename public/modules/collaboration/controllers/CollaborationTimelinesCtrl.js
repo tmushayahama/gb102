@@ -1,5 +1,5 @@
-var collaborationTimelinesCtrl = function (
-        CollaborationTimelinesManager,
+var collaborationProgressCtrl = function (
+        CollaborationProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var collaborationTimelinesCtrl = function (
 
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
- vm.collaborationTimelinesCopy;
- vm.collaborationTimelinesManager = new CollaborationTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.collaborationProgressCopy;
+ vm.collaborationProgressManager = new CollaborationProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultCollaborationTimelineData = {
+ vm.defaultCollaborationProgressData = {
   collaborationId: $stateParams.collaborationId,
   privacy: 0
  }
- vm.newCollaborationTimelineData = angular.copy(vm.defaultCollaborationTimelineData);
+ vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createCollaborationTimeline = function (data) {
-  vm.collaborationTimelinesManager.createCollaborationTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newCollaborationTimelineData = angular.copy(vm.defaultCollaborationTimelineData);
-   vm.collaborationTimelinesCopy = angular.copy(vm.collaborationTimelinesManager.collaborationTimelines);
+ vm.createCollaborationProgress = function (data) {
+  vm.collaborationProgressManager.createCollaborationProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData);
+   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressManager.collaborationProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editCollaborationTimeline = function (data) {
-  vm.collaborationTimelinesManager.editCollaborationTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newCollaborationTimelineData = angular.copy(vm.defaultCollaborationTimelineData);
-   vm.collaborationTimelinesCopy = angular.copy(vm.collaborationTimelinesManager.collaborationTimelines);
+ vm.editCollaborationProgress = function (data) {
+  vm.collaborationProgressManager.editCollaborationProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData);
+   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressManager.collaborationProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editCollaborationTimelineSections = {
-  details: function (collaborationTimelineId, detail) {
-   var collaborationTimelineData = {
-    collaborationTimelineId: collaborationTimelineId,
+ vm.editCollaborationProgressSections = {
+  details: function (collaborationProgressId, detail) {
+   var collaborationProgressData = {
+    collaborationProgressId: collaborationProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editCollaborationTimeline(collaborationTimelineData);
+   vm.editCollaborationProgress(collaborationProgressData);
   }
  }
 
- vm.cancelCollaborationTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newCollaborationTimelineData = angular.copy(vm.defaultCollaborationTimelineData)
+ vm.cancelCollaborationProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertCollaborationTimeline = function (collaborationTimeline, collaborationTimelineCopy) {
-  collaborationTimeline = collaborationTimelineCopy;
+ vm.revertCollaborationProgress = function (collaborationProgress, collaborationProgressCopy) {
+  collaborationProgress = collaborationProgressCopy;
   /*
    $filter('filter')
-   (vm.collaborationTimelinesManager.collaborationTimelines, {id: collaborationTimelineId}, true)[0]
+   (vm.collaborationProgressManager.collaborationProgress, {id: collaborationProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.collaborationTimelinesCopy, {id: collaborationTimelineId}, true)[0]);
-   if (collaborationTimeline.length && collaborationTimelineCopy.length) {
-   // vm.collaborationTimelinesManager.collaborationTimelines angular.copy(vm.collaborationTimelinesCopy);
+   (vm.collaborationProgressCopy, {id: collaborationProgressId}, true)[0]);
+   if (collaborationProgress.length && collaborationProgressCopy.length) {
+   // vm.collaborationProgressManager.collaborationProgress angular.copy(vm.collaborationProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var collaborationTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.collaborationTimelines;
+  return vm.collaborationProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(collaborationTimelines, {completed: false}).length;
-  vm.doneCount = vm.collaborationTimelinesManager.collaborationTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(collaborationProgress, {completed: false}).length;
+  vm.doneCount = vm.collaborationProgressManager.collaborationProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //CollaborationTimelineService.put(vm.collaborationTimelines);
+  //CollaborationProgressService.put(vm.collaborationProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var collaborationTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (collaborationTimeline) {
-  vm.editedTimeline = collaborationTimeline;
-  // Clone the original collaborationTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(collaborationTimeline);
+ vm.editProgress = function (collaborationProgress) {
+  vm.editedProgress = collaborationProgress;
+  // Clone the original collaborationProgress to restore it on demand.
+  vm.originalProgress = angular.copy(collaborationProgress);
  };
 
 
- vm.doneEditing = function (collaborationTimeline) {
-  vm.editedTimeline = null;
-  collaborationTimeline.title = collaborationTimeline.title.trim();
+ vm.doneEditing = function (collaborationProgress) {
+  vm.editedProgress = null;
+  collaborationProgress.title = collaborationProgress.title.trim();
 
-  if (!collaborationTimeline.title) {
-   vm.removeTimeline(collaborationTimeline);
+  if (!collaborationProgress.title) {
+   vm.removeProgress(collaborationProgress);
   }
  };
 
- vm.openCollaborationTimeline = function (collaborationTimeline) {
+ vm.openCollaborationProgress = function (collaborationProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'collaboration-timeline-modal.html',
-   controller: 'CollaborationTimelineCtrl as collaborationTimelineCtrl',
+   templateUrl: 'collaboration-progress-modal.html',
+   controller: 'CollaborationProgressCtrl as collaborationProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    collaborationTimelineData: function () {
-     return collaborationTimeline;
+    collaborationProgressData: function () {
+     return collaborationProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var collaborationTimelinesCtrl = function (
 
 
  //--------init------
- vm.collaborationTimelinesManager.getCollaborationTimelines(vm.collaborationId);
+ vm.collaborationProgressManager.getCollaborationProgress(vm.collaborationId);
 };
 
-collaborationTimelinesCtrl.$inject = [
- 'CollaborationTimelinesManager',
+collaborationProgressCtrl.$inject = [
+ 'CollaborationProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ collaborationTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.collaboration").controller('CollaborationTimelinesCtrl', collaborationTimelinesCtrl);
+angular.module("app.collaboration").controller('CollaborationProgressCtrl', collaborationProgressCtrl);

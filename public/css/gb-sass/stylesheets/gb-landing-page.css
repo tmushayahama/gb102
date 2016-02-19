@@ -350,12 +350,12 @@ and open the template in the editor.
     margin: 0 0 30px;
   }
 }
-.gb-landing-page .timeline {
+.gb-landing-page .progress {
   position: relative;
   padding: 0;
   list-style: none;
 }
-.gb-landing-page .timeline:before {
+.gb-landing-page .progress:before {
   content: "";
   position: absolute;
   top: 0;
@@ -365,39 +365,39 @@ and open the template in the editor.
   margin-left: -1.5px;
   background-color: #f1f1f1;
 }
-.gb-landing-page .timeline > li {
+.gb-landing-page .progress > li {
   position: relative;
   margin-bottom: 50px;
   min-height: 50px;
 }
-.gb-landing-page .timeline > li:before,
-.gb-landing-page .timeline > li:after {
+.gb-landing-page .progress > li:before,
+.gb-landing-page .progress > li:after {
   content: " ";
   display: table;
 }
-.gb-landing-page .timeline > li:after {
+.gb-landing-page .progress > li:after {
   clear: both;
 }
-.gb-landing-page .timeline > li .timeline-panel {
+.gb-landing-page .progress > li .progress-panel {
   float: right;
   position: relative;
   width: 100%;
   padding: 0 20px 0 100px;
   text-align: left;
 }
-.gb-landing-page .timeline > li .timeline-panel:before {
+.gb-landing-page .progress > li .progress-panel:before {
   right: auto;
   left: -15px;
   border-right-width: 15px;
   border-left-width: 0;
 }
-.gb-landing-page .timeline > li .timeline-panel:after {
+.gb-landing-page .progress > li .progress-panel:after {
   right: auto;
   left: -14px;
   border-right-width: 14px;
   border-left-width: 0;
 }
-.gb-landing-page .timeline > li .timeline-image {
+.gb-landing-page .progress > li .progress-image {
   z-index: 100;
   position: absolute;
   left: 0;
@@ -409,115 +409,115 @@ and open the template in the editor.
   text-align: center;
   border-color: #027887;
 }
-.gb-landing-page .timeline > li .timeline-image .gb-icon-inner {
+.gb-landing-page .progress > li .progress-image .gb-icon-inner {
   font-size: 80px;
   line-height: 80px;
   color: rgba(2, 120, 135, 0.8);
 }
-.gb-landing-page .timeline > li .timeline-image h4 {
+.gb-landing-page .progress > li .progress-image h4 {
   margin-top: 12px;
   font-size: 10px;
   line-height: 14px;
 }
-.gb-landing-page .timeline > li.timeline-inverted > .timeline-panel {
+.gb-landing-page .progress > li.progress-inverted > .progress-panel {
   float: right;
   padding: 0 20px 0 100px;
   text-align: left;
 }
-.gb-landing-page .timeline > li.timeline-inverted > .timeline-panel:before {
+.gb-landing-page .progress > li.progress-inverted > .progress-panel:before {
   right: auto;
   left: -15px;
   border-right-width: 15px;
   border-left-width: 0;
 }
-.gb-landing-page .timeline > li.timeline-inverted > .timeline-panel:after {
+.gb-landing-page .progress > li.progress-inverted > .progress-panel:after {
   right: auto;
   left: -14px;
   border-right-width: 14px;
   border-left-width: 0;
 }
-.gb-landing-page .timeline > li:last-child {
+.gb-landing-page .progress > li:last-child {
   margin-bottom: 0;
 }
-.gb-landing-page .timeline .timeline-heading h4 {
+.gb-landing-page .progress .progress-heading h4 {
   margin-top: 0;
   color: inherit;
 }
-.gb-landing-page .timeline .timeline-heading h4.subheading {
+.gb-landing-page .progress .progress-heading h4.subheading {
   text-transform: none;
 }
-.gb-landing-page .timeline .timeline-body > p,
-.gb-landing-page .timeline .timeline-body > ul {
+.gb-landing-page .progress .progress-body > p,
+.gb-landing-page .progress .progress-body > ul {
   margin-bottom: 0;
 }
 @media (min-width: 768px) {
-  .gb-landing-page .timeline:before {
+  .gb-landing-page .progress:before {
     left: 50%;
   }
-  .gb-landing-page .timeline > li {
+  .gb-landing-page .progress > li {
     margin-bottom: 100px;
     min-height: 100px;
   }
-  .gb-landing-page .timeline > li .timeline-panel {
+  .gb-landing-page .progress > li .progress-panel {
     float: left;
     width: 41%;
     padding: 0 20px 20px 30px;
     text-align: right;
   }
-  .gb-landing-page .timeline > li .timeline-image {
+  .gb-landing-page .progress > li .progress-image {
     left: 50%;
     width: 100px;
     height: 100px;
     margin-left: -50px;
   }
-  .gb-landing-page .timeline > li .timeline-image h4 {
+  .gb-landing-page .progress > li .progress-image h4 {
     margin-top: 16px;
     font-size: 13px;
     line-height: 18px;
   }
-  .gb-landing-page .timeline > li.timeline-inverted > .timeline-panel {
+  .gb-landing-page .progress > li.progress-inverted > .progress-panel {
     float: right;
     padding: 0 30px 20px 20px;
     text-align: left;
   }
 }
 @media (min-width: 992px) {
-  .gb-landing-page .timeline > li {
+  .gb-landing-page .progress > li {
     min-height: 150px;
   }
-  .gb-landing-page .timeline > li .timeline-panel {
+  .gb-landing-page .progress > li .progress-panel {
     padding: 0 20px 20px;
   }
-  .gb-landing-page .timeline > li .timeline-image {
+  .gb-landing-page .progress > li .progress-image {
     width: 150px;
     height: 150px;
     margin-left: -75px;
   }
-  .gb-landing-page .timeline > li .timeline-image h4 {
+  .gb-landing-page .progress > li .progress-image h4 {
     margin-top: 30px;
     font-size: 18px;
     line-height: 26px;
   }
-  .gb-landing-page .timeline > li.timeline-inverted > .timeline-panel {
+  .gb-landing-page .progress > li.progress-inverted > .progress-panel {
     padding: 0 20px 20px;
   }
 }
 @media (min-width: 1200px) {
-  .gb-landing-page .timeline > li {
+  .gb-landing-page .progress > li {
     min-height: 170px;
   }
-  .gb-landing-page .timeline > li .timeline-panel {
+  .gb-landing-page .progress > li .progress-panel {
     padding: 0 20px 20px 100px;
   }
-  .gb-landing-page .timeline > li .timeline-image {
+  .gb-landing-page .progress > li .progress-image {
     width: 170px;
     height: 170px;
     margin-left: -85px;
   }
-  .gb-landing-page .timeline > li .timeline-image h4 {
+  .gb-landing-page .progress > li .progress-image h4 {
     margin-top: 40px;
   }
-  .gb-landing-page .timeline > li.timeline-inverted > .timeline-panel {
+  .gb-landing-page .progress > li.progress-inverted > .progress-panel {
     padding: 0 100px 20px 20px;
   }
 }

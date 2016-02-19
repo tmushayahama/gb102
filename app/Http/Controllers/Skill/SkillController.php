@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Skill\Skill;
-use App\Models\Skill\SkillTimeline;
+use App\Models\Skill\SkillProgress;
 use App\Models\Skill\SkillComment;
 use App\Models\Skill\SkillNote;
 use App\Models\Skill\SkillTodo;
 use App\Models\Skill\SkillWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -51,24 +51,24 @@ class SkillController extends Controller {
   return \Response::json($skill);
  }
 
- public function getSkillTimelines($skillId) {
-  $skillTimelines = SkillTimeline::getSkillTimelines($skillId);
-  return \Response::json($skillTimelines);
+ public function getSkillProgress($skillId) {
+  $skillProgress = SkillProgress::getSkillProgress($skillId);
+  return \Response::json($skillProgress);
  }
 
- public function getSkillTimeline($skillId, $timelineId) {
-  $skillTimeline = SkillTimeline::getSkillTimeline($skillId, $timelineId);
-  return \Response::json($skillTimeline);
+ public function getSkillProgress($skillId, $progressId) {
+  $skillProgress = SkillProgress::getSkillProgress($skillId, $progressId);
+  return \Response::json($skillProgress);
  }
 
- public function createSkillTimeline() {
-  $skillTimeline = SkillTimeline::createSkillTimeline();
-  return \Response::json($skillTimeline);
+ public function createSkillProgress() {
+  $skillProgress = SkillProgress::createSkillProgress();
+  return \Response::json($skillProgress);
  }
 
- public function editSkillTimeline() {
-  $skillTimeline = SkillTimeline::editSkillTimeline();
-  return \Response::json($skillTimeline);
+ public function editSkillProgress() {
+  $skillProgress = SkillProgress::editSkillProgress();
+  return \Response::json($skillProgress);
  }
 
  /* TODOS */

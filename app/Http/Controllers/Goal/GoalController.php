@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Goal\Goal;
-use App\Models\Goal\GoalTimeline;
+use App\Models\Goal\GoalProgress;
 use App\Models\Goal\GoalComment;
 use App\Models\Goal\GoalNote;
 use App\Models\Goal\GoalTodo;
 use App\Models\Goal\GoalWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class GoalController extends Controller {
   return \Response::json($goal);
  }
 
- public function getGoalTimelines($goalId) {
-  $goalTimelines = GoalTimeline::getGoalTimelines($goalId);
-  return \Response::json($goalTimelines);
+ public function getGoalProgress($goalId) {
+  $goalProgress = GoalProgress::getGoalProgress($goalId);
+  return \Response::json($goalProgress);
  }
 
- public function getGoalTimeline($goalId, $timelineId) {
-  $goalTimeline = GoalTimeline::getGoalTimeline($goalId, $timelineId);
-  return \Response::json($goalTimeline);
+ public function getGoalProgress($goalId, $progressId) {
+  $goalProgress = GoalProgress::getGoalProgress($goalId, $progressId);
+  return \Response::json($goalProgress);
  }
 
- public function createGoalTimeline() {
-  $goalTimeline = GoalTimeline::createGoalTimeline();
-  return \Response::json($goalTimeline);
+ public function createGoalProgress() {
+  $goalProgress = GoalProgress::createGoalProgress();
+  return \Response::json($goalProgress);
  }
 
- public function editGoalTimeline() {
-  $goalTimeline = GoalTimeline::editGoalTimeline();
-  return \Response::json($goalTimeline);
+ public function editGoalProgress() {
+  $goalProgress = GoalProgress::editGoalProgress();
+  return \Response::json($goalProgress);
  }
 
  /* TODOS */

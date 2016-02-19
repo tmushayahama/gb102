@@ -36,8 +36,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('community/{communityId}/todo/{todoId}', 'Community\CommunityController@getCommunityTodo');
  Route::get('community/{communityId}/notes', 'Community\CommunityController@getCommunityNotes');
  Route::get('community/{communityId}/note/{noteId}', 'Community\CommunityController@getCommunityNote');
- Route::get('community/{communityId}/timelines', 'Community\CommunityController@getCommunityTimelines');
- Route::get('community/{communityId}/timeline/{timelineId}', 'Community\CommunityController@getCommunityTimeline');
+ Route::get('community/{communityId}/progress', 'Community\CommunityController@getCommunityProgress');
+ Route::get('community/{communityId}/progress/{progressId}', 'Community\CommunityController@getCommunityProgress');
  Route::get('community/{communityId}/weblinks', 'Community\CommunityController@getCommunityWeblinks');
  Route::get('community/{communityId}/weblink/{weblinkId}', 'Community\CommunityController@getCommunityWeblink');
  Route::get('community/{id}', 'Community\CommunityController@getCommunity');
@@ -49,8 +49,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('community/todo/edit', 'Community\CommunityController@editCommunityTodo');
  Route::post('community/note/create', 'Community\CommunityController@createCommunityNote');
  Route::post('community/note/edit', 'Community\CommunityController@editCommunityNote');
- Route::post('community/timeline/create', 'Community\CommunityController@createCommunityTimeline');
- Route::post('community/timeline/edit', 'Community\CommunityController@editCommunityTimeline');
+ Route::post('community/progress/create', 'Community\CommunityController@createCommunityProgress');
+ Route::post('community/progress/edit', 'Community\CommunityController@editCommunityProgress');
  Route::post('community/weblink/create', 'Community\CommunityController@createCommunityWeblink');
  Route::post('community/weblink/edit', 'Community\CommunityController@editCommunityWeblink');
 
@@ -71,8 +71,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
  Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');
  Route::get('explore/{exploreId}/requestoptions', 'Explore\ExploreController@getExploreRequestOptions');
- Route::get('explore/{exploreId}/timelines', 'Explore\ExploreController@getExploreTimelines');
- Route::get('explore/{exploreId}/timeline/{timelineId}', 'Explore\ExploreController@getExploreTimeline');
+ Route::get('explore/{exploreId}/progress', 'Explore\ExploreController@getExploreProgress');
+ Route::get('explore/{exploreId}/progress/{progressId}', 'Explore\ExploreController@getExploreProgressItem');
  Route::get('explore/{exploreId}/weblinks', 'Explore\ExploreController@getExploreWeblinks');
  Route::get('explore/{exploreId}/weblink/{weblinkId}', 'Explore\ExploreController@getExploreWeblink');
  Route::get('explore/{id}', 'Explore\ExploreController@getExplore');
@@ -84,8 +84,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/todo/edit', 'Explore\ExploreController@editExploreTodo');
  Route::post('explore/note/create', 'Explore\ExploreController@createExploreNote');
  Route::post('explore/note/edit', 'Explore\ExploreController@editExploreNote');
- Route::post('explore/timeline/create', 'Explore\ExploreController@createExploreTimeline');
- Route::post('explore/timeline/edit', 'Explore\ExploreController@editExploreTimeline');
+ Route::post('explore/progress/create', 'Explore\ExploreController@createExploreProgress');
+ Route::post('explore/progress/edit', 'Explore\ExploreController@editExploreProgress');
  Route::post('explore/weblink/create', 'Explore\ExploreController@createExploreWeblink');
  Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
 
@@ -100,8 +100,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('swipe/{swipeId}/todo/{todoId}', 'Swipe\SwipeController@getSwipeTodo');
  Route::get('swipe/{swipeId}/notes', 'Swipe\SwipeController@getSwipeNotes');
  Route::get('swipe/{swipeId}/note/{noteId}', 'Swipe\SwipeController@getSwipeNote');
- Route::get('swipe/{swipeId}/timelines', 'Swipe\SwipeController@getSwipeTimelines');
- Route::get('swipe/{swipeId}/timeline/{timelineId}', 'Swipe\SwipeController@getSwipeTimeline');
+ Route::get('swipe/{swipeId}/progress', 'Swipe\SwipeController@getSwipeProgress');
+ Route::get('swipe/{swipeId}/progress/{progressId}', 'Swipe\SwipeController@getSwipeProgress');
  Route::get('swipe/{swipeId}/weblinks', 'Swipe\SwipeController@getSwipeWeblinks');
  Route::get('swipe/{swipeId}/weblink/{weblinkId}', 'Swipe\SwipeController@getSwipeWeblink');
  Route::get('swipe/{id}', 'Swipe\SwipeController@getSwipe');
@@ -113,8 +113,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('swipe/todo/edit', 'Swipe\SwipeController@editSwipeTodo');
  Route::post('swipe/note/create', 'Swipe\SwipeController@createSwipeNote');
  Route::post('swipe/note/edit', 'Swipe\SwipeController@editSwipeNote');
- Route::post('swipe/timeline/create', 'Swipe\SwipeController@createSwipeTimeline');
- Route::post('swipe/timeline/edit', 'Swipe\SwipeController@editSwipeTimeline');
+ Route::post('swipe/progress/create', 'Swipe\SwipeController@createSwipeProgress');
+ Route::post('swipe/progress/edit', 'Swipe\SwipeController@editSwipeProgress');
  Route::post('swipe/weblink/create', 'Swipe\SwipeController@createSwipeWeblink');
  Route::post('swipe/weblink/edit', 'Swipe\SwipeController@editSwipeWeblink');
 
@@ -133,8 +133,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('questionnaire/{questionnaireId}/todo/{todoId}', 'Questionnaire\QuestionnaireController@getQuestionnaireTodo');
  Route::get('questionnaire/{questionnaireId}/notes', 'Questionnaire\QuestionnaireController@getQuestionnaireNotes');
  Route::get('questionnaire/{questionnaireId}/note/{noteId}', 'Questionnaire\QuestionnaireController@getQuestionnaireNote');
- Route::get('questionnaire/{questionnaireId}/timelines', 'Questionnaire\QuestionnaireController@getQuestionnaireTimelines');
- Route::get('questionnaire/{questionnaireId}/timeline/{timelineId}', 'Questionnaire\QuestionnaireController@getQuestionnaireTimeline');
+ Route::get('questionnaire/{questionnaireId}/progress', 'Questionnaire\QuestionnaireController@getQuestionnaireProgress');
+ Route::get('questionnaire/{questionnaireId}/progress/{progressId}', 'Questionnaire\QuestionnaireController@getQuestionnaireProgress');
  Route::get('questionnaire/{questionnaireId}/weblinks', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblinks');
  Route::get('questionnaire/{questionnaireId}/weblink/{weblinkId}', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblink');
  Route::get('questionnaire/{id}', 'Questionnaire\QuestionnaireController@getQuestionnaire');
@@ -146,8 +146,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('questionnaire/todo/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireTodo');
  Route::post('questionnaire/note/create', 'Questionnaire\QuestionnaireController@createQuestionnaireNote');
  Route::post('questionnaire/note/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireNote');
- Route::post('questionnaire/timeline/create', 'Questionnaire\QuestionnaireController@createQuestionnaireTimeline');
- Route::post('questionnaire/timeline/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireTimeline');
+ Route::post('questionnaire/progress/create', 'Questionnaire\QuestionnaireController@createQuestionnaireProgress');
+ Route::post('questionnaire/progress/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireProgress');
  Route::post('questionnaire/weblink/create', 'Questionnaire\QuestionnaireController@createQuestionnaireWeblink');
  Route::post('questionnaire/weblink/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireWeblink');
 
@@ -162,8 +162,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('question/{questionId}/notes', 'Question\QuestionController@getQuestionNotes');
  Route::get('question/{questionId}/note/{noteId}', 'Question\QuestionController@getQuestionNote');
  Route::get('question/{questionId}/requestoptions', 'Question\QuestionController@getQuestionRequestOptions');
- Route::get('question/{questionId}/timelines', 'Question\QuestionController@getQuestionTimelines');
- Route::get('question/{questionId}/timeline/{timelineId}', 'Question\QuestionController@getQuestionTimeline');
+ Route::get('question/{questionId}/progress', 'Question\QuestionController@getQuestionProgress');
+ Route::get('question/{questionId}/progress/{progressId}', 'Question\QuestionController@getQuestionProgress');
  Route::get('question/{questionId}/weblinks', 'Question\QuestionController@getQuestionWeblinks');
  Route::get('question/{questionId}/weblink/{weblinkId}', 'Question\QuestionController@getQuestionWeblink');
  Route::get('question/{id}', 'Question\QuestionController@getQuestion');
@@ -175,8 +175,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('question/todo/edit', 'Question\QuestionController@editQuestionTodo');
  Route::post('question/note/create', 'Question\QuestionController@createQuestionNote');
  Route::post('question/note/edit', 'Question\QuestionController@editQuestionNote');
- Route::post('question/timeline/create', 'Question\QuestionController@createQuestionTimeline');
- Route::post('question/timeline/edit', 'Question\QuestionController@editQuestionTimeline');
+ Route::post('question/progress/create', 'Question\QuestionController@createQuestionProgress');
+ Route::post('question/progress/edit', 'Question\QuestionController@editQuestionProgress');
  Route::post('question/weblink/create', 'Question\QuestionController@createQuestionWeblink');
  Route::post('question/weblink/edit', 'Question\QuestionController@editQuestionWeblink');
 
@@ -192,8 +192,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
  Route::get('skill/{skillId}/notes', 'Skill\SkillController@getSkillNotes');
  Route::get('skill/{skillId}/note/{noteId}', 'Skill\SkillController@getSkillNote');
- Route::get('skill/{skillId}/timelines', 'Skill\SkillController@getSkillTimelines');
- Route::get('skill/{skillId}/timeline/{timelineId}', 'Skill\SkillController@getSkillTimeline');
+ Route::get('skill/{skillId}/progress', 'Skill\SkillController@getSkillProgress');
+ Route::get('skill/{skillId}/progress/{progressId}', 'Skill\SkillController@getSkillProgress');
  Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
  Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
  Route::get('skill/{id}', 'Skill\SkillController@getSkill');
@@ -205,8 +205,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('skill/todo/edit', 'Skill\SkillController@editSkillTodo');
  Route::post('skill/note/create', 'Skill\SkillController@createSkillNote');
  Route::post('skill/note/edit', 'Skill\SkillController@editSkillNote');
- Route::post('skill/timeline/create', 'Skill\SkillController@createSkillTimeline');
- Route::post('skill/timeline/edit', 'Skill\SkillController@editSkillTimeline');
+ Route::post('skill/progress/create', 'Skill\SkillController@createSkillProgress');
+ Route::post('skill/progress/edit', 'Skill\SkillController@editSkillProgress');
  Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
  Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
 
@@ -222,8 +222,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('goal/{goalId}/todo/{todoId}', 'Goal\GoalController@getGoalTodo');
  Route::get('goal/{goalId}/notes', 'Goal\GoalController@getGoalNotes');
  Route::get('goal/{goalId}/note/{noteId}', 'Goal\GoalController@getGoalNote');
- Route::get('goal/{goalId}/timelines', 'Goal\GoalController@getGoalTimelines');
- Route::get('goal/{goalId}/timeline/{timelineId}', 'Goal\GoalController@getGoalTimeline');
+ Route::get('goal/{goalId}/progress', 'Goal\GoalController@getGoalProgress');
+ Route::get('goal/{goalId}/progress/{progressId}', 'Goal\GoalController@getGoalProgress');
  Route::get('goal/{goalId}/weblinks', 'Goal\GoalController@getGoalWeblinks');
  Route::get('goal/{goalId}/weblink/{weblinkId}', 'Goal\GoalController@getGoalWeblink');
  Route::get('goal/{id}', 'Goal\GoalController@getGoal');
@@ -235,8 +235,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('goal/todo/edit', 'Goal\GoalController@editGoalTodo');
  Route::post('goal/note/create', 'Goal\GoalController@createGoalNote');
  Route::post('goal/note/edit', 'Goal\GoalController@editGoalNote');
- Route::post('goal/timeline/create', 'Goal\GoalController@createGoalTimeline');
- Route::post('goal/timeline/edit', 'Goal\GoalController@editGoalTimeline');
+ Route::post('goal/progress/create', 'Goal\GoalController@createGoalProgress');
+ Route::post('goal/progress/edit', 'Goal\GoalController@editGoalProgress');
  Route::post('goal/weblink/create', 'Goal\GoalController@createGoalWeblink');
  Route::post('goal/weblink/edit', 'Goal\GoalController@editGoalWeblink');
 
@@ -252,8 +252,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('promise/{promiseId}/todo/{todoId}', 'Promise\PromiseController@getPromiseTodo');
  Route::get('promise/{promiseId}/notes', 'Promise\PromiseController@getPromiseNotes');
  Route::get('promise/{promiseId}/note/{noteId}', 'Promise\PromiseController@getPromiseNote');
- Route::get('promise/{promiseId}/timelines', 'Promise\PromiseController@getPromiseTimelines');
- Route::get('promise/{promiseId}/timeline/{timelineId}', 'Promise\PromiseController@getPromiseTimeline');
+ Route::get('promise/{promiseId}/progress', 'Promise\PromiseController@getPromiseProgress');
+ Route::get('promise/{promiseId}/progress/{progressId}', 'Promise\PromiseController@getPromiseProgress');
  Route::get('promise/{promiseId}/weblinks', 'Promise\PromiseController@getPromiseWeblinks');
  Route::get('promise/{promiseId}/weblink/{weblinkId}', 'Promise\PromiseController@getPromiseWeblink');
  Route::get('promise/{id}', 'Promise\PromiseController@getPromise');
@@ -265,8 +265,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('promise/todo/edit', 'Promise\PromiseController@editPromiseTodo');
  Route::post('promise/note/create', 'Promise\PromiseController@createPromiseNote');
  Route::post('promise/note/edit', 'Promise\PromiseController@editPromiseNote');
- Route::post('promise/timeline/create', 'Promise\PromiseController@createPromiseTimeline');
- Route::post('promise/timeline/edit', 'Promise\PromiseController@editPromiseTimeline');
+ Route::post('promise/progress/create', 'Promise\PromiseController@createPromiseProgress');
+ Route::post('promise/progress/edit', 'Promise\PromiseController@editPromiseProgress');
  Route::post('promise/weblink/create', 'Promise\PromiseController@createPromiseWeblink');
  Route::post('promise/weblink/edit', 'Promise\PromiseController@editPromiseWeblink');
 
@@ -282,8 +282,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('hobby/{hobbyId}/todo/{todoId}', 'Hobby\HobbyController@getHobbyTodo');
  Route::get('hobby/{hobbyId}/notes', 'Hobby\HobbyController@getHobbyNotes');
  Route::get('hobby/{hobbyId}/note/{noteId}', 'Hobby\HobbyController@getHobbyNote');
- Route::get('hobby/{hobbyId}/timelines', 'Hobby\HobbyController@getHobbyTimelines');
- Route::get('hobby/{hobbyId}/timeline/{timelineId}', 'Hobby\HobbyController@getHobbyTimeline');
+ Route::get('hobby/{hobbyId}/progress', 'Hobby\HobbyController@getHobbyProgress');
+ Route::get('hobby/{hobbyId}/progress/{progressId}', 'Hobby\HobbyController@getHobbyProgress');
  Route::get('hobby/{hobbyId}/weblinks', 'Hobby\HobbyController@getHobbyWeblinks');
  Route::get('hobby/{hobbyId}/weblink/{weblinkId}', 'Hobby\HobbyController@getHobbyWeblink');
  Route::get('hobby/{id}', 'Hobby\HobbyController@getHobby');
@@ -295,8 +295,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('hobby/todo/edit', 'Hobby\HobbyController@editHobbyTodo');
  Route::post('hobby/note/create', 'Hobby\HobbyController@createHobbyNote');
  Route::post('hobby/note/edit', 'Hobby\HobbyController@editHobbyNote');
- Route::post('hobby/timeline/create', 'Hobby\HobbyController@createHobbyTimeline');
- Route::post('hobby/timeline/edit', 'Hobby\HobbyController@editHobbyTimeline');
+ Route::post('hobby/progress/create', 'Hobby\HobbyController@createHobbyProgress');
+ Route::post('hobby/progress/edit', 'Hobby\HobbyController@editHobbyProgress');
  Route::post('hobby/weblink/create', 'Hobby\HobbyController@createHobbyWeblink');
  Route::post('hobby/weblink/edit', 'Hobby\HobbyController@editHobbyWeblink');
 
@@ -316,8 +316,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('mentorship/{mentorshipId}/todo/{todoId}', 'Mentorship\MentorshipController@getMentorshipTodo');
  Route::get('mentorship/{mentorshipId}/notes', 'Mentorship\MentorshipController@getMentorshipNotes');
  Route::get('mentorship/{mentorshipId}/note/{noteId}', 'Mentorship\MentorshipController@getMentorshipNote');
- Route::get('mentorship/{mentorshipId}/timelines', 'Mentorship\MentorshipController@getMentorshipTimelines');
- Route::get('mentorship/{mentorshipId}/timeline/{timelineId}', 'Mentorship\MentorshipController@getMentorshipTimeline');
+ Route::get('mentorship/{mentorshipId}/progress', 'Mentorship\MentorshipController@getMentorshipProgress');
+ Route::get('mentorship/{mentorshipId}/progress/{progressId}', 'Mentorship\MentorshipController@getMentorshipProgress');
  Route::get('mentorship/{mentorshipId}/weblinks', 'Mentorship\MentorshipController@getMentorshipWeblinks');
  Route::get('mentorship/{mentorshipId}/weblink/{weblinkId}', 'Mentorship\MentorshipController@getMentorshipWeblink');
  Route::get('mentorship/{id}', 'Mentorship\MentorshipController@getMentorship');
@@ -329,8 +329,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('mentorship/todo/edit', 'Mentorship\MentorshipController@editMentorshipTodo');
  Route::post('mentorship/note/create', 'Mentorship\MentorshipController@createMentorshipNote');
  Route::post('mentorship/note/edit', 'Mentorship\MentorshipController@editMentorshipNote');
- Route::post('mentorship/timeline/create', 'Mentorship\MentorshipController@createMentorshipTimeline');
- Route::post('mentorship/timeline/edit', 'Mentorship\MentorshipController@editMentorshipTimeline');
+ Route::post('mentorship/progress/create', 'Mentorship\MentorshipController@createMentorshipProgress');
+ Route::post('mentorship/progress/edit', 'Mentorship\MentorshipController@editMentorshipProgress');
  Route::post('mentorship/weblink/create', 'Mentorship\MentorshipController@createMentorshipWeblink');
  Route::post('mentorship/weblink/edit', 'Mentorship\MentorshipController@editMentorshipWeblink');
 
@@ -346,8 +346,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('collaboration/{collaborationId}/todo/{todoId}', 'Collaboration\CollaborationController@getCollaborationTodo');
  Route::get('collaboration/{collaborationId}/notes', 'Collaboration\CollaborationController@getCollaborationNotes');
  Route::get('collaboration/{collaborationId}/note/{noteId}', 'Collaboration\CollaborationController@getCollaborationNote');
- Route::get('collaboration/{collaborationId}/timelines', 'Collaboration\CollaborationController@getCollaborationTimelines');
- Route::get('collaboration/{collaborationId}/timeline/{timelineId}', 'Collaboration\CollaborationController@getCollaborationTimeline');
+ Route::get('collaboration/{collaborationId}/progress', 'Collaboration\CollaborationController@getCollaborationProgress');
+ Route::get('collaboration/{collaborationId}/progress/{progressId}', 'Collaboration\CollaborationController@getCollaborationProgress');
  Route::get('collaboration/{collaborationId}/weblinks', 'Collaboration\CollaborationController@getCollaborationWeblinks');
  Route::get('collaboration/{collaborationId}/weblink/{weblinkId}', 'Collaboration\CollaborationController@getCollaborationWeblink');
  Route::get('collaboration/{id}', 'Collaboration\CollaborationController@getCollaboration');
@@ -359,8 +359,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('collaboration/todo/edit', 'Collaboration\CollaborationController@editCollaborationTodo');
  Route::post('collaboration/note/create', 'Collaboration\CollaborationController@createCollaborationNote');
  Route::post('collaboration/note/edit', 'Collaboration\CollaborationController@editCollaborationNote');
- Route::post('collaboration/timeline/create', 'Collaboration\CollaborationController@createCollaborationTimeline');
- Route::post('collaboration/timeline/edit', 'Collaboration\CollaborationController@editCollaborationTimeline');
+ Route::post('collaboration/progress/create', 'Collaboration\CollaborationController@createCollaborationProgress');
+ Route::post('collaboration/progress/edit', 'Collaboration\CollaborationController@editCollaborationProgress');
  Route::post('collaboration/weblink/create', 'Collaboration\CollaborationController@createCollaborationWeblink');
  Route::post('collaboration/weblink/edit', 'Collaboration\CollaborationController@editCollaborationWeblink');
 
@@ -377,8 +377,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('teach/{teachId}/todo/{todoId}', 'Teach\TeachController@getTeachTodo');
  Route::get('teach/{teachId}/notes', 'Teach\TeachController@getTeachNotes');
  Route::get('teach/{teachId}/note/{noteId}', 'Teach\TeachController@getTeachNote');
- Route::get('teach/{teachId}/timelines', 'Teach\TeachController@getTeachTimelines');
- Route::get('teach/{teachId}/timeline/{timelineId}', 'Teach\TeachController@getTeachTimeline');
+ Route::get('teach/{teachId}/progress', 'Teach\TeachController@getTeachProgress');
+ Route::get('teach/{teachId}/progress/{progressId}', 'Teach\TeachController@getTeachProgress');
  Route::get('teach/{teachId}/weblinks', 'Teach\TeachController@getTeachWeblinks');
  Route::get('teach/{teachId}/weblink/{weblinkId}', 'Teach\TeachController@getTeachWeblink');
  Route::get('teach/{id}', 'Teach\TeachController@getTeach');
@@ -390,8 +390,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('teach/todo/edit', 'Teach\TeachController@editTeachTodo');
  Route::post('teach/note/create', 'Teach\TeachController@createTeachNote');
  Route::post('teach/note/edit', 'Teach\TeachController@editTeachNote');
- Route::post('teach/timeline/create', 'Teach\TeachController@createTeachTimeline');
- Route::post('teach/timeline/edit', 'Teach\TeachController@editTeachTimeline');
+ Route::post('teach/progress/create', 'Teach\TeachController@createTeachProgress');
+ Route::post('teach/progress/edit', 'Teach\TeachController@editTeachProgress');
  Route::post('teach/weblink/create', 'Teach\TeachController@createTeachWeblink');
  Route::post('teach/weblink/edit', 'Teach\TeachController@editTeachWeblink');
 
@@ -407,8 +407,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('advice/{adviceId}/todo/{todoId}', 'Advice\AdviceController@getAdviceTodo');
  Route::get('advice/{adviceId}/notes', 'Advice\AdviceController@getAdviceNotes');
  Route::get('advice/{adviceId}/note/{noteId}', 'Advice\AdviceController@getAdviceNote');
- Route::get('advice/{adviceId}/timelines', 'Advice\AdviceController@getAdviceTimelines');
- Route::get('advice/{adviceId}/timeline/{timelineId}', 'Advice\AdviceController@getAdviceTimeline');
+ Route::get('advice/{adviceId}/progress', 'Advice\AdviceController@getAdviceProgress');
+ Route::get('advice/{adviceId}/progress/{progressId}', 'Advice\AdviceController@getAdviceProgress');
  Route::get('advice/{adviceId}/weblinks', 'Advice\AdviceController@getAdviceWeblinks');
  Route::get('advice/{adviceId}/weblink/{weblinkId}', 'Advice\AdviceController@getAdviceWeblink');
  Route::get('advice/{id}', 'Advice\AdviceController@getAdvice');
@@ -420,8 +420,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('advice/todo/edit', 'Advice\AdviceController@editAdviceTodo');
  Route::post('advice/note/create', 'Advice\AdviceController@createAdviceNote');
  Route::post('advice/note/edit', 'Advice\AdviceController@editAdviceNote');
- Route::post('advice/timeline/create', 'Advice\AdviceController@createAdviceTimeline');
- Route::post('advice/timeline/edit', 'Advice\AdviceController@editAdviceTimeline');
+ Route::post('advice/progress/create', 'Advice\AdviceController@createAdviceProgress');
+ Route::post('advice/progress/edit', 'Advice\AdviceController@editAdviceProgress');
  Route::post('advice/weblink/create', 'Advice\AdviceController@createAdviceWeblink');
  Route::post('advice/weblink/edit', 'Advice\AdviceController@editAdviceWeblink');
 
@@ -437,8 +437,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('journal/{journalId}/todo/{todoId}', 'Journal\JournalController@getJournalTodo');
  Route::get('journal/{journalId}/notes', 'Journal\JournalController@getJournalNotes');
  Route::get('journal/{journalId}/note/{noteId}', 'Journal\JournalController@getJournalNote');
- Route::get('journal/{journalId}/timelines', 'Journal\JournalController@getJournalTimelines');
- Route::get('journal/{journalId}/timeline/{timelineId}', 'Journal\JournalController@getJournalTimeline');
+ Route::get('journal/{journalId}/progress', 'Journal\JournalController@getJournalProgress');
+ Route::get('journal/{journalId}/progress/{progressId}', 'Journal\JournalController@getJournalProgress');
  Route::get('journal/{journalId}/weblinks', 'Journal\JournalController@getJournalWeblinks');
  Route::get('journal/{journalId}/weblink/{weblinkId}', 'Journal\JournalController@getJournalWeblink');
  Route::get('journal/{id}', 'Journal\JournalController@getJournal');
@@ -450,8 +450,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('journal/todo/edit', 'Journal\JournalController@editJournalTodo');
  Route::post('journal/note/create', 'Journal\JournalController@createJournalNote');
  Route::post('journal/note/edit', 'Journal\JournalController@editJournalNote');
- Route::post('journal/timeline/create', 'Journal\JournalController@createJournalTimeline');
- Route::post('journal/timeline/edit', 'Journal\JournalController@editJournalTimeline');
+ Route::post('journal/progress/create', 'Journal\JournalController@createJournalProgress');
+ Route::post('journal/progress/edit', 'Journal\JournalController@editJournalProgress');
  Route::post('journal/weblink/create', 'Journal\JournalController@createJournalWeblink');
  Route::post('journal/weblink/edit', 'Journal\JournalController@editJournalWeblink');
 
@@ -467,8 +467,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('project/{projectId}/todo/{todoId}', 'Project\ProjectController@getProjectTodo');
  Route::get('project/{projectId}/notes', 'Project\ProjectController@getProjectNotes');
  Route::get('project/{projectId}/note/{noteId}', 'Project\ProjectController@getProjectNote');
- Route::get('project/{projectId}/timelines', 'Project\ProjectController@getProjectTimelines');
- Route::get('project/{projectId}/timeline/{timelineId}', 'Project\ProjectController@getProjectTimeline');
+ Route::get('project/{projectId}/progress', 'Project\ProjectController@getProjectProgress');
+ Route::get('project/{projectId}/progress/{progressId}', 'Project\ProjectController@getProjectProgress');
  Route::get('project/{projectId}/weblinks', 'Project\ProjectController@getProjectWeblinks');
  Route::get('project/{projectId}/weblink/{weblinkId}', 'Project\ProjectController@getProjectWeblink');
  Route::get('project/{id}', 'Project\ProjectController@getProject');
@@ -480,8 +480,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('project/todo/edit', 'Project\ProjectController@editProjectTodo');
  Route::post('project/note/create', 'Project\ProjectController@createProjectNote');
  Route::post('project/note/edit', 'Project\ProjectController@editProjectNote');
- Route::post('project/timeline/create', 'Project\ProjectController@createProjectTimeline');
- Route::post('project/timeline/edit', 'Project\ProjectController@editProjectTimeline');
+ Route::post('project/progress/create', 'Project\ProjectController@createProjectProgress');
+ Route::post('project/progress/edit', 'Project\ProjectController@editProjectProgress');
  Route::post('project/weblink/create', 'Project\ProjectController@createProjectWeblink');
  Route::post('project/weblink/edit', 'Project\ProjectController@editProjectWeblink');
 
@@ -497,8 +497,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('group/{groupId}/todo/{todoId}', 'Group\GroupController@getGroupTodo');
  Route::get('group/{groupId}/notes', 'Group\GroupController@getGroupNotes');
  Route::get('group/{groupId}/note/{noteId}', 'Group\GroupController@getGroupNote');
- Route::get('group/{groupId}/timelines', 'Group\GroupController@getGroupTimelines');
- Route::get('group/{groupId}/timeline/{timelineId}', 'Group\GroupController@getGroupTimeline');
+ Route::get('group/{groupId}/progress', 'Group\GroupController@getGroupProgress');
+ Route::get('group/{groupId}/progress/{progressId}', 'Group\GroupController@getGroupProgress');
  Route::get('group/{groupId}/weblinks', 'Group\GroupController@getGroupWeblinks');
  Route::get('group/{groupId}/weblink/{weblinkId}', 'Group\GroupController@getGroupWeblink');
  Route::get('group/{id}', 'Group\GroupController@getGroup');
@@ -510,8 +510,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('group/todo/edit', 'Group\GroupController@editGroupTodo');
  Route::post('group/note/create', 'Group\GroupController@createGroupNote');
  Route::post('group/note/edit', 'Group\GroupController@editGroupNote');
- Route::post('group/timeline/create', 'Group\GroupController@createGroupTimeline');
- Route::post('group/timeline/edit', 'Group\GroupController@editGroupTimeline');
+ Route::post('group/progress/create', 'Group\GroupController@createGroupProgress');
+ Route::post('group/progress/edit', 'Group\GroupController@editGroupProgress');
  Route::post('group/weblink/create', 'Group\GroupController@createGroupWeblink');
  Route::post('group/weblink/edit', 'Group\GroupController@editGroupWeblink');
 
@@ -528,8 +528,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('profile/{profileId}/todo/{todoId}', 'Profile\ProfileController@getProfileTodo');
  Route::get('profile/{profileId}/notes', 'Profile\ProfileController@getProfileNotes');
  Route::get('profile/{profileId}/note/{noteId}', 'Profile\ProfileController@getProfileNote');
- Route::get('profile/{profileId}/timelines', 'Profile\ProfileController@getProfileTimelines');
- Route::get('profile/{profileId}/timeline/{timelineId}', 'Profile\ProfileController@getProfileTimeline');
+ Route::get('profile/{profileId}/progress', 'Profile\ProfileController@getProfileProgress');
+ Route::get('profile/{profileId}/progress/{progressId}', 'Profile\ProfileController@getProfileProgress');
  Route::get('profile/{profileId}/weblinks', 'Profile\ProfileController@getProfileWeblinks');
  Route::get('profile/{profileId}/weblink/{weblinkId}', 'Profile\ProfileController@getProfileWeblink');
 
@@ -544,8 +544,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('profile/todo/edit', 'Profile\ProfileController@editProfileTodo');
  Route::post('profile/note/create', 'Profile\ProfileController@createProfileNote');
  Route::post('profile/note/edit', 'Profile\ProfileController@editProfileNote');
- Route::post('profile/timeline/create', 'Profile\ProfileController@createProfileTimeline');
- Route::post('profile/timeline/edit', 'Profile\ProfileController@editProfileTimeline');
+ Route::post('profile/progress/create', 'Profile\ProfileController@createProfileProgress');
+ Route::post('profile/progress/edit', 'Profile\ProfileController@editProfileProgress');
  Route::post('profile/weblink/create', 'Profile\ProfileController@createProfileWeblink');
  Route::post('profile/weblink/edit', 'Profile\ProfileController@editProfileWeblink');
 

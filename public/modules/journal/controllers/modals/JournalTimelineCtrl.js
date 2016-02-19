@@ -1,5 +1,5 @@
-var journalTimelineCtrl = function (
-        JournalTimelineManager,
+var journalProgressCtrl = function (
+        JournalProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var journalTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        journalTimelineData) {
+        journalProgressData) {
  var vm = this;
- vm.journalId = journalTimelineData.journal_id;
- vm.journalTimelineId = journalTimelineData.id;
- vm.journalTimelineManager = new JournalTimelineManager();
+ vm.journalId = journalProgressData.journal_id;
+ vm.journalProgressId = journalProgressData.id;
+ vm.journalProgressManager = new JournalProgressManager();
 
 
- vm.timelineId = journalTimelineData.timeline_id;
+ vm.progressId = journalProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var journalTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newJournalTimelineData = vm.defaultJournalTimelineData;
+ // vm.newJournalProgressData = vm.defaultJournalProgressData;
 
- vm.getJournalTimeline = function (journalId, timelineId) {
-  vm.journalTimelineManager.getJournalTimeline(journalId, timelineId).then(function (response) {
+ vm.getJournalProgress = function (journalId, progressId) {
+  vm.journalProgressManager.getJournalProgress(journalId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editJournalTimeline = function (data) {
-  vm.journalTimelineManager.editJournalTimeline(data).then(function (response) {
+ vm.editJournalProgress = function (data) {
+  vm.journalProgressManager.editJournalProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editJournalTimelineSections = {
+ vm.editJournalProgressSections = {
   details: function (details) {
-   var journalTimelineData = {
-    journalTimelineId: vm.journalTimelineId,
+   var journalProgressData = {
+    journalProgressId: vm.journalProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editJournalTimeline(journalTimelineData);
+   vm.editJournalProgress(journalProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getJournalTimeline(vm.journalId, vm.timelineId);
+ vm.getJournalProgress(vm.journalId, vm.progressId);
 };
 
 
-journalTimelineCtrl.$inject = [
- 'JournalTimelineManager',
+journalProgressCtrl.$inject = [
+ 'JournalProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ journalTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'journalTimelineData'];
+ 'journalProgressData'];
 
-angular.module("app.journal").controller('JournalTimelineCtrl', journalTimelineCtrl);
+angular.module("app.journal").controller('JournalProgressCtrl', journalProgressCtrl);

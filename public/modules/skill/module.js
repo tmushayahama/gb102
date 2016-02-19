@@ -125,11 +125,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/skills/controllers/SkillOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/skills/services/SkillTimelineManager.js',
-                  'public/modules/skills/services/SkillTimelinesManager.js',
-                  'public/modules/skills/controllers/SkillTimelinesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillTimelineCtrl.js',
+                  //Progress
+                  'public/modules/skills/services/SkillProgressManager.js',
+                  'public/modules/skills/services/SkillProgressManager.js',
+                  'public/modules/skills/controllers/SkillProgressCtrl.js',
+                  'public/modules/skills/controllers/modals/SkillProgressCtrl.js',
                  ]
                 });
                }]

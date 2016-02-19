@@ -131,11 +131,10 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/explore/controllers/ExploreOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/explore/services/ExploreTimelineManager.js',
-                  'public/modules/explore/services/ExploreTimelinesManager.js',
-                  'public/modules/explore/controllers/ExploreTimelinesCtrl.js',
-                  'public/modules/explore/controllers/modals/ExploreTimelineCtrl.js',
+                  //Progress
+                  'public/modules/explore/services/ExploreProgressManager.js',
+                  'public/modules/explore/controllers/ExploreProgressCtrl.js',
+                  'public/modules/explore/controllers/modals/ExploreProgressItemCtrl.js',
                  ]
                 });
                }]
@@ -201,7 +200,6 @@ define(['angular'
             }
            }});
  };
-
 
  exploreConfig.$inject = ['$stateProvider'];
 

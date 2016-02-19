@@ -13,12 +13,12 @@ use App\Models\Questionnaire\Questionnaire;
 use App\Models\Questionnaire\QuestionnaireComment;
 use App\Models\Questionnaire\QuestionnaireNote;
 use App\Models\Questionnaire\QuestionnaireQuestion;
-use App\Models\Questionnaire\QuestionnaireTimeline;
+use App\Models\Questionnaire\QuestionnaireProgress;
 use App\Models\Questionnaire\QuestionnaireTodo;
 use App\Models\Questionnaire\QuestionnaireWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -68,24 +68,24 @@ class QuestionnaireController extends Controller {
   return \Response::json($questionnaire);
  }
 
- public function getQuestionnaireTimelines($questionnaireId) {
-  $questionnaireTimelines = QuestionnaireTimeline::getQuestionnaireTimelines($questionnaireId);
-  return \Response::json($questionnaireTimelines);
+ public function getQuestionnaireProgress($questionnaireId) {
+  $questionnaireProgress = QuestionnaireProgress::getQuestionnaireProgress($questionnaireId);
+  return \Response::json($questionnaireProgress);
  }
 
- public function getQuestionnaireTimeline($questionnaireId, $timelineId) {
-  $questionnaireTimeline = QuestionnaireTimeline::getQuestionnaireTimeline($questionnaireId, $timelineId);
-  return \Response::json($questionnaireTimeline);
+ public function getQuestionnaireProgressItem($questionnaireId, $progressId) {
+  $questionnaireProgress = QuestionnaireProgress::getQuestionnaireProgress($questionnaireId, $progressId);
+  return \Response::json($questionnaireProgress);
  }
 
- public function createQuestionnaireTimeline() {
-  $questionnaireTimeline = QuestionnaireTimeline::createQuestionnaireTimeline();
-  return \Response::json($questionnaireTimeline);
+ public function createQuestionnaireProgress() {
+  $questionnaireProgress = QuestionnaireProgress::createQuestionnaireProgress();
+  return \Response::json($questionnaireProgress);
  }
 
- public function editQuestionnaireTimeline() {
-  $questionnaireTimeline = QuestionnaireTimeline::editQuestionnaireTimeline();
-  return \Response::json($questionnaireTimeline);
+ public function editQuestionnaireProgress() {
+  $questionnaireProgress = QuestionnaireProgress::editQuestionnaireProgress();
+  return \Response::json($questionnaireProgress);
  }
 
  /* TODOS */

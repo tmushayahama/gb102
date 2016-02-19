@@ -1,0 +1,80 @@
+<section class="gb-section-row-2 row" ng-controller="ExploreProgressCtrl as exploreProgressCtrl">
+ <header class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+   <p class="gb-title gb-ellipsis">
+    EXPLORE PROGRESS
+   </p>
+  </div>
+ </header>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  gb-no-margin">
+  <div class="gb-progress">
+   <ul class="gb-block gb-progress-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <li ng-repeat="exploreProgress in exploreProgressCtrl.exploreProgressManager.exploreProgress">
+     <div class ="gb-progress-icon btn-primary">
+      <i class="fa fa-link" width="32" height="32" alt="user"></i>
+     </div>
+     <div class="gb-progress-time">
+      <div
+       round-progress
+       max=100
+       current=40
+       color="#888888"
+       bgcolor="#EEEEEE"
+       radius="4"
+       stroke="1"
+       semi="false"
+       rounded="true"
+       clockwise="true"
+       responsive="true"
+       duration="800"
+       animation="easeInOutQuart"
+       animation-delay="2"></div>
+      <div class="gb-title">
+       {{exploreProgressCtrl.getExploreProgressPercentage(exploreProgress.id) + '%'}}
+      </div>
+     </div>
+     <div class="gb-progress-content">
+      <div class="row">
+       <div class="row gb-block gb-progress-item">
+        <div class="col-lg-10 col-sm-10 col-xs-10  gb-no-margin">
+         <div class="row gb-description gb-panel-display">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+           <a ng-click="exploreProgressCtrl.openExploreProgressItem(exploreProgress)">
+            {{ exploreProgress.progress.description}}
+           </a>
+           <p>
+            <i class="gb-small-text">{{exploreProgress.progress.created_at|date:'medium'}}</i>
+           </p>
+          </div>
+         </div>
+        </div>
+        <div class="col-lg-2 ">
+         <div class="btn-group pull-right">
+          <button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">
+           <i class="fa fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+           <li>
+            <a ng-click="exploreProgressCtrl.openExploreProgress(exploreProgress)">
+             <i class="fa fa-edit"></i> open
+            </a>
+           </li>
+           <li>
+            <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
+             <i class="fa fa-trash"></i> delete
+            </a>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </li>
+   </ul>
+  </div>
+ </div>
+</section>
+<script type="text/ng-template" id="explore-progress-item-modal.html">
+ <div class="" ng-include="'public/modules/explore/views/modals/explore-progress-item.html'"></div>
+</script>

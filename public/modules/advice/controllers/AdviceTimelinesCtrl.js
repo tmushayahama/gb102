@@ -1,5 +1,5 @@
-var adviceTimelinesCtrl = function (
-        AdviceTimelinesManager,
+var adviceProgressCtrl = function (
+        AdviceProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var adviceTimelinesCtrl = function (
 
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
- vm.adviceTimelinesCopy;
- vm.adviceTimelinesManager = new AdviceTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.adviceProgressCopy;
+ vm.adviceProgressManager = new AdviceProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultAdviceTimelineData = {
+ vm.defaultAdviceProgressData = {
   adviceId: $stateParams.adviceId,
   privacy: 0
  }
- vm.newAdviceTimelineData = angular.copy(vm.defaultAdviceTimelineData);
+ vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createAdviceTimeline = function (data) {
-  vm.adviceTimelinesManager.createAdviceTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newAdviceTimelineData = angular.copy(vm.defaultAdviceTimelineData);
-   vm.adviceTimelinesCopy = angular.copy(vm.adviceTimelinesManager.adviceTimelines);
+ vm.createAdviceProgress = function (data) {
+  vm.adviceProgressManager.createAdviceProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData);
+   vm.adviceProgressCopy = angular.copy(vm.adviceProgressManager.adviceProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editAdviceTimeline = function (data) {
-  vm.adviceTimelinesManager.editAdviceTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newAdviceTimelineData = angular.copy(vm.defaultAdviceTimelineData);
-   vm.adviceTimelinesCopy = angular.copy(vm.adviceTimelinesManager.adviceTimelines);
+ vm.editAdviceProgress = function (data) {
+  vm.adviceProgressManager.editAdviceProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData);
+   vm.adviceProgressCopy = angular.copy(vm.adviceProgressManager.adviceProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editAdviceTimelineSections = {
-  details: function (adviceTimelineId, detail) {
-   var adviceTimelineData = {
-    adviceTimelineId: adviceTimelineId,
+ vm.editAdviceProgressSections = {
+  details: function (adviceProgressId, detail) {
+   var adviceProgressData = {
+    adviceProgressId: adviceProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editAdviceTimeline(adviceTimelineData);
+   vm.editAdviceProgress(adviceProgressData);
   }
  }
 
- vm.cancelAdviceTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newAdviceTimelineData = angular.copy(vm.defaultAdviceTimelineData)
+ vm.cancelAdviceProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertAdviceTimeline = function (adviceTimeline, adviceTimelineCopy) {
-  adviceTimeline = adviceTimelineCopy;
+ vm.revertAdviceProgress = function (adviceProgress, adviceProgressCopy) {
+  adviceProgress = adviceProgressCopy;
   /*
    $filter('filter')
-   (vm.adviceTimelinesManager.adviceTimelines, {id: adviceTimelineId}, true)[0]
+   (vm.adviceProgressManager.adviceProgress, {id: adviceProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.adviceTimelinesCopy, {id: adviceTimelineId}, true)[0]);
-   if (adviceTimeline.length && adviceTimelineCopy.length) {
-   // vm.adviceTimelinesManager.adviceTimelines angular.copy(vm.adviceTimelinesCopy);
+   (vm.adviceProgressCopy, {id: adviceProgressId}, true)[0]);
+   if (adviceProgress.length && adviceProgressCopy.length) {
+   // vm.adviceProgressManager.adviceProgress angular.copy(vm.adviceProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var adviceTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.adviceTimelines;
+  return vm.adviceProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(adviceTimelines, {completed: false}).length;
-  vm.doneCount = vm.adviceTimelinesManager.adviceTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(adviceProgress, {completed: false}).length;
+  vm.doneCount = vm.adviceProgressManager.adviceProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //AdviceTimelineService.put(vm.adviceTimelines);
+  //AdviceProgressService.put(vm.adviceProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var adviceTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (adviceTimeline) {
-  vm.editedTimeline = adviceTimeline;
-  // Clone the original adviceTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(adviceTimeline);
+ vm.editProgress = function (adviceProgress) {
+  vm.editedProgress = adviceProgress;
+  // Clone the original adviceProgress to restore it on demand.
+  vm.originalProgress = angular.copy(adviceProgress);
  };
 
 
- vm.doneEditing = function (adviceTimeline) {
-  vm.editedTimeline = null;
-  adviceTimeline.title = adviceTimeline.title.trim();
+ vm.doneEditing = function (adviceProgress) {
+  vm.editedProgress = null;
+  adviceProgress.title = adviceProgress.title.trim();
 
-  if (!adviceTimeline.title) {
-   vm.removeTimeline(adviceTimeline);
+  if (!adviceProgress.title) {
+   vm.removeProgress(adviceProgress);
   }
  };
 
- vm.openAdviceTimeline = function (adviceTimeline) {
+ vm.openAdviceProgress = function (adviceProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'advice-timeline-modal.html',
-   controller: 'AdviceTimelineCtrl as adviceTimelineCtrl',
+   templateUrl: 'advice-progress-modal.html',
+   controller: 'AdviceProgressCtrl as adviceProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    adviceTimelineData: function () {
-     return adviceTimeline;
+    adviceProgressData: function () {
+     return adviceProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var adviceTimelinesCtrl = function (
 
 
  //--------init------
- vm.adviceTimelinesManager.getAdviceTimelines(vm.adviceId);
+ vm.adviceProgressManager.getAdviceProgress(vm.adviceId);
 };
 
-adviceTimelinesCtrl.$inject = [
- 'AdviceTimelinesManager',
+adviceProgressCtrl.$inject = [
+ 'AdviceProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ adviceTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.advice").controller('AdviceTimelinesCtrl', adviceTimelinesCtrl);
+angular.module("app.advice").controller('AdviceProgressCtrl', adviceProgressCtrl);

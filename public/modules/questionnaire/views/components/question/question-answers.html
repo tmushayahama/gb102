@@ -1,20 +1,20 @@
-<section class="gb-section-row-2 row" ng-controller="QuestionTimelinesCtrl as questionTimelinesCtrl">
+<section class="gb-section-row-2 row" ng-controller="QuestionProgressCtrl as questionProgressCtrl">
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
-    QUESTIONNAIRE TIMELINE
+    QUESTIONNAIRE PROGRESS
    </p>
   </div>
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  gb-no-margin">
   <div class="smart-answer">
    <ul class="gb-block smart-answer-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <li ng-repeat="questionTimeline in questionTimelinesCtrl.questionTimelinesManager.questionTimelines">
+    <li ng-repeat="questionProgress in questionProgressCtrl.questionProgressManager.questionProgress">
      <div class ="smart-answer-icon btn-primary">
       <i class="fa fa-link" width="32" height="32" alt="user"></i>
      </div>
      <div class="smart-answer-time">
-      <small>{{'Day ' + questionTimeline.answer.day}}</small>
+      <small>{{'Day ' + questionProgress.answer.day}}</small>
      </div>
      <div class="smart-answer-content">
       <div class="row">
@@ -27,10 +27,10 @@
          <div class="row gb-description gb-panel-display">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
            <p>
-            {{ questionTimeline.answer.description}}
+            {{ questionProgress.answer.description}}
            </p>
            <p>
-            <i class="gb-small-text">{{questionTimeline.answer.created_at}}</i>
+            <i class="gb-small-text">{{questionProgress.answer.created_at}}</i>
            </p>
           </div>
          </div>
@@ -42,7 +42,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
            <li>
-            <a ng-click="questionTimelinesCtrl.openQuestionTimeline(questionTimeline)">
+            <a ng-click="questionProgressCtrl.openQuestionProgress(questionProgress)">
              <i class="fa fa-edit"></i> open
             </a>
            </li>

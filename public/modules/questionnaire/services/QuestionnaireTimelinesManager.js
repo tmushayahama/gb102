@@ -1,9 +1,9 @@
-var questionnaireTimelinesManager = function ($http, $q) {
+var questionnaireProgressManager = function ($http, $q) {
 
- var QuestionnaireTimelinesManager = function () {
-  this.questionnaireTimelines = [];
+ var QuestionnaireProgressManager = function () {
+  this.questionnaireProgress = [];
  };
- QuestionnaireTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var questionnaireTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireTimelinesManager.prototype.getQuestionnaireTimelines = function (questionnaireId) {
+ QuestionnaireProgressManager.prototype.getQuestionnaireProgress = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
-  self.questionnaireTimelines = [];
-  $http.get('/api/questionnaire/' + questionnaireId + '/timelines').success(function (data) {
-   self.questionnaireTimelines = data;
+  self.questionnaireProgress = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/progress').success(function (data) {
+   self.questionnaireProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var questionnaireTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireTimelinesManager.prototype.getQuestionnaireTimeline = function (questionnaireId, timelineId) {
+ QuestionnaireProgressManager.prototype.getQuestionnaireProgress = function (questionnaireId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.questionnaireTimelines = [];
-  $http.get('/api/questionnaire/' + questionnaireId + '/timeline/' + timelineId).success(function (data) {
-   self.questionnaireTimelines = data;
+  self.questionnaireProgress = [];
+  $http.get('/api/questionnaire/' + questionnaireId + '/progress/' + progressId).success(function (data) {
+   self.questionnaireProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var questionnaireTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireTimelinesManager.prototype.createQuestionnaireTimeline = function (questionnaireTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/questionnaire/timeline/create',
-   data: questionnaireTimelineData
-  }).success(function (data) {
-   self.questionnaireTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- QuestionnaireTimelinesManager.prototype.editQuestionnaireTimeline = function (questionnaireTimelineData) {
+ QuestionnaireProgressManager.prototype.createQuestionnaireProgress = function (questionnaireProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/questionnaire/timeline/edit',
-   data: questionnaireTimelineData
+   url: '/api/questionnaire/progress/create',
+   data: questionnaireProgressData
+  }).success(function (data) {
+   self.questionnaireProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ QuestionnaireProgressManager.prototype.editQuestionnaireProgress = function (questionnaireProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/questionnaire/progress/edit',
+   data: questionnaireProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var questionnaireTimelinesManager = function ($http, $q) {
  };
 
 
- return QuestionnaireTimelinesManager;
+ return QuestionnaireProgressManager;
 };
 
-questionnaireTimelinesManager.$inject = ['$http', '$q'];
+questionnaireProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireTimelinesManager', questionnaireTimelinesManager);
+angular.module('app.questionnaire').service('QuestionnaireProgressManager', questionnaireProgressManager);

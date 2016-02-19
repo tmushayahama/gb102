@@ -109,11 +109,11 @@ define(['angular'
    serie: true,
    files: [
    'public/modules/swipe/controllers/SwipeOverviewCtrl.js',
-   //Timeline
-   'public/modules/swipe/services/SwipeTimelineManager.js',
-   'public/modules/swipe/services/SwipeTimelinesManager.js',
-   'public/modules/swipe/controllers/SwipeTimelinesCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeTimelineCtrl.js',
+   //Progress
+   'public/modules/swipe/services/SwipeProgressManager.js',
+   'public/modules/swipe/services/SwipeProgressManager.js',
+   'public/modules/swipe/controllers/SwipeProgressCtrl.js',
+   'public/modules/swipe/controllers/modals/SwipeProgressCtrl.js',
    ]
    });
    }]

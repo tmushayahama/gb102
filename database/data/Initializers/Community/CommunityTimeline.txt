@@ -1,1 +1,1 @@
-id	timeline_id	skill_id	privacy	status
+id	progress_id	skill_id	privacy	status

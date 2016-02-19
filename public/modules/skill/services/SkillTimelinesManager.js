@@ -1,9 +1,9 @@
-var skillTimelinesManager = function ($http, $q) {
+var skillProgressManager = function ($http, $q) {
 
- var SkillTimelinesManager = function () {
-  this.skillTimelines = [];
+ var SkillProgressManager = function () {
+  this.skillProgress = [];
  };
- SkillTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var skillTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillTimelinesManager.prototype.getSkillTimelines = function (skillId) {
+ SkillProgressManager.prototype.getSkillProgress = function (skillId) {
   var self = this;
   var deferred = $q.defer();
-  self.skillTimelines = [];
-  $http.get('/api/skill/' + skillId + '/timelines').success(function (data) {
-   self.skillTimelines = data;
+  self.skillProgress = [];
+  $http.get('/api/skill/' + skillId + '/progress').success(function (data) {
+   self.skillProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var skillTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTimelinesManager.prototype.getSkillTimeline = function (skillId, timelineId) {
+ SkillProgressManager.prototype.getSkillProgress = function (skillId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.skillTimelines = [];
-  $http.get('/api/skill/' + skillId + '/timeline/' + timelineId).success(function (data) {
-   self.skillTimelines = data;
+  self.skillProgress = [];
+  $http.get('/api/skill/' + skillId + '/progress/' + progressId).success(function (data) {
+   self.skillProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var skillTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTimelinesManager.prototype.createSkillTimeline = function (skillTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/skill/timeline/create',
-   data: skillTimelineData
-  }).success(function (data) {
-   self.skillTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- SkillTimelinesManager.prototype.editSkillTimeline = function (skillTimelineData) {
+ SkillProgressManager.prototype.createSkillProgress = function (skillProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/skill/timeline/edit',
-   data: skillTimelineData
+   url: '/api/skill/progress/create',
+   data: skillProgressData
+  }).success(function (data) {
+   self.skillProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ SkillProgressManager.prototype.editSkillProgress = function (skillProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/skill/progress/edit',
+   data: skillProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var skillTimelinesManager = function ($http, $q) {
  };
 
 
- return SkillTimelinesManager;
+ return SkillProgressManager;
 };
 
-skillTimelinesManager.$inject = ['$http', '$q'];
+skillProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillTimelinesManager', skillTimelinesManager);
+angular.module('app.skills').service('SkillProgressManager', skillProgressManager);

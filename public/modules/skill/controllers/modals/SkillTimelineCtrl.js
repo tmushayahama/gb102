@@ -1,5 +1,5 @@
-var skillTimelineCtrl = function (
-        SkillTimelineManager,
+var skillProgressCtrl = function (
+        SkillProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var skillTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        skillTimelineData) {
+        skillProgressData) {
  var vm = this;
- vm.skillId = skillTimelineData.skill_id;
- vm.skillTimelineId = skillTimelineData.id;
- vm.skillTimelineManager = new SkillTimelineManager();
+ vm.skillId = skillProgressData.skill_id;
+ vm.skillProgressId = skillProgressData.id;
+ vm.skillProgressManager = new SkillProgressManager();
 
 
- vm.timelineId = skillTimelineData.timeline_id;
+ vm.progressId = skillProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var skillTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSkillTimelineData = vm.defaultSkillTimelineData;
+ // vm.newSkillProgressData = vm.defaultSkillProgressData;
 
- vm.getSkillTimeline = function (skillId, timelineId) {
-  vm.skillTimelineManager.getSkillTimeline(skillId, timelineId).then(function (response) {
+ vm.getSkillProgress = function (skillId, progressId) {
+  vm.skillProgressManager.getSkillProgress(skillId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSkillTimeline = function (data) {
-  vm.skillTimelineManager.editSkillTimeline(data).then(function (response) {
+ vm.editSkillProgress = function (data) {
+  vm.skillProgressManager.editSkillProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSkillTimelineSections = {
+ vm.editSkillProgressSections = {
   details: function (details) {
-   var skillTimelineData = {
-    skillTimelineId: vm.skillTimelineId,
+   var skillProgressData = {
+    skillProgressId: vm.skillProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editSkillTimeline(skillTimelineData);
+   vm.editSkillProgress(skillProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getSkillTimeline(vm.skillId, vm.timelineId);
+ vm.getSkillProgress(vm.skillId, vm.progressId);
 };
 
 
-skillTimelineCtrl.$inject = [
- 'SkillTimelineManager',
+skillProgressCtrl.$inject = [
+ 'SkillProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ skillTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'skillTimelineData'];
+ 'skillProgressData'];
 
-angular.module("app.skills").controller('SkillTimelineCtrl', skillTimelineCtrl);
+angular.module("app.skills").controller('SkillProgressCtrl', skillProgressCtrl);

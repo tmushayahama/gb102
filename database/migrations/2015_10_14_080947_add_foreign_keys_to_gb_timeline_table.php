@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbTimelineTable extends Migration {
+class AddForeignKeysToGbProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_timeline', function(Blueprint $table)
+		Schema::table('gb_progress', function(Blueprint $table)
 		{
-			$table->foreign('creator_id', 'timeline_creator_id')->references('id')->on('gb_user')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('parent_timeline_id', 'timeline_parent_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('creator_id', 'progress_creator_id')->references('id')->on('gb_user')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('parent_progress_id', 'progress_parent_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_timeline', function(Blueprint $table)
+		Schema::table('gb_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('timeline_creator_id');
-			$table->dropForeign('timeline_parent_timeline_id');
+			$table->dropForeign('progress_creator_id');
+			$table->dropForeign('progress_parent_progress_id');
 		});
 	}
 

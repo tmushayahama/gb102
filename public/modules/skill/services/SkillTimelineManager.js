@@ -1,9 +1,9 @@
-var skillTimelineManager = function ($http, $q) {
+var skillProgressManager = function ($http, $q) {
 
- var SkillTimelineManager = function () {
-  this.skillTimelines = [];
+ var SkillProgressManager = function () {
+  this.skillProgress = [];
  };
- SkillTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var skillTimelineManager = function ($http, $q) {
  };
 
 
- SkillTimelineManager.prototype.getSkillTimeline = function (skillId, timelineId) {
+ SkillProgressManager.prototype.getSkillProgress = function (skillId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/skill/' + skillId + '/timeline/' + timelineId).success(function (data) {
-   self.skillTimeline = data;
+  $http.get('/api/skill/' + skillId + '/progress/' + progressId).success(function (data) {
+   self.skillProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var skillTimelineManager = function ($http, $q) {
  };
 
 
- SkillTimelineManager.prototype.editSkillTimeline = function (skillTimelineData) {
+ SkillProgressManager.prototype.editSkillProgress = function (skillProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/skill/timeline/edit',
-   data: skillTimelineData
+   url: '/api/skill/progress/edit',
+   data: skillProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var skillTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillTimelineManager;
+ return SkillProgressManager;
 };
 
-skillTimelineManager.$inject = ['$http', '$q'];
+skillProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillTimelineManager', skillTimelineManager);
+angular.module('app.skills').service('SkillProgressManager', skillProgressManager);

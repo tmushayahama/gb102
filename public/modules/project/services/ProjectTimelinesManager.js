@@ -1,9 +1,9 @@
-var projectTimelinesManager = function ($http, $q) {
+var projectProgressManager = function ($http, $q) {
 
- var ProjectTimelinesManager = function () {
-  this.projectTimelines = [];
+ var ProjectProgressManager = function () {
+  this.projectProgress = [];
  };
- ProjectTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var projectTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectTimelinesManager.prototype.getProjectTimelines = function (projectId) {
+ ProjectProgressManager.prototype.getProjectProgress = function (projectId) {
   var self = this;
   var deferred = $q.defer();
-  self.projectTimelines = [];
-  $http.get('/api/project/' + projectId + '/timelines').success(function (data) {
-   self.projectTimelines = data;
+  self.projectProgress = [];
+  $http.get('/api/project/' + projectId + '/progress').success(function (data) {
+   self.projectProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var projectTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTimelinesManager.prototype.getProjectTimeline = function (projectId, timelineId) {
+ ProjectProgressManager.prototype.getProjectProgress = function (projectId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.projectTimelines = [];
-  $http.get('/api/project/' + projectId + '/timeline/' + timelineId).success(function (data) {
-   self.projectTimelines = data;
+  self.projectProgress = [];
+  $http.get('/api/project/' + projectId + '/progress/' + progressId).success(function (data) {
+   self.projectProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var projectTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTimelinesManager.prototype.createProjectTimeline = function (projectTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/project/timeline/create',
-   data: projectTimelineData
-  }).success(function (data) {
-   self.projectTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- ProjectTimelinesManager.prototype.editProjectTimeline = function (projectTimelineData) {
+ ProjectProgressManager.prototype.createProjectProgress = function (projectProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/project/timeline/edit',
-   data: projectTimelineData
+   url: '/api/project/progress/create',
+   data: projectProgressData
+  }).success(function (data) {
+   self.projectProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ProjectProgressManager.prototype.editProjectProgress = function (projectProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/project/progress/edit',
+   data: projectProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var projectTimelinesManager = function ($http, $q) {
  };
 
 
- return ProjectTimelinesManager;
+ return ProjectProgressManager;
 };
 
-projectTimelinesManager.$inject = ['$http', '$q'];
+projectProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectTimelinesManager', projectTimelinesManager);
+angular.module('app.project').service('ProjectProgressManager', projectProgressManager);

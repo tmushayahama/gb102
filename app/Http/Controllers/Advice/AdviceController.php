@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Advice\Advice;
-use App\Models\Advice\AdviceTimeline;
+use App\Models\Advice\AdviceProgress;
 use App\Models\Advice\AdviceComment;
 use App\Models\Advice\AdviceNote;
 use App\Models\Advice\AdviceTodo;
 use App\Models\Advice\AdviceWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class AdviceController extends Controller {
   return \Response::json($advice);
  }
 
- public function getAdviceTimelines($adviceId) {
-  $adviceTimelines = AdviceTimeline::getAdviceTimelines($adviceId);
-  return \Response::json($adviceTimelines);
+ public function getAdviceProgress($adviceId) {
+  $adviceProgress = AdviceProgress::getAdviceProgress($adviceId);
+  return \Response::json($adviceProgress);
  }
 
- public function getAdviceTimeline($adviceId, $timelineId) {
-  $adviceTimeline = AdviceTimeline::getAdviceTimeline($adviceId, $timelineId);
-  return \Response::json($adviceTimeline);
+ public function getAdviceProgressItem($adviceId, $progressId) {
+  $adviceProgress = AdviceProgress::getAdviceProgress($adviceId, $progressId);
+  return \Response::json($adviceProgress);
  }
 
- public function createAdviceTimeline() {
-  $adviceTimeline = AdviceTimeline::createAdviceTimeline();
-  return \Response::json($adviceTimeline);
+ public function createAdviceProgress() {
+  $adviceProgress = AdviceProgress::createAdviceProgress();
+  return \Response::json($adviceProgress);
  }
 
- public function editAdviceTimeline() {
-  $adviceTimeline = AdviceTimeline::editAdviceTimeline();
-  return \Response::json($adviceTimeline);
+ public function editAdviceProgress() {
+  $adviceProgress = AdviceProgress::editAdviceProgress();
+  return \Response::json($adviceProgress);
  }
 
  /* TODOS */

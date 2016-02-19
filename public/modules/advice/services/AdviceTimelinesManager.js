@@ -1,9 +1,9 @@
-var adviceTimelinesManager = function ($http, $q) {
+var adviceProgressManager = function ($http, $q) {
 
- var AdviceTimelinesManager = function () {
-  this.adviceTimelines = [];
+ var AdviceProgressManager = function () {
+  this.adviceProgress = [];
  };
- AdviceTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var adviceTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceTimelinesManager.prototype.getAdviceTimelines = function (adviceId) {
+ AdviceProgressManager.prototype.getAdviceProgress = function (adviceId) {
   var self = this;
   var deferred = $q.defer();
-  self.adviceTimelines = [];
-  $http.get('/api/advice/' + adviceId + '/timelines').success(function (data) {
-   self.adviceTimelines = data;
+  self.adviceProgress = [];
+  $http.get('/api/advice/' + adviceId + '/progress').success(function (data) {
+   self.adviceProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var adviceTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTimelinesManager.prototype.getAdviceTimeline = function (adviceId, timelineId) {
+ AdviceProgressManager.prototype.getAdviceProgress = function (adviceId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.adviceTimelines = [];
-  $http.get('/api/advice/' + adviceId + '/timeline/' + timelineId).success(function (data) {
-   self.adviceTimelines = data;
+  self.adviceProgress = [];
+  $http.get('/api/advice/' + adviceId + '/progress/' + progressId).success(function (data) {
+   self.adviceProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var adviceTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTimelinesManager.prototype.createAdviceTimeline = function (adviceTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/advice/timeline/create',
-   data: adviceTimelineData
-  }).success(function (data) {
-   self.adviceTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- AdviceTimelinesManager.prototype.editAdviceTimeline = function (adviceTimelineData) {
+ AdviceProgressManager.prototype.createAdviceProgress = function (adviceProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/advice/timeline/edit',
-   data: adviceTimelineData
+   url: '/api/advice/progress/create',
+   data: adviceProgressData
+  }).success(function (data) {
+   self.adviceProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ AdviceProgressManager.prototype.editAdviceProgress = function (adviceProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/advice/progress/edit',
+   data: adviceProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var adviceTimelinesManager = function ($http, $q) {
  };
 
 
- return AdviceTimelinesManager;
+ return AdviceProgressManager;
 };
 
-adviceTimelinesManager.$inject = ['$http', '$q'];
+adviceProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceTimelinesManager', adviceTimelinesManager);
+angular.module('app.advice').service('AdviceProgressManager', adviceProgressManager);

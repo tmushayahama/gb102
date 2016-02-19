@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Swipe\Swipe;
-use App\Models\Swipe\SwipeTimeline;
+use App\Models\Swipe\SwipeProgress;
 use App\Models\Swipe\SwipeComment;
 use App\Models\Swipe\SwipeNote;
 use App\Models\Swipe\SwipeTodo;
 use App\Models\Swipe\SwipeWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -56,24 +56,24 @@ class SwipeController extends Controller {
   return \Response::json($swipe);
  }
 
- public function getSwipeTimelines($swipeId) {
-  $swipeTimelines = SwipeTimeline::getSwipeTimelines($swipeId);
-  return \Response::json($swipeTimelines);
+ public function getSwipeProgress($swipeId) {
+  $swipeProgress = SwipeProgress::getSwipeProgress($swipeId);
+  return \Response::json($swipeProgress);
  }
 
- public function getSwipeTimeline($swipeId, $timelineId) {
-  $swipeTimeline = SwipeTimeline::getSwipeTimeline($swipeId, $timelineId);
-  return \Response::json($swipeTimeline);
+ public function getSwipeProgressItem($swipeId, $progressId) {
+  $swipeProgress = SwipeProgress::getSwipeProgress($swipeId, $progressId);
+  return \Response::json($swipeProgress);
  }
 
- public function createSwipeTimeline() {
-  $swipeTimeline = SwipeTimeline::createSwipeTimeline();
-  return \Response::json($swipeTimeline);
+ public function createSwipeProgress() {
+  $swipeProgress = SwipeProgress::createSwipeProgress();
+  return \Response::json($swipeProgress);
  }
 
- public function editSwipeTimeline() {
-  $swipeTimeline = SwipeTimeline::editSwipeTimeline();
-  return \Response::json($swipeTimeline);
+ public function editSwipeProgress() {
+  $swipeProgress = SwipeProgress::editSwipeProgress();
+  return \Response::json($swipeProgress);
  }
 
  /* TODOS */

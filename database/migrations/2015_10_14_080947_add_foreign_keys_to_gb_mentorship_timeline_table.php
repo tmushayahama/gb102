@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbMentorshipTimelineTable extends Migration {
+class AddForeignKeysToGbMentorshipProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbMentorshipTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_mentorship_timeline', function(Blueprint $table)
+		Schema::table('gb_mentorship_progress', function(Blueprint $table)
 		{
-			$table->foreign('mentorship_id', 'mentorship_timeline_mentorship_id')->references('id')->on('gb_mentorship')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('timeline_id', 'mentorship_timeline_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('mentorship_id', 'mentorship_progress_mentorship_id')->references('id')->on('gb_mentorship')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('progress_id', 'mentorship_progress_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbMentorshipTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_mentorship_timeline', function(Blueprint $table)
+		Schema::table('gb_mentorship_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('mentorship_timeline_mentorship_id');
-			$table->dropForeign('mentorship_timeline_timeline_id');
+			$table->dropForeign('mentorship_progress_mentorship_id');
+			$table->dropForeign('mentorship_progress_progress_id');
 		});
 	}
 

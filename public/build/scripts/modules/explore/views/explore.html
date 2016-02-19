@@ -9,18 +9,16 @@
      <i class="fa {{exploreCtrl.exploreManager.explore.icon.name}}"></i>
     </div>
     <div class="gb-row-content">
-     <div class="gb-ellipsis">
-      <h1 class="gb-title">
-       <strong>{{exploreCtrl.exploreManager.explore.title}}</strong> {{exploreCtrl.exploreManager.explore.description}}
-      </h1>
-      <a class="gb-description"
-         ui-sref="profile.overview({profileId: exploreCtrl.exploreManager.explore.creator.id})">
-       <img src="public/build/img/profile_pic/{{exploreCtrl.exploreManager.explore.creator.avatar_url}}" class="gb-profile-pic" alt="">
-       <h2 class="gb-heading">
-        <i>by: </i>{{exploreCtrl.exploreManager.explore.creator.firstname + " " + exploreCtrl.exploreManager.explore.creator.lastname}}
-       </h2>
-      </a>
-     </div>
+     <h1 class="gb-title gb-ellipsis">
+      <strong>{{exploreCtrl.exploreManager.explore.title}}</strong> {{exploreCtrl.exploreManager.explore.description}}
+     </h1>
+     <a class="gb-description gb-ellipsis"
+        ui-sref="profile.overview({profileId: exploreCtrl.exploreManager.explore.creator.id})">
+      <img src="public/build/img/profile_pic/{{exploreCtrl.exploreManager.explore.creator.avatar_url}}" class="gb-profile-pic" alt="">
+      <h2 class="gb-heading">
+       <i>by: </i>{{exploreCtrl.exploreManager.explore.creator.firstname + " " + exploreCtrl.exploreManager.explore.creator.lastname}}
+      </h2>
+     </a>
     </div>
    </div>
    <div class="row">

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbAdviceTimelineTable extends Migration {
+class AddForeignKeysToGbAdviceProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbAdviceTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_advice_timeline', function(Blueprint $table)
+		Schema::table('gb_advice_progress', function(Blueprint $table)
 		{
-			$table->foreign('advice_id', 'advice_timeline_advice_id')->references('id')->on('gb_advice')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('timeline_id', 'advice_timeline_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('advice_id', 'advice_progress_advice_id')->references('id')->on('gb_advice')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('progress_id', 'advice_progress_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbAdviceTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_advice_timeline', function(Blueprint $table)
+		Schema::table('gb_advice_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('advice_timeline_advice_id');
-			$table->dropForeign('advice_timeline_timeline_id');
+			$table->dropForeign('advice_progress_advice_id');
+			$table->dropForeign('advice_progress_progress_id');
 		});
 	}
 

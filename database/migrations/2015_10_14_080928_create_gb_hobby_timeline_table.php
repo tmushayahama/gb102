@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGbHobbyTimelineTable extends Migration {
+class CreateGbHobbyProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateGbHobbyTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('gb_hobby_timeline', function(Blueprint $table)
+		Schema::create('gb_hobby_progress', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('timeline_id')->index('hobby_timeline_timeline_id');
-			$table->integer('hobby_id')->index('hobby_timeline_hobby_id');
+			$table->integer('progress_id')->index('hobby_progress_progress_id');
+			$table->integer('hobby_id')->index('hobby_progress_hobby_id');
 			$table->integer('day');
 			$table->integer('type')->default(0);
 			$table->integer('privacy')->default(0);
@@ -32,7 +32,7 @@ class CreateGbHobbyTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('gb_hobby_timeline');
+		Schema::drop('gb_hobby_progress');
 	}
 
 }

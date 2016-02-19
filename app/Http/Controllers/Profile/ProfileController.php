@@ -10,14 +10,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\User\User;
 use App\Models\User\UserProfileSection;
-use App\Models\Profile\ProfileTimeline;
+use App\Models\Profile\ProfileProgress;
 use App\Models\Profile\ProfileComment;
 use App\Models\Profile\ProfileNote;
 use App\Models\Profile\ProfileTodo;
 use App\Models\Profile\ProfileWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -45,26 +45,6 @@ class ProfileController extends Controller {
  public function editProfile() {
   $profile = Profile::editProfile();
   return \Response::json($profile);
- }
-
- public function getProfileTimelines($profileId) {
-  $profileTimelines = ProfileTimeline::getProfileTimelines($profileId);
-  return \Response::json($profileTimelines);
- }
-
- public function getProfileTimeline($profileId, $timelineId) {
-  $profileTimeline = ProfileTimeline::getProfileTimeline($profileId, $timelineId);
-  return \Response::json($profileTimeline);
- }
-
- public function createProfileTimeline() {
-  $profileTimeline = ProfileTimeline::createProfileTimeline();
-  return \Response::json($profileTimeline);
- }
-
- public function editProfileTimeline() {
-  $profileTimeline = ProfileTimeline::editProfileTimeline();
-  return \Response::json($profileTimeline);
  }
 
  /* TODOS */

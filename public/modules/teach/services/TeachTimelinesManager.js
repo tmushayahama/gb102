@@ -26,7 +26,7 @@ var teachTimelinesManager = function ($http, $q) {
   var self = this;
   var deferred = $q.defer();
   self.teachTimelines = [];
-  $http.get('/api/teach/' + teachId + '/timelines').success(function (data) {
+  $http.get('/api/teach/' + teachId + '/progress').success(function (data) {
    self.teachTimelines = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -35,11 +35,11 @@ var teachTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTimelinesManager.prototype.getTeachTimeline = function (teachId, timelineId) {
+ TeachTimelinesManager.prototype.getTeachTimeline = function (teachId, progressId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTimelines = [];
-  $http.get('/api/teach/' + teachId + '/timeline/' + timelineId).success(function (data) {
+  $http.get('/api/teach/' + teachId + '/progress/' + progressId).success(function (data) {
    self.teachTimelines = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -53,7 +53,7 @@ var teachTimelinesManager = function ($http, $q) {
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/teach/timeline/create',
+   url: '/api/teach/progress/create',
    data: teachTimelineData
   }).success(function (data) {
    self.teachTimelines.unshift(data);
@@ -69,7 +69,7 @@ var teachTimelinesManager = function ($http, $q) {
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/teach/timeline/edit',
+   url: '/api/teach/progress/edit',
    data: teachTimelineData
   }).success(function (data) {
    self.deferredHandler(data, deferred);

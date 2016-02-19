@@ -1,5 +1,5 @@
-var projectTimelinesCtrl = function (
-        ProjectTimelinesManager,
+var projectProgressCtrl = function (
+        ProjectProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var projectTimelinesCtrl = function (
 
  var vm = this;
  vm.projectId = $stateParams.projectId;
- vm.projectTimelinesCopy;
- vm.projectTimelinesManager = new ProjectTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.projectProgressCopy;
+ vm.projectProgressManager = new ProjectProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultProjectTimelineData = {
+ vm.defaultProjectProgressData = {
   projectId: $stateParams.projectId,
   privacy: 0
  }
- vm.newProjectTimelineData = angular.copy(vm.defaultProjectTimelineData);
+ vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createProjectTimeline = function (data) {
-  vm.projectTimelinesManager.createProjectTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newProjectTimelineData = angular.copy(vm.defaultProjectTimelineData);
-   vm.projectTimelinesCopy = angular.copy(vm.projectTimelinesManager.projectTimelines);
+ vm.createProjectProgress = function (data) {
+  vm.projectProgressManager.createProjectProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData);
+   vm.projectProgressCopy = angular.copy(vm.projectProgressManager.projectProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editProjectTimeline = function (data) {
-  vm.projectTimelinesManager.editProjectTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newProjectTimelineData = angular.copy(vm.defaultProjectTimelineData);
-   vm.projectTimelinesCopy = angular.copy(vm.projectTimelinesManager.projectTimelines);
+ vm.editProjectProgress = function (data) {
+  vm.projectProgressManager.editProjectProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData);
+   vm.projectProgressCopy = angular.copy(vm.projectProgressManager.projectProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editProjectTimelineSections = {
-  details: function (projectTimelineId, detail) {
-   var projectTimelineData = {
-    projectTimelineId: projectTimelineId,
+ vm.editProjectProgressSections = {
+  details: function (projectProgressId, detail) {
+   var projectProgressData = {
+    projectProgressId: projectProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editProjectTimeline(projectTimelineData);
+   vm.editProjectProgress(projectProgressData);
   }
  }
 
- vm.cancelProjectTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newProjectTimelineData = angular.copy(vm.defaultProjectTimelineData)
+ vm.cancelProjectProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertProjectTimeline = function (projectTimeline, projectTimelineCopy) {
-  projectTimeline = projectTimelineCopy;
+ vm.revertProjectProgress = function (projectProgress, projectProgressCopy) {
+  projectProgress = projectProgressCopy;
   /*
    $filter('filter')
-   (vm.projectTimelinesManager.projectTimelines, {id: projectTimelineId}, true)[0]
+   (vm.projectProgressManager.projectProgress, {id: projectProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.projectTimelinesCopy, {id: projectTimelineId}, true)[0]);
-   if (projectTimeline.length && projectTimelineCopy.length) {
-   // vm.projectTimelinesManager.projectTimelines angular.copy(vm.projectTimelinesCopy);
+   (vm.projectProgressCopy, {id: projectProgressId}, true)[0]);
+   if (projectProgress.length && projectProgressCopy.length) {
+   // vm.projectProgressManager.projectProgress angular.copy(vm.projectProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var projectTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.projectTimelines;
+  return vm.projectProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(projectTimelines, {completed: false}).length;
-  vm.doneCount = vm.projectTimelinesManager.projectTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(projectProgress, {completed: false}).length;
+  vm.doneCount = vm.projectProgressManager.projectProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //ProjectTimelineService.put(vm.projectTimelines);
+  //ProjectProgressService.put(vm.projectProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var projectTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (projectTimeline) {
-  vm.editedTimeline = projectTimeline;
-  // Clone the original projectTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(projectTimeline);
+ vm.editProgress = function (projectProgress) {
+  vm.editedProgress = projectProgress;
+  // Clone the original projectProgress to restore it on demand.
+  vm.originalProgress = angular.copy(projectProgress);
  };
 
 
- vm.doneEditing = function (projectTimeline) {
-  vm.editedTimeline = null;
-  projectTimeline.title = projectTimeline.title.trim();
+ vm.doneEditing = function (projectProgress) {
+  vm.editedProgress = null;
+  projectProgress.title = projectProgress.title.trim();
 
-  if (!projectTimeline.title) {
-   vm.removeTimeline(projectTimeline);
+  if (!projectProgress.title) {
+   vm.removeProgress(projectProgress);
   }
  };
 
- vm.openProjectTimeline = function (projectTimeline) {
+ vm.openProjectProgress = function (projectProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'project-timeline-modal.html',
-   controller: 'ProjectTimelineCtrl as projectTimelineCtrl',
+   templateUrl: 'project-progress-modal.html',
+   controller: 'ProjectProgressCtrl as projectProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    projectTimelineData: function () {
-     return projectTimeline;
+    projectProgressData: function () {
+     return projectProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var projectTimelinesCtrl = function (
 
 
  //--------init------
- vm.projectTimelinesManager.getProjectTimelines(vm.projectId);
+ vm.projectProgressManager.getProjectProgress(vm.projectId);
 };
 
-projectTimelinesCtrl.$inject = [
- 'ProjectTimelinesManager',
+projectProgressCtrl.$inject = [
+ 'ProjectProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ projectTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.project").controller('ProjectTimelinesCtrl', projectTimelinesCtrl);
+angular.module("app.project").controller('ProjectProgressCtrl', projectProgressCtrl);

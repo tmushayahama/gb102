@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbTodoTimelineTable extends Migration {
+class AddForeignKeysToGbTodoProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbTodoTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_todo_timeline', function(Blueprint $table)
+		Schema::table('gb_todo_progress', function(Blueprint $table)
 		{
-			$table->foreign('timeline_id', 'todo_timeline_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('todo_id', 'todo_timeline_todo_id')->references('id')->on('gb_todo')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('progress_id', 'todo_progress_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('todo_id', 'todo_progress_todo_id')->references('id')->on('gb_todo')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbTodoTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_todo_timeline', function(Blueprint $table)
+		Schema::table('gb_todo_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('todo_timeline_timeline_id');
-			$table->dropForeign('todo_timeline_todo_id');
+			$table->dropForeign('todo_progress_progress_id');
+			$table->dropForeign('todo_progress_todo_id');
 		});
 	}
 

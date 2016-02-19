@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Collaboration\Collaboration;
-use App\Models\Collaboration\CollaborationTimeline;
+use App\Models\Collaboration\CollaborationProgress;
 use App\Models\Collaboration\CollaborationComment;
 use App\Models\Collaboration\CollaborationNote;
 use App\Models\Collaboration\CollaborationTodo;
 use App\Models\Collaboration\CollaborationWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class CollaborationController extends Controller {
   return \Response::json($collaboration);
  }
 
- public function getCollaborationTimelines($collaborationId) {
-  $collaborationTimelines = CollaborationTimeline::getCollaborationTimelines($collaborationId);
-  return \Response::json($collaborationTimelines);
+ public function getCollaborationProgress($collaborationId) {
+  $collaborationProgress = CollaborationProgress::getCollaborationProgress($collaborationId);
+  return \Response::json($collaborationProgress);
  }
 
- public function getCollaborationTimeline($collaborationId, $timelineId) {
-  $collaborationTimeline = CollaborationTimeline::getCollaborationTimeline($collaborationId, $timelineId);
-  return \Response::json($collaborationTimeline);
+ public function getCollaborationProgress($collaborationId, $progressId) {
+  $collaborationProgress = CollaborationProgress::getCollaborationProgress($collaborationId, $progressId);
+  return \Response::json($collaborationProgress);
  }
 
- public function createCollaborationTimeline() {
-  $collaborationTimeline = CollaborationTimeline::createCollaborationTimeline();
-  return \Response::json($collaborationTimeline);
+ public function createCollaborationProgress() {
+  $collaborationProgress = CollaborationProgress::createCollaborationProgress();
+  return \Response::json($collaborationProgress);
  }
 
- public function editCollaborationTimeline() {
-  $collaborationTimeline = CollaborationTimeline::editCollaborationTimeline();
-  return \Response::json($collaborationTimeline);
+ public function editCollaborationProgress() {
+  $collaborationProgress = CollaborationProgress::editCollaborationProgress();
+  return \Response::json($collaborationProgress);
  }
 
  /* TODOS */

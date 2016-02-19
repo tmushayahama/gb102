@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Project\Project;
-use App\Models\Project\ProjectTimeline;
+use App\Models\Project\ProjectProgress;
 use App\Models\Project\ProjectComment;
 use App\Models\Project\ProjectNote;
 use App\Models\Project\ProjectTodo;
 use App\Models\Project\ProjectWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class ProjectController extends Controller {
   return \Response::json($project);
  }
 
- public function getProjectTimelines($projectId) {
-  $projectTimelines = ProjectTimeline::getProjectTimelines($projectId);
-  return \Response::json($projectTimelines);
+ public function getProjectProgress($projectId) {
+  $projectProgress = ProjectProgress::getProjectProgress($projectId);
+  return \Response::json($projectProgress);
  }
 
- public function getProjectTimeline($projectId, $timelineId) {
-  $projectTimeline = ProjectTimeline::getProjectTimeline($projectId, $timelineId);
-  return \Response::json($projectTimeline);
+ public function getProjectProgressItem($projectId, $progressId) {
+  $projectProgress = ProjectProgress::getProjectProgress($projectId, $progressId);
+  return \Response::json($projectProgress);
  }
 
- public function createProjectTimeline() {
-  $projectTimeline = ProjectTimeline::createProjectTimeline();
-  return \Response::json($projectTimeline);
+ public function createProjectProgress() {
+  $projectProgress = ProjectProgress::createProjectProgress();
+  return \Response::json($projectProgress);
  }
 
- public function editProjectTimeline() {
-  $projectTimeline = ProjectTimeline::editProjectTimeline();
-  return \Response::json($projectTimeline);
+ public function editProjectProgress() {
+  $projectProgress = ProjectProgress::editProjectProgress();
+  return \Response::json($projectProgress);
  }
 
  /* TODOS */

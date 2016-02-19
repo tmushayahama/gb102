@@ -15,9 +15,9 @@ var teachTimelineCtrl = function (
  vm.teachTimelineManager = new TeachTimelineManager();
 
 
- vm.timelineId = teachTimelineData.timeline_id;
+ vm.progressId = teachTimelineData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -32,8 +32,8 @@ var teachTimelineCtrl = function (
 
  // vm.newTeachTimelineData = vm.defaultTeachTimelineData;
 
- vm.getTeachTimeline = function (teachId, timelineId) {
-  vm.teachTimelineManager.getTeachTimeline(teachId, timelineId).then(function (response) {
+ vm.getTeachTimeline = function (teachId, progressId) {
+  vm.teachTimelineManager.getTeachTimeline(teachId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
@@ -60,13 +60,13 @@ var teachTimelineCtrl = function (
 
 
  vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getTeachTimeline(vm.teachId, vm.timelineId);
+ vm.getTeachTimeline(vm.teachId, vm.progressId);
 };
 
 

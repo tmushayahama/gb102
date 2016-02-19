@@ -1,0 +1,15 @@
+id	parent_progress_id	creator_id	description	created_at	updated_at	importance	status
+1	NULL	2	Being calm and panic less.	2016-02-10 00:24:46	2016-02-12 10:37:12	1	0
+2	NULL	2	Prioritize what to clean first	2016-02-15 05:08:36	2016-02-11 09:32:50	1	0
+3	NULL	2	Learn to take breaks despite the time constraints	2016-02-13 03:16:16	2016-02-12 18:16:51	1	0
+4	2	2	Mastered to remove all distractions	2016-02-13 04:56:56	2016-02-13 15:22:45	1	0
+1000	NULL	2	Checking out difference shades of pencil 	2016-02-14 11:21:07	2016-02-15 01:36:12	1	0
+1001	NULL	2	Practice drawing straight lines	2016-02-13 10:56:56	2016-02-11 14:39:59	1	0
+1002	NULL	2	Drawing things in proportion	2016-02-11 12:58:54	2016-02-10 17:33:04	1	0
+1003	NULL	2	"Start drawing what you are seeing, random things"	2016-02-14 22:33:01	2016-02-14 06:40:28	1	0
+1004	NULL	2	Making a rough sketch by repeated light strokes	2016-02-11 21:13:06	2016-02-11 09:12:32	1	0
+2000	NULL	3	Assessment of likes and dislikes	2016-02-12 04:58:05	2016-02-15 04:02:56	1	0
+2001	NULL	3	"After you have discovered/rediscovered your passion, research the types of careers that center around your passion"	2016-02-11 12:16:16	2016-02-14 01:42:49	1	0
+2002	NULL	3	Applying your current skills to your new career	2016-02-13 12:11:14	2016-02-15 08:13:21	1	0
+2003	NULL	3	Gain more experience 	2016-02-14 07:07:32	2016-02-15 23:39:16	1	0
+2004	NULL	3	Coming up with a good conversation topic	2016-02-10 03:57:19	2016-02-11 05:07:00	1	0

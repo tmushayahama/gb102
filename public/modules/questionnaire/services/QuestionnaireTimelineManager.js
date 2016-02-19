@@ -1,9 +1,9 @@
-var questionnaireTimelineManager = function ($http, $q) {
+var questionnaireProgressManager = function ($http, $q) {
 
- var QuestionnaireTimelineManager = function () {
-  this.questionnaireTimelines = [];
+ var QuestionnaireProgressManager = function () {
+  this.questionnaireProgress = [];
  };
- QuestionnaireTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var questionnaireTimelineManager = function ($http, $q) {
  };
 
 
- QuestionnaireTimelineManager.prototype.getQuestionnaireTimeline = function (questionnaireId, timelineId) {
+ QuestionnaireProgressManager.prototype.getQuestionnaireProgress = function (questionnaireId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/questionnaire/' + questionnaireId + '/timeline/' + timelineId).success(function (data) {
-   self.questionnaireTimeline = data;
+  $http.get('/api/questionnaire/' + questionnaireId + '/progress/' + progressId).success(function (data) {
+   self.questionnaireProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var questionnaireTimelineManager = function ($http, $q) {
  };
 
 
- QuestionnaireTimelineManager.prototype.editQuestionnaireTimeline = function (questionnaireTimelineData) {
+ QuestionnaireProgressManager.prototype.editQuestionnaireProgress = function (questionnaireProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/questionnaire/timeline/edit',
-   data: questionnaireTimelineData
+   url: '/api/questionnaire/progress/edit',
+   data: questionnaireProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var questionnaireTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireTimelineManager;
+ return QuestionnaireProgressManager;
 };
 
-questionnaireTimelineManager.$inject = ['$http', '$q'];
+questionnaireProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireTimelineManager', questionnaireTimelineManager);
+angular.module('app.questionnaire').service('QuestionnaireProgressManager', questionnaireProgressManager);

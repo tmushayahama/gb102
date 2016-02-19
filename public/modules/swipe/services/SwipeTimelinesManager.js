@@ -1,9 +1,9 @@
-var swipeTimelinesManager = function ($http, $q) {
+var swipeProgressManager = function ($http, $q) {
 
- var SwipeTimelinesManager = function () {
-  this.swipeTimelines = [];
+ var SwipeProgressManager = function () {
+  this.swipeProgress = [];
  };
- SwipeTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SwipeProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var swipeTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SwipeTimelinesManager.prototype.getSwipeTimelines = function (swipeId) {
+ SwipeProgressManager.prototype.getSwipeProgress = function (swipeId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeTimelines = [];
-  $http.get('/api/swipe/' + swipeId + '/timelines').success(function (data) {
-   self.swipeTimelines = data;
+  self.swipeProgress = [];
+  $http.get('/api/swipe/' + swipeId + '/progress').success(function (data) {
+   self.swipeProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var swipeTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTimelinesManager.prototype.getSwipeTimeline = function (swipeId, timelineId) {
+ SwipeProgressManager.prototype.getSwipeProgress = function (swipeId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.swipeTimelines = [];
-  $http.get('/api/swipe/' + swipeId + '/timeline/' + timelineId).success(function (data) {
-   self.swipeTimelines = data;
+  self.swipeProgress = [];
+  $http.get('/api/swipe/' + swipeId + '/progress/' + progressId).success(function (data) {
+   self.swipeProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var swipeTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SwipeTimelinesManager.prototype.createSwipeTimeline = function (swipeTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/swipe/timeline/create',
-   data: swipeTimelineData
-  }).success(function (data) {
-   self.swipeTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- SwipeTimelinesManager.prototype.editSwipeTimeline = function (swipeTimelineData) {
+ SwipeProgressManager.prototype.createSwipeProgress = function (swipeProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/swipe/timeline/edit',
-   data: swipeTimelineData
+   url: '/api/swipe/progress/create',
+   data: swipeProgressData
+  }).success(function (data) {
+   self.swipeProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ SwipeProgressManager.prototype.editSwipeProgress = function (swipeProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/swipe/progress/edit',
+   data: swipeProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var swipeTimelinesManager = function ($http, $q) {
  };
 
 
- return SwipeTimelinesManager;
+ return SwipeProgressManager;
 };
 
-swipeTimelinesManager.$inject = ['$http', '$q'];
+swipeProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.swipe').service('SwipeTimelinesManager', swipeTimelinesManager);
+angular.module('app.swipe').service('SwipeProgressManager', swipeProgressManager);

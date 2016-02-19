@@ -1,9 +1,9 @@
-var adviceTimelineManager = function ($http, $q) {
+var adviceProgressManager = function ($http, $q) {
 
- var AdviceTimelineManager = function () {
-  this.adviceTimelines = [];
+ var AdviceProgressManager = function () {
+  this.adviceProgress = [];
  };
- AdviceTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var adviceTimelineManager = function ($http, $q) {
  };
 
 
- AdviceTimelineManager.prototype.getAdviceTimeline = function (adviceId, timelineId) {
+ AdviceProgressManager.prototype.getAdviceProgress = function (adviceId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/advice/' + adviceId + '/timeline/' + timelineId).success(function (data) {
-   self.adviceTimeline = data;
+  $http.get('/api/advice/' + adviceId + '/progress/' + progressId).success(function (data) {
+   self.adviceProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var adviceTimelineManager = function ($http, $q) {
  };
 
 
- AdviceTimelineManager.prototype.editAdviceTimeline = function (adviceTimelineData) {
+ AdviceProgressManager.prototype.editAdviceProgress = function (adviceProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/advice/timeline/edit',
-   data: adviceTimelineData
+   url: '/api/advice/progress/edit',
+   data: adviceProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var adviceTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return AdviceTimelineManager;
+ return AdviceProgressManager;
 };
 
-adviceTimelineManager.$inject = ['$http', '$q'];
+adviceProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceTimelineManager', adviceTimelineManager);
+angular.module('app.advice').service('AdviceProgressManager', adviceProgressManager);

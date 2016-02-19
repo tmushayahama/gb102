@@ -1,9 +1,9 @@
-var journalTimelineManager = function ($http, $q) {
+var journalProgressManager = function ($http, $q) {
 
- var JournalTimelineManager = function () {
-  this.journalTimelines = [];
+ var JournalProgressManager = function () {
+  this.journalProgress = [];
  };
- JournalTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var journalTimelineManager = function ($http, $q) {
  };
 
 
- JournalTimelineManager.prototype.getJournalTimeline = function (journalId, timelineId) {
+ JournalProgressManager.prototype.getJournalProgress = function (journalId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/journal/' + journalId + '/timeline/' + timelineId).success(function (data) {
-   self.journalTimeline = data;
+  $http.get('/api/journal/' + journalId + '/progress/' + progressId).success(function (data) {
+   self.journalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var journalTimelineManager = function ($http, $q) {
  };
 
 
- JournalTimelineManager.prototype.editJournalTimeline = function (journalTimelineData) {
+ JournalProgressManager.prototype.editJournalProgress = function (journalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/journal/timeline/edit',
-   data: journalTimelineData
+   url: '/api/journal/progress/edit',
+   data: journalProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var journalTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return JournalTimelineManager;
+ return JournalProgressManager;
 };
 
-journalTimelineManager.$inject = ['$http', '$q'];
+journalProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalTimelineManager', journalTimelineManager);
+angular.module('app.journal').service('JournalProgressManager', journalProgressManager);

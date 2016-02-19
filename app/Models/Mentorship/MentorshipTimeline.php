@@ -3,27 +3,27 @@
 namespace App\Models\Mentorship;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use Request;
 use DB;
 use JWTAuth;
 
-class MentorshipTimeline extends Model {
+class MentorshipProgress extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_mentorship_timeline';
+ protected $table = 'gb_mentorship_progress';
  public $timestamps = false;
 
  public function mentorship() {
   return $this->belongsTo('App\Models\Mentorship\Mentorship', 'mentorship_id');
  }
 
- public function timeline() {
-  return $this->belongsTo('App\Models\Timeline\Timeline', 'timeline_id');
+ public function progress() {
+  return $this->belongsTo('App\Models\Progress\Progress', 'progress_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class MentorshipTimeline extends Model {
   */
  protected $fillable = [];
 
- public static function getMentorshipTimelines($mentorshipId) {
-  $mentorshipTimelines = MentorshipTimeline::with('timeline')
-    ->with('timeline.creator')
+ public static function getMentorshipProgress($mentorshipId) {
+  $mentorshipProgress = MentorshipProgress::with('progress')
+    ->with('progress.creator')
     ->orderBy('id', 'DESC')
     ->where('mentorship_id', $mentorshipId)
     ->get();
-  return $mentorshipTimelines;
+  return $mentorshipProgress;
  }
 
- public static function getMentorshipTimeline($mentorshipId, $timelineId) {
-  $mentorshipTimeline = MentorshipTimeline::with('timeline')
+ public static function getMentorshipProgress($mentorshipId, $progressId) {
+  $mentorshipProgress = MentorshipProgress::with('progress')
     ->orderBy('id', 'DESC')
     ->where('mentorship_id', $mentorshipId)
-    ->where('timeline_id', $timelineId)
+    ->where('progress_id', $progressId)
     ->first();
-  return $mentorshipTimeline;
+  return $mentorshipProgress;
  }
 
- public static function createMentorshipTimeline() {
+ public static function createMentorshipProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $mentorshipId = Request::get("mentorshipId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $timeline = new Timeline;
-  $mentorshipTimeline = new MentorshipTimeline;
-  $timeline->creator_id = $userId;
-  $timeline->title = $title;
-  $mentorshipTimeline->mentorship_id = $mentorshipId;
+  $progress = new Progress;
+  $mentorshipProgress = new MentorshipProgress;
+  $progress->creator_id = $userId;
+  $progress->title = $title;
+  $mentorshipProgress->mentorship_id = $mentorshipId;
 
   DB::beginTransaction();
   try {
-   $timeline->save();
-   $mentorshipTimeline->timeline()->associate($timeline);
-   $mentorshipTimeline->save();
+   $progress->save();
+   $mentorshipProgress->progress()->associate($progress);
+   $mentorshipProgress->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $mentorshipTimeline;
+  return $mentorshipProgress;
  }
 
- public static function editMentorshipTimeline() {
+ public static function editMentorshipProgress() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $mentorshipTimelineId = Request::get("mentorshipTimelineId");
-  //$timelineId = Request::get("timelineId");
+  $mentorshipProgressId = Request::get("mentorshipProgressId");
+  //$progressId = Request::get("progressId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $mentorshipTimeline = MentorshipTimeline::find($mentorshipTimelineId);
-  $mentorshipTimeline->timeline->title = $title;
-  $mentorshipTimeline->timeline->description = $description;
+  $mentorshipProgress = MentorshipProgress::find($mentorshipProgressId);
+  $mentorshipProgress->progress->title = $title;
+  $mentorshipProgress->progress->description = $description;
 
   DB::beginTransaction();
   try {
-   $mentorshipTimeline->push();
+   $mentorshipProgress->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $mentorshipTimeline;
+  return $mentorshipProgress;
  }
 
 }

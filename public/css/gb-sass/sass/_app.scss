@@ -20,7 +20,7 @@ and open the template in the editor.
 @import "components/gb-questionnaire";
 
 @import "components/gb-comments";
-@import "components/gb-timeline";
+@import "components/gb-progress";
 @import "components/gb-weblinks";
 //@import "components/gb-icon-images";
 @import "components/custom-xeditable";
@@ -370,38 +370,6 @@ input[type="checkbox"] {
   }
  }
 
- .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba($primary-color, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
- }
-
-
-
- #toggle-all {
-  top: -55px;
-  left: -12px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none; /* Mobile Safari */
- }
-
- #toggle-all:before {
-  content: ' ';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
- }
-
- #toggle-all:checked:before {
-  color: #737373;
- }
-
  #todo-list {
   margin: 0;
   padding: 0;
@@ -624,21 +592,6 @@ input[type="checkbox"] {
   }
  }
 
- .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba($primary-color, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
- }
-
-
- .gb-notes .gb-note-body {
-
- }
-
  #note-list {
   margin: 0;
   padding: 0;
@@ -665,8 +618,6 @@ input[type="checkbox"] {
    -webkit-appearance: none;
    appearance: none;
   }
-
-
 
   li .gb-note-content {
    position: relative;
@@ -1387,8 +1338,7 @@ input.gb-form-show{
  }
 }
 
-
-#gb-profile-left-pane {
+#gb-profile-left-pane { 
  height: 100%;
  background-color: #FFF;
  border-right: #999 solid 1px;
@@ -2485,34 +2435,34 @@ input.gb-form-show{
  ::-webkit-scrollbar-corner       { /* 6 */ }
  ::-webkit-resizer                { /* 7 */ }
 
- ul.gb-timeline:before {
+ ul.gb-progress:before {
   left: 40px;
  }
 
- ul.gb-timeline > li > .gb-timeline-panel {
+ ul.gb-progress > li > .gb-progress-panel {
   width: calc(100% - 90px);
   width: -moz-calc(100% - 90px);
   width: -webkit-calc(100% - 90px);
  }
 
- ul.gb-timeline > li > .gb-timeline-badge {
+ ul.gb-progress > li > .gb-progress-badge {
   left: 15px;
   margin-left: 0;
   top: 16px;
  }
 
- ul.gb-timeline > li > .gb-timeline-panel {
+ ul.gb-progress > li > .gb-progress-panel {
   float: right;
  }
 
- ul.gb-timeline > li > .gb-timeline-panel:before {
+ ul.gb-progress > li > .gb-progress-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
  }
 
- ul.gb-timeline > li > .gb-timeline-panel:after {
+ ul.gb-progress > li > .gb-progress-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;

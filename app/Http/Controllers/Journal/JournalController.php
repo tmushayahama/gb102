@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Journal\Journal;
-use App\Models\Journal\JournalTimeline;
+use App\Models\Journal\JournalProgress;
 use App\Models\Journal\JournalComment;
 use App\Models\Journal\JournalNote;
 use App\Models\Journal\JournalTodo;
 use App\Models\Journal\JournalWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class JournalController extends Controller {
   return \Response::json($journal);
  }
 
- public function getJournalTimelines($journalId) {
-  $journalTimelines = JournalTimeline::getJournalTimelines($journalId);
-  return \Response::json($journalTimelines);
+ public function getJournalProgress($journalId) {
+  $journalProgress = JournalProgress::getJournalProgress($journalId);
+  return \Response::json($journalProgress);
  }
 
- public function getJournalTimeline($journalId, $timelineId) {
-  $journalTimeline = JournalTimeline::getJournalTimeline($journalId, $timelineId);
-  return \Response::json($journalTimeline);
+ public function getJournalProgressItem($journalId, $progressId) {
+  $journalProgress = JournalProgress::getJournalProgress($journalId, $progressId);
+  return \Response::json($journalProgress);
  }
 
- public function createJournalTimeline() {
-  $journalTimeline = JournalTimeline::createJournalTimeline();
-  return \Response::json($journalTimeline);
+ public function createJournalProgress() {
+  $journalProgress = JournalProgress::createJournalProgress();
+  return \Response::json($journalProgress);
  }
 
- public function editJournalTimeline() {
-  $journalTimeline = JournalTimeline::editJournalTimeline();
-  return \Response::json($journalTimeline);
+ public function editJournalProgress() {
+  $journalProgress = JournalProgress::editJournalProgress();
+  return \Response::json($journalProgress);
  }
 
  /* TODOS */

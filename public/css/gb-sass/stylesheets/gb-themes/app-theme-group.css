@@ -743,16 +743,16 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .gb-section-row-2 {
-  border-bottom: #CCC solid 1px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .gb-section-row-2 .gb-heading {
-  padding: 30px 5px 30px 5px;
+  padding: 15px 5px 15px 5px;
 }
 .gb-section-row-2 .gb-heading .gb-title {
+  padding: 3px 0 0 0;
   width: 100%;
-  font-size: 30px;
-  color: rgba(0, 34, 119, 0.6);
+  font-size: 15px;
+  color: rgba(0, 34, 119, 0.8);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -762,7 +762,7 @@ Copyright (c) 2014 Daniel Eden
   height: 30px;
 }
 .gb-section-row-2 .gb-heading .gb-action {
-  padding: 10px 0 0 0;
+  padding: 0 0 0 0;
 }
 .gb-section-row-2 .gb-section-row-1 .gb-body {
   padding-top: 10px;
@@ -1378,33 +1378,6 @@ Copyright (c) 2014 Daniel Eden
 .gb-comments .gb-form-placeholder input:-ms-input-placeholder {
   color: #BBB;
 }
-.gb-comments .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba(0, 34, 119, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-}
-.gb-comments #toggle-all {
-  top: -55px;
-  left: -12px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none;
-  /* Mobile Safari */
-}
-.gb-comments #toggle-all:before {
-  content: ' ';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
-}
-.gb-comments #toggle-all:checked:before {
-  color: #737373;
-}
 .gb-comments #comment-list {
   margin: 0;
   padding: 0;
@@ -1648,17 +1621,17 @@ Copyright (c) 2014 Daniel Eden
   }
 }
 
-.smart-timeline {
+.gb-progress {
   position: relative;
 }
 
-.smart-timeline-list {
+.gb-progress-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.smart-timeline-list:after {
+.gb-progress-list:after {
   content: " ";
   background-color: #BBB;
   position: absolute;
@@ -1670,21 +1643,21 @@ Copyright (c) 2014 Daniel Eden
   z-index: 1;
 }
 
-.smart-timeline-list li {
+.gb-progress-list li {
   position: relative;
   margin: 0;
   padding: 15px 0;
 }
 
-.smart-timeline-list > li:hover {
+.gb-progress-list > li:hover {
   background-color: #f4f4f4;
 }
 
-.smart-timeline-hover li:hover {
+.gb-progress-hover li:hover {
   background-color: #f9f9f9;
 }
 
-.smart-timeline-icon {
+.gb-progress-icon {
   color: #fff;
   border-radius: 50%;
   position: absolute;
@@ -1694,12 +1667,12 @@ Copyright (c) 2014 Daniel Eden
   font-size: 14px;
   text-align: center;
   left: 80px;
-  top: 10px;
+  top: 30px;
   z-index: 100;
   padding: 2px;
 }
 
-.smart-timeline-icon > img {
+.gb-progress-icon > img {
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -1708,63 +1681,70 @@ Copyright (c) 2014 Daniel Eden
   border: 2px solid #3276b1;
 }
 
-.smart-timeline-time {
+.gb-progress-time {
+  position: relative;
   float: left;
   width: 70px;
   text-align: right;
 }
-
-.smart-timeline-time > small {
-  font-style: italic;
+.gb-progress-time .gb-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
 }
 
-.smart-timeline-content {
+.gb-progress-content {
   margin-left: 123px;
 }
 
-.gb-timeline-item {
+.gb-progress-item {
   margin: 0 0 10px 0;
   padding: 10px 5px 10px 10px;
   border-bottom: #AAA solid 1px;
   background-color: #F7F7F7;
 }
 
-.gb-timeline-item .gb-heading {
+.gb-progress-item .gb-heading {
   padding-top: 5px;
   padding-right: 3px;
 }
 
-.gb-timeline-item .gb-heading-img {
+.gb-progress-item .gb-heading-img {
   margin-top: 4px;
   max-height: 20px;
   max-width: 20px;
 }
 
-.gb-timeline-item .gb-description {
+.gb-progress-item .gb-description {
   padding-right: 5px;
 }
 
-.gb-timeline-title {
+.gb-progress-title {
   margin-top: 0;
   color: inherit;
 }
 
-.gb-timeline-body > p,
-.gb-timeline-body > ul {
+.gb-progress-body > p,
+.gb-progress-body > ul {
   margin-bottom: 0;
 }
 
-.gb-timeline-body > p + p {
+.gb-progress-body > p + p {
   margin-top: 5px;
 }
 
 @media (max-width: 767px) {
-  .smart-timeline-list:after {
+  .gb-progress-list:after {
     left: auto;
     right: 13px;
   }
 
-  .smart-timeline-icon {
+  .gb-progress-icon {
     color: #fff;
     border-radius: 50%;
     position: absolute;
@@ -1780,14 +1760,14 @@ Copyright (c) 2014 Daniel Eden
     padding: 2px;
   }
 
-  .smart-timeline-time {
+  .gb-progress-time {
     float: left;
-    width: 90%;
+    width: 10%;
     text-align: left;
     margin-bottom: 5px;
   }
 
-  .smart-timeline-content {
+  .gb-progress-content {
     width: 90%;
     margin-left: 0px;
   }
@@ -1840,38 +1820,6 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-weblinks .gb-form-placeholder input:-ms-input-placeholder {
   color: #BBB;
-}
-.gb-weblinks .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba(0, 34, 119, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-}
-.gb-weblinks #toggle-all {
-  top: -55px;
-  left: -12px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none;
-  /* Mobile Safari */
-}
-.gb-weblinks #toggle-all:before {
-  content: ' ';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
-}
-.gb-weblinks #toggle-all:checked:before {
-  color: #737373;
-}
-.gb-weblinks #weblink-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 .gb-weblinks .gb-weblink-row {
   position: relative;
@@ -2810,33 +2758,6 @@ input[type="checkbox"] {
 .gb-todos .gb-form-placeholder input:-ms-input-placeholder {
   color: #BBB;
 }
-.gb-todos .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba(0, 34, 119, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-}
-.gb-todos #toggle-all {
-  top: -55px;
-  left: -12px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none;
-  /* Mobile Safari */
-}
-.gb-todos #toggle-all:before {
-  content: ' ';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
-}
-.gb-todos #toggle-all:checked:before {
-  color: #737373;
-}
 .gb-todos #todo-list {
   margin: 0;
   padding: 0;
@@ -3034,15 +2955,6 @@ input[type="checkbox"] {
 }
 .gb-notes .gb-form-placeholder input:-ms-input-placeholder {
   color: #BBB;
-}
-.gb-notes .gb-heading {
-  padding: 30px 5px 30px 5px;
-  width: 100%;
-  font-size: 30px;
-  color: rgba(0, 34, 119, 0.4);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
 }
 .gb-notes #note-list {
   margin: 0;
@@ -4991,34 +4903,34 @@ input.gb-form-show {
     /* 7 */
   }
 
-  ul.gb-timeline:before {
+  ul.gb-progress:before {
     left: 40px;
   }
 
-  ul.gb-timeline > li > .gb-timeline-panel {
+  ul.gb-progress > li > .gb-progress-panel {
     width: calc(100% - 90px);
     width: -moz-calc(100% - 90px);
     width: -webkit-calc(100% - 90px);
   }
 
-  ul.gb-timeline > li > .gb-timeline-badge {
+  ul.gb-progress > li > .gb-progress-badge {
     left: 15px;
     margin-left: 0;
     top: 16px;
   }
 
-  ul.gb-timeline > li > .gb-timeline-panel {
+  ul.gb-progress > li > .gb-progress-panel {
     float: right;
   }
 
-  ul.gb-timeline > li > .gb-timeline-panel:before {
+  ul.gb-progress > li > .gb-progress-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto;
   }
 
-  ul.gb-timeline > li > .gb-timeline-panel:after {
+  ul.gb-progress > li > .gb-progress-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;

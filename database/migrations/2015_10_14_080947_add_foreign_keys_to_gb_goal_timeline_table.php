@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToGbGoalTimelineTable extends Migration {
+class AddForeignKeysToGbGoalProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignKeysToGbGoalTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('gb_goal_timeline', function(Blueprint $table)
+		Schema::table('gb_goal_progress', function(Blueprint $table)
 		{
-			$table->foreign('goal_id', 'goal_timeline_goal_id')->references('id')->on('gb_goal')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('timeline_id', 'goal_timeline_timeline_id')->references('id')->on('gb_timeline')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('goal_id', 'goal_progress_goal_id')->references('id')->on('gb_goal')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('progress_id', 'goal_progress_progress_id')->references('id')->on('gb_progress')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 
@@ -27,10 +27,10 @@ class AddForeignKeysToGbGoalTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('gb_goal_timeline', function(Blueprint $table)
+		Schema::table('gb_goal_progress', function(Blueprint $table)
 		{
-			$table->dropForeign('goal_timeline_goal_id');
-			$table->dropForeign('goal_timeline_timeline_id');
+			$table->dropForeign('goal_progress_goal_id');
+			$table->dropForeign('goal_progress_progress_id');
 		});
 	}
 

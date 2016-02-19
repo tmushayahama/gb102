@@ -130,11 +130,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/journal/controllers/JournalOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/journal/services/JournalTimelineManager.js',
-                  'public/modules/journal/services/JournalTimelinesManager.js',
-                  'public/modules/journal/controllers/JournalTimelinesCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalTimelineCtrl.js',
+                  //Progress
+                  'public/modules/journal/services/JournalProgressManager.js',
+                  'public/modules/journal/services/JournalProgressManager.js',
+                  'public/modules/journal/controllers/JournalProgressCtrl.js',
+                  'public/modules/journal/controllers/modals/JournalProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +154,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/journal/controllers/JournalManageCtrl.js',
-                  //Timeline
-                  'public/modules/journal/services/JournalTimelineManager.js',
-                  'public/modules/journal/services/JournalTimelinesManager.js',
-                  'public/modules/journal/controllers/JournalTimelinesCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalTimelineCtrl.js',
+                  //Progress
+                  'public/modules/journal/services/JournalProgressManager.js',
+                  'public/modules/journal/services/JournalProgressManager.js',
+                  'public/modules/journal/controllers/JournalProgressCtrl.js',
+                  'public/modules/journal/controllers/modals/JournalProgressCtrl.js',
                  ]
                 });
                }]

@@ -130,11 +130,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/goal/controllers/GoalOverviewCtrl.js',
-                  //Timeline
-                  'public/modules/goal/services/GoalTimelineManager.js',
-                  'public/modules/goal/services/GoalTimelinesManager.js',
-                  'public/modules/goal/controllers/GoalTimelinesCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalTimelineCtrl.js',
+                  //Progress
+                  'public/modules/goal/services/GoalProgressManager.js',
+                  'public/modules/goal/services/GoalProgressManager.js',
+                  'public/modules/goal/controllers/GoalProgressCtrl.js',
+                  'public/modules/goal/controllers/modals/GoalProgressCtrl.js',
                  ]
                 });
                }]
@@ -154,11 +154,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/goal/controllers/GoalManageCtrl.js',
-                  //Timeline
-                  'public/modules/goal/services/GoalTimelineManager.js',
-                  'public/modules/goal/services/GoalTimelinesManager.js',
-                  'public/modules/goal/controllers/GoalTimelinesCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalTimelineCtrl.js',
+                  //Progress
+                  'public/modules/goal/services/GoalProgressManager.js',
+                  'public/modules/goal/services/GoalProgressManager.js',
+                  'public/modules/goal/controllers/GoalProgressCtrl.js',
+                  'public/modules/goal/controllers/modals/GoalProgressCtrl.js',
                  ]
                 });
                }]

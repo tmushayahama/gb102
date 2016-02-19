@@ -1,5 +1,5 @@
-var skillTimelinesCtrl = function (
-        SkillTimelinesManager,
+var skillProgressCtrl = function (
+        SkillProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var skillTimelinesCtrl = function (
 
  var vm = this;
  vm.skillId = $stateParams.skillId;
- vm.skillTimelinesCopy;
- vm.skillTimelinesManager = new SkillTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.skillProgressCopy;
+ vm.skillProgressManager = new SkillProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultSkillTimelineData = {
+ vm.defaultSkillProgressData = {
   skillId: $stateParams.skillId,
   privacy: 0
  }
- vm.newSkillTimelineData = angular.copy(vm.defaultSkillTimelineData);
+ vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createSkillTimeline = function (data) {
-  vm.skillTimelinesManager.createSkillTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newSkillTimelineData = angular.copy(vm.defaultSkillTimelineData);
-   vm.skillTimelinesCopy = angular.copy(vm.skillTimelinesManager.skillTimelines);
+ vm.createSkillProgress = function (data) {
+  vm.skillProgressManager.createSkillProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData);
+   vm.skillProgressCopy = angular.copy(vm.skillProgressManager.skillProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSkillTimeline = function (data) {
-  vm.skillTimelinesManager.editSkillTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newSkillTimelineData = angular.copy(vm.defaultSkillTimelineData);
-   vm.skillTimelinesCopy = angular.copy(vm.skillTimelinesManager.skillTimelines);
+ vm.editSkillProgress = function (data) {
+  vm.skillProgressManager.editSkillProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData);
+   vm.skillProgressCopy = angular.copy(vm.skillProgressManager.skillProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSkillTimelineSections = {
-  details: function (skillTimelineId, detail) {
-   var skillTimelineData = {
-    skillTimelineId: skillTimelineId,
+ vm.editSkillProgressSections = {
+  details: function (skillProgressId, detail) {
+   var skillProgressData = {
+    skillProgressId: skillProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSkillTimeline(skillTimelineData);
+   vm.editSkillProgress(skillProgressData);
   }
  }
 
- vm.cancelSkillTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newSkillTimelineData = angular.copy(vm.defaultSkillTimelineData)
+ vm.cancelSkillProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSkillTimeline = function (skillTimeline, skillTimelineCopy) {
-  skillTimeline = skillTimelineCopy;
+ vm.revertSkillProgress = function (skillProgress, skillProgressCopy) {
+  skillProgress = skillProgressCopy;
   /*
    $filter('filter')
-   (vm.skillTimelinesManager.skillTimelines, {id: skillTimelineId}, true)[0]
+   (vm.skillProgressManager.skillProgress, {id: skillProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.skillTimelinesCopy, {id: skillTimelineId}, true)[0]);
-   if (skillTimeline.length && skillTimelineCopy.length) {
-   // vm.skillTimelinesManager.skillTimelines angular.copy(vm.skillTimelinesCopy);
+   (vm.skillProgressCopy, {id: skillProgressId}, true)[0]);
+   if (skillProgress.length && skillProgressCopy.length) {
+   // vm.skillProgressManager.skillProgress angular.copy(vm.skillProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var skillTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.skillTimelines;
+  return vm.skillProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(skillTimelines, {completed: false}).length;
-  vm.doneCount = vm.skillTimelinesManager.skillTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(skillProgress, {completed: false}).length;
+  vm.doneCount = vm.skillProgressManager.skillProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SkillTimelineService.put(vm.skillTimelines);
+  //SkillProgressService.put(vm.skillProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var skillTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (skillTimeline) {
-  vm.editedTimeline = skillTimeline;
-  // Clone the original skillTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(skillTimeline);
+ vm.editProgress = function (skillProgress) {
+  vm.editedProgress = skillProgress;
+  // Clone the original skillProgress to restore it on demand.
+  vm.originalProgress = angular.copy(skillProgress);
  };
 
 
- vm.doneEditing = function (skillTimeline) {
-  vm.editedTimeline = null;
-  skillTimeline.title = skillTimeline.title.trim();
+ vm.doneEditing = function (skillProgress) {
+  vm.editedProgress = null;
+  skillProgress.title = skillProgress.title.trim();
 
-  if (!skillTimeline.title) {
-   vm.removeTimeline(skillTimeline);
+  if (!skillProgress.title) {
+   vm.removeProgress(skillProgress);
   }
  };
 
- vm.openSkillTimeline = function (skillTimeline) {
+ vm.openSkillProgress = function (skillProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'skill-timeline-modal.html',
-   controller: 'SkillTimelineCtrl as skillTimelineCtrl',
+   templateUrl: 'skill-progress-modal.html',
+   controller: 'SkillProgressCtrl as skillProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    skillTimelineData: function () {
-     return skillTimeline;
+    skillProgressData: function () {
+     return skillProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var skillTimelinesCtrl = function (
 
 
  //--------init------
- vm.skillTimelinesManager.getSkillTimelines(vm.skillId);
+ vm.skillProgressManager.getSkillProgress(vm.skillId);
 };
 
-skillTimelinesCtrl.$inject = [
- 'SkillTimelinesManager',
+skillProgressCtrl.$inject = [
+ 'SkillProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ skillTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.skills").controller('SkillTimelinesCtrl', skillTimelinesCtrl);
+angular.module("app.skills").controller('SkillProgressCtrl', skillProgressCtrl);

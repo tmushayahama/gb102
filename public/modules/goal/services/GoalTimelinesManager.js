@@ -1,9 +1,9 @@
-var goalTimelinesManager = function ($http, $q) {
+var goalProgressManager = function ($http, $q) {
 
- var GoalTimelinesManager = function () {
-  this.goalTimelines = [];
+ var GoalProgressManager = function () {
+  this.goalProgress = [];
  };
- GoalTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var goalTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalTimelinesManager.prototype.getGoalTimelines = function (goalId) {
+ GoalProgressManager.prototype.getGoalProgress = function (goalId) {
   var self = this;
   var deferred = $q.defer();
-  self.goalTimelines = [];
-  $http.get('/api/goal/' + goalId + '/timelines').success(function (data) {
-   self.goalTimelines = data;
+  self.goalProgress = [];
+  $http.get('/api/goal/' + goalId + '/progress').success(function (data) {
+   self.goalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var goalTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalTimelinesManager.prototype.getGoalTimeline = function (goalId, timelineId) {
+ GoalProgressManager.prototype.getGoalProgress = function (goalId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  self.goalTimelines = [];
-  $http.get('/api/goal/' + goalId + '/timeline/' + timelineId).success(function (data) {
-   self.goalTimelines = data;
+  self.goalProgress = [];
+  $http.get('/api/goal/' + goalId + '/progress/' + progressId).success(function (data) {
+   self.goalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var goalTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalTimelinesManager.prototype.createGoalTimeline = function (goalTimelineData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/goal/timeline/create',
-   data: goalTimelineData
-  }).success(function (data) {
-   self.goalTimelines.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- GoalTimelinesManager.prototype.editGoalTimeline = function (goalTimelineData) {
+ GoalProgressManager.prototype.createGoalProgress = function (goalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/goal/timeline/edit',
-   data: goalTimelineData
+   url: '/api/goal/progress/create',
+   data: goalProgressData
+  }).success(function (data) {
+   self.goalProgress.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ GoalProgressManager.prototype.editGoalProgress = function (goalProgressData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/goal/progress/edit',
+   data: goalProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var goalTimelinesManager = function ($http, $q) {
  };
 
 
- return GoalTimelinesManager;
+ return GoalProgressManager;
 };
 
-goalTimelinesManager.$inject = ['$http', '$q'];
+goalProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalTimelinesManager', goalTimelinesManager);
+angular.module('app.goal').service('GoalProgressManager', goalProgressManager);

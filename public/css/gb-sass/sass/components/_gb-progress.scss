@@ -1,0 +1,139 @@
+
+.gb-progress {
+ position: relative;
+}
+.gb-progress-list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+.gb-progress-list:after {
+ content: " ";
+ background-color: #BBB;
+ position: absolute;
+ display: block;
+ width: 2px;
+ top: 0;
+ left: 95px;
+ bottom: 0;
+ z-index: 1;
+}
+.gb-progress-list li {
+ position: relative;
+ margin: 0;
+ padding: 15px 0;
+}
+.gb-progress-list>li:hover {
+ background-color: #f4f4f4;
+}
+.gb-progress-hover li:hover {
+ background-color: #f9f9f9;
+}
+.gb-progress-icon {
+ color: #fff;
+ border-radius: 50%;
+ position: absolute;
+ width: 32px;
+ height: 32px;
+ line-height: 28px;
+ font-size: 14px;
+ text-align: center;
+ left: 80px;
+ top: 30px;
+ z-index: 100;
+ padding: 2px;
+}
+
+.gb-progress-icon>img {
+ height: 32px;
+ width: 32px;
+ border-radius: 50%;
+ margin-top: -2px;
+ margin-left: -2px;
+ border: 2px solid #3276b1;
+}
+.gb-progress-time {
+ position: relative;
+ float: left;
+ width: 70px;
+ text-align: right;
+ .gb-title {
+  @include position(absolute, 50% null null 0);
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+ }
+}
+.gb-progress-content {
+ margin-left: 123px;
+}
+
+.gb-progress-item {
+ margin: 0 0 10px 0;
+ padding: 10px 5px 10px 10px;
+ border-bottom: #AAA solid 1px;
+ background-color: #F7F7F7;
+}
+
+.gb-progress-item .gb-heading {
+ padding-top: 5px;
+ padding-right: 3px;
+}
+
+.gb-progress-item .gb-heading-img {
+ margin-top: 4px;
+ max-height: 20px;
+ max-width: 20px;
+}
+
+.gb-progress-item .gb-description {
+ padding-right: 5px;
+}
+
+.gb-progress-title {
+ margin-top: 0;
+ color: inherit;
+}
+
+.gb-progress-body > p,
+.gb-progress-body > ul {
+ margin-bottom: 0;
+}
+
+.gb-progress-body > p + p {
+ margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+ .gb-progress-list:after {
+  left: auto;
+  right: 13px;
+ }
+ .gb-progress-icon {
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  line-height: 24px;
+  font-size: 12px;
+  text-align: center;
+  right: 0px;
+  left: auto;
+  top: 9px;
+  z-index: 100;
+  padding: 2px;
+ }
+ .gb-progress-time {
+  float: left;
+  width: 10%;
+  text-align: left;
+  margin-bottom: 5px;
+ }
+ .gb-progress-content {
+  width:90%;
+  margin-left: 0px;
+ }
+}

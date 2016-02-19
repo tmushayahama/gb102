@@ -1,5 +1,5 @@
-var swipeTimelineCtrl = function (
-        SwipeTimelineManager,
+var swipeProgressCtrl = function (
+        SwipeProgressManager,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var swipeTimelineCtrl = function (
         $rootScope,
         $location,
         $log,
-        swipeTimelineData) {
+        swipeProgressData) {
  var vm = this;
- vm.swipeId = swipeTimelineData.swipe_id;
- vm.swipeTimelineId = swipeTimelineData.id;
- vm.swipeTimelineManager = new SwipeTimelineManager();
+ vm.swipeId = swipeProgressData.swipe_id;
+ vm.swipeProgressId = swipeProgressData.id;
+ vm.swipeProgressManager = new SwipeProgressManager();
 
 
- vm.timelineId = swipeTimelineData.timeline_id;
+ vm.progressId = swipeProgressData.progress_id;
 
- vm.timelineFormDisplay = false;
+ vm.progressFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var swipeTimelineCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newSwipeTimelineData = vm.defaultSwipeTimelineData;
+ // vm.newSwipeProgressData = vm.defaultSwipeProgressData;
 
- vm.getSwipeTimeline = function (swipeId, timelineId) {
-  vm.swipeTimelineManager.getSwipeTimeline(swipeId, timelineId).then(function (response) {
+ vm.getSwipeProgress = function (swipeId, progressId) {
+  vm.swipeProgressManager.getSwipeProgress(swipeId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editSwipeTimeline = function (data) {
-  vm.swipeTimelineManager.editSwipeTimeline(data).then(function (response) {
+ vm.editSwipeProgress = function (data) {
+  vm.swipeProgressManager.editSwipeProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimelineSections = {
+ vm.editSwipeProgressSections = {
   details: function (details) {
-   var swipeTimelineData = {
-    swipeTimelineId: vm.swipeTimelineId,
+   var swipeProgressData = {
+    swipeProgressId: vm.swipeProgressId,
     title: details.title,
     description: details.description
    };
-   vm.editSwipeTimeline(swipeTimelineData);
+   vm.editSwipeProgress(swipeProgressData);
   }
  }
 
 
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getSwipeTimeline(vm.swipeId, vm.timelineId);
+ vm.getSwipeProgress(vm.swipeId, vm.progressId);
 };
 
 
-swipeTimelineCtrl.$inject = [
- 'SwipeTimelineManager',
+swipeProgressCtrl.$inject = [
+ 'SwipeProgressManager',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ swipeTimelineCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'swipeTimelineData'];
+ 'swipeProgressData'];
 
-angular.module("app.swipe").controller('SwipeTimelineCtrl', swipeTimelineCtrl);
+angular.module("app.swipe").controller('SwipeProgressCtrl', swipeProgressCtrl);

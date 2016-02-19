@@ -9,14 +9,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Teach\Teach;
-use App\Models\Teach\TeachTimeline;
+use App\Models\Teach\TeachProgress;
 use App\Models\Teach\TeachComment;
 use App\Models\Teach\TeachNote;
 use App\Models\Teach\TeachTodo;
 use App\Models\Teach\TeachWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -61,24 +61,24 @@ class TeachController extends Controller {
   return \Response::json($teach);
  }
 
- public function getTeachTimelines($teachId) {
-  $teachTimelines = TeachTimeline::getTeachTimelines($teachId);
-  return \Response::json($teachTimelines);
+ public function getTeachProgress($teachId) {
+  $teachProgress = TeachProgress::getTeachProgress($teachId);
+  return \Response::json($teachProgress);
  }
 
- public function getTeachTimeline($teachId, $timelineId) {
-  $teachTimeline = TeachTimeline::getTeachTimeline($teachId, $timelineId);
-  return \Response::json($teachTimeline);
+ public function getTeachProgressItem($teachId, $progressId) {
+  $teachProgress = TeachProgress::getTeachProgress($teachId, $progressId);
+  return \Response::json($teachProgress);
  }
 
- public function createTeachTimeline() {
-  $teachTimeline = TeachTimeline::createTeachTimeline();
-  return \Response::json($teachTimeline);
+ public function createTeachProgress() {
+  $teachProgress = TeachProgress::createTeachProgress();
+  return \Response::json($teachProgress);
  }
 
- public function editTeachTimeline() {
-  $teachTimeline = TeachTimeline::editTeachTimeline();
-  return \Response::json($teachTimeline);
+ public function editTeachProgress() {
+  $teachProgress = TeachProgress::editTeachProgress();
+  return \Response::json($teachProgress);
  }
 
  /* TODOS */

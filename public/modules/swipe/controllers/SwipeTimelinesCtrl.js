@@ -1,5 +1,5 @@
-var swipeTimelinesCtrl = function (
-        SwipeTimelinesManager,
+var swipeProgressCtrl = function (
+        SwipeProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var swipeTimelinesCtrl = function (
 
  var vm = this;
  vm.swipeId = $stateParams.swipeId;
- vm.swipeTimelinesCopy;
- vm.swipeTimelinesManager = new SwipeTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.swipeProgressCopy;
+ vm.swipeProgressManager = new SwipeProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultSwipeTimelineData = {
+ vm.defaultSwipeProgressData = {
   swipeId: $stateParams.swipeId,
   privacy: 0
  }
- vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
+ vm.newSwipeProgressData = angular.copy(vm.defaultSwipeProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createSwipeTimeline = function (data) {
-  vm.swipeTimelinesManager.createSwipeTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
-   vm.swipeTimelinesCopy = angular.copy(vm.swipeTimelinesManager.swipeTimelines);
+ vm.createSwipeProgress = function (data) {
+  vm.swipeProgressManager.createSwipeProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newSwipeProgressData = angular.copy(vm.defaultSwipeProgressData);
+   vm.swipeProgressCopy = angular.copy(vm.swipeProgressManager.swipeProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimeline = function (data) {
-  vm.swipeTimelinesManager.editSwipeTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData);
-   vm.swipeTimelinesCopy = angular.copy(vm.swipeTimelinesManager.swipeTimelines);
+ vm.editSwipeProgress = function (data) {
+  vm.swipeProgressManager.editSwipeProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newSwipeProgressData = angular.copy(vm.defaultSwipeProgressData);
+   vm.swipeProgressCopy = angular.copy(vm.swipeProgressManager.swipeProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editSwipeTimelineSections = {
-  details: function (swipeTimelineId, detail) {
-   var swipeTimelineData = {
-    swipeTimelineId: swipeTimelineId,
+ vm.editSwipeProgressSections = {
+  details: function (swipeProgressId, detail) {
+   var swipeProgressData = {
+    swipeProgressId: swipeProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editSwipeTimeline(swipeTimelineData);
+   vm.editSwipeProgress(swipeProgressData);
   }
  }
 
- vm.cancelSwipeTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newSwipeTimelineData = angular.copy(vm.defaultSwipeTimelineData)
+ vm.cancelSwipeProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newSwipeProgressData = angular.copy(vm.defaultSwipeProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertSwipeTimeline = function (swipeTimeline, swipeTimelineCopy) {
-  swipeTimeline = swipeTimelineCopy;
+ vm.revertSwipeProgress = function (swipeProgress, swipeProgressCopy) {
+  swipeProgress = swipeProgressCopy;
   /*
    $filter('filter')
-   (vm.swipeTimelinesManager.swipeTimelines, {id: swipeTimelineId}, true)[0]
+   (vm.swipeProgressManager.swipeProgress, {id: swipeProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.swipeTimelinesCopy, {id: swipeTimelineId}, true)[0]);
-   if (swipeTimeline.length && swipeTimelineCopy.length) {
-   // vm.swipeTimelinesManager.swipeTimelines angular.copy(vm.swipeTimelinesCopy);
+   (vm.swipeProgressCopy, {id: swipeProgressId}, true)[0]);
+   if (swipeProgress.length && swipeProgressCopy.length) {
+   // vm.swipeProgressManager.swipeProgress angular.copy(vm.swipeProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var swipeTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.swipeTimelines;
+  return vm.swipeProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(swipeTimelines, {completed: false}).length;
-  vm.doneCount = vm.swipeTimelinesManager.swipeTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(swipeProgress, {completed: false}).length;
+  vm.doneCount = vm.swipeProgressManager.swipeProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //SwipeTimelineService.put(vm.swipeTimelines);
+  //SwipeProgressService.put(vm.swipeProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var swipeTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (swipeTimeline) {
-  vm.editedTimeline = swipeTimeline;
-  // Clone the original swipeTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(swipeTimeline);
+ vm.editProgress = function (swipeProgress) {
+  vm.editedProgress = swipeProgress;
+  // Clone the original swipeProgress to restore it on demand.
+  vm.originalProgress = angular.copy(swipeProgress);
  };
 
 
- vm.doneEditing = function (swipeTimeline) {
-  vm.editedTimeline = null;
-  swipeTimeline.title = swipeTimeline.title.trim();
+ vm.doneEditing = function (swipeProgress) {
+  vm.editedProgress = null;
+  swipeProgress.title = swipeProgress.title.trim();
 
-  if (!swipeTimeline.title) {
-   vm.removeTimeline(swipeTimeline);
+  if (!swipeProgress.title) {
+   vm.removeProgress(swipeProgress);
   }
  };
 
- vm.openSwipeTimeline = function (swipeTimeline) {
+ vm.openSwipeProgress = function (swipeProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'swipe-timeline-modal.html',
-   controller: 'SwipeTimelineCtrl as swipeTimelineCtrl',
+   templateUrl: 'swipe-progress-modal.html',
+   controller: 'SwipeProgressCtrl as swipeProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    swipeTimelineData: function () {
-     return swipeTimeline;
+    swipeProgressData: function () {
+     return swipeProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var swipeTimelinesCtrl = function (
 
 
  //--------init------
- vm.swipeTimelinesManager.getSwipeTimelines(vm.swipeId);
+ vm.swipeProgressManager.getSwipeProgress(vm.swipeId);
 };
 
-swipeTimelinesCtrl.$inject = [
- 'SwipeTimelinesManager',
+swipeProgressCtrl.$inject = [
+ 'SwipeProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ swipeTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.swipe").controller('SwipeTimelinesCtrl', swipeTimelinesCtrl);
+angular.module("app.swipe").controller('SwipeProgressCtrl', swipeProgressCtrl);

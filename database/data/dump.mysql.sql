@@ -286,24 +286,24 @@ CREATE TABLE `gb_advice_skill` (
 
 
 --
--- Table structure for table `gb_advice_timeline`
+-- Table structure for table `gb_advice_progress`
 --
-DROP TABLE IF EXISTS `gb_advice_timeline`;
+DROP TABLE IF EXISTS `gb_advice_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_advice_timeline` (
+CREATE TABLE `gb_advice_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `advice_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `advice_timeline_timeline_id` (`timeline_id`),
-  KEY `advice_timeline_advice_id` (`advice_id`),
-  CONSTRAINT `advice_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_timeline_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `advice_progress_progress_id` (`progress_id`),
+  KEY `advice_progress_advice_id` (`advice_id`),
+  CONSTRAINT `advice_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_progress_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -838,24 +838,24 @@ CREATE TABLE `gb_hobby_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_hobby_timeline`
+-- Table structure for table `gb_hobby_progress`
 --
-DROP TABLE IF EXISTS `gb_hobby_timeline`;
+DROP TABLE IF EXISTS `gb_hobby_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_hobby_timeline` (
+CREATE TABLE `gb_hobby_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `hobby_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `hobby_timeline_timeline_id` (`timeline_id`),
-  KEY `hobby_timeline_hobby_id` (`hobby_id`),
-  CONSTRAINT `hobby_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `hobby_timeline_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `hobby_progress_progress_id` (`progress_id`),
+  KEY `hobby_progress_hobby_id` (`hobby_id`),
+  CONSTRAINT `hobby_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_progress_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1140,24 +1140,24 @@ CREATE TABLE `gb_goal_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_goal_timeline`
+-- Table structure for table `gb_goal_progress`
 --
-DROP TABLE IF EXISTS `gb_goal_timeline`;
+DROP TABLE IF EXISTS `gb_goal_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_goal_timeline` (
+CREATE TABLE `gb_goal_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `goal_timeline_timeline_id` (`timeline_id`),
-  KEY `goal_timeline_goal_id` (`goal_id`),
-  CONSTRAINT `goal_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_timeline_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `goal_progress_progress_id` (`progress_id`),
+  KEY `goal_progress_goal_id` (`goal_id`),
+  CONSTRAINT `goal_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_progress_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1626,24 +1626,24 @@ CREATE TABLE `gb_mentorship_skill` (
 
 
 --
--- Table structure for table `gb_mentorship_timeline`
+-- Table structure for table `gb_mentorship_progress`
 --
-DROP TABLE IF EXISTS `gb_mentorship_timeline`;
+DROP TABLE IF EXISTS `gb_mentorship_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_timeline` (
+CREATE TABLE `gb_mentorship_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_timeline_timeline_id` (`timeline_id`),
-  KEY `mentorship_timeline_mentorship_id` (`mentorship_id`),
-  CONSTRAINT `mentorship_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_timeline_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `mentorship_progress_progress_id` (`progress_id`),
+  KEY `mentorship_progress_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_progress_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2204,24 +2204,24 @@ CREATE TABLE `gb_promise_questionnaire` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_promise_timeline`
+-- Table structure for table `gb_promise_progress`
 --
-DROP TABLE IF EXISTS `gb_promise_timeline`;
+DROP TABLE IF EXISTS `gb_promise_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_promise_timeline` (
+CREATE TABLE `gb_promise_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `promise_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `promise_timeline_timeline_id` (`timeline_id`),
-  KEY `promise_timeline_promise_id` (`promise_id`),
-  CONSTRAINT `promise_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `promise_timeline_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `promise_progress_progress_id` (`progress_id`),
+  KEY `promise_progress_promise_id` (`promise_id`),
+  CONSTRAINT `promise_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_progress_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2606,22 +2606,22 @@ CREATE TABLE `gb_skill_share` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill_timeline`
+-- Table structure for table `gb_skill_progress`
 --
-DROP TABLE IF EXISTS `gb_skill_timeline`;
+DROP TABLE IF EXISTS `gb_skill_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_timeline` (
+CREATE TABLE `gb_skill_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_timeline_timeline_id` (`timeline_id`),
-  KEY `skill_timeline_skill_id` (`skill_id`),
-  CONSTRAINT `skill_timeline_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_progress_progress_id` (`progress_id`),
+  KEY `skill_progress_skill_id` (`skill_id`),
+  CONSTRAINT `skill_progress_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2719,26 +2719,26 @@ CREATE TABLE `gb_tag` (
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `gb_timeline`;
+DROP TABLE IF EXISTS `gb_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_timeline` (
+CREATE TABLE `gb_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_timeline_id` int(11),
+  `parent_progress_id` int(11),
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `timeline_date` datetime NOT NULL,
+  `progress_date` datetime NOT NULL,
   `day` int(11) NOT NULL DEFAULT '1',
-  `timeline_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
+  `progress_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `timeline_creator_id` (`creator_id`),
-  KEY `timeline_parent_timeline_id` (`parent_timeline_id`),
-  CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `timeline_parent_timeline_id` FOREIGN KEY (`parent_timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `progress_creator_id` (`creator_id`),
+  KEY `progress_parent_progress_id` (`parent_progress_id`),
+  CONSTRAINT `progress_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `progress_parent_progress_id` FOREIGN KEY (`parent_progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2851,24 +2851,24 @@ CREATE TABLE `gb_todo_note` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_todo_timeline`
+-- Table structure for table `gb_todo_progress`
 --
-DROP TABLE IF EXISTS `gb_todo_timeline`;
+DROP TABLE IF EXISTS `gb_todo_progress`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_timeline` (
+CREATE TABLE `gb_todo_progress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,
+  `progress_id` int(11) NOT NULL,
   `todo_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `todo_timeline_timeline_id` (`timeline_id`),
-  KEY `todo_timeline_todo_id` (`todo_id`),
-  CONSTRAINT `todo_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_timeline_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `todo_progress_progress_id` (`progress_id`),
+  KEY `todo_progress_todo_id` (`todo_id`),
+  CONSTRAINT `todo_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_progress_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -3281,23 +3281,23 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWe
     ignore 1 LINES
    (`id`, `weblink_id`,	`skill_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Timeline.txt'
-    into table gb102.gb_timeline
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Progress.txt'
+    into table gb102.gb_progress
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_at`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
+   (`id`, `parent_progress_id`,	`creator_id`,	`description`,	`created_at`,	`progress_date`,	`day`,	`progress_color`,	`importance`, `status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTimeline.txt'
-    into table gb102.gb_skill_timeline
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillProgress.txt'
+    into table gb102.gb_skill_progress
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `timeline_id`,	`skill_id`,	`privacy`,	`status`);
+   (`id`, `progress_id`,	`skill_id`,	`privacy`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/MentorshipSkill.txt'

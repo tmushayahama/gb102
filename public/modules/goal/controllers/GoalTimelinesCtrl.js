@@ -1,5 +1,5 @@
-var goalTimelinesCtrl = function (
-        GoalTimelinesManager,
+var goalProgressCtrl = function (
+        GoalProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var goalTimelinesCtrl = function (
 
  var vm = this;
  vm.goalId = $stateParams.goalId;
- vm.goalTimelinesCopy;
- vm.goalTimelinesManager = new GoalTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.goalProgressCopy;
+ vm.goalProgressManager = new GoalProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultGoalTimelineData = {
+ vm.defaultGoalProgressData = {
   goalId: $stateParams.goalId,
   privacy: 0
  }
- vm.newGoalTimelineData = angular.copy(vm.defaultGoalTimelineData);
+ vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createGoalTimeline = function (data) {
-  vm.goalTimelinesManager.createGoalTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newGoalTimelineData = angular.copy(vm.defaultGoalTimelineData);
-   vm.goalTimelinesCopy = angular.copy(vm.goalTimelinesManager.goalTimelines);
+ vm.createGoalProgress = function (data) {
+  vm.goalProgressManager.createGoalProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData);
+   vm.goalProgressCopy = angular.copy(vm.goalProgressManager.goalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editGoalTimeline = function (data) {
-  vm.goalTimelinesManager.editGoalTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newGoalTimelineData = angular.copy(vm.defaultGoalTimelineData);
-   vm.goalTimelinesCopy = angular.copy(vm.goalTimelinesManager.goalTimelines);
+ vm.editGoalProgress = function (data) {
+  vm.goalProgressManager.editGoalProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData);
+   vm.goalProgressCopy = angular.copy(vm.goalProgressManager.goalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editGoalTimelineSections = {
-  details: function (goalTimelineId, detail) {
-   var goalTimelineData = {
-    goalTimelineId: goalTimelineId,
+ vm.editGoalProgressSections = {
+  details: function (goalProgressId, detail) {
+   var goalProgressData = {
+    goalProgressId: goalProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editGoalTimeline(goalTimelineData);
+   vm.editGoalProgress(goalProgressData);
   }
  }
 
- vm.cancelGoalTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newGoalTimelineData = angular.copy(vm.defaultGoalTimelineData)
+ vm.cancelGoalProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertGoalTimeline = function (goalTimeline, goalTimelineCopy) {
-  goalTimeline = goalTimelineCopy;
+ vm.revertGoalProgress = function (goalProgress, goalProgressCopy) {
+  goalProgress = goalProgressCopy;
   /*
    $filter('filter')
-   (vm.goalTimelinesManager.goalTimelines, {id: goalTimelineId}, true)[0]
+   (vm.goalProgressManager.goalProgress, {id: goalProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.goalTimelinesCopy, {id: goalTimelineId}, true)[0]);
-   if (goalTimeline.length && goalTimelineCopy.length) {
-   // vm.goalTimelinesManager.goalTimelines angular.copy(vm.goalTimelinesCopy);
+   (vm.goalProgressCopy, {id: goalProgressId}, true)[0]);
+   if (goalProgress.length && goalProgressCopy.length) {
+   // vm.goalProgressManager.goalProgress angular.copy(vm.goalProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var goalTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.goalTimelines;
+  return vm.goalProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(goalTimelines, {completed: false}).length;
-  vm.doneCount = vm.goalTimelinesManager.goalTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(goalProgress, {completed: false}).length;
+  vm.doneCount = vm.goalProgressManager.goalProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //GoalTimelineService.put(vm.goalTimelines);
+  //GoalProgressService.put(vm.goalProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var goalTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (goalTimeline) {
-  vm.editedTimeline = goalTimeline;
-  // Clone the original goalTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(goalTimeline);
+ vm.editProgress = function (goalProgress) {
+  vm.editedProgress = goalProgress;
+  // Clone the original goalProgress to restore it on demand.
+  vm.originalProgress = angular.copy(goalProgress);
  };
 
 
- vm.doneEditing = function (goalTimeline) {
-  vm.editedTimeline = null;
-  goalTimeline.title = goalTimeline.title.trim();
+ vm.doneEditing = function (goalProgress) {
+  vm.editedProgress = null;
+  goalProgress.title = goalProgress.title.trim();
 
-  if (!goalTimeline.title) {
-   vm.removeTimeline(goalTimeline);
+  if (!goalProgress.title) {
+   vm.removeProgress(goalProgress);
   }
  };
 
- vm.openGoalTimeline = function (goalTimeline) {
+ vm.openGoalProgress = function (goalProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'goal-timeline-modal.html',
-   controller: 'GoalTimelineCtrl as goalTimelineCtrl',
+   templateUrl: 'goal-progress-modal.html',
+   controller: 'GoalProgressCtrl as goalProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    goalTimelineData: function () {
-     return goalTimeline;
+    goalProgressData: function () {
+     return goalProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var goalTimelinesCtrl = function (
 
 
  //--------init------
- vm.goalTimelinesManager.getGoalTimelines(vm.goalId);
+ vm.goalProgressManager.getGoalProgress(vm.goalId);
 };
 
-goalTimelinesCtrl.$inject = [
- 'GoalTimelinesManager',
+goalProgressCtrl.$inject = [
+ 'GoalProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ goalTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.goal").controller('GoalTimelinesCtrl', goalTimelinesCtrl);
+angular.module("app.goal").controller('GoalProgressCtrl', goalProgressCtrl);

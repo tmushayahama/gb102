@@ -1,5 +1,5 @@
-var questionnaireTimelinesCtrl = function (
-        QuestionnaireTimelinesManager,
+var questionnaireProgressCtrl = function (
+        QuestionnaireProgressManager,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var questionnaireTimelinesCtrl = function (
 
  var vm = this;
  vm.questionnaireId = $stateParams.questionnaireId;
- vm.questionnaireTimelinesCopy;
- vm.questionnaireTimelinesManager = new QuestionnaireTimelinesManager();
- vm.timelineFormDisplay = false;
+ vm.questionnaireProgressCopy;
+ vm.questionnaireProgressManager = new QuestionnaireProgressManager();
+ vm.progressFormDisplay = false;
 
- vm.defaultQuestionnaireTimelineData = {
+ vm.defaultQuestionnaireProgressData = {
   questionnaireId: $stateParams.questionnaireId,
   privacy: 0
  }
- vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
+ vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData);
 
- vm.showTimelineForm = function () {
-  vm.timelineFormDisplay = true;
+ vm.showProgressForm = function () {
+  vm.progressFormDisplay = true;
  };
 
- vm.createQuestionnaireTimeline = function (data) {
-  vm.questionnaireTimelinesManager.createQuestionnaireTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
-   vm.questionnaireTimelinesCopy = angular.copy(vm.questionnaireTimelinesManager.questionnaireTimelines);
+ vm.createQuestionnaireProgress = function (data) {
+  vm.questionnaireProgressManager.createQuestionnaireProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData);
+   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressManager.questionnaireProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editQuestionnaireTimeline = function (data) {
-  vm.questionnaireTimelinesManager.editQuestionnaireTimeline(data).then(function (response) {
-   vm.timelineFormDisplay = false;
-   vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData);
-   vm.questionnaireTimelinesCopy = angular.copy(vm.questionnaireTimelinesManager.questionnaireTimelines);
+ vm.editQuestionnaireProgress = function (data) {
+  vm.questionnaireProgressManager.editQuestionnaireProgress(data).then(function (response) {
+   vm.progressFormDisplay = false;
+   vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData);
+   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressManager.questionnaireProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editQuestionnaireTimelineSections = {
-  details: function (questionnaireTimelineId, detail) {
-   var questionnaireTimelineData = {
-    questionnaireTimelineId: questionnaireTimelineId,
+ vm.editQuestionnaireProgressSections = {
+  details: function (questionnaireProgressId, detail) {
+   var questionnaireProgressData = {
+    questionnaireProgressId: questionnaireProgressId,
     title: detail.title,
     description: detail.description
    };
-   vm.editQuestionnaireTimeline(questionnaireTimelineData);
+   vm.editQuestionnaireProgress(questionnaireProgressData);
   }
  }
 
- vm.cancelQuestionnaireTimeline = function (form) {
-  vm.timelineFormDisplay = false;
-  vm.newQuestionnaireTimelineData = angular.copy(vm.defaultQuestionnaireTimelineData)
+ vm.cancelQuestionnaireProgress = function (form) {
+  vm.progressFormDisplay = false;
+  vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertQuestionnaireTimeline = function (questionnaireTimeline, questionnaireTimelineCopy) {
-  questionnaireTimeline = questionnaireTimelineCopy;
+ vm.revertQuestionnaireProgress = function (questionnaireProgress, questionnaireProgressCopy) {
+  questionnaireProgress = questionnaireProgressCopy;
   /*
    $filter('filter')
-   (vm.questionnaireTimelinesManager.questionnaireTimelines, {id: questionnaireTimelineId}, true)[0]
+   (vm.questionnaireProgressManager.questionnaireProgress, {id: questionnaireProgressId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.questionnaireTimelinesCopy, {id: questionnaireTimelineId}, true)[0]);
-   if (questionnaireTimeline.length && questionnaireTimelineCopy.length) {
-   // vm.questionnaireTimelinesManager.questionnaireTimelines angular.copy(vm.questionnaireTimelinesCopy);
+   (vm.questionnaireProgressCopy, {id: questionnaireProgressId}, true)[0]);
+   if (questionnaireProgress.length && questionnaireProgressCopy.length) {
+   // vm.questionnaireProgressManager.questionnaireProgress angular.copy(vm.questionnaireProgressCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var questionnaireTimelinesCtrl = function (
 
 
 
- vm.editedTimeline = null;
+ vm.editedProgress = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.questionnaireTimelines;
+  return vm.questionnaireProgress;
  }), function () {
-  //vm.remainingCount = filterFilter(questionnaireTimelines, {completed: false}).length;
-  vm.doneCount = vm.questionnaireTimelinesManager.questionnaireTimelines.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(questionnaireProgress, {completed: false}).length;
+  vm.doneCount = vm.questionnaireProgressManager.questionnaireProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //QuestionnaireTimelineService.put(vm.questionnaireTimelines);
+  //QuestionnaireProgressService.put(vm.questionnaireProgress);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var questionnaireTimelinesCtrl = function (
 
 
 
- vm.editTimeline = function (questionnaireTimeline) {
-  vm.editedTimeline = questionnaireTimeline;
-  // Clone the original questionnaireTimeline to restore it on demand.
-  vm.originalTimeline = angular.copy(questionnaireTimeline);
+ vm.editProgress = function (questionnaireProgress) {
+  vm.editedProgress = questionnaireProgress;
+  // Clone the original questionnaireProgress to restore it on demand.
+  vm.originalProgress = angular.copy(questionnaireProgress);
  };
 
 
- vm.doneEditing = function (questionnaireTimeline) {
-  vm.editedTimeline = null;
-  questionnaireTimeline.title = questionnaireTimeline.title.trim();
+ vm.doneEditing = function (questionnaireProgress) {
+  vm.editedProgress = null;
+  questionnaireProgress.title = questionnaireProgress.title.trim();
 
-  if (!questionnaireTimeline.title) {
-   vm.removeTimeline(questionnaireTimeline);
+  if (!questionnaireProgress.title) {
+   vm.removeProgress(questionnaireProgress);
   }
  };
 
- vm.openQuestionnaireTimeline = function (questionnaireTimeline) {
+ vm.openQuestionnaireProgress = function (questionnaireProgress) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'questionnaire-timeline-modal.html',
-   controller: 'QuestionnaireTimelineCtrl as questionnaireTimelineCtrl',
+   templateUrl: 'questionnaire-progress-modal.html',
+   controller: 'QuestionnaireProgressCtrl as questionnaireProgressCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    questionnaireTimelineData: function () {
-     return questionnaireTimeline;
+    questionnaireProgressData: function () {
+     return questionnaireProgress;
     }
    }
   });
@@ -147,11 +147,11 @@ var questionnaireTimelinesCtrl = function (
 
 
  //--------init------
- vm.questionnaireTimelinesManager.getQuestionnaireTimelines(vm.questionnaireId);
+ vm.questionnaireProgressManager.getQuestionnaireProgress(vm.questionnaireId);
 };
 
-questionnaireTimelinesCtrl.$inject = [
- 'QuestionnaireTimelinesManager',
+questionnaireProgressCtrl.$inject = [
+ 'QuestionnaireProgressManager',
  '$scope',
  '$state',
  '$stateParams',
@@ -162,4 +162,4 @@ questionnaireTimelinesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.questionnaire").controller('QuestionnaireTimelinesCtrl', questionnaireTimelinesCtrl);
+angular.module("app.questionnaire").controller('QuestionnaireProgressCtrl', questionnaireProgressCtrl);

@@ -1,9 +1,9 @@
-var goalTimelineManager = function ($http, $q) {
+var goalProgressManager = function ($http, $q) {
 
- var GoalTimelineManager = function () {
-  this.goalTimelines = [];
+ var GoalProgressManager = function () {
+  this.goalProgress = [];
  };
- GoalTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var goalTimelineManager = function ($http, $q) {
  };
 
 
- GoalTimelineManager.prototype.getGoalTimeline = function (goalId, timelineId) {
+ GoalProgressManager.prototype.getGoalProgress = function (goalId, progressId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/goal/' + goalId + '/timeline/' + timelineId).success(function (data) {
-   self.goalTimeline = data;
+  $http.get('/api/goal/' + goalId + '/progress/' + progressId).success(function (data) {
+   self.goalProgress = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var goalTimelineManager = function ($http, $q) {
  };
 
 
- GoalTimelineManager.prototype.editGoalTimeline = function (goalTimelineData) {
+ GoalProgressManager.prototype.editGoalProgress = function (goalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/goal/timeline/edit',
-   data: goalTimelineData
+   url: '/api/goal/progress/edit',
+   data: goalProgressData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var goalTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalTimelineManager;
+ return GoalProgressManager;
 };
 
-goalTimelineManager.$inject = ['$http', '$q'];
+goalProgressManager.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalTimelineManager', goalTimelineManager);
+angular.module('app.goal').service('GoalProgressManager', goalProgressManager);

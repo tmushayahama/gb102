@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGbPromiseTimelineTable extends Migration {
+class CreateGbPromiseProgressTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateGbPromiseTimelineTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('gb_promise_timeline', function(Blueprint $table)
+		Schema::create('gb_promise_progress', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('timeline_id')->index('promise_timeline_timeline_id');
-			$table->integer('promise_id')->index('promise_timeline_promise_id');
+			$table->integer('progress_id')->index('promise_progress_progress_id');
+			$table->integer('promise_id')->index('promise_progress_promise_id');
 			$table->integer('day');
 			$table->integer('type')->default(0);
 			$table->integer('privacy')->default(0);
@@ -32,7 +32,7 @@ class CreateGbPromiseTimelineTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('gb_promise_timeline');
+		Schema::drop('gb_promise_progress');
 	}
 
 }

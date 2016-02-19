@@ -13,12 +13,12 @@ use App\Models\Question\Question;
 use App\Models\Question\QuestionComment;
 use App\Models\Question\QuestionNote;
 use App\Models\Question\QuestionQuestion;
-use App\Models\Question\QuestionTimeline;
+use App\Models\Question\QuestionProgress;
 use App\Models\Question\QuestionTodo;
 use App\Models\Question\QuestionWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Timeline\Timeline;
+use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -63,24 +63,24 @@ class QuestionController extends Controller {
   return \Response::json($question);
  }
 
- public function getQuestionTimelines($questionId) {
-  $questionTimelines = QuestionTimeline::getQuestionTimelines($questionId);
-  return \Response::json($questionTimelines);
+ public function getQuestionProgress($questionId) {
+  $questionProgress = QuestionProgress::getQuestionProgress($questionId);
+  return \Response::json($questionProgress);
  }
 
- public function getQuestionTimeline($questionId, $timelineId) {
-  $questionTimeline = QuestionTimeline::getQuestionTimeline($questionId, $timelineId);
-  return \Response::json($questionTimeline);
+ public function getQuestionProgressItem($questionId, $progressId) {
+  $questionProgress = QuestionProgress::getQuestionProgress($questionId, $progressId);
+  return \Response::json($questionProgress);
  }
 
- public function createQuestionTimeline() {
-  $questionTimeline = QuestionTimeline::createQuestionTimeline();
-  return \Response::json($questionTimeline);
+ public function createQuestionProgress() {
+  $questionProgress = QuestionProgress::createQuestionProgress();
+  return \Response::json($questionProgress);
  }
 
- public function editQuestionTimeline() {
-  $questionTimeline = QuestionTimeline::editQuestionTimeline();
-  return \Response::json($questionTimeline);
+ public function editQuestionProgress() {
+  $questionProgress = QuestionProgress::editQuestionProgress();
+  return \Response::json($questionProgress);
  }
 
  /* TODOS */
