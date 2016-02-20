@@ -66,13 +66,13 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explores/swipe/create', 'Explore\ExploreController@createExploreSwipe');
  Route::get('explore/{exploreId}/comments', 'Explore\ExploreController@getExploreComments');
  Route::get('explore/{exploreId}/comment/{commentId}', 'Explore\ExploreController@getExploreComment');
+ Route::get('explore/{exploreId}/contributors', 'Explore\ExploreController@getExploreContributors');
+ Route::get('explore/{exploreId}/contributor/{contributorId}', 'Explore\ExploreController@getExploreContributor');
  Route::get('explore/{exploreId}/todos', 'Explore\ExploreController@getExploreTodos');
  Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
  Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
  Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');
  Route::get('explore/{exploreId}/requestoptions', 'Explore\ExploreController@getExploreRequestOptions');
- Route::get('explore/{exploreId}/progress', 'Explore\ExploreController@getExploreProgress');
- Route::get('explore/{exploreId}/progress/{progressId}', 'Explore\ExploreController@getExploreProgressItem');
  Route::get('explore/{exploreId}/weblinks', 'Explore\ExploreController@getExploreWeblinks');
  Route::get('explore/{exploreId}/weblink/{weblinkId}', 'Explore\ExploreController@getExploreWeblink');
  Route::get('explore/{id}', 'Explore\ExploreController@getExplore');
@@ -80,12 +80,12 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/create', 'Explore\ExploreController@createExplore');
  Route::post('explore/comment/create', 'Explore\ExploreController@createExploreComment');
  Route::post('explore/comment/edit', 'Explore\ExploreController@editExploreComment');
+ Route::post('explore/contributor/create', 'Explore\ExploreController@createExploreContributor');
+ Route::post('explore/contributor/edit', 'Explore\ExploreController@editExploreContributor');
  Route::post('explore/todo/create', 'Explore\ExploreController@createExploreTodo');
  Route::post('explore/todo/edit', 'Explore\ExploreController@editExploreTodo');
  Route::post('explore/note/create', 'Explore\ExploreController@createExploreNote');
  Route::post('explore/note/edit', 'Explore\ExploreController@editExploreNote');
- Route::post('explore/progress/create', 'Explore\ExploreController@createExploreProgress');
- Route::post('explore/progress/edit', 'Explore\ExploreController@editExploreProgress');
  Route::post('explore/weblink/create', 'Explore\ExploreController@createExploreWeblink');
  Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
 
@@ -100,8 +100,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('swipe/{swipeId}/todo/{todoId}', 'Swipe\SwipeController@getSwipeTodo');
  Route::get('swipe/{swipeId}/notes', 'Swipe\SwipeController@getSwipeNotes');
  Route::get('swipe/{swipeId}/note/{noteId}', 'Swipe\SwipeController@getSwipeNote');
- Route::get('swipe/{swipeId}/progress', 'Swipe\SwipeController@getSwipeProgress');
- Route::get('swipe/{swipeId}/progress/{progressId}', 'Swipe\SwipeController@getSwipeProgress');
  Route::get('swipe/{swipeId}/weblinks', 'Swipe\SwipeController@getSwipeWeblinks');
  Route::get('swipe/{swipeId}/weblink/{weblinkId}', 'Swipe\SwipeController@getSwipeWeblink');
  Route::get('swipe/{id}', 'Swipe\SwipeController@getSwipe');
@@ -113,8 +111,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('swipe/todo/edit', 'Swipe\SwipeController@editSwipeTodo');
  Route::post('swipe/note/create', 'Swipe\SwipeController@createSwipeNote');
  Route::post('swipe/note/edit', 'Swipe\SwipeController@editSwipeNote');
- Route::post('swipe/progress/create', 'Swipe\SwipeController@createSwipeProgress');
- Route::post('swipe/progress/edit', 'Swipe\SwipeController@editSwipeProgress');
  Route::post('swipe/weblink/create', 'Swipe\SwipeController@createSwipeWeblink');
  Route::post('swipe/weblink/edit', 'Swipe\SwipeController@editSwipeWeblink');
 
@@ -133,8 +129,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('questionnaire/{questionnaireId}/todo/{todoId}', 'Questionnaire\QuestionnaireController@getQuestionnaireTodo');
  Route::get('questionnaire/{questionnaireId}/notes', 'Questionnaire\QuestionnaireController@getQuestionnaireNotes');
  Route::get('questionnaire/{questionnaireId}/note/{noteId}', 'Questionnaire\QuestionnaireController@getQuestionnaireNote');
- Route::get('questionnaire/{questionnaireId}/progress', 'Questionnaire\QuestionnaireController@getQuestionnaireProgress');
- Route::get('questionnaire/{questionnaireId}/progress/{progressId}', 'Questionnaire\QuestionnaireController@getQuestionnaireProgress');
  Route::get('questionnaire/{questionnaireId}/weblinks', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblinks');
  Route::get('questionnaire/{questionnaireId}/weblink/{weblinkId}', 'Questionnaire\QuestionnaireController@getQuestionnaireWeblink');
  Route::get('questionnaire/{id}', 'Questionnaire\QuestionnaireController@getQuestionnaire');
@@ -146,8 +140,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('questionnaire/todo/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireTodo');
  Route::post('questionnaire/note/create', 'Questionnaire\QuestionnaireController@createQuestionnaireNote');
  Route::post('questionnaire/note/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireNote');
- Route::post('questionnaire/progress/create', 'Questionnaire\QuestionnaireController@createQuestionnaireProgress');
- Route::post('questionnaire/progress/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireProgress');
  Route::post('questionnaire/weblink/create', 'Questionnaire\QuestionnaireController@createQuestionnaireWeblink');
  Route::post('questionnaire/weblink/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireWeblink');
 

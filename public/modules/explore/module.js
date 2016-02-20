@@ -178,12 +178,12 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explore.community', {
-           url: '/community',
+          .state('apps.explore.discussion', {
+           url: '/discussion',
            views: {
             "content": {
              //controller: 'ExploreNotesCtrl as exploreNotesCtrl',
-             templateUrl: 'public/modules/explore/views/tabs/explore/explore-community.html',
+             templateUrl: 'public/modules/explore/views/tabs/explore/explore-discussion.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -194,6 +194,28 @@ define(['angular'
                   'public/modules/explore/services/ExploreCommentsManager.js',
                   'public/modules/explore/controllers/ExploreCommentsCtrl.js',
                   'public/modules/explore/controllers/modals/ExploreCommentCtrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.explore.contribution', {
+           url: '/contribution',
+           views: {
+            "content": {
+             //controller: 'ExploreNotesCtrl as exploreNotesCtrl',
+             templateUrl: 'public/modules/explore/views/tabs/explore/explore-contribution.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explore',
+                 serie: true,
+                 files: [
+                  'public/modules/explore/services/ExploreContributorManager.js',
+                  'public/modules/explore/services/ExploreContributorsManager.js',
+                  'public/modules/explore/controllers/ExploreContributorsCtrl.js',
+                  'public/modules/explore/controllers/modals/ExploreContributorCtrl.js',
                  ]
                 });
                }]
