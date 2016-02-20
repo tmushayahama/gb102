@@ -9,14 +9,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Mentorship\Mentorship;
-use App\Models\Mentorship\MentorshipProgress;
 use App\Models\Mentorship\MentorshipComment;
 use App\Models\Mentorship\MentorshipNote;
 use App\Models\Mentorship\MentorshipTodo;
 use App\Models\Mentorship\MentorshipWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -59,26 +57,6 @@ class MentorshipController extends Controller {
  public function editMentorship() {
   $mentorship = Mentorship::editMentorship();
   return \Response::json($mentorship);
- }
-
- public function getMentorshipProgress($mentorshipId) {
-  $mentorshipProgress = MentorshipProgress::getMentorshipProgress($mentorshipId);
-  return \Response::json($mentorshipProgress);
- }
-
- public function getMentorshipProgressItem($mentorshipId, $progressId) {
-  $mentorshipProgress = MentorshipProgress::getMentorshipProgress($mentorshipId, $progressId);
-  return \Response::json($mentorshipProgress);
- }
-
- public function createMentorshipProgress() {
-  $mentorshipProgress = MentorshipProgress::createMentorshipProgress();
-  return \Response::json($mentorshipProgress);
- }
-
- public function editMentorshipProgress() {
-  $mentorshipProgress = MentorshipProgress::editMentorshipProgress();
-  return \Response::json($mentorshipProgress);
  }
 
  /* TODOS */

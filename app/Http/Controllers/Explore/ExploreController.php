@@ -9,7 +9,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Explore\Explore;
-use App\Models\Explore\ExploreProgress;
 use App\Models\Explore\ExploreComment;
 use App\Models\Explore\ExploreNote;
 use App\Models\Explore\ExploreRequestOption;
@@ -17,7 +16,6 @@ use App\Models\Explore\ExploreTodo;
 use App\Models\Explore\ExploreWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
@@ -60,26 +58,6 @@ class ExploreController extends Controller {
  public function getExploreRequestOptions($exploreId) {
   $exploreRequestOptions = ExploreRequestOption::getExploreRequestOptions($exploreId);
   return \Response::json($exploreRequestOptions);
- }
-
- public function getExploreProgress($exploreId) {
-  $exploreProgress = ExploreProgress::getExploreProgress($exploreId);
-  return \Response::json($exploreProgress);
- }
-
- public function getExploreProgressItem($exploreId, $progressId) {
-  $exploreProgress = ExploreProgress::getExploreProgressItem($exploreId, $progressId);
-  return \Response::json($exploreProgress);
- }
-
- public function createExploreProgress() {
-  $exploreProgress = ExploreProgress::createExploreProgress();
-  return \Response::json($exploreProgress);
- }
-
- public function editExploreProgress() {
-  $exploreProgress = ExploreProgress::editExploreProgress();
-  return \Response::json($exploreProgress);
  }
 
  /* TODOS */

@@ -263,25 +263,6 @@ CREATE TABLE `gb_explore_todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_progress`
---
-DROP TABLE IF EXISTS `gb_explore_progress`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_progress` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `progress_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `explore_progress_progress_id` (`progress_id`),
-  KEY `explore_progress_explore_id` (`explore_id`),
-  CONSTRAINT `explore_progress_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
 -- Table structure for table `gb_explore_weblink`
 --
 DROP TABLE IF EXISTS `gb_explore_weblink`;
@@ -376,15 +357,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo_id`,	`explore_id`,	`privacy`,	`status`);
-
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreProgress.txt'
-    into table gb102.gb_explore_progress
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `progress_id`,	`explore_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreWeblink.txt'
     into table gb102.gb_explore_weblink

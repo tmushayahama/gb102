@@ -132,10 +132,11 @@ define(['angular'
                  files: [
                   'public/modules/explore/controllers/ExploreOverviewCtrl.js',
                   //Progress
-                  'public/modules/explore/services/ExploreProgressManager.js',
-                  'public/modules/explore/controllers/ExploreProgressCtrl.js',
-                  'public/modules/explore/controllers/modals/ExploreProgressItemCtrl.js',
-                 ]
+                  'public/modules/explore/services/ExploreTodoManager.js',
+                  'public/modules/explore/services/ExploreTodosManager.js',
+                  'public/modules/explore/services/ExploreTodoChecklistManager.js',
+                  'public/modules/explore/controllers/ExploreTodosCtrl.js',
+                  'public/modules/explore/controllers/modals/ExploreTodoCtrl.js', ]
                 });
                }]
              }

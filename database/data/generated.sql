@@ -211,19 +211,19 @@ DROP TABLE IF EXISTS `gb_contributor`;
 CREATE TABLE `gb_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_contributor_id` int(11),
+  `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `type_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `contributor_creator_id` (`creator_id`),
-  KEY `contributor_type_id` (`type_id`),
+  KEY `contributor_level_id` (`level_id`),
   KEY `contributor_parent_contributor_id` (`parent_contributor_id`),
   CONSTRAINT `contributor_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contributor_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contributor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contributor_parent_contributor_id` FOREIGN KEY (`parent_contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -458,26 +458,6 @@ CREATE TABLE `gb_tag` (
   CONSTRAINT `tag_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-DROP TABLE IF EXISTS `gb_progress`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_progress` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_progress_id` int(11),
-  `creator_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `progress_creator_id` (`creator_id`),
-  KEY `progress_parent_progress_id` (`parent_progress_id`),
-  CONSTRAINT `progress_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `progress_parent_progress_id` FOREIGN KEY (`parent_progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Table structure for table `gb_todo`
 --
@@ -620,24 +600,6 @@ CREATE TABLE `gb_user_profile_section` (
   CONSTRAINT `user_profile_section_profile_section_id` FOREIGN KEY (`profile_section_id`) REFERENCES `gb_profile_section` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `gb_user_progress`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_user_progress` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creator_id` int(11) NOT NULL,
-  `progress_id` int(11),
-  `description` varchar(1000) NOT NULL DEFAULT '',
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `user_progress_creator_id` (`creator_id`),
-  KEY `user_progress_progress_id` (`progress_id`),
-  CONSTRAINT `user_progress_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Table structure for table `gb_weblink`
 --
@@ -652,7 +614,7 @@ CREATE TABLE `gb_weblink` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -773,16 +735,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
-
--- ----------- PROGRESS ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Progress.txt'
-    into table gb102.gb_progress
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `parent_progress_id`,	`creator_id`,	`description`,	`created_at`,	`updated_at`,	`importance`, `status`);
 
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
@@ -1069,25 +1021,6 @@ CREATE TABLE `gb_explore_todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_progress`
---
-DROP TABLE IF EXISTS `gb_explore_progress`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_progress` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `progress_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `explore_progress_progress_id` (`progress_id`),
-  KEY `explore_progress_explore_id` (`explore_id`),
-  CONSTRAINT `explore_progress_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_progress_progress_id` FOREIGN KEY (`progress_id`) REFERENCES `gb_progress` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
 -- Table structure for table `gb_explore_weblink`
 --
 DROP TABLE IF EXISTS `gb_explore_weblink`;
@@ -1182,15 +1115,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo_id`,	`explore_id`,	`privacy`,	`status`);
-
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreProgress.txt'
-    into table gb102.gb_explore_progress
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `progress_id`,	`explore_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreWeblink.txt'
     into table gb102.gb_explore_weblink
