@@ -1,5 +1,5 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
- <div class="row">
+ <div class="row gb-mega-dropdown">
   <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
    <a ng-click="appsCtrl.openMenuModal('left')"
       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
@@ -11,45 +11,48 @@
      <strong>SKILL</strong>SECTION<br>
     </div>
    </a>
-   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{$root.appName}} <div class="caret"></div>
+   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs"
+        data-dropdown data-dropdown-append-to-body>
+    <button type="button" class="dropdown-toggle btn btn-default" data-dropdown-toggle>
+     {{$root.appName}} <span class="caret"></span>
     </button>
     <button ng-click="$root.openAddExploreModal()" type="button" class="btn btn-default">
      <i class="fa fa-plus"></i>
     </button>
-    <ul class="dropdown-menu">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
+    <ul class="dropdown-menu gb-full-width">
+     <li>
+      <div class="gb-content">
+       <div class="row">
+        d
+       </div>
+      </div>
+     </li>
     </ul>
    </div>
   </div>
   <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
-   <div class="form-group gb-input-form-group">
-    <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
-           typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-    <a class="gb-clear-btn btn btn-link"
-       ng-click="main.clear($event, $select)">
-     <i class="fa fa-times"></i>
-    </a>
-   </div>
-   <div class="gb-input-btn-group btn-group">
-    <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
-     <i class="fa fa-search"></i>
-    </button>
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <div class="caret"></div>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-right">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
-    </ul>
+   <div class="gb-flex-container">
+    <div class="gb-container form-group gb-input-form-group col-lg-10">
+     <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
+            typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+     <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
+        ng-click="$root.searchKeyword = ''">
+      <i class="fa fa-times"></i>
+     </a>
+    </div>
+    <div class="gb-input-btn-group btn-group">
+     <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+     </button>
+     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-aria-expanded="false">
+      <span class="caret"></span>
+     </button>
+     <ul class="dropdown-menu dropdown-menu-right">
+      <li>
+       <a href="#">Advanced Search</a>
+      </li>
+     </ul>
+    </div>
    </div>
   </form>
   <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">

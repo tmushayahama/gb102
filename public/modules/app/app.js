@@ -130,7 +130,7 @@ define([
            views: {
             "root": {
              controller: 'AppsCtrl as appsCtrl',
-             templateUrl: 'public/modules/app/views/appsView.html',
+             templateUrl: 'public/modules/app/views/apps.html',
              resolve: {
               load: function ($ocLazyLoad) {
                return $ocLazyLoad.load({

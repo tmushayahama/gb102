@@ -128,6 +128,29 @@ input[type="checkbox"] {
 	display: none;
 }
 
+.gb-mega-dropdown {
+ .nav, .collapse, .dropup, .dropdown {
+  position: static;
+ }
+
+ .container {
+  position: relative;
+ }
+
+ .dropdown-menu {
+  left: auto;
+ }
+
+ .gb-content {
+  padding: 20px 30px;
+ }
+
+
+}
+.dropdown-menu.gb-full-width {
+ left: 0!important;
+ right: 0!important;
+}
 .gb-container.gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
@@ -1338,7 +1361,7 @@ input.gb-form-show{
  }
 }
 
-#gb-profile-left-pane { 
+#gb-profile-left-pane {
  height: 100%;
  background-color: #FFF;
  border-right: #999 solid 1px;
@@ -1589,106 +1612,6 @@ input.gb-form-show{
 #gb-left-nav-3::-webkit-scrollbar {
  display: none;
 }
-
-.gb-play-form {
- overflow: hidden;
-}
-
-.gb-play-form .gb-body {
- height: 315px;
-}
-.gb-play-form .gb-body .gb-img{
- height: auto;
- margin-bottom: 10px;
- width: 100%;
-}
-
-.gb-play-form .gb-footer {
- padding: 0px;
-}
-
-.gb-play-form .gb-answer-btn {
- height: 70px;
- line-height: 60px;
- width: 100%;
-}
-
-.gb-color-1 {
- background-color: #0298AB;
-}
-.gb-color-1:hover {
- background-color: #027887;
-}
-.gb-color-2 {
- background-color: #70363F;
-}
-.gb-color-2:hover {
- background-color: #5E2D35;
-}
-.gb-color-3 {
- background-color: #537F35;
-}
-.gb-color-3:hover {
- background-color: #41642A;
-}
-.gb-color-4 {
- background-color: #B58040;
-}
-.gb-color-4:hover {
- background-color: #9A6D36;
-}
-.gb-color-5 {
- background-color: #077568;
-}
-.gb-color-5:hover {
- background-color: #055A50;
-}
-.gb-color-6 {
- background-color: #88784B;
-}
-.gb-color-6:hover {
- background-color: #6D603C;
-}
-.gb-color-7 {
- background-color: #777;
-}
-.gb-color-7:hover {
- background-color: #444;
-}
-.gb-color-8 {
- background-color: #537F35;
-}
-.gb-color-8:hover {
- background-color: #41642A;
-}
-
-.gb-faded-color-1 {
- background-color: #EAF3F4;
-}
-.gb-faded-color-2 {
- background-color: #E7DEDF;
-}
-.gb-faded-color-3 {
- background-color: #EFF2EC;
-}
-.gb-faded-color-4 {
- background-color: rgba(181, 128, 64, 0.1);
-}
-.gb-faded-color-5 {
- background-color: rgba(7, 117, 104, 0.1);
-}
-.gb-faded-color-6 {
- background-color: rgba(136, 120, 75, 0.1);
-}
-.gb-faded-color-7 {
- background-color: rgba(119, 119, 119, 0.1)
-}
-.gb-faded-color-8 {
- background-color: rgba(83, 127, 53, 0.1);
-}
-
-
-
 
 .gb-form-dropdown {
  padding: 0;
@@ -1965,7 +1888,7 @@ input.gb-form-show{
  padding:5px;
  background-color: #FFF;
  color: #111;
- overflow: hidden;
+ overflow: hidden; 
 }
 .gb-person-name-badge-1 .gb-person-img {
  float: left;
