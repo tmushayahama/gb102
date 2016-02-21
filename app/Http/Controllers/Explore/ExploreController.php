@@ -139,6 +139,26 @@ class ExploreController extends Controller {
   return \Response::json($exploreComment);
  }
 
+ public function getExploreContributors($exploreId) {
+  $exploreContributors = ExploreContributor::getExploreContributors($exploreId);
+  return \Response::json($exploreContributors);
+ }
+
+ public function getExploreContributor($exploreId, $contributorId) {
+  $exploreContributor = ExploreContributor::getExploreContributor($exploreId, $contributorId);
+  return \Response::json($exploreContributor);
+ }
+
+ public function createExploreContributor() {
+  $exploreContributor = ExploreContributor::createExploreContributor();
+  return \Response::json($exploreContributor);
+ }
+
+ public function editExploreContributor() {
+  $exploreContributor = ExploreContributor::editExploreContributor();
+  return \Response::json($exploreContributor);
+ }
+
  public function getExploreWeblinks($exploreId) {
   $exploreWeblinks = ExploreWeblink::getExploreWeblinks($exploreId);
   return \Response::json($exploreWeblinks);

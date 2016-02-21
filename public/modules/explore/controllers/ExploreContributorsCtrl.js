@@ -23,6 +23,7 @@ var exploreContributorsCtrl = function (
  vm.showContributorForm = function () {
   vm.contributorFormDisplay = true;
  };
+
  vm.createExploreContributor = function (data) {
   vm.exploreContributorsManager.createExploreContributor(data).then(function (response) {
    vm.contributorFormDisplay = false;
@@ -106,6 +107,39 @@ var exploreContributorsCtrl = function (
    vm.removeContributor(exploreContributor);
   }
  };
+
+ vm.prepareSelectUsers = function (type) {
+  var modalData;
+  switch (type) {
+   case 1:
+    modalData = {
+     title: "Add Observer(s)"
+    };
+   case 2:
+    modalData = {
+     title: "Add Judge(s)"
+    };
+  }
+
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'select-users.html',
+   controller: 'SelectUsersCtrl as selectUsersCtrl',
+   backdrop: 'static',
+   size: 'xl',
+   resolve: {
+    modalData: function () {
+     return modalData;
+    }
+   }
+  });
+  modalInstance.result.then(function (selectedItem) {
+   $scope.selected = selectedItem;
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
+
  vm.openExploreContributor = function (exploreContributor) {
   var modalInstance = $uibModal.open({
    animation: true,

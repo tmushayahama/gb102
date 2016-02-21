@@ -1,0 +1,74 @@
+<section class="gb-section-row-2 row gb-contributors" ng-controller="ExploreContributorsCtrl as exploreContributorsCtrl">
+ <header class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+   <p class="gb-title gb-ellipsis">
+    CONTRIBUTORS
+   </p>
+  </div>
+  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3">
+   <a ng-if="false" class="gb-ghost-btn-2 pull-right" ng-click="editDescriptionForm.$show()" ng-hide="editDescriptionForm.$visible">
+    <i class="fa fa-pencil"></i>
+   </a>
+  </div>
+ </header>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class='row'>
+   <div class="btn-group">
+    <a class="btn btn-default" ng-click="exploreContributorsCtrl.prepareSelectUsers(1)">
+     Add Observer(s)
+    </a>
+   </div>
+  </div>
+  <div class="gb-contributor-body row" ng-show="exploreContributorsCtrl.exploreContributorsManager.exploreContributors.length" ng-cloak>
+   <ul id="contributor-list">
+    <li ng-repeat="exploreContributor in exploreContributorsCtrl.exploreContributorsManager.exploreContributors| filter:statusFilter track by $index" ng-class="{completed: exploreContributor.completed, editing: exploreContributor == exploreContributorsCtrl.editedContributor}">
+     <div class="gb-contributor-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-contributor-heading">
+       <p class="gb-title">COMMENT</p>
+       <div class="gb-dropdown-action">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+         <li>
+          <a ng-click="exploreContributorsCtrl.openExploreContributor(exploreContributor)">
+           Open
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="gb-description">
+       <a ng-click="exploreContributorsCtrl.openExploreContributor(exploreContributor)" class="">
+        {{exploreContributor.contributor.title}}
+       </a>
+       {{exploreContributor.contributor.description}}
+      </div>
+      <div class="gb-footer">
+       <img src="public/img/profile_pic/{{exploreContributor.contributor.creator.avatar_url}}" class='gb-profile-pic' alt="">
+       <div class="gb-footer-content">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+         <h5 class="gb-ellipsis"><a>{{exploreContributor.contributor.creator.firstname + ' ' + exploreContributor.contributor.creator.lastname}}</a></h5>
+         <p>{{exploreContributor.contributor.created_at| date:'MM/dd/yyyy'}}</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+         <div class="pull-right btn-group">
+          <a ng-click="exploreContributorsCtrl.openExploreContributor(exploreContributor)" class="btn gb-btn-xs gb-ghost-btn-2">
+           Open
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </li>
+   </ul>
+  </div>
+  <script type="text/ng-template" id="explore-contributor.html">
+   <div class="gb-contributor-page" ng-include="'public/modules/explore/views/modals/explore-contributor.html'"></div>
+  </script>
+  <script type="text/ng-template" id="select-users.html">
+   <div class="gb-contributor-page" ng-include="'public/modules/explore/views/modals/select-users.html'"></div>
+  </script>
+ </div>
+</section>

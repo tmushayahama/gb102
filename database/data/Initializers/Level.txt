@@ -74,3 +74,8 @@ id	category	code	name	description	icon	app_type_id
 1035	1008	EAPP32	I can give more advise	Get Advice	icon-gb-advice	8
 1036	1008	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
 1037	1008	EAPP34	Write it in journal	Put it in Journal	icon-gb-journal	10
+50000	50000	TDL	normal			
+50001	50000	TDL	progress			
+50100	50001	TDP	in progress			
+50101	50001	TDP	later			
+50102	50001	TDP	done			

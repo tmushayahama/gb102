@@ -1,9 +1,9 @@
-var exploreCommentsManager = function ($http, $q) {
+var exploreContributorsManager = function ($http, $q) {
 
- var ExploreCommentsManager = function () {
-  this.exploreComments = [];
+ var ExploreContributorsManager = function () {
+  this.exploreContributors = [];
  };
- ExploreCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExploreContributorsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var exploreCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExploreCommentsManager.prototype.getExploreComments = function (exploreId) {
+ ExploreContributorsManager.prototype.getExploreContributors = function (exploreId) {
   var self = this;
   var deferred = $q.defer();
-  self.exploreComments = [];
-  $http.get('/api/explore/' + exploreId + '/comments').success(function (data) {
-   self.exploreComments = data;
+  self.exploreContributors = [];
+  $http.get('/api/explore/' + exploreId + '/contributors').success(function (data) {
+   self.exploreContributors = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var exploreCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ExploreCommentsManager.prototype.getExploreComment = function (exploreId, commentId) {
+ ExploreContributorsManager.prototype.getExploreContributor = function (exploreId, contributorId) {
   var self = this;
   var deferred = $q.defer();
-  self.exploreComments = [];
-  $http.get('/api/explore/' + exploreId + '/comment/' + commentId).success(function (data) {
-   self.exploreComments = data;
+  self.exploreContributors = [];
+  $http.get('/api/explore/' + exploreId + '/contributor/' + contributorId).success(function (data) {
+   self.exploreContributors = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var exploreCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ExploreCommentsManager.prototype.createExploreComment = function (exploreCommentData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/explore/comment/create',
-   data: exploreCommentData
-  }).success(function (data) {
-   self.exploreComments.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- ExploreCommentsManager.prototype.editExploreComment = function (exploreCommentData) {
+ ExploreContributorsManager.prototype.createExploreContributor = function (exploreContributorData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explore/comment/edit',
-   data: exploreCommentData
+   url: '/api/explore/contributor/create',
+   data: exploreContributorData
+  }).success(function (data) {
+   self.exploreContributors.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExploreContributorsManager.prototype.editExploreContributor = function (exploreContributorData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explore/contributor/edit',
+   data: exploreContributorData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var exploreCommentsManager = function ($http, $q) {
  };
 
 
- return ExploreCommentsManager;
+ return ExploreContributorsManager;
 };
 
-exploreCommentsManager.$inject = ['$http', '$q'];
+exploreContributorsManager.$inject = ['$http', '$q'];
 
-angular.module('app.explore').service('ExploreCommentsManager', exploreCommentsManager);
+angular.module('app.explore').service('ExploreContributorsManager', exploreContributorsManager);

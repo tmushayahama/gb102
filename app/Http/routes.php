@@ -173,35 +173,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('question/weblink/edit', 'Question\QuestionController@editQuestionWeblink');
 
 
- Route::get('skills/all', 'Skill\SkillController@getSkillsAll');
- Route::get('skills/mine', 'Skill\SkillController@getSkillsMine');
- Route::get('skills/swipe', 'Skill\SkillController@getSkillSwipe');
- Route::get('skills/swipes', 'Skill\SkillController@getSkillSwipes');
- Route::post('skills/swipe/create', 'Skill\SkillController@createSkillSwipe');
- Route::get('skill/{skillId}/comments', 'Skill\SkillController@getSkillComments');
- Route::get('skill/{skillId}/comment/{commentId}', 'Skill\SkillController@getSkillComment');
- Route::get('skill/{skillId}/todos', 'Skill\SkillController@getSkillTodos');
- Route::get('skill/{skillId}/todo/{todoId}', 'Skill\SkillController@getSkillTodo');
- Route::get('skill/{skillId}/notes', 'Skill\SkillController@getSkillNotes');
- Route::get('skill/{skillId}/note/{noteId}', 'Skill\SkillController@getSkillNote');
- Route::get('skill/{skillId}/progress', 'Skill\SkillController@getSkillProgress');
- Route::get('skill/{skillId}/progress/{progressId}', 'Skill\SkillController@getSkillProgress');
- Route::get('skill/{skillId}/weblinks', 'Skill\SkillController@getSkillWeblinks');
- Route::get('skill/{skillId}/weblink/{weblinkId}', 'Skill\SkillController@getSkillWeblink');
- Route::get('skill/{id}', 'Skill\SkillController@getSkill');
- Route::post('skill/edit', 'Skill\SkillController@editSkill');
- Route::post('skill/create', 'Skill\SkillController@createSkill');
- Route::post('skill/comment/create', 'Skill\SkillController@createSkillComment');
- Route::post('skill/comment/edit', 'Skill\SkillController@editSkillComment');
- Route::post('skill/todo/create', 'Skill\SkillController@createSkillTodo');
- Route::post('skill/todo/edit', 'Skill\SkillController@editSkillTodo');
- Route::post('skill/note/create', 'Skill\SkillController@createSkillNote');
- Route::post('skill/note/edit', 'Skill\SkillController@editSkillNote');
- Route::post('skill/progress/create', 'Skill\SkillController@createSkillProgress');
- Route::post('skill/progress/edit', 'Skill\SkillController@editSkillProgress');
- Route::post('skill/weblink/create', 'Skill\SkillController@createSkillWeblink');
- Route::post('skill/weblink/edit', 'Skill\SkillController@editSkillWeblink');
-
  //Goal
  Route::get('goals/all', 'Goal\GoalController@getGoalsAll');
  Route::get('goals/mine', 'Goal\GoalController@getGoalsMine');

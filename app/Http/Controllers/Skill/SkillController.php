@@ -51,26 +51,6 @@ class SkillController extends Controller {
   return \Response::json($skill);
  }
 
- public function getSkillProgress($skillId) {
-  $skillProgress = SkillProgress::getSkillProgress($skillId);
-  return \Response::json($skillProgress);
- }
-
- public function getSkillProgress($skillId, $progressId) {
-  $skillProgress = SkillProgress::getSkillProgress($skillId, $progressId);
-  return \Response::json($skillProgress);
- }
-
- public function createSkillProgress() {
-  $skillProgress = SkillProgress::createSkillProgress();
-  return \Response::json($skillProgress);
- }
-
- public function editSkillProgress() {
-  $skillProgress = SkillProgress::editSkillProgress();
-  return \Response::json($skillProgress);
- }
-
  /* TODOS */
 
  public function getSkillTodos($skillId) {
