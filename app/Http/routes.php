@@ -68,7 +68,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explore/{exploreId}/comment/{commentId}', 'Explore\ExploreController@getExploreComment');
  Route::get('explore/{exploreId}/contributors', 'Explore\ExploreController@getExploreContributors');
  Route::get('explore/{exploreId}/contributor/{contributorId}', 'Explore\ExploreController@getExploreContributor');
- Route::get('explore/{exploreId}/todos', 'Explore\ExploreController@getExploreTodos');
+ Route::get('explore/{exploreId}/todos/{levelId}', 'Explore\ExploreController@getExploreTodos');
  Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
  Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
  Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');

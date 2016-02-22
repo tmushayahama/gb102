@@ -213,7 +213,6 @@ CREATE TABLE `gb_contributor` (
   `parent_contributor_id` int(11),
   `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',

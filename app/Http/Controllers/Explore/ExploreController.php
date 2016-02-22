@@ -64,8 +64,8 @@ class ExploreController extends Controller {
 
  /* TODOS */
 
- public function getExploreTodos($exploreId) {
-  $exploreTodos = ExploreTodo::getExploreTodos($exploreId);
+ public function getExploreTodos($exploreId, $levelId) {
+  $exploreTodos = ExploreTodo::getExploreTodos($exploreId, $levelId);
   return \Response::json($exploreTodos);
  }
 

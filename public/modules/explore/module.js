@@ -126,6 +126,9 @@ define(['angular'
              controller: 'ExploreOverviewCtrl as exploreOverviewCtrl',
              templateUrl: 'public/modules/explore/views/tabs/explore/explore-overview.html',
              resolve: {
+              todoLevelId: function (level_categories) {
+               return  level_categories.todo_level_progress;
+              },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.explore',
@@ -137,6 +140,7 @@ define(['angular'
                   'public/modules/explore/services/ExploreTodosManager.js',
                   'public/modules/explore/services/ExploreTodoChecklistManager.js',
                   'public/modules/explore/controllers/ExploreTodosCtrl.js',
+                  'public/modules/explore/controllers/ExploreProgressCtrl.js',
                   'public/modules/explore/controllers/modals/ExploreTodoCtrl.js', ]
                 });
                }]

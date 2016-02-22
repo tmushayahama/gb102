@@ -13,7 +13,7 @@
    </a>
    <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{$root.user.firstname + " " + $root.user.lastname| chars: 10:true}} <span class="caret"></span>
+     {{profileCtrl.profileManager.profile.firstname + " " + profileCtrl.profileManager.profile.lastname| chars: 10:true}} <span class="caret"></span>
     </button>
     <button type="button" class="btn btn-default">
      <i class="fa fa-plus"></i>

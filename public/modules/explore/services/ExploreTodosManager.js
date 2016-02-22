@@ -22,12 +22,11 @@ var exploreTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExploreTodosManager.prototype.getExploreTodos = function (exploreId) {
+ ExploreTodosManager.prototype.getExploreTodos = function (exploreId, levelId) {
   var self = this;
   var deferred = $q.defer();
-  self.exploreTodos = [];
-  $http.get('/api/explore/' + exploreId + '/todos').success(function (data) {
-   self.exploreTodos = data;
+  //self.exploreTodos = [];
+  $http.get('/api/explore/' + exploreId + '/todos/' + levelId).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -38,9 +37,7 @@ var exploreTodosManager = function ($http, $q) {
  ExploreTodosManager.prototype.getExploreTodo = function (exploreId, todoId) {
   var self = this;
   var deferred = $q.defer();
-  self.exploreTodos = [];
   $http.get('/api/explore/' + exploreId + '/todo/' + todoId).success(function (data) {
-   self.exploreTodos = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

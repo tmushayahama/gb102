@@ -130,10 +130,6 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/mentorship/controllers/MentorshipOverviewCtrl.js',
-                  //Progress
-                  'public/modules/mentorship/services/MentorshipProgressManager.js',
-                  'public/modules/mentorship/controllers/MentorshipProgressCtrl.js',
-                          //'public/modules/mentorship/controllers/modals/MentorshipProgressCtrl.js',
                  ]
                 });
                }]
@@ -153,11 +149,6 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/mentorship/controllers/MentorshipManageCtrl.js',
-                  //Progress
-                  'public/modules/mentorship/services/MentorshipProgressManager.js',
-                  'public/modules/mentorship/services/MentorshipProgressManager.js',
-                  'public/modules/mentorship/controllers/MentorshipProgressCtrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipProgressCtrl.js',
                  ]
                 });
                }]

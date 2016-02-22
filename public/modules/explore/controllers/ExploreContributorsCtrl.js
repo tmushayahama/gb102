@@ -1,4 +1,5 @@
 var exploreContributorsCtrl = function (
+        level_categories,
         ExploreContributorsManager,
         $scope,
         $state,
@@ -164,6 +165,7 @@ var exploreContributorsCtrl = function (
 };
 
 exploreContributorsCtrl.$inject = [
+ 'level_categories',
  'ExploreContributorsManager',
  '$scope',
  '$state',

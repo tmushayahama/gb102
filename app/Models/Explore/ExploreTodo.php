@@ -33,20 +33,25 @@ class ExploreTodo extends Model {
   */
  protected $fillable = [];
 
- public static function getExploreTodos($exploreId) {
+ public static function getExploreTodos($exploreId, $levelId) {
   $exploreTodos = ExploreTodo::with('todo')
-    ->orderBy('id', 'DESC')
-    ->where('explore_id', $exploreId)
-    ->get();
+          ->with('todo.status')
+          ->with('todo.creator')
+          ->whereHas('todo', function($q) use ($levelId) {
+           $q->where('level_id', $levelId);
+          })
+          ->orderBy('id', 'DESC')
+          ->where('explore_id', $exploreId)
+          ->get();
   return $exploreTodos;
  }
 
  public static function getExploreTodo($exploreId, $todoId) {
   $exploreTodo = ExploreTodo::with('todo')
-    ->orderBy('id', 'DESC')
-    ->where('explore_id', $exploreId)
-    ->where('todo_id', $todoId)
-    ->first();
+          ->orderBy('id', 'DESC')
+          ->where('explore_id', $exploreId)
+          ->where('todo_id', $todoId)
+          ->first();
   return $exploreTodo;
  }
 

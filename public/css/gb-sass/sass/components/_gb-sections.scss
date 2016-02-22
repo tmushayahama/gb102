@@ -38,27 +38,58 @@
  padding-bottom: 30px;
  .gb-heading {
   padding: 15px 5px 15px 5px;
- }
- .gb-heading .gb-title {
-  padding: 3px 0 0 0;
-  width: 100%;
-  font-size: 15px;
-  color: rgba($primary-color, 0.8);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
- }
-
- .gb-heading .gb-heading-img {
-  width: 30px;
-  height: 30px;
- }
-
- .gb-heading .gb-action {
-  padding: 0 0 0 0;
+  .gb-title {
+   padding: 3px 0 0 0;
+   width: 100%;
+   font-size: 15px;
+   color: rgba($primary-color, 0.8);
+   -webkit-text-rendering: optimizeLegibility;
+   -moz-text-rendering: optimizeLegibility;
+   text-rendering: optimizeLegibility;
+  }
+  .gb-heading-img {
+   width: 30px;
+   height: 30px;
+   .gb-action {
+    padding: 0 0 0 0;
+   }
+  }
  }
 
- .gb-section-row-1 .gb-body {
+ .gb-form-placeholder {
+  background-color: #FFF;
+  position: relative;
+
+  .gb-img {
+   @include position(absolute, 5px null 5px 5px);
+   width: 53px;
+   height: auto;
+  }
+  input {
+   margin: 0;
+   width: 100%;
+   font-size: 24px;
+   font-family: inherit;
+   font-weight: inherit;
+   line-height: 1.4em;
+   border: 0;
+   outline: none;
+   color: inherit;
+   padding: 6px;
+   border: 1px solid #CCC;
+   box-sizing: border-box;
+   -webkit-font-smoothing: antialiased;
+   -moz-font-smoothing: antialiased;
+   font-smoothing: antialiased;
+   padding: 16px 16px 16px 65px;
+   @include placeholder {
+    color: #BBB;
+   }
+  }
+ }
+
+
+ .gb-body {
   padding-top: 10px;
  }
  @include respond-to (gb-xs) {

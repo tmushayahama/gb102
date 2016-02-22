@@ -190,8 +190,10 @@ define([
           journal: 10,
           request_type_skill: 1001,
           request_type_goal: 1002,
+          todo_level_normal: 50000,
+          todo_level_progress: 50001,
+          contributors: 60000,
          });
-
 
  return app;
 });

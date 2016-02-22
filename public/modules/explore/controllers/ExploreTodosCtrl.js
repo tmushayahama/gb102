@@ -1,4 +1,5 @@
 var exploreTodosCtrl = function (
+        level_categories,
         ExploreTodosManager,
         $scope,
         $state,
@@ -11,8 +12,13 @@ var exploreTodosCtrl = function (
 
  var vm = this;
  vm.exploreId = $stateParams.exploreId;
+ vm.exploreTodos;
  vm.exploreTodosManager = new ExploreTodosManager();
  vm.todoFormDisplay = false;
+
+ vm.getExploreTodoPercentage = function (exploreTodoId) {
+  return 100;
+ }
 
  vm.defaultExploreTodoData = {
   exploreId: $stateParams.exploreId,
@@ -126,13 +132,15 @@ var exploreTodosCtrl = function (
   });
  };
 
-
-
  //--------init------
- vm.exploreTodosManager.getExploreTodos(vm.exploreId);
+ vm.exploreTodosManager.getExploreTodos(vm.exploreId, level_categories.todo_level_normal)
+         .then(function (data) {
+          vm.exploreTodos = data;
+         });
 };
 
 exploreTodosCtrl.$inject = [
+ 'level_categories',
  'ExploreTodosManager',
  '$scope',
  '$state',
