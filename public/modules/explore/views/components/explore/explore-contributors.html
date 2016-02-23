@@ -13,15 +13,20 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
-   <div class="btn-group">
-    <a class="btn btn-default" ng-click="exploreContributorsCtrl.prepareSelectUsers(1)">
-     Add Observer(s)
-    </a>
+   <div ng-repeat="contributorType in exploreContributorsCtrl.exploreContributorTypes"
+        class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
+        ng-click="exploreContributorsCtrl.prepareSelectUsers(1)">
+    <div class="gb-apptype-btn">
+     <i class="gb-icon fa icon-gb-{{contributorType.icon}}"></i>
+     <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      {{contributorType.name}}
+     </div>
+    </div>
    </div>
   </div>
   <div class="gb-contributor-body row" ng-show="exploreContributorsCtrl.exploreContributorsManager.exploreContributors.length" ng-cloak>
    <ul id="contributor-list">
-    <li ng-repeat="exploreContributor in exploreContributorsCtrl.exploreContributorsManager.exploreContributors| filter:statusFilter track by $index" ng-class="{completed: exploreContributor.completed, editing: exploreContributor == exploreContributorsCtrl.editedContributor}">
+    <li ng-repeat="exploreContributor in exploreContributorsCtrl.exploreContributors">
      <div class="gb-contributor-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-contributor-heading">
        <p class="gb-title">COMMENT</p>

@@ -28,6 +28,7 @@ requirejs.config({
   //Local pugins--common
   'checklist-model': '../../bower_components/checklist-model/checklist-model',
   'angular-svg-round-progress': '../../bower_components/angular-svg-round-progressbar/build/roundProgress',
+  'ng-tags-input': '../../bower_components/ng-tags-input/ng-tags-input',
   'truncate-filters': '../modules/common/filters/truncate'
  },
  shim: {
@@ -55,6 +56,7 @@ requirejs.config({
   //'angular-ui-select': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
   'angular-svg-round-progress': {deps: ['angular']},
+  'ng-tags-input': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

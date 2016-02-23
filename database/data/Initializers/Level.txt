@@ -79,6 +79,7 @@ id	category	code	name	description	icon	app_type_id
 50100	50001	TDP	in progress			
 50101	50001	TDP	later			
 50102	50001	TDP	done			
-60000	60000	CTBT	Follower			
-60001	60000	CTBT	Observer			
-60002	60000	CTBT	Monitor			
+60000	60000	CTBT	Follower		icon-gb-follower	
+60001	60000	CTBT	Observer		icon-gb-observer	
+60002	60000	CTBT	Judge		icon-gb-judge	
+60003	60000	CTBT	Administrator		icon-gb-admin	

@@ -21,6 +21,7 @@ define([
  //'angular-ui-select',
  'checklist-model',
  'angular-svg-round-progress',
+ 'ng-tags-input',
  'truncate-filters',
  '../auth/module',
  '../search/module',
@@ -56,6 +57,7 @@ define([
   //'ngSanitize',
   'checklist-model',
   'angular-svg-round-progress',
+  'ngTagsInput',
   'gb-filters.truncate',
   'app.auth',
   'app.search',
@@ -192,7 +194,7 @@ define([
           request_type_goal: 1002,
           todo_level_normal: 50000,
           todo_level_progress: 50001,
-          contributors: 60000,
+          contributor_types: 60000,
          });
 
  return app;

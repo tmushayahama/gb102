@@ -1,5 +1,6 @@
 var exploreContributorsCtrl = function (
         level_categories,
+        ConstantsManager,
         ExploreContributorsManager,
         $scope,
         $state,
@@ -13,7 +14,11 @@ var exploreContributorsCtrl = function (
 
  var vm = this;
  vm.exploreId = $stateParams.exploreId;
+ vm.exploreContributors;
+ vm.exploreContributorTypes;
+
  vm.exploreContributorsCopy;
+ vm.constantsManager = new ConstantsManager();
  vm.exploreContributorsManager = new ExploreContributorsManager();
  vm.contributorFormDisplay = false;
  vm.defaultExploreContributorData = {
@@ -161,11 +166,18 @@ var exploreContributorsCtrl = function (
   });
  };
  //--------init------
- vm.exploreContributorsManager.getExploreContributors(vm.exploreId);
+ vm.constantsManager.getLevel(level_categories.contributor_types).then(function (data) {
+  vm.exploreContributorTypes = data;
+ });
+
+ vm.exploreContributorsManager.getExploreContributors(vm.exploreId).then(function (data) {
+  vm.exploreContributors = data;
+ });
 };
 
 exploreContributorsCtrl.$inject = [
  'level_categories',
+ 'ConstantsManager',
  'ExploreContributorsManager',
  '$scope',
  '$state',
