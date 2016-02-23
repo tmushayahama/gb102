@@ -14,18 +14,21 @@
 .modal-header {
  @include position(absolute, 0 0 null 0);
  @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
- padding: 11px 15px;
+ padding: 7px 8px;
  border-bottom: rgba($primary-color, 0.6) solid 3px;
- font-size: 18px;
  font-weight: normal;
- height: 50px;
+ height: 40px;
+ .gb-title {
+  font-size: 18px;
+ }
 }
 .modal-body {
- @include position(absolute, 51px 0 46px 0);
+ @include position(absolute, 41px 0 46px 0);
  overflow-y: auto;
 }
 .modal-footer {
  @include position(absolute, null 0 0 0);
+ @include linear-gradient(70deg, #CCC 0%, #FFF 50%, #EEE 51%, #CCC 100%);
  height: 45px;
  padding: 5px;
 }

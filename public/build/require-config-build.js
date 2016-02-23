@@ -26,6 +26,7 @@ requirejs.config({
   'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
   'checklist-model': '../../../bower_components/checklist-model/checklist-model',
   'angular-svg-round-progress': '../../../bower_components/angular-svg-round-progressbar/build/roundProgress.min',
+  'ng-tags-input': '../../../bower_components/ng-tags-input/ng-tags-input',
   //Local pugins--common
   'truncate-filters': 'scripts/modules/common/filters/truncate'
 
@@ -54,6 +55,7 @@ requirejs.config({
   'angular-sanitize': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
   'angular-svg-round-progress': {deps: ['angular']},
+  'ng-tags-input': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

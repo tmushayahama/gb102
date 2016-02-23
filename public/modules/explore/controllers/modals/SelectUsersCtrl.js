@@ -11,10 +11,11 @@ var selectUsersCtrl = function (
         $rootScope,
         $location,
         $log,
-        modalData) {
+        contributorType) {
  var vm = this;
 
- vm.modalData = modalData;
+ vm.exploreId = $stateParams.exploreId;
+ vm.contributorType = contributorType;
  vm.communityManager = new CommunityManager();
  vm.users;
  vm.getUsers = function () {
@@ -30,6 +31,18 @@ var selectUsersCtrl = function (
   });
 
   $uibModalInstance.close(vm.explore);
+ };
+
+ vm.sendRequest = function (userId) {
+  var requestData = {
+   user_id: userId,
+   level_id: vm.contributorType.id,
+   explore_id: vm.exploreId
+  };
+  vm.communityManager.sendRequest(requestData)
+          .then(function (data) {
+
+          });
  };
 
  vm.cancel = function () {
@@ -53,6 +66,6 @@ selectUsersCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'modalData'];
+ 'contributorType'];
 
 angular.module("app.explore").controller('SelectUsersCtrl', selectUsersCtrl);

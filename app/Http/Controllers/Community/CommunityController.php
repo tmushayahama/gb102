@@ -31,6 +31,11 @@ class CommunityController extends Controller {
   return \Response::json($users);
  }
 
+ public function createRequest() {
+  $request = Community::createRequest();
+  return \Response::json($request);
+ }
+
  public function getCommunitysMine() {
   $communitys = Community::getCommunitysMine();
   return \Response::json($communitys);

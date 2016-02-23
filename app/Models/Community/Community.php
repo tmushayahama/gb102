@@ -43,6 +43,31 @@ class Community extends Model {
   return $users;
  }
 
+ public static function createRequest() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $title = Request::get("title");
+  $description = Request::get("description");
+  $levelId = Request::get("level");
+
+  $community = new Community;
+  $community->creator_id = $userId;
+  $community->title = $title;
+  $community->description = $description;
+  $community->level_id = $levelId;
+
+  DB::beginTransaction();
+  try {
+   $community->save();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return $community;
+ }
+
  public static function getCommunitysMine() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;

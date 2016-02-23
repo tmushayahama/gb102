@@ -23,6 +23,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('search/simple', 'SearchController@simpleSearch');
  Route::post('search/suggestion', 'SearchController@suggestionSearch');
 
+ Route::post('user/request/create', 'CommunityController@createRequest');
+
 
 //Community
  Route::get('community/users', 'Community\CommunityController@getUsers');

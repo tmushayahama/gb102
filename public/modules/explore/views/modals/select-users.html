@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
- <div class="gb-modal-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{selectUsersCtrl.modalData.title}}
+   Add {{selectUsersCtrl.contributorType.name}}(s)
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="selectUsersCtrl.cancel()">
@@ -9,7 +9,7 @@
  </a>
 </div>
 <div class="modal-body gb-modal-body">
- <div ng-repeat="user in selectUsersCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+ <div ng-repeat="user in selectUsersCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
   <div class="gb-person-box">
    <img src="public/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
    <div class="gb-box-body">
@@ -25,7 +25,8 @@
     </div>
    </div>
    <div class="gb-footer">
-    <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
+       ng-click="selectUsersCtrl.sendRequest(user.id)">
      Request
     </a>
    </div>

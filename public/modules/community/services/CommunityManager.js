@@ -35,6 +35,17 @@ var communityManager = function ($http, $q) {
   return deferred.promise;
  };
 
+ CommunityManager.prototype.sendRequest = function (requestData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.post('/api/user/request/create', requestData).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  return CommunityManager;
 };
 

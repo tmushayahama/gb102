@@ -114,19 +114,7 @@ var exploreContributorsCtrl = function (
   }
  };
 
- vm.prepareSelectUsers = function (type) {
-  var modalData;
-  switch (type) {
-   case 1:
-    modalData = {
-     title: "Add Observer(s)"
-    };
-   case 2:
-    modalData = {
-     title: "Add Judge(s)"
-    };
-  }
-
+ vm.prepareSelectUsers = function (contributorType) {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'select-users.html',
@@ -134,8 +122,8 @@ var exploreContributorsCtrl = function (
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    modalData: function () {
-     return modalData;
+    contributorType: function () {
+     return contributorType;
     }
    }
   });
