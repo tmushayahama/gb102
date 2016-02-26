@@ -157,6 +157,9 @@ input[type="checkbox"] {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
  padding-top: 60px;
+ @include respond-to (gb-xs) {
+  padding-top: 40px;
+ }
 }
 .gb-container.gb-app-detail {
  margin-top: 50px;
@@ -1070,12 +1073,12 @@ input.gb-form-show{
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   font-size: 12px;
+   font-size: 40px;
    @include respond-to (gb-sm) {
-    font-size: 12px;
+    font-size: 40px;
    }
    @include respond-to (gb-xs) {
-    font-size: 12px;
+    font-size: 40px;
    }
    .fa-outer {
     color: rgba($primary-color, 0.4);
@@ -1098,7 +1101,7 @@ input.gb-form-show{
   }
 
   .gb-title {
-   padding:10px 0px 0px 0px;
+   padding:0px 0px 0px 0px;
    font-size: 10px;
    color: #333;
    line-height: 25px;
@@ -1816,6 +1819,18 @@ input.gb-form-show{
     margin-left: 5px;
     height: 35px;
     width: 35px;
+   }
+   .gb-summary-bar {
+    margin-top: 5px;
+    background-color: transparent;
+    .btn {
+     min-width: 50px;
+     color: #999;
+     text-decoration: none;
+    }
+    .gb-icon {
+     color: #777;
+    }
    }
    .gb-footer-content {
     padding: 10px 0 0 0;
