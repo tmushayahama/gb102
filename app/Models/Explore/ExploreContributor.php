@@ -36,6 +36,8 @@ class ExploreContributor extends Model {
  public static function getExploreContributors($exploreId) {
   $exploreContributors = ExploreContributor::with('contributor')
           ->with('contributor.creator')
+          ->with('contributor.contributor')
+          ->with('contributor.level')
           ->orderBy('id', 'DESC')
           ->where('explore_id', $exploreId)
           ->get();

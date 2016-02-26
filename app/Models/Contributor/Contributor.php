@@ -20,6 +20,14 @@ class Contributor extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public function level() {
+  return $this->belongsTo('App\Models\Level\Level', 'level_id');
+ }
+
+ public function contributor() {
+  return $this->belongsTo('App\Models\User\User', 'contributor_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *
