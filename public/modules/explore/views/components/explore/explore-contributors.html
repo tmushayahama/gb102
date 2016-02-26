@@ -32,7 +32,7 @@
      <div class="gb-box-body">
       <div class="gb-heading row">
        <p class="gb-title">
-        {{exploreContributor.contributor.level.name}}
+        {{exploreContributor.contributor.level.name}} - {{exploreContributor.contributor.status.name}}
        </p>
       </div>
       <div class="gb-description row">
@@ -48,7 +48,6 @@
   </div>
  </div>
 </section>
-
 
 <script type="text/ng-template" id="explore-contributor.html">
  <div class="gb-contributor-page" ng-include="'public/modules/explore/views/modals/explore-contributor.html'"></div>

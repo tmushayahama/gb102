@@ -24,6 +24,10 @@ class Contributor extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
+ public function status() {
+  return $this->belongsTo('App\Models\Level\Level', 'status_id');
+ }
+
  public function contributor() {
   return $this->belongsTo('App\Models\User\User', 'contributor_id');
  }

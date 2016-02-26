@@ -38,6 +38,7 @@ class ExploreContributor extends Model {
           ->with('contributor.creator')
           ->with('contributor.contributor')
           ->with('contributor.level')
+          ->with('contributor.status')
           ->orderBy('id', 'DESC')
           ->where('explore_id', $exploreId)
           ->get();
