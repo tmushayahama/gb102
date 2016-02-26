@@ -1,6 +1,7 @@
 var selectUsersCtrl = function (
         ConstantsManager,
         CommunityManager,
+        ExploreContributorsManager,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -17,6 +18,7 @@ var selectUsersCtrl = function (
  vm.exploreId = $stateParams.exploreId;
  vm.contributorType = contributorType;
  vm.communityManager = new CommunityManager();
+ vm.exploreContributorsManager = new ExploreContributorsManager();
  vm.users;
  vm.getUsers = function () {
   vm.communityManager.getUsers().then(function (data) {
@@ -35,11 +37,12 @@ var selectUsersCtrl = function (
 
  vm.sendRequest = function (userId) {
   var requestData = {
-   user_id: userId,
+   contributor_id: userId,
    level_id: vm.contributorType.id,
+   description: "",
    explore_id: vm.exploreId
   };
-  vm.communityManager.sendRequest(requestData)
+  vm.exploreContributorsManager.createExploreContributor(requestData)
           .then(function (data) {
 
           });
@@ -56,6 +59,7 @@ var selectUsersCtrl = function (
 selectUsersCtrl.$inject = [
  'ConstantsManager',
  'CommunityManager',
+ 'ExploreContributorsManager',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

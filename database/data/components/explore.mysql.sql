@@ -122,16 +122,13 @@ CREATE TABLE `gb_explore_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contributor_id` int(11) NOT NULL,
   `explore_id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `explore_contributor_contributor_id` (`contributor_id`),
   KEY `explore_contributor_explore_id` (`explore_id`),
-  KEY `explore_contributor_type_id` (`type_id`),
   CONSTRAINT `explore_contributor_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_contributor_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `explore_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

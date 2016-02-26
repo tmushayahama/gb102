@@ -210,20 +210,22 @@ DROP TABLE IF EXISTS `gb_contributor`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_contributor_id` int(11),
   `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
+  `contributor_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status_id` int(11) NOT NULL DEFAULT '70000',
   PRIMARY KEY (`id`),
   KEY `contributor_creator_id` (`creator_id`),
   KEY `contributor_level_id` (`level_id`),
-  KEY `contributor_parent_contributor_id` (`parent_contributor_id`),
+  KEY `contributor_status_id` (`status_id`),
+  KEY `contributor_contributor_id` (`contributor_id`),
   CONSTRAINT `contributor_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contributor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contributor_parent_contributor_id` FOREIGN KEY (`parent_contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `contributor_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -54,13 +54,17 @@ class ExploreContributor extends Model {
  public static function createExploreContributor() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $exploreId = Request::get("exploreId");
-  $title = Request::get("title");
+  $exploreId = Request::get("explore_id");
   $description = Request::get("description");
+  $levelId = Request::get("level_id");
+  $contributorId = Request::get("contributor_id");
   $contributor = new Contributor;
   $exploreContributor = new ExploreContributor;
+
   $contributor->creator_id = $userId;
-  $contributor->title = $title;
+  $contributor->contributor_id = $contributorId;
+  $contributor->description = $description;
+  $contributor->level_id = $levelId;
   $exploreContributor->explore_id = $exploreId;
 
   DB::beginTransaction();

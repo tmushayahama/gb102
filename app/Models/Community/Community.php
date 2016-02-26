@@ -46,13 +46,13 @@ class Community extends Model {
  public static function createRequest() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $title = Request::get("title");
   $description = Request::get("description");
-  $levelId = Request::get("level");
+  $levelId = Request::get("level_id");
+  $contributorId = Request::get("contributor_id");
 
   $community = new Community;
   $community->creator_id = $userId;
-  $community->title = $title;
+  $community->contributor_id = $contributorId;
   $community->description = $description;
   $community->level_id = $levelId;
 

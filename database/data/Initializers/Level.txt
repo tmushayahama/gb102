@@ -83,3 +83,5 @@ id	category	code	name	description	icon	app_type_id
 60001	60000	CTBT	Observer		icon-gb-observer	
 60002	60000	CTBT	Judge		icon-gb-judge	
 60003	60000	CTBT	Administrator		icon-gb-admin	
+70000	70000	STS	pending			
+70001	70000	STS	accepted			

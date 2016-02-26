@@ -56,7 +56,6 @@ var exploreContributorsManager = function ($http, $q) {
    url: '/api/explore/contributor/create',
    data: exploreContributorData
   }).success(function (data) {
-   self.exploreContributors.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
