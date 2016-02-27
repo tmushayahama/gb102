@@ -1,9 +1,9 @@
-var exploreContributorManager = function ($http, $q) {
+var exploreContributionManager = function ($http, $q) {
 
- var ExploreContributorManager = function () {
-  this.exploreContributors = [];
+ var ExploreContributionManager = function () {
+  this.exploreContributions = [];
  };
- ExploreContributorManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExploreContributionManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var exploreContributorManager = function ($http, $q) {
  };
 
 
- ExploreContributorManager.prototype.getExploreContributor = function (exploreId, contributorId) {
+ ExploreContributionManager.prototype.getExploreContribution = function (exploreId, contributionId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explore/' + exploreId + '/contributor/' + contributorId).success(function (data) {
-   self.exploreContributor = data;
+  $http.get('/api/explore/' + exploreId + '/contribution/' + contributionId).success(function (data) {
+   self.exploreContribution = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var exploreContributorManager = function ($http, $q) {
  };
 
 
- ExploreContributorManager.prototype.editExploreContributor = function (exploreContributorData) {
+ ExploreContributionManager.prototype.editExploreContribution = function (exploreContributionData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explore/contributor/edit',
-   data: exploreContributorData
+   url: '/api/explore/contribution/edit',
+   data: exploreContributionData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var exploreContributorManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExploreContributorManager;
+ return ExploreContributionManager;
 };
 
-exploreContributorManager.$inject = ['$http', '$q'];
+exploreContributionManager.$inject = ['$http', '$q'];
 
-angular.module('app.explore').service('ExploreContributorManager', exploreContributorManager);
+angular.module('app.explore').service('ExploreContributionManager', exploreContributionManager);

@@ -194,7 +194,7 @@ define([
           request_type_goal: 1002,
           todo_level_normal: 50000,
           todo_level_progress: 50001,
-          contributor_types: 60000,
+          contribution_types: 60000,
          });
 
  return app;

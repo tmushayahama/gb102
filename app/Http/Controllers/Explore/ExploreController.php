@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Explore\Explore;
 use App\Models\Explore\ExploreComment;
-use App\Models\Explore\ExploreContributor;
+use App\Models\Explore\ExploreContribution;
 use App\Models\Explore\ExploreNote;
 use App\Models\Explore\ExploreRequestOption;
 use App\Models\Explore\ExploreTodo;
@@ -18,7 +18,7 @@ use App\Models\Explore\ExploreWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
 use App\Models\Comment\Comment;
-use App\Models\Contributor\Contributor;
+use App\Models\Contribution\Contribution;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
 use App\Models\Explore\ExploreSwipe;
@@ -139,24 +139,29 @@ class ExploreController extends Controller {
   return \Response::json($exploreComment);
  }
 
- public function getExploreContributors($exploreId) {
-  $exploreContributors = ExploreContributor::getExploreContributors($exploreId);
-  return \Response::json($exploreContributors);
+ public function getExploreContributions($exploreId) {
+  $exploreContributions = ExploreContribution::getExploreContributions($exploreId);
+  return \Response::json($exploreContributions);
  }
 
- public function getExploreContributor($exploreId, $contributorId) {
-  $exploreContributor = ExploreContributor::getExploreContributor($exploreId, $contributorId);
-  return \Response::json($exploreContributor);
+ public function getExploreContribution($exploreId, $contributionId) {
+  $exploreContribution = ExploreContribution::getExploreContribution($exploreId, $contributionId);
+  return \Response::json($exploreContribution);
  }
 
- public function createExploreContributor() {
-  $exploreContributor = ExploreContributor::createExploreContributor();
-  return \Response::json($exploreContributor);
+ public function getExploreContributionLevel($exploreId, $contributionId) {
+  $level = ExploreContribution::getExploreContributionLevel($exploreId, $contributionId);
+  return \Response::json($level);
  }
 
- public function editExploreContributor() {
-  $exploreContributor = ExploreContributor::editExploreContributor();
-  return \Response::json($exploreContributor);
+ public function createExploreContribution() {
+  $exploreContribution = ExploreContribution::createExploreContribution();
+  return \Response::json($exploreContribution);
+ }
+
+ public function editExploreContribution() {
+  $exploreContribution = ExploreContribution::editExploreContribution();
+  return \Response::json($exploreContribution);
  }
 
  public function getExploreWeblinks($exploreId) {

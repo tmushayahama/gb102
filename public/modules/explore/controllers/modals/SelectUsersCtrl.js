@@ -1,7 +1,7 @@
 var selectUsersCtrl = function (
         ConstantsManager,
         CommunityManager,
-        ExploreContributorsManager,
+        ExploreContributionsManager,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -12,13 +12,13 @@ var selectUsersCtrl = function (
         $rootScope,
         $location,
         $log,
-        contributorType) {
+        contributionType) {
  var vm = this;
 
  vm.exploreId = $stateParams.exploreId;
- vm.contributorType = contributorType;
+ vm.contributionType = contributionType;
  vm.communityManager = new CommunityManager();
- vm.exploreContributorsManager = new ExploreContributorsManager();
+ vm.exploreContributionsManager = new ExploreContributionsManager();
  vm.users;
  vm.getUsers = function () {
   vm.communityManager.getUsers().then(function (data) {
@@ -38,11 +38,11 @@ var selectUsersCtrl = function (
  vm.sendRequest = function (userId) {
   var requestData = {
    contributor_id: userId,
-   level_id: vm.contributorType.id,
+   level_id: vm.contributionType.id,
    description: "",
    explore_id: vm.exploreId
   };
-  vm.exploreContributorsManager.createExploreContributor(requestData)
+  vm.exploreContributionsManager.createExploreContribution(requestData)
           .then(function (data) {
 
           });
@@ -59,7 +59,7 @@ var selectUsersCtrl = function (
 selectUsersCtrl.$inject = [
  'ConstantsManager',
  'CommunityManager',
- 'ExploreContributorsManager',
+ 'ExploreContributionsManager',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',
@@ -70,6 +70,6 @@ selectUsersCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'contributorType'];
+ 'contributionType'];
 
 angular.module("app.explore").controller('SelectUsersCtrl', selectUsersCtrl);

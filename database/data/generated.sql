@@ -202,13 +202,13 @@ CREATE TABLE `gb_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_contributor`
+-- Table structure for table `gb_contribution`
 --
 
-DROP TABLE IF EXISTS `gb_contributor`;
+DROP TABLE IF EXISTS `gb_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_contributor` (
+CREATE TABLE `gb_contribution` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
@@ -218,14 +218,14 @@ CREATE TABLE `gb_contributor` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status_id` int(11) NOT NULL DEFAULT '70000',
   PRIMARY KEY (`id`),
-  KEY `contributor_creator_id` (`creator_id`),
-  KEY `contributor_level_id` (`level_id`),
-  KEY `contributor_status_id` (`status_id`),
-  KEY `contributor_contributor_id` (`contributor_id`),
-  CONSTRAINT `contributor_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contributor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contributor_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `contribution_creator_id` (`creator_id`),
+  KEY `contribution_level_id` (`level_id`),
+  KEY `contribution_status_id` (`status_id`),
+  KEY `contribution_contributor_id` (`contributor_id`),
+  CONSTRAINT `contribution_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contribution_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contribution_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contribution_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -870,22 +870,22 @@ CREATE TABLE `gb_explore_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_contributor`
+-- Table structure for table `gb_explore_contribution`
 --
-DROP TABLE IF EXISTS `gb_explore_contributor`;
+DROP TABLE IF EXISTS `gb_explore_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_contributor` (
+CREATE TABLE `gb_explore_contribution` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `contributor_id` int(11) NOT NULL,
+  `contribution_id` int(11) NOT NULL,
   `explore_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_contributor_contributor_id` (`contributor_id`),
-  KEY `explore_contributor_explore_id` (`explore_id`),
-  CONSTRAINT `explore_contributor_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explore_contribution_contribution_id` (`contribution_id`),
+  KEY `explore_contribution_explore_id` (`explore_id`),
+  CONSTRAINT `explore_contribution_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explore_contribution_contribution_id` FOREIGN KEY (`contribution_id`) REFERENCES `gb_contribution` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

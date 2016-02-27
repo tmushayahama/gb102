@@ -68,8 +68,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explores/swipe/create', 'Explore\ExploreController@createExploreSwipe');
  Route::get('explore/{exploreId}/comments', 'Explore\ExploreController@getExploreComments');
  Route::get('explore/{exploreId}/comment/{commentId}', 'Explore\ExploreController@getExploreComment');
- Route::get('explore/{exploreId}/contributors', 'Explore\ExploreController@getExploreContributors');
- Route::get('explore/{exploreId}/contributor/{contributorId}', 'Explore\ExploreController@getExploreContributor');
+ Route::get('explore/{exploreId}/contributions', 'Explore\ExploreController@getExploreContributions');
+ Route::get('explore/{exploreId}/contribution/{contributionId}', 'Explore\ExploreController@getExploreContribution');
+ Route::get('explore/{exploreId}/contribution/{contributionId}/level', 'Explore\ExploreController@getExploreContributionLevel');
  Route::get('explore/{exploreId}/todos/{levelId}', 'Explore\ExploreController@getExploreTodos');
  Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
  Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
@@ -82,8 +83,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explore/create', 'Explore\ExploreController@createExplore');
  Route::post('explore/comment/create', 'Explore\ExploreController@createExploreComment');
  Route::post('explore/comment/edit', 'Explore\ExploreController@editExploreComment');
- Route::post('explore/contributor/create', 'Explore\ExploreController@createExploreContributor');
- Route::post('explore/contributor/edit', 'Explore\ExploreController@editExploreContributor');
+ Route::post('explore/contribution/create', 'Explore\ExploreController@createExploreContribution');
+ Route::post('explore/contribution/edit', 'Explore\ExploreController@editExploreContribution');
  Route::post('explore/todo/create', 'Explore\ExploreController@createExploreTodo');
  Route::post('explore/todo/edit', 'Explore\ExploreController@editExploreTodo');
  Route::post('explore/note/create', 'Explore\ExploreController@createExploreNote');

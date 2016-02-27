@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Models\Contributor;
+namespace App\Models\Contribution;
 
 use Illuminate\Database\Eloquent\Model;
 use Request;
 use DB;
 use JWTAuth;
 
-class Contributor extends Model {
+class Contribution extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_contributor';
+ protected $table = 'gb_contribution';
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');

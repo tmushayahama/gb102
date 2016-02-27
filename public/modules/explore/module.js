@@ -217,10 +217,10 @@ define(['angular'
                  name: 'app.explore',
                  serie: true,
                  files: [
-                  'public/modules/explore/services/ExploreContributorManager.js',
-                  'public/modules/explore/services/ExploreContributorsManager.js',
-                  'public/modules/explore/controllers/ExploreContributorsCtrl.js',
-                  'public/modules/explore/controllers/modals/ExploreContributorCtrl.js',
+                  'public/modules/explore/services/ExploreContributionManager.js',
+                  'public/modules/explore/services/ExploreContributionsManager.js',
+                  'public/modules/explore/controllers/ExploreContributionsCtrl.js',
+                  'public/modules/explore/controllers/modals/ExploreContributionCtrl.js',
                   'public/modules/explore/controllers/modals/SelectUsersCtrl.js',
                  ]
                 });

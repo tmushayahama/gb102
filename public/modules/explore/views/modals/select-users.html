@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   Add {{selectUsersCtrl.contributorType.name}}(s)
+   Add {{selectUsersCtrl.contributionType.name}}(s)
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="selectUsersCtrl.cancel()">
@@ -9,13 +9,14 @@
  </a>
 </div>
 <div class="modal-body gb-modal-body">
- <div ng-repeat="user in selectUsersCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+ <div ng-repeat="user in selectUsersCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+      ng-init="ss = 'ddd' + selectUsersCtrl.exploreContributionsManager.getExploreContributionLevel(selectUsersCtrl.exploreId, user.id)">
   <div class="gb-person-box">
    <img src="public/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
    <div class="gb-box-body">
     <div class="gb-heading row">
      <p class="gb-title">
-      NOT SELECTED
+      NOT SELECTED {{ss}}
      </p>
     </div>
     <div class="gb-description row">
