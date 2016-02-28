@@ -20,9 +20,9 @@ define(['angular'
                  name: 'app.community',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/community/services/Community.srv.js',
-                  'public/modules/community/controllers/Community.ctrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/community/services/community.srv.js',
+                  'public/modules/community/controllers/community.ctrl.js',
                  ]
                 });
                }]
@@ -41,7 +41,7 @@ define(['angular'
                  name: 'app.community',
                  serie: true,
                  files: [
-                  'public/modules/community/controllers/Users.ctrl.js',
+                  'public/modules/community/controllers/users.ctrl.js',
                  ]
                 });
                }]

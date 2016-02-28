@@ -20,10 +20,9 @@ define(['angular'
                  name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/questionnaire/services/Questionnaires.srv.js',
-                  'public/modules/questionnaire/controllers/Questionnaires.ctrl.js',
-                  'public/modules/questionnaire/controllers/modals/AddQuestionnaire.ctrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/questionnaire/services/questionnaires.srv.js',
+                  'public/modules/questionnaire/controllers/questionnaires.ctrl.js',
                  ]
                 });
                }]
@@ -43,8 +42,8 @@ define(['angular'
                  name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/services/Questionnaire.srv.js',
-                  'public/modules/questionnaire/controllers/QuestionAnswers.ctrl.js',
+                  'public/modules/questionnaire/services/questionnaire.srv.js',
+                  'public/modules/questionnaire/controllers/question-answers.ctrl.js',
                  ]
                 });
                }]
@@ -84,9 +83,9 @@ define(['angular'
                  name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/questionnaire/services/Question.srv.js',
-                  'public/modules/questionnaire/controllers/Question.ctrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/questionnaire/services/question.srv.js',
+                  'public/modules/questionnaire/controllers/question.ctrl.js',
                   'public/modules/explore/filters/randomize.js',
                  ]
                 });

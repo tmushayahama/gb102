@@ -1,4 +1,4 @@
-var selectUsersCtrl = function (
+var createExplorerContributionCtrl = function (
         ConstantsSrv,
         CommunitySrv,
         ExplorerContributionsSrv,
@@ -56,7 +56,7 @@ var selectUsersCtrl = function (
 };
 
 
-selectUsersCtrl.$inject = [
+createExplorerContributionCtrl.$inject = [
  'ConstantsSrv',
  'CommunitySrv',
  'ExplorerContributionsSrv',
@@ -72,4 +72,4 @@ selectUsersCtrl.$inject = [
  '$log',
  'contributionType'];
 
-angular.module("app.explorer").controller('SelectUsersCtrl', selectUsersCtrl);
+angular.module("app.explorer").controller('CreateExplorerContributionCtrl', createExplorerContributionCtrl);

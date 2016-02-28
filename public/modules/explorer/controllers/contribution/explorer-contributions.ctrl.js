@@ -117,8 +117,8 @@ var explorerContributionsCtrl = function (
  vm.prepareSelectUsers = function (contributionType) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'select-users.html',
-   controller: 'SelectUsersCtrl as selectUsersCtrl',
+   templateUrl: 'create-explorer-contribution-modal.html',
+   controller: 'CreateExplorerContributionCtrl as createExplorerContributionCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {

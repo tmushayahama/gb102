@@ -1,16 +1,16 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   Add {{selectUsersCtrl.contributionType.name}}(s)
+   Add {{createExplorerContributionCtrl.contributionType.name}}(s)
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="selectUsersCtrl.cancel()">
+ <a class="pull-right gb-ghost-btn-2" ng-click="createExplorerContributionCtrl.cancel()">
   x
  </a>
 </div>
 <div class="modal-body gb-modal-body">
- <div ng-repeat="user in selectUsersCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
-      ng-init="ss = 'ddd' + selectUsersCtrl.explorerContributionsSrv.getExplorerContributionLevel(selectUsersCtrl.explorerId, user.id)">
+ <div ng-repeat="user in createExplorerContributionCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+      ng-init="ss = 'ddd' + createExplorerContributionCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
   <div class="gb-person-box">
    <img src="public/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
    <div class="gb-box-body">
@@ -27,7 +27,7 @@
    </div>
    <div class="gb-footer">
     <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
-       ng-click="selectUsersCtrl.sendRequest(user.id)">
+       ng-click="createExplorerContributionCtrl.sendRequest(user.id)">
      Request
     </a>
    </div>
@@ -37,10 +37,10 @@
 <div class="modal-footer">
  <div class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="gb-container btn-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
-   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="selectUsersCtrl.cancel()">
+   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="createExplorerContributionCtrl.cancel()">
     Cancel
    </a>
-   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="selectUsersCtrl.select()">
+   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="createExplorerContributionCtrl.select()">
     Select
    </a>
   </div>

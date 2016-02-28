@@ -69,7 +69,7 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/explorer/controllers/ExplorersApp.ctrl.js',
+                  'public/modules/explorer/controllers/explorers-app.ctrl.js',
                  ]
                 });
                }]
@@ -88,7 +88,7 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/explorer/controllers/ExplorersMine.ctrl.js',
+                  'public/modules/explorer/controllers/explorers-mine.ctrl.js',
                  ]
                 });
                }]
@@ -108,10 +108,10 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/community/services/Community.srv.js',
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/explorer/services/Explorer.srv.js',
-                  'public/modules/explorer/controllers/Explorer.ctrl.js',
+                  'public/modules/community/services/community.srv.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/explorer/services/explorer.srv.js',
+                  'public/modules/explorer/controllers/explorer.ctrl.js',
                   'public/modules/explorer/filters/randomize.js',
                  ]
                 });
@@ -134,14 +134,14 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/explorer/controllers/ExplorerOverview.ctrl.js',
+                  'public/modules/explorer/controllers/explorer-overview.ctrl.js',
                   //Progress
-                  'public/modules/explorer/services/ExplorerTodo.srv.js',
-                  'public/modules/explorer/services/ExplorerTodos.srv.js',
-                  'public/modules/explorer/services/ExplorerTodoChecklist.srv.js',
-                  'public/modules/explorer/controllers/ExplorerTodos.ctrl.js',
-                  'public/modules/explorer/controllers/ExplorerProgress.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerTodo.ctrl.js', ]
+                  'public/modules/explorer/services/todo/explorer-todo.srv.js',
+                  'public/modules/explorer/services/todo/explorer-todos.srv.js',
+                  'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
+                  'public/modules/explorer/controllers/todo/explorer-todos.ctrl.js',
+                  'public/modules/explorer/controllers/todo/explorer-progress.ctrl.js',
+                  'public/modules/explorer/controllers/todo/explorer-todo-modal.ctrl.js', ]
                 });
                }]
              }
@@ -162,21 +162,21 @@ define(['angular'
                   //Todos
                   'public/modules/explorer/directives/todoEscape.js',
                   'public/modules/explorer/directives/todoFocus.js',
-                  'public/modules/explorer/services/ExplorerTodo.srv.js',
-                  'public/modules/explorer/services/ExplorerTodos.srv.js',
-                  'public/modules/explorer/services/ExplorerTodoChecklist.srv.js',
-                  'public/modules/explorer/controllers/ExplorerTodos.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerTodo.ctrl.js',
+                  'public/modules/explorer/services/todo/explorer-todo.srv.js',
+                  'public/modules/explorer/services/todo/explorer-todos.srv.js',
+                  'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
+                  'public/modules/explorer/controllers/todo/explorer-todos.ctrl.js',
+                  'public/modules/explorer/controllers/todo/explorer-todo-modal.ctrl.js',
                   //Notes,
-                  'public/modules/explorer/services/ExplorerNote.srv.js',
-                  'public/modules/explorer/services/ExplorerNotes.srv.js',
-                  'public/modules/explorer/controllers/ExplorerNotes.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerNote.ctrl.js',
+                  'public/modules/explorer/services/note/explorer-note.srv.js',
+                  'public/modules/explorer/services/note/explorer-notes.srv.js',
+                  'public/modules/explorer/controllers/note/explorer-notes.ctrl.js',
+                  'public/modules/explorer/controllers/note/explorer-note-modal.ctrl.js',
                   //Weblink
-                  'public/modules/explorer/services/ExplorerWeblink.srv.js',
-                  'public/modules/explorer/services/ExplorerWeblinks.srv.js',
-                  'public/modules/explorer/controllers/ExplorerWeblinks.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerWeblink.ctrl.js',
+                  'public/modules/explorer/services/weblink/explorer-weblink.srv.js',
+                  'public/modules/explorer/services/weblink/explorer-weblinks.srv.js',
+                  'public/modules/explorer/controllers/weblink/explorer-weblinks.ctrl.js',
+                  'public/modules/explorer/controllers/weblink/explorer-weblink-modal.ctrl.js',
                  ]
                 });
                }]
@@ -195,10 +195,10 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/explorer/services/ExplorerComment.srv.js',
-                  'public/modules/explorer/services/ExplorerComments.srv.js',
-                  'public/modules/explorer/controllers/ExplorerComments.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerComment.ctrl.js',
+                  'public/modules/explorer/services/comment/explorer-comment.srv.js',
+                  'public/modules/explorer/services/comment/explorer-comments.srv.js',
+                  'public/modules/explorer/controllers/comment/explorer-comments.ctrl.js',
+                  'public/modules/explorer/controllers/comment/explorer-comment-modal.ctrl.js',
                  ]
                 });
                }]
@@ -217,11 +217,11 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  'public/modules/explorer/services/ExplorerContribution.srv.js',
-                  'public/modules/explorer/services/ExplorerContributions.srv.js',
-                  'public/modules/explorer/controllers/ExplorerContributions.ctrl.js',
-                  'public/modules/explorer/controllers/modals/ExplorerContribution.ctrl.js',
-                  'public/modules/explorer/controllers/modals/SelectUsers.ctrl.js',
+                  'public/modules/explorer/services/contribution/explorer-contribution.srv.js',
+                  'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contributions.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contribution.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/create-explorer-contribution-modal.ctrl.js',
                  ]
                 });
                }]
