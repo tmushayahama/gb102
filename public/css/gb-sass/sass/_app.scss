@@ -193,12 +193,19 @@ input[type="checkbox"] {
   padding: 0px;
  }
  .gb-cover {
+  position: relative;
   padding: 10px;
   background-color: rgba($primary-color, 0.5);
   height: 200px;
   overflow: hidden;
   .gb-cover-img {
    width: 100%;
+  }
+
+  .gb-profile-pic {
+   @include position(absolute, 10px null null 10px);
+   height: 80px;
+   width: 80px;
   }
   .gb-icons-row {
    margin: 0;
@@ -308,6 +315,23 @@ input[type="checkbox"] {
    }
   }
  }
+
+ .gb-profile-row-3 {
+  @include position(absolute, null 0 0 0);
+  height: 40px;
+  .gb-row-content {
+   padding: 7px 0 0 10px;
+   @include position(absolute, 0 0 0 0);
+   background-color: rgba(#000, 0.4);
+
+   a {
+    text-align: left;
+    color: #FAFAFA;
+    font-size: 18px;
+   }
+  }
+ }
+
 
  .gb-heading-row {
   padding: 15px 5px 15px 10px;

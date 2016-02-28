@@ -29,6 +29,8 @@ requirejs.config({
   'checklist-model': '../../bower_components/checklist-model/checklist-model',
   'angular-svg-round-progress': '../../bower_components/angular-svg-round-progressbar/build/roundProgress',
   'ng-tags-input': '../../bower_components/ng-tags-input/ng-tags-input',
+  'material': '../../bower_components/bootstrap-material-design/dist/js/material',
+  'ripples': '../../bower_components/bootstrap-material-design/dist/js/ripples',
   'truncate-filters': '../modules/common/filters/truncate'
  },
  shim: {
@@ -58,6 +60,8 @@ requirejs.config({
   'angular-svg-round-progress': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
+  'material': {deps: ['jquery']},
+  'ripples': {deps: ['jquery']},
  },
  priority: [
   'jquery',

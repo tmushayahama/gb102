@@ -20,12 +20,12 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/profile/services/Profile.srv.js',
-                  'public/modules/search/services/Search.srv.js',
-                  'public/modules/profile/services/UserProfileSection.srv.js',
-                  'public/modules/profile/controllers/modals/ProfileMenuModal.ctrl.js',
-                  'public/modules/profile/controllers/Profile.ctrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/profile/services/profile.srv.js',
+                  'public/modules/search/services/search.srv.js',
+                  'public/modules/profile/services/user-profile-section.srv.js',
+                  'public/modules/profile/controllers/profile-menu-modal.ctrl.js',
+                  'public/modules/profile/controllers/profile.ctrl.js',
                   'public/modules/profile/filters/randomize.js',
                  ]
                 });
@@ -45,7 +45,7 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/controllers/ProfileOverview.ctrl.js',
+                  'public/modules/profile/controllers/profile-overview.ctrl.js',
                  ]
                 });
                }]
@@ -64,20 +64,84 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/controllers/ProfileAbout.ctrl.js',
+                  'public/modules/profile/controllers/profile-about.ctrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-          .state('profile.discover', {
-           abstract: true,
-           url: '/discover',
+          .state('profile.explorer', {
+           url: '/explorer',
            views: {
             "content": {
-             // controller: 'ProfileDiscoverCtrl as profileDiscoverCtrl',
-             templateUrl: 'public/modules/profile/views/tabs/profile/profile-discover.html',
+             controller: 'ExplorersAllCtrl as explorersTabCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
+             resolve: {
+              isSearch: function () {
+               return false;
+              },
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/controllers/explorers.ctrl.js',
+                  'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/explorers-all.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('profile.swipe', {
+           url: '/swipe',
+           views: {
+            "content": {
+             controller: 'SwipeHistoryCtrl as swipeHistoryCtrl',
+             templateUrl: 'public/modules/swipe/views/tabs/swipes/swipe-history.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/swipe/services/swipes.srv.js',
+                  'public/modules/swipe/controllers/swipes.ctrl.js',
+                  'public/modules/swipe/services/swipe.srv.js',
+                  'public/modules/swipe/controllers/swipe-history.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('profile.matcher', {
+           url: '/matcher',
+           views: {
+            "content": {
+             controller: 'QuestionAnswersCtrl as questionAnswersCtrl',
+             templateUrl: 'public/modules/questionnaire/views/tabs/questionnaires/questionnaire-history.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/questionnaire/services/questionnaires.srv.js',
+                  'public/modules/questionnaire/controllers/questionnaires.ctrl.js',
+                  'public/modules/questionnaire/services/questionnaire.srv.js',
+                  'public/modules/questionnaire/controllers/question-answers.ctrl.js',
+                 ]
+                });
+               }]
+             }
             }
            }})
           .state('profile.discover.questions', {
@@ -92,8 +156,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/services/Questionnaire.srv.js',
-                  'public/modules/profile/controllers/ProfileQuestionAnswers.ctrl.js',
+                  'public/modules/questionnaire/services/questionnaire.srv.js',
+                  'public/modules/profile/controllers/profile-question-answers.ctrl.js',
                  ]
                 });
                }]
@@ -112,8 +176,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/services/Questionnaire.srv.js',
-                  'public/modules/profile/controllers/ProfileQuestionnaire.ctrl.js',
+                  'public/modules/questionnaire/services/questionnaire.srv.js',
+                  'public/modules/profile/controllers/profile-questionnaire.ctrl.js',
                  ]
                 });
                }]
@@ -132,8 +196,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/swipe/services/Swipe.srv.js',
-                  'public/modules/profile/controllers/ProfileSwipeAnswers.ctrl.js',
+                  'public/modules/swipe/services/swipe.srv.js',
+                  'public/modules/profile/controllers/profile-swipe-answers.ctrl.js',
                  ]
                 });
                }]
@@ -153,7 +217,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/swipe/services/Swipe.srv.js',
-                  'public/modules/profile/controllers/ProfileSwipe.ctrl.js',
+                  'public/modules/profile/controllers/profile-swipe.ctrl.js',
                  ]
                 });
                }]

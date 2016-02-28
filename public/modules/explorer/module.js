@@ -31,7 +31,6 @@ define(['angular'
              }
             }
            }})
-
           .state('apps.explorers.all', {
            url: '/all',
            views: {

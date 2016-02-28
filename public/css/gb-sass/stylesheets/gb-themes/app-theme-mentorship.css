@@ -2716,6 +2716,7 @@ input[type="checkbox"] {
   padding: 0px;
 }
 #gb-middle-nav .gb-cover {
+  position: relative;
   padding: 10px;
   background-color: rgba(7, 117, 104, 0.5);
   height: 200px;
@@ -2723,6 +2724,13 @@ input[type="checkbox"] {
 }
 #gb-middle-nav .gb-cover .gb-cover-img {
   width: 100%;
+}
+#gb-middle-nav .gb-cover .gb-profile-pic {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 80px;
+  width: 80px;
 }
 #gb-middle-nav .gb-cover .gb-icons-row {
   margin: 0;
@@ -2830,6 +2838,27 @@ input[type="checkbox"] {
   color: #EEE;
 }
 #gb-middle-nav .gb-profile-row-2 .gb-row-content a {
+  text-align: left;
+  color: #FAFAFA;
+  font-size: 18px;
+}
+#gb-middle-nav .gb-profile-row-3 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+}
+#gb-middle-nav .gb-profile-row-3 .gb-row-content {
+  padding: 7px 0 0 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#gb-middle-nav .gb-profile-row-3 .gb-row-content a {
   text-align: left;
   color: #FAFAFA;
   font-size: 18px;

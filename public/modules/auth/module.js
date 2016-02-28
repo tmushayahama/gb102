@@ -13,7 +13,7 @@ define(['angular',
            views: {
             "root": {
              controller: 'AuthCtrl as authCtrl',
-             templateUrl: 'public/modules/auth/views/authView.html',
+             templateUrl: 'public/modules/auth/views/auth.html',
             }
            },
            resolve: {
@@ -22,9 +22,9 @@ define(['angular',
                name: 'app.auth',
                serie: true,
                files: [
-                'public/modules/app/services/Constants.srv.js',
-                'public/modules/auth/controllers/Auth.ctrl.js',
-                'public/modules/auth/controllers/modals/LoginModal.ctrl.js'
+                'public/modules/app/services/constants.srv.js',
+                'public/modules/auth/controllers/auth.ctrl.js',
+                'public/modules/auth/controllers/login-modal.ctrl.js'
                ]
               });
              }]

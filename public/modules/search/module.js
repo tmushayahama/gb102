@@ -21,8 +21,8 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explore/services/explores.srv.js',
-                  'public/modules/explore/controllers/explores.ctrl.js',
+                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/search/services/search.srv.js',
                   'public/modules/search/controllers/search.ctrl.js',
                  ]
@@ -36,8 +36,8 @@ define(['angular'
            url: '/all',
            views: {
             "app-tab": {
-             controller: 'ExploresAllCtrl as exploresTabCtrl',
-             templateUrl: 'public/modules/explore/views/tabs/explores/explorer-list.html',
+             controller: 'ExplorersAllCtrl as explorersTabCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
              resolve: {
               isSearch: function () {
                return true;
@@ -47,7 +47,7 @@ define(['angular'
                  name: 'app.search',
                  serie: true,
                  files: [
-                  'public/modules/explore/controllers/explores-all.ctrl.js',
+                  'public/modules/explorer/controllers/explorers-all.ctrl.js',
                  ]
                 });
                }]
@@ -58,8 +58,8 @@ define(['angular'
            url: '/all/{app_name}',
            views: {
             "app-tab": {
-             controller: 'ExploresAppCtrl as exploresTabCtrl',
-             templateUrl: 'public/modules/explore/views/tabs/explores/explorer-list.html',
+             controller: 'ExplorersAppCtrl as explorersTabCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
              resolve: {
               isSearch: function () {
                return true;
@@ -69,7 +69,7 @@ define(['angular'
                  name: 'app.search',
                  serie: true,
                  files: [
-                  'public/modules/explore/controllers/explores-app.ctrl.js',
+                  'public/modules/explorer/controllers/explorers-app.ctrl.js',
                  ]
                 });
                }]
