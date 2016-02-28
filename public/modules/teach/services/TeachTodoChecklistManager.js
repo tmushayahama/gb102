@@ -1,9 +1,9 @@
-var teachTodoChecklistManager = function ($http, $q) {
+var teachTodoChecklistSrv = function ($http, $q) {
 
- var TeachTodoChecklistManager = function () {
+ var TeachTodoChecklistSrv = function () {
   this.teachTodoChecklist = [];
  };
- TeachTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachTodoChecklistManager.prototype.getTeachTodoChecklist = function (todoId) {
+ TeachTodoChecklistSrv.prototype.getTeachTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTodoChecklist = [];
@@ -35,7 +35,7 @@ var teachTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodoChecklistManager.prototype.getTeachTodoChecklistItem = function (teachId, todoId) {
+ TeachTodoChecklistSrv.prototype.getTeachTodoChecklistItem = function (teachId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var teachTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodoChecklistManager.prototype.createTeachTodoChecklistItem = function (teachTodoChecklistData) {
+ TeachTodoChecklistSrv.prototype.createTeachTodoChecklistItem = function (teachTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var teachTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodoChecklistManager.prototype.editTeachTodoChecklistItem = function (teachTodoData) {
+ TeachTodoChecklistSrv.prototype.editTeachTodoChecklistItem = function (teachTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var teachTodoChecklistManager = function ($http, $q) {
  };
 
 
- return TeachTodoChecklistManager;
+ return TeachTodoChecklistSrv;
 };
 
-teachTodoChecklistManager.$inject = ['$http', '$q'];
+teachTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachTodoChecklistManager', teachTodoChecklistManager);
+angular.module('app.teach').service('TeachTodoChecklistSrv', teachTodoChecklistSrv);

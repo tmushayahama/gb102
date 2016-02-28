@@ -1,6 +1,6 @@
 var collaborationTodoCtrl = function (
-        CollaborationTodoManager,
-        CollaborationTodoChecklistManager,
+        CollaborationTodoSrv,
+        CollaborationTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var collaborationTodoCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationTodoData.collaboration_id;
  vm.collaborationTodoId = collaborationTodoData.id;
- vm.collaborationTodoManager = new CollaborationTodoManager();
- vm.collaborationTodoChecklistManager = new CollaborationTodoChecklistManager();
+ vm.collaborationTodoSrv = new CollaborationTodoSrv();
+ vm.collaborationTodoChecklistSrv = new CollaborationTodoChecklistSrv();
 
 
  vm.todoId = collaborationTodoData.todo_id;
@@ -41,14 +41,14 @@ var collaborationTodoCtrl = function (
  // vm.newCollaborationTodoData = vm.defaultCollaborationTodoData;
 
  vm.getCollaborationTodo = function (collaborationId, todoId) {
-  vm.collaborationTodoManager.getCollaborationTodo(collaborationId, todoId).then(function (response) {
+  vm.collaborationTodoSrv.getCollaborationTodo(collaborationId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationTodo = function (data) {
-  vm.collaborationTodoManager.editCollaborationTodo(data).then(function (response) {
+  vm.collaborationTodoSrv.editCollaborationTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var collaborationTodoCtrl = function (
  }
 
  vm.getCollaborationTodoChecklist = function (todoId) {
-  vm.collaborationTodoChecklistManager.getCollaborationTodoChecklist(todoId).then(function (response) {
+  vm.collaborationTodoChecklistSrv.getCollaborationTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var collaborationTodoCtrl = function (
  };
 
  vm.createCollaborationTodoChecklistItem = function (data) {
-  vm.collaborationTodoChecklistManager.createCollaborationTodoChecklistItem(data).then(function (response) {
+  vm.collaborationTodoChecklistSrv.createCollaborationTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newCollaborationTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var collaborationTodoCtrl = function (
  };
 
  vm.editCollaborationTodoChecklistItem = function (data) {
-  vm.collaborationTodoChecklistManager.editCollaborationTodoChecklistItem(data).then(function (response) {
+  vm.collaborationTodoChecklistSrv.editCollaborationTodoChecklistItem(data).then(function (response) {
    vm.newCollaborationTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var collaborationTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.collaborationTodoChecklistManager.collaborationTodoChecklist;
+  return vm.collaborationTodoChecklistSrv.collaborationTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.collaborationTodoChecklistManager.collaborationTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationTodoChecklistSrv.collaborationTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var collaborationTodoCtrl = function (
 };
 
 collaborationTodoCtrl.$inject = [
- 'CollaborationTodoManager',
- 'CollaborationTodoChecklistManager',
+ 'CollaborationTodoSrv',
+ 'CollaborationTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

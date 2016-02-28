@@ -7,7 +7,7 @@ use JWTAuth;
 //use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Explore\Explore;
+use App\Models\Explorer\Explorer;
 use App\Models\AppType\AppType;
 use App\Models\Level\Level;
 use App\Models\Icon\Icon;
@@ -18,7 +18,7 @@ class SearchController extends Controller {
 
  function simpleSearch() {
   $keyword = Request::get("query");
-  $results = Explore::SearchByKeyword($keyword)
+  $results = Explorer::SearchByKeyword($keyword)
           ->take(100)
           ->with('app_type')
           ->with('creator')
@@ -30,7 +30,7 @@ class SearchController extends Controller {
 
  function suggestionSearch() {
   $keyword = Request::get("query");
-  $results = Explore::SearchByKeyword($keyword)
+  $results = Explorer::SearchByKeyword($keyword)
           ->take(10)
           ->with('app_type')
           ->with('creator')

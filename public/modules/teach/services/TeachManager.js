@@ -1,9 +1,9 @@
-var teachManager = function ($http, $q) {
+var teachSrv = function ($http, $q) {
 
- var TeachManager = function () {
+ var TeachSrv = function () {
   this.teach = [];
  };
- TeachManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachManager.prototype.getTeach = function (teachId) {
+ TeachSrv.prototype.getTeach = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId).success(function (data) {
@@ -34,11 +34,11 @@ var teachManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachManager.prototype.getSubTeachs = function (parentExploreId) {
+ TeachSrv.prototype.getSubTeachs = function (parentexplorerId) {
   var self = this;
   var deferred = $q.defer();
   //self.teachs = [];
-  $http.get('/api/teachs/subteachs/' + parentExploreId).success(function (data) {
+  $http.get('/api/teachs/subteachs/' + parentexplorerId).success(function (data) {
    //self.teachs = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -47,7 +47,7 @@ var teachManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachManager.prototype.editTeach = function (teachData) {
+ TeachSrv.prototype.editTeach = function (teachData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,9 +62,9 @@ var teachManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachManager;
+ return TeachSrv;
 };
 
-teachManager.$inject = ['$http', '$q'];
+teachSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachManager', teachManager);
+angular.module('app.teach').service('TeachSrv', teachSrv);

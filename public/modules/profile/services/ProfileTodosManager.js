@@ -1,9 +1,9 @@
-var profileTodosManager = function ($http, $q) {
+var profileTodosSrv = function ($http, $q) {
 
- var ProfileTodosManager = function () {
+ var ProfileTodosSrv = function () {
   this.profileTodos = [];
  };
- ProfileTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileTodosManager.prototype.getProfileTodos = function (profileId) {
+ ProfileTodosSrv.prototype.getProfileTodos = function (profileId) {
   var self = this;
   var deferred = $q.defer();
   self.profileTodos = [];
@@ -35,7 +35,7 @@ var profileTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodosManager.prototype.getProfileTodo = function (profileId, todoId) {
+ ProfileTodosSrv.prototype.getProfileTodo = function (profileId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.profileTodos = [];
@@ -48,7 +48,7 @@ var profileTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodosManager.prototype.createProfileTodo = function (profileTodoData) {
+ ProfileTodosSrv.prototype.createProfileTodo = function (profileTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var profileTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodosManager.prototype.editProfileTodo = function (profileTodoData) {
+ ProfileTodosSrv.prototype.editProfileTodo = function (profileTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var profileTodosManager = function ($http, $q) {
  };
 
 
- return ProfileTodosManager;
+ return ProfileTodosSrv;
 };
 
-profileTodosManager.$inject = ['$http', '$q'];
+profileTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileTodosManager', profileTodosManager);
+angular.module('app.profile').service('ProfileTodosSrv', profileTodosSrv);

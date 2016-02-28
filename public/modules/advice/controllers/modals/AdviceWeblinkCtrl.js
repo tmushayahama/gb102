@@ -1,5 +1,5 @@
 var adviceWeblinkCtrl = function (
-        AdviceWeblinkManager,
+        AdviceWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var adviceWeblinkCtrl = function (
  var vm = this;
  vm.adviceId = adviceWeblinkData.advice_id;
  vm.adviceWeblinkId = adviceWeblinkData.id;
- vm.adviceWeblinkManager = new AdviceWeblinkManager();
+ vm.adviceWeblinkSrv = new AdviceWeblinkSrv();
 
 
  vm.weblinkId = adviceWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var adviceWeblinkCtrl = function (
  // vm.newAdviceWeblinkData = vm.defaultAdviceWeblinkData;
 
  vm.getAdviceWeblink = function (adviceId, weblinkId) {
-  vm.adviceWeblinkManager.getAdviceWeblink(adviceId, weblinkId).then(function (response) {
+  vm.adviceWeblinkSrv.getAdviceWeblink(adviceId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceWeblink = function (data) {
-  vm.adviceWeblinkManager.editAdviceWeblink(data).then(function (response) {
+  vm.adviceWeblinkSrv.editAdviceWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var adviceWeblinkCtrl = function (
 
 
 adviceWeblinkCtrl.$inject = [
- 'AdviceWeblinkManager',
+ 'AdviceWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

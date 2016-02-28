@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-todo-body row" ng-show="communityTodosCtrl.communityTodosManager.communityTodos.length" ng-cloak>
+  <div class="gb-todo-body row" ng-show="communityTodosCtrl.communityTodosSrv.communityTodos.length" ng-cloak>
    <ul id="todo-list">
-    <li ng-repeat="communityTodo in communityTodosCtrl.communityTodosManager.communityTodos| filter:statusFilter track by $index" ng-class="{completed: communityTodo.completed, editing: communityTodo == communityTodosCtrl.editedTodo}">
+    <li ng-repeat="communityTodo in communityTodosCtrl.communityTodosSrv.communityTodos| filter:statusFilter track by $index" ng-class="{completed: communityTodo.completed, editing: communityTodo == communityTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="communityTodo.completed">
       <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-10'>

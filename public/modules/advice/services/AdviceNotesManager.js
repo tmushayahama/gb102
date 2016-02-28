@@ -1,9 +1,9 @@
-var adviceNotesManager = function ($http, $q) {
+var adviceNotesSrv = function ($http, $q) {
 
- var AdviceNotesManager = function () {
+ var AdviceNotesSrv = function () {
   this.adviceNotes = [];
  };
- AdviceNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var adviceNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceNotesManager.prototype.getAdviceNotes = function (adviceId) {
+ AdviceNotesSrv.prototype.getAdviceNotes = function (adviceId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceNotes = [];
@@ -35,7 +35,7 @@ var adviceNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceNotesManager.prototype.getAdviceNote = function (adviceId, noteId) {
+ AdviceNotesSrv.prototype.getAdviceNote = function (adviceId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceNotes = [];
@@ -48,7 +48,7 @@ var adviceNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceNotesManager.prototype.createAdviceNote = function (adviceNoteData) {
+ AdviceNotesSrv.prototype.createAdviceNote = function (adviceNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var adviceNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceNotesManager.prototype.editAdviceNote = function (adviceNoteData) {
+ AdviceNotesSrv.prototype.editAdviceNote = function (adviceNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var adviceNotesManager = function ($http, $q) {
  };
 
 
- return AdviceNotesManager;
+ return AdviceNotesSrv;
 };
 
-adviceNotesManager.$inject = ['$http', '$q'];
+adviceNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceNotesManager', adviceNotesManager);
+angular.module('app.advice').service('AdviceNotesSrv', adviceNotesSrv);

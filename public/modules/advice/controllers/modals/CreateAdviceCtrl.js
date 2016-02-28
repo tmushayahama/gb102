@@ -1,5 +1,5 @@
 var createAdviceCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -19,10 +19,10 @@ var createAdviceCtrl = function (
  vm.selectedAdviceType;
  vm.wizardCurrentStep = "Choose Advice Type";
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getLevel(appId).then(function (data) {
    vm.adviceLevels = data;
   });
  };
@@ -51,7 +51,7 @@ var createAdviceCtrl = function (
 };
 
 createAdviceCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

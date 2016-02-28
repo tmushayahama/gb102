@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/advice/services/AdvicesManager.js',
-                  'public/modules/advice/controllers/AdvicesCtrl.js',
-                  'public/modules/advice/controllers/modals/CreateAdviceCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/advice/services/Advices.srv.js',
+                  'public/modules/advice/controllers/Advices.ctrl.js',
+                  'public/modules/advice/controllers/modals/CreateAdvice.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/controllers/AdvicesAllCtrl.js',
+                  'public/modules/advice/controllers/AdvicesAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/controllers/AdvicesAppCtrl.js',
+                  'public/modules/advice/controllers/AdvicesApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/controllers/AdvicesMineCtrl.js',
+                  'public/modules/advice/controllers/AdvicesMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/advice/services/AdviceManager.js',
-                  'public/modules/advice/controllers/AdviceCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/advice/services/Advice.srv.js',
+                  'public/modules/advice/controllers/Advice.ctrl.js',
                   'public/modules/advice/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/controllers/AdviceOverviewCtrl.js',
+                  'public/modules/advice/controllers/AdviceOverview.ctrl.js',
                   //Progress
-                  'public/modules/advice/services/AdviceProgressManager.js',
-                  'public/modules/advice/services/AdviceProgressManager.js',
-                  'public/modules/advice/controllers/AdviceProgressCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceProgressCtrl.js',
+                  'public/modules/advice/services/AdviceProgress.srv.js',
+                  'public/modules/advice/services/AdviceProgress.srv.js',
+                  'public/modules/advice/controllers/AdviceProgress.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceProgress.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/controllers/AdviceManageCtrl.js',
+                  'public/modules/advice/controllers/AdviceManage.ctrl.js',
                   //Progress
-                  'public/modules/advice/services/AdviceProgressManager.js',
-                  'public/modules/advice/services/AdviceProgressManager.js',
-                  'public/modules/advice/controllers/AdviceProgressCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceProgressCtrl.js',
+                  'public/modules/advice/services/AdviceProgress.srv.js',
+                  'public/modules/advice/services/AdviceProgress.srv.js',
+                  'public/modules/advice/controllers/AdviceProgress.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceProgress.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/advice/directives/todoEscape.js',
                   'public/modules/advice/directives/todoFocus.js',
-                  'public/modules/advice/services/AdviceTodoManager.js',
-                  'public/modules/advice/services/AdviceTodosManager.js',
-                  'public/modules/advice/services/AdviceTodoChecklistManager.js',
-                  'public/modules/advice/controllers/AdviceTodosCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceTodoCtrl.js',
+                  'public/modules/advice/services/AdviceTodo.srv.js',
+                  'public/modules/advice/services/AdviceTodos.srv.js',
+                  'public/modules/advice/services/AdviceTodoChecklist.srv.js',
+                  'public/modules/advice/controllers/AdviceTodos.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceTodo.ctrl.js',
                   //Notes,
-                  'public/modules/advice/services/AdviceNoteManager.js',
-                  'public/modules/advice/services/AdviceNotesManager.js',
-                  'public/modules/advice/controllers/AdviceNotesCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceNoteCtrl.js',
+                  'public/modules/advice/services/AdviceNote.srv.js',
+                  'public/modules/advice/services/AdviceNotes.srv.js',
+                  'public/modules/advice/controllers/AdviceNotes.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceNote.ctrl.js',
                   //Weblink
-                  'public/modules/advice/services/AdviceWeblinkManager.js',
-                  'public/modules/advice/services/AdviceWeblinksManager.js',
-                  'public/modules/advice/controllers/AdviceWeblinksCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceWeblinkCtrl.js',
+                  'public/modules/advice/services/AdviceWeblink.srv.js',
+                  'public/modules/advice/services/AdviceWeblinks.srv.js',
+                  'public/modules/advice/controllers/AdviceWeblinks.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.advice',
                  serie: true,
                  files: [
-                  'public/modules/advice/services/AdviceCommentManager.js',
-                  'public/modules/advice/services/AdviceCommentsManager.js',
-                  'public/modules/advice/controllers/AdviceCommentsCtrl.js',
-                  'public/modules/advice/controllers/modals/AdviceCommentCtrl.js',
+                  'public/modules/advice/services/AdviceComment.srv.js',
+                  'public/modules/advice/services/AdviceComments.srv.js',
+                  'public/modules/advice/controllers/AdviceComments.ctrl.js',
+                  'public/modules/advice/controllers/modals/AdviceComment.ctrl.js',
                  ]
                 });
                }]

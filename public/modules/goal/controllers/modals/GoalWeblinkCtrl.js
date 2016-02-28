@@ -1,5 +1,5 @@
 var goalWeblinkCtrl = function (
-        GoalWeblinkManager,
+        GoalWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var goalWeblinkCtrl = function (
  var vm = this;
  vm.goalId = goalWeblinkData.goal_id;
  vm.goalWeblinkId = goalWeblinkData.id;
- vm.goalWeblinkManager = new GoalWeblinkManager();
+ vm.goalWeblinkSrv = new GoalWeblinkSrv();
 
 
  vm.weblinkId = goalWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var goalWeblinkCtrl = function (
  // vm.newGoalWeblinkData = vm.defaultGoalWeblinkData;
 
  vm.getGoalWeblink = function (goalId, weblinkId) {
-  vm.goalWeblinkManager.getGoalWeblink(goalId, weblinkId).then(function (response) {
+  vm.goalWeblinkSrv.getGoalWeblink(goalId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalWeblink = function (data) {
-  vm.goalWeblinkManager.editGoalWeblink(data).then(function (response) {
+  vm.goalWeblinkSrv.editGoalWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var goalWeblinkCtrl = function (
 
 
 goalWeblinkCtrl.$inject = [
- 'GoalWeblinkManager',
+ 'GoalWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

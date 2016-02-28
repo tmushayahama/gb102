@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/collaboration/services/CollaborationsManager.js',
-                  'public/modules/collaboration/controllers/CollaborationsCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CreateCollaborationCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/collaboration/services/Collaborations.srv.js',
+                  'public/modules/collaboration/controllers/Collaborations.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CreateCollaboration.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/controllers/CollaborationsAllCtrl.js',
+                  'public/modules/collaboration/controllers/CollaborationsAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/controllers/CollaborationsAppCtrl.js',
+                  'public/modules/collaboration/controllers/CollaborationsApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/controllers/CollaborationsMineCtrl.js',
+                  'public/modules/collaboration/controllers/CollaborationsMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/collaboration/services/CollaborationManager.js',
-                  'public/modules/collaboration/controllers/CollaborationCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/collaboration/services/Collaboration.srv.js',
+                  'public/modules/collaboration/controllers/Collaboration.ctrl.js',
                   'public/modules/collaboration/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/controllers/CollaborationOverviewCtrl.js',
+                  'public/modules/collaboration/controllers/CollaborationOverview.ctrl.js',
                   //Progress
-                  'public/modules/collaboration/services/CollaborationProgressManager.js',
-                  'public/modules/collaboration/services/CollaborationProgressManager.js',
-                  'public/modules/collaboration/controllers/CollaborationProgressCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationProgressCtrl.js',
+                  'public/modules/collaboration/services/CollaborationProgress.srv.js',
+                  'public/modules/collaboration/services/CollaborationProgress.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationProgress.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationProgress.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/controllers/CollaborationManageCtrl.js',
+                  'public/modules/collaboration/controllers/CollaborationManage.ctrl.js',
                   //Progress
-                  'public/modules/collaboration/services/CollaborationProgressManager.js',
-                  'public/modules/collaboration/services/CollaborationProgressManager.js',
-                  'public/modules/collaboration/controllers/CollaborationProgressCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationProgressCtrl.js',
+                  'public/modules/collaboration/services/CollaborationProgress.srv.js',
+                  'public/modules/collaboration/services/CollaborationProgress.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationProgress.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationProgress.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/collaboration/directives/todoEscape.js',
                   'public/modules/collaboration/directives/todoFocus.js',
-                  'public/modules/collaboration/services/CollaborationTodoManager.js',
-                  'public/modules/collaboration/services/CollaborationTodosManager.js',
-                  'public/modules/collaboration/services/CollaborationTodoChecklistManager.js',
-                  'public/modules/collaboration/controllers/CollaborationTodosCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationTodoCtrl.js',
+                  'public/modules/collaboration/services/CollaborationTodo.srv.js',
+                  'public/modules/collaboration/services/CollaborationTodos.srv.js',
+                  'public/modules/collaboration/services/CollaborationTodoChecklist.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationTodos.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationTodo.ctrl.js',
                   //Notes,
-                  'public/modules/collaboration/services/CollaborationNoteManager.js',
-                  'public/modules/collaboration/services/CollaborationNotesManager.js',
-                  'public/modules/collaboration/controllers/CollaborationNotesCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationNoteCtrl.js',
+                  'public/modules/collaboration/services/CollaborationNote.srv.js',
+                  'public/modules/collaboration/services/CollaborationNotes.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationNotes.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationNote.ctrl.js',
                   //Weblink
-                  'public/modules/collaboration/services/CollaborationWeblinkManager.js',
-                  'public/modules/collaboration/services/CollaborationWeblinksManager.js',
-                  'public/modules/collaboration/controllers/CollaborationWeblinksCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationWeblinkCtrl.js',
+                  'public/modules/collaboration/services/CollaborationWeblink.srv.js',
+                  'public/modules/collaboration/services/CollaborationWeblinks.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationWeblinks.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.collaboration',
                  serie: true,
                  files: [
-                  'public/modules/collaboration/services/CollaborationCommentManager.js',
-                  'public/modules/collaboration/services/CollaborationCommentsManager.js',
-                  'public/modules/collaboration/controllers/CollaborationCommentsCtrl.js',
-                  'public/modules/collaboration/controllers/modals/CollaborationCommentCtrl.js',
+                  'public/modules/collaboration/services/CollaborationComment.srv.js',
+                  'public/modules/collaboration/services/CollaborationComments.srv.js',
+                  'public/modules/collaboration/controllers/CollaborationComments.ctrl.js',
+                  'public/modules/collaboration/controllers/modals/CollaborationComment.ctrl.js',
                  ]
                 });
                }]

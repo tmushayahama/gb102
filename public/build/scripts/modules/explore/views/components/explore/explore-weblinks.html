@@ -1,4 +1,4 @@
-<section class="gb-section-row-2 gb-weblinks" ng-controller="ExploreWeblinksCtrl as exploreWeblinksCtrl">
+<section class="gb-section-row-2 gb-weblinks" ng-controller="ExplorerWeblinksCtrl as explorerWeblinksCtrl">
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
@@ -13,16 +13,16 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
-   <div ng-show="!exploreWeblinksCtrl.weblinkFormDisplay" class="gb-form-placeholder">
+   <div ng-show="!explorerWeblinksCtrl.weblinkFormDisplay" class="gb-form-placeholder">
     <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-img" alt="">
-    <input class="" ng-click="exploreWeblinksCtrl.showWeblinkForm()" placeholder="Add links" readonly>
+    <input class="" ng-click="explorerWeblinksCtrl.showWeblinkForm()" placeholder="Add links" readonly>
    </div>
-   <form class="gb-form-1" ng-show="exploreWeblinksCtrl.weblinkFormDisplay" name="form" novalidate>
+   <form class="gb-form-1" ng-show="explorerWeblinksCtrl.weblinkFormDisplay" name="form" novalidate>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Weblink:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explore Weblink" ng-model="exploreWeblinksCtrl.newExploreWeblinkData.title"
+                placeholder="Explorer Weblink" ng-model="explorerWeblinksCtrl.newExplorerWeblinkData.title"
                 name="title" required="" rows="2">
       </textarea>
       <div ng-show="form.$submitted || form.title.$touched">
@@ -34,7 +34,7 @@
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explore Weblink Description (optional)" ng-model="exploreWeblinksCtrl.newExploreWeblinkData.description"
+                placeholder="Explorer Weblink Description (optional)" ng-model="explorerWeblinksCtrl.newExplorerWeblinkData.description"
                 name="description" required="" rows="4">
       </textarea>
      </div>
@@ -44,25 +44,25 @@
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div class="radio gb-radio-row">
        <label class="">
-        <input type="radio" ng-model="exploreWeblinksCtrl.newExploreWeblinkData.privacy" value="0" />
+        <input type="radio" ng-model="explorerWeblinksCtrl.newExplorerWeblinkData.privacy" value="0" />
         <strong>public</strong> All people can see this weblink
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="exploreWeblinksCtrl.newExploreWeblinkData.privacy" value="1" />
+        <input type="radio" ng-model="explorerWeblinksCtrl.newExplorerWeblinkData.privacy" value="1" />
         <strong>private</strong> only you can see this weblink
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="exploreWeblinksCtrl.newExploreWeblinkData.privacy" value="2" />
+        <input type="radio" ng-model="explorerWeblinksCtrl.newExplorerWeblinkData.privacy" value="2" />
         <strong>custom</strong> choose who to see this weblink
        </label>
       </div>
      </div>
     </div>
-    <div class="form-group row" ng-class="{'gb-disabled-2': exploreWeblinksCtrl.newExploreWeblinkData.privacy != 2}">
+    <div class="form-group row" ng-class="{'gb-disabled-2': explorerWeblinksCtrl.newExplorerWeblinkData.privacy != 2}">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <input type="text" class="form-control" placeholder="Select members"/>
@@ -70,26 +70,26 @@
     </div>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-      <a class="btn btn-link" ng-click="exploreWeblinksCtrl.showAdvanced()">
+      <a class="btn btn-link" ng-click="explorerWeblinksCtrl.showAdvanced()">
        Show Advanced
       </a>
      </label>
     </div>
     <div class="gb-form-footer row">
      <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="exploreWeblinksCtrl.cancelExploreWeblink(form)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerWeblinksCtrl.cancelExplorerWeblink(form)">
        Cancel
       </a>
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="exploreWeblinksCtrl.createExploreWeblink(exploreWeblinksCtrl.newExploreWeblinkData)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerWeblinksCtrl.createExplorerWeblink(explorerWeblinksCtrl.newExplorerWeblinkData)">
        Add Weblink
       </a>
      </div>
     </div>
    </form>
   </div>
-  <div class="gb-weblink-body row" ng-show="exploreWeblinksCtrl.exploreWeblinksManager.exploreWeblinks.length" ng-cloak>
+  <div class="gb-weblink-body row" ng-show="explorerWeblinksCtrl.explorerWeblinksManager.explorerWeblinks.length" ng-cloak>
    <ul id="weblink-list">
-    <li ng-repeat="exploreWeblink in exploreWeblinksCtrl.exploreWeblinksManager.exploreWeblinks| filter:statusFilter track by $index" ng-class="{completed: exploreWeblink.completed, editing: exploreWeblink == exploreWeblinksCtrl.editedWeblink}">
+    <li ng-repeat="explorerWeblink in explorerWeblinksCtrl.explorerWeblinksManager.explorerWeblinks| filter:statusFilter track by $index" ng-class="{completed: explorerWeblink.completed, editing: explorerWeblink == explorerWeblinksCtrl.editedWeblink}">
      <div class="gb-weblink-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-weblink-heading">
        <p class="gb-title">WEBLINK</p>
@@ -99,7 +99,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
          <li>
-          <a ng-click="exploreWeblinksCtrl.openExploreWeblink(exploreWeblink)">
+          <a ng-click="explorerWeblinksCtrl.openExplorerWeblink(explorerWeblink)">
            Open
           </a>
          </li>
@@ -107,28 +107,28 @@
        </div>
       </div>
       <div class="gb-description">
-       <a href="{{exploreWeblink.weblink.link}}" class="gb-ellipsis" target="_blank">
-        {{exploreWeblink.weblink.link}}
+       <a href="{{explorerWeblink.weblink.link}}" class="gb-ellipsis" target="_blank">
+        {{explorerWeblink.weblink.link}}
        </a><br>
-       <a ng-click="exploreWeblinksCtrl.openExploreWeblink(exploreWeblink)" class="">
-        {{exploreWeblink.weblink.title}}
+       <a ng-click="explorerWeblinksCtrl.openExplorerWeblink(explorerWeblink)" class="">
+        {{explorerWeblink.weblink.title}}
        </a>
-       {{exploreWeblink.weblink.description}}
+       {{explorerWeblink.weblink.description}}
       </div>
       <div class="gb-footer">
-       <img src="public/build/img/profile_pic/{{exploreWeblink.weblink.creator.avatar_url}}" class='gb-profile-pic' alt="">
+       <img src="public/build/img/profile_pic/{{explorerWeblink.weblink.creator.avatar_url}}" class='gb-profile-pic' alt="">
        <div class="gb-footer-content">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-         <h5 class="gb-ellipsis"><a>{{exploreWeblink.weblink.creator.firstname + ' ' + exploreWeblink.weblink.creator.lastname}}</a></h5>
-         <p>{{exploreWeblink.weblink.created_at| date:'MM/dd/yyyy'}}</p>
+         <h5 class="gb-ellipsis"><a>{{explorerWeblink.weblink.creator.firstname + ' ' + explorerWeblink.weblink.creator.lastname}}</a></h5>
+         <p>{{explorerWeblink.weblink.created_at| date:'MM/dd/yyyy'}}</p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
          <div class="pull-right btn-group">
-          <a href="{{exploreWeblink.weblink.link}}" target="_blank"
+          <a href="{{explorerWeblink.weblink.link}}" target="_blank"
              class="btn gb-btn-xs gb-ghost-btn-2">
            Open Link
           </a>
-          <a ng-click="exploreWeblinksCtrl.openExploreWeblink(exploreWeblink)" class="btn gb-btn-xs gb-ghost-btn-2">
+          <a ng-click="explorerWeblinksCtrl.openExplorerWeblink(explorerWeblink)" class="btn gb-btn-xs gb-ghost-btn-2">
            Open
           </a>
          </div>
@@ -139,8 +139,8 @@
     </li>
    </ul>
   </div>
-  <script type="text/ng-template" id="explore-weblink-modal.html">
-   <div class="gb-weblink-page" ng-include="'public/build/scripts/modules/explore/views/modals/explore-weblink.html'"></div>
+  <script type="text/ng-template" id="explorer-weblink-modal.html">
+   <div class="gb-weblink-page" ng-include="'public/build/scripts/modules/explorer/views/modals/explorer-weblink.html'"></div>
   </script>
  </div>
 </section>

@@ -1,8 +1,8 @@
 
 var skillCtrl = function (
         _,
-        ConstantsManager,
-        SkillManager,
+        ConstantsSrv,
+        SkillSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var skillCtrl = function (
 
  vm.skillId = $stateParams.skillId;
 
- vm.skillManager = new SkillManager();
- vm.constantsManager = new ConstantsManager();
+ vm.skillSrv = new SkillSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.skillFormDisplay = false;
 
  vm.getSkill = function (id, data) {
-  vm.skillManager.getSkill(id, data).success(function (response) {
+  vm.skillSrv.getSkill(id, data).success(function (response) {
    vm.skill = response;
   }).error(function (response) {
    console.log(response);
@@ -75,20 +75,20 @@ var skillCtrl = function (
  };
 
  vm.createSkill = function (data) {
-  vm.skillManager.createSkill(data).then(function (response) {
+  vm.skillSrv.createSkill(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newSkillData = angular.copy(vm.defaultSkillData);
-   vm.skillCopy = angular.copy(vm.skillManager.skill);
+   vm.skillCopy = angular.copy(vm.skillSrv.skill);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editSkill = function (data) {
-  vm.skillManager.editSkill(data).then(function (response) {
+  vm.skillSrv.editSkill(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newSkillData = angular.copy(vm.defaultSkillData);
-   vm.skillCopy = angular.copy(vm.skillManager.skill);
+   vm.skillCopy = angular.copy(vm.skillSrv.skill);
   }, function (response) {
    console.log(response);
   });
@@ -118,11 +118,11 @@ var skillCtrl = function (
   skill = skillCopy;
   /*
    $filter('filter')
-   (vm.skillManager.skill, {id: skillId}, true)[0]
+   (vm.skillSrv.skill, {id: skillId}, true)[0]
    = angular.copy($filter('filter')
    (vm.skillCopy, {id: skillId}, true)[0]);
    if (skill.length && skillCopy.length) {
-   // vm.skillManager.skill angular.copy(vm.skillCopy);
+   // vm.skillSrv.skill angular.copy(vm.skillCopy);
    }
    */
  };
@@ -138,7 +138,7 @@ var skillCtrl = function (
   return vm.skill;
  }), function () {
   //vm.remainingCount = filterFilter(skill, {completed: false}).length;
-  vm.doneCount = vm.skillManager.skill.length - vm.remainingCount;
+  vm.doneCount = vm.skillSrv.skill.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillService.put(vm.skill);
  }, true);
@@ -172,16 +172,16 @@ var skillCtrl = function (
  };
 
  //--------init------
- vm.skillManager.getSkill(vm.skillId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.skillSrv.getSkill(vm.skillId);
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.skillIcons = data;
   vm.getRandomSkillIcons();
  });
 };
 
 skillCtrl.$inject = ['_',
- 'ConstantsManager',
- 'SkillManager',
+ 'ConstantsSrv',
+ 'SkillSrv',
  '$scope',
  '$state',
  '$stateParams',

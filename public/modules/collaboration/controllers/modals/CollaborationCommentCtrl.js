@@ -1,5 +1,5 @@
 var collaborationCommentCtrl = function (
-        CollaborationCommentManager,
+        CollaborationCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var collaborationCommentCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationCommentData.collaboration_id;
  vm.collaborationCommentId = collaborationCommentData.id;
- vm.collaborationCommentManager = new CollaborationCommentManager();
+ vm.collaborationCommentSrv = new CollaborationCommentSrv();
 
 
  vm.commentId = collaborationCommentData.comment_id;
@@ -33,14 +33,14 @@ var collaborationCommentCtrl = function (
  // vm.newCollaborationCommentData = vm.defaultCollaborationCommentData;
 
  vm.getCollaborationComment = function (collaborationId, commentId) {
-  vm.collaborationCommentManager.getCollaborationComment(collaborationId, commentId).then(function (response) {
+  vm.collaborationCommentSrv.getCollaborationComment(collaborationId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationComment = function (data) {
-  vm.collaborationCommentManager.editCollaborationComment(data).then(function (response) {
+  vm.collaborationCommentSrv.editCollaborationComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var collaborationCommentCtrl = function (
 };
 
 collaborationCommentCtrl.$inject = [
- 'CollaborationCommentManager',
+ 'CollaborationCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

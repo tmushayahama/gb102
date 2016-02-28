@@ -22,7 +22,7 @@ use App\Models\Progress\Progress;
 use App\Models\Comment\Comment;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
-use App\Models\Explore\Explore;
+use App\Models\Explorer\Explorer;
 use Request;
 use DB;
 

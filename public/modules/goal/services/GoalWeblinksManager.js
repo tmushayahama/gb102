@@ -1,9 +1,9 @@
-var goalWeblinksManager = function ($http, $q) {
+var goalWeblinksSrv = function ($http, $q) {
 
- var GoalWeblinksManager = function () {
+ var GoalWeblinksSrv = function () {
   this.goalWeblinks = [];
  };
- GoalWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var goalWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalWeblinksManager.prototype.getGoalWeblinks = function (goalId) {
+ GoalWeblinksSrv.prototype.getGoalWeblinks = function (goalId) {
   var self = this;
   var deferred = $q.defer();
   self.goalWeblinks = [];
@@ -35,7 +35,7 @@ var goalWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalWeblinksManager.prototype.getGoalWeblink = function (goalId, weblinkId) {
+ GoalWeblinksSrv.prototype.getGoalWeblink = function (goalId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.goalWeblinks = [];
@@ -48,7 +48,7 @@ var goalWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalWeblinksManager.prototype.createGoalWeblink = function (goalWeblinkData) {
+ GoalWeblinksSrv.prototype.createGoalWeblink = function (goalWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var goalWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalWeblinksManager.prototype.editGoalWeblink = function (goalWeblinkData) {
+ GoalWeblinksSrv.prototype.editGoalWeblink = function (goalWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var goalWeblinksManager = function ($http, $q) {
  };
 
 
- return GoalWeblinksManager;
+ return GoalWeblinksSrv;
 };
 
 
-goalWeblinksManager.$inject = ['$http', '$q'];
+goalWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalWeblinksManager', goalWeblinksManager);
+angular.module('app.goal').service('GoalWeblinksSrv', goalWeblinksSrv);

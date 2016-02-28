@@ -1,7 +1,7 @@
 var journalsAllCtrl = function (
-        ConstantsManager,
-        JournalsManager,
-        SearchManager,
+        ConstantsSrv,
+        JournalsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -16,18 +16,18 @@ var journalsAllCtrl = function (
  var vm = this;
  vm.journals = [];
 
- vm.journalsManager = new JournalsManager();
+ vm.journalsSrv = new JournalsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.journals = data;
   });
  } else {
-  vm.journalsManager.getAllJournals().then(function (data) {
+  vm.journalsSrv.getAllJournals().then(function (data) {
    vm.journals = data;
   });
  }
@@ -36,9 +36,9 @@ var journalsAllCtrl = function (
 };
 
 journalsAllCtrl.$inject = [
- 'ConstantsManager',
- 'JournalsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'JournalsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

@@ -1,6 +1,6 @@
 var goalTodoCtrl = function (
-        GoalTodoManager,
-        GoalTodoChecklistManager,
+        GoalTodoSrv,
+        GoalTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var goalTodoCtrl = function (
  var vm = this;
  vm.goalId = goalTodoData.goal_id;
  vm.goalTodoId = goalTodoData.id;
- vm.goalTodoManager = new GoalTodoManager();
- vm.goalTodoChecklistManager = new GoalTodoChecklistManager();
+ vm.goalTodoSrv = new GoalTodoSrv();
+ vm.goalTodoChecklistSrv = new GoalTodoChecklistSrv();
 
 
  vm.todoId = goalTodoData.todo_id;
@@ -41,14 +41,14 @@ var goalTodoCtrl = function (
  // vm.newGoalTodoData = vm.defaultGoalTodoData;
 
  vm.getGoalTodo = function (goalId, todoId) {
-  vm.goalTodoManager.getGoalTodo(goalId, todoId).then(function (response) {
+  vm.goalTodoSrv.getGoalTodo(goalId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalTodo = function (data) {
-  vm.goalTodoManager.editGoalTodo(data).then(function (response) {
+  vm.goalTodoSrv.editGoalTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var goalTodoCtrl = function (
  }
 
  vm.getGoalTodoChecklist = function (todoId) {
-  vm.goalTodoChecklistManager.getGoalTodoChecklist(todoId).then(function (response) {
+  vm.goalTodoChecklistSrv.getGoalTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var goalTodoCtrl = function (
  };
 
  vm.createGoalTodoChecklistItem = function (data) {
-  vm.goalTodoChecklistManager.createGoalTodoChecklistItem(data).then(function (response) {
+  vm.goalTodoChecklistSrv.createGoalTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newGoalTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var goalTodoCtrl = function (
  };
 
  vm.editGoalTodoChecklistItem = function (data) {
-  vm.goalTodoChecklistManager.editGoalTodoChecklistItem(data).then(function (response) {
+  vm.goalTodoChecklistSrv.editGoalTodoChecklistItem(data).then(function (response) {
    vm.newGoalTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var goalTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.goalTodoChecklistManager.goalTodoChecklist;
+  return vm.goalTodoChecklistSrv.goalTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.goalTodoChecklistManager.goalTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.goalTodoChecklistSrv.goalTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var goalTodoCtrl = function (
 };
 
 goalTodoCtrl.$inject = [
- 'GoalTodoManager',
- 'GoalTodoChecklistManager',
+ 'GoalTodoSrv',
+ 'GoalTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

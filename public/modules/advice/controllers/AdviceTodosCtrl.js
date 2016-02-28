@@ -1,5 +1,5 @@
 var adviceTodosCtrl = function (
-        AdviceTodosManager,
+        AdviceTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var adviceTodosCtrl = function (
 
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
- vm.adviceTodosManager = new AdviceTodosManager();
+ vm.adviceTodosSrv = new AdviceTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultAdviceTodoData = {
@@ -25,7 +25,7 @@ var adviceTodosCtrl = function (
  };
 
  vm.createAdviceTodo = function (data) {
-  vm.adviceTodosManager.createAdviceTodo(data).then(function (response) {
+  vm.adviceTodosSrv.createAdviceTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newAdviceTodoData = angular.copy(vm.defaultAdviceTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var adviceTodosCtrl = function (
  };
 
  vm.editAdviceTodo = function (data) {
-  vm.adviceTodosManager.editAdviceTodo(data).then(function (response) {
+  vm.adviceTodosSrv.editAdviceTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newAdviceTodoData = angular.copy(vm.defaultAdviceTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var adviceTodosCtrl = function (
   return vm.adviceTodos;
  }), function () {
   //vm.remainingCount = filterFilter(adviceTodos, {completed: false}).length;
-  vm.doneCount = vm.adviceTodosManager.adviceTodos.length - vm.remainingCount;
+  vm.doneCount = vm.adviceTodosSrv.adviceTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceTodoService.put(vm.adviceTodos);
  }, true);
@@ -129,11 +129,11 @@ var adviceTodosCtrl = function (
 
 
  //--------init------
- vm.adviceTodosManager.getAdviceTodos(vm.adviceId);
+ vm.adviceTodosSrv.getAdviceTodos(vm.adviceId);
 };
 
 adviceTodosCtrl.$inject = [
- 'AdviceTodosManager',
+ 'AdviceTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

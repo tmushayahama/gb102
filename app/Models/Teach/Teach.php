@@ -18,8 +18,8 @@ class Teach extends Model {
  protected $table = 'gb_teach';
  public $count = 41;
 
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
  public function creator() {
@@ -43,14 +43,14 @@ class Teach extends Model {
 
  public static function getTeachsAll() {
   $teachs = Teach::orderBy('id', 'desc')
-          ->with('explore')
-          ->whereHas('explore', function($q) {
-           $q->whereNull('parent_explore_id');
+          ->with('explorer')
+          ->whereHas('explorer', function($q) {
+           $q->whereNull('parent_explorer_id');
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $teachs;
@@ -58,16 +58,16 @@ class Teach extends Model {
 
  public static function getSubTeachs($teachId) {
   $teachs = Teach::orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('explore', function($q) use ($teachId) {
-           $q->where('parent_explore_id', $teachId);
+          ->whereHas('explorer', function($q) use ($teachId) {
+           $q->where('parent_explorer_id', $teachId);
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $teachs;
@@ -78,11 +78,11 @@ class Teach extends Model {
   if ($appId) {
    $teachs = Teach::where('app_type_id', $appId->id)
            ->orderBy('id', 'desc')
-           ->with('explore')
-           ->with('explore.app_type')
-           ->with('explore.creator')
-           ->with('explore.icon')
-           ->with('explore.level')
+           ->with('explorer')
+           ->with('explorer.app_type')
+           ->with('explorer.creator')
+           ->with('explorer.icon')
+           ->with('explorer.level')
            ->take(100)
            ->get();
   }
@@ -107,11 +107,11 @@ class Teach extends Model {
   $teach = Teach::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('explore')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

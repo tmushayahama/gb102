@@ -1,5 +1,5 @@
 var goalCommentsCtrl = function (
-        GoalCommentsManager,
+        GoalCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var goalCommentsCtrl = function (
  var vm = this;
  vm.goalId = $stateParams.goalId;
  vm.goalCommentsCopy;
- vm.goalCommentsManager = new GoalCommentsManager();
+ vm.goalCommentsSrv = new GoalCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultGoalCommentData = {
   goalId: $stateParams.goalId,
@@ -24,19 +24,19 @@ var goalCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createGoalComment = function (data) {
-  vm.goalCommentsManager.createGoalComment(data).then(function (response) {
+  vm.goalCommentsSrv.createGoalComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newGoalCommentData = angular.copy(vm.defaultGoalCommentData);
-   vm.goalCommentsCopy = angular.copy(vm.goalCommentsManager.goalComments);
+   vm.goalCommentsCopy = angular.copy(vm.goalCommentsSrv.goalComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editGoalComment = function (data) {
-  vm.goalCommentsManager.editGoalComment(data).then(function (response) {
+  vm.goalCommentsSrv.editGoalComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newGoalCommentData = angular.copy(vm.defaultGoalCommentData);
-   vm.goalCommentsCopy = angular.copy(vm.goalCommentsManager.goalComments);
+   vm.goalCommentsCopy = angular.copy(vm.goalCommentsSrv.goalComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var goalCommentsCtrl = function (
   goalComment = goalCommentCopy;
   /*
    $filter('filter')
-   (vm.goalCommentsManager.goalComments, {id: goalCommentId}, true)[0]
+   (vm.goalCommentsSrv.goalComments, {id: goalCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.goalCommentsCopy, {id: goalCommentId}, true)[0]);
    if (goalComment.length && goalCommentCopy.length) {
-   // vm.goalCommentsManager.goalComments angular.copy(vm.goalCommentsCopy);
+   // vm.goalCommentsSrv.goalComments angular.copy(vm.goalCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var goalCommentsCtrl = function (
   return vm.goalComments;
  }), function () {
   //vm.remainingCount = filterFilter(goalComments, {completed: false}).length;
-  vm.doneCount = vm.goalCommentsManager.goalComments.length - vm.remainingCount;
+  vm.doneCount = vm.goalCommentsSrv.goalComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //GoalCommentService.put(vm.goalComments);
  }, true);
@@ -126,11 +126,11 @@ var goalCommentsCtrl = function (
   });
  };
  //--------init------
- vm.goalCommentsManager.getGoalComments(vm.goalId);
+ vm.goalCommentsSrv.getGoalComments(vm.goalId);
 };
 
 goalCommentsCtrl.$inject = [
- 'GoalCommentsManager',
+ 'GoalCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

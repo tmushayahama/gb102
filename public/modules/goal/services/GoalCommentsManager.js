@@ -1,9 +1,9 @@
-var goalCommentsManager = function ($http, $q) {
+var goalCommentsSrv = function ($http, $q) {
 
- var GoalCommentsManager = function () {
+ var GoalCommentsSrv = function () {
   this.goalComments = [];
  };
- GoalCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var goalCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalCommentsManager.prototype.getGoalComments = function (goalId) {
+ GoalCommentsSrv.prototype.getGoalComments = function (goalId) {
   var self = this;
   var deferred = $q.defer();
   self.goalComments = [];
@@ -35,7 +35,7 @@ var goalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalCommentsManager.prototype.getGoalComment = function (goalId, commentId) {
+ GoalCommentsSrv.prototype.getGoalComment = function (goalId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.goalComments = [];
@@ -48,7 +48,7 @@ var goalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalCommentsManager.prototype.createGoalComment = function (goalCommentData) {
+ GoalCommentsSrv.prototype.createGoalComment = function (goalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var goalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalCommentsManager.prototype.editGoalComment = function (goalCommentData) {
+ GoalCommentsSrv.prototype.editGoalComment = function (goalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var goalCommentsManager = function ($http, $q) {
  };
 
 
- return GoalCommentsManager;
+ return GoalCommentsSrv;
 };
 
-goalCommentsManager.$inject = ['$http', '$q'];
+goalCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalCommentsManager', goalCommentsManager);
+angular.module('app.goal').service('GoalCommentsSrv', goalCommentsSrv);

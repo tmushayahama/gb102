@@ -1,5 +1,5 @@
 var adviceOverviewCtrl = function (
-        AdviceManager,
+        AdviceSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var adviceOverviewCtrl = function (
 };
 
 adviceOverviewCtrl.$inject = [
- 'AdviceManager',
+ 'AdviceSrv',
  '$state',
  '$stateParams',
  '$http',

@@ -1,5 +1,5 @@
 var skillWeblinksCtrl = function (
-        SkillWeblinksManager,
+        SkillWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var skillWeblinksCtrl = function (
  var vm = this;
  vm.skillId = $stateParams.skillId;
  vm.skillWeblinksCopy;
- vm.skillWeblinksManager = new SkillWeblinksManager();
+ vm.skillWeblinksSrv = new SkillWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultSkillWeblinkData = {
@@ -27,20 +27,20 @@ var skillWeblinksCtrl = function (
  };
 
  vm.createSkillWeblink = function (data) {
-  vm.skillWeblinksManager.createSkillWeblink(data).then(function (response) {
+  vm.skillWeblinksSrv.createSkillWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newSkillWeblinkData = angular.copy(vm.defaultSkillWeblinkData);
-   vm.skillWeblinksCopy = angular.copy(vm.skillWeblinksManager.skillWeblinks);
+   vm.skillWeblinksCopy = angular.copy(vm.skillWeblinksSrv.skillWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editSkillWeblink = function (data) {
-  vm.skillWeblinksManager.editSkillWeblink(data).then(function (response) {
+  vm.skillWeblinksSrv.editSkillWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newSkillWeblinkData = angular.copy(vm.defaultSkillWeblinkData);
-   vm.skillWeblinksCopy = angular.copy(vm.skillWeblinksManager.skillWeblinks);
+   vm.skillWeblinksCopy = angular.copy(vm.skillWeblinksSrv.skillWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var skillWeblinksCtrl = function (
   skillWeblink = skillWeblinkCopy;
   /*
    $filter('filter')
-   (vm.skillWeblinksManager.skillWeblinks, {id: skillWeblinkId}, true)[0]
+   (vm.skillWeblinksSrv.skillWeblinks, {id: skillWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.skillWeblinksCopy, {id: skillWeblinkId}, true)[0]);
    if (skillWeblink.length && skillWeblinkCopy.length) {
-   // vm.skillWeblinksManager.skillWeblinks angular.copy(vm.skillWeblinksCopy);
+   // vm.skillWeblinksSrv.skillWeblinks angular.copy(vm.skillWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var skillWeblinksCtrl = function (
   return vm.skillWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(skillWeblinks, {completed: false}).length;
-  vm.doneCount = vm.skillWeblinksManager.skillWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.skillWeblinksSrv.skillWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillWeblinkService.put(vm.skillWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var skillWeblinksCtrl = function (
 
 
  //--------init------
- vm.skillWeblinksManager.getSkillWeblinks(vm.skillId);
+ vm.skillWeblinksSrv.getSkillWeblinks(vm.skillId);
 };
 
 skillWeblinksCtrl.$inject = [
- 'SkillWeblinksManager',
+ 'SkillWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

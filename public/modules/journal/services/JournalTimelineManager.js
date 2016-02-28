@@ -1,9 +1,9 @@
-var journalProgressManager = function ($http, $q) {
+var journalProgressSrv = function ($http, $q) {
 
- var JournalProgressManager = function () {
+ var JournalProgressSrv = function () {
   this.journalProgress = [];
  };
- JournalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var journalProgressManager = function ($http, $q) {
  };
 
 
- JournalProgressManager.prototype.getJournalProgress = function (journalId, progressId) {
+ JournalProgressSrv.prototype.getJournalProgress = function (journalId, progressId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/journal/' + journalId + '/progress/' + progressId).success(function (data) {
@@ -36,7 +36,7 @@ var journalProgressManager = function ($http, $q) {
  };
 
 
- JournalProgressManager.prototype.editJournalProgress = function (journalProgressData) {
+ JournalProgressSrv.prototype.editJournalProgress = function (journalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var journalProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return JournalProgressManager;
+ return JournalProgressSrv;
 };
 
-journalProgressManager.$inject = ['$http', '$q'];
+journalProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalProgressManager', journalProgressManager);
+angular.module('app.journal').service('JournalProgressSrv', journalProgressSrv);

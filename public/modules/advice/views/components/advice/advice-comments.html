@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!adviceCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{adviceCtrl.adviceManager.advice.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{adviceCtrl.adviceSrv.advice.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="adviceCommentsCtrl.showCommentForm()" placeholder="Say something" readonly>
    </div>
    <form class="gb-form-1" ng-show="adviceCommentsCtrl.commentFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-comment-body row" ng-show="adviceCommentsCtrl.adviceCommentsManager.adviceComments.length" ng-cloak>
+  <div class="gb-comment-body row" ng-show="adviceCommentsCtrl.adviceCommentsSrv.adviceComments.length" ng-cloak>
    <ul id="comment-list">
-    <li ng-repeat="adviceComment in adviceCommentsCtrl.adviceCommentsManager.adviceComments| filter:statusFilter track by $index" ng-class="{completed: adviceComment.completed, editing: adviceComment == adviceCommentsCtrl.editedComment}">
+    <li ng-repeat="adviceComment in adviceCommentsCtrl.adviceCommentsSrv.adviceComments| filter:statusFilter track by $index" ng-class="{completed: adviceComment.completed, editing: adviceComment == adviceCommentsCtrl.editedComment}">
      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-comment-heading">
        <p class="gb-title">COMMENT</p>

@@ -18,8 +18,8 @@ class Project extends Model {
  protected $table = 'gb_project';
  public $count = 41;
 
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
  public function creator() {
@@ -43,14 +43,14 @@ class Project extends Model {
 
  public static function getProjectsAll() {
   $projects = Project::orderBy('id', 'desc')
-          ->with('explore')
-          ->whereHas('explore', function($q) {
-           $q->whereNull('parent_explore_id');
+          ->with('explorer')
+          ->whereHas('explorer', function($q) {
+           $q->whereNull('parent_explorer_id');
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $projects;
@@ -58,16 +58,16 @@ class Project extends Model {
 
  public static function getSubProjects($projectId) {
   $projects = Project::orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('explore', function($q) use ($projectId) {
-           $q->where('parent_explore_id', $projectId);
+          ->whereHas('explorer', function($q) use ($projectId) {
+           $q->where('parent_explorer_id', $projectId);
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $projects;
@@ -78,11 +78,11 @@ class Project extends Model {
   if ($appId) {
    $projects = Project::where('app_type_id', $appId->id)
            ->orderBy('id', 'desc')
-           ->with('explore')
-           ->with('explore.app_type')
-           ->with('explore.creator')
-           ->with('explore.icon')
-           ->with('explore.level')
+           ->with('explorer')
+           ->with('explorer.app_type')
+           ->with('explorer.creator')
+           ->with('explorer.icon')
+           ->with('explorer.level')
            ->take(100)
            ->get();
   }
@@ -107,11 +107,11 @@ class Project extends Model {
   $project = Project::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('explore')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

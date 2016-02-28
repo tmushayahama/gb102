@@ -1,5 +1,5 @@
 var projectProgressCtrl = function (
-        ProjectProgressManager,
+        ProjectProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var projectProgressCtrl = function (
  var vm = this;
  vm.projectId = $stateParams.projectId;
  vm.projectProgressCopy;
- vm.projectProgressManager = new ProjectProgressManager();
+ vm.projectProgressSrv = new ProjectProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultProjectProgressData = {
@@ -27,20 +27,20 @@ var projectProgressCtrl = function (
  };
 
  vm.createProjectProgress = function (data) {
-  vm.projectProgressManager.createProjectProgress(data).then(function (response) {
+  vm.projectProgressSrv.createProjectProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData);
-   vm.projectProgressCopy = angular.copy(vm.projectProgressManager.projectProgress);
+   vm.projectProgressCopy = angular.copy(vm.projectProgressSrv.projectProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProjectProgress = function (data) {
-  vm.projectProgressManager.editProjectProgress(data).then(function (response) {
+  vm.projectProgressSrv.editProjectProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newProjectProgressData = angular.copy(vm.defaultProjectProgressData);
-   vm.projectProgressCopy = angular.copy(vm.projectProgressManager.projectProgress);
+   vm.projectProgressCopy = angular.copy(vm.projectProgressSrv.projectProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var projectProgressCtrl = function (
   projectProgress = projectProgressCopy;
   /*
    $filter('filter')
-   (vm.projectProgressManager.projectProgress, {id: projectProgressId}, true)[0]
+   (vm.projectProgressSrv.projectProgress, {id: projectProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.projectProgressCopy, {id: projectProgressId}, true)[0]);
    if (projectProgress.length && projectProgressCopy.length) {
-   // vm.projectProgressManager.projectProgress angular.copy(vm.projectProgressCopy);
+   // vm.projectProgressSrv.projectProgress angular.copy(vm.projectProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var projectProgressCtrl = function (
   return vm.projectProgress;
  }), function () {
   //vm.remainingCount = filterFilter(projectProgress, {completed: false}).length;
-  vm.doneCount = vm.projectProgressManager.projectProgress.length - vm.remainingCount;
+  vm.doneCount = vm.projectProgressSrv.projectProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectProgressService.put(vm.projectProgress);
  }, true);
@@ -147,11 +147,11 @@ var projectProgressCtrl = function (
 
 
  //--------init------
- vm.projectProgressManager.getProjectProgress(vm.projectId);
+ vm.projectProgressSrv.getProjectProgress(vm.projectId);
 };
 
 projectProgressCtrl.$inject = [
- 'ProjectProgressManager',
+ 'ProjectProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

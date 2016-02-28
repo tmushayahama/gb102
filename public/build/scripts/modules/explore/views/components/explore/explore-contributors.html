@@ -1,8 +1,8 @@
-<section class="gb-section-row-2 row gb-contributors" ng-controller="ExploreContributorsCtrl as exploreContributorsCtrl">
+<section class="gb-section-row-2 row gb-contributors" ng-controller="ExplorerContributorsCtrl as explorerContributorsCtrl">
  <div class='row'>
-  <div ng-repeat="contributorType in exploreContributorsCtrl.exploreContributorTypes"
+  <div ng-repeat="contributorType in explorerContributorsCtrl.explorerContributorTypes"
        class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
-       ng-click="exploreContributorsCtrl.prepareSelectUsers(contributorType)">
+       ng-click="explorerContributorsCtrl.prepareSelectUsers(contributorType)">
    <div class="gb-apptype-btn">
     <i class="gb-icon fa {{contributorType.icon}}"></i>
     <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,21 +23,21 @@
    </a>
   </div>
  </header>
- <div class="gb-contributor-body row" ng-show="exploreContributorsCtrl.exploreContributorsManager.exploreContributors.length" ng-cloak>
+ <div class="gb-contributor-body row" ng-show="explorerContributorsCtrl.explorerContributorsManager.explorerContributors.length" ng-cloak>
   <div id="contributor-list">
-   <div ng-repeat="exploreContributor in exploreContributorsCtrl.exploreContributors"
+   <div ng-repeat="explorerContributor in explorerContributorsCtrl.explorerContributors"
         class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
     <div class="gb-person-box">
-     <img src="public/build/img/profile_pic/{{exploreContributor.contributor.contributor.avatar_url}}" class="gb-profile-img" alt="">
+     <img src="public/build/img/profile_pic/{{explorerContributor.contributor.contributor.avatar_url}}" class="gb-profile-img" alt="">
      <div class="gb-box-body">
       <div class="gb-heading row">
        <p class="gb-title">
-        {{exploreContributor.contributor.level.name}} - {{exploreContributor.contributor.status.name}}
+        {{explorerContributor.contributor.level.name}} - {{explorerContributor.contributor.status.name}}
        </p>
       </div>
       <div class="gb-description row">
        <a data-ui-sref="profile.overview({profileId: user.id})" class="gb-ellipsis">
-        {{exploreContributor.contributor.contributor.firstname + ' ' + exploreContributor.contributor.contributor.lastname}}
+        {{explorerContributor.contributor.contributor.firstname + ' ' + explorerContributor.contributor.contributor.lastname}}
        </a>
       </div>
      </div>
@@ -49,9 +49,9 @@
  </div>
 </section>
 
-<script type="text/ng-template" id="explore-contributor.html">
- <div class="gb-contributor-page" ng-include="'public/build/scripts/modules/explore/views/modals/explore-contributor.html'"></div>
+<script type="text/ng-template" id="explorer-contributor.html">
+ <div class="gb-contributor-page" ng-include="'public/build/scripts/modules/explorer/views/modals/explorer-contributor.html'"></div>
 </script>
 <script type="text/ng-template" id="select-users.html">
- <div class="gb-contributor-page" ng-include="'public/build/scripts/modules/explore/views/modals/select-users.html'"></div>
+ <div class="gb-contributor-page" ng-include="'public/build/scripts/modules/explorer/views/modals/select-users.html'"></div>
 </script>

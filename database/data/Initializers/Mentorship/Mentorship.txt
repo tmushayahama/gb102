@@ -1,4 +1,4 @@
-id	explore_id	creator_id	mentor_id	mentee_id	icon_id	mentorship_picture_url	title	description	created_at	updates_at	privacy	order	status
+id	explorer_id	creator_id	mentor_id	mentee_id	icon_id	mentorship_picture_url	title	description	created_at	updates_at	privacy	order	status
 1	500009	2	NULL	NULL	101	web_dev_1.png	"Web Design & Development (tools to use, advice, introduction)"	"From scratch, what tools to use"	5/4/2015 10:00	5/4/2015 10:00	0	0	0
 2	500003	2	NULL	NULL	173	career_path_1.png	Career Path (Me in 5 years)	Career Planning	5/4/2015 10:00	5/4/2015 10:00	0	0	0
 3	500005	2	3	2	168	career_path_1.png	Career Path (Me in 5 years)	Career Planning	6/4/2015 10:00	6/4/2015 10:00	0	0	0

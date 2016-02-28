@@ -20,12 +20,12 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/profile/services/ProfileManager.js',
-                  'public/modules/search/services/SearchManager.js',
-                  'public/modules/profile/services/UserProfileSectionManager.js',
-                  'public/modules/profile/controllers/modals/ProfileMenuModalCtrl.js',
-                  'public/modules/profile/controllers/ProfileCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/profile/services/Profile.srv.js',
+                  'public/modules/search/services/Search.srv.js',
+                  'public/modules/profile/services/UserProfileSection.srv.js',
+                  'public/modules/profile/controllers/modals/ProfileMenuModal.ctrl.js',
+                  'public/modules/profile/controllers/Profile.ctrl.js',
                   'public/modules/profile/filters/randomize.js',
                  ]
                 });
@@ -45,7 +45,7 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/controllers/ProfileOverviewCtrl.js',
+                  'public/modules/profile/controllers/ProfileOverview.ctrl.js',
                  ]
                 });
                }]
@@ -64,7 +64,7 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/profile/controllers/ProfileAboutCtrl.js',
+                  'public/modules/profile/controllers/ProfileAbout.ctrl.js',
                  ]
                 });
                }]
@@ -92,8 +92,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/services/QuestionnaireManager.js',
-                  'public/modules/profile/controllers/ProfileQuestionAnswersCtrl.js',
+                  'public/modules/questionnaire/services/Questionnaire.srv.js',
+                  'public/modules/profile/controllers/ProfileQuestionAnswers.ctrl.js',
                  ]
                 });
                }]
@@ -112,8 +112,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/services/QuestionnaireManager.js',
-                  'public/modules/profile/controllers/ProfileQuestionnaireCtrl.js',
+                  'public/modules/questionnaire/services/Questionnaire.srv.js',
+                  'public/modules/profile/controllers/ProfileQuestionnaire.ctrl.js',
                  ]
                 });
                }]
@@ -132,8 +132,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/swipe/services/SwipeManager.js',
-                  'public/modules/profile/controllers/ProfileSwipeAnswersCtrl.js',
+                  'public/modules/swipe/services/Swipe.srv.js',
+                  'public/modules/profile/controllers/ProfileSwipeAnswers.ctrl.js',
                  ]
                 });
                }]
@@ -152,8 +152,8 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/swipe/services/SwipeManager.js',
-                  'public/modules/profile/controllers/ProfileSwipeCtrl.js',
+                  'public/modules/swipe/services/Swipe.srv.js',
+                  'public/modules/profile/controllers/ProfileSwipe.ctrl.js',
                  ]
                 });
                }]

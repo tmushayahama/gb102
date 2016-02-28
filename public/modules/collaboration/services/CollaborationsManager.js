@@ -1,9 +1,9 @@
-var collaborationsManager = function ($http, $q) {
+var collaborationsSrv = function ($http, $q) {
 
- var CollaborationsManager = function () {
+ var CollaborationsSrv = function () {
   this.collaborations = [];
  };
- CollaborationsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationsManager.prototype.getAllCollaborations = function () {
+ CollaborationsSrv.prototype.getAllCollaborations = function () {
   var self = this;
   var deferred = $q.defer();
   //self.collaborations = [];
@@ -35,7 +35,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationsManager.prototype.getAppCollaborations = function (appName) {
+ CollaborationsSrv.prototype.getAppCollaborations = function (appName) {
   var self = this;
   var deferred = $q.defer();
   // self.collaborations = [];
@@ -48,7 +48,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationsManager.prototype.getMyCollaborations = function () {
+ CollaborationsSrv.prototype.getMyCollaborations = function () {
   var self = this;
   var deferred = $q.defer();
   //self.collaborations = [];
@@ -61,7 +61,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationsManager.prototype.getCollaboration = function (collaborationId, Id) {
+ CollaborationsSrv.prototype.getCollaboration = function (collaborationId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.collaboration = [];
@@ -74,7 +74,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationsManager.prototype.createCollaboration = function (collaborationData) {
+ CollaborationsSrv.prototype.createCollaboration = function (collaborationData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -90,7 +90,7 @@ var collaborationsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationsManager.prototype.editCollaboration = function (collaborationData) {
+ CollaborationsSrv.prototype.editCollaboration = function (collaborationData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -104,10 +104,10 @@ var collaborationsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return CollaborationsManager;
+ return CollaborationsSrv;
 };
 
-collaborationsManager.$inject = ['$http', '$q'];
+collaborationsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationsManager', collaborationsManager);
+angular.module('app.collaboration').service('CollaborationsSrv', collaborationsSrv);
 

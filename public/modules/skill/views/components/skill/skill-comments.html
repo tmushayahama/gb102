@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-comment-body row" ng-show="skillCommentsCtrl.skillCommentsManager.skillComments.length" ng-cloak>
+  <div class="gb-comment-body row" ng-show="skillCommentsCtrl.skillCommentsSrv.skillComments.length" ng-cloak>
    <ul id="comment-list">
-    <li ng-repeat="skillComment in skillCommentsCtrl.skillCommentsManager.skillComments| filter:statusFilter track by $index" ng-class="{completed: skillComment.completed, editing: skillComment == skillCommentsCtrl.editedComment}">
+    <li ng-repeat="skillComment in skillCommentsCtrl.skillCommentsSrv.skillComments| filter:statusFilter track by $index" ng-class="{completed: skillComment.completed, editing: skillComment == skillCommentsCtrl.editedComment}">
      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-comment-heading">
        <p class="gb-title">COMMENT</p>

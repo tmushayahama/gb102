@@ -1,5 +1,5 @@
 var collaborationCommentsCtrl = function (
-        CollaborationCommentsManager,
+        CollaborationCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var collaborationCommentsCtrl = function (
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
  vm.collaborationCommentsCopy;
- vm.collaborationCommentsManager = new CollaborationCommentsManager();
+ vm.collaborationCommentsSrv = new CollaborationCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultCollaborationCommentData = {
   collaborationId: $stateParams.collaborationId,
@@ -24,19 +24,19 @@ var collaborationCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createCollaborationComment = function (data) {
-  vm.collaborationCommentsManager.createCollaborationComment(data).then(function (response) {
+  vm.collaborationCommentsSrv.createCollaborationComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newCollaborationCommentData = angular.copy(vm.defaultCollaborationCommentData);
-   vm.collaborationCommentsCopy = angular.copy(vm.collaborationCommentsManager.collaborationComments);
+   vm.collaborationCommentsCopy = angular.copy(vm.collaborationCommentsSrv.collaborationComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editCollaborationComment = function (data) {
-  vm.collaborationCommentsManager.editCollaborationComment(data).then(function (response) {
+  vm.collaborationCommentsSrv.editCollaborationComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newCollaborationCommentData = angular.copy(vm.defaultCollaborationCommentData);
-   vm.collaborationCommentsCopy = angular.copy(vm.collaborationCommentsManager.collaborationComments);
+   vm.collaborationCommentsCopy = angular.copy(vm.collaborationCommentsSrv.collaborationComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var collaborationCommentsCtrl = function (
   collaborationComment = collaborationCommentCopy;
   /*
    $filter('filter')
-   (vm.collaborationCommentsManager.collaborationComments, {id: collaborationCommentId}, true)[0]
+   (vm.collaborationCommentsSrv.collaborationComments, {id: collaborationCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.collaborationCommentsCopy, {id: collaborationCommentId}, true)[0]);
    if (collaborationComment.length && collaborationCommentCopy.length) {
-   // vm.collaborationCommentsManager.collaborationComments angular.copy(vm.collaborationCommentsCopy);
+   // vm.collaborationCommentsSrv.collaborationComments angular.copy(vm.collaborationCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var collaborationCommentsCtrl = function (
   return vm.collaborationComments;
  }), function () {
   //vm.remainingCount = filterFilter(collaborationComments, {completed: false}).length;
-  vm.doneCount = vm.collaborationCommentsManager.collaborationComments.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationCommentsSrv.collaborationComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationCommentService.put(vm.collaborationComments);
  }, true);
@@ -126,11 +126,11 @@ var collaborationCommentsCtrl = function (
   });
  };
  //--------init------
- vm.collaborationCommentsManager.getCollaborationComments(vm.collaborationId);
+ vm.collaborationCommentsSrv.getCollaborationComments(vm.collaborationId);
 };
 
 collaborationCommentsCtrl.$inject = [
- 'CollaborationCommentsManager',
+ 'CollaborationCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

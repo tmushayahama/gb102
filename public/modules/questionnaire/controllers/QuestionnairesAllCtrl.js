@@ -1,6 +1,6 @@
 var questionnairesAllCtrl = function (
-        ConstantsManager,
-        QuestionnairesManager,
+        ConstantsSrv,
+        QuestionnairesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,13 +13,13 @@ var questionnairesAllCtrl = function (
 
  var vm = this;
 
- vm.questionnairesManager = new QuestionnairesManager();
- vm.questionnairesManager.getAllQuestionnaires();
+ vm.questionnairesSrv = new QuestionnairesSrv();
+ vm.questionnairesSrv.getAllQuestionnaires();
 };
 
 questionnairesAllCtrl.$inject = [
- 'ConstantsManager',
- 'QuestionnairesManager',
+ 'ConstantsSrv',
+ 'QuestionnairesSrv',
  '$scope',
  '$state',
  '$stateParams',

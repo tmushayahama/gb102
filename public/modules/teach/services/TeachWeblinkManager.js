@@ -1,9 +1,9 @@
-var teachWeblinkManager = function ($http, $q) {
+var teachWeblinkSrv = function ($http, $q) {
 
- var TeachWeblinkManager = function () {
+ var TeachWeblinkSrv = function () {
   this.teachWeblinks = [];
  };
- TeachWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var teachWeblinkManager = function ($http, $q) {
  };
 
 
- TeachWeblinkManager.prototype.getTeachWeblink = function (teachId, weblinkId) {
+ TeachWeblinkSrv.prototype.getTeachWeblink = function (teachId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var teachWeblinkManager = function ($http, $q) {
  };
 
 
- TeachWeblinkManager.prototype.editTeachWeblink = function (teachWeblinkData) {
+ TeachWeblinkSrv.prototype.editTeachWeblink = function (teachWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var teachWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachWeblinkManager;
+ return TeachWeblinkSrv;
 };
 
-teachWeblinkManager.$inject = ['$http', '$q'];
+teachWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachWeblinkManager', teachWeblinkManager);
+angular.module('app.teach').service('TeachWeblinkSrv', teachWeblinkSrv);

@@ -26,7 +26,7 @@ define([
  '../auth/module',
  '../search/module',
  '../community/module',
- '../explore/module',
+ '../explorer/module',
  '../swipe/module',
  '../profile/module',
  '../questionnaire/module',
@@ -61,18 +61,18 @@ define([
   'gb-filters.truncate',
   'app.auth',
   'app.search',
-  'app.community',
-  'app.explore',
+  //'app.community',
+  'app.explorer',
   'app.swipe',
-  'app.profile',
-  'app.questionnaire',
-  'app.mentorship',
-  'app.teach',
-  'app.advice',
-  'app.collaboration',
-  'app.goal',
-  'app.journal',
-  'app.project'
+          //'app.profile',
+          //'app.questionnaire',
+          //'app.mentorship',
+          //'app.teach',
+          //'app.advice',
+          //'app.collaboration',
+          //'app.goal',
+          //'app.journal',
+          //'app.project'
  ]);
 
  var appConfig = function ($ocLazyLoadProvider, $stateProvider, $urlRouterProvider, $httpProvider, $authProvider, localStorageServiceProvider, hammerDefaultOptsProvider, $provide) {
@@ -139,9 +139,9 @@ define([
                 name: 'app',
                 serie: true,
                 files: ['public/modules/common/directives/show-tab.js',
-                 'public/modules/search/services/SearchManager.js',
-                 'public/modules/app/controllers/AppsCtrl.js',
-                 'public/modules/app/controllers/modals/MenuModalCtrl.js',
+                 'public/modules/search/services/search.srv.js',
+                 'public/modules/app/controllers/apps.ctrl.js',
+                 'public/modules/app/controllers/menu-modal.ctrl.js',
                 ]
                });
               }
@@ -162,7 +162,7 @@ define([
     $rootScope.user = user;
     if (toState.name === "auth") {
      event.preventDefault();
-     $state.go('apps.explores.all');
+     $state.go('apps.explorers.all');
     }
    } else {
     if (toState.name !== "auth") {

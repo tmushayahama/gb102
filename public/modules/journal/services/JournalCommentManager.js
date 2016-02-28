@@ -1,9 +1,9 @@
-var journalCommentManager = function ($http, $q) {
+var journalCommentSrv = function ($http, $q) {
 
- var JournalCommentManager = function () {
+ var JournalCommentSrv = function () {
   this.journalComments = [];
  };
- JournalCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var journalCommentManager = function ($http, $q) {
  };
 
 
- JournalCommentManager.prototype.getJournalComment = function (journalId, commentId) {
+ JournalCommentSrv.prototype.getJournalComment = function (journalId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/journal/' + journalId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var journalCommentManager = function ($http, $q) {
  };
 
 
- JournalCommentManager.prototype.editJournalComment = function (journalCommentData) {
+ JournalCommentSrv.prototype.editJournalComment = function (journalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var journalCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return JournalCommentManager;
+ return JournalCommentSrv;
 };
 
-journalCommentManager.$inject = ['$http', '$q'];
+journalCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalCommentManager', journalCommentManager);
+angular.module('app.journal').service('JournalCommentSrv', journalCommentSrv);

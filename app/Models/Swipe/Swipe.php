@@ -4,7 +4,7 @@ namespace App\Models\Swipe;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Explore\Explore;
+use App\Models\Explorer\Explorer;
 use Request;
 use DB;
 use JWTAuth;
@@ -19,12 +19,12 @@ class Swipe extends Model {
  protected $table = 'gb_swipe';
  public $timestamps = false;
 
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
- public function explore_modified() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_modified_id');
+ public function explorer_modified() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_modified_id');
  }
 
  public function creator() {
@@ -44,13 +44,13 @@ class Swipe extends Model {
 
  public static function getAllSwipeAnswers() {
   $swipes = Swipe::orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('creator')
           ->with('level')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(50)
           ->get();
   return $swipes;
@@ -59,13 +59,13 @@ class Swipe extends Model {
  public static function getSwipeAnswers($userId) {
   $swipes = Swipe::where('creator_id', $userId)
           ->orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('creator')
           ->with('level')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(50)
           ->get();
   return $swipes;
@@ -73,26 +73,26 @@ class Swipe extends Model {
 
  public static function getSwipe() {
   $howMany = 1;
-  $exploreSwipes = (new Collection(
-          Explore::with('icon')
+  $explorerSwipes = (new Collection(
+          Explorer::with('icon')
           ->with('creator')
           ->with('level')
           ->with('app_type')
           ->take(500)
           ->get()))
           ->random($howMany);
-  return $exploreSwipes;
+  return $explorerSwipes;
  }
 
  public static function createSwipe() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $exploreId = Request::get("exploreId");
+  $explorerId = Request::get("explorerId");
   $level_id = Request::get("levelId");
   $description = Request::get("description");
   $swipe = new Swipe;
   $swipe->creator_id = $userId;
-  $swipe->explore_id = $exploreId;
+  $swipe->explorer_id = $explorerId;
   $swipe->level_id = $level_id;
   $swipe->description = $description;
 

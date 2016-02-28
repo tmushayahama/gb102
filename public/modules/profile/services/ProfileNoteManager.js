@@ -1,9 +1,9 @@
-var profileNoteManager = function ($http, $q) {
+var profileNoteSrv = function ($http, $q) {
 
- var ProfileNoteManager = function () {
+ var ProfileNoteSrv = function () {
   this.profileNotes = [];
  };
- ProfileNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var profileNoteManager = function ($http, $q) {
  };
 
 
- ProfileNoteManager.prototype.getProfileNote = function (profileId, noteId) {
+ ProfileNoteSrv.prototype.getProfileNote = function (profileId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + profileId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var profileNoteManager = function ($http, $q) {
  };
 
 
- ProfileNoteManager.prototype.editProfileNote = function (profileNoteData) {
+ ProfileNoteSrv.prototype.editProfileNote = function (profileNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var profileNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProfileNoteManager;
+ return ProfileNoteSrv;
 };
 
-profileNoteManager.$inject = ['$http', '$q'];
+profileNoteSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileNoteManager', profileNoteManager);
+angular.module('app.profile').service('ProfileNoteSrv', profileNoteSrv);

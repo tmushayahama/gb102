@@ -1,5 +1,5 @@
 var goalOverviewCtrl = function (
-        GoalManager,
+        GoalSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var goalOverviewCtrl = function (
 };
 
 goalOverviewCtrl.$inject = [
- 'GoalManager',
+ 'GoalSrv',
  '$state',
  '$stateParams',
  '$http',

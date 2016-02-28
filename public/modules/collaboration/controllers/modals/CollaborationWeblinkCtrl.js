@@ -1,5 +1,5 @@
 var collaborationWeblinkCtrl = function (
-        CollaborationWeblinkManager,
+        CollaborationWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var collaborationWeblinkCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationWeblinkData.collaboration_id;
  vm.collaborationWeblinkId = collaborationWeblinkData.id;
- vm.collaborationWeblinkManager = new CollaborationWeblinkManager();
+ vm.collaborationWeblinkSrv = new CollaborationWeblinkSrv();
 
 
  vm.weblinkId = collaborationWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var collaborationWeblinkCtrl = function (
  // vm.newCollaborationWeblinkData = vm.defaultCollaborationWeblinkData;
 
  vm.getCollaborationWeblink = function (collaborationId, weblinkId) {
-  vm.collaborationWeblinkManager.getCollaborationWeblink(collaborationId, weblinkId).then(function (response) {
+  vm.collaborationWeblinkSrv.getCollaborationWeblink(collaborationId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationWeblink = function (data) {
-  vm.collaborationWeblinkManager.editCollaborationWeblink(data).then(function (response) {
+  vm.collaborationWeblinkSrv.editCollaborationWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var collaborationWeblinkCtrl = function (
 
 
 collaborationWeblinkCtrl.$inject = [
- 'CollaborationWeblinkManager',
+ 'CollaborationWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

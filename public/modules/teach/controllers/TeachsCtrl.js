@@ -1,9 +1,9 @@
 
 var teachsCtrl = function (
         level_categories,
-        ConstantsManager,
-        SearchManager,
-        TeachsManager,
+        ConstantsSrv,
+        SearchSrv,
+        TeachsSrv,
         $scope,
         $state,
         $stateParams,
@@ -21,8 +21,8 @@ var teachsCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-teach.css'
  }, $scope);
 
- vm.teachsManager = new TeachsManager();
- vm.constantsManager = new ConstantsManager();
+ vm.teachsSrv = new TeachsSrv();
+ vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'TEACHR';
  vm.teachLevels;
  vm.teachTypes;
@@ -41,20 +41,20 @@ var teachsCtrl = function (
  });
 
  vm.createTeach = function (data) {
-  vm.teachsManager.createTeach(data).then(function (response) {
+  vm.teachsSrv.createTeach(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newTeachData = angular.copy(vm.defaultTeachData);
-   vm.teachsCopy = angular.copy(vm.teachsManager.teachs);
+   vm.teachsCopy = angular.copy(vm.teachsSrv.teachs);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editTeach = function (data) {
-  vm.teachsManager.editTeach(data).then(function (response) {
+  vm.teachsSrv.editTeach(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newTeachData = angular.copy(vm.defaultTeachData);
-   vm.teachsCopy = angular.copy(vm.teachsManager.teachs);
+   vm.teachsCopy = angular.copy(vm.teachsSrv.teachs);
   }, function (response) {
    console.log(response);
   });
@@ -84,11 +84,11 @@ var teachsCtrl = function (
   teach = teachCopy;
   /*
    $filter('filter')
-   (vm.teachsManager.teachs, {id: teachId}, true)[0]
+   (vm.teachsSrv.teachs, {id: teachId}, true)[0]
    = angular.copy($filter('filter')
    (vm.teachsCopy, {id: teachId}, true)[0]);
    if (teach.length && teachCopy.length) {
-   // vm.teachsManager.teachs angular.copy(vm.teachsCopy);
+   // vm.teachsSrv.teachs angular.copy(vm.teachsCopy);
    }
    */
  };
@@ -104,7 +104,7 @@ var teachsCtrl = function (
   return vm.teachs;
  }), function () {
   //vm.remainingCount = filterFilter(teachs, {completed: false}).length;
-  vm.doneCount = vm.teachsManager.teachs.length - vm.remainingCount;
+  vm.doneCount = vm.teachsSrv.teachs.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachService.put(vm.teachs);
  }, true);
@@ -152,26 +152,26 @@ var teachsCtrl = function (
   });
 
   modalInstance.result.then(function (teach) {
-   vm.teachsManager.createTeach(teach);
+   vm.teachsSrv.createTeach(teach);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- vm.constantsManager.getLevel(level_categories.teach).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.teach).then(function (data) {
   vm.teachTypes = data;
  });
- vm.constantsManager.getLevel(level_categories.teach).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.teach).then(function (data) {
   vm.teachLevels = data;
  });
 };
 
 teachsCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SearchManager',
- 'TeachsManager',
+ 'ConstantsSrv',
+ 'SearchSrv',
+ 'TeachsSrv',
  '$scope',
  '$state',
  '$stateParams',

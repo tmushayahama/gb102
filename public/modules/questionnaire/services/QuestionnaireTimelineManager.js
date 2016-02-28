@@ -1,9 +1,9 @@
-var questionnaireProgressManager = function ($http, $q) {
+var questionnaireProgressSrv = function ($http, $q) {
 
- var QuestionnaireProgressManager = function () {
+ var QuestionnaireProgressSrv = function () {
   this.questionnaireProgress = [];
  };
- QuestionnaireProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var questionnaireProgressManager = function ($http, $q) {
  };
 
 
- QuestionnaireProgressManager.prototype.getQuestionnaireProgress = function (questionnaireId, progressId) {
+ QuestionnaireProgressSrv.prototype.getQuestionnaireProgress = function (questionnaireId, progressId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/progress/' + progressId).success(function (data) {
@@ -36,7 +36,7 @@ var questionnaireProgressManager = function ($http, $q) {
  };
 
 
- QuestionnaireProgressManager.prototype.editQuestionnaireProgress = function (questionnaireProgressData) {
+ QuestionnaireProgressSrv.prototype.editQuestionnaireProgress = function (questionnaireProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var questionnaireProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireProgressManager;
+ return QuestionnaireProgressSrv;
 };
 
-questionnaireProgressManager.$inject = ['$http', '$q'];
+questionnaireProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireProgressManager', questionnaireProgressManager);
+angular.module('app.questionnaire').service('QuestionnaireProgressSrv', questionnaireProgressSrv);

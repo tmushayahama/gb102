@@ -1,9 +1,9 @@
-var journalsManager = function ($http, $q) {
+var journalsSrv = function ($http, $q) {
 
- var JournalsManager = function () {
+ var JournalsSrv = function () {
   this.journals = [];
  };
- JournalsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var journalsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalsManager.prototype.getAllJournals = function () {
+ JournalsSrv.prototype.getAllJournals = function () {
   var self = this;
   var deferred = $q.defer();
   //self.journals = [];
@@ -35,7 +35,7 @@ var journalsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalsManager.prototype.getAppJournals = function (appName) {
+ JournalsSrv.prototype.getAppJournals = function (appName) {
   var self = this;
   var deferred = $q.defer();
   // self.journals = [];
@@ -48,7 +48,7 @@ var journalsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalsManager.prototype.getMyJournals = function () {
+ JournalsSrv.prototype.getMyJournals = function () {
   var self = this;
   var deferred = $q.defer();
   //self.journals = [];
@@ -61,7 +61,7 @@ var journalsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalsManager.prototype.getJournal = function (journalId, Id) {
+ JournalsSrv.prototype.getJournal = function (journalId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.journal = [];
@@ -74,7 +74,7 @@ var journalsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalsManager.prototype.createJournal = function (journalData) {
+ JournalsSrv.prototype.createJournal = function (journalData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -90,7 +90,7 @@ var journalsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalsManager.prototype.editJournal = function (journalData) {
+ JournalsSrv.prototype.editJournal = function (journalData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -104,10 +104,10 @@ var journalsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return JournalsManager;
+ return JournalsSrv;
 };
 
-journalsManager.$inject = ['$http', '$q'];
+journalsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalsManager', journalsManager);
+angular.module('app.journal').service('JournalsSrv', journalsSrv);
 

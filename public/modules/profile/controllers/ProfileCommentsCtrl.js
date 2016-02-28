@@ -1,5 +1,5 @@
 var profileCommentsCtrl = function (
-        ProfileCommentsManager,
+        ProfileCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var profileCommentsCtrl = function (
  var vm = this;
  vm.profileId = $stateParams.profileId;
  vm.profileCommentsCopy;
- vm.profileCommentsManager = new ProfileCommentsManager();
+ vm.profileCommentsSrv = new ProfileCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultProfileCommentData = {
   profileId: $stateParams.profileId,
@@ -24,19 +24,19 @@ var profileCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createProfileComment = function (data) {
-  vm.profileCommentsManager.createProfileComment(data).then(function (response) {
+  vm.profileCommentsSrv.createProfileComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newProfileCommentData = angular.copy(vm.defaultProfileCommentData);
-   vm.profileCommentsCopy = angular.copy(vm.profileCommentsManager.profileComments);
+   vm.profileCommentsCopy = angular.copy(vm.profileCommentsSrv.profileComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editProfileComment = function (data) {
-  vm.profileCommentsManager.editProfileComment(data).then(function (response) {
+  vm.profileCommentsSrv.editProfileComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newProfileCommentData = angular.copy(vm.defaultProfileCommentData);
-   vm.profileCommentsCopy = angular.copy(vm.profileCommentsManager.profileComments);
+   vm.profileCommentsCopy = angular.copy(vm.profileCommentsSrv.profileComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var profileCommentsCtrl = function (
   profileComment = profileCommentCopy;
   /*
    $filter('filter')
-   (vm.profileCommentsManager.profileComments, {id: profileCommentId}, true)[0]
+   (vm.profileCommentsSrv.profileComments, {id: profileCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.profileCommentsCopy, {id: profileCommentId}, true)[0]);
    if (profileComment.length && profileCommentCopy.length) {
-   // vm.profileCommentsManager.profileComments angular.copy(vm.profileCommentsCopy);
+   // vm.profileCommentsSrv.profileComments angular.copy(vm.profileCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var profileCommentsCtrl = function (
   return vm.profileComments;
  }), function () {
   //vm.remainingCount = filterFilter(profileComments, {completed: false}).length;
-  vm.doneCount = vm.profileCommentsManager.profileComments.length - vm.remainingCount;
+  vm.doneCount = vm.profileCommentsSrv.profileComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProfileCommentService.put(vm.profileComments);
  }, true);
@@ -126,11 +126,11 @@ var profileCommentsCtrl = function (
   });
  };
  //--------init------
- vm.profileCommentsManager.getProfileComments(vm.profileId);
+ vm.profileCommentsSrv.getProfileComments(vm.profileId);
 };
 
 profileCommentsCtrl.$inject = [
- 'ProfileCommentsManager',
+ 'ProfileCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

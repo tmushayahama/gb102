@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!projectWeblinksCtrl.weblinkFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{projectCtrl.projectManager.project.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{projectCtrl.projectSrv.project.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="projectWeblinksCtrl.showWeblinkForm()" placeholder="Add links" readonly>
    </div>
    <form class="gb-form-1" ng-show="projectWeblinksCtrl.weblinkFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-weblink-body row" ng-show="projectWeblinksCtrl.projectWeblinksManager.projectWeblinks.length" ng-cloak>
+  <div class="gb-weblink-body row" ng-show="projectWeblinksCtrl.projectWeblinksSrv.projectWeblinks.length" ng-cloak>
    <ul id="weblink-list">
-    <li ng-repeat="projectWeblink in projectWeblinksCtrl.projectWeblinksManager.projectWeblinks| filter:statusFilter track by $index" ng-class="{completed: projectWeblink.completed, editing: projectWeblink == projectWeblinksCtrl.editedWeblink}">
+    <li ng-repeat="projectWeblink in projectWeblinksCtrl.projectWeblinksSrv.projectWeblinks| filter:statusFilter track by $index" ng-class="{completed: projectWeblink.completed, editing: projectWeblink == projectWeblinksCtrl.editedWeblink}">
      <div class="gb-weblink-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-weblink-heading">
        <p class="gb-title">WEBLINK</p>

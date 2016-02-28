@@ -1,9 +1,9 @@
 
 var advicesCtrl = function (
         level_categories,
-        ConstantsManager,
-        SearchManager,
-        AdvicesManager,
+        ConstantsSrv,
+        SearchSrv,
+        AdvicesSrv,
         $scope,
         $state,
         $stateParams,
@@ -21,8 +21,8 @@ var advicesCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-advice.css'
  }, $scope);
 
- vm.advicesManager = new AdvicesManager();
- vm.constantsManager = new ConstantsManager();
+ vm.advicesSrv = new AdvicesSrv();
+ vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'ADVICER';
  vm.adviceLevels;
  vm.adviceTypes;
@@ -41,20 +41,20 @@ var advicesCtrl = function (
  });
 
  vm.createAdvice = function (data) {
-  vm.advicesManager.createAdvice(data).then(function (response) {
+  vm.advicesSrv.createAdvice(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newAdviceData = angular.copy(vm.defaultAdviceData);
-   vm.advicesCopy = angular.copy(vm.advicesManager.advices);
+   vm.advicesCopy = angular.copy(vm.advicesSrv.advices);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editAdvice = function (data) {
-  vm.advicesManager.editAdvice(data).then(function (response) {
+  vm.advicesSrv.editAdvice(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newAdviceData = angular.copy(vm.defaultAdviceData);
-   vm.advicesCopy = angular.copy(vm.advicesManager.advices);
+   vm.advicesCopy = angular.copy(vm.advicesSrv.advices);
   }, function (response) {
    console.log(response);
   });
@@ -84,11 +84,11 @@ var advicesCtrl = function (
   advice = adviceCopy;
   /*
    $filter('filter')
-   (vm.advicesManager.advices, {id: adviceId}, true)[0]
+   (vm.advicesSrv.advices, {id: adviceId}, true)[0]
    = angular.copy($filter('filter')
    (vm.advicesCopy, {id: adviceId}, true)[0]);
    if (advice.length && adviceCopy.length) {
-   // vm.advicesManager.advices angular.copy(vm.advicesCopy);
+   // vm.advicesSrv.advices angular.copy(vm.advicesCopy);
    }
    */
  };
@@ -104,7 +104,7 @@ var advicesCtrl = function (
   return vm.advices;
  }), function () {
   //vm.remainingCount = filterFilter(advices, {completed: false}).length;
-  vm.doneCount = vm.advicesManager.advices.length - vm.remainingCount;
+  vm.doneCount = vm.advicesSrv.advices.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceService.put(vm.advices);
  }, true);
@@ -137,7 +137,7 @@ var advicesCtrl = function (
   }
  };
 
- $rootScope.openAddExploreModal = function () {
+ $rootScope.openAddExplorerModal = function () {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'create-advice-modal.html',
@@ -152,26 +152,26 @@ var advicesCtrl = function (
   });
 
   modalInstance.result.then(function (advice) {
-   vm.advicesManager.createAdvice(advice);
+   vm.advicesSrv.createAdvice(advice);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- vm.constantsManager.getLevel(level_categories.advice).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.advice).then(function (data) {
   vm.adviceTypes = data;
  });
- vm.constantsManager.getLevel(level_categories.advice).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.advice).then(function (data) {
   vm.adviceLevels = data;
  });
 };
 
 advicesCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SearchManager',
- 'AdvicesManager',
+ 'ConstantsSrv',
+ 'SearchSrv',
+ 'AdvicesSrv',
  '$scope',
  '$state',
  '$stateParams',

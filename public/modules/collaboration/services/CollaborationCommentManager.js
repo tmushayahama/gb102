@@ -1,9 +1,9 @@
-var collaborationCommentManager = function ($http, $q) {
+var collaborationCommentSrv = function ($http, $q) {
 
- var CollaborationCommentManager = function () {
+ var CollaborationCommentSrv = function () {
   this.collaborationComments = [];
  };
- CollaborationCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var collaborationCommentManager = function ($http, $q) {
  };
 
 
- CollaborationCommentManager.prototype.getCollaborationComment = function (collaborationId, commentId) {
+ CollaborationCommentSrv.prototype.getCollaborationComment = function (collaborationId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/collaboration/' + collaborationId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var collaborationCommentManager = function ($http, $q) {
  };
 
 
- CollaborationCommentManager.prototype.editCollaborationComment = function (collaborationCommentData) {
+ CollaborationCommentSrv.prototype.editCollaborationComment = function (collaborationCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var collaborationCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return CollaborationCommentManager;
+ return CollaborationCommentSrv;
 };
 
-collaborationCommentManager.$inject = ['$http', '$q'];
+collaborationCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationCommentManager', collaborationCommentManager);
+angular.module('app.collaboration').service('CollaborationCommentSrv', collaborationCommentSrv);

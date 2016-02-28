@@ -1,5 +1,5 @@
 var questionOverviewCtrl = function (
-        QuestionManager,
+        QuestionSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var questionOverviewCtrl = function (
 };
 
 questionOverviewCtrl.$inject = [
- 'QuestionManager',
+ 'QuestionSrv',
  '$state',
  '$stateParams',
  '$http',

@@ -1,5 +1,5 @@
 var projectOverviewCtrl = function (
-        ProjectManager,
+        ProjectSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var projectOverviewCtrl = function (
 };
 
 projectOverviewCtrl.$inject = [
- 'ProjectManager',
+ 'ProjectSrv',
  '$state',
  '$stateParams',
  '$http',

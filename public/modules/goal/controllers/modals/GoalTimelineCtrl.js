@@ -1,5 +1,5 @@
 var goalProgressCtrl = function (
-        GoalProgressManager,
+        GoalProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var goalProgressCtrl = function (
  var vm = this;
  vm.goalId = goalProgressData.goal_id;
  vm.goalProgressId = goalProgressData.id;
- vm.goalProgressManager = new GoalProgressManager();
+ vm.goalProgressSrv = new GoalProgressSrv();
 
 
  vm.progressId = goalProgressData.progress_id;
@@ -33,14 +33,14 @@ var goalProgressCtrl = function (
  // vm.newGoalProgressData = vm.defaultGoalProgressData;
 
  vm.getGoalProgress = function (goalId, progressId) {
-  vm.goalProgressManager.getGoalProgress(goalId, progressId).then(function (response) {
+  vm.goalProgressSrv.getGoalProgress(goalId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalProgress = function (data) {
-  vm.goalProgressManager.editGoalProgress(data).then(function (response) {
+  vm.goalProgressSrv.editGoalProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var goalProgressCtrl = function (
 
 
 goalProgressCtrl.$inject = [
- 'GoalProgressManager',
+ 'GoalProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -1,6 +1,6 @@
 var projectTodoCtrl = function (
-        ProjectTodoManager,
-        ProjectTodoChecklistManager,
+        ProjectTodoSrv,
+        ProjectTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var projectTodoCtrl = function (
  var vm = this;
  vm.projectId = projectTodoData.project_id;
  vm.projectTodoId = projectTodoData.id;
- vm.projectTodoManager = new ProjectTodoManager();
- vm.projectTodoChecklistManager = new ProjectTodoChecklistManager();
+ vm.projectTodoSrv = new ProjectTodoSrv();
+ vm.projectTodoChecklistSrv = new ProjectTodoChecklistSrv();
 
 
  vm.todoId = projectTodoData.todo_id;
@@ -41,14 +41,14 @@ var projectTodoCtrl = function (
  // vm.newProjectTodoData = vm.defaultProjectTodoData;
 
  vm.getProjectTodo = function (projectId, todoId) {
-  vm.projectTodoManager.getProjectTodo(projectId, todoId).then(function (response) {
+  vm.projectTodoSrv.getProjectTodo(projectId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectTodo = function (data) {
-  vm.projectTodoManager.editProjectTodo(data).then(function (response) {
+  vm.projectTodoSrv.editProjectTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var projectTodoCtrl = function (
  }
 
  vm.getProjectTodoChecklist = function (todoId) {
-  vm.projectTodoChecklistManager.getProjectTodoChecklist(todoId).then(function (response) {
+  vm.projectTodoChecklistSrv.getProjectTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var projectTodoCtrl = function (
  };
 
  vm.createProjectTodoChecklistItem = function (data) {
-  vm.projectTodoChecklistManager.createProjectTodoChecklistItem(data).then(function (response) {
+  vm.projectTodoChecklistSrv.createProjectTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newProjectTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var projectTodoCtrl = function (
  };
 
  vm.editProjectTodoChecklistItem = function (data) {
-  vm.projectTodoChecklistManager.editProjectTodoChecklistItem(data).then(function (response) {
+  vm.projectTodoChecklistSrv.editProjectTodoChecklistItem(data).then(function (response) {
    vm.newProjectTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var projectTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.projectTodoChecklistManager.projectTodoChecklist;
+  return vm.projectTodoChecklistSrv.projectTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.projectTodoChecklistManager.projectTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.projectTodoChecklistSrv.projectTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var projectTodoCtrl = function (
 };
 
 projectTodoCtrl.$inject = [
- 'ProjectTodoManager',
- 'ProjectTodoChecklistManager',
+ 'ProjectTodoSrv',
+ 'ProjectTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

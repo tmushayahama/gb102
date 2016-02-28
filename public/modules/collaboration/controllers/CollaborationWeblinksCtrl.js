@@ -1,5 +1,5 @@
 var collaborationWeblinksCtrl = function (
-        CollaborationWeblinksManager,
+        CollaborationWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var collaborationWeblinksCtrl = function (
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
  vm.collaborationWeblinksCopy;
- vm.collaborationWeblinksManager = new CollaborationWeblinksManager();
+ vm.collaborationWeblinksSrv = new CollaborationWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultCollaborationWeblinkData = {
@@ -27,20 +27,20 @@ var collaborationWeblinksCtrl = function (
  };
 
  vm.createCollaborationWeblink = function (data) {
-  vm.collaborationWeblinksManager.createCollaborationWeblink(data).then(function (response) {
+  vm.collaborationWeblinksSrv.createCollaborationWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newCollaborationWeblinkData = angular.copy(vm.defaultCollaborationWeblinkData);
-   vm.collaborationWeblinksCopy = angular.copy(vm.collaborationWeblinksManager.collaborationWeblinks);
+   vm.collaborationWeblinksCopy = angular.copy(vm.collaborationWeblinksSrv.collaborationWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCollaborationWeblink = function (data) {
-  vm.collaborationWeblinksManager.editCollaborationWeblink(data).then(function (response) {
+  vm.collaborationWeblinksSrv.editCollaborationWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newCollaborationWeblinkData = angular.copy(vm.defaultCollaborationWeblinkData);
-   vm.collaborationWeblinksCopy = angular.copy(vm.collaborationWeblinksManager.collaborationWeblinks);
+   vm.collaborationWeblinksCopy = angular.copy(vm.collaborationWeblinksSrv.collaborationWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var collaborationWeblinksCtrl = function (
   collaborationWeblink = collaborationWeblinkCopy;
   /*
    $filter('filter')
-   (vm.collaborationWeblinksManager.collaborationWeblinks, {id: collaborationWeblinkId}, true)[0]
+   (vm.collaborationWeblinksSrv.collaborationWeblinks, {id: collaborationWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.collaborationWeblinksCopy, {id: collaborationWeblinkId}, true)[0]);
    if (collaborationWeblink.length && collaborationWeblinkCopy.length) {
-   // vm.collaborationWeblinksManager.collaborationWeblinks angular.copy(vm.collaborationWeblinksCopy);
+   // vm.collaborationWeblinksSrv.collaborationWeblinks angular.copy(vm.collaborationWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var collaborationWeblinksCtrl = function (
   return vm.collaborationWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(collaborationWeblinks, {completed: false}).length;
-  vm.doneCount = vm.collaborationWeblinksManager.collaborationWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationWeblinksSrv.collaborationWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationWeblinkService.put(vm.collaborationWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var collaborationWeblinksCtrl = function (
 
 
  //--------init------
- vm.collaborationWeblinksManager.getCollaborationWeblinks(vm.collaborationId);
+ vm.collaborationWeblinksSrv.getCollaborationWeblinks(vm.collaborationId);
 };
 
 collaborationWeblinksCtrl.$inject = [
- 'CollaborationWeblinksManager',
+ 'CollaborationWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

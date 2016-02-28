@@ -18,8 +18,8 @@ class Collaboration extends Model {
  protected $table = 'gb_collaboration';
  public $count = 41;
 
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
  public function creator() {
@@ -43,14 +43,14 @@ class Collaboration extends Model {
 
  public static function getCollaborationsAll() {
   $collaborations = Collaboration::orderBy('id', 'desc')
-          ->with('explore')
-          ->whereHas('explore', function($q) {
-           $q->whereNull('parent_explore_id');
+          ->with('explorer')
+          ->whereHas('explorer', function($q) {
+           $q->whereNull('parent_explorer_id');
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $collaborations;
@@ -58,16 +58,16 @@ class Collaboration extends Model {
 
  public static function getSubCollaborations($collaborationId) {
   $collaborations = Collaboration::orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('explore', function($q) use ($collaborationId) {
-           $q->where('parent_explore_id', $collaborationId);
+          ->whereHas('explorer', function($q) use ($collaborationId) {
+           $q->where('parent_explorer_id', $collaborationId);
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $collaborations;
@@ -78,11 +78,11 @@ class Collaboration extends Model {
   if ($appId) {
    $collaborations = Collaboration::where('app_type_id', $appId->id)
            ->orderBy('id', 'desc')
-           ->with('explore')
-           ->with('explore.app_type')
-           ->with('explore.creator')
-           ->with('explore.icon')
-           ->with('explore.level')
+           ->with('explorer')
+           ->with('explorer.app_type')
+           ->with('explorer.creator')
+           ->with('explorer.icon')
+           ->with('explorer.level')
            ->take(100)
            ->get();
   }
@@ -107,11 +107,11 @@ class Collaboration extends Model {
   $collaboration = Collaboration::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('explore')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

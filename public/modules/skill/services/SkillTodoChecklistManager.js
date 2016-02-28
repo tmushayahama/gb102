@@ -1,9 +1,9 @@
-var skillTodoChecklistManager = function ($http, $q) {
+var skillTodoChecklistSrv = function ($http, $q) {
 
- var SkillTodoChecklistManager = function () {
+ var SkillTodoChecklistSrv = function () {
   this.skillTodoChecklist = [];
  };
- SkillTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillTodoChecklistManager.prototype.getSkillTodoChecklist = function (todoId) {
+ SkillTodoChecklistSrv.prototype.getSkillTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.skillTodoChecklist = [];
@@ -35,7 +35,7 @@ var skillTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodoChecklistManager.prototype.getSkillTodoChecklistItem = function (skillId, todoId) {
+ SkillTodoChecklistSrv.prototype.getSkillTodoChecklistItem = function (skillId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var skillTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodoChecklistManager.prototype.createSkillTodoChecklistItem = function (skillTodoChecklistData) {
+ SkillTodoChecklistSrv.prototype.createSkillTodoChecklistItem = function (skillTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var skillTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodoChecklistManager.prototype.editSkillTodoChecklistItem = function (skillTodoData) {
+ SkillTodoChecklistSrv.prototype.editSkillTodoChecklistItem = function (skillTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var skillTodoChecklistManager = function ($http, $q) {
  };
 
 
- return SkillTodoChecklistManager;
+ return SkillTodoChecklistSrv;
 };
 
-skillTodoChecklistManager.$inject = ['$http', '$q'];
+skillTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillTodoChecklistManager', skillTodoChecklistManager);
+angular.module('app.skills').service('SkillTodoChecklistSrv', skillTodoChecklistSrv);

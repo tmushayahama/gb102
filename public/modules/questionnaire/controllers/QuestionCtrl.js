@@ -1,8 +1,8 @@
 
 var questionCtrl = function (
         _,
-        ConstantsManager,
-        QuestionManager,
+        ConstantsSrv,
+        QuestionSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var questionCtrl = function (
 
  vm.questionId = $stateParams.questionId;
 
- vm.questionManager = new QuestionManager();
- vm.constantsManager = new ConstantsManager();
+ vm.questionSrv = new QuestionSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.questionFormDisplay = false;
 
  vm.getQuestion = function (id, data) {
-  vm.questionManager.getQuestion(id, data).success(function (response) {
+  vm.questionSrv.getQuestion(id, data).success(function (response) {
    vm.question = response;
   }).error(function (response) {
    console.log(response);
@@ -72,20 +72,20 @@ var questionCtrl = function (
  };
 
  vm.createQuestion = function (data) {
-  vm.questionManager.createQuestion(data).then(function (response) {
+  vm.questionSrv.createQuestion(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionData = angular.copy(vm.defaultQuestionData);
-   vm.questionCopy = angular.copy(vm.questionManager.question);
+   vm.questionCopy = angular.copy(vm.questionSrv.question);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editQuestion = function (data) {
-  vm.questionManager.editQuestion(data).then(function (response) {
+  vm.questionSrv.editQuestion(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionData = angular.copy(vm.defaultQuestionData);
-   vm.questionCopy = angular.copy(vm.questionManager.question);
+   vm.questionCopy = angular.copy(vm.questionSrv.question);
   }, function (response) {
    console.log(response);
   });
@@ -115,11 +115,11 @@ var questionCtrl = function (
   question = questionCopy;
   /*
    $filter('filter')
-   (vm.questionManager.question, {id: questionId}, true)[0]
+   (vm.questionSrv.question, {id: questionId}, true)[0]
    = angular.copy($filter('filter')
    (vm.questionCopy, {id: questionId}, true)[0]);
    if (question.length && questionCopy.length) {
-   // vm.questionManager.question angular.copy(vm.questionCopy);
+   // vm.questionSrv.question angular.copy(vm.questionCopy);
    }
    */
  };
@@ -131,7 +131,7 @@ var questionCtrl = function (
   return vm.question;
  }), function () {
   //vm.remainingCount = filterFilter(question, {completed: false}).length;
-  vm.doneCount = vm.questionManager.question.length - vm.remainingCount;
+  vm.doneCount = vm.questionSrv.question.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionService.put(vm.question);
  }, true);
@@ -165,17 +165,17 @@ var questionCtrl = function (
  };
 
  //--------init------
- vm.questionManager.getQuestion(vm.questionId).then(function (data) {
+ vm.questionSrv.getQuestion(vm.questionId).then(function (data) {
  });
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.questionIcons = data;
   vm.getRandomQuestionIcons();
  });
 };
 
 questionCtrl.$inject = ['_',
- 'ConstantsManager',
- 'QuestionManager',
+ 'ConstantsSrv',
+ 'QuestionSrv',
  '$scope',
  '$state',
  '$stateParams',

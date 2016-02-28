@@ -1,5 +1,5 @@
 var profileNoteCtrl = function (
-        ProfileNoteManager,
+        ProfileNoteSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var profileNoteCtrl = function (
  var vm = this;
  vm.profileId = profileNoteData.profile_id;
  vm.profileNoteId = profileNoteData.id;
- vm.profileNoteManager = new ProfileNoteManager();
+ vm.profileNoteSrv = new ProfileNoteSrv();
 
 
  vm.noteId = profileNoteData.note_id;
@@ -33,14 +33,14 @@ var profileNoteCtrl = function (
  // vm.newProfileNoteData = vm.defaultProfileNoteData;
 
  vm.getProfileNote = function (profileId, noteId) {
-  vm.profileNoteManager.getProfileNote(profileId, noteId).then(function (response) {
+  vm.profileNoteSrv.getProfileNote(profileId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProfileNote = function (data) {
-  vm.profileNoteManager.editProfileNote(data).then(function (response) {
+  vm.profileNoteSrv.editProfileNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var profileNoteCtrl = function (
 
 
 profileNoteCtrl.$inject = [
- 'ProfileNoteManager',
+ 'ProfileNoteSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

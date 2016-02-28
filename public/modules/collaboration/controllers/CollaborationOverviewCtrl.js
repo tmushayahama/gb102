@@ -1,5 +1,5 @@
 var collaborationOverviewCtrl = function (
-        CollaborationManager,
+        CollaborationSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var collaborationOverviewCtrl = function (
 };
 
 collaborationOverviewCtrl.$inject = [
- 'CollaborationManager',
+ 'CollaborationSrv',
  '$state',
  '$stateParams',
  '$http',

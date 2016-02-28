@@ -1,5 +1,5 @@
 var journalCommentCtrl = function (
-        JournalCommentManager,
+        JournalCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var journalCommentCtrl = function (
  var vm = this;
  vm.journalId = journalCommentData.journal_id;
  vm.journalCommentId = journalCommentData.id;
- vm.journalCommentManager = new JournalCommentManager();
+ vm.journalCommentSrv = new JournalCommentSrv();
 
 
  vm.commentId = journalCommentData.comment_id;
@@ -33,14 +33,14 @@ var journalCommentCtrl = function (
  // vm.newJournalCommentData = vm.defaultJournalCommentData;
 
  vm.getJournalComment = function (journalId, commentId) {
-  vm.journalCommentManager.getJournalComment(journalId, commentId).then(function (response) {
+  vm.journalCommentSrv.getJournalComment(journalId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalComment = function (data) {
-  vm.journalCommentManager.editJournalComment(data).then(function (response) {
+  vm.journalCommentSrv.editJournalComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var journalCommentCtrl = function (
 };
 
 journalCommentCtrl.$inject = [
- 'JournalCommentManager',
+ 'JournalCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

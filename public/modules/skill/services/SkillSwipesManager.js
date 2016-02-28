@@ -1,9 +1,9 @@
-var skillSwipesManager = function ($http, $q) {
+var skillSwipesSrv = function ($http, $q) {
 
- var SkillSwipesManager = function () {
+ var SkillSwipesSrv = function () {
   this.skillSwipes = [];
  };
- SkillSwipesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillSwipesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillSwipesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillSwipesManager.prototype.getSkillSwipes = function () {
+ SkillSwipesSrv.prototype.getSkillSwipes = function () {
   var self = this;
   var deferred = $q.defer();
   self.skillSwipes = [];
@@ -36,7 +36,7 @@ var skillSwipesManager = function ($http, $q) {
  };
 
 
- SkillSwipesManager.prototype.getSkillSwipe = function () {
+ SkillSwipesSrv.prototype.getSkillSwipe = function () {
   var self = this;
   var deferred = $q.defer();
   self.skill = [];
@@ -49,7 +49,7 @@ var skillSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillSwipesManager.prototype.createSkillSwipe = function (skillSwipeData) {
+ SkillSwipesSrv.prototype.createSkillSwipe = function (skillSwipeData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -65,7 +65,7 @@ var skillSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillSwipesManager.prototype.editSkill = function (skillData) {
+ SkillSwipesSrv.prototype.editSkill = function (skillData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -79,10 +79,10 @@ var skillSwipesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return SkillSwipesManager;
+ return SkillSwipesSrv;
 };
 
-skillSwipesManager.$inject = ['$http', '$q'];
+skillSwipesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillSwipesManager', skillSwipesManager);
+angular.module('app.skills').service('SkillSwipesSrv', skillSwipesSrv);
 

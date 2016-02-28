@@ -1,9 +1,9 @@
-var goalWeblinkManager = function ($http, $q) {
+var goalWeblinkSrv = function ($http, $q) {
 
- var GoalWeblinkManager = function () {
+ var GoalWeblinkSrv = function () {
   this.goalWeblinks = [];
  };
- GoalWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var goalWeblinkManager = function ($http, $q) {
  };
 
 
- GoalWeblinkManager.prototype.getGoalWeblink = function (goalId, weblinkId) {
+ GoalWeblinkSrv.prototype.getGoalWeblink = function (goalId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var goalWeblinkManager = function ($http, $q) {
  };
 
 
- GoalWeblinkManager.prototype.editGoalWeblink = function (goalWeblinkData) {
+ GoalWeblinkSrv.prototype.editGoalWeblink = function (goalWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var goalWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalWeblinkManager;
+ return GoalWeblinkSrv;
 };
 
-goalWeblinkManager.$inject = ['$http', '$q'];
+goalWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalWeblinkManager', goalWeblinkManager);
+angular.module('app.goal').service('GoalWeblinkSrv', goalWeblinkSrv);

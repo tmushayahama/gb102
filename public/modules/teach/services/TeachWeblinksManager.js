@@ -1,9 +1,9 @@
-var teachWeblinksManager = function ($http, $q) {
+var teachWeblinksSrv = function ($http, $q) {
 
- var TeachWeblinksManager = function () {
+ var TeachWeblinksSrv = function () {
   this.teachWeblinks = [];
  };
- TeachWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachWeblinksManager.prototype.getTeachWeblinks = function (teachId) {
+ TeachWeblinksSrv.prototype.getTeachWeblinks = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   self.teachWeblinks = [];
@@ -35,7 +35,7 @@ var teachWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachWeblinksManager.prototype.getTeachWeblink = function (teachId, weblinkId) {
+ TeachWeblinksSrv.prototype.getTeachWeblink = function (teachId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.teachWeblinks = [];
@@ -48,7 +48,7 @@ var teachWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachWeblinksManager.prototype.createTeachWeblink = function (teachWeblinkData) {
+ TeachWeblinksSrv.prototype.createTeachWeblink = function (teachWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var teachWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachWeblinksManager.prototype.editTeachWeblink = function (teachWeblinkData) {
+ TeachWeblinksSrv.prototype.editTeachWeblink = function (teachWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var teachWeblinksManager = function ($http, $q) {
  };
 
 
- return TeachWeblinksManager;
+ return TeachWeblinksSrv;
 };
 
 
-teachWeblinksManager.$inject = ['$http', '$q'];
+teachWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachWeblinksManager', teachWeblinksManager);
+angular.module('app.teach').service('TeachWeblinksSrv', teachWeblinksSrv);

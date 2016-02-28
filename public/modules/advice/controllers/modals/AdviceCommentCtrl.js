@@ -1,5 +1,5 @@
 var adviceCommentCtrl = function (
-        AdviceCommentManager,
+        AdviceCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var adviceCommentCtrl = function (
  var vm = this;
  vm.adviceId = adviceCommentData.advice_id;
  vm.adviceCommentId = adviceCommentData.id;
- vm.adviceCommentManager = new AdviceCommentManager();
+ vm.adviceCommentSrv = new AdviceCommentSrv();
 
 
  vm.commentId = adviceCommentData.comment_id;
@@ -33,14 +33,14 @@ var adviceCommentCtrl = function (
  // vm.newAdviceCommentData = vm.defaultAdviceCommentData;
 
  vm.getAdviceComment = function (adviceId, commentId) {
-  vm.adviceCommentManager.getAdviceComment(adviceId, commentId).then(function (response) {
+  vm.adviceCommentSrv.getAdviceComment(adviceId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceComment = function (data) {
-  vm.adviceCommentManager.editAdviceComment(data).then(function (response) {
+  vm.adviceCommentSrv.editAdviceComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var adviceCommentCtrl = function (
 };
 
 adviceCommentCtrl.$inject = [
- 'AdviceCommentManager',
+ 'AdviceCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -3,26 +3,15 @@
 namespace App\Http\Controllers\Swipe;
 
 //use Illuminate\Contracts\Auth;
-use JWTAuth;
 //use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Level\Level;
 use App\Models\Swipe\Swipe;
 use App\Models\Swipe\SwipeProgress;
 use App\Models\Swipe\SwipeComment;
 use App\Models\Swipe\SwipeNote;
 use App\Models\Swipe\SwipeTodo;
 use App\Models\Swipe\SwipeWeblink;
-use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
-use App\Models\Progress\Progress;
-use App\Models\Comment\Comment;
-use App\Models\Note\Note;
-use App\Models\Weblink\Weblink;
-use App\Models\Explore\Explore;
-use Request;
-use DB;
 
 class SwipeController extends Controller {
 

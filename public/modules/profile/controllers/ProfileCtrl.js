@@ -1,10 +1,10 @@
 
 var profileCtrl = function (
         _,
-        ConstantsManager,
-        ProfileManager,
-        SearchManager,
-        UserProfileSectionManager,
+        ConstantsSrv,
+        ProfileSrv,
+        SearchSrv,
+        UserProfileSectionSrv,
         localStorageService,
         $uibModal,
         $aside,
@@ -34,13 +34,13 @@ var profileCtrl = function (
  var profileData = {
  };
 
- vm.searchManager = new SearchManager();
+ vm.searchSrv = new SearchSrv();
 
  vm.getSearchSuggestions = function (val) {
   var searchData = {
    query: val
   };
-  return vm.searchManager.simpleSearchSuggestion(searchData)
+  return vm.searchSrv.simpleSearchSuggestion(searchData)
           .then(function (response) {
            var results = response.data.map(function (item) {
             return item.title;
@@ -92,14 +92,14 @@ var profileCtrl = function (
 
  vm.profileId = $stateParams.profileId;
 
- vm.profileManager = new ProfileManager();
- vm.userProfileSectionManager = new UserProfileSectionManager();
- vm.constantsManager = new ConstantsManager();
+ vm.profileSrv = new ProfileSrv();
+ vm.userProfileSectionSrv = new UserProfileSectionSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.profileFormDisplay = false;
 
  vm.getProfile = function (id, data) {
-  vm.profileManager.getProfile(id, data).success(function (response) {
+  vm.profileSrv.getProfile(id, data).success(function (response) {
    vm.profile = response;
   }).error(function (response) {
    console.log(response);
@@ -120,20 +120,20 @@ var profileCtrl = function (
  };
 
  vm.createProfile = function (data) {
-  vm.profileManager.createProfile(data).then(function (response) {
+  vm.profileSrv.createProfile(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProfileData = angular.copy(vm.defaultProfileData);
-   vm.profileCopy = angular.copy(vm.profileManager.profile);
+   vm.profileCopy = angular.copy(vm.profileSrv.profile);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProfile = function (data) {
-  vm.profileManager.editProfile(data).then(function (response) {
+  vm.profileSrv.editProfile(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProfileData = angular.copy(vm.defaultProfileData);
-   vm.profileCopy = angular.copy(vm.profileManager.profile);
+   vm.profileCopy = angular.copy(vm.profileSrv.profile);
   }, function (response) {
    console.log(response);
   });
@@ -177,21 +177,21 @@ var profileCtrl = function (
  };
 
  //--------init------
- vm.profileManager.getProfile(vm.profileId).then(function (data) {
-  vm.userProfileSectionManager.getUserProfileSection(vm.profileId)
+ vm.profileSrv.getProfile(vm.profileId).then(function (data) {
+  vm.userProfileSectionSrv.getUserProfileSection(vm.profileId)
  });
 
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.profileIcons = data;
   vm.getRandomProfileIcons();
  });
 };
 
 profileCtrl.$inject = ['_',
- 'ConstantsManager',
- 'ProfileManager',
- 'SearchManager',
- 'UserProfileSectionManager',
+ 'ConstantsSrv',
+ 'ProfileSrv',
+ 'SearchSrv',
+ 'UserProfileSectionSrv',
  'localStorageService',
  '$uibModal',
  '$aside',

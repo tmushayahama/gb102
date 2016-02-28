@@ -1,5 +1,5 @@
 var teachNoteCtrl = function (
-        TeachNoteManager,
+        TeachNoteSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var teachNoteCtrl = function (
  var vm = this;
  vm.teachId = teachNoteData.teach_id;
  vm.teachNoteId = teachNoteData.id;
- vm.teachNoteManager = new TeachNoteManager();
+ vm.teachNoteSrv = new TeachNoteSrv();
 
 
  vm.noteId = teachNoteData.note_id;
@@ -33,14 +33,14 @@ var teachNoteCtrl = function (
  // vm.newTeachNoteData = vm.defaultTeachNoteData;
 
  vm.getTeachNote = function (teachId, noteId) {
-  vm.teachNoteManager.getTeachNote(teachId, noteId).then(function (response) {
+  vm.teachNoteSrv.getTeachNote(teachId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachNote = function (data) {
-  vm.teachNoteManager.editTeachNote(data).then(function (response) {
+  vm.teachNoteSrv.editTeachNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var teachNoteCtrl = function (
 
 
 teachNoteCtrl.$inject = [
- 'TeachNoteManager',
+ 'TeachNoteSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

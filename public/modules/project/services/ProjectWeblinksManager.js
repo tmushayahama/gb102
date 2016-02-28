@@ -1,9 +1,9 @@
-var projectWeblinksManager = function ($http, $q) {
+var projectWeblinksSrv = function ($http, $q) {
 
- var ProjectWeblinksManager = function () {
+ var ProjectWeblinksSrv = function () {
   this.projectWeblinks = [];
  };
- ProjectWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectWeblinksManager.prototype.getProjectWeblinks = function (projectId) {
+ ProjectWeblinksSrv.prototype.getProjectWeblinks = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   self.projectWeblinks = [];
@@ -35,7 +35,7 @@ var projectWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectWeblinksManager.prototype.getProjectWeblink = function (projectId, weblinkId) {
+ ProjectWeblinksSrv.prototype.getProjectWeblink = function (projectId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.projectWeblinks = [];
@@ -48,7 +48,7 @@ var projectWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectWeblinksManager.prototype.createProjectWeblink = function (projectWeblinkData) {
+ ProjectWeblinksSrv.prototype.createProjectWeblink = function (projectWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var projectWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectWeblinksManager.prototype.editProjectWeblink = function (projectWeblinkData) {
+ ProjectWeblinksSrv.prototype.editProjectWeblink = function (projectWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var projectWeblinksManager = function ($http, $q) {
  };
 
 
- return ProjectWeblinksManager;
+ return ProjectWeblinksSrv;
 };
 
 
-projectWeblinksManager.$inject = ['$http', '$q'];
+projectWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectWeblinksManager', projectWeblinksManager);
+angular.module('app.project').service('ProjectWeblinksSrv', projectWeblinksSrv);

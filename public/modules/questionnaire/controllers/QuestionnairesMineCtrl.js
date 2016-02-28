@@ -1,6 +1,6 @@
 var questionnairesMineCtrl = function (
-        ConstantsManager,
-        QuestionnairesManager,
+        ConstantsSrv,
+        QuestionnairesSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var questionnairesMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.questionnairesManager = new QuestionnairesManager();
- vm.questionnairesManager.getMyQuestionnaires();
+ vm.questionnairesSrv = new QuestionnairesSrv();
+ vm.questionnairesSrv.getMyQuestionnaires();
 };
 
 
 questionnairesMineCtrl.$inject = [
- 'ConstantsManager',
- 'QuestionnairesManager',
+ 'ConstantsSrv',
+ 'QuestionnairesSrv',
  '$scope',
  '$state',
  '$stateParams',

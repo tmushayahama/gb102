@@ -22,9 +22,9 @@ define(['angular',
                name: 'app.auth',
                serie: true,
                files: [
-                'public/modules/app/services/ConstantsManager.js',
-                'public/modules/auth/controllers/AuthCtrl.js',
-                'public/modules/auth/controllers/modals/LoginModalCtrl.js'
+                'public/modules/app/services/Constants.srv.js',
+                'public/modules/auth/controllers/Auth.ctrl.js',
+                'public/modules/auth/controllers/modals/LoginModal.ctrl.js'
                ]
               });
              }]

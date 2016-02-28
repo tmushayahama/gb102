@@ -1,9 +1,9 @@
-var journalWeblinkManager = function ($http, $q) {
+var journalWeblinkSrv = function ($http, $q) {
 
- var JournalWeblinkManager = function () {
+ var JournalWeblinkSrv = function () {
   this.journalWeblinks = [];
  };
- JournalWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var journalWeblinkManager = function ($http, $q) {
  };
 
 
- JournalWeblinkManager.prototype.getJournalWeblink = function (journalId, weblinkId) {
+ JournalWeblinkSrv.prototype.getJournalWeblink = function (journalId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/journal/' + journalId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var journalWeblinkManager = function ($http, $q) {
  };
 
 
- JournalWeblinkManager.prototype.editJournalWeblink = function (journalWeblinkData) {
+ JournalWeblinkSrv.prototype.editJournalWeblink = function (journalWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var journalWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return JournalWeblinkManager;
+ return JournalWeblinkSrv;
 };
 
-journalWeblinkManager.$inject = ['$http', '$q'];
+journalWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalWeblinkManager', journalWeblinkManager);
+angular.module('app.journal').service('JournalWeblinkSrv', journalWeblinkSrv);

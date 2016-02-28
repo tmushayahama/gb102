@@ -1,9 +1,9 @@
-var questionManager = function ($http, $q) {
+var questionSrv = function ($http, $q) {
 
- var QuestionManager = function () {
+ var QuestionSrv = function () {
   this.question = [];
  };
- QuestionManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var questionManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionManager.prototype.getQuestion = function (questionId) {
+ QuestionSrv.prototype.getQuestion = function (questionId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/question/' + questionId).success(function (data) {
@@ -35,7 +35,7 @@ var questionManager = function ($http, $q) {
  };
 
 
- QuestionManager.prototype.editQuestion = function (questionData) {
+ QuestionSrv.prototype.editQuestion = function (questionData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -50,9 +50,9 @@ var questionManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionManager;
+ return QuestionSrv;
 };
 
-questionManager.$inject = ['$http', '$q'];
+questionSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionManager', questionManager);
+angular.module('app.questionnaire').service('QuestionSrv', questionSrv);

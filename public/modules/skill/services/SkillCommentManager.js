@@ -1,9 +1,9 @@
-var skillCommentManager = function ($http, $q) {
+var skillCommentSrv = function ($http, $q) {
 
- var SkillCommentManager = function () {
+ var SkillCommentSrv = function () {
   this.skillComments = [];
  };
- SkillCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var skillCommentManager = function ($http, $q) {
  };
 
 
- SkillCommentManager.prototype.getSkillComment = function (skillId, commentId) {
+ SkillCommentSrv.prototype.getSkillComment = function (skillId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var skillCommentManager = function ($http, $q) {
  };
 
 
- SkillCommentManager.prototype.editSkillComment = function (skillCommentData) {
+ SkillCommentSrv.prototype.editSkillComment = function (skillCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var skillCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillCommentManager;
+ return SkillCommentSrv;
 };
 
-skillCommentManager.$inject = ['$http', '$q'];
+skillCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillCommentManager', skillCommentManager);
+angular.module('app.skills').service('SkillCommentSrv', skillCommentSrv);

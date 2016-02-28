@@ -1,5 +1,5 @@
 var questionnaireCommentsCtrl = function (
-        QuestionnaireCommentsManager,
+        QuestionnaireCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var questionnaireCommentsCtrl = function (
  var vm = this;
  vm.questionnaireId = $stateParams.questionnaireId;
  vm.questionnaireCommentsCopy;
- vm.questionnaireCommentsManager = new QuestionnaireCommentsManager();
+ vm.questionnaireCommentsSrv = new QuestionnaireCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultQuestionnaireCommentData = {
   questionnaireId: $stateParams.questionnaireId,
@@ -24,19 +24,19 @@ var questionnaireCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createQuestionnaireComment = function (data) {
-  vm.questionnaireCommentsManager.createQuestionnaireComment(data).then(function (response) {
+  vm.questionnaireCommentsSrv.createQuestionnaireComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData);
-   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsManager.questionnaireComments);
+   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsSrv.questionnaireComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editQuestionnaireComment = function (data) {
-  vm.questionnaireCommentsManager.editQuestionnaireComment(data).then(function (response) {
+  vm.questionnaireCommentsSrv.editQuestionnaireComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newQuestionnaireCommentData = angular.copy(vm.defaultQuestionnaireCommentData);
-   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsManager.questionnaireComments);
+   vm.questionnaireCommentsCopy = angular.copy(vm.questionnaireCommentsSrv.questionnaireComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var questionnaireCommentsCtrl = function (
   questionnaireComment = questionnaireCommentCopy;
   /*
    $filter('filter')
-   (vm.questionnaireCommentsManager.questionnaireComments, {id: questionnaireCommentId}, true)[0]
+   (vm.questionnaireCommentsSrv.questionnaireComments, {id: questionnaireCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.questionnaireCommentsCopy, {id: questionnaireCommentId}, true)[0]);
    if (questionnaireComment.length && questionnaireCommentCopy.length) {
-   // vm.questionnaireCommentsManager.questionnaireComments angular.copy(vm.questionnaireCommentsCopy);
+   // vm.questionnaireCommentsSrv.questionnaireComments angular.copy(vm.questionnaireCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var questionnaireCommentsCtrl = function (
   return vm.questionnaireComments;
  }), function () {
   //vm.remainingCount = filterFilter(questionnaireComments, {completed: false}).length;
-  vm.doneCount = vm.questionnaireCommentsManager.questionnaireComments.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireCommentsSrv.questionnaireComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionnaireCommentService.put(vm.questionnaireComments);
  }, true);
@@ -126,11 +126,11 @@ var questionnaireCommentsCtrl = function (
   });
  };
  //--------init------
- vm.questionnaireCommentsManager.getQuestionnaireComments(vm.questionnaireId);
+ vm.questionnaireCommentsSrv.getQuestionnaireComments(vm.questionnaireId);
 };
 
 questionnaireCommentsCtrl.$inject = [
- 'QuestionnaireCommentsManager',
+ 'QuestionnaireCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

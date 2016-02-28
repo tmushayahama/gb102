@@ -18,8 +18,8 @@ class Advice extends Model {
  protected $table = 'gb_advice';
  public $count = 41;
 
- public function explore() {
-  return $this->belongsTo('App\Models\Explore\Explore', 'explore_id');
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
  public function creator() {
@@ -43,14 +43,14 @@ class Advice extends Model {
 
  public static function getAdvicesAll() {
   $advices = Advice::orderBy('id', 'desc')
-          ->with('explore')
-          ->whereHas('explore', function($q) {
-           $q->whereNull('parent_explore_id');
+          ->with('explorer')
+          ->whereHas('explorer', function($q) {
+           $q->whereNull('parent_explorer_id');
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $advices;
@@ -58,16 +58,16 @@ class Advice extends Model {
 
  public static function getSubAdvices($adviceId) {
   $advices = Advice::orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('explore', function($q) use ($adviceId) {
-           $q->where('parent_explore_id', $adviceId);
+          ->whereHas('explorer', function($q) use ($adviceId) {
+           $q->where('parent_explorer_id', $adviceId);
           })
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(100)
           ->get();
   return $advices;
@@ -78,11 +78,11 @@ class Advice extends Model {
   if ($appId) {
    $advices = Advice::where('app_type_id', $appId->id)
            ->orderBy('id', 'desc')
-           ->with('explore')
-           ->with('explore.app_type')
-           ->with('explore.creator')
-           ->with('explore.icon')
-           ->with('explore.level')
+           ->with('explorer')
+           ->with('explorer.app_type')
+           ->with('explorer.creator')
+           ->with('explorer.icon')
+           ->with('explorer.level')
            ->take(100)
            ->get();
   }
@@ -107,11 +107,11 @@ class Advice extends Model {
   $advice = Advice::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('explore')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;

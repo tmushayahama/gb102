@@ -1,9 +1,9 @@
-var adviceTodoManager = function ($http, $q) {
+var adviceTodoSrv = function ($http, $q) {
 
- var AdviceTodoManager = function () {
+ var AdviceTodoSrv = function () {
   this.adviceTodos = [];
  };
- AdviceTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var adviceTodoManager = function ($http, $q) {
  };
 
 
- AdviceTodoManager.prototype.getAdviceTodo = function (adviceId, todoId) {
+ AdviceTodoSrv.prototype.getAdviceTodo = function (adviceId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/advice/' + adviceId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var adviceTodoManager = function ($http, $q) {
  };
 
 
- AdviceTodoManager.prototype.editAdviceTodo = function (adviceTodoData) {
+ AdviceTodoSrv.prototype.editAdviceTodo = function (adviceTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var adviceTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return AdviceTodoManager;
+ return AdviceTodoSrv;
 };
-adviceTodoManager.$inject = ['$http', '$q'];
+adviceTodoSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceTodoManager', adviceTodoManager);
+angular.module('app.advice').service('AdviceTodoSrv', adviceTodoSrv);

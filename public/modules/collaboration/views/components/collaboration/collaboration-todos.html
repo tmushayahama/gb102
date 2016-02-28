@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!collaborationTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{collaborationCtrl.collaborationManager.collaboration.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{collaborationCtrl.collaborationSrv.collaboration.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="collaborationTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="collaborationTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-todo-body row" ng-show="collaborationTodosCtrl.collaborationTodosManager.collaborationTodos.length" ng-cloak>
+  <div class="gb-todo-body row" ng-show="collaborationTodosCtrl.collaborationTodosSrv.collaborationTodos.length" ng-cloak>
    <ul id="todo-list">
-    <li ng-repeat="collaborationTodo in collaborationTodosCtrl.collaborationTodosManager.collaborationTodos| filter:statusFilter track by $index" ng-class="{completed: collaborationTodo.completed, editing: collaborationTodo == collaborationTodosCtrl.editedTodo}">
+    <li ng-repeat="collaborationTodo in collaborationTodosCtrl.collaborationTodosSrv.collaborationTodos| filter:statusFilter track by $index" ng-class="{completed: collaborationTodo.completed, editing: collaborationTodo == collaborationTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="collaborationTodo.completed">
       <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-9'>

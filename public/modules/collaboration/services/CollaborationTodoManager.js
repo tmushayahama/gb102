@@ -1,9 +1,9 @@
-var collaborationTodoManager = function ($http, $q) {
+var collaborationTodoSrv = function ($http, $q) {
 
- var CollaborationTodoManager = function () {
+ var CollaborationTodoSrv = function () {
   this.collaborationTodos = [];
  };
- CollaborationTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var collaborationTodoManager = function ($http, $q) {
  };
 
 
- CollaborationTodoManager.prototype.getCollaborationTodo = function (collaborationId, todoId) {
+ CollaborationTodoSrv.prototype.getCollaborationTodo = function (collaborationId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/collaboration/' + collaborationId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var collaborationTodoManager = function ($http, $q) {
  };
 
 
- CollaborationTodoManager.prototype.editCollaborationTodo = function (collaborationTodoData) {
+ CollaborationTodoSrv.prototype.editCollaborationTodo = function (collaborationTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var collaborationTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return CollaborationTodoManager;
+ return CollaborationTodoSrv;
 };
-collaborationTodoManager.$inject = ['$http', '$q'];
+collaborationTodoSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationTodoManager', collaborationTodoManager);
+angular.module('app.collaboration').service('CollaborationTodoSrv', collaborationTodoSrv);

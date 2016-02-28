@@ -1,5 +1,5 @@
 var adviceProgressCtrl = function (
-        AdviceProgressManager,
+        AdviceProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var adviceProgressCtrl = function (
  var vm = this;
  vm.adviceId = adviceProgressData.advice_id;
  vm.adviceProgressId = adviceProgressData.id;
- vm.adviceProgressManager = new AdviceProgressManager();
+ vm.adviceProgressSrv = new AdviceProgressSrv();
 
 
  vm.progressId = adviceProgressData.progress_id;
@@ -33,14 +33,14 @@ var adviceProgressCtrl = function (
  // vm.newAdviceProgressData = vm.defaultAdviceProgressData;
 
  vm.getAdviceProgress = function (adviceId, progressId) {
-  vm.adviceProgressManager.getAdviceProgress(adviceId, progressId).then(function (response) {
+  vm.adviceProgressSrv.getAdviceProgress(adviceId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceProgress = function (data) {
-  vm.adviceProgressManager.editAdviceProgress(data).then(function (response) {
+  vm.adviceProgressSrv.editAdviceProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var adviceProgressCtrl = function (
 
 
 adviceProgressCtrl.$inject = [
- 'AdviceProgressManager',
+ 'AdviceProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

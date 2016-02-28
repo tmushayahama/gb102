@@ -1,9 +1,9 @@
-var projectTodosManager = function ($http, $q) {
+var projectTodosSrv = function ($http, $q) {
 
- var ProjectTodosManager = function () {
+ var ProjectTodosSrv = function () {
   this.projectTodos = [];
  };
- ProjectTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectTodosManager.prototype.getProjectTodos = function (projectId) {
+ ProjectTodosSrv.prototype.getProjectTodos = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   self.projectTodos = [];
@@ -35,7 +35,7 @@ var projectTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodosManager.prototype.getProjectTodo = function (projectId, todoId) {
+ ProjectTodosSrv.prototype.getProjectTodo = function (projectId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.projectTodos = [];
@@ -48,7 +48,7 @@ var projectTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodosManager.prototype.createProjectTodo = function (projectTodoData) {
+ ProjectTodosSrv.prototype.createProjectTodo = function (projectTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var projectTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodosManager.prototype.editProjectTodo = function (projectTodoData) {
+ ProjectTodosSrv.prototype.editProjectTodo = function (projectTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var projectTodosManager = function ($http, $q) {
  };
 
 
- return ProjectTodosManager;
+ return ProjectTodosSrv;
 };
 
-projectTodosManager.$inject = ['$http', '$q'];
+projectTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectTodosManager', projectTodosManager);
+angular.module('app.project').service('ProjectTodosSrv', projectTodosSrv);

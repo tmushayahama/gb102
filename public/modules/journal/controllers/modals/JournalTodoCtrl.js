@@ -1,6 +1,6 @@
 var journalTodoCtrl = function (
-        JournalTodoManager,
-        JournalTodoChecklistManager,
+        JournalTodoSrv,
+        JournalTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var journalTodoCtrl = function (
  var vm = this;
  vm.journalId = journalTodoData.journal_id;
  vm.journalTodoId = journalTodoData.id;
- vm.journalTodoManager = new JournalTodoManager();
- vm.journalTodoChecklistManager = new JournalTodoChecklistManager();
+ vm.journalTodoSrv = new JournalTodoSrv();
+ vm.journalTodoChecklistSrv = new JournalTodoChecklistSrv();
 
 
  vm.todoId = journalTodoData.todo_id;
@@ -41,14 +41,14 @@ var journalTodoCtrl = function (
  // vm.newJournalTodoData = vm.defaultJournalTodoData;
 
  vm.getJournalTodo = function (journalId, todoId) {
-  vm.journalTodoManager.getJournalTodo(journalId, todoId).then(function (response) {
+  vm.journalTodoSrv.getJournalTodo(journalId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalTodo = function (data) {
-  vm.journalTodoManager.editJournalTodo(data).then(function (response) {
+  vm.journalTodoSrv.editJournalTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var journalTodoCtrl = function (
  }
 
  vm.getJournalTodoChecklist = function (todoId) {
-  vm.journalTodoChecklistManager.getJournalTodoChecklist(todoId).then(function (response) {
+  vm.journalTodoChecklistSrv.getJournalTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var journalTodoCtrl = function (
  };
 
  vm.createJournalTodoChecklistItem = function (data) {
-  vm.journalTodoChecklistManager.createJournalTodoChecklistItem(data).then(function (response) {
+  vm.journalTodoChecklistSrv.createJournalTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newJournalTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var journalTodoCtrl = function (
  };
 
  vm.editJournalTodoChecklistItem = function (data) {
-  vm.journalTodoChecklistManager.editJournalTodoChecklistItem(data).then(function (response) {
+  vm.journalTodoChecklistSrv.editJournalTodoChecklistItem(data).then(function (response) {
    vm.newJournalTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var journalTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.journalTodoChecklistManager.journalTodoChecklist;
+  return vm.journalTodoChecklistSrv.journalTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.journalTodoChecklistManager.journalTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.journalTodoChecklistSrv.journalTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var journalTodoCtrl = function (
 };
 
 journalTodoCtrl.$inject = [
- 'JournalTodoManager',
- 'JournalTodoChecklistManager',
+ 'JournalTodoSrv',
+ 'JournalTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

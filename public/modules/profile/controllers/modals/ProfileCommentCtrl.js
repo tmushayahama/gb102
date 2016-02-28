@@ -1,5 +1,5 @@
 var profileCommentCtrl = function (
-        ProfileCommentManager,
+        ProfileCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var profileCommentCtrl = function (
  var vm = this;
  vm.profileId = profileCommentData.profile_id;
  vm.profileCommentId = profileCommentData.id;
- vm.profileCommentManager = new ProfileCommentManager();
+ vm.profileCommentSrv = new ProfileCommentSrv();
 
 
  vm.commentId = profileCommentData.comment_id;
@@ -33,14 +33,14 @@ var profileCommentCtrl = function (
  // vm.newProfileCommentData = vm.defaultProfileCommentData;
 
  vm.getProfileComment = function (profileId, commentId) {
-  vm.profileCommentManager.getProfileComment(profileId, commentId).then(function (response) {
+  vm.profileCommentSrv.getProfileComment(profileId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProfileComment = function (data) {
-  vm.profileCommentManager.editProfileComment(data).then(function (response) {
+  vm.profileCommentSrv.editProfileComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var profileCommentCtrl = function (
 };
 
 profileCommentCtrl.$inject = [
- 'ProfileCommentManager',
+ 'ProfileCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

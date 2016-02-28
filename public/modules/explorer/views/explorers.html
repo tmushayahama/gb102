@@ -1,0 +1,122 @@
+<div class="gb-container gb-app-list col-lg-6 col-md-8 col-sm-11 col-xs-12">
+ <section class="hidden-lg hidden-md hidden-sm visible-xs gb-section-row-2 gb-padding-none row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-ellipsis">
+     {{$root.appName}}
+    </p>
+   </div>
+   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3">
+    <a class="gb-ghost-btn-2 pull-right" ng-click="$root.openAddExplorerModal()">
+     <i class="fa fa-plus"></i>
+    </a>
+   </div>
+  </header>
+ </section>
+ <div class="row">
+  <ul class="nav gb-icon-top-nav-1">
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis" ui-sref="apps.explorers.all">
+     <i class="gb-icon fa icon-gb-discover"></i>
+     <div class="gb-title">
+      ALL
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'skill'})">
+     <i class="gb-icon fa icon-gb-skill"></i>
+     <div class="gb-title">
+      SKILLS
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+    <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'goal'})">
+     <i class="gb-icon fa icon-gb-goal"></i>
+     <div class="gb-title">
+      GOALS
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+    <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'promise'})">
+     <i class="gb-icon fa icon-gb-promise"></i>
+     <div class="gb-title">
+      PROMISES
+     </div>
+    </a>
+   </li>
+   <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+    <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'hobby'})">
+     <i class="gb-icon fa icon-gb-hobby"></i>
+     <div class="gb-title">
+      HOBBIES
+     </div>
+    </a>
+   </li>
+   <li class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+    <a class="gb-ellipsis dropdown-toggle" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false" ui-sref="apps.explorers.skill">
+     <i class="gb-icon fa fa-ellipsis-h"></i>
+     <div class="gb-title">
+      MORE
+     </div>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs">
+      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'hobby'})">
+       <i class="gb-icon fa icon-gb-hobby"></i>
+       <div class="gb-title">
+        HOBBIES
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'mentorship'})">
+       <i class="gb-icon fa icon-gb-mentorship"></i>
+       <div class="gb-title">
+        MENTORSHIP
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'advice'})">
+       <i class="gb-icon fa icon-gb-advice"></i>
+       <div class="gb-title">
+        ADVICE
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'teach'})">
+       <i class="gb-icon fa icon-gb-teach"></i>
+       <div class="gb-title">
+        TEACH
+       </div>
+      </a>
+     </li>
+     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'collaboration'})">
+       <i class="gb-icon fa icon-gb-collaboration"></i>
+       <div class="gb-title">
+        COLLABORATION
+       </div>
+      </a>
+     </li>
+     <li role="separator" class="divider"></li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+
+ <div ui-view="app-tab" class=""></div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->
+
+<script type="text/ng-template" id="add-explorer-modal.html">
+ <div ng-include="'public/modules/explorer/views/modals/add-explorer.html'"></div>
+</script>
+<script type="text/ng-template" id="add-request-explorer-modal.html">
+ <div ng-include="'public/modules/explorer/views/modals/create-request-explorer.html'"></div>
+</script>

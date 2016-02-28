@@ -1,9 +1,9 @@
-var teachTimelineManager = function ($http, $q) {
+var teachTimelineSrv = function ($http, $q) {
 
- var TeachTimelineManager = function () {
+ var TeachTimelineSrv = function () {
   this.teachTimelines = [];
  };
- TeachTimelineManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachTimelineSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var teachTimelineManager = function ($http, $q) {
  };
 
 
- TeachTimelineManager.prototype.getTeachTimeline = function (teachId, progressId) {
+ TeachTimelineSrv.prototype.getTeachTimeline = function (teachId, progressId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/progress/' + progressId).success(function (data) {
@@ -36,7 +36,7 @@ var teachTimelineManager = function ($http, $q) {
  };
 
 
- TeachTimelineManager.prototype.editTeachTimeline = function (teachTimelineData) {
+ TeachTimelineSrv.prototype.editTeachTimeline = function (teachTimelineData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var teachTimelineManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachTimelineManager;
+ return TeachTimelineSrv;
 };
 
-teachTimelineManager.$inject = ['$http', '$q'];
+teachTimelineSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachTimelineManager', teachTimelineManager);
+angular.module('app.teach').service('TeachTimelineSrv', teachTimelineSrv);

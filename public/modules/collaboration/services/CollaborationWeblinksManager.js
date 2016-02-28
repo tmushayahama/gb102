@@ -1,9 +1,9 @@
-var collaborationWeblinksManager = function ($http, $q) {
+var collaborationWeblinksSrv = function ($http, $q) {
 
- var CollaborationWeblinksManager = function () {
+ var CollaborationWeblinksSrv = function () {
   this.collaborationWeblinks = [];
  };
- CollaborationWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationWeblinksManager.prototype.getCollaborationWeblinks = function (collaborationId) {
+ CollaborationWeblinksSrv.prototype.getCollaborationWeblinks = function (collaborationId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationWeblinks = [];
@@ -35,7 +35,7 @@ var collaborationWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationWeblinksManager.prototype.getCollaborationWeblink = function (collaborationId, weblinkId) {
+ CollaborationWeblinksSrv.prototype.getCollaborationWeblink = function (collaborationId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationWeblinks = [];
@@ -48,7 +48,7 @@ var collaborationWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationWeblinksManager.prototype.createCollaborationWeblink = function (collaborationWeblinkData) {
+ CollaborationWeblinksSrv.prototype.createCollaborationWeblink = function (collaborationWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var collaborationWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationWeblinksManager.prototype.editCollaborationWeblink = function (collaborationWeblinkData) {
+ CollaborationWeblinksSrv.prototype.editCollaborationWeblink = function (collaborationWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var collaborationWeblinksManager = function ($http, $q) {
  };
 
 
- return CollaborationWeblinksManager;
+ return CollaborationWeblinksSrv;
 };
 
 
-collaborationWeblinksManager.$inject = ['$http', '$q'];
+collaborationWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationWeblinksManager', collaborationWeblinksManager);
+angular.module('app.collaboration').service('CollaborationWeblinksSrv', collaborationWeblinksSrv);

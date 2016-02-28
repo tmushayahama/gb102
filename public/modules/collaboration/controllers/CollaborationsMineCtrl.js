@@ -1,6 +1,6 @@
 var collaborationsMineCtrl = function (
-        ConstantsManager,
-        CollaborationsManager,
+        ConstantsSrv,
+        CollaborationsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var collaborationsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.collaborationsManager = new CollaborationsManager();
- vm.collaborationsManager.getMyCollaborations();
+ vm.collaborationsSrv = new CollaborationsSrv();
+ vm.collaborationsSrv.getMyCollaborations();
 };
 
 
 collaborationsMineCtrl.$inject = [
- 'ConstantsManager',
- 'CollaborationsManager',
+ 'ConstantsSrv',
+ 'CollaborationsSrv',
  '$scope',
  '$state',
  '$stateParams',

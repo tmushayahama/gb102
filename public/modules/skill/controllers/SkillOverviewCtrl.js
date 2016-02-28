@@ -1,5 +1,5 @@
 var skillOverviewCtrl = function (
-        SkillManager,
+        SkillSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var skillOverviewCtrl = function (
 };
 
 skillOverviewCtrl.$inject = [
- 'SkillManager',
+ 'SkillSrv',
  '$state',
  '$stateParams',
  '$http',

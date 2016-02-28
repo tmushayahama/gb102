@@ -1,5 +1,5 @@
 var projectWeblinkCtrl = function (
-        ProjectWeblinkManager,
+        ProjectWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var projectWeblinkCtrl = function (
  var vm = this;
  vm.projectId = projectWeblinkData.project_id;
  vm.projectWeblinkId = projectWeblinkData.id;
- vm.projectWeblinkManager = new ProjectWeblinkManager();
+ vm.projectWeblinkSrv = new ProjectWeblinkSrv();
 
 
  vm.weblinkId = projectWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var projectWeblinkCtrl = function (
  // vm.newProjectWeblinkData = vm.defaultProjectWeblinkData;
 
  vm.getProjectWeblink = function (projectId, weblinkId) {
-  vm.projectWeblinkManager.getProjectWeblink(projectId, weblinkId).then(function (response) {
+  vm.projectWeblinkSrv.getProjectWeblink(projectId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectWeblink = function (data) {
-  vm.projectWeblinkManager.editProjectWeblink(data).then(function (response) {
+  vm.projectWeblinkSrv.editProjectWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var projectWeblinkCtrl = function (
 
 
 projectWeblinkCtrl.$inject = [
- 'ProjectWeblinkManager',
+ 'ProjectWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

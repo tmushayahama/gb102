@@ -1,6 +1,6 @@
 var projectsMineCtrl = function (
-        ConstantsManager,
-        ProjectsManager,
+        ConstantsSrv,
+        ProjectsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var projectsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.projectsManager = new ProjectsManager();
- vm.projectsManager.getMyProjects();
+ vm.projectsSrv = new ProjectsSrv();
+ vm.projectsSrv.getMyProjects();
 };
 
 
 projectsMineCtrl.$inject = [
- 'ConstantsManager',
- 'ProjectsManager',
+ 'ConstantsSrv',
+ 'ProjectsSrv',
  '$scope',
  '$state',
  '$stateParams',

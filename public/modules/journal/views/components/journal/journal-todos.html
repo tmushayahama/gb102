@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!journalTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{journalCtrl.journalManager.journal.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{journalCtrl.journalSrv.journal.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="journalTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="journalTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-todo-body row" ng-show="journalTodosCtrl.journalTodosManager.journalTodos.length" ng-cloak>
+  <div class="gb-todo-body row" ng-show="journalTodosCtrl.journalTodosSrv.journalTodos.length" ng-cloak>
    <ul id="todo-list">
-    <li ng-repeat="journalTodo in journalTodosCtrl.journalTodosManager.journalTodos| filter:statusFilter track by $index" ng-class="{completed: journalTodo.completed, editing: journalTodo == journalTodosCtrl.editedTodo}">
+    <li ng-repeat="journalTodo in journalTodosCtrl.journalTodosSrv.journalTodos| filter:statusFilter track by $index" ng-class="{completed: journalTodo.completed, editing: journalTodo == journalTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="journalTodo.completed">
       <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-9'>

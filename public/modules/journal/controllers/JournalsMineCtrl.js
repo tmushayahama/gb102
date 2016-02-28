@@ -1,6 +1,6 @@
 var journalsMineCtrl = function (
-        ConstantsManager,
-        JournalsManager,
+        ConstantsSrv,
+        JournalsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var journalsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.journalsManager = new JournalsManager();
- vm.journalsManager.getMyJournals();
+ vm.journalsSrv = new JournalsSrv();
+ vm.journalsSrv.getMyJournals();
 };
 
 
 journalsMineCtrl.$inject = [
- 'ConstantsManager',
- 'JournalsManager',
+ 'ConstantsSrv',
+ 'JournalsSrv',
  '$scope',
  '$state',
  '$stateParams',

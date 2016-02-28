@@ -1,5 +1,5 @@
 var questionnaireCommentCtrl = function (
-        QuestionnaireCommentManager,
+        QuestionnaireCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var questionnaireCommentCtrl = function (
  var vm = this;
  vm.questionnaireId = questionnaireCommentData.questionnaire_id;
  vm.questionnaireCommentId = questionnaireCommentData.id;
- vm.questionnaireCommentManager = new QuestionnaireCommentManager();
+ vm.questionnaireCommentSrv = new QuestionnaireCommentSrv();
 
 
  vm.commentId = questionnaireCommentData.comment_id;
@@ -33,14 +33,14 @@ var questionnaireCommentCtrl = function (
  // vm.newQuestionnaireCommentData = vm.defaultQuestionnaireCommentData;
 
  vm.getQuestionnaireComment = function (questionnaireId, commentId) {
-  vm.questionnaireCommentManager.getQuestionnaireComment(questionnaireId, commentId).then(function (response) {
+  vm.questionnaireCommentSrv.getQuestionnaireComment(questionnaireId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editQuestionnaireComment = function (data) {
-  vm.questionnaireCommentManager.editQuestionnaireComment(data).then(function (response) {
+  vm.questionnaireCommentSrv.editQuestionnaireComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var questionnaireCommentCtrl = function (
 };
 
 questionnaireCommentCtrl.$inject = [
- 'QuestionnaireCommentManager',
+ 'QuestionnaireCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

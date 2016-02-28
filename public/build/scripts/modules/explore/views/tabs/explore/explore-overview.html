@@ -12,15 +12,15 @@
   </div>
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div ng-hide="editDescriptionForm.$visible" id="gb-explore-item-todo-panel" class="row">
-   <strong>{{exploreCtrl.exploreManager.explore.title}}</strong>
-   {{exploreCtrl.exploreManager.explore.description}}
+  <div ng-hide="editDescriptionForm.$visible" id="gb-explorer-item-todo-panel" class="row">
+   <strong>{{explorerCtrl.explorerManager.explorer.title}}</strong>
+   {{explorerCtrl.explorerManager.explorer.description}}
   </div>
-  <form editable-form name="editDescriptionForm" onbeforesave="exploreCtrl.editExploreSections.details(exploreCtrl.exploreManager.explore.id, $data)" ng-show="editDescriptionForm.$visible">
+  <form editable-form name="editDescriptionForm" onbeforesave="explorerCtrl.editExplorerSections.details(explorerCtrl.explorerManager.explorer.id, $data)" ng-show="editDescriptionForm.$visible">
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="exploreCtrl.exploreManager.explore.title" e-name="title" e-required
+     <div editable-textarea="explorerCtrl.explorerManager.explorer.title" e-name="title" e-required
           e-rows="2" e-placeholder="title"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>
@@ -29,7 +29,7 @@
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="exploreCtrl.exploreManager.explore.description" e-name="description"
+     <div editable-textarea="explorerCtrl.explorerManager.explorer.description" e-name="description"
           e-rows="4" e-placeholder="description"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>
@@ -50,5 +50,5 @@
   </form>
  </div>
 </section>
-<div class="" ng-include="'public/build/scripts/modules/explore/views/components/explore/explore-progress.html'"></div>
+<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/explorer/explorer-progress.html'"></div>
 <div class="gb-dummy-height row"></div>

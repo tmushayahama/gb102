@@ -1,9 +1,9 @@
-var skillTodosManager = function ($http, $q) {
+var skillTodosSrv = function ($http, $q) {
 
- var SkillTodosManager = function () {
+ var SkillTodosSrv = function () {
   this.skillTodos = [];
  };
- SkillTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillTodosManager.prototype.getSkillTodos = function (skillId) {
+ SkillTodosSrv.prototype.getSkillTodos = function (skillId) {
   var self = this;
   var deferred = $q.defer();
   self.skillTodos = [];
@@ -35,7 +35,7 @@ var skillTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodosManager.prototype.getSkillTodo = function (skillId, todoId) {
+ SkillTodosSrv.prototype.getSkillTodo = function (skillId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.skillTodos = [];
@@ -48,7 +48,7 @@ var skillTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodosManager.prototype.createSkillTodo = function (skillTodoData) {
+ SkillTodosSrv.prototype.createSkillTodo = function (skillTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var skillTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillTodosManager.prototype.editSkillTodo = function (skillTodoData) {
+ SkillTodosSrv.prototype.editSkillTodo = function (skillTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var skillTodosManager = function ($http, $q) {
  };
 
 
- return SkillTodosManager;
+ return SkillTodosSrv;
 };
 
-skillTodosManager.$inject = ['$http', '$q'];
+skillTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillTodosManager', skillTodosManager);
+angular.module('app.skills').service('SkillTodosSrv', skillTodosSrv);

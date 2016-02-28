@@ -1,7 +1,7 @@
 var advicesAllCtrl = function (
-        ConstantsManager,
-        AdvicesManager,
-        SearchManager,
+        ConstantsSrv,
+        AdvicesSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -16,18 +16,18 @@ var advicesAllCtrl = function (
  var vm = this;
  vm.advices = [];
 
- vm.advicesManager = new AdvicesManager();
+ vm.advicesSrv = new AdvicesSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.advices = data;
   });
  } else {
-  vm.advicesManager.getAllAdvices().then(function (data) {
+  vm.advicesSrv.getAllAdvices().then(function (data) {
    vm.advices = data;
   });
  }
@@ -36,9 +36,9 @@ var advicesAllCtrl = function (
 };
 
 advicesAllCtrl.$inject = [
- 'ConstantsManager',
- 'AdvicesManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'AdvicesSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

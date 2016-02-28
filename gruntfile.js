@@ -18,19 +18,20 @@ module.exports = function (grunt) {
  };
 
  var apps = [
+  'explorer'
  ];
  var srcs = [
   {
    cwd: 'public/modules/',
-   src: ['mentorship/**']
+   src: ['explorer/**']
   },
   {
    cwd: 'app/Http/Controllers/',
-   src: ['Mentorship/**']
+   src: ['Explorer/**']
   },
   {
    cwd: 'app/Models/',
-   src: ['Mentorship/**']
+   src: ['Explorer/**']
   },
   /*
    {
@@ -58,6 +59,30 @@ module.exports = function (grunt) {
   }
  };
 
+ grunt.registerTask('lowerCaseFiles', function () {
+
+  apps.forEach(function (app) {
+   var files = [];
+   srcs.forEach(function (src) {
+    files.push(
+            {
+             expand: true,
+             cwd: src.cwd,
+             src: src.src,
+             dest: src.cwd,
+             rename: function (dest, src) {
+              return dest + src.replace(src, src.toLowerCase());
+
+             }
+            });
+   });
+   grunt.config.set("copy." + app, {
+    files: files
+   });
+   grunt.task.run('copy:' + app);
+  });
+ });
+
  grunt.registerTask('copyFiles', function () {
 
   apps.forEach(function (app) {
@@ -70,8 +95,8 @@ module.exports = function (grunt) {
              src: src.src,
              dest: src.cwd,
              rename: function (dest, src) {
-              return dest + src.replace(/mentorship/g, app)
-                      .replace(/Mentorship/g, app.capitalizeFirstLetter());
+              return dest + src.replace(/explorer/g, app)
+                      .replace(/Explorer/g, app.capitalizeFirstLetter());
 
              }
             });
@@ -89,19 +114,19 @@ module.exports = function (grunt) {
     options: {
      patterns: [
       {
-       match: /mentorship/g,
+       match: /explorer/g,
        replacement: app
       },
       {
-       match: /Mentorship/g,
+       match: /Explorer/g,
        replacement: app.capitalizeFirstLetter()
       },
       {
-       match: /MENTORSHIP/g,
+       match: /EXPLORE/g,
        replacement: app.toUpperCase()
       },
       {
-       match: /app-theme-mentorship/g,
+       match: /app-theme-explorer/g,
        replacement: 'app-theme-' + app
       }
      ]
@@ -262,6 +287,9 @@ module.exports = function (grunt) {
  grunt.registerTask('gb_app_copy_replace', [
   'copyFiles', 'replaceFiles'
  ]);
+
+ grunt.registerTask('files-to-lower',
+         ['lowerCaseFiles']);
 
  grunt.registerTask('server', [
   'express',

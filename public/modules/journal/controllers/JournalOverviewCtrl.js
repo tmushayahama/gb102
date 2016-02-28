@@ -1,5 +1,5 @@
 var journalOverviewCtrl = function (
-        JournalManager,
+        JournalSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var journalOverviewCtrl = function (
 };
 
 journalOverviewCtrl.$inject = [
- 'JournalManager',
+ 'JournalSrv',
  '$state',
  '$stateParams',
  '$http',

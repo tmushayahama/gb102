@@ -1,5 +1,5 @@
 --
--- Table structure for table `gb_explore_questionnaire`
+-- Table structure for table `gb_explorer_questionnaire`
 --
 DROP TABLE IF EXISTS `gb_questionnaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

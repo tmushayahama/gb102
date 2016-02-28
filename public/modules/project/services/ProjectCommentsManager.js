@@ -1,9 +1,9 @@
-var projectCommentsManager = function ($http, $q) {
+var projectCommentsSrv = function ($http, $q) {
 
- var ProjectCommentsManager = function () {
+ var ProjectCommentsSrv = function () {
   this.projectComments = [];
  };
- ProjectCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectCommentsManager.prototype.getProjectComments = function (projectId) {
+ ProjectCommentsSrv.prototype.getProjectComments = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   self.projectComments = [];
@@ -35,7 +35,7 @@ var projectCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectCommentsManager.prototype.getProjectComment = function (projectId, commentId) {
+ ProjectCommentsSrv.prototype.getProjectComment = function (projectId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.projectComments = [];
@@ -48,7 +48,7 @@ var projectCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectCommentsManager.prototype.createProjectComment = function (projectCommentData) {
+ ProjectCommentsSrv.prototype.createProjectComment = function (projectCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var projectCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectCommentsManager.prototype.editProjectComment = function (projectCommentData) {
+ ProjectCommentsSrv.prototype.editProjectComment = function (projectCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var projectCommentsManager = function ($http, $q) {
  };
 
 
- return ProjectCommentsManager;
+ return ProjectCommentsSrv;
 };
 
-projectCommentsManager.$inject = ['$http', '$q'];
+projectCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectCommentsManager', projectCommentsManager);
+angular.module('app.project').service('ProjectCommentsSrv', projectCommentsSrv);

@@ -1,5 +1,5 @@
 var goalCommentCtrl = function (
-        GoalCommentManager,
+        GoalCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var goalCommentCtrl = function (
  var vm = this;
  vm.goalId = goalCommentData.goal_id;
  vm.goalCommentId = goalCommentData.id;
- vm.goalCommentManager = new GoalCommentManager();
+ vm.goalCommentSrv = new GoalCommentSrv();
 
 
  vm.commentId = goalCommentData.comment_id;
@@ -33,14 +33,14 @@ var goalCommentCtrl = function (
  // vm.newGoalCommentData = vm.defaultGoalCommentData;
 
  vm.getGoalComment = function (goalId, commentId) {
-  vm.goalCommentManager.getGoalComment(goalId, commentId).then(function (response) {
+  vm.goalCommentSrv.getGoalComment(goalId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalComment = function (data) {
-  vm.goalCommentManager.editGoalComment(data).then(function (response) {
+  vm.goalCommentSrv.editGoalComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var goalCommentCtrl = function (
 };
 
 goalCommentCtrl.$inject = [
- 'GoalCommentManager',
+ 'GoalCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

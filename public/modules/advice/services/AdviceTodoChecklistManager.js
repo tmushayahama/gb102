@@ -1,9 +1,9 @@
-var adviceTodoChecklistManager = function ($http, $q) {
+var adviceTodoChecklistSrv = function ($http, $q) {
 
- var AdviceTodoChecklistManager = function () {
+ var AdviceTodoChecklistSrv = function () {
   this.adviceTodoChecklist = [];
  };
- AdviceTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var adviceTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceTodoChecklistManager.prototype.getAdviceTodoChecklist = function (todoId) {
+ AdviceTodoChecklistSrv.prototype.getAdviceTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceTodoChecklist = [];
@@ -35,7 +35,7 @@ var adviceTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodoChecklistManager.prototype.getAdviceTodoChecklistItem = function (adviceId, todoId) {
+ AdviceTodoChecklistSrv.prototype.getAdviceTodoChecklistItem = function (adviceId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/advice/' + adviceId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var adviceTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodoChecklistManager.prototype.createAdviceTodoChecklistItem = function (adviceTodoChecklistData) {
+ AdviceTodoChecklistSrv.prototype.createAdviceTodoChecklistItem = function (adviceTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var adviceTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodoChecklistManager.prototype.editAdviceTodoChecklistItem = function (adviceTodoData) {
+ AdviceTodoChecklistSrv.prototype.editAdviceTodoChecklistItem = function (adviceTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var adviceTodoChecklistManager = function ($http, $q) {
  };
 
 
- return AdviceTodoChecklistManager;
+ return AdviceTodoChecklistSrv;
 };
 
-adviceTodoChecklistManager.$inject = ['$http', '$q'];
+adviceTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceTodoChecklistManager', adviceTodoChecklistManager);
+angular.module('app.advice').service('AdviceTodoChecklistSrv', adviceTodoChecklistSrv);

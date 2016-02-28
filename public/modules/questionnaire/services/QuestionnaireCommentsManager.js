@@ -1,9 +1,9 @@
-var questionnaireCommentsManager = function ($http, $q) {
+var questionnaireCommentsSrv = function ($http, $q) {
 
- var QuestionnaireCommentsManager = function () {
+ var QuestionnaireCommentsSrv = function () {
   this.questionnaireComments = [];
  };
- QuestionnaireCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var questionnaireCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireCommentsManager.prototype.getQuestionnaireComments = function (questionnaireId) {
+ QuestionnaireCommentsSrv.prototype.getQuestionnaireComments = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
   self.questionnaireComments = [];
@@ -35,7 +35,7 @@ var questionnaireCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireCommentsManager.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
+ QuestionnaireCommentsSrv.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.questionnaireComments = [];
@@ -48,7 +48,7 @@ var questionnaireCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireCommentsManager.prototype.createQuestionnaireComment = function (questionnaireCommentData) {
+ QuestionnaireCommentsSrv.prototype.createQuestionnaireComment = function (questionnaireCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var questionnaireCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireCommentsManager.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
+ QuestionnaireCommentsSrv.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var questionnaireCommentsManager = function ($http, $q) {
  };
 
 
- return QuestionnaireCommentsManager;
+ return QuestionnaireCommentsSrv;
 };
 
-questionnaireCommentsManager.$inject = ['$http', '$q'];
+questionnaireCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireCommentsManager', questionnaireCommentsManager);
+angular.module('app.questionnaire').service('QuestionnaireCommentsSrv', questionnaireCommentsSrv);

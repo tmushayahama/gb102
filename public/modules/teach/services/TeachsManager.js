@@ -1,9 +1,9 @@
-var teachsManager = function ($http, $q) {
+var teachsSrv = function ($http, $q) {
 
- var TeachsManager = function () {
+ var TeachsSrv = function () {
   this.teachs = [];
  };
- TeachsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachsManager.prototype.getAllTeachs = function () {
+ TeachsSrv.prototype.getAllTeachs = function () {
   var self = this;
   var deferred = $q.defer();
   //self.teachs = [];
@@ -35,7 +35,7 @@ var teachsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachsManager.prototype.getAppTeachs = function (appName) {
+ TeachsSrv.prototype.getAppTeachs = function (appName) {
   var self = this;
   var deferred = $q.defer();
   // self.teachs = [];
@@ -48,7 +48,7 @@ var teachsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachsManager.prototype.getMyTeachs = function () {
+ TeachsSrv.prototype.getMyTeachs = function () {
   var self = this;
   var deferred = $q.defer();
   //self.teachs = [];
@@ -61,7 +61,7 @@ var teachsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachsManager.prototype.getTeach = function (teachId, Id) {
+ TeachsSrv.prototype.getTeach = function (teachId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.teach = [];
@@ -74,7 +74,7 @@ var teachsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachsManager.prototype.createTeach = function (teachData) {
+ TeachsSrv.prototype.createTeach = function (teachData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -90,7 +90,7 @@ var teachsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachsManager.prototype.editTeach = function (teachData) {
+ TeachsSrv.prototype.editTeach = function (teachData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -104,10 +104,10 @@ var teachsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return TeachsManager;
+ return TeachsSrv;
 };
 
-teachsManager.$inject = ['$http', '$q'];
+teachsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachsManager', teachsManager);
+angular.module('app.teach').service('TeachsSrv', teachsSrv);
 

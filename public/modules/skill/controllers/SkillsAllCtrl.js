@@ -1,6 +1,6 @@
 var skillsAllCtrl = function (
-        ConstantsManager,
-        SkillsManager,
+        ConstantsSrv,
+        SkillsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,13 +13,13 @@ var skillsAllCtrl = function (
 
  var vm = this;
 
- vm.skillsManager = new SkillsManager();
- vm.skillsManager.getAllSkills();
+ vm.skillsSrv = new SkillsSrv();
+ vm.skillsSrv.getAllSkills();
 };
 
 skillsAllCtrl.$inject = [
- 'ConstantsManager',
- 'SkillsManager',
+ 'ConstantsSrv',
+ 'SkillsSrv',
  '$scope',
  '$state',
  '$stateParams',

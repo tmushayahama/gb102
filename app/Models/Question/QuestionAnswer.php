@@ -58,15 +58,15 @@ class QuestionAnswer extends Model {
 
  public static function getQuestionAnswer() {
   $howMany = 1;
-  $exploreQuestionAnswers = (new Collection(
-          Explore::with('icon')
+  $explorerQuestionAnswers = (new Collection(
+          Explorer::with('icon')
           ->with('creator')
           ->with('level')
           ->with('app_type')
           ->take(500)
           ->get()))
           ->random($howMany);
-  return $exploreQuestionAnswers;
+  return $explorerQuestionAnswers;
  }
 
  public static function createQuestionAnswer() {

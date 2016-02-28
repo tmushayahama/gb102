@@ -1,5 +1,5 @@
 var journalWeblinkCtrl = function (
-        JournalWeblinkManager,
+        JournalWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var journalWeblinkCtrl = function (
  var vm = this;
  vm.journalId = journalWeblinkData.journal_id;
  vm.journalWeblinkId = journalWeblinkData.id;
- vm.journalWeblinkManager = new JournalWeblinkManager();
+ vm.journalWeblinkSrv = new JournalWeblinkSrv();
 
 
  vm.weblinkId = journalWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var journalWeblinkCtrl = function (
  // vm.newJournalWeblinkData = vm.defaultJournalWeblinkData;
 
  vm.getJournalWeblink = function (journalId, weblinkId) {
-  vm.journalWeblinkManager.getJournalWeblink(journalId, weblinkId).then(function (response) {
+  vm.journalWeblinkSrv.getJournalWeblink(journalId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalWeblink = function (data) {
-  vm.journalWeblinkManager.editJournalWeblink(data).then(function (response) {
+  vm.journalWeblinkSrv.editJournalWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var journalWeblinkCtrl = function (
 
 
 journalWeblinkCtrl.$inject = [
- 'JournalWeblinkManager',
+ 'JournalWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

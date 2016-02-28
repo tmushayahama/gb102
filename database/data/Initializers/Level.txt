@@ -29,8 +29,8 @@ id	category	code	name	description	icon	app_type_id
 28	8	AD5	Similar Experiences	\N		
 29	11	SWS1	Not Now	\N		
 30	11	SWS2	Ehh!!	\N		
-31	11	SWS3	Explore	\N		
-32	11	SWS4	Super Explore	\N		
+31	11	SWS3	Explorer	\N		
+32	11	SWS4	Super Explorer	\N		
 1000	1001	EAPP1	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
 1001	1001	EAPP2	I want mentorship	Be a mentor	icon-gb-mentorship	5
 1002	1001	EAPP3	I need advice	Advise	icon-gb-advice	8

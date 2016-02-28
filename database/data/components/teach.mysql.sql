@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `gb_classroom`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_classroom` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `teacher_id` int(11),
   `icon_id` int(11) NOT NULL DEFAULT '27',
@@ -16,11 +16,11 @@ CREATE TABLE `gb_classroom` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `classroom_explore_id` (`explore_id`),
+  KEY `classroom_explorer_id` (`explorer_id`),
   KEY `classroom_icon_id` (`icon_id`),
   KEY `classroom_creator_id` (`creator_id`),
   KEY `classroom_teacher_id` (`teacher_id`),
-  CONSTRAINT `classroom_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `classroom_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS `gb_classroom_student`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_classroom_student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `teacher_id` int(11),
   `student_id` int(11),
@@ -48,12 +48,12 @@ CREATE TABLE `gb_classroom_student` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `classroom_student_explore_id` (`explore_id`),
+  KEY `classroom_student_explorer_id` (`explorer_id`),
   KEY `classroom_student_icon_id` (`icon_id`),
   KEY `classroom_student_creator_id` (`creator_id`),
   KEY `classroom_student_teacher_id` (`teacher_id`),
   KEY `classroom_student_student_id` (`student_id`),
-  CONSTRAINT `classroom_student_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `classroom_student_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

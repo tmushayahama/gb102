@@ -1,5 +1,5 @@
 var createTeachCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -19,10 +19,10 @@ var createTeachCtrl = function (
  vm.selectedTeachType;
  vm.wizardCurrentStep = "Choose Teach Type";
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getLevel(appId).then(function (data) {
    vm.teachLevels = data;
   });
  };
@@ -51,7 +51,7 @@ var createTeachCtrl = function (
 };
 
 createTeachCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

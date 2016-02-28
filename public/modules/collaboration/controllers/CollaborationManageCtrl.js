@@ -1,5 +1,5 @@
 var collaborationManageCtrl = function (
-        CollaborationManager,
+        CollaborationSrv,
         $state,
         $stateParams,
         $http,
@@ -8,17 +8,17 @@ var collaborationManageCtrl = function (
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
  vm.collaborations;
- vm.collaborationManager = new CollaborationManager();
+ vm.collaborationSrv = new CollaborationSrv();
 
  vm.getCollaboration = function (id) {
-  vm.collaborationManager.getCollaboration(id).then(function (data) {
+  vm.collaborationSrv.getCollaboration(id).then(function (data) {
    vm.collaboration = data;
-   vm.getSubCollaborations(vm.collaboration.explore_id);
+   vm.getSubCollaborations(vm.collaboration.explorer_id);
   });
  };
 
- vm.getSubCollaborations = function (exploreId) {
-  vm.collaborationManager.getSubCollaborations(exploreId).then(function (data) {
+ vm.getSubCollaborations = function (explorerId) {
+  vm.collaborationSrv.getSubCollaborations(explorerId).then(function (data) {
    vm.collaborations = data;
   });
  }
@@ -28,7 +28,7 @@ var collaborationManageCtrl = function (
 };
 
 collaborationManageCtrl.$inject = [
- 'CollaborationManager',
+ 'CollaborationSrv',
  '$state',
  '$stateParams',
  '$http',

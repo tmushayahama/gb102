@@ -1,9 +1,9 @@
-var advicesManager = function ($http, $q) {
+var advicesSrv = function ($http, $q) {
 
- var AdvicesManager = function () {
+ var AdvicesSrv = function () {
   this.advices = [];
  };
- AdvicesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdvicesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var advicesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdvicesManager.prototype.getAllAdvices = function () {
+ AdvicesSrv.prototype.getAllAdvices = function () {
   var self = this;
   var deferred = $q.defer();
   //self.advices = [];
@@ -35,7 +35,7 @@ var advicesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdvicesManager.prototype.getAppAdvices = function (appName) {
+ AdvicesSrv.prototype.getAppAdvices = function (appName) {
   var self = this;
   var deferred = $q.defer();
   // self.advices = [];
@@ -48,7 +48,7 @@ var advicesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdvicesManager.prototype.getMyAdvices = function () {
+ AdvicesSrv.prototype.getMyAdvices = function () {
   var self = this;
   var deferred = $q.defer();
   //self.advices = [];
@@ -61,7 +61,7 @@ var advicesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdvicesManager.prototype.getAdvice = function (adviceId, Id) {
+ AdvicesSrv.prototype.getAdvice = function (adviceId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.advice = [];
@@ -74,7 +74,7 @@ var advicesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdvicesManager.prototype.createAdvice = function (adviceData) {
+ AdvicesSrv.prototype.createAdvice = function (adviceData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -90,7 +90,7 @@ var advicesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdvicesManager.prototype.editAdvice = function (adviceData) {
+ AdvicesSrv.prototype.editAdvice = function (adviceData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -104,10 +104,10 @@ var advicesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return AdvicesManager;
+ return AdvicesSrv;
 };
 
-advicesManager.$inject = ['$http', '$q'];
+advicesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdvicesManager', advicesManager);
+angular.module('app.advice').service('AdvicesSrv', advicesSrv);
 

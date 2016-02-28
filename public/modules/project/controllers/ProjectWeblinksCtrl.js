@@ -1,5 +1,5 @@
 var projectWeblinksCtrl = function (
-        ProjectWeblinksManager,
+        ProjectWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var projectWeblinksCtrl = function (
  var vm = this;
  vm.projectId = $stateParams.projectId;
  vm.projectWeblinksCopy;
- vm.projectWeblinksManager = new ProjectWeblinksManager();
+ vm.projectWeblinksSrv = new ProjectWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultProjectWeblinkData = {
@@ -27,20 +27,20 @@ var projectWeblinksCtrl = function (
  };
 
  vm.createProjectWeblink = function (data) {
-  vm.projectWeblinksManager.createProjectWeblink(data).then(function (response) {
+  vm.projectWeblinksSrv.createProjectWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newProjectWeblinkData = angular.copy(vm.defaultProjectWeblinkData);
-   vm.projectWeblinksCopy = angular.copy(vm.projectWeblinksManager.projectWeblinks);
+   vm.projectWeblinksCopy = angular.copy(vm.projectWeblinksSrv.projectWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProjectWeblink = function (data) {
-  vm.projectWeblinksManager.editProjectWeblink(data).then(function (response) {
+  vm.projectWeblinksSrv.editProjectWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newProjectWeblinkData = angular.copy(vm.defaultProjectWeblinkData);
-   vm.projectWeblinksCopy = angular.copy(vm.projectWeblinksManager.projectWeblinks);
+   vm.projectWeblinksCopy = angular.copy(vm.projectWeblinksSrv.projectWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var projectWeblinksCtrl = function (
   projectWeblink = projectWeblinkCopy;
   /*
    $filter('filter')
-   (vm.projectWeblinksManager.projectWeblinks, {id: projectWeblinkId}, true)[0]
+   (vm.projectWeblinksSrv.projectWeblinks, {id: projectWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.projectWeblinksCopy, {id: projectWeblinkId}, true)[0]);
    if (projectWeblink.length && projectWeblinkCopy.length) {
-   // vm.projectWeblinksManager.projectWeblinks angular.copy(vm.projectWeblinksCopy);
+   // vm.projectWeblinksSrv.projectWeblinks angular.copy(vm.projectWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var projectWeblinksCtrl = function (
   return vm.projectWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(projectWeblinks, {completed: false}).length;
-  vm.doneCount = vm.projectWeblinksManager.projectWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.projectWeblinksSrv.projectWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectWeblinkService.put(vm.projectWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var projectWeblinksCtrl = function (
 
 
  //--------init------
- vm.projectWeblinksManager.getProjectWeblinks(vm.projectId);
+ vm.projectWeblinksSrv.getProjectWeblinks(vm.projectId);
 };
 
 projectWeblinksCtrl.$inject = [
- 'ProjectWeblinksManager',
+ 'ProjectWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

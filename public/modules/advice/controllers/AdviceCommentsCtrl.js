@@ -1,5 +1,5 @@
 var adviceCommentsCtrl = function (
-        AdviceCommentsManager,
+        AdviceCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var adviceCommentsCtrl = function (
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
  vm.adviceCommentsCopy;
- vm.adviceCommentsManager = new AdviceCommentsManager();
+ vm.adviceCommentsSrv = new AdviceCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultAdviceCommentData = {
   adviceId: $stateParams.adviceId,
@@ -24,19 +24,19 @@ var adviceCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createAdviceComment = function (data) {
-  vm.adviceCommentsManager.createAdviceComment(data).then(function (response) {
+  vm.adviceCommentsSrv.createAdviceComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newAdviceCommentData = angular.copy(vm.defaultAdviceCommentData);
-   vm.adviceCommentsCopy = angular.copy(vm.adviceCommentsManager.adviceComments);
+   vm.adviceCommentsCopy = angular.copy(vm.adviceCommentsSrv.adviceComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editAdviceComment = function (data) {
-  vm.adviceCommentsManager.editAdviceComment(data).then(function (response) {
+  vm.adviceCommentsSrv.editAdviceComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newAdviceCommentData = angular.copy(vm.defaultAdviceCommentData);
-   vm.adviceCommentsCopy = angular.copy(vm.adviceCommentsManager.adviceComments);
+   vm.adviceCommentsCopy = angular.copy(vm.adviceCommentsSrv.adviceComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var adviceCommentsCtrl = function (
   adviceComment = adviceCommentCopy;
   /*
    $filter('filter')
-   (vm.adviceCommentsManager.adviceComments, {id: adviceCommentId}, true)[0]
+   (vm.adviceCommentsSrv.adviceComments, {id: adviceCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.adviceCommentsCopy, {id: adviceCommentId}, true)[0]);
    if (adviceComment.length && adviceCommentCopy.length) {
-   // vm.adviceCommentsManager.adviceComments angular.copy(vm.adviceCommentsCopy);
+   // vm.adviceCommentsSrv.adviceComments angular.copy(vm.adviceCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var adviceCommentsCtrl = function (
   return vm.adviceComments;
  }), function () {
   //vm.remainingCount = filterFilter(adviceComments, {completed: false}).length;
-  vm.doneCount = vm.adviceCommentsManager.adviceComments.length - vm.remainingCount;
+  vm.doneCount = vm.adviceCommentsSrv.adviceComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceCommentService.put(vm.adviceComments);
  }, true);
@@ -126,11 +126,11 @@ var adviceCommentsCtrl = function (
   });
  };
  //--------init------
- vm.adviceCommentsManager.getAdviceComments(vm.adviceId);
+ vm.adviceCommentsSrv.getAdviceComments(vm.adviceId);
 };
 
 adviceCommentsCtrl.$inject = [
- 'AdviceCommentsManager',
+ 'AdviceCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

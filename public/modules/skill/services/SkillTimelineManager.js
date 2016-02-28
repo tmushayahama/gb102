@@ -1,9 +1,9 @@
-var skillProgressManager = function ($http, $q) {
+var skillProgressSrv = function ($http, $q) {
 
- var SkillProgressManager = function () {
+ var SkillProgressSrv = function () {
   this.skillProgress = [];
  };
- SkillProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var skillProgressManager = function ($http, $q) {
  };
 
 
- SkillProgressManager.prototype.getSkillProgress = function (skillId, progressId) {
+ SkillProgressSrv.prototype.getSkillProgress = function (skillId, progressId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/progress/' + progressId).success(function (data) {
@@ -36,7 +36,7 @@ var skillProgressManager = function ($http, $q) {
  };
 
 
- SkillProgressManager.prototype.editSkillProgress = function (skillProgressData) {
+ SkillProgressSrv.prototype.editSkillProgress = function (skillProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var skillProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillProgressManager;
+ return SkillProgressSrv;
 };
 
-skillProgressManager.$inject = ['$http', '$q'];
+skillProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillProgressManager', skillProgressManager);
+angular.module('app.skills').service('SkillProgressSrv', skillProgressSrv);

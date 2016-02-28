@@ -1,5 +1,5 @@
 var skillWeblinkCtrl = function (
-        SkillWeblinkManager,
+        SkillWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var skillWeblinkCtrl = function (
  var vm = this;
  vm.skillId = skillWeblinkData.skill_id;
  vm.skillWeblinkId = skillWeblinkData.id;
- vm.skillWeblinkManager = new SkillWeblinkManager();
+ vm.skillWeblinkSrv = new SkillWeblinkSrv();
 
 
  vm.weblinkId = skillWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var skillWeblinkCtrl = function (
  // vm.newSkillWeblinkData = vm.defaultSkillWeblinkData;
 
  vm.getSkillWeblink = function (skillId, weblinkId) {
-  vm.skillWeblinkManager.getSkillWeblink(skillId, weblinkId).then(function (response) {
+  vm.skillWeblinkSrv.getSkillWeblink(skillId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editSkillWeblink = function (data) {
-  vm.skillWeblinkManager.editSkillWeblink(data).then(function (response) {
+  vm.skillWeblinkSrv.editSkillWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var skillWeblinkCtrl = function (
 
 
 skillWeblinkCtrl.$inject = [
- 'SkillWeblinkManager',
+ 'SkillWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

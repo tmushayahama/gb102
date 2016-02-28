@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!teachTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/img/profile_pic/{{teachCtrl.teachManager.teach.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/img/profile_pic/{{teachCtrl.teachSrv.teach.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="teachTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="teachTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-todo-body row" ng-show="teachTodosCtrl.teachTodosManager.teachTodos.length" ng-cloak>
+  <div class="gb-todo-body row" ng-show="teachTodosCtrl.teachTodosSrv.teachTodos.length" ng-cloak>
    <ul id="todo-list">
-    <li ng-repeat="teachTodo in teachTodosCtrl.teachTodosManager.teachTodos| filter:statusFilter track by $index" ng-class="{completed: teachTodo.completed, editing: teachTodo == teachTodosCtrl.editedTodo}">
+    <li ng-repeat="teachTodo in teachTodosCtrl.teachTodosSrv.teachTodos| filter:statusFilter track by $index" ng-class="{completed: teachTodo.completed, editing: teachTodo == teachTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="teachTodo.completed">
       <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-9'>

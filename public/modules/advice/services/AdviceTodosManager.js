@@ -1,9 +1,9 @@
-var adviceTodosManager = function ($http, $q) {
+var adviceTodosSrv = function ($http, $q) {
 
- var AdviceTodosManager = function () {
+ var AdviceTodosSrv = function () {
   this.adviceTodos = [];
  };
- AdviceTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var adviceTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceTodosManager.prototype.getAdviceTodos = function (adviceId) {
+ AdviceTodosSrv.prototype.getAdviceTodos = function (adviceId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceTodos = [];
@@ -35,7 +35,7 @@ var adviceTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodosManager.prototype.getAdviceTodo = function (adviceId, todoId) {
+ AdviceTodosSrv.prototype.getAdviceTodo = function (adviceId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceTodos = [];
@@ -48,7 +48,7 @@ var adviceTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodosManager.prototype.createAdviceTodo = function (adviceTodoData) {
+ AdviceTodosSrv.prototype.createAdviceTodo = function (adviceTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var adviceTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceTodosManager.prototype.editAdviceTodo = function (adviceTodoData) {
+ AdviceTodosSrv.prototype.editAdviceTodo = function (adviceTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var adviceTodosManager = function ($http, $q) {
  };
 
 
- return AdviceTodosManager;
+ return AdviceTodosSrv;
 };
 
-adviceTodosManager.$inject = ['$http', '$q'];
+adviceTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceTodosManager', adviceTodosManager);
+angular.module('app.advice').service('AdviceTodosSrv', adviceTodosSrv);

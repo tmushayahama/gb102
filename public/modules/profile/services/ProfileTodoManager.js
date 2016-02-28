@@ -1,9 +1,9 @@
-var profileTodoManager = function ($http, $q) {
+var profileTodoSrv = function ($http, $q) {
 
- var ProfileTodoManager = function () {
+ var ProfileTodoSrv = function () {
   this.profileTodos = [];
  };
- ProfileTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var profileTodoManager = function ($http, $q) {
  };
 
 
- ProfileTodoManager.prototype.getProfileTodo = function (profileId, todoId) {
+ ProfileTodoSrv.prototype.getProfileTodo = function (profileId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + profileId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var profileTodoManager = function ($http, $q) {
  };
 
 
- ProfileTodoManager.prototype.editProfileTodo = function (profileTodoData) {
+ ProfileTodoSrv.prototype.editProfileTodo = function (profileTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var profileTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProfileTodoManager;
+ return ProfileTodoSrv;
 };
-profileTodoManager.$inject = ['$http', '$q'];
+profileTodoSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileTodoManager', profileTodoManager);
+angular.module('app.profile').service('ProfileTodoSrv', profileTodoSrv);

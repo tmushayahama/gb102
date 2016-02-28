@@ -1,5 +1,5 @@
 var adviceManageCtrl = function (
-        AdviceManager,
+        AdviceSrv,
         $state,
         $stateParams,
         $http,
@@ -8,17 +8,17 @@ var adviceManageCtrl = function (
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
  vm.advices;
- vm.adviceManager = new AdviceManager();
+ vm.adviceSrv = new AdviceSrv();
 
  vm.getAdvice = function (id) {
-  vm.adviceManager.getAdvice(id).then(function (data) {
+  vm.adviceSrv.getAdvice(id).then(function (data) {
    vm.advice = data;
-   vm.getSubAdvices(vm.advice.explore_id);
+   vm.getSubAdvices(vm.advice.explorer_id);
   });
  };
 
- vm.getSubAdvices = function (exploreId) {
-  vm.adviceManager.getSubAdvices(exploreId).then(function (data) {
+ vm.getSubAdvices = function (explorerId) {
+  vm.adviceSrv.getSubAdvices(explorerId).then(function (data) {
    vm.advices = data;
   });
  }
@@ -28,7 +28,7 @@ var adviceManageCtrl = function (
 };
 
 adviceManageCtrl.$inject = [
- 'AdviceManager',
+ 'AdviceSrv',
  '$state',
  '$stateParams',
  '$http',

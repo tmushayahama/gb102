@@ -1,5 +1,5 @@
 var projectNotesCtrl = function (
-        ProjectNotesManager,
+        ProjectNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var projectNotesCtrl = function (
  var vm = this;
  vm.projectId = $stateParams.projectId;
  vm.projectNotesCopy;
- vm.projectNotesManager = new ProjectNotesManager();
+ vm.projectNotesSrv = new ProjectNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultProjectNoteData = {
@@ -27,20 +27,20 @@ var projectNotesCtrl = function (
  };
 
  vm.createProjectNote = function (data) {
-  vm.projectNotesManager.createProjectNote(data).then(function (response) {
+  vm.projectNotesSrv.createProjectNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newProjectNoteData = angular.copy(vm.defaultProjectNoteData);
-   vm.projectNotesCopy = angular.copy(vm.projectNotesManager.projectNotes);
+   vm.projectNotesCopy = angular.copy(vm.projectNotesSrv.projectNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProjectNote = function (data) {
-  vm.projectNotesManager.editProjectNote(data).then(function (response) {
+  vm.projectNotesSrv.editProjectNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newProjectNoteData = angular.copy(vm.defaultProjectNoteData);
-   vm.projectNotesCopy = angular.copy(vm.projectNotesManager.projectNotes);
+   vm.projectNotesCopy = angular.copy(vm.projectNotesSrv.projectNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var projectNotesCtrl = function (
   projectNote = projectNoteCopy;
   /*
    $filter('filter')
-   (vm.projectNotesManager.projectNotes, {id: projectNoteId}, true)[0]
+   (vm.projectNotesSrv.projectNotes, {id: projectNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.projectNotesCopy, {id: projectNoteId}, true)[0]);
    if (projectNote.length && projectNoteCopy.length) {
-   // vm.projectNotesManager.projectNotes angular.copy(vm.projectNotesCopy);
+   // vm.projectNotesSrv.projectNotes angular.copy(vm.projectNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var projectNotesCtrl = function (
   return vm.projectNotes;
  }), function () {
   //vm.remainingCount = filterFilter(projectNotes, {completed: false}).length;
-  vm.doneCount = vm.projectNotesManager.projectNotes.length - vm.remainingCount;
+  vm.doneCount = vm.projectNotesSrv.projectNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectNoteService.put(vm.projectNotes);
  }, true);
@@ -147,12 +147,12 @@ var projectNotesCtrl = function (
 
 
  //--------init------
- vm.projectNotesManager.getProjectNotes(vm.projectId);
+ vm.projectNotesSrv.getProjectNotes(vm.projectId);
 };
 
 
 projectNotesCtrl.$inject = [
- 'ProjectNotesManager',
+ 'ProjectNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

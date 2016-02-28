@@ -1,9 +1,9 @@
 
 var journalsCtrl = function (
         level_categories,
-        ConstantsManager,
-        SearchManager,
-        JournalsManager,
+        ConstantsSrv,
+        SearchSrv,
+        JournalsSrv,
         $scope,
         $state,
         $stateParams,
@@ -21,8 +21,8 @@ var journalsCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-journal.css'
  }, $scope);
 
- vm.journalsManager = new JournalsManager();
- vm.constantsManager = new ConstantsManager();
+ vm.journalsSrv = new JournalsSrv();
+ vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'JOURNALR';
  vm.journalLevels;
  vm.journalTypes;
@@ -41,20 +41,20 @@ var journalsCtrl = function (
  });
 
  vm.createJournal = function (data) {
-  vm.journalsManager.createJournal(data).then(function (response) {
+  vm.journalsSrv.createJournal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newJournalData = angular.copy(vm.defaultJournalData);
-   vm.journalsCopy = angular.copy(vm.journalsManager.journals);
+   vm.journalsCopy = angular.copy(vm.journalsSrv.journals);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editJournal = function (data) {
-  vm.journalsManager.editJournal(data).then(function (response) {
+  vm.journalsSrv.editJournal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newJournalData = angular.copy(vm.defaultJournalData);
-   vm.journalsCopy = angular.copy(vm.journalsManager.journals);
+   vm.journalsCopy = angular.copy(vm.journalsSrv.journals);
   }, function (response) {
    console.log(response);
   });
@@ -84,11 +84,11 @@ var journalsCtrl = function (
   journal = journalCopy;
   /*
    $filter('filter')
-   (vm.journalsManager.journals, {id: journalId}, true)[0]
+   (vm.journalsSrv.journals, {id: journalId}, true)[0]
    = angular.copy($filter('filter')
    (vm.journalsCopy, {id: journalId}, true)[0]);
    if (journal.length && journalCopy.length) {
-   // vm.journalsManager.journals angular.copy(vm.journalsCopy);
+   // vm.journalsSrv.journals angular.copy(vm.journalsCopy);
    }
    */
  };
@@ -104,7 +104,7 @@ var journalsCtrl = function (
   return vm.journals;
  }), function () {
   //vm.remainingCount = filterFilter(journals, {completed: false}).length;
-  vm.doneCount = vm.journalsManager.journals.length - vm.remainingCount;
+  vm.doneCount = vm.journalsSrv.journals.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalService.put(vm.journals);
  }, true);
@@ -152,26 +152,26 @@ var journalsCtrl = function (
   });
 
   modalInstance.result.then(function (journal) {
-   vm.journalsManager.createJournal(journal);
+   vm.journalsSrv.createJournal(journal);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- vm.constantsManager.getLevel(level_categories.journal).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.journal).then(function (data) {
   vm.journalTypes = data;
  });
- vm.constantsManager.getLevel(level_categories.journal).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.journal).then(function (data) {
   vm.journalLevels = data;
  });
 };
 
 journalsCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SearchManager',
- 'JournalsManager',
+ 'ConstantsSrv',
+ 'SearchSrv',
+ 'JournalsSrv',
  '$scope',
  '$state',
  '$stateParams',

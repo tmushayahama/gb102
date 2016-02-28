@@ -1,5 +1,5 @@
 var teachTimelineCtrl = function (
-        TeachTimelineManager,
+        TeachTimelineSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var teachTimelineCtrl = function (
  var vm = this;
  vm.teachId = teachTimelineData.teach_id;
  vm.teachTimelineId = teachTimelineData.id;
- vm.teachTimelineManager = new TeachTimelineManager();
+ vm.teachTimelineSrv = new TeachTimelineSrv();
 
 
  vm.progressId = teachTimelineData.progress_id;
@@ -33,14 +33,14 @@ var teachTimelineCtrl = function (
  // vm.newTeachTimelineData = vm.defaultTeachTimelineData;
 
  vm.getTeachTimeline = function (teachId, progressId) {
-  vm.teachTimelineManager.getTeachTimeline(teachId, progressId).then(function (response) {
+  vm.teachTimelineSrv.getTeachTimeline(teachId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachTimeline = function (data) {
-  vm.teachTimelineManager.editTeachTimeline(data).then(function (response) {
+  vm.teachTimelineSrv.editTeachTimeline(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var teachTimelineCtrl = function (
 
 
 teachTimelineCtrl.$inject = [
- 'TeachTimelineManager',
+ 'TeachTimelineSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

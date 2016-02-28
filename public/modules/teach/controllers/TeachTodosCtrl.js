@@ -1,5 +1,5 @@
 var teachTodosCtrl = function (
-        TeachTodosManager,
+        TeachTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var teachTodosCtrl = function (
 
  var vm = this;
  vm.teachId = $stateParams.teachId;
- vm.teachTodosManager = new TeachTodosManager();
+ vm.teachTodosSrv = new TeachTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultTeachTodoData = {
@@ -25,7 +25,7 @@ var teachTodosCtrl = function (
  };
 
  vm.createTeachTodo = function (data) {
-  vm.teachTodosManager.createTeachTodo(data).then(function (response) {
+  vm.teachTodosSrv.createTeachTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newTeachTodoData = angular.copy(vm.defaultTeachTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var teachTodosCtrl = function (
  };
 
  vm.editTeachTodo = function (data) {
-  vm.teachTodosManager.editTeachTodo(data).then(function (response) {
+  vm.teachTodosSrv.editTeachTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newTeachTodoData = angular.copy(vm.defaultTeachTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var teachTodosCtrl = function (
   return vm.teachTodos;
  }), function () {
   //vm.remainingCount = filterFilter(teachTodos, {completed: false}).length;
-  vm.doneCount = vm.teachTodosManager.teachTodos.length - vm.remainingCount;
+  vm.doneCount = vm.teachTodosSrv.teachTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachTodoService.put(vm.teachTodos);
  }, true);
@@ -129,11 +129,11 @@ var teachTodosCtrl = function (
 
 
  //--------init------
- vm.teachTodosManager.getTeachTodos(vm.teachId);
+ vm.teachTodosSrv.getTeachTodos(vm.teachId);
 };
 
 teachTodosCtrl.$inject = [
- 'TeachTodosManager',
+ 'TeachTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

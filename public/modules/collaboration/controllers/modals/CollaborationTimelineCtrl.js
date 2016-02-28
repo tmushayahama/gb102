@@ -1,5 +1,5 @@
 var collaborationProgressCtrl = function (
-        CollaborationProgressManager,
+        CollaborationProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var collaborationProgressCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationProgressData.collaboration_id;
  vm.collaborationProgressId = collaborationProgressData.id;
- vm.collaborationProgressManager = new CollaborationProgressManager();
+ vm.collaborationProgressSrv = new CollaborationProgressSrv();
 
 
  vm.progressId = collaborationProgressData.progress_id;
@@ -33,14 +33,14 @@ var collaborationProgressCtrl = function (
  // vm.newCollaborationProgressData = vm.defaultCollaborationProgressData;
 
  vm.getCollaborationProgress = function (collaborationId, progressId) {
-  vm.collaborationProgressManager.getCollaborationProgress(collaborationId, progressId).then(function (response) {
+  vm.collaborationProgressSrv.getCollaborationProgress(collaborationId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationProgress = function (data) {
-  vm.collaborationProgressManager.editCollaborationProgress(data).then(function (response) {
+  vm.collaborationProgressSrv.editCollaborationProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var collaborationProgressCtrl = function (
 
 
 collaborationProgressCtrl.$inject = [
- 'CollaborationProgressManager',
+ 'CollaborationProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

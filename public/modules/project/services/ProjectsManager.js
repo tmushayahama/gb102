@@ -1,9 +1,9 @@
-var projectsManager = function ($http, $q) {
+var projectsSrv = function ($http, $q) {
 
- var ProjectsManager = function () {
+ var ProjectsSrv = function () {
   this.projects = [];
  };
- ProjectsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectsManager.prototype.getAllProjects = function () {
+ ProjectsSrv.prototype.getAllProjects = function () {
   var self = this;
   var deferred = $q.defer();
   //self.projects = [];
@@ -35,7 +35,7 @@ var projectsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectsManager.prototype.getAppProjects = function (appName) {
+ ProjectsSrv.prototype.getAppProjects = function (appName) {
   var self = this;
   var deferred = $q.defer();
   // self.projects = [];
@@ -48,7 +48,7 @@ var projectsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectsManager.prototype.getMyProjects = function () {
+ ProjectsSrv.prototype.getMyProjects = function () {
   var self = this;
   var deferred = $q.defer();
   //self.projects = [];
@@ -61,7 +61,7 @@ var projectsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectsManager.prototype.getProject = function (projectId, Id) {
+ ProjectsSrv.prototype.getProject = function (projectId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.project = [];
@@ -74,7 +74,7 @@ var projectsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectsManager.prototype.createProject = function (projectData) {
+ ProjectsSrv.prototype.createProject = function (projectData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -90,7 +90,7 @@ var projectsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectsManager.prototype.editProject = function (projectData) {
+ ProjectsSrv.prototype.editProject = function (projectData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -104,10 +104,10 @@ var projectsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ProjectsManager;
+ return ProjectsSrv;
 };
 
-projectsManager.$inject = ['$http', '$q'];
+projectsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectsManager', projectsManager);
+angular.module('app.project').service('ProjectsSrv', projectsSrv);
 

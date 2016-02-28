@@ -1,9 +1,9 @@
-var adviceWeblinkManager = function ($http, $q) {
+var adviceWeblinkSrv = function ($http, $q) {
 
- var AdviceWeblinkManager = function () {
+ var AdviceWeblinkSrv = function () {
   this.adviceWeblinks = [];
  };
- AdviceWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var adviceWeblinkManager = function ($http, $q) {
  };
 
 
- AdviceWeblinkManager.prototype.getAdviceWeblink = function (adviceId, weblinkId) {
+ AdviceWeblinkSrv.prototype.getAdviceWeblink = function (adviceId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/advice/' + adviceId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var adviceWeblinkManager = function ($http, $q) {
  };
 
 
- AdviceWeblinkManager.prototype.editAdviceWeblink = function (adviceWeblinkData) {
+ AdviceWeblinkSrv.prototype.editAdviceWeblink = function (adviceWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var adviceWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return AdviceWeblinkManager;
+ return AdviceWeblinkSrv;
 };
 
-adviceWeblinkManager.$inject = ['$http', '$q'];
+adviceWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceWeblinkManager', adviceWeblinkManager);
+angular.module('app.advice').service('AdviceWeblinkSrv', adviceWeblinkSrv);

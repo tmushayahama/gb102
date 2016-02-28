@@ -1,8 +1,8 @@
 
 var teachCtrl = function (
         _,
-        ConstantsManager,
-        TeachManager,
+        ConstantsSrv,
+        TeachSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var teachCtrl = function (
 
  vm.teachId = $stateParams.teachId;
 
- vm.teachManager = new TeachManager();
- vm.constantsManager = new ConstantsManager();
+ vm.teachSrv = new TeachSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.teachFormDisplay = false;
 
  vm.getTeach = function (id) {
-  vm.teachManager.getTeach(id).then(function (data) {
+  vm.teachSrv.getTeach(id).then(function (data) {
    vm.teach = data;
   });
  };
@@ -73,20 +73,20 @@ var teachCtrl = function (
  };
 
  vm.createTeach = function (data) {
-  vm.teachManager.createTeach(data).then(function (response) {
+  vm.teachSrv.createTeach(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newTeachData = angular.copy(vm.defaultTeachData);
-   vm.teachCopy = angular.copy(vm.teachManager.teach);
+   vm.teachCopy = angular.copy(vm.teachSrv.teach);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editTeach = function (data) {
-  vm.teachManager.editTeach(data).then(function (response) {
+  vm.teachSrv.editTeach(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newTeachData = angular.copy(vm.defaultTeachData);
-   vm.teachCopy = angular.copy(vm.teachManager.teach);
+   vm.teachCopy = angular.copy(vm.teachSrv.teach);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var teachCtrl = function (
  //--------init------
 
  vm.getTeach(vm.teachId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.teachIcons = data;
   vm.getRandomTeachIcons();
  });
 };
 
 teachCtrl.$inject = ['_',
- 'ConstantsManager',
- 'TeachManager',
+ 'ConstantsSrv',
+ 'TeachSrv',
  '$scope',
  '$state',
  '$stateParams',

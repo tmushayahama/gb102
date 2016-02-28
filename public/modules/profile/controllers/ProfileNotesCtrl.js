@@ -1,5 +1,5 @@
 var profileNotesCtrl = function (
-        ProfileNotesManager,
+        ProfileNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var profileNotesCtrl = function (
  var vm = this;
  vm.profileId = $stateParams.profileId;
  vm.profileNotesCopy;
- vm.profileNotesManager = new ProfileNotesManager();
+ vm.profileNotesSrv = new ProfileNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultProfileNoteData = {
@@ -27,20 +27,20 @@ var profileNotesCtrl = function (
  };
 
  vm.createProfileNote = function (data) {
-  vm.profileNotesManager.createProfileNote(data).then(function (response) {
+  vm.profileNotesSrv.createProfileNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newProfileNoteData = angular.copy(vm.defaultProfileNoteData);
-   vm.profileNotesCopy = angular.copy(vm.profileNotesManager.profileNotes);
+   vm.profileNotesCopy = angular.copy(vm.profileNotesSrv.profileNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProfileNote = function (data) {
-  vm.profileNotesManager.editProfileNote(data).then(function (response) {
+  vm.profileNotesSrv.editProfileNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newProfileNoteData = angular.copy(vm.defaultProfileNoteData);
-   vm.profileNotesCopy = angular.copy(vm.profileNotesManager.profileNotes);
+   vm.profileNotesCopy = angular.copy(vm.profileNotesSrv.profileNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var profileNotesCtrl = function (
   profileNote = profileNoteCopy;
   /*
    $filter('filter')
-   (vm.profileNotesManager.profileNotes, {id: profileNoteId}, true)[0]
+   (vm.profileNotesSrv.profileNotes, {id: profileNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.profileNotesCopy, {id: profileNoteId}, true)[0]);
    if (profileNote.length && profileNoteCopy.length) {
-   // vm.profileNotesManager.profileNotes angular.copy(vm.profileNotesCopy);
+   // vm.profileNotesSrv.profileNotes angular.copy(vm.profileNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var profileNotesCtrl = function (
   return vm.profileNotes;
  }), function () {
   //vm.remainingCount = filterFilter(profileNotes, {completed: false}).length;
-  vm.doneCount = vm.profileNotesManager.profileNotes.length - vm.remainingCount;
+  vm.doneCount = vm.profileNotesSrv.profileNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProfileNoteService.put(vm.profileNotes);
  }, true);
@@ -147,12 +147,12 @@ var profileNotesCtrl = function (
 
 
  //--------init------
- vm.profileNotesManager.getProfileNotes(vm.profileId);
+ vm.profileNotesSrv.getProfileNotes(vm.profileId);
 };
 
 
 profileNotesCtrl.$inject = [
- 'ProfileNotesManager',
+ 'ProfileNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,5 +1,5 @@
 var goalProgressCtrl = function (
-        GoalProgressManager,
+        GoalProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var goalProgressCtrl = function (
  var vm = this;
  vm.goalId = $stateParams.goalId;
  vm.goalProgressCopy;
- vm.goalProgressManager = new GoalProgressManager();
+ vm.goalProgressSrv = new GoalProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultGoalProgressData = {
@@ -27,20 +27,20 @@ var goalProgressCtrl = function (
  };
 
  vm.createGoalProgress = function (data) {
-  vm.goalProgressManager.createGoalProgress(data).then(function (response) {
+  vm.goalProgressSrv.createGoalProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData);
-   vm.goalProgressCopy = angular.copy(vm.goalProgressManager.goalProgress);
+   vm.goalProgressCopy = angular.copy(vm.goalProgressSrv.goalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editGoalProgress = function (data) {
-  vm.goalProgressManager.editGoalProgress(data).then(function (response) {
+  vm.goalProgressSrv.editGoalProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newGoalProgressData = angular.copy(vm.defaultGoalProgressData);
-   vm.goalProgressCopy = angular.copy(vm.goalProgressManager.goalProgress);
+   vm.goalProgressCopy = angular.copy(vm.goalProgressSrv.goalProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var goalProgressCtrl = function (
   goalProgress = goalProgressCopy;
   /*
    $filter('filter')
-   (vm.goalProgressManager.goalProgress, {id: goalProgressId}, true)[0]
+   (vm.goalProgressSrv.goalProgress, {id: goalProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.goalProgressCopy, {id: goalProgressId}, true)[0]);
    if (goalProgress.length && goalProgressCopy.length) {
-   // vm.goalProgressManager.goalProgress angular.copy(vm.goalProgressCopy);
+   // vm.goalProgressSrv.goalProgress angular.copy(vm.goalProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var goalProgressCtrl = function (
   return vm.goalProgress;
  }), function () {
   //vm.remainingCount = filterFilter(goalProgress, {completed: false}).length;
-  vm.doneCount = vm.goalProgressManager.goalProgress.length - vm.remainingCount;
+  vm.doneCount = vm.goalProgressSrv.goalProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //GoalProgressService.put(vm.goalProgress);
  }, true);
@@ -147,11 +147,11 @@ var goalProgressCtrl = function (
 
 
  //--------init------
- vm.goalProgressManager.getGoalProgress(vm.goalId);
+ vm.goalProgressSrv.getGoalProgress(vm.goalId);
 };
 
 goalProgressCtrl.$inject = [
- 'GoalProgressManager',
+ 'GoalProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

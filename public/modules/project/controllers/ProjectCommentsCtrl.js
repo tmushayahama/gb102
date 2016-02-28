@@ -1,5 +1,5 @@
 var projectCommentsCtrl = function (
-        ProjectCommentsManager,
+        ProjectCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var projectCommentsCtrl = function (
  var vm = this;
  vm.projectId = $stateParams.projectId;
  vm.projectCommentsCopy;
- vm.projectCommentsManager = new ProjectCommentsManager();
+ vm.projectCommentsSrv = new ProjectCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultProjectCommentData = {
   projectId: $stateParams.projectId,
@@ -24,19 +24,19 @@ var projectCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createProjectComment = function (data) {
-  vm.projectCommentsManager.createProjectComment(data).then(function (response) {
+  vm.projectCommentsSrv.createProjectComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newProjectCommentData = angular.copy(vm.defaultProjectCommentData);
-   vm.projectCommentsCopy = angular.copy(vm.projectCommentsManager.projectComments);
+   vm.projectCommentsCopy = angular.copy(vm.projectCommentsSrv.projectComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editProjectComment = function (data) {
-  vm.projectCommentsManager.editProjectComment(data).then(function (response) {
+  vm.projectCommentsSrv.editProjectComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newProjectCommentData = angular.copy(vm.defaultProjectCommentData);
-   vm.projectCommentsCopy = angular.copy(vm.projectCommentsManager.projectComments);
+   vm.projectCommentsCopy = angular.copy(vm.projectCommentsSrv.projectComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var projectCommentsCtrl = function (
   projectComment = projectCommentCopy;
   /*
    $filter('filter')
-   (vm.projectCommentsManager.projectComments, {id: projectCommentId}, true)[0]
+   (vm.projectCommentsSrv.projectComments, {id: projectCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.projectCommentsCopy, {id: projectCommentId}, true)[0]);
    if (projectComment.length && projectCommentCopy.length) {
-   // vm.projectCommentsManager.projectComments angular.copy(vm.projectCommentsCopy);
+   // vm.projectCommentsSrv.projectComments angular.copy(vm.projectCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var projectCommentsCtrl = function (
   return vm.projectComments;
  }), function () {
   //vm.remainingCount = filterFilter(projectComments, {completed: false}).length;
-  vm.doneCount = vm.projectCommentsManager.projectComments.length - vm.remainingCount;
+  vm.doneCount = vm.projectCommentsSrv.projectComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectCommentService.put(vm.projectComments);
  }, true);
@@ -126,11 +126,11 @@ var projectCommentsCtrl = function (
   });
  };
  //--------init------
- vm.projectCommentsManager.getProjectComments(vm.projectId);
+ vm.projectCommentsSrv.getProjectComments(vm.projectId);
 };
 
 projectCommentsCtrl.$inject = [
- 'ProjectCommentsManager',
+ 'ProjectCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

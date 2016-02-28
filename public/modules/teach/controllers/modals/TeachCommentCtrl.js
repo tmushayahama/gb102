@@ -1,5 +1,5 @@
 var teachCommentCtrl = function (
-        TeachCommentManager,
+        TeachCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var teachCommentCtrl = function (
  var vm = this;
  vm.teachId = teachCommentData.teach_id;
  vm.teachCommentId = teachCommentData.id;
- vm.teachCommentManager = new TeachCommentManager();
+ vm.teachCommentSrv = new TeachCommentSrv();
 
 
  vm.commentId = teachCommentData.comment_id;
@@ -33,14 +33,14 @@ var teachCommentCtrl = function (
  // vm.newTeachCommentData = vm.defaultTeachCommentData;
 
  vm.getTeachComment = function (teachId, commentId) {
-  vm.teachCommentManager.getTeachComment(teachId, commentId).then(function (response) {
+  vm.teachCommentSrv.getTeachComment(teachId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachComment = function (data) {
-  vm.teachCommentManager.editTeachComment(data).then(function (response) {
+  vm.teachCommentSrv.editTeachComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var teachCommentCtrl = function (
 };
 
 teachCommentCtrl.$inject = [
- 'TeachCommentManager',
+ 'TeachCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

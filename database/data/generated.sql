@@ -755,16 +755,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AnswerC
     ignore 1 LINES
   (`id`,	`question_id`,	`answer`,	`description`,	`type`,	`status`);
 
-DROP TABLE IF EXISTS `gb_explore`;
+DROP TABLE IF EXISTS `gb_explorer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore` (
+CREATE TABLE `gb_explorer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_type_id` int(11) NOT NULL DEFAULT '1',
-  `parent_explore_id` int(11),
+  `parent_explorer_id` int(11),
   `creator_id` int(11) NOT NULL,
   `icon_id` int(11) NOT NULL DEFAULT '27',
-  `explore_picture_url` varchar(250) NOT NULL DEFAULT "explore_default.png",
+  `explorer_picture_url` varchar(250) NOT NULL DEFAULT "explorer_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL,
@@ -774,29 +774,29 @@ CREATE TABLE `gb_explore` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_app_type_id` (`app_type_id`),
-  KEY `explore_parent_explore_id` (`parent_explore_id`),
-  KEY `explore_icon_id` (`icon_id`),
-  KEY `explore_creator_id` (`creator_id`),
-  KEY `explore_level_id` (`level_id`),
-  CONSTRAINT `explore_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_parent_explore_id` FOREIGN KEY (`parent_explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_app_type_id` (`app_type_id`),
+  KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
+  KEY `explorer_icon_id` (`icon_id`),
+  KEY `explorer_creator_id` (`creator_id`),
+  KEY `explorer_level_id` (`level_id`),
+  CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_activity`
+-- Table structure for table `gb_explorer_activity`
 --
-DROP TABLE IF EXISTS `gb_explore_activity`;
+DROP TABLE IF EXISTS `gb_explorer_activity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_activity` (
+CREATE TABLE `gb_explorer_activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_activity_id` int(11),
   `activity_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
 `  created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -804,160 +804,160 @@ CREATE TABLE `gb_explore_activity` (
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_activity_activity_id` (`activity_id`),
-  KEY `explore_activity_explore_id` (`explore_id`),
-  CONSTRAINT `explore_activity_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_activity_activity_id` FOREIGN KEY (`activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_activity_activity_id` (`activity_id`),
+  KEY `explorer_activity_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_activity_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_activity_activity_id` FOREIGN KEY (`activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
--- Table structure for table `gb_explore_anouncement`
+-- Table structure for table `gb_explorer_anouncement`
 --
-DROP TABLE IF EXISTS `gb_explore_announcement`;
+DROP TABLE IF EXISTS `gb_explorer_announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_announcement` (
+CREATE TABLE `gb_explorer_announcement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `announcement_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_announcement_announcement_id` (`announcement_id`),
-  KEY `explore_announcement_explore_id` (`explore_id`),
-  CONSTRAINT `explore_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_announcement_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_announcement_announcement_id` (`announcement_id`),
+  KEY `explorer_announcement_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_announcement_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_question`
+-- Table structure for table `gb_explorer_question`
 --
-DROP TABLE IF EXISTS `gb_explore_question`;
+DROP TABLE IF EXISTS `gb_explorer_question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_question` (
+CREATE TABLE `gb_explorer_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_question_question_id` (`question_id`),
-  KEY `explore_question_explore_id` (`explore_id`),
-  CONSTRAINT `explore_question_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_question_question_id` (`question_id`),
+  KEY `explorer_question_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_question_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_comment`
+-- Table structure for table `gb_explorer_comment`
 --
-DROP TABLE IF EXISTS `gb_explore_comment`;
+DROP TABLE IF EXISTS `gb_explorer_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_comment` (
+CREATE TABLE `gb_explorer_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comment_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_comment_comment_id` (`comment_id`),
-  KEY `explore_comment_explore_id` (`explore_id`),
-  CONSTRAINT `explore_comment_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_comment_comment_id` (`comment_id`),
+  KEY `explorer_comment_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_comment_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_contribution`
+-- Table structure for table `gb_explorer_contribution`
 --
-DROP TABLE IF EXISTS `gb_explore_contribution`;
+DROP TABLE IF EXISTS `gb_explorer_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_contribution` (
+CREATE TABLE `gb_explorer_contribution` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contribution_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_contribution_contribution_id` (`contribution_id`),
-  KEY `explore_contribution_explore_id` (`explore_id`),
-  CONSTRAINT `explore_contribution_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_contribution_contribution_id` FOREIGN KEY (`contribution_id`) REFERENCES `gb_contribution` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_contribution_contribution_id` (`contribution_id`),
+  KEY `explorer_contribution_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_contribution_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_contribution_contribution_id` FOREIGN KEY (`contribution_id`) REFERENCES `gb_contribution` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_discussion`
+-- Table structure for table `gb_explorer_discussion`
 --
-DROP TABLE IF EXISTS `gb_explore_discussion`;
+DROP TABLE IF EXISTS `gb_explorer_discussion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_discussion` (
+CREATE TABLE `gb_explorer_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `discussion_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_discussion_discussion_id` (`discussion_id`),
-  KEY `explore_discussion_explore_id` (`explore_id`),
-  CONSTRAINT `explore_discussion_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_discussion_discussion_id` (`discussion_id`),
+  KEY `explorer_discussion_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_discussion_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_note`
+-- Table structure for table `gb_explorer_note`
 --
-DROP TABLE IF EXISTS `gb_explore_note`;
+DROP TABLE IF EXISTS `gb_explorer_note`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_note` (
+CREATE TABLE `gb_explorer_note` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `note_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_note_note_id` (`note_id`),
-  KEY `explore_note_explore_id` (`explore_id`),
-  CONSTRAINT `explore_note_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_note_note_id` (`note_id`),
+  KEY `explorer_note_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_note_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_anouncement`
+-- Table structure for table `gb_explorer_anouncement`
 --
-DROP TABLE IF EXISTS `gb_explore_observer`;
+DROP TABLE IF EXISTS `gb_explorer_observer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_observer` (
+CREATE TABLE `gb_explorer_observer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `observer_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_observer_creator_id` (`creator_id`),
-  KEY `explore_observer_observer_id` (`observer_id`),
-  KEY `explore_observer_explore_id` (`explore_id`),
-  CONSTRAINT `explore_observer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_observer_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_observer_creator_id` (`creator_id`),
+  KEY `explorer_observer_observer_id` (`observer_id`),
+  KEY `explorer_observer_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_observer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_observer_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_explore_questionnaire`
+-- Table structure for table `gb_explorer_explorer_questionnaire`
 --
-DROP TABLE IF EXISTS `gb_explore_questionnaire`;
+DROP TABLE IF EXISTS `gb_explorer_questionnaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_questionnaire` (
+CREATE TABLE `gb_explorer_questionnaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `questionnaire_id` int(11),
   `creator_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -965,22 +965,22 @@ CREATE TABLE `gb_explore_questionnaire` (
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_questionnaire_creator_id` (`creator_id`),
-  KEY `explore_questionnaire_explore_id` (`explore_id`),
-  CONSTRAINT `explore_questionnaire_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_questionnaire_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_questionnaire_creator_id` (`creator_id`),
+  KEY `explorer_questionnaire_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_questionnaire_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_questionnaire_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_anouncement`
+-- Table structure for table `gb_explorer_anouncement`
 --
-DROP TABLE IF EXISTS `gb_explore_request_option`;
+DROP TABLE IF EXISTS `gb_explorer_request_option`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_request_option` (
+CREATE TABLE `gb_explorer_request_option` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -989,144 +989,144 @@ CREATE TABLE `gb_explore_request_option` (
   `status` int(11) NOT NULL DEFAULT '0',
 
   PRIMARY KEY (`id`),
-  KEY `explore_request_option_creator_id` (`creator_id`),
-  KEY `explore_request_option_explore_id` (`explore_id`),
-  KEY `explore_request_option_level_id` (`level_id`),
-  CONSTRAINT `explore_request_option_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_request_option_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_request_option_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_request_option_creator_id` (`creator_id`),
+  KEY `explorer_request_option_explorer_id` (`explorer_id`),
+  KEY `explorer_request_option_level_id` (`level_id`),
+  CONSTRAINT `explorer_request_option_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_request_option_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_request_option_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_todo`
+-- Table structure for table `gb_explorer_todo`
 --
-DROP TABLE IF EXISTS `gb_explore_todo`;
+DROP TABLE IF EXISTS `gb_explorer_todo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_todo` (
+CREATE TABLE `gb_explorer_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `todo_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_todo_todo_id` (`todo_id`),
-  KEY `explore_todo_explore_id` (`explore_id`),
-  CONSTRAINT `explore_todo_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_todo_todo_id` (`todo_id`),
+  KEY `explorer_todo_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_todo_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_weblink`
+-- Table structure for table `gb_explorer_weblink`
 --
-DROP TABLE IF EXISTS `gb_explore_weblink`;
+DROP TABLE IF EXISTS `gb_explorer_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_weblink` (
+CREATE TABLE `gb_explorer_weblink` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `weblink_id` int(11) NOT NULL,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explore_weblink_weblink_id` (`weblink_id`),
-  KEY `explore_weblink_explore_id` (`explore_id`),
-  CONSTRAINT `explore_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_weblink_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_weblink_weblink_id` (`weblink_id`),
+  KEY `explorer_weblink_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_weblink_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
--- Table structure for table `gb_explore_tag`
+-- Table structure for table `gb_explorer_tag`
 --
-DROP TABLE IF EXISTS `gb_explore_tag`;
+DROP TABLE IF EXISTS `gb_explorer_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_tag` (
+CREATE TABLE `gb_explorer_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT Null,
+  `explorer_id` int(11) NOT Null,
   `tag_id` int(11) NOT NULL,
   `tagger_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `explore_tag_explore_id` (`explore_id`),
-  KEY `explore_tag_tag_id` (`tag_id`),
-  KEY `explore_tag_tagger_id` (`tagger_id`),
-  CONSTRAINT `explore_tag_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `explorer_tag_explorer_id` (`explorer_id`),
+  KEY `explorer_tag_tag_id` (`tag_id`),
+  KEY `explorer_tag_tagger_id` (`tagger_id`),
+  CONSTRAINT `explorer_tag_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_explore_category`
+-- Table structure for table `gb_explorer_category`
 --
-DROP TABLE IF EXISTS `gb_explore_category`;
+DROP TABLE IF EXISTS `gb_explorer_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explore_category` (
+CREATE TABLE `gb_explorer_category` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `category_id` int(11) NOT NULL,
- `explore_id` int(11) NOT NULL,
+ `explorer_id` int(11) NOT NULL,
  `description` varchar(150),
-  KEY `explore_category_category_id` (`category_id`),
-  KEY `explore_category_explore_id` (`explore_id`),
+  KEY `explorer_category_category_id` (`category_id`),
+  KEY `explorer_category_explorer_id` (`explorer_id`),
   PRIMARY KEY (`id`),
-  CONSTRAINT `explore_category_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explore_category_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `explorer_category_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_category_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ------------------ Explore ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/Explore.txt'
-    into table gb102.gb_explore
+-- ------------------ Explorer ----------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/Explorer.txt'
+    into table gb102.gb_explorer
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explore_id`,	`creator_id`,	`icon_id`, `explore_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`,	`icon_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreRequestOption.txt'
-    into table gb102.gb_explore_request_option
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerRequestOption.txt'
+    into table gb102.gb_explorer_request_option
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `creator_id`,	`explore_id`,	`level_id`,	`description`,	`created_at`,	`updated_at`,	`privacy`,	`status`);
+   (`id`, `creator_id`,	`explorer_id`,	`level_id`,	`description`,	`created_at`,	`updated_at`,	`privacy`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreNote.txt'
-    into table gb102.gb_explore_note
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerNote.txt'
+    into table gb102.gb_explorer_note
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `note_id`,	`explore_id`,	`privacy`,	`status`);
+   (`id`, `note_id`,	`explorer_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreTodo.txt'
-    into table gb102.gb_explore_todo
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerTodo.txt'
+    into table gb102.gb_explorer_todo
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `todo_id`,	`explore_id`,	`privacy`,	`status`);
+   (`id`, `todo_id`,	`explorer_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore/ExploreWeblink.txt'
-    into table gb102.gb_explore_weblink
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerWeblink.txt'
+    into table gb102.gb_explorer_weblink
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `weblink_id`,	`explore_id`,	`privacy`,	`status`);
+   (`id`, `weblink_id`,	`explorer_id`,	`privacy`,	`status`);
 
 DROP TABLE IF EXISTS `gb_mentorship`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -1140,12 +1140,12 @@ CREATE TABLE `gb_mentorship` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_explore_id` (`explore_id`),
+  KEY `mentorship_explorer_id` (`explorer_id`),
   KEY `mentorship_icon_id` (`icon_id`),
   KEY `mentorship_creator_id` (`creator_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
   KEY `mentorship_mentee_id` (`mentee_id`),
-  CONSTRAINT `mentorship_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -1161,9 +1161,9 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `explore_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`icon_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);
+  (`id`, `explorer_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`icon_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);
 --
--- Table structure for table `gb_explore_questionnaire`
+-- Table structure for table `gb_explorer_questionnaire`
 --
 DROP TABLE IF EXISTS `gb_questionnaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1232,16 +1232,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
   (`id`,	`question_id`,	`questionnaire_id`,	`creator_id`,	`description`,	`created_at`,	`updated_at`,	`type`,	`status`);
 
 --
--- Table structure for table `gb_explore_swipe`
+-- Table structure for table `gb_explorer_swipe`
 --
 DROP TABLE IF EXISTS `gb_swipe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_swipe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `explore_modified_id` int(11),
+  `explorer_modified_id` int(11),
   `level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -1250,19 +1250,19 @@ CREATE TABLE `gb_swipe` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `swipe_creator_id` (`creator_id`),
-  KEY `swipe_explore_id` (`explore_id`),
+  KEY `swipe_explorer_id` (`explorer_id`),
   KEY `swipe_level_id` (`level_id`),
-  KEY `swipe_explore_modified_id` (`explore_modified_id`),
+  KEY `swipe_explorer_modified_id` (`explorer_modified_id`),
   CONSTRAINT `swipe_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `swipe_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `swipe_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `swipe_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `swipe_explore_modified_id` FOREIGN KEY (`explore_modified_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `swipe_explorer_modified_id` FOREIGN KEY (`explorer_modified_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;DROP TABLE IF EXISTS `gb_classroom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_classroom` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `teacher_id` int(11),
   `icon_id` int(11) NOT NULL DEFAULT '27',
@@ -1275,11 +1275,11 @@ CREATE TABLE `gb_classroom` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `classroom_explore_id` (`explore_id`),
+  KEY `classroom_explorer_id` (`explorer_id`),
   KEY `classroom_icon_id` (`icon_id`),
   KEY `classroom_creator_id` (`creator_id`),
   KEY `classroom_teacher_id` (`teacher_id`),
-  CONSTRAINT `classroom_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `classroom_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -1293,7 +1293,7 @@ DROP TABLE IF EXISTS `gb_classroom_student`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_classroom_student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explore_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `teacher_id` int(11),
   `student_id` int(11),
@@ -1307,12 +1307,12 @@ CREATE TABLE `gb_classroom_student` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `classroom_student_explore_id` (`explore_id`),
+  KEY `classroom_student_explorer_id` (`explorer_id`),
   KEY `classroom_student_icon_id` (`icon_id`),
   KEY `classroom_student_creator_id` (`creator_id`),
   KEY `classroom_student_teacher_id` (`teacher_id`),
   KEY `classroom_student_student_id` (`student_id`),
-  CONSTRAINT `classroom_student_explore_id` FOREIGN KEY (`explore_id`) REFERENCES `gb_explore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `classroom_student_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `classroom_student_teacher_id` FOREIGN KEY (`teacher_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

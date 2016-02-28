@@ -73,16 +73,16 @@
      <div ng-include="'public/modules/communitys/views/components/community/community-cover.html'"></div>
     </div>
     <div class="gb-profile-row">
-     <img src="public/img/profile_pic/{{communityCtrl.communityManager.community.creator.avatar_url}}" class="gb-profile-pic" alt="">
+     <img src="public/img/profile_pic/{{communityCtrl.communitySrv.community.creator.avatar_url}}" class="gb-profile-pic" alt="">
      <div class="gb-row-content">
       <a class="gb-ellipsis">
-       {{communityCtrl.communityManager.community.creator.firstname + " " + communityCtrl.communityManager.community.creator.lastname}}
+       {{communityCtrl.communitySrv.community.creator.firstname + " " + communityCtrl.communitySrv.community.creator.lastname}}
       </a>
      </div>
     </div>
     <div class="gb-heading-row">
      <h2 class="gb-heading gb-ellipsis">
-      <strong>{{communityCtrl.communityManager.community.title}}</strong> {{communityCtrl.communityManager.community.description}}
+      <strong>{{communityCtrl.communitySrv.community.title}}</strong> {{communityCtrl.communitySrv.community.description}}
      </h2>
     </div>
     <ul class="gb-menu-row nav gb-nav-1">

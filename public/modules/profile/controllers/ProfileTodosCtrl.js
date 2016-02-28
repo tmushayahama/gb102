@@ -1,5 +1,5 @@
 var profileTodosCtrl = function (
-        ProfileTodosManager,
+        ProfileTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var profileTodosCtrl = function (
 
  var vm = this;
  vm.profileId = $stateParams.profileId;
- vm.profileTodosManager = new ProfileTodosManager();
+ vm.profileTodosSrv = new ProfileTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultProfileTodoData = {
@@ -25,7 +25,7 @@ var profileTodosCtrl = function (
  };
 
  vm.createProfileTodo = function (data) {
-  vm.profileTodosManager.createProfileTodo(data).then(function (response) {
+  vm.profileTodosSrv.createProfileTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newProfileTodoData = angular.copy(vm.defaultProfileTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var profileTodosCtrl = function (
  };
 
  vm.editProfileTodo = function (data) {
-  vm.profileTodosManager.editProfileTodo(data).then(function (response) {
+  vm.profileTodosSrv.editProfileTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newProfileTodoData = angular.copy(vm.defaultProfileTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var profileTodosCtrl = function (
   return vm.profileTodos;
  }), function () {
   //vm.remainingCount = filterFilter(profileTodos, {completed: false}).length;
-  vm.doneCount = vm.profileTodosManager.profileTodos.length - vm.remainingCount;
+  vm.doneCount = vm.profileTodosSrv.profileTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProfileTodoService.put(vm.profileTodos);
  }, true);
@@ -129,11 +129,11 @@ var profileTodosCtrl = function (
 
 
  //--------init------
- vm.profileTodosManager.getProfileTodos(vm.profileId);
+ vm.profileTodosSrv.getProfileTodos(vm.profileId);
 };
 
 profileTodosCtrl.$inject = [
- 'ProfileTodosManager',
+ 'ProfileTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

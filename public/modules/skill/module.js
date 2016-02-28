@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/skills/services/SkillsManager.js',
-                  'public/modules/skills/controllers/SkillsCtrl.js',
-                  'public/modules/skills/controllers/modals/AddSkillCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/skills/services/Skills.srv.js',
+                  'public/modules/skills/controllers/Skills.ctrl.js',
+                  'public/modules/skills/controllers/modals/AddSkill.ctrl.js',
                  ]
                 });
                }]
@@ -43,7 +43,7 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/controllers/SkillsAllCtrl.js',
+                  'public/modules/skills/controllers/SkillsAll.ctrl.js',
                  ]
                 });
                }]
@@ -62,7 +62,7 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/controllers/SkillsMineCtrl.js',
+                  'public/modules/skills/controllers/SkillsMine.ctrl.js',
                  ]
                 });
                }]
@@ -81,8 +81,8 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/controllers/SkillSwipesCtrl.js',
-                  'public/modules/skills/services/SkillSwipesManager.js',
+                  'public/modules/skills/controllers/SkillSwipes.ctrl.js',
+                  'public/modules/skills/services/SkillSwipes.srv.js',
                  ]
                 });
                }]
@@ -102,9 +102,9 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/skills/services/SkillManager.js',
-                  'public/modules/skills/controllers/SkillCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/skills/services/Skill.srv.js',
+                  'public/modules/skills/controllers/Skill.ctrl.js',
                   'public/modules/skills/filters/randomize.js',
                  ]
                 });
@@ -124,12 +124,12 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/controllers/SkillOverviewCtrl.js',
+                  'public/modules/skills/controllers/SkillOverview.ctrl.js',
                   //Progress
-                  'public/modules/skills/services/SkillProgressManager.js',
-                  'public/modules/skills/services/SkillProgressManager.js',
-                  'public/modules/skills/controllers/SkillProgressCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillProgressCtrl.js',
+                  'public/modules/skills/services/SkillProgress.srv.js',
+                  'public/modules/skills/services/SkillProgress.srv.js',
+                  'public/modules/skills/controllers/SkillProgress.ctrl.js',
+                  'public/modules/skills/controllers/modals/SkillProgress.ctrl.js',
                  ]
                 });
                }]
@@ -151,21 +151,21 @@ define(['angular'
                   //Todos
                   'public/modules/skills/directives/todoEscape.js',
                   'public/modules/skills/directives/todoFocus.js',
-                  'public/modules/skills/services/SkillTodoManager.js',
-                  'public/modules/skills/services/SkillTodosManager.js',
-                  'public/modules/skills/services/SkillTodoChecklistManager.js',
-                  'public/modules/skills/controllers/SkillTodosCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillTodoCtrl.js',
+                  'public/modules/skills/services/SkillTodo.srv.js',
+                  'public/modules/skills/services/SkillTodos.srv.js',
+                  'public/modules/skills/services/SkillTodoChecklist.srv.js',
+                  'public/modules/skills/controllers/SkillTodos.ctrl.js',
+                  'public/modules/skills/controllers/modals/SkillTodo.ctrl.js',
                   //Notes,
-                  'public/modules/skills/services/SkillNoteManager.js',
-                  'public/modules/skills/services/SkillNotesManager.js',
-                  'public/modules/skills/controllers/SkillNotesCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillNoteCtrl.js',
+                  'public/modules/skills/services/SkillNote.srv.js',
+                  'public/modules/skills/services/SkillNotes.srv.js',
+                  'public/modules/skills/controllers/SkillNotes.ctrl.js',
+                  'public/modules/skills/controllers/modals/SkillNote.ctrl.js',
                   //Weblink
-                  'public/modules/skills/services/SkillWeblinkManager.js',
-                  'public/modules/skills/services/SkillWeblinksManager.js',
-                  'public/modules/skills/controllers/SkillWeblinksCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillWeblinkCtrl.js',
+                  'public/modules/skills/services/SkillWeblink.srv.js',
+                  'public/modules/skills/services/SkillWeblinks.srv.js',
+                  'public/modules/skills/controllers/SkillWeblinks.ctrl.js',
+                  'public/modules/skills/controllers/modals/SkillWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -184,10 +184,10 @@ define(['angular'
                  name: 'app.skills',
                  serie: true,
                  files: [
-                  'public/modules/skills/services/SkillCommentManager.js',
-                  'public/modules/skills/services/SkillCommentsManager.js',
-                  'public/modules/skills/controllers/SkillCommentsCtrl.js',
-                  'public/modules/skills/controllers/modals/SkillCommentCtrl.js',
+                  'public/modules/skills/services/SkillComment.srv.js',
+                  'public/modules/skills/services/SkillComments.srv.js',
+                  'public/modules/skills/controllers/SkillComments.ctrl.js',
+                  'public/modules/skills/controllers/modals/SkillComment.ctrl.js',
                  ]
                 });
                }]

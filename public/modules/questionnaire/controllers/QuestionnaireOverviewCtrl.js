@@ -1,5 +1,5 @@
 var questionnaireOverviewCtrl = function (
-        QuestionnaireManager,
+        QuestionnaireSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var questionnaireOverviewCtrl = function (
 };
 
 questionnaireOverviewCtrl.$inject = [
- 'QuestionnaireManager',
+ 'QuestionnaireSrv',
  '$state',
  '$stateParams',
  '$http',

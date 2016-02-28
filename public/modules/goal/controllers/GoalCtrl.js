@@ -1,8 +1,8 @@
 
 var goalCtrl = function (
         _,
-        ConstantsManager,
-        GoalManager,
+        ConstantsSrv,
+        GoalSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var goalCtrl = function (
 
  vm.goalId = $stateParams.goalId;
 
- vm.goalManager = new GoalManager();
- vm.constantsManager = new ConstantsManager();
+ vm.goalSrv = new GoalSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.goalFormDisplay = false;
 
  vm.getGoal = function (id) {
-  vm.goalManager.getGoal(id).then(function (data) {
+  vm.goalSrv.getGoal(id).then(function (data) {
    vm.goal = data;
   });
  };
@@ -73,20 +73,20 @@ var goalCtrl = function (
  };
 
  vm.createGoal = function (data) {
-  vm.goalManager.createGoal(data).then(function (response) {
+  vm.goalSrv.createGoal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newGoalData = angular.copy(vm.defaultGoalData);
-   vm.goalCopy = angular.copy(vm.goalManager.goal);
+   vm.goalCopy = angular.copy(vm.goalSrv.goal);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editGoal = function (data) {
-  vm.goalManager.editGoal(data).then(function (response) {
+  vm.goalSrv.editGoal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newGoalData = angular.copy(vm.defaultGoalData);
-   vm.goalCopy = angular.copy(vm.goalManager.goal);
+   vm.goalCopy = angular.copy(vm.goalSrv.goal);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var goalCtrl = function (
  //--------init------
 
  vm.getGoal(vm.goalId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.goalIcons = data;
   vm.getRandomGoalIcons();
  });
 };
 
 goalCtrl.$inject = ['_',
- 'ConstantsManager',
- 'GoalManager',
+ 'ConstantsSrv',
+ 'GoalSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,8 +1,8 @@
 
 var questionnaireCtrl = function (
         _,
-        ConstantsManager,
-        QuestionnaireManager,
+        ConstantsSrv,
+        QuestionnaireSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var questionnaireCtrl = function (
 
  vm.questionnaireId = $stateParams.questionnaireId;
 
- vm.questionnaireManager = new QuestionnaireManager();
- vm.constantsManager = new ConstantsManager();
+ vm.questionnaireSrv = new QuestionnaireSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.questionnaireFormDisplay = false;
 
  vm.getQuestionnaire = function (id, data) {
-  vm.questionnaireManager.getQuestionnaire(id, data).success(function (response) {
+  vm.questionnaireSrv.getQuestionnaire(id, data).success(function (response) {
    vm.questionnaire = response;
   }).error(function (response) {
    console.log(response);
@@ -75,20 +75,20 @@ var questionnaireCtrl = function (
  };
 
  vm.createQuestionnaire = function (data) {
-  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
+  vm.questionnaireSrv.createQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
-   vm.questionnaireCopy = angular.copy(vm.questionnaireManager.questionnaire);
+   vm.questionnaireCopy = angular.copy(vm.questionnaireSrv.questionnaire);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editQuestionnaire = function (data) {
-  vm.questionnaireManager.editQuestionnaire(data).then(function (response) {
+  vm.questionnaireSrv.editQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
-   vm.questionnaireCopy = angular.copy(vm.questionnaireManager.questionnaire);
+   vm.questionnaireCopy = angular.copy(vm.questionnaireSrv.questionnaire);
   }, function (response) {
    console.log(response);
   });
@@ -118,11 +118,11 @@ var questionnaireCtrl = function (
   questionnaire = questionnaireCopy;
   /*
    $filter('filter')
-   (vm.questionnaireManager.questionnaire, {id: questionnaireId}, true)[0]
+   (vm.questionnaireSrv.questionnaire, {id: questionnaireId}, true)[0]
    = angular.copy($filter('filter')
    (vm.questionnaireCopy, {id: questionnaireId}, true)[0]);
    if (questionnaire.length && questionnaireCopy.length) {
-   // vm.questionnaireManager.questionnaire angular.copy(vm.questionnaireCopy);
+   // vm.questionnaireSrv.questionnaire angular.copy(vm.questionnaireCopy);
    }
    */
  };
@@ -138,7 +138,7 @@ var questionnaireCtrl = function (
   return vm.questionnaire;
  }), function () {
   //vm.remainingCount = filterFilter(questionnaire, {completed: false}).length;
-  vm.doneCount = vm.questionnaireManager.questionnaire.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireSrv.questionnaire.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionnaireService.put(vm.questionnaire);
  }, true);
@@ -172,16 +172,16 @@ var questionnaireCtrl = function (
  };
 
  //--------init------
- vm.questionnaireManager.getQuestionnaire(vm.questionnaireId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.questionnaireSrv.getQuestionnaire(vm.questionnaireId);
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.questionnaireIcons = data;
   vm.getRandomQuestionnaireIcons();
  });
 };
 
 questionnaireCtrl.$inject = ['_',
- 'ConstantsManager',
- 'QuestionnaireManager',
+ 'ConstantsSrv',
+ 'QuestionnaireSrv',
  '$scope',
  '$state',
  '$stateParams',

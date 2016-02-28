@@ -1,5 +1,5 @@
 var adviceWeblinksCtrl = function (
-        AdviceWeblinksManager,
+        AdviceWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var adviceWeblinksCtrl = function (
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
  vm.adviceWeblinksCopy;
- vm.adviceWeblinksManager = new AdviceWeblinksManager();
+ vm.adviceWeblinksSrv = new AdviceWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultAdviceWeblinkData = {
@@ -27,20 +27,20 @@ var adviceWeblinksCtrl = function (
  };
 
  vm.createAdviceWeblink = function (data) {
-  vm.adviceWeblinksManager.createAdviceWeblink(data).then(function (response) {
+  vm.adviceWeblinksSrv.createAdviceWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newAdviceWeblinkData = angular.copy(vm.defaultAdviceWeblinkData);
-   vm.adviceWeblinksCopy = angular.copy(vm.adviceWeblinksManager.adviceWeblinks);
+   vm.adviceWeblinksCopy = angular.copy(vm.adviceWeblinksSrv.adviceWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editAdviceWeblink = function (data) {
-  vm.adviceWeblinksManager.editAdviceWeblink(data).then(function (response) {
+  vm.adviceWeblinksSrv.editAdviceWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newAdviceWeblinkData = angular.copy(vm.defaultAdviceWeblinkData);
-   vm.adviceWeblinksCopy = angular.copy(vm.adviceWeblinksManager.adviceWeblinks);
+   vm.adviceWeblinksCopy = angular.copy(vm.adviceWeblinksSrv.adviceWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var adviceWeblinksCtrl = function (
   adviceWeblink = adviceWeblinkCopy;
   /*
    $filter('filter')
-   (vm.adviceWeblinksManager.adviceWeblinks, {id: adviceWeblinkId}, true)[0]
+   (vm.adviceWeblinksSrv.adviceWeblinks, {id: adviceWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.adviceWeblinksCopy, {id: adviceWeblinkId}, true)[0]);
    if (adviceWeblink.length && adviceWeblinkCopy.length) {
-   // vm.adviceWeblinksManager.adviceWeblinks angular.copy(vm.adviceWeblinksCopy);
+   // vm.adviceWeblinksSrv.adviceWeblinks angular.copy(vm.adviceWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var adviceWeblinksCtrl = function (
   return vm.adviceWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(adviceWeblinks, {completed: false}).length;
-  vm.doneCount = vm.adviceWeblinksManager.adviceWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.adviceWeblinksSrv.adviceWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceWeblinkService.put(vm.adviceWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var adviceWeblinksCtrl = function (
 
 
  //--------init------
- vm.adviceWeblinksManager.getAdviceWeblinks(vm.adviceId);
+ vm.adviceWeblinksSrv.getAdviceWeblinks(vm.adviceId);
 };
 
 adviceWeblinksCtrl.$inject = [
- 'AdviceWeblinksManager',
+ 'AdviceWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

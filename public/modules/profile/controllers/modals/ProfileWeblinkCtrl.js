@@ -1,5 +1,5 @@
 var profileWeblinkCtrl = function (
-        ProfileWeblinkManager,
+        ProfileWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var profileWeblinkCtrl = function (
  var vm = this;
  vm.profileId = profileWeblinkData.profile_id;
  vm.profileWeblinkId = profileWeblinkData.id;
- vm.profileWeblinkManager = new ProfileWeblinkManager();
+ vm.profileWeblinkSrv = new ProfileWeblinkSrv();
 
 
  vm.weblinkId = profileWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var profileWeblinkCtrl = function (
  // vm.newProfileWeblinkData = vm.defaultProfileWeblinkData;
 
  vm.getProfileWeblink = function (profileId, weblinkId) {
-  vm.profileWeblinkManager.getProfileWeblink(profileId, weblinkId).then(function (response) {
+  vm.profileWeblinkSrv.getProfileWeblink(profileId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProfileWeblink = function (data) {
-  vm.profileWeblinkManager.editProfileWeblink(data).then(function (response) {
+  vm.profileWeblinkSrv.editProfileWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var profileWeblinkCtrl = function (
 
 
 profileWeblinkCtrl.$inject = [
- 'ProfileWeblinkManager',
+ 'ProfileWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

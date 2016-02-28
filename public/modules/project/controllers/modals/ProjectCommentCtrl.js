@@ -1,5 +1,5 @@
 var projectCommentCtrl = function (
-        ProjectCommentManager,
+        ProjectCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var projectCommentCtrl = function (
  var vm = this;
  vm.projectId = projectCommentData.project_id;
  vm.projectCommentId = projectCommentData.id;
- vm.projectCommentManager = new ProjectCommentManager();
+ vm.projectCommentSrv = new ProjectCommentSrv();
 
 
  vm.commentId = projectCommentData.comment_id;
@@ -33,14 +33,14 @@ var projectCommentCtrl = function (
  // vm.newProjectCommentData = vm.defaultProjectCommentData;
 
  vm.getProjectComment = function (projectId, commentId) {
-  vm.projectCommentManager.getProjectComment(projectId, commentId).then(function (response) {
+  vm.projectCommentSrv.getProjectComment(projectId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectComment = function (data) {
-  vm.projectCommentManager.editProjectComment(data).then(function (response) {
+  vm.projectCommentSrv.editProjectComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var projectCommentCtrl = function (
 };
 
 projectCommentCtrl.$inject = [
- 'ProjectCommentManager',
+ 'ProjectCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

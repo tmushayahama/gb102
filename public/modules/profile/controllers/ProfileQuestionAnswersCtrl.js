@@ -1,7 +1,7 @@
 var profileQuestionAnswersCtrl = function (
         level_categories,
-        ConstantsManager,
-        QuestionnaireManager,
+        ConstantsSrv,
+        QuestionnaireSrv,
         $scope,
         $state,
         $stateParams,
@@ -15,16 +15,16 @@ var profileQuestionAnswersCtrl = function (
  var vm = this;
  vm.profileId = $stateParams.profileId;
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
  vm.questionnaireLevels;
 
  vm.getProfileQuestionAnswers = function () {
-  vm.questionnaireManager.getQuestionAnswers(vm.profileId);
+  vm.questionnaireSrv.getQuestionAnswers(vm.profileId);
  };
 
- vm.questionnaireManager = new QuestionnaireManager();
+ vm.questionnaireSrv = new QuestionnaireSrv();
  vm.getProfileQuestionAnswers();
- vm.constantsManager.getLevel(11).then(function (data) {
+ vm.constantsSrv.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
  });
 
@@ -33,8 +33,8 @@ var profileQuestionAnswersCtrl = function (
 
 profileQuestionAnswersCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'QuestionnaireManager',
+ 'ConstantsSrv',
+ 'QuestionnaireSrv',
  '$scope',
  '$state',
  '$stateParams',

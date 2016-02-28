@@ -1,9 +1,9 @@
-var profileNotesManager = function ($http, $q) {
+var profileNotesSrv = function ($http, $q) {
 
- var ProfileNotesManager = function () {
+ var ProfileNotesSrv = function () {
   this.profileNotes = [];
  };
- ProfileNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileNotesManager.prototype.getProfileNotes = function (profileId) {
+ ProfileNotesSrv.prototype.getProfileNotes = function (profileId) {
   var self = this;
   var deferred = $q.defer();
   self.profileNotes = [];
@@ -35,7 +35,7 @@ var profileNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileNotesManager.prototype.getProfileNote = function (profileId, noteId) {
+ ProfileNotesSrv.prototype.getProfileNote = function (profileId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.profileNotes = [];
@@ -48,7 +48,7 @@ var profileNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileNotesManager.prototype.createProfileNote = function (profileNoteData) {
+ ProfileNotesSrv.prototype.createProfileNote = function (profileNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var profileNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileNotesManager.prototype.editProfileNote = function (profileNoteData) {
+ ProfileNotesSrv.prototype.editProfileNote = function (profileNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var profileNotesManager = function ($http, $q) {
  };
 
 
- return ProfileNotesManager;
+ return ProfileNotesSrv;
 };
 
-profileNotesManager.$inject = ['$http', '$q'];
+profileNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileNotesManager', profileNotesManager);
+angular.module('app.profile').service('ProfileNotesSrv', profileNotesSrv);

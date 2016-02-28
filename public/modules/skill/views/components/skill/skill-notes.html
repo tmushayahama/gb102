@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-note-body row" ng-show="skillNotesCtrl.skillNotesManager.skillNotes.length" ng-cloak>
+  <div class="gb-note-body row" ng-show="skillNotesCtrl.skillNotesSrv.skillNotes.length" ng-cloak>
    <ul id="note-list">
-    <li ng-repeat="skillNote in skillNotesCtrl.skillNotesManager.skillNotes| filter:statusFilter track by $index" ng-class="{completed: skillNote.completed, editing: skillNote == skillNotesCtrl.editedNote}">
+    <li ng-repeat="skillNote in skillNotesCtrl.skillNotesSrv.skillNotes| filter:statusFilter track by $index" ng-class="{completed: skillNote.completed, editing: skillNote == skillNotesCtrl.editedNote}">
      <div class="gb-note-row row" ng-init="skillNoteCopy = angular.copy(skillNote)">
       <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
        <div class="gb-content-text">

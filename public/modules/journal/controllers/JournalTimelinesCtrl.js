@@ -1,5 +1,5 @@
 var journalProgressCtrl = function (
-        JournalProgressManager,
+        JournalProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var journalProgressCtrl = function (
  var vm = this;
  vm.journalId = $stateParams.journalId;
  vm.journalProgressCopy;
- vm.journalProgressManager = new JournalProgressManager();
+ vm.journalProgressSrv = new JournalProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultJournalProgressData = {
@@ -27,20 +27,20 @@ var journalProgressCtrl = function (
  };
 
  vm.createJournalProgress = function (data) {
-  vm.journalProgressManager.createJournalProgress(data).then(function (response) {
+  vm.journalProgressSrv.createJournalProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData);
-   vm.journalProgressCopy = angular.copy(vm.journalProgressManager.journalProgress);
+   vm.journalProgressCopy = angular.copy(vm.journalProgressSrv.journalProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editJournalProgress = function (data) {
-  vm.journalProgressManager.editJournalProgress(data).then(function (response) {
+  vm.journalProgressSrv.editJournalProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newJournalProgressData = angular.copy(vm.defaultJournalProgressData);
-   vm.journalProgressCopy = angular.copy(vm.journalProgressManager.journalProgress);
+   vm.journalProgressCopy = angular.copy(vm.journalProgressSrv.journalProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var journalProgressCtrl = function (
   journalProgress = journalProgressCopy;
   /*
    $filter('filter')
-   (vm.journalProgressManager.journalProgress, {id: journalProgressId}, true)[0]
+   (vm.journalProgressSrv.journalProgress, {id: journalProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.journalProgressCopy, {id: journalProgressId}, true)[0]);
    if (journalProgress.length && journalProgressCopy.length) {
-   // vm.journalProgressManager.journalProgress angular.copy(vm.journalProgressCopy);
+   // vm.journalProgressSrv.journalProgress angular.copy(vm.journalProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var journalProgressCtrl = function (
   return vm.journalProgress;
  }), function () {
   //vm.remainingCount = filterFilter(journalProgress, {completed: false}).length;
-  vm.doneCount = vm.journalProgressManager.journalProgress.length - vm.remainingCount;
+  vm.doneCount = vm.journalProgressSrv.journalProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalProgressService.put(vm.journalProgress);
  }, true);
@@ -147,11 +147,11 @@ var journalProgressCtrl = function (
 
 
  //--------init------
- vm.journalProgressManager.getJournalProgress(vm.journalId);
+ vm.journalProgressSrv.getJournalProgress(vm.journalId);
 };
 
 journalProgressCtrl.$inject = [
- 'JournalProgressManager',
+ 'JournalProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

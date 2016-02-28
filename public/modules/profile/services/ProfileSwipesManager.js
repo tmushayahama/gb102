@@ -1,9 +1,9 @@
-var profileSwipesManager = function ($http, $q) {
+var profileSwipesSrv = function ($http, $q) {
 
- var ProfileSwipesManager = function () {
+ var ProfileSwipesSrv = function () {
   this.profileSwipes = [];
  };
- ProfileSwipesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileSwipesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileSwipesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileSwipesManager.prototype.getProfileSwipes = function () {
+ ProfileSwipesSrv.prototype.getProfileSwipes = function () {
   var self = this;
   var deferred = $q.defer();
   self.profileSwipes = [];
@@ -36,7 +36,7 @@ var profileSwipesManager = function ($http, $q) {
  };
 
 
- ProfileSwipesManager.prototype.getProfileSwipe = function () {
+ ProfileSwipesSrv.prototype.getProfileSwipe = function () {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
@@ -49,7 +49,7 @@ var profileSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileSwipesManager.prototype.createProfileSwipe = function (profileSwipeData) {
+ ProfileSwipesSrv.prototype.createProfileSwipe = function (profileSwipeData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -65,7 +65,7 @@ var profileSwipesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileSwipesManager.prototype.editProfile = function (profileData) {
+ ProfileSwipesSrv.prototype.editProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -79,10 +79,10 @@ var profileSwipesManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ProfileSwipesManager;
+ return ProfileSwipesSrv;
 };
 
-profileSwipesManager.$inject = ['$http', '$q'];
+profileSwipesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileSwipesManager', profileSwipesManager);
+angular.module('app.profile').service('ProfileSwipesSrv', profileSwipesSrv);
 

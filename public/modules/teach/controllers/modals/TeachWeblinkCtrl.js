@@ -1,5 +1,5 @@
 var teachWeblinkCtrl = function (
-        TeachWeblinkManager,
+        TeachWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var teachWeblinkCtrl = function (
  var vm = this;
  vm.teachId = teachWeblinkData.teach_id;
  vm.teachWeblinkId = teachWeblinkData.id;
- vm.teachWeblinkManager = new TeachWeblinkManager();
+ vm.teachWeblinkSrv = new TeachWeblinkSrv();
 
 
  vm.weblinkId = teachWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var teachWeblinkCtrl = function (
  // vm.newTeachWeblinkData = vm.defaultTeachWeblinkData;
 
  vm.getTeachWeblink = function (teachId, weblinkId) {
-  vm.teachWeblinkManager.getTeachWeblink(teachId, weblinkId).then(function (response) {
+  vm.teachWeblinkSrv.getTeachWeblink(teachId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachWeblink = function (data) {
-  vm.teachWeblinkManager.editTeachWeblink(data).then(function (response) {
+  vm.teachWeblinkSrv.editTeachWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var teachWeblinkCtrl = function (
 
 
 teachWeblinkCtrl.$inject = [
- 'TeachWeblinkManager',
+ 'TeachWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

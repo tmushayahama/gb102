@@ -1,7 +1,7 @@
 var projectsAllCtrl = function (
-        ConstantsManager,
-        ProjectsManager,
-        SearchManager,
+        ConstantsSrv,
+        ProjectsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -16,18 +16,18 @@ var projectsAllCtrl = function (
  var vm = this;
  vm.projects = [];
 
- vm.projectsManager = new ProjectsManager();
+ vm.projectsSrv = new ProjectsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.projects = data;
   });
  } else {
-  vm.projectsManager.getAllProjects().then(function (data) {
+  vm.projectsSrv.getAllProjects().then(function (data) {
    vm.projects = data;
   });
  }
@@ -36,9 +36,9 @@ var projectsAllCtrl = function (
 };
 
 projectsAllCtrl.$inject = [
- 'ConstantsManager',
- 'ProjectsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'ProjectsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

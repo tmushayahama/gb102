@@ -1,5 +1,5 @@
 var teachWeblinksCtrl = function (
-        TeachWeblinksManager,
+        TeachWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var teachWeblinksCtrl = function (
  var vm = this;
  vm.teachId = $stateParams.teachId;
  vm.teachWeblinksCopy;
- vm.teachWeblinksManager = new TeachWeblinksManager();
+ vm.teachWeblinksSrv = new TeachWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultTeachWeblinkData = {
@@ -27,20 +27,20 @@ var teachWeblinksCtrl = function (
  };
 
  vm.createTeachWeblink = function (data) {
-  vm.teachWeblinksManager.createTeachWeblink(data).then(function (response) {
+  vm.teachWeblinksSrv.createTeachWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newTeachWeblinkData = angular.copy(vm.defaultTeachWeblinkData);
-   vm.teachWeblinksCopy = angular.copy(vm.teachWeblinksManager.teachWeblinks);
+   vm.teachWeblinksCopy = angular.copy(vm.teachWeblinksSrv.teachWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editTeachWeblink = function (data) {
-  vm.teachWeblinksManager.editTeachWeblink(data).then(function (response) {
+  vm.teachWeblinksSrv.editTeachWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newTeachWeblinkData = angular.copy(vm.defaultTeachWeblinkData);
-   vm.teachWeblinksCopy = angular.copy(vm.teachWeblinksManager.teachWeblinks);
+   vm.teachWeblinksCopy = angular.copy(vm.teachWeblinksSrv.teachWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var teachWeblinksCtrl = function (
   teachWeblink = teachWeblinkCopy;
   /*
    $filter('filter')
-   (vm.teachWeblinksManager.teachWeblinks, {id: teachWeblinkId}, true)[0]
+   (vm.teachWeblinksSrv.teachWeblinks, {id: teachWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.teachWeblinksCopy, {id: teachWeblinkId}, true)[0]);
    if (teachWeblink.length && teachWeblinkCopy.length) {
-   // vm.teachWeblinksManager.teachWeblinks angular.copy(vm.teachWeblinksCopy);
+   // vm.teachWeblinksSrv.teachWeblinks angular.copy(vm.teachWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var teachWeblinksCtrl = function (
   return vm.teachWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(teachWeblinks, {completed: false}).length;
-  vm.doneCount = vm.teachWeblinksManager.teachWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.teachWeblinksSrv.teachWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachWeblinkService.put(vm.teachWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var teachWeblinksCtrl = function (
 
 
  //--------init------
- vm.teachWeblinksManager.getTeachWeblinks(vm.teachId);
+ vm.teachWeblinksSrv.getTeachWeblinks(vm.teachId);
 };
 
 teachWeblinksCtrl.$inject = [
- 'TeachWeblinksManager',
+ 'TeachWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

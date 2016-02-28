@@ -1,9 +1,9 @@
 
 var projectsCtrl = function (
         level_categories,
-        ConstantsManager,
-        SearchManager,
-        ProjectsManager,
+        ConstantsSrv,
+        SearchSrv,
+        ProjectsSrv,
         $scope,
         $state,
         $stateParams,
@@ -21,8 +21,8 @@ var projectsCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-project.css'
  }, $scope);
 
- vm.projectsManager = new ProjectsManager();
- vm.constantsManager = new ConstantsManager();
+ vm.projectsSrv = new ProjectsSrv();
+ vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'PROJECTR';
  vm.projectLevels;
  vm.projectTypes;
@@ -41,20 +41,20 @@ var projectsCtrl = function (
  });
 
  vm.createProject = function (data) {
-  vm.projectsManager.createProject(data).then(function (response) {
+  vm.projectsSrv.createProject(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProjectData = angular.copy(vm.defaultProjectData);
-   vm.projectsCopy = angular.copy(vm.projectsManager.projects);
+   vm.projectsCopy = angular.copy(vm.projectsSrv.projects);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProject = function (data) {
-  vm.projectsManager.editProject(data).then(function (response) {
+  vm.projectsSrv.editProject(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProjectData = angular.copy(vm.defaultProjectData);
-   vm.projectsCopy = angular.copy(vm.projectsManager.projects);
+   vm.projectsCopy = angular.copy(vm.projectsSrv.projects);
   }, function (response) {
    console.log(response);
   });
@@ -84,11 +84,11 @@ var projectsCtrl = function (
   project = projectCopy;
   /*
    $filter('filter')
-   (vm.projectsManager.projects, {id: projectId}, true)[0]
+   (vm.projectsSrv.projects, {id: projectId}, true)[0]
    = angular.copy($filter('filter')
    (vm.projectsCopy, {id: projectId}, true)[0]);
    if (project.length && projectCopy.length) {
-   // vm.projectsManager.projects angular.copy(vm.projectsCopy);
+   // vm.projectsSrv.projects angular.copy(vm.projectsCopy);
    }
    */
  };
@@ -104,7 +104,7 @@ var projectsCtrl = function (
   return vm.projects;
  }), function () {
   //vm.remainingCount = filterFilter(projects, {completed: false}).length;
-  vm.doneCount = vm.projectsManager.projects.length - vm.remainingCount;
+  vm.doneCount = vm.projectsSrv.projects.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectService.put(vm.projects);
  }, true);
@@ -152,26 +152,26 @@ var projectsCtrl = function (
   });
 
   modalInstance.result.then(function (project) {
-   vm.projectsManager.createProject(project);
+   vm.projectsSrv.createProject(project);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- vm.constantsManager.getLevel(level_categories.project).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.project).then(function (data) {
   vm.projectTypes = data;
  });
- vm.constantsManager.getLevel(level_categories.project).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.project).then(function (data) {
   vm.projectLevels = data;
  });
 };
 
 projectsCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SearchManager',
- 'ProjectsManager',
+ 'ConstantsSrv',
+ 'SearchSrv',
+ 'ProjectsSrv',
  '$scope',
  '$state',
  '$stateParams',

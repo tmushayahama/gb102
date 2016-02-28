@@ -1,9 +1,9 @@
-var profileWeblinksManager = function ($http, $q) {
+var profileWeblinksSrv = function ($http, $q) {
 
- var ProfileWeblinksManager = function () {
+ var ProfileWeblinksSrv = function () {
   this.profileWeblinks = [];
  };
- ProfileWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileWeblinksManager.prototype.getProfileWeblinks = function (profileId) {
+ ProfileWeblinksSrv.prototype.getProfileWeblinks = function (profileId) {
   var self = this;
   var deferred = $q.defer();
   self.profileWeblinks = [];
@@ -35,7 +35,7 @@ var profileWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileWeblinksManager.prototype.getProfileWeblink = function (profileId, weblinkId) {
+ ProfileWeblinksSrv.prototype.getProfileWeblink = function (profileId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.profileWeblinks = [];
@@ -48,7 +48,7 @@ var profileWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileWeblinksManager.prototype.createProfileWeblink = function (profileWeblinkData) {
+ ProfileWeblinksSrv.prototype.createProfileWeblink = function (profileWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var profileWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileWeblinksManager.prototype.editProfileWeblink = function (profileWeblinkData) {
+ ProfileWeblinksSrv.prototype.editProfileWeblink = function (profileWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var profileWeblinksManager = function ($http, $q) {
  };
 
 
- return ProfileWeblinksManager;
+ return ProfileWeblinksSrv;
 };
 
 
-profileWeblinksManager.$inject = ['$http', '$q'];
+profileWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileWeblinksManager', profileWeblinksManager);
+angular.module('app.profile').service('ProfileWeblinksSrv', profileWeblinksSrv);

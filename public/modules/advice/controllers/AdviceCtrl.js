@@ -1,8 +1,8 @@
 
 var adviceCtrl = function (
         _,
-        ConstantsManager,
-        AdviceManager,
+        ConstantsSrv,
+        AdviceSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var adviceCtrl = function (
 
  vm.adviceId = $stateParams.adviceId;
 
- vm.adviceManager = new AdviceManager();
- vm.constantsManager = new ConstantsManager();
+ vm.adviceSrv = new AdviceSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.adviceFormDisplay = false;
 
  vm.getAdvice = function (id) {
-  vm.adviceManager.getAdvice(id).then(function (data) {
+  vm.adviceSrv.getAdvice(id).then(function (data) {
    vm.advice = data;
   });
  };
@@ -73,20 +73,20 @@ var adviceCtrl = function (
  };
 
  vm.createAdvice = function (data) {
-  vm.adviceManager.createAdvice(data).then(function (response) {
+  vm.adviceSrv.createAdvice(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newAdviceData = angular.copy(vm.defaultAdviceData);
-   vm.adviceCopy = angular.copy(vm.adviceManager.advice);
+   vm.adviceCopy = angular.copy(vm.adviceSrv.advice);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editAdvice = function (data) {
-  vm.adviceManager.editAdvice(data).then(function (response) {
+  vm.adviceSrv.editAdvice(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newAdviceData = angular.copy(vm.defaultAdviceData);
-   vm.adviceCopy = angular.copy(vm.adviceManager.advice);
+   vm.adviceCopy = angular.copy(vm.adviceSrv.advice);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var adviceCtrl = function (
  //--------init------
 
  vm.getAdvice(vm.adviceId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.adviceIcons = data;
   vm.getRandomAdviceIcons();
  });
 };
 
 adviceCtrl.$inject = ['_',
- 'ConstantsManager',
- 'AdviceManager',
+ 'ConstantsSrv',
+ 'AdviceSrv',
  '$scope',
  '$state',
  '$stateParams',

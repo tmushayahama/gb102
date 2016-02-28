@@ -1,9 +1,9 @@
-var adviceWeblinksManager = function ($http, $q) {
+var adviceWeblinksSrv = function ($http, $q) {
 
- var AdviceWeblinksManager = function () {
+ var AdviceWeblinksSrv = function () {
   this.adviceWeblinks = [];
  };
- AdviceWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var adviceWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceWeblinksManager.prototype.getAdviceWeblinks = function (adviceId) {
+ AdviceWeblinksSrv.prototype.getAdviceWeblinks = function (adviceId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceWeblinks = [];
@@ -35,7 +35,7 @@ var adviceWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceWeblinksManager.prototype.getAdviceWeblink = function (adviceId, weblinkId) {
+ AdviceWeblinksSrv.prototype.getAdviceWeblink = function (adviceId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceWeblinks = [];
@@ -48,7 +48,7 @@ var adviceWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceWeblinksManager.prototype.createAdviceWeblink = function (adviceWeblinkData) {
+ AdviceWeblinksSrv.prototype.createAdviceWeblink = function (adviceWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var adviceWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceWeblinksManager.prototype.editAdviceWeblink = function (adviceWeblinkData) {
+ AdviceWeblinksSrv.prototype.editAdviceWeblink = function (adviceWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var adviceWeblinksManager = function ($http, $q) {
  };
 
 
- return AdviceWeblinksManager;
+ return AdviceWeblinksSrv;
 };
 
 
-adviceWeblinksManager.$inject = ['$http', '$q'];
+adviceWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceWeblinksManager', adviceWeblinksManager);
+angular.module('app.advice').service('AdviceWeblinksSrv', adviceWeblinksSrv);

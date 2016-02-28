@@ -1,9 +1,9 @@
-var collaborationNoteManager = function ($http, $q) {
+var collaborationNoteSrv = function ($http, $q) {
 
- var CollaborationNoteManager = function () {
+ var CollaborationNoteSrv = function () {
   this.collaborationNotes = [];
  };
- CollaborationNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var collaborationNoteManager = function ($http, $q) {
  };
 
 
- CollaborationNoteManager.prototype.getCollaborationNote = function (collaborationId, noteId) {
+ CollaborationNoteSrv.prototype.getCollaborationNote = function (collaborationId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/collaboration/' + collaborationId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var collaborationNoteManager = function ($http, $q) {
  };
 
 
- CollaborationNoteManager.prototype.editCollaborationNote = function (collaborationNoteData) {
+ CollaborationNoteSrv.prototype.editCollaborationNote = function (collaborationNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var collaborationNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return CollaborationNoteManager;
+ return CollaborationNoteSrv;
 };
 
-collaborationNoteManager.$inject = ['$http', '$q'];
+collaborationNoteSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationNoteManager', collaborationNoteManager);
+angular.module('app.collaboration').service('CollaborationNoteSrv', collaborationNoteSrv);

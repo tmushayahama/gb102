@@ -1,9 +1,9 @@
-var profileCommentsManager = function ($http, $q) {
+var profileCommentsSrv = function ($http, $q) {
 
- var ProfileCommentsManager = function () {
+ var ProfileCommentsSrv = function () {
   this.profileComments = [];
  };
- ProfileCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileCommentsManager.prototype.getProfileComments = function (profileId) {
+ ProfileCommentsSrv.prototype.getProfileComments = function (profileId) {
   var self = this;
   var deferred = $q.defer();
   self.profileComments = [];
@@ -35,7 +35,7 @@ var profileCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileCommentsManager.prototype.getProfileComment = function (profileId, commentId) {
+ ProfileCommentsSrv.prototype.getProfileComment = function (profileId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.profileComments = [];
@@ -48,7 +48,7 @@ var profileCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileCommentsManager.prototype.createProfileComment = function (profileCommentData) {
+ ProfileCommentsSrv.prototype.createProfileComment = function (profileCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var profileCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileCommentsManager.prototype.editProfileComment = function (profileCommentData) {
+ ProfileCommentsSrv.prototype.editProfileComment = function (profileCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var profileCommentsManager = function ($http, $q) {
  };
 
 
- return ProfileCommentsManager;
+ return ProfileCommentsSrv;
 };
 
-profileCommentsManager.$inject = ['$http', '$q'];
+profileCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileCommentsManager', profileCommentsManager);
+angular.module('app.profile').service('ProfileCommentsSrv', profileCommentsSrv);

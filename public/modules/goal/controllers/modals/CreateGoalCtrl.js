@@ -1,5 +1,5 @@
 var createGoalCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -19,10 +19,10 @@ var createGoalCtrl = function (
  vm.selectedGoalType;
  vm.wizardCurrentStep = "Choose Goal Type";
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getLevel(appId).then(function (data) {
    vm.goalLevels = data;
   });
  };
@@ -51,7 +51,7 @@ var createGoalCtrl = function (
 };
 
 createGoalCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

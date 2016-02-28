@@ -1,9 +1,9 @@
-var questionnaireManager = function ($http, $q) {
+var questionnaireSrv = function ($http, $q) {
 
- var QuestionnaireManager = function () {
+ var QuestionnaireSrv = function () {
   this.questionAnswers = [];
  };
- QuestionnaireManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var questionnaireManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireManager.prototype.getAllQuestionAnswers = function () {
+ QuestionnaireSrv.prototype.getAllQuestionAnswers = function () {
   var self = this;
   var deferred = $q.defer();
   self.questionAnswers = [];
@@ -35,7 +35,7 @@ var questionnaireManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireManager.prototype.getQuestionAnswers = function (userId) {
+ QuestionnaireSrv.prototype.getQuestionAnswers = function (userId) {
   var self = this;
   var deferred = $q.defer();
   self.questionAnswers = [];
@@ -49,7 +49,7 @@ var questionnaireManager = function ($http, $q) {
  };
 
 
- QuestionnaireManager.prototype.getQuestionnaireQuestion = function (questionnaireId) {
+ QuestionnaireSrv.prototype.getQuestionnaireQuestion = function (questionnaireId) {
   var self = this;
   var deferred = $q.defer();
   //self.questionnaire = [];
@@ -62,7 +62,7 @@ var questionnaireManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireManager.prototype.createQuestionAnswer = function (questionAnswerData) {
+ QuestionnaireSrv.prototype.createQuestionAnswer = function (questionAnswerData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,7 +78,7 @@ var questionnaireManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireManager.prototype.editQuestionnaire = function (questionnaireData) {
+ QuestionnaireSrv.prototype.editQuestionnaire = function (questionnaireData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -92,10 +92,10 @@ var questionnaireManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return QuestionnaireManager;
+ return QuestionnaireSrv;
 };
 
-questionnaireManager.$inject = ['$http', '$q'];
+questionnaireSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireManager', questionnaireManager);
+angular.module('app.questionnaire').service('QuestionnaireSrv', questionnaireSrv);
 

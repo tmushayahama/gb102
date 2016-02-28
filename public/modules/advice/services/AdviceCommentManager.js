@@ -1,9 +1,9 @@
-var adviceCommentManager = function ($http, $q) {
+var adviceCommentSrv = function ($http, $q) {
 
- var AdviceCommentManager = function () {
+ var AdviceCommentSrv = function () {
   this.adviceComments = [];
  };
- AdviceCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var adviceCommentManager = function ($http, $q) {
  };
 
 
- AdviceCommentManager.prototype.getAdviceComment = function (adviceId, commentId) {
+ AdviceCommentSrv.prototype.getAdviceComment = function (adviceId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/advice/' + adviceId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var adviceCommentManager = function ($http, $q) {
  };
 
 
- AdviceCommentManager.prototype.editAdviceComment = function (adviceCommentData) {
+ AdviceCommentSrv.prototype.editAdviceComment = function (adviceCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var adviceCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return AdviceCommentManager;
+ return AdviceCommentSrv;
 };
 
-adviceCommentManager.$inject = ['$http', '$q'];
+adviceCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceCommentManager', adviceCommentManager);
+angular.module('app.advice').service('AdviceCommentSrv', adviceCommentSrv);

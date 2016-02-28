@@ -1,9 +1,9 @@
-var adviceCommentsManager = function ($http, $q) {
+var adviceCommentsSrv = function ($http, $q) {
 
- var AdviceCommentsManager = function () {
+ var AdviceCommentsSrv = function () {
   this.adviceComments = [];
  };
- AdviceCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var adviceCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- AdviceCommentsManager.prototype.getAdviceComments = function (adviceId) {
+ AdviceCommentsSrv.prototype.getAdviceComments = function (adviceId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceComments = [];
@@ -35,7 +35,7 @@ var adviceCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceCommentsManager.prototype.getAdviceComment = function (adviceId, commentId) {
+ AdviceCommentsSrv.prototype.getAdviceComment = function (adviceId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.adviceComments = [];
@@ -48,7 +48,7 @@ var adviceCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceCommentsManager.prototype.createAdviceComment = function (adviceCommentData) {
+ AdviceCommentsSrv.prototype.createAdviceComment = function (adviceCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var adviceCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- AdviceCommentsManager.prototype.editAdviceComment = function (adviceCommentData) {
+ AdviceCommentsSrv.prototype.editAdviceComment = function (adviceCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var adviceCommentsManager = function ($http, $q) {
  };
 
 
- return AdviceCommentsManager;
+ return AdviceCommentsSrv;
 };
 
-adviceCommentsManager.$inject = ['$http', '$q'];
+adviceCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceCommentsManager', adviceCommentsManager);
+angular.module('app.advice').service('AdviceCommentsSrv', adviceCommentsSrv);

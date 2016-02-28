@@ -1,9 +1,9 @@
-var goalTodoChecklistManager = function ($http, $q) {
+var goalTodoChecklistSrv = function ($http, $q) {
 
- var GoalTodoChecklistManager = function () {
+ var GoalTodoChecklistSrv = function () {
   this.goalTodoChecklist = [];
  };
- GoalTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var goalTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalTodoChecklistManager.prototype.getGoalTodoChecklist = function (todoId) {
+ GoalTodoChecklistSrv.prototype.getGoalTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.goalTodoChecklist = [];
@@ -35,7 +35,7 @@ var goalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalTodoChecklistManager.prototype.getGoalTodoChecklistItem = function (goalId, todoId) {
+ GoalTodoChecklistSrv.prototype.getGoalTodoChecklistItem = function (goalId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var goalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalTodoChecklistManager.prototype.createGoalTodoChecklistItem = function (goalTodoChecklistData) {
+ GoalTodoChecklistSrv.prototype.createGoalTodoChecklistItem = function (goalTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var goalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalTodoChecklistManager.prototype.editGoalTodoChecklistItem = function (goalTodoData) {
+ GoalTodoChecklistSrv.prototype.editGoalTodoChecklistItem = function (goalTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var goalTodoChecklistManager = function ($http, $q) {
  };
 
 
- return GoalTodoChecklistManager;
+ return GoalTodoChecklistSrv;
 };
 
-goalTodoChecklistManager.$inject = ['$http', '$q'];
+goalTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalTodoChecklistManager', goalTodoChecklistManager);
+angular.module('app.goal').service('GoalTodoChecklistSrv', goalTodoChecklistSrv);

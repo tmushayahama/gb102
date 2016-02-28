@@ -1,9 +1,9 @@
-var collaborationTodoChecklistManager = function ($http, $q) {
+var collaborationTodoChecklistSrv = function ($http, $q) {
 
- var CollaborationTodoChecklistManager = function () {
+ var CollaborationTodoChecklistSrv = function () {
   this.collaborationTodoChecklist = [];
  };
- CollaborationTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationTodoChecklistManager.prototype.getCollaborationTodoChecklist = function (todoId) {
+ CollaborationTodoChecklistSrv.prototype.getCollaborationTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationTodoChecklist = [];
@@ -35,7 +35,7 @@ var collaborationTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodoChecklistManager.prototype.getCollaborationTodoChecklistItem = function (collaborationId, todoId) {
+ CollaborationTodoChecklistSrv.prototype.getCollaborationTodoChecklistItem = function (collaborationId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/collaboration/' + collaborationId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var collaborationTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodoChecklistManager.prototype.createCollaborationTodoChecklistItem = function (collaborationTodoChecklistData) {
+ CollaborationTodoChecklistSrv.prototype.createCollaborationTodoChecklistItem = function (collaborationTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var collaborationTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodoChecklistManager.prototype.editCollaborationTodoChecklistItem = function (collaborationTodoData) {
+ CollaborationTodoChecklistSrv.prototype.editCollaborationTodoChecklistItem = function (collaborationTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var collaborationTodoChecklistManager = function ($http, $q) {
  };
 
 
- return CollaborationTodoChecklistManager;
+ return CollaborationTodoChecklistSrv;
 };
 
-collaborationTodoChecklistManager.$inject = ['$http', '$q'];
+collaborationTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationTodoChecklistManager', collaborationTodoChecklistManager);
+angular.module('app.collaboration').service('CollaborationTodoChecklistSrv', collaborationTodoChecklistSrv);

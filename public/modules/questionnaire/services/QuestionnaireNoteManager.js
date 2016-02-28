@@ -1,9 +1,9 @@
-var questionnaireNoteManager = function ($http, $q) {
+var questionnaireNoteSrv = function ($http, $q) {
 
- var QuestionnaireNoteManager = function () {
+ var QuestionnaireNoteSrv = function () {
   this.questionnaireNotes = [];
  };
- QuestionnaireNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var questionnaireNoteManager = function ($http, $q) {
  };
 
 
- QuestionnaireNoteManager.prototype.getQuestionnaireNote = function (questionnaireId, noteId) {
+ QuestionnaireNoteSrv.prototype.getQuestionnaireNote = function (questionnaireId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var questionnaireNoteManager = function ($http, $q) {
  };
 
 
- QuestionnaireNoteManager.prototype.editQuestionnaireNote = function (questionnaireNoteData) {
+ QuestionnaireNoteSrv.prototype.editQuestionnaireNote = function (questionnaireNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var questionnaireNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireNoteManager;
+ return QuestionnaireNoteSrv;
 };
 
-questionnaireNoteManager.$inject = ['$http', '$q'];
+questionnaireNoteSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireNoteManager', questionnaireNoteManager);
+angular.module('app.questionnaire').service('QuestionnaireNoteSrv', questionnaireNoteSrv);

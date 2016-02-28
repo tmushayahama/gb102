@@ -1,9 +1,9 @@
-var goalNoteManager = function ($http, $q) {
+var goalNoteSrv = function ($http, $q) {
 
- var GoalNoteManager = function () {
+ var GoalNoteSrv = function () {
   this.goalNotes = [];
  };
- GoalNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var goalNoteManager = function ($http, $q) {
  };
 
 
- GoalNoteManager.prototype.getGoalNote = function (goalId, noteId) {
+ GoalNoteSrv.prototype.getGoalNote = function (goalId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var goalNoteManager = function ($http, $q) {
  };
 
 
- GoalNoteManager.prototype.editGoalNote = function (goalNoteData) {
+ GoalNoteSrv.prototype.editGoalNote = function (goalNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var goalNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalNoteManager;
+ return GoalNoteSrv;
 };
 
-goalNoteManager.$inject = ['$http', '$q'];
+goalNoteSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalNoteManager', goalNoteManager);
+angular.module('app.goal').service('GoalNoteSrv', goalNoteSrv);

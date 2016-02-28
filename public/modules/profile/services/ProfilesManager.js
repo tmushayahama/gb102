@@ -1,9 +1,9 @@
-var profileManager = function ($http, $q) {
+var profileSrv = function ($http, $q) {
 
- var ProfileManager = function () {
+ var ProfileSrv = function () {
   this.profile = [];
  };
- ProfileManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileManager.prototype.getAllProfile = function () {
+ ProfileSrv.prototype.getAllProfile = function () {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
@@ -35,7 +35,7 @@ var profileManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileManager.prototype.getMyProfile = function () {
+ ProfileSrv.prototype.getMyProfile = function () {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
@@ -48,7 +48,7 @@ var profileManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileManager.prototype.getProfile = function (profileId, Id) {
+ ProfileSrv.prototype.getProfile = function (profileId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.profile = [];
@@ -61,7 +61,7 @@ var profileManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileManager.prototype.createProfile = function (profileData) {
+ ProfileSrv.prototype.createProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -77,7 +77,7 @@ var profileManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileManager.prototype.editProfile = function (profileData) {
+ ProfileSrv.prototype.editProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -91,10 +91,10 @@ var profileManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ProfileManager;
+ return ProfileSrv;
 };
 
-profileManager.$inject = ['$http', '$q'];
+profileSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileManager', profileManager);
+angular.module('app.profile').service('ProfileSrv', profileSrv);
 

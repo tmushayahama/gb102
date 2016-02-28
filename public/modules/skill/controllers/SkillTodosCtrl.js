@@ -1,5 +1,5 @@
 var skillTodosCtrl = function (
-        SkillTodosManager,
+        SkillTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var skillTodosCtrl = function (
 
  var vm = this;
  vm.skillId = $stateParams.skillId;
- vm.skillTodosManager = new SkillTodosManager();
+ vm.skillTodosSrv = new SkillTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultSkillTodoData = {
@@ -25,7 +25,7 @@ var skillTodosCtrl = function (
  };
 
  vm.createSkillTodo = function (data) {
-  vm.skillTodosManager.createSkillTodo(data).then(function (response) {
+  vm.skillTodosSrv.createSkillTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var skillTodosCtrl = function (
  };
 
  vm.editSkillTodo = function (data) {
-  vm.skillTodosManager.editSkillTodo(data).then(function (response) {
+  vm.skillTodosSrv.editSkillTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newSkillTodoData = angular.copy(vm.defaultSkillTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var skillTodosCtrl = function (
   return vm.skillTodos;
  }), function () {
   //vm.remainingCount = filterFilter(skillTodos, {completed: false}).length;
-  vm.doneCount = vm.skillTodosManager.skillTodos.length - vm.remainingCount;
+  vm.doneCount = vm.skillTodosSrv.skillTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillTodoService.put(vm.skillTodos);
  }, true);
@@ -129,11 +129,11 @@ var skillTodosCtrl = function (
 
 
  //--------init------
- vm.skillTodosManager.getSkillTodos(vm.skillId);
+ vm.skillTodosSrv.getSkillTodos(vm.skillId);
 };
 
 skillTodosCtrl.$inject = [
- 'SkillTodosManager',
+ 'SkillTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

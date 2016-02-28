@@ -1,9 +1,9 @@
-var projectNotesManager = function ($http, $q) {
+var projectNotesSrv = function ($http, $q) {
 
- var ProjectNotesManager = function () {
+ var ProjectNotesSrv = function () {
   this.projectNotes = [];
  };
- ProjectNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectNotesManager.prototype.getProjectNotes = function (projectId) {
+ ProjectNotesSrv.prototype.getProjectNotes = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   self.projectNotes = [];
@@ -35,7 +35,7 @@ var projectNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectNotesManager.prototype.getProjectNote = function (projectId, noteId) {
+ ProjectNotesSrv.prototype.getProjectNote = function (projectId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.projectNotes = [];
@@ -48,7 +48,7 @@ var projectNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectNotesManager.prototype.createProjectNote = function (projectNoteData) {
+ ProjectNotesSrv.prototype.createProjectNote = function (projectNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var projectNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectNotesManager.prototype.editProjectNote = function (projectNoteData) {
+ ProjectNotesSrv.prototype.editProjectNote = function (projectNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var projectNotesManager = function ($http, $q) {
  };
 
 
- return ProjectNotesManager;
+ return ProjectNotesSrv;
 };
 
-projectNotesManager.$inject = ['$http', '$q'];
+projectNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectNotesManager', projectNotesManager);
+angular.module('app.project').service('ProjectNotesSrv', projectNotesSrv);

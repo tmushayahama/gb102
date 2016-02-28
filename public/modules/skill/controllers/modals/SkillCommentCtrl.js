@@ -1,5 +1,5 @@
 var skillCommentCtrl = function (
-        SkillCommentManager,
+        SkillCommentSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var skillCommentCtrl = function (
  var vm = this;
  vm.skillId = skillCommentData.skill_id;
  vm.skillCommentId = skillCommentData.id;
- vm.skillCommentManager = new SkillCommentManager();
+ vm.skillCommentSrv = new SkillCommentSrv();
 
 
  vm.commentId = skillCommentData.comment_id;
@@ -33,14 +33,14 @@ var skillCommentCtrl = function (
  // vm.newSkillCommentData = vm.defaultSkillCommentData;
 
  vm.getSkillComment = function (skillId, commentId) {
-  vm.skillCommentManager.getSkillComment(skillId, commentId).then(function (response) {
+  vm.skillCommentSrv.getSkillComment(skillId, commentId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editSkillComment = function (data) {
-  vm.skillCommentManager.editSkillComment(data).then(function (response) {
+  vm.skillCommentSrv.editSkillComment(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -70,7 +70,7 @@ var skillCommentCtrl = function (
 };
 
 skillCommentCtrl.$inject = [
- 'SkillCommentManager',
+ 'SkillCommentSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/project/services/ProjectsManager.js',
-                  'public/modules/project/controllers/ProjectsCtrl.js',
-                  'public/modules/project/controllers/modals/CreateProjectCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/project/services/Projects.srv.js',
+                  'public/modules/project/controllers/Projects.ctrl.js',
+                  'public/modules/project/controllers/modals/CreateProject.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/controllers/ProjectsAllCtrl.js',
+                  'public/modules/project/controllers/ProjectsAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/controllers/ProjectsAppCtrl.js',
+                  'public/modules/project/controllers/ProjectsApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/controllers/ProjectsMineCtrl.js',
+                  'public/modules/project/controllers/ProjectsMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/project/services/ProjectManager.js',
-                  'public/modules/project/controllers/ProjectCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/project/services/Project.srv.js',
+                  'public/modules/project/controllers/Project.ctrl.js',
                   'public/modules/project/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/controllers/ProjectOverviewCtrl.js',
+                  'public/modules/project/controllers/ProjectOverview.ctrl.js',
                   //Progress
-                  'public/modules/project/services/ProjectProgressManager.js',
-                  'public/modules/project/services/ProjectProgressManager.js',
-                  'public/modules/project/controllers/ProjectProgressCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectProgressCtrl.js',
+                  'public/modules/project/services/ProjectProgress.srv.js',
+                  'public/modules/project/services/ProjectProgress.srv.js',
+                  'public/modules/project/controllers/ProjectProgress.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectProgress.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/controllers/ProjectManageCtrl.js',
+                  'public/modules/project/controllers/ProjectManage.ctrl.js',
                   //Progress
-                  'public/modules/project/services/ProjectProgressManager.js',
-                  'public/modules/project/services/ProjectProgressManager.js',
-                  'public/modules/project/controllers/ProjectProgressCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectProgressCtrl.js',
+                  'public/modules/project/services/ProjectProgress.srv.js',
+                  'public/modules/project/services/ProjectProgress.srv.js',
+                  'public/modules/project/controllers/ProjectProgress.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectProgress.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/project/directives/todoEscape.js',
                   'public/modules/project/directives/todoFocus.js',
-                  'public/modules/project/services/ProjectTodoManager.js',
-                  'public/modules/project/services/ProjectTodosManager.js',
-                  'public/modules/project/services/ProjectTodoChecklistManager.js',
-                  'public/modules/project/controllers/ProjectTodosCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectTodoCtrl.js',
+                  'public/modules/project/services/ProjectTodo.srv.js',
+                  'public/modules/project/services/ProjectTodos.srv.js',
+                  'public/modules/project/services/ProjectTodoChecklist.srv.js',
+                  'public/modules/project/controllers/ProjectTodos.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectTodo.ctrl.js',
                   //Notes,
-                  'public/modules/project/services/ProjectNoteManager.js',
-                  'public/modules/project/services/ProjectNotesManager.js',
-                  'public/modules/project/controllers/ProjectNotesCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectNoteCtrl.js',
+                  'public/modules/project/services/ProjectNote.srv.js',
+                  'public/modules/project/services/ProjectNotes.srv.js',
+                  'public/modules/project/controllers/ProjectNotes.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectNote.ctrl.js',
                   //Weblink
-                  'public/modules/project/services/ProjectWeblinkManager.js',
-                  'public/modules/project/services/ProjectWeblinksManager.js',
-                  'public/modules/project/controllers/ProjectWeblinksCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectWeblinkCtrl.js',
+                  'public/modules/project/services/ProjectWeblink.srv.js',
+                  'public/modules/project/services/ProjectWeblinks.srv.js',
+                  'public/modules/project/controllers/ProjectWeblinks.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.project',
                  serie: true,
                  files: [
-                  'public/modules/project/services/ProjectCommentManager.js',
-                  'public/modules/project/services/ProjectCommentsManager.js',
-                  'public/modules/project/controllers/ProjectCommentsCtrl.js',
-                  'public/modules/project/controllers/modals/ProjectCommentCtrl.js',
+                  'public/modules/project/services/ProjectComment.srv.js',
+                  'public/modules/project/services/ProjectComments.srv.js',
+                  'public/modules/project/controllers/ProjectComments.ctrl.js',
+                  'public/modules/project/controllers/modals/ProjectComment.ctrl.js',
                  ]
                 });
                }]

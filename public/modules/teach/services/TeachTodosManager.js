@@ -1,9 +1,9 @@
-var teachTodosManager = function ($http, $q) {
+var teachTodosSrv = function ($http, $q) {
 
- var TeachTodosManager = function () {
+ var TeachTodosSrv = function () {
   this.teachTodos = [];
  };
- TeachTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachTodosManager.prototype.getTeachTodos = function (teachId) {
+ TeachTodosSrv.prototype.getTeachTodos = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTodos = [];
@@ -35,7 +35,7 @@ var teachTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodosManager.prototype.getTeachTodo = function (teachId, todoId) {
+ TeachTodosSrv.prototype.getTeachTodo = function (teachId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTodos = [];
@@ -48,7 +48,7 @@ var teachTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodosManager.prototype.createTeachTodo = function (teachTodoData) {
+ TeachTodosSrv.prototype.createTeachTodo = function (teachTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var teachTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTodosManager.prototype.editTeachTodo = function (teachTodoData) {
+ TeachTodosSrv.prototype.editTeachTodo = function (teachTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var teachTodosManager = function ($http, $q) {
  };
 
 
- return TeachTodosManager;
+ return TeachTodosSrv;
 };
 
-teachTodosManager.$inject = ['$http', '$q'];
+teachTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachTodosManager', teachTodosManager);
+angular.module('app.teach').service('TeachTodosSrv', teachTodosSrv);

@@ -42,13 +42,13 @@ class QuestionnaireQuestion extends Model {
   $userId = $user->id;
   $questionnaireQuestions = QuestionnaireQuestion::where('creator_id', $userId)
           ->orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('creator')
           ->with('level')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(50)
           ->get();
   return $questionnaireQuestions;
@@ -69,12 +69,12 @@ class QuestionnaireQuestion extends Model {
  public static function createQuestionnaireQuestion() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $exploreId = Request::get("exploreId");
+  $explorerId = Request::get("explorerId");
   $level_id = Request::get("levelId");
   $description = Request::get("description");
   $questionnaireQuestion = new QuestionnaireQuestion;
   $questionnaireQuestion->creator_id = $userId;
-  $questionnaireQuestion->explore_id = $exploreId;
+  $questionnaireQuestion->explorer_id = $explorerId;
   $questionnaireQuestion->level_id = $level_id;
   $questionnaireQuestion->description = $description;
 

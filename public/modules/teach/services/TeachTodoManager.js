@@ -1,9 +1,9 @@
-var teachTodoManager = function ($http, $q) {
+var teachTodoSrv = function ($http, $q) {
 
- var TeachTodoManager = function () {
+ var TeachTodoSrv = function () {
   this.teachTodos = [];
  };
- TeachTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var teachTodoManager = function ($http, $q) {
  };
 
 
- TeachTodoManager.prototype.getTeachTodo = function (teachId, todoId) {
+ TeachTodoSrv.prototype.getTeachTodo = function (teachId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var teachTodoManager = function ($http, $q) {
  };
 
 
- TeachTodoManager.prototype.editTeachTodo = function (teachTodoData) {
+ TeachTodoSrv.prototype.editTeachTodo = function (teachTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var teachTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachTodoManager;
+ return TeachTodoSrv;
 };
-teachTodoManager.$inject = ['$http', '$q'];
+teachTodoSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachTodoManager', teachTodoManager);
+angular.module('app.teach').service('TeachTodoSrv', teachTodoSrv);

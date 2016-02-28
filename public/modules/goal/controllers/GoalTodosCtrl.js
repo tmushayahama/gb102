@@ -1,5 +1,5 @@
 var goalTodosCtrl = function (
-        GoalTodosManager,
+        GoalTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var goalTodosCtrl = function (
 
  var vm = this;
  vm.goalId = $stateParams.goalId;
- vm.goalTodosManager = new GoalTodosManager();
+ vm.goalTodosSrv = new GoalTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultGoalTodoData = {
@@ -25,7 +25,7 @@ var goalTodosCtrl = function (
  };
 
  vm.createGoalTodo = function (data) {
-  vm.goalTodosManager.createGoalTodo(data).then(function (response) {
+  vm.goalTodosSrv.createGoalTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newGoalTodoData = angular.copy(vm.defaultGoalTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var goalTodosCtrl = function (
  };
 
  vm.editGoalTodo = function (data) {
-  vm.goalTodosManager.editGoalTodo(data).then(function (response) {
+  vm.goalTodosSrv.editGoalTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newGoalTodoData = angular.copy(vm.defaultGoalTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var goalTodosCtrl = function (
   return vm.goalTodos;
  }), function () {
   //vm.remainingCount = filterFilter(goalTodos, {completed: false}).length;
-  vm.doneCount = vm.goalTodosManager.goalTodos.length - vm.remainingCount;
+  vm.doneCount = vm.goalTodosSrv.goalTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //GoalTodoService.put(vm.goalTodos);
  }, true);
@@ -129,11 +129,11 @@ var goalTodosCtrl = function (
 
 
  //--------init------
- vm.goalTodosManager.getGoalTodos(vm.goalId);
+ vm.goalTodosSrv.getGoalTodos(vm.goalId);
 };
 
 goalTodosCtrl.$inject = [
- 'GoalTodosManager',
+ 'GoalTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

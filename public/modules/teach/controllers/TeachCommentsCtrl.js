@@ -1,5 +1,5 @@
 var teachCommentsCtrl = function (
-        TeachCommentsManager,
+        TeachCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var teachCommentsCtrl = function (
  var vm = this;
  vm.teachId = $stateParams.teachId;
  vm.teachCommentsCopy;
- vm.teachCommentsManager = new TeachCommentsManager();
+ vm.teachCommentsSrv = new TeachCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultTeachCommentData = {
   teachId: $stateParams.teachId,
@@ -24,19 +24,19 @@ var teachCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createTeachComment = function (data) {
-  vm.teachCommentsManager.createTeachComment(data).then(function (response) {
+  vm.teachCommentsSrv.createTeachComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newTeachCommentData = angular.copy(vm.defaultTeachCommentData);
-   vm.teachCommentsCopy = angular.copy(vm.teachCommentsManager.teachComments);
+   vm.teachCommentsCopy = angular.copy(vm.teachCommentsSrv.teachComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editTeachComment = function (data) {
-  vm.teachCommentsManager.editTeachComment(data).then(function (response) {
+  vm.teachCommentsSrv.editTeachComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newTeachCommentData = angular.copy(vm.defaultTeachCommentData);
-   vm.teachCommentsCopy = angular.copy(vm.teachCommentsManager.teachComments);
+   vm.teachCommentsCopy = angular.copy(vm.teachCommentsSrv.teachComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var teachCommentsCtrl = function (
   teachComment = teachCommentCopy;
   /*
    $filter('filter')
-   (vm.teachCommentsManager.teachComments, {id: teachCommentId}, true)[0]
+   (vm.teachCommentsSrv.teachComments, {id: teachCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.teachCommentsCopy, {id: teachCommentId}, true)[0]);
    if (teachComment.length && teachCommentCopy.length) {
-   // vm.teachCommentsManager.teachComments angular.copy(vm.teachCommentsCopy);
+   // vm.teachCommentsSrv.teachComments angular.copy(vm.teachCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var teachCommentsCtrl = function (
   return vm.teachComments;
  }), function () {
   //vm.remainingCount = filterFilter(teachComments, {completed: false}).length;
-  vm.doneCount = vm.teachCommentsManager.teachComments.length - vm.remainingCount;
+  vm.doneCount = vm.teachCommentsSrv.teachComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachCommentService.put(vm.teachComments);
  }, true);
@@ -126,11 +126,11 @@ var teachCommentsCtrl = function (
   });
  };
  //--------init------
- vm.teachCommentsManager.getTeachComments(vm.teachId);
+ vm.teachCommentsSrv.getTeachComments(vm.teachId);
 };
 
 teachCommentsCtrl.$inject = [
- 'TeachCommentsManager',
+ 'TeachCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

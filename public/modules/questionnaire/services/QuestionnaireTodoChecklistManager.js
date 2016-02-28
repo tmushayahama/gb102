@@ -1,9 +1,9 @@
-var questionnaireTodoChecklistManager = function ($http, $q) {
+var questionnaireTodoChecklistSrv = function ($http, $q) {
 
- var QuestionnaireTodoChecklistManager = function () {
+ var QuestionnaireTodoChecklistSrv = function () {
   this.questionnaireTodoChecklist = [];
  };
- QuestionnaireTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var questionnaireTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- QuestionnaireTodoChecklistManager.prototype.getQuestionnaireTodoChecklist = function (todoId) {
+ QuestionnaireTodoChecklistSrv.prototype.getQuestionnaireTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.questionnaireTodoChecklist = [];
@@ -35,7 +35,7 @@ var questionnaireTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireTodoChecklistManager.prototype.getQuestionnaireTodoChecklistItem = function (questionnaireId, todoId) {
+ QuestionnaireTodoChecklistSrv.prototype.getQuestionnaireTodoChecklistItem = function (questionnaireId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var questionnaireTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireTodoChecklistManager.prototype.createQuestionnaireTodoChecklistItem = function (questionnaireTodoChecklistData) {
+ QuestionnaireTodoChecklistSrv.prototype.createQuestionnaireTodoChecklistItem = function (questionnaireTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var questionnaireTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- QuestionnaireTodoChecklistManager.prototype.editQuestionnaireTodoChecklistItem = function (questionnaireTodoData) {
+ QuestionnaireTodoChecklistSrv.prototype.editQuestionnaireTodoChecklistItem = function (questionnaireTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var questionnaireTodoChecklistManager = function ($http, $q) {
  };
 
 
- return QuestionnaireTodoChecklistManager;
+ return QuestionnaireTodoChecklistSrv;
 };
 
-questionnaireTodoChecklistManager.$inject = ['$http', '$q'];
+questionnaireTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireTodoChecklistManager', questionnaireTodoChecklistManager);
+angular.module('app.questionnaire').service('QuestionnaireTodoChecklistSrv', questionnaireTodoChecklistSrv);

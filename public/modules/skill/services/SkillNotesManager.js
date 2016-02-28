@@ -1,9 +1,9 @@
-var skillNotesManager = function ($http, $q) {
+var skillNotesSrv = function ($http, $q) {
 
- var SkillNotesManager = function () {
+ var SkillNotesSrv = function () {
   this.skillNotes = [];
  };
- SkillNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillNotesManager.prototype.getSkillNotes = function (skillId) {
+ SkillNotesSrv.prototype.getSkillNotes = function (skillId) {
   var self = this;
   var deferred = $q.defer();
   self.skillNotes = [];
@@ -35,7 +35,7 @@ var skillNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillNotesManager.prototype.getSkillNote = function (skillId, noteId) {
+ SkillNotesSrv.prototype.getSkillNote = function (skillId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.skillNotes = [];
@@ -48,7 +48,7 @@ var skillNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillNotesManager.prototype.createSkillNote = function (skillNoteData) {
+ SkillNotesSrv.prototype.createSkillNote = function (skillNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var skillNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillNotesManager.prototype.editSkillNote = function (skillNoteData) {
+ SkillNotesSrv.prototype.editSkillNote = function (skillNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var skillNotesManager = function ($http, $q) {
  };
 
 
- return SkillNotesManager;
+ return SkillNotesSrv;
 };
 
-skillNotesManager.$inject = ['$http', '$q'];
+skillNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillNotesManager', skillNotesManager);
+angular.module('app.skills').service('SkillNotesSrv', skillNotesSrv);

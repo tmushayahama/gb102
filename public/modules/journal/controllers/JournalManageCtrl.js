@@ -1,5 +1,5 @@
 var journalManageCtrl = function (
-        JournalManager,
+        JournalSrv,
         $state,
         $stateParams,
         $http,
@@ -8,17 +8,17 @@ var journalManageCtrl = function (
  var vm = this;
  vm.journalId = $stateParams.journalId;
  vm.journals;
- vm.journalManager = new JournalManager();
+ vm.journalSrv = new JournalSrv();
 
  vm.getJournal = function (id) {
-  vm.journalManager.getJournal(id).then(function (data) {
+  vm.journalSrv.getJournal(id).then(function (data) {
    vm.journal = data;
-   vm.getSubJournals(vm.journal.explore_id);
+   vm.getSubJournals(vm.journal.explorer_id);
   });
  };
 
- vm.getSubJournals = function (exploreId) {
-  vm.journalManager.getSubJournals(exploreId).then(function (data) {
+ vm.getSubJournals = function (explorerId) {
+  vm.journalSrv.getSubJournals(explorerId).then(function (data) {
    vm.journals = data;
   });
  }
@@ -28,7 +28,7 @@ var journalManageCtrl = function (
 };
 
 journalManageCtrl.$inject = [
- 'JournalManager',
+ 'JournalSrv',
  '$state',
  '$stateParams',
  '$http',

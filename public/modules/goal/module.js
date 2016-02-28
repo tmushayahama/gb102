@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/goal/services/GoalsManager.js',
-                  'public/modules/goal/controllers/GoalsCtrl.js',
-                  'public/modules/goal/controllers/modals/CreateGoalCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/goal/services/Goals.srv.js',
+                  'public/modules/goal/controllers/Goals.ctrl.js',
+                  'public/modules/goal/controllers/modals/CreateGoal.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/controllers/GoalsAllCtrl.js',
+                  'public/modules/goal/controllers/GoalsAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/controllers/GoalsAppCtrl.js',
+                  'public/modules/goal/controllers/GoalsApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/controllers/GoalsMineCtrl.js',
+                  'public/modules/goal/controllers/GoalsMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/goal/services/GoalManager.js',
-                  'public/modules/goal/controllers/GoalCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/goal/services/Goal.srv.js',
+                  'public/modules/goal/controllers/Goal.ctrl.js',
                   'public/modules/goal/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/controllers/GoalOverviewCtrl.js',
+                  'public/modules/goal/controllers/GoalOverview.ctrl.js',
                   //Progress
-                  'public/modules/goal/services/GoalProgressManager.js',
-                  'public/modules/goal/services/GoalProgressManager.js',
-                  'public/modules/goal/controllers/GoalProgressCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalProgressCtrl.js',
+                  'public/modules/goal/services/GoalProgress.srv.js',
+                  'public/modules/goal/services/GoalProgress.srv.js',
+                  'public/modules/goal/controllers/GoalProgress.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalProgress.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/controllers/GoalManageCtrl.js',
+                  'public/modules/goal/controllers/GoalManage.ctrl.js',
                   //Progress
-                  'public/modules/goal/services/GoalProgressManager.js',
-                  'public/modules/goal/services/GoalProgressManager.js',
-                  'public/modules/goal/controllers/GoalProgressCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalProgressCtrl.js',
+                  'public/modules/goal/services/GoalProgress.srv.js',
+                  'public/modules/goal/services/GoalProgress.srv.js',
+                  'public/modules/goal/controllers/GoalProgress.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalProgress.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/goal/directives/todoEscape.js',
                   'public/modules/goal/directives/todoFocus.js',
-                  'public/modules/goal/services/GoalTodoManager.js',
-                  'public/modules/goal/services/GoalTodosManager.js',
-                  'public/modules/goal/services/GoalTodoChecklistManager.js',
-                  'public/modules/goal/controllers/GoalTodosCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalTodoCtrl.js',
+                  'public/modules/goal/services/GoalTodo.srv.js',
+                  'public/modules/goal/services/GoalTodos.srv.js',
+                  'public/modules/goal/services/GoalTodoChecklist.srv.js',
+                  'public/modules/goal/controllers/GoalTodos.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalTodo.ctrl.js',
                   //Notes,
-                  'public/modules/goal/services/GoalNoteManager.js',
-                  'public/modules/goal/services/GoalNotesManager.js',
-                  'public/modules/goal/controllers/GoalNotesCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalNoteCtrl.js',
+                  'public/modules/goal/services/GoalNote.srv.js',
+                  'public/modules/goal/services/GoalNotes.srv.js',
+                  'public/modules/goal/controllers/GoalNotes.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalNote.ctrl.js',
                   //Weblink
-                  'public/modules/goal/services/GoalWeblinkManager.js',
-                  'public/modules/goal/services/GoalWeblinksManager.js',
-                  'public/modules/goal/controllers/GoalWeblinksCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalWeblinkCtrl.js',
+                  'public/modules/goal/services/GoalWeblink.srv.js',
+                  'public/modules/goal/services/GoalWeblinks.srv.js',
+                  'public/modules/goal/controllers/GoalWeblinks.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.goal',
                  serie: true,
                  files: [
-                  'public/modules/goal/services/GoalCommentManager.js',
-                  'public/modules/goal/services/GoalCommentsManager.js',
-                  'public/modules/goal/controllers/GoalCommentsCtrl.js',
-                  'public/modules/goal/controllers/modals/GoalCommentCtrl.js',
+                  'public/modules/goal/services/GoalComment.srv.js',
+                  'public/modules/goal/services/GoalComments.srv.js',
+                  'public/modules/goal/controllers/GoalComments.ctrl.js',
+                  'public/modules/goal/controllers/modals/GoalComment.ctrl.js',
                  ]
                 });
                }]

@@ -1,9 +1,9 @@
-var projectTodoChecklistManager = function ($http, $q) {
+var projectTodoChecklistSrv = function ($http, $q) {
 
- var ProjectTodoChecklistManager = function () {
+ var ProjectTodoChecklistSrv = function () {
   this.projectTodoChecklist = [];
  };
- ProjectTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectTodoChecklistManager.prototype.getProjectTodoChecklist = function (todoId) {
+ ProjectTodoChecklistSrv.prototype.getProjectTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.projectTodoChecklist = [];
@@ -35,7 +35,7 @@ var projectTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodoChecklistManager.prototype.getProjectTodoChecklistItem = function (projectId, todoId) {
+ ProjectTodoChecklistSrv.prototype.getProjectTodoChecklistItem = function (projectId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/project/' + projectId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var projectTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodoChecklistManager.prototype.createProjectTodoChecklistItem = function (projectTodoChecklistData) {
+ ProjectTodoChecklistSrv.prototype.createProjectTodoChecklistItem = function (projectTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var projectTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectTodoChecklistManager.prototype.editProjectTodoChecklistItem = function (projectTodoData) {
+ ProjectTodoChecklistSrv.prototype.editProjectTodoChecklistItem = function (projectTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var projectTodoChecklistManager = function ($http, $q) {
  };
 
 
- return ProjectTodoChecklistManager;
+ return ProjectTodoChecklistSrv;
 };
 
-projectTodoChecklistManager.$inject = ['$http', '$q'];
+projectTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectTodoChecklistManager', projectTodoChecklistManager);
+angular.module('app.project').service('ProjectTodoChecklistSrv', projectTodoChecklistSrv);

@@ -1,9 +1,9 @@
-var questionnaireTodoManager = function ($http, $q) {
+var questionnaireTodoSrv = function ($http, $q) {
 
- var QuestionnaireTodoManager = function () {
+ var QuestionnaireTodoSrv = function () {
   this.questionnaireTodos = [];
  };
- QuestionnaireTodoManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var questionnaireTodoManager = function ($http, $q) {
  };
 
 
- QuestionnaireTodoManager.prototype.getQuestionnaireTodo = function (questionnaireId, todoId) {
+ QuestionnaireTodoSrv.prototype.getQuestionnaireTodo = function (questionnaireId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var questionnaireTodoManager = function ($http, $q) {
  };
 
 
- QuestionnaireTodoManager.prototype.editQuestionnaireTodo = function (questionnaireTodoData) {
+ QuestionnaireTodoSrv.prototype.editQuestionnaireTodo = function (questionnaireTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var questionnaireTodoManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireTodoManager;
+ return QuestionnaireTodoSrv;
 };
-questionnaireTodoManager.$inject = ['$http', '$q'];
+questionnaireTodoSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireTodoManager', questionnaireTodoManager);
+angular.module('app.questionnaire').service('QuestionnaireTodoSrv', questionnaireTodoSrv);

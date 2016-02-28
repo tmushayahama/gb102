@@ -1,9 +1,9 @@
-var skillWeblinksManager = function ($http, $q) {
+var skillWeblinksSrv = function ($http, $q) {
 
- var SkillWeblinksManager = function () {
+ var SkillWeblinksSrv = function () {
   this.skillWeblinks = [];
  };
- SkillWeblinksManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillWeblinksSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillWeblinksManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillWeblinksManager.prototype.getSkillWeblinks = function (skillId) {
+ SkillWeblinksSrv.prototype.getSkillWeblinks = function (skillId) {
   var self = this;
   var deferred = $q.defer();
   self.skillWeblinks = [];
@@ -35,7 +35,7 @@ var skillWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillWeblinksManager.prototype.getSkillWeblink = function (skillId, weblinkId) {
+ SkillWeblinksSrv.prototype.getSkillWeblink = function (skillId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   self.skillWeblinks = [];
@@ -48,7 +48,7 @@ var skillWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillWeblinksManager.prototype.createSkillWeblink = function (skillWeblinkData) {
+ SkillWeblinksSrv.prototype.createSkillWeblink = function (skillWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var skillWeblinksManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillWeblinksManager.prototype.editSkillWeblink = function (skillWeblinkData) {
+ SkillWeblinksSrv.prototype.editSkillWeblink = function (skillWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,10 +80,10 @@ var skillWeblinksManager = function ($http, $q) {
  };
 
 
- return SkillWeblinksManager;
+ return SkillWeblinksSrv;
 };
 
 
-skillWeblinksManager.$inject = ['$http', '$q'];
+skillWeblinksSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillWeblinksManager', skillWeblinksManager);
+angular.module('app.skills').service('SkillWeblinksSrv', skillWeblinksSrv);

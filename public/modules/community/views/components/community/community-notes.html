@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-note-body row" ng-show="communityNotesCtrl.communityNotesManager.communityNotes.length" ng-cloak>
+  <div class="gb-note-body row" ng-show="communityNotesCtrl.communityNotesSrv.communityNotes.length" ng-cloak>
    <ul id="note-list">
-    <li ng-repeat="communityNote in communityNotesCtrl.communityNotesManager.communityNotes| filter:statusFilter track by $index" ng-class="{completed: communityNote.completed, editing: communityNote == communityNotesCtrl.editedNote}">
+    <li ng-repeat="communityNote in communityNotesCtrl.communityNotesSrv.communityNotes| filter:statusFilter track by $index" ng-class="{completed: communityNote.completed, editing: communityNote == communityNotesCtrl.editedNote}">
      <div class="gb-note-row row" ng-init="communityNoteCopy = angular.copy(communityNote)">
       <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
        <div class="gb-content-text">

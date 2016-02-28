@@ -1,5 +1,5 @@
 var skillNotesCtrl = function (
-        SkillNotesManager,
+        SkillNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var skillNotesCtrl = function (
  var vm = this;
  vm.skillId = $stateParams.skillId;
  vm.skillNotesCopy;
- vm.skillNotesManager = new SkillNotesManager();
+ vm.skillNotesSrv = new SkillNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultSkillNoteData = {
@@ -27,20 +27,20 @@ var skillNotesCtrl = function (
  };
 
  vm.createSkillNote = function (data) {
-  vm.skillNotesManager.createSkillNote(data).then(function (response) {
+  vm.skillNotesSrv.createSkillNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData);
-   vm.skillNotesCopy = angular.copy(vm.skillNotesManager.skillNotes);
+   vm.skillNotesCopy = angular.copy(vm.skillNotesSrv.skillNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editSkillNote = function (data) {
-  vm.skillNotesManager.editSkillNote(data).then(function (response) {
+  vm.skillNotesSrv.editSkillNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newSkillNoteData = angular.copy(vm.defaultSkillNoteData);
-   vm.skillNotesCopy = angular.copy(vm.skillNotesManager.skillNotes);
+   vm.skillNotesCopy = angular.copy(vm.skillNotesSrv.skillNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var skillNotesCtrl = function (
   skillNote = skillNoteCopy;
   /*
    $filter('filter')
-   (vm.skillNotesManager.skillNotes, {id: skillNoteId}, true)[0]
+   (vm.skillNotesSrv.skillNotes, {id: skillNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.skillNotesCopy, {id: skillNoteId}, true)[0]);
    if (skillNote.length && skillNoteCopy.length) {
-   // vm.skillNotesManager.skillNotes angular.copy(vm.skillNotesCopy);
+   // vm.skillNotesSrv.skillNotes angular.copy(vm.skillNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var skillNotesCtrl = function (
   return vm.skillNotes;
  }), function () {
   //vm.remainingCount = filterFilter(skillNotes, {completed: false}).length;
-  vm.doneCount = vm.skillNotesManager.skillNotes.length - vm.remainingCount;
+  vm.doneCount = vm.skillNotesSrv.skillNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillNoteService.put(vm.skillNotes);
  }, true);
@@ -147,12 +147,12 @@ var skillNotesCtrl = function (
 
 
  //--------init------
- vm.skillNotesManager.getSkillNotes(vm.skillId);
+ vm.skillNotesSrv.getSkillNotes(vm.skillId);
 };
 
 
 skillNotesCtrl.$inject = [
- 'SkillNotesManager',
+ 'SkillNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

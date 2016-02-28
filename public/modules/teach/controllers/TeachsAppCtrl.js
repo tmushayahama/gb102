@@ -1,7 +1,7 @@
 var teachsAppCtrl = function (
-        ConstantsManager,
-        TeachsManager,
-        SearchManager,
+        ConstantsSrv,
+        TeachsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -17,27 +17,27 @@ var teachsAppCtrl = function (
 
  vm.appName = $stateParams.app_name;
 
- vm.teachsManager = new TeachsManager();
+ vm.teachsSrv = new TeachsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.teachs = data;
   });
  } else {
-  vm.teachsManager.getAppTeachs(vm.appName).then(function (data) {
+  vm.teachsSrv.getAppTeachs(vm.appName).then(function (data) {
    vm.teachs = data;
   });
  }
 };
 
 teachsAppCtrl.$inject = [
- 'ConstantsManager',
- 'TeachsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'TeachsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

@@ -1,9 +1,9 @@
-var skillsManager = function ($http, $q) {
+var skillsSrv = function ($http, $q) {
 
- var SkillsManager = function () {
+ var SkillsSrv = function () {
   this.skills = [];
  };
- SkillsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillsManager.prototype.getAllSkills = function () {
+ SkillsSrv.prototype.getAllSkills = function () {
   var self = this;
   var deferred = $q.defer();
   self.skills = [];
@@ -35,7 +35,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.getMySkills = function () {
+ SkillsSrv.prototype.getMySkills = function () {
   var self = this;
   var deferred = $q.defer();
   self.skills = [];
@@ -48,7 +48,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.getSkill = function (skillId, Id) {
+ SkillsSrv.prototype.getSkill = function (skillId, Id) {
   var self = this;
   var deferred = $q.defer();
   self.skill = [];
@@ -61,7 +61,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.createSkill = function (skillData) {
+ SkillsSrv.prototype.createSkill = function (skillData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -77,7 +77,7 @@ var skillsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillsManager.prototype.editSkill = function (skillData) {
+ SkillsSrv.prototype.editSkill = function (skillData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -91,10 +91,10 @@ var skillsManager = function ($http, $q) {
   });
   return deferred.promise;
  };
- return SkillsManager;
+ return SkillsSrv;
 };
 
-skillsManager.$inject = ['$http', '$q'];
+skillsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillsManager', skillsManager);
+angular.module('app.skills').service('SkillsSrv', skillsSrv);
 

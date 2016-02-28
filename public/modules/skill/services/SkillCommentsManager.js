@@ -1,9 +1,9 @@
-var skillCommentsManager = function ($http, $q) {
+var skillCommentsSrv = function ($http, $q) {
 
- var SkillCommentsManager = function () {
+ var SkillCommentsSrv = function () {
   this.skillComments = [];
  };
- SkillCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var skillCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- SkillCommentsManager.prototype.getSkillComments = function (skillId) {
+ SkillCommentsSrv.prototype.getSkillComments = function (skillId) {
   var self = this;
   var deferred = $q.defer();
   self.skillComments = [];
@@ -35,7 +35,7 @@ var skillCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillCommentsManager.prototype.getSkillComment = function (skillId, commentId) {
+ SkillCommentsSrv.prototype.getSkillComment = function (skillId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.skillComments = [];
@@ -48,7 +48,7 @@ var skillCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillCommentsManager.prototype.createSkillComment = function (skillCommentData) {
+ SkillCommentsSrv.prototype.createSkillComment = function (skillCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var skillCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- SkillCommentsManager.prototype.editSkillComment = function (skillCommentData) {
+ SkillCommentsSrv.prototype.editSkillComment = function (skillCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var skillCommentsManager = function ($http, $q) {
  };
 
 
- return SkillCommentsManager;
+ return SkillCommentsSrv;
 };
 
-skillCommentsManager.$inject = ['$http', '$q'];
+skillCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillCommentsManager', skillCommentsManager);
+angular.module('app.skills').service('SkillCommentsSrv', skillCommentsSrv);

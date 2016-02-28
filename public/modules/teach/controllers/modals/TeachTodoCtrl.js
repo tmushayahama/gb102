@@ -1,6 +1,6 @@
 var teachTodoCtrl = function (
-        TeachTodoManager,
-        TeachTodoChecklistManager,
+        TeachTodoSrv,
+        TeachTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var teachTodoCtrl = function (
  var vm = this;
  vm.teachId = teachTodoData.teach_id;
  vm.teachTodoId = teachTodoData.id;
- vm.teachTodoManager = new TeachTodoManager();
- vm.teachTodoChecklistManager = new TeachTodoChecklistManager();
+ vm.teachTodoSrv = new TeachTodoSrv();
+ vm.teachTodoChecklistSrv = new TeachTodoChecklistSrv();
 
 
  vm.todoId = teachTodoData.todo_id;
@@ -41,14 +41,14 @@ var teachTodoCtrl = function (
  // vm.newTeachTodoData = vm.defaultTeachTodoData;
 
  vm.getTeachTodo = function (teachId, todoId) {
-  vm.teachTodoManager.getTeachTodo(teachId, todoId).then(function (response) {
+  vm.teachTodoSrv.getTeachTodo(teachId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachTodo = function (data) {
-  vm.teachTodoManager.editTeachTodo(data).then(function (response) {
+  vm.teachTodoSrv.editTeachTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var teachTodoCtrl = function (
  }
 
  vm.getTeachTodoChecklist = function (todoId) {
-  vm.teachTodoChecklistManager.getTeachTodoChecklist(todoId).then(function (response) {
+  vm.teachTodoChecklistSrv.getTeachTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var teachTodoCtrl = function (
  };
 
  vm.createTeachTodoChecklistItem = function (data) {
-  vm.teachTodoChecklistManager.createTeachTodoChecklistItem(data).then(function (response) {
+  vm.teachTodoChecklistSrv.createTeachTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newTeachTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var teachTodoCtrl = function (
  };
 
  vm.editTeachTodoChecklistItem = function (data) {
-  vm.teachTodoChecklistManager.editTeachTodoChecklistItem(data).then(function (response) {
+  vm.teachTodoChecklistSrv.editTeachTodoChecklistItem(data).then(function (response) {
    vm.newTeachTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var teachTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.teachTodoChecklistManager.teachTodoChecklist;
+  return vm.teachTodoChecklistSrv.teachTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.teachTodoChecklistManager.teachTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.teachTodoChecklistSrv.teachTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var teachTodoCtrl = function (
 };
 
 teachTodoCtrl.$inject = [
- 'TeachTodoManager',
- 'TeachTodoChecklistManager',
+ 'TeachTodoSrv',
+ 'TeachTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

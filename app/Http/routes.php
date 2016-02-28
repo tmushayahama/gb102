@@ -58,39 +58,39 @@ Route::group(['prefix' => 'api'], function() {
 
 
 
- //Explore
- Route::get('explores/all', 'Explore\ExploreController@getExploresAll');
- Route::get('explores/all/{appName}', 'Explore\ExploreController@getExplores');
+ //Explorer
+ Route::get('explorers/all', 'Explorer\ExplorerController@getExplorersAll');
+ Route::get('explorers/all/{appName}', 'Explorer\ExplorerController@getExplorers');
 
 
- Route::get('explores/swipe', 'Explore\ExploreController@getExploreSwipe');
- Route::get('explores/swipes', 'Explore\ExploreController@getExploreSwipes');
- Route::post('explores/swipe/create', 'Explore\ExploreController@createExploreSwipe');
- Route::get('explore/{exploreId}/comments', 'Explore\ExploreController@getExploreComments');
- Route::get('explore/{exploreId}/comment/{commentId}', 'Explore\ExploreController@getExploreComment');
- Route::get('explore/{exploreId}/contributions', 'Explore\ExploreController@getExploreContributions');
- Route::get('explore/{exploreId}/contribution/{contributionId}', 'Explore\ExploreController@getExploreContribution');
- Route::get('explore/{exploreId}/contribution/{contributionId}/level', 'Explore\ExploreController@getExploreContributionLevel');
- Route::get('explore/{exploreId}/todos/{levelId}', 'Explore\ExploreController@getExploreTodos');
- Route::get('explore/{exploreId}/todo/{todoId}', 'Explore\ExploreController@getExploreTodo');
- Route::get('explore/{exploreId}/notes', 'Explore\ExploreController@getExploreNotes');
- Route::get('explore/{exploreId}/note/{noteId}', 'Explore\ExploreController@getExploreNote');
- Route::get('explore/{exploreId}/requestoptions', 'Explore\ExploreController@getExploreRequestOptions');
- Route::get('explore/{exploreId}/weblinks', 'Explore\ExploreController@getExploreWeblinks');
- Route::get('explore/{exploreId}/weblink/{weblinkId}', 'Explore\ExploreController@getExploreWeblink');
- Route::get('explore/{id}', 'Explore\ExploreController@getExplore');
- Route::post('explore/edit', 'Explore\ExploreController@editExplore');
- Route::post('explore/create', 'Explore\ExploreController@createExplore');
- Route::post('explore/comment/create', 'Explore\ExploreController@createExploreComment');
- Route::post('explore/comment/edit', 'Explore\ExploreController@editExploreComment');
- Route::post('explore/contribution/create', 'Explore\ExploreController@createExploreContribution');
- Route::post('explore/contribution/edit', 'Explore\ExploreController@editExploreContribution');
- Route::post('explore/todo/create', 'Explore\ExploreController@createExploreTodo');
- Route::post('explore/todo/edit', 'Explore\ExploreController@editExploreTodo');
- Route::post('explore/note/create', 'Explore\ExploreController@createExploreNote');
- Route::post('explore/note/edit', 'Explore\ExploreController@editExploreNote');
- Route::post('explore/weblink/create', 'Explore\ExploreController@createExploreWeblink');
- Route::post('explore/weblink/edit', 'Explore\ExploreController@editExploreWeblink');
+ Route::get('explorers/swipe', 'Explorer\ExplorerController@getExplorerSwipe');
+ Route::get('explorers/swipes', 'Explorer\ExplorerController@getExplorerSwipes');
+ Route::post('explorers/swipe/create', 'Explorer\ExplorerController@createExplorerSwipe');
+ Route::get('explorer/{explorerId}/comments', 'Explorer\ExplorerController@getExplorerComments');
+ Route::get('explorer/{explorerId}/comment/{commentId}', 'Explorer\ExplorerController@getExplorerComment');
+ Route::get('explorer/{explorerId}/contributions', 'Explorer\ExplorerController@getExplorerContributions');
+ Route::get('explorer/{explorerId}/contribution/{contributionId}', 'Explorer\ExplorerController@getExplorerContribution');
+ Route::get('explorer/{explorerId}/contribution/{contributionId}/level', 'Explorer\ExplorerController@getExplorerContributionLevel');
+ Route::get('explorer/{explorerId}/todos/{levelId}', 'Explorer\ExplorerController@getExplorerTodos');
+ Route::get('explorer/{explorerId}/todo/{todoId}', 'Explorer\ExplorerController@getExplorerTodo');
+ Route::get('explorer/{explorerId}/notes', 'Explorer\ExplorerController@getExplorerNotes');
+ Route::get('explorer/{explorerId}/note/{noteId}', 'Explorer\ExplorerController@getExplorerNote');
+ Route::get('explorer/{explorerId}/requestoptions', 'Explorer\ExplorerController@getExplorerRequestOptions');
+ Route::get('explorer/{explorerId}/weblinks', 'Explorer\ExplorerController@getExplorerWeblinks');
+ Route::get('explorer/{explorerId}/weblink/{weblinkId}', 'Explorer\ExplorerController@getExplorerWeblink');
+ Route::get('explorer/{id}', 'Explorer\ExplorerController@getExplorer');
+ Route::post('explorer/edit', 'Explorer\ExplorerController@editExplorer');
+ Route::post('explorer/create', 'Explorer\ExplorerController@createExplorer');
+ Route::post('explorer/comment/create', 'Explorer\ExplorerController@createExplorerComment');
+ Route::post('explorer/comment/edit', 'Explorer\ExplorerController@editExplorerComment');
+ Route::post('explorer/contribution/create', 'Explorer\ExplorerController@createExplorerContribution');
+ Route::post('explorer/contribution/edit', 'Explorer\ExplorerController@editExplorerContribution');
+ Route::post('explorer/todo/create', 'Explorer\ExplorerController@createExplorerTodo');
+ Route::post('explorer/todo/edit', 'Explorer\ExplorerController@editExplorerTodo');
+ Route::post('explorer/note/create', 'Explorer\ExplorerController@createExplorerNote');
+ Route::post('explorer/note/edit', 'Explorer\ExplorerController@editExplorerNote');
+ Route::post('explorer/weblink/create', 'Explorer\ExplorerController@createExplorerWeblink');
+ Route::post('explorer/weblink/edit', 'Explorer\ExplorerController@editExplorerWeblink');
 
  //Swipe
  Route::get('swipe/answers', 'Swipe\SwipeController@getAllSwipeAnswers');

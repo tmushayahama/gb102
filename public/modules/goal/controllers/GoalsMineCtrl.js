@@ -1,6 +1,6 @@
 var goalsMineCtrl = function (
-        ConstantsManager,
-        GoalsManager,
+        ConstantsSrv,
+        GoalsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var goalsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.goalsManager = new GoalsManager();
- vm.goalsManager.getMyGoals();
+ vm.goalsSrv = new GoalsSrv();
+ vm.goalsSrv.getMyGoals();
 };
 
 
 goalsMineCtrl.$inject = [
- 'ConstantsManager',
- 'GoalsManager',
+ 'ConstantsSrv',
+ 'GoalsSrv',
  '$scope',
  '$state',
  '$stateParams',

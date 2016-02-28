@@ -1,5 +1,5 @@
 var questionnaireTodosCtrl = function (
-        QuestionnaireTodosManager,
+        QuestionnaireTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var questionnaireTodosCtrl = function (
 
  var vm = this;
  vm.questionnaireId = $stateParams.questionnaireId;
- vm.questionnaireTodosManager = new QuestionnaireTodosManager();
+ vm.questionnaireTodosSrv = new QuestionnaireTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultQuestionnaireTodoData = {
@@ -25,7 +25,7 @@ var questionnaireTodosCtrl = function (
  };
 
  vm.createQuestionnaireTodo = function (data) {
-  vm.questionnaireTodosManager.createQuestionnaireTodo(data).then(function (response) {
+  vm.questionnaireTodosSrv.createQuestionnaireTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var questionnaireTodosCtrl = function (
  };
 
  vm.editQuestionnaireTodo = function (data) {
-  vm.questionnaireTodosManager.editQuestionnaireTodo(data).then(function (response) {
+  vm.questionnaireTodosSrv.editQuestionnaireTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newQuestionnaireTodoData = angular.copy(vm.defaultQuestionnaireTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var questionnaireTodosCtrl = function (
   return vm.questionnaireTodos;
  }), function () {
   //vm.remainingCount = filterFilter(questionnaireTodos, {completed: false}).length;
-  vm.doneCount = vm.questionnaireTodosManager.questionnaireTodos.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireTodosSrv.questionnaireTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionnaireTodoService.put(vm.questionnaireTodos);
  }, true);
@@ -129,11 +129,11 @@ var questionnaireTodosCtrl = function (
 
 
  //--------init------
- vm.questionnaireTodosManager.getQuestionnaireTodos(vm.questionnaireId);
+ vm.questionnaireTodosSrv.getQuestionnaireTodos(vm.questionnaireId);
 };
 
 questionnaireTodosCtrl.$inject = [
- 'QuestionnaireTodosManager',
+ 'QuestionnaireTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,4 +1,4 @@
-<section class="gb-section-row-2 gb-todos row" ng-controller='ExploreTodosCtrl as exploreTodosCtrl'>
+<section class="gb-section-row-2 gb-todos row" ng-controller='ExplorerTodosCtrl as explorerTodosCtrl'>
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
@@ -13,16 +13,16 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
-   <div ng-show="!exploreTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
+   <div ng-show="!explorerTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
     <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-img" alt="">
-    <input class="" ng-click="exploreTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
+    <input class="" ng-click="explorerTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
-   <form class="gb-form-1" ng-show="exploreTodosCtrl.todoFormDisplay" name="form" novalidate>
+   <form class="gb-form-1" ng-show="explorerTodosCtrl.todoFormDisplay" name="form" novalidate>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explore Todo Description" ng-model="exploreTodosCtrl.newExploreTodoData.title"
+                placeholder="Explorer Todo Description" ng-model="explorerTodosCtrl.newExplorerTodoData.title"
                 name="title" required="" rows="2">
       </textarea>
       <div ng-show="form.$submitted || form.title.$touched">
@@ -34,7 +34,7 @@
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explore Todo Description (optional)" ng-model="exploreTodosCtrl.newExploreTodoData.description"
+                placeholder="Explorer Todo Description (optional)" ng-model="explorerTodosCtrl.newExplorerTodoData.description"
                 name="description" required="" rows="4">
       </textarea>
      </div>
@@ -44,25 +44,25 @@
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <div class="radio gb-radio-row">
        <label class="">
-        <input type="radio" ng-model="exploreTodosCtrl.newExploreTodoData.privacy" value="0" />
+        <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="0" />
         <strong>public</strong> All people can see this todo
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="exploreTodosCtrl.newExploreTodoData.privacy" value="1" />
+        <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="1" />
         <strong>private</strong> only you can see this todo
        </label>
       </div>
       <div class="radio gb-radio-row">
        <label>
-        <input type="radio" ng-model="exploreTodosCtrl.newExploreTodoData.privacy" value="2" />
+        <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="2" />
         <strong>custom</strong> choose who to see this todo
        </label>
       </div>
      </div>
     </div>
-    <div class="form-group row" ng-class="{'gb-disabled-2': exploreTodosCtrl.newExploreTodoData.privacy != 2}">
+    <div class="form-group row" ng-class="{'gb-disabled-2': explorerTodosCtrl.newExplorerTodoData.privacy != 2}">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
       <input type="text" class="form-control" placeholder="Select members"/>
@@ -70,24 +70,24 @@
     </div>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-      <a class="btn btn-link" ng-click="exploreTodosCtrl.showAdvanced()">
+      <a class="btn btn-link" ng-click="explorerTodosCtrl.showAdvanced()">
        Show Advanced
       </a>
      </label>
     </div>
     <div class="gb-form-footer row">
      <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="exploreTodosCtrl.cancelExploreTodo(form)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerTodosCtrl.cancelExplorerTodo(form)">
        Cancel
       </a>
-      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="exploreTodosCtrl.createExploreTodo(exploreTodosCtrl.newExploreTodoData)">
+      <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerTodosCtrl.createExplorerTodo(explorerTodosCtrl.newExplorerTodoData)">
        Add Todo
       </a>
      </div>
     </div>
    </form>
   </div>
-  <div ng-repeat="exploreTodo in exploreTodosCtrl.exploreTodos| filter:statusFilter track by $index" ng-class="{completed: exploreTodo.completed, editing: exploreTodo == exploreTodosCtrl.editedTodo}">
+  <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos| filter:statusFilter track by $index" ng-class="{completed: explorerTodo.completed, editing: explorerTodo == explorerTodosCtrl.editedTodo}">
    <div class="gb-box-1 row">
     <div class="gb-todo-progress col-lg-2 col-md-2 col-sm-2 col-xs-2">
      <div
@@ -106,26 +106,26 @@
       animation="easeInOutQuart"
       animation-delay="2"></div>
      <div class="gb-title">
-      {{exploreTodosCtrl.getExploreTodoPercentage(exploreTodo.id) + '%'}}
+      {{explorerTodosCtrl.getExplorerTodoPercentage(explorerTodo.id) + '%'}}
      </div>
     </div>
     <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
      <div class="gb-heading row">
       <p class="gb-title">
-       {{exploreTodo.todo.status.name}}
+       {{explorerTodo.todo.status.name}}
       </p>
      </div>
      <div class="gb-description row">
-      <a ng-click="exploreTodosCtrl.openExploreTodo(exploreTodo)">
-       {{exploreTodo.todo.title}}
+      <a ng-click="explorerTodosCtrl.openExplorerTodo(explorerTodo)">
+       {{explorerTodo.todo.title}}
       </a>
-      {{exploreTodo.todo.description}}
+      {{explorerTodo.todo.description}}
      </div>
      <div class="gb-footer gb-padding-none row">
       <div class="gb-footer row gb-padding-none">
        <div class="gb-summary-bar btn-group">
         <a class="btn btn-xs btn-link">
-         <i class="fa fa-clock-o"></i> {{exploreTodo.todo.due_date}}
+         <i class="fa fa-clock-o"></i> {{explorerTodo.todo.due_date}}
         </a>
         <a class="btn btn-xs btn-link">
          <i class="gb-icon fa icon-chat2"></i> 0
@@ -139,8 +139,8 @@
     </div>
    </div>
   </div>
-  <script type="text/ng-template" id="explore-todo-modal.html">
-   <div class="" ng-include="'public/build/scripts/modules/explore/views/modals/explore-todo.html'"></div>
+  <script type="text/ng-template" id="explorer-todo-modal.html">
+   <div class="" ng-include="'public/build/scripts/modules/explorer/views/modals/explorer-todo.html'"></div>
   </script>
  </div>
 </section>

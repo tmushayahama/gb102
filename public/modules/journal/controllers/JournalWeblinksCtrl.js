@@ -1,5 +1,5 @@
 var journalWeblinksCtrl = function (
-        JournalWeblinksManager,
+        JournalWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var journalWeblinksCtrl = function (
  var vm = this;
  vm.journalId = $stateParams.journalId;
  vm.journalWeblinksCopy;
- vm.journalWeblinksManager = new JournalWeblinksManager();
+ vm.journalWeblinksSrv = new JournalWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultJournalWeblinkData = {
@@ -27,20 +27,20 @@ var journalWeblinksCtrl = function (
  };
 
  vm.createJournalWeblink = function (data) {
-  vm.journalWeblinksManager.createJournalWeblink(data).then(function (response) {
+  vm.journalWeblinksSrv.createJournalWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newJournalWeblinkData = angular.copy(vm.defaultJournalWeblinkData);
-   vm.journalWeblinksCopy = angular.copy(vm.journalWeblinksManager.journalWeblinks);
+   vm.journalWeblinksCopy = angular.copy(vm.journalWeblinksSrv.journalWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editJournalWeblink = function (data) {
-  vm.journalWeblinksManager.editJournalWeblink(data).then(function (response) {
+  vm.journalWeblinksSrv.editJournalWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newJournalWeblinkData = angular.copy(vm.defaultJournalWeblinkData);
-   vm.journalWeblinksCopy = angular.copy(vm.journalWeblinksManager.journalWeblinks);
+   vm.journalWeblinksCopy = angular.copy(vm.journalWeblinksSrv.journalWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var journalWeblinksCtrl = function (
   journalWeblink = journalWeblinkCopy;
   /*
    $filter('filter')
-   (vm.journalWeblinksManager.journalWeblinks, {id: journalWeblinkId}, true)[0]
+   (vm.journalWeblinksSrv.journalWeblinks, {id: journalWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.journalWeblinksCopy, {id: journalWeblinkId}, true)[0]);
    if (journalWeblink.length && journalWeblinkCopy.length) {
-   // vm.journalWeblinksManager.journalWeblinks angular.copy(vm.journalWeblinksCopy);
+   // vm.journalWeblinksSrv.journalWeblinks angular.copy(vm.journalWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var journalWeblinksCtrl = function (
   return vm.journalWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(journalWeblinks, {completed: false}).length;
-  vm.doneCount = vm.journalWeblinksManager.journalWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.journalWeblinksSrv.journalWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalWeblinkService.put(vm.journalWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var journalWeblinksCtrl = function (
 
 
  //--------init------
- vm.journalWeblinksManager.getJournalWeblinks(vm.journalId);
+ vm.journalWeblinksSrv.getJournalWeblinks(vm.journalId);
 };
 
 journalWeblinksCtrl.$inject = [
- 'JournalWeblinksManager',
+ 'JournalWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

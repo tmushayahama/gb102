@@ -1,5 +1,5 @@
 var goalWeblinksCtrl = function (
-        GoalWeblinksManager,
+        GoalWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var goalWeblinksCtrl = function (
  var vm = this;
  vm.goalId = $stateParams.goalId;
  vm.goalWeblinksCopy;
- vm.goalWeblinksManager = new GoalWeblinksManager();
+ vm.goalWeblinksSrv = new GoalWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultGoalWeblinkData = {
@@ -27,20 +27,20 @@ var goalWeblinksCtrl = function (
  };
 
  vm.createGoalWeblink = function (data) {
-  vm.goalWeblinksManager.createGoalWeblink(data).then(function (response) {
+  vm.goalWeblinksSrv.createGoalWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newGoalWeblinkData = angular.copy(vm.defaultGoalWeblinkData);
-   vm.goalWeblinksCopy = angular.copy(vm.goalWeblinksManager.goalWeblinks);
+   vm.goalWeblinksCopy = angular.copy(vm.goalWeblinksSrv.goalWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editGoalWeblink = function (data) {
-  vm.goalWeblinksManager.editGoalWeblink(data).then(function (response) {
+  vm.goalWeblinksSrv.editGoalWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newGoalWeblinkData = angular.copy(vm.defaultGoalWeblinkData);
-   vm.goalWeblinksCopy = angular.copy(vm.goalWeblinksManager.goalWeblinks);
+   vm.goalWeblinksCopy = angular.copy(vm.goalWeblinksSrv.goalWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var goalWeblinksCtrl = function (
   goalWeblink = goalWeblinkCopy;
   /*
    $filter('filter')
-   (vm.goalWeblinksManager.goalWeblinks, {id: goalWeblinkId}, true)[0]
+   (vm.goalWeblinksSrv.goalWeblinks, {id: goalWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.goalWeblinksCopy, {id: goalWeblinkId}, true)[0]);
    if (goalWeblink.length && goalWeblinkCopy.length) {
-   // vm.goalWeblinksManager.goalWeblinks angular.copy(vm.goalWeblinksCopy);
+   // vm.goalWeblinksSrv.goalWeblinks angular.copy(vm.goalWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var goalWeblinksCtrl = function (
   return vm.goalWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(goalWeblinks, {completed: false}).length;
-  vm.doneCount = vm.goalWeblinksManager.goalWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.goalWeblinksSrv.goalWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //GoalWeblinkService.put(vm.goalWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var goalWeblinksCtrl = function (
 
 
  //--------init------
- vm.goalWeblinksManager.getGoalWeblinks(vm.goalId);
+ vm.goalWeblinksSrv.getGoalWeblinks(vm.goalId);
 };
 
 goalWeblinksCtrl.$inject = [
- 'GoalWeblinksManager',
+ 'GoalWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

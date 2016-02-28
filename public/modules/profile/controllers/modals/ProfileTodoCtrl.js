@@ -1,6 +1,6 @@
 var profileTodoCtrl = function (
-        ProfileTodoManager,
-        ProfileTodoChecklistManager,
+        ProfileTodoSrv,
+        ProfileTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var profileTodoCtrl = function (
  var vm = this;
  vm.profileId = profileTodoData.profile_id;
  vm.profileTodoId = profileTodoData.id;
- vm.profileTodoManager = new ProfileTodoManager();
- vm.profileTodoChecklistManager = new ProfileTodoChecklistManager();
+ vm.profileTodoSrv = new ProfileTodoSrv();
+ vm.profileTodoChecklistSrv = new ProfileTodoChecklistSrv();
 
 
  vm.todoId = profileTodoData.todo_id;
@@ -41,14 +41,14 @@ var profileTodoCtrl = function (
  // vm.newProfileTodoData = vm.defaultProfileTodoData;
 
  vm.getProfileTodo = function (profileId, todoId) {
-  vm.profileTodoManager.getProfileTodo(profileId, todoId).then(function (response) {
+  vm.profileTodoSrv.getProfileTodo(profileId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProfileTodo = function (data) {
-  vm.profileTodoManager.editProfileTodo(data).then(function (response) {
+  vm.profileTodoSrv.editProfileTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var profileTodoCtrl = function (
  }
 
  vm.getProfileTodoChecklist = function (todoId) {
-  vm.profileTodoChecklistManager.getProfileTodoChecklist(todoId).then(function (response) {
+  vm.profileTodoChecklistSrv.getProfileTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var profileTodoCtrl = function (
  };
 
  vm.createProfileTodoChecklistItem = function (data) {
-  vm.profileTodoChecklistManager.createProfileTodoChecklistItem(data).then(function (response) {
+  vm.profileTodoChecklistSrv.createProfileTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newProfileTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var profileTodoCtrl = function (
  };
 
  vm.editProfileTodoChecklistItem = function (data) {
-  vm.profileTodoChecklistManager.editProfileTodoChecklistItem(data).then(function (response) {
+  vm.profileTodoChecklistSrv.editProfileTodoChecklistItem(data).then(function (response) {
    vm.newProfileTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var profileTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.profileTodoChecklistManager.profileTodoChecklist;
+  return vm.profileTodoChecklistSrv.profileTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.profileTodoChecklistManager.profileTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.profileTodoChecklistSrv.profileTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var profileTodoCtrl = function (
 };
 
 profileTodoCtrl.$inject = [
- 'ProfileTodoManager',
- 'ProfileTodoChecklistManager',
+ 'ProfileTodoSrv',
+ 'ProfileTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

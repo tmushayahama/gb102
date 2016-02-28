@@ -1,7 +1,7 @@
 var questionAnswersCtrl = function (
         level_categories,
-        ConstantsManager,
-        QuestionnaireManager,
+        ConstantsSrv,
+        QuestionnaireSrv,
         $scope,
         $state,
         $stateParams,
@@ -14,28 +14,28 @@ var questionAnswersCtrl = function (
 
  var vm = this;
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
  vm.questionnaireLevels;
 
- vm.createQuestionnaire = function (exploreId, levelId) {
+ vm.createQuestionnaire = function (explorerId, levelId) {
   var data = {
-   exploreId: exploreId,
+   explorerId: explorerId,
    levelId: levelId,
    description: ""
   };
-  vm.questionnaireManager.createQuestionnaire(data).then(function (response) {
-   //vm.currentExplore = response;
+  vm.questionnaireSrv.createQuestionnaire(data).then(function (response) {
+   //vm.currentExplorer = response;
   });
   vm.getQuestionnaire();
  };
 
  vm.getQuestionAnswers = function () {
-  vm.questionnaireManager.getAllQuestionAnswers();
+  vm.questionnaireSrv.getAllQuestionAnswers();
  };
 
- vm.questionnaireManager = new QuestionnaireManager();
+ vm.questionnaireSrv = new QuestionnaireSrv();
  vm.getQuestionAnswers();
- vm.constantsManager.getLevel(11).then(function (data) {
+ vm.constantsSrv.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
  });
 
@@ -44,8 +44,8 @@ var questionAnswersCtrl = function (
 
 questionAnswersCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'QuestionnaireManager',
+ 'ConstantsSrv',
+ 'QuestionnaireSrv',
  '$scope',
  '$state',
  '$stateParams',

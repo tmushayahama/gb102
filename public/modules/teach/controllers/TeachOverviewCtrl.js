@@ -1,5 +1,5 @@
 var teachOverviewCtrl = function (
-        TeachManager,
+        TeachSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var teachOverviewCtrl = function (
 };
 
 teachOverviewCtrl.$inject = [
- 'TeachManager',
+ 'TeachSrv',
  '$state',
  '$stateParams',
  '$http',

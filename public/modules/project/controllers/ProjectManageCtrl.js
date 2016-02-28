@@ -1,5 +1,5 @@
 var projectManageCtrl = function (
-        ProjectManager,
+        ProjectSrv,
         $state,
         $stateParams,
         $http,
@@ -8,17 +8,17 @@ var projectManageCtrl = function (
  var vm = this;
  vm.projectId = $stateParams.projectId;
  vm.projects;
- vm.projectManager = new ProjectManager();
+ vm.projectSrv = new ProjectSrv();
 
  vm.getProject = function (id) {
-  vm.projectManager.getProject(id).then(function (data) {
+  vm.projectSrv.getProject(id).then(function (data) {
    vm.project = data;
-   vm.getSubProjects(vm.project.explore_id);
+   vm.getSubProjects(vm.project.explorer_id);
   });
  };
 
- vm.getSubProjects = function (exploreId) {
-  vm.projectManager.getSubProjects(exploreId).then(function (data) {
+ vm.getSubProjects = function (explorerId) {
+  vm.projectSrv.getSubProjects(explorerId).then(function (data) {
    vm.projects = data;
   });
  }
@@ -28,7 +28,7 @@ var projectManageCtrl = function (
 };
 
 projectManageCtrl.$inject = [
- 'ProjectManager',
+ 'ProjectSrv',
  '$state',
  '$stateParams',
  '$http',

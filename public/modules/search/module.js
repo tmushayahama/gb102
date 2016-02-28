@@ -20,11 +20,11 @@ define(['angular'
                  name: 'app.search',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/explore/services/ExploresManager.js',
-                  'public/modules/explore/controllers/ExploresCtrl.js',
-                  'public/modules/search/services/SearchManager.js',
-                  'public/modules/search/controllers/SearchCtrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/explore/services/explores.srv.js',
+                  'public/modules/explore/controllers/explores.ctrl.js',
+                  'public/modules/search/services/search.srv.js',
+                  'public/modules/search/controllers/search.ctrl.js',
                  ]
                 });
                }]
@@ -37,7 +37,7 @@ define(['angular'
            views: {
             "app-tab": {
              controller: 'ExploresAllCtrl as exploresTabCtrl',
-             templateUrl: 'public/modules/explore/views/tabs/explores/explore-list.html',
+             templateUrl: 'public/modules/explore/views/tabs/explores/explorer-list.html',
              resolve: {
               isSearch: function () {
                return true;
@@ -47,7 +47,7 @@ define(['angular'
                  name: 'app.search',
                  serie: true,
                  files: [
-                  'public/modules/explore/controllers/ExploresAllCtrl.js',
+                  'public/modules/explore/controllers/explores-all.ctrl.js',
                  ]
                 });
                }]
@@ -59,7 +59,7 @@ define(['angular'
            views: {
             "app-tab": {
              controller: 'ExploresAppCtrl as exploresTabCtrl',
-             templateUrl: 'public/modules/explore/views/tabs/explores/explore-list.html',
+             templateUrl: 'public/modules/explore/views/tabs/explores/explorer-list.html',
              resolve: {
               isSearch: function () {
                return true;
@@ -69,7 +69,7 @@ define(['angular'
                  name: 'app.search',
                  serie: true,
                  files: [
-                  'public/modules/explore/controllers/ExploresAppCtrl.js',
+                  'public/modules/explore/controllers/explores-app.ctrl.js',
                  ]
                 });
                }]

@@ -1,9 +1,9 @@
-var journalTodoChecklistManager = function ($http, $q) {
+var journalTodoChecklistSrv = function ($http, $q) {
 
- var JournalTodoChecklistManager = function () {
+ var JournalTodoChecklistSrv = function () {
   this.journalTodoChecklist = [];
  };
- JournalTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var journalTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalTodoChecklistManager.prototype.getJournalTodoChecklist = function (todoId) {
+ JournalTodoChecklistSrv.prototype.getJournalTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.journalTodoChecklist = [];
@@ -35,7 +35,7 @@ var journalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodoChecklistManager.prototype.getJournalTodoChecklistItem = function (journalId, todoId) {
+ JournalTodoChecklistSrv.prototype.getJournalTodoChecklistItem = function (journalId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/journal/' + journalId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var journalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodoChecklistManager.prototype.createJournalTodoChecklistItem = function (journalTodoChecklistData) {
+ JournalTodoChecklistSrv.prototype.createJournalTodoChecklistItem = function (journalTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var journalTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodoChecklistManager.prototype.editJournalTodoChecklistItem = function (journalTodoData) {
+ JournalTodoChecklistSrv.prototype.editJournalTodoChecklistItem = function (journalTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var journalTodoChecklistManager = function ($http, $q) {
  };
 
 
- return JournalTodoChecklistManager;
+ return JournalTodoChecklistSrv;
 };
 
-journalTodoChecklistManager.$inject = ['$http', '$q'];
+journalTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalTodoChecklistManager', journalTodoChecklistManager);
+angular.module('app.journal').service('JournalTodoChecklistSrv', journalTodoChecklistSrv);

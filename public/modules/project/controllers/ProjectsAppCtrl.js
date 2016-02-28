@@ -1,7 +1,7 @@
 var projectsAppCtrl = function (
-        ConstantsManager,
-        ProjectsManager,
-        SearchManager,
+        ConstantsSrv,
+        ProjectsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -17,27 +17,27 @@ var projectsAppCtrl = function (
 
  vm.appName = $stateParams.app_name;
 
- vm.projectsManager = new ProjectsManager();
+ vm.projectsSrv = new ProjectsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.projects = data;
   });
  } else {
-  vm.projectsManager.getAppProjects(vm.appName).then(function (data) {
+  vm.projectsSrv.getAppProjects(vm.appName).then(function (data) {
    vm.projects = data;
   });
  }
 };
 
 projectsAppCtrl.$inject = [
- 'ConstantsManager',
- 'ProjectsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'ProjectsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

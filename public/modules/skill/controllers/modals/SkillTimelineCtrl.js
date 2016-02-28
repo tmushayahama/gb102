@@ -1,5 +1,5 @@
 var skillProgressCtrl = function (
-        SkillProgressManager,
+        SkillProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var skillProgressCtrl = function (
  var vm = this;
  vm.skillId = skillProgressData.skill_id;
  vm.skillProgressId = skillProgressData.id;
- vm.skillProgressManager = new SkillProgressManager();
+ vm.skillProgressSrv = new SkillProgressSrv();
 
 
  vm.progressId = skillProgressData.progress_id;
@@ -33,14 +33,14 @@ var skillProgressCtrl = function (
  // vm.newSkillProgressData = vm.defaultSkillProgressData;
 
  vm.getSkillProgress = function (skillId, progressId) {
-  vm.skillProgressManager.getSkillProgress(skillId, progressId).then(function (response) {
+  vm.skillProgressSrv.getSkillProgress(skillId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editSkillProgress = function (data) {
-  vm.skillProgressManager.editSkillProgress(data).then(function (response) {
+  vm.skillProgressSrv.editSkillProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var skillProgressCtrl = function (
 
 
 skillProgressCtrl.$inject = [
- 'SkillProgressManager',
+ 'SkillProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -5,7 +5,7 @@
       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
     <i class="fa fa-bars"></i>
    </a>
-   <a class="gb-logo" ui-sref="apps.explores.all">
+   <a class="gb-logo" ui-sref="apps.explorers.all">
     <i class="gb-logo-icon fa icon-gb-logo"></i>
     <div class="pull-left visible-lg visible-md hidden-sm hidden-xs">
      <strong>SKILL</strong>SECTION<br>
@@ -16,7 +16,7 @@
     <button type="button" class="dropdown-toggle btn btn-default" data-dropdown-toggle>
      {{$root.appName}} <span class="caret"></span>
     </button>
-    <button ng-click="$root.openAddExploreModal()" type="button" class="btn btn-default">
+    <button ng-click="$root.openAddExplorerModal()" type="button" class="btn btn-default">
      <i class="fa fa-plus"></i>
     </button>
     <ul class="dropdown-menu gb-full-width">
@@ -105,12 +105,12 @@
     </div>
    </h6>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a ui-sref="apps.explores.all" class="gb-link row"
+    <a ui-sref="apps.explorers.all" class="gb-link row"
        ng-class="{
-          active: ('apps.explores' | includedByState)
+          active: ('apps.explorers' | includedByState)
          }">
      <div class="gb-icon">
-      <i class="fa icon-gb-explore"></i>
+      <i class="fa icon-gb-explorer"></i>
      </div>
      <div class="gb-title gb-ellipsis">
       EXPLORE

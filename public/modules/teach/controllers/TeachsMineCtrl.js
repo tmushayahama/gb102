@@ -1,6 +1,6 @@
 var teachsMineCtrl = function (
-        ConstantsManager,
-        TeachsManager,
+        ConstantsSrv,
+        TeachsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var teachsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.teachsManager = new TeachsManager();
- vm.teachsManager.getMyTeachs();
+ vm.teachsSrv = new TeachsSrv();
+ vm.teachsSrv.getMyTeachs();
 };
 
 
 teachsMineCtrl.$inject = [
- 'ConstantsManager',
- 'TeachsManager',
+ 'ConstantsSrv',
+ 'TeachsSrv',
  '$scope',
  '$state',
  '$stateParams',

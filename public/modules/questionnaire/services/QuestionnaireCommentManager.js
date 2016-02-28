@@ -1,9 +1,9 @@
-var questionnaireCommentManager = function ($http, $q) {
+var questionnaireCommentSrv = function ($http, $q) {
 
- var QuestionnaireCommentManager = function () {
+ var QuestionnaireCommentSrv = function () {
   this.questionnaireComments = [];
  };
- QuestionnaireCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var questionnaireCommentManager = function ($http, $q) {
  };
 
 
- QuestionnaireCommentManager.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
+ QuestionnaireCommentSrv.prototype.getQuestionnaireComment = function (questionnaireId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var questionnaireCommentManager = function ($http, $q) {
  };
 
 
- QuestionnaireCommentManager.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
+ QuestionnaireCommentSrv.prototype.editQuestionnaireComment = function (questionnaireCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var questionnaireCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireCommentManager;
+ return QuestionnaireCommentSrv;
 };
 
-questionnaireCommentManager.$inject = ['$http', '$q'];
+questionnaireCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireCommentManager', questionnaireCommentManager);
+angular.module('app.questionnaire').service('QuestionnaireCommentSrv', questionnaireCommentSrv);

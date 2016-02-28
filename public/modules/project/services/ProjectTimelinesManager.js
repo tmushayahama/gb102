@@ -1,9 +1,9 @@
-var projectProgressManager = function ($http, $q) {
+var projectProgressSrv = function ($http, $q) {
 
- var ProjectProgressManager = function () {
+ var ProjectProgressSrv = function () {
   this.projectProgress = [];
  };
- ProjectProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectProgressManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectProgressManager.prototype.getProjectProgress = function (projectId) {
+ ProjectProgressSrv.prototype.getProjectProgress = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   self.projectProgress = [];
@@ -35,7 +35,7 @@ var projectProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectProgressManager.prototype.getProjectProgress = function (projectId, progressId) {
+ ProjectProgressSrv.prototype.getProjectProgress = function (projectId, progressId) {
   var self = this;
   var deferred = $q.defer();
   self.projectProgress = [];
@@ -48,7 +48,7 @@ var projectProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectProgressManager.prototype.createProjectProgress = function (projectProgressData) {
+ ProjectProgressSrv.prototype.createProjectProgress = function (projectProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var projectProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectProgressManager.prototype.editProjectProgress = function (projectProgressData) {
+ ProjectProgressSrv.prototype.editProjectProgress = function (projectProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var projectProgressManager = function ($http, $q) {
  };
 
 
- return ProjectProgressManager;
+ return ProjectProgressSrv;
 };
 
-projectProgressManager.$inject = ['$http', '$q'];
+projectProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectProgressManager', projectProgressManager);
+angular.module('app.project').service('ProjectProgressSrv', projectProgressSrv);

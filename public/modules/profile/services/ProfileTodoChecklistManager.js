@@ -1,9 +1,9 @@
-var profileTodoChecklistManager = function ($http, $q) {
+var profileTodoChecklistSrv = function ($http, $q) {
 
- var ProfileTodoChecklistManager = function () {
+ var ProfileTodoChecklistSrv = function () {
   this.profileTodoChecklist = [];
  };
- ProfileTodoChecklistManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileTodoChecklistSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var profileTodoChecklistManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProfileTodoChecklistManager.prototype.getProfileTodoChecklist = function (todoId) {
+ ProfileTodoChecklistSrv.prototype.getProfileTodoChecklist = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   self.profileTodoChecklist = [];
@@ -35,7 +35,7 @@ var profileTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodoChecklistManager.prototype.getProfileTodoChecklistItem = function (profileId, todoId) {
+ ProfileTodoChecklistSrv.prototype.getProfileTodoChecklistItem = function (profileId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + profileId + '/todo/' + todoId).success(function (data) {
@@ -46,7 +46,7 @@ var profileTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodoChecklistManager.prototype.createProfileTodoChecklistItem = function (profileTodoChecklistData) {
+ ProfileTodoChecklistSrv.prototype.createProfileTodoChecklistItem = function (profileTodoChecklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,7 +62,7 @@ var profileTodoChecklistManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProfileTodoChecklistManager.prototype.editProfileTodoChecklistItem = function (profileTodoData) {
+ ProfileTodoChecklistSrv.prototype.editProfileTodoChecklistItem = function (profileTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -78,9 +78,9 @@ var profileTodoChecklistManager = function ($http, $q) {
  };
 
 
- return ProfileTodoChecklistManager;
+ return ProfileTodoChecklistSrv;
 };
 
-profileTodoChecklistManager.$inject = ['$http', '$q'];
+profileTodoChecklistSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileTodoChecklistManager', profileTodoChecklistManager);
+angular.module('app.profile').service('ProfileTodoChecklistSrv', profileTodoChecklistSrv);

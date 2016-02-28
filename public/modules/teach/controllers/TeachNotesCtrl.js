@@ -1,5 +1,5 @@
 var teachNotesCtrl = function (
-        TeachNotesManager,
+        TeachNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var teachNotesCtrl = function (
  var vm = this;
  vm.teachId = $stateParams.teachId;
  vm.teachNotesCopy;
- vm.teachNotesManager = new TeachNotesManager();
+ vm.teachNotesSrv = new TeachNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultTeachNoteData = {
@@ -27,20 +27,20 @@ var teachNotesCtrl = function (
  };
 
  vm.createTeachNote = function (data) {
-  vm.teachNotesManager.createTeachNote(data).then(function (response) {
+  vm.teachNotesSrv.createTeachNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newTeachNoteData = angular.copy(vm.defaultTeachNoteData);
-   vm.teachNotesCopy = angular.copy(vm.teachNotesManager.teachNotes);
+   vm.teachNotesCopy = angular.copy(vm.teachNotesSrv.teachNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editTeachNote = function (data) {
-  vm.teachNotesManager.editTeachNote(data).then(function (response) {
+  vm.teachNotesSrv.editTeachNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newTeachNoteData = angular.copy(vm.defaultTeachNoteData);
-   vm.teachNotesCopy = angular.copy(vm.teachNotesManager.teachNotes);
+   vm.teachNotesCopy = angular.copy(vm.teachNotesSrv.teachNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var teachNotesCtrl = function (
   teachNote = teachNoteCopy;
   /*
    $filter('filter')
-   (vm.teachNotesManager.teachNotes, {id: teachNoteId}, true)[0]
+   (vm.teachNotesSrv.teachNotes, {id: teachNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.teachNotesCopy, {id: teachNoteId}, true)[0]);
    if (teachNote.length && teachNoteCopy.length) {
-   // vm.teachNotesManager.teachNotes angular.copy(vm.teachNotesCopy);
+   // vm.teachNotesSrv.teachNotes angular.copy(vm.teachNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var teachNotesCtrl = function (
   return vm.teachNotes;
  }), function () {
   //vm.remainingCount = filterFilter(teachNotes, {completed: false}).length;
-  vm.doneCount = vm.teachNotesManager.teachNotes.length - vm.remainingCount;
+  vm.doneCount = vm.teachNotesSrv.teachNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachNoteService.put(vm.teachNotes);
  }, true);
@@ -147,12 +147,12 @@ var teachNotesCtrl = function (
 
 
  //--------init------
- vm.teachNotesManager.getTeachNotes(vm.teachId);
+ vm.teachNotesSrv.getTeachNotes(vm.teachId);
 };
 
 
 teachNotesCtrl.$inject = [
- 'TeachNotesManager',
+ 'TeachNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

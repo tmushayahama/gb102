@@ -1,9 +1,9 @@
-var profileWeblinkManager = function ($http, $q) {
+var profileWeblinkSrv = function ($http, $q) {
 
- var ProfileWeblinkManager = function () {
+ var ProfileWeblinkSrv = function () {
   this.profileWeblinks = [];
  };
- ProfileWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var profileWeblinkManager = function ($http, $q) {
  };
 
 
- ProfileWeblinkManager.prototype.getProfileWeblink = function (profileId, weblinkId) {
+ ProfileWeblinkSrv.prototype.getProfileWeblink = function (profileId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + profileId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var profileWeblinkManager = function ($http, $q) {
  };
 
 
- ProfileWeblinkManager.prototype.editProfileWeblink = function (profileWeblinkData) {
+ ProfileWeblinkSrv.prototype.editProfileWeblink = function (profileWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var profileWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProfileWeblinkManager;
+ return ProfileWeblinkSrv;
 };
 
-profileWeblinkManager.$inject = ['$http', '$q'];
+profileWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileWeblinkManager', profileWeblinkManager);
+angular.module('app.profile').service('ProfileWeblinkSrv', profileWeblinkSrv);

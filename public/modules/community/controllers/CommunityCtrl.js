@@ -1,8 +1,8 @@
 
 var communityCtrl = function (
         level_categories,
-        ConstantsManager,
-        CommunityManager,
+        ConstantsSrv,
+        CommunitySrv,
         $scope,
         $state,
         $stateParams,
@@ -20,15 +20,15 @@ var communityCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-community.css'
  }, $scope);
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
 
 };
 
 communityCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'CommunityManager',
+ 'ConstantsSrv',
+ 'CommunitySrv',
  '$scope',
  '$state',
  '$stateParams',

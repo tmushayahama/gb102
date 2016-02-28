@@ -1,6 +1,6 @@
 var questionnaireTodoCtrl = function (
-        QuestionnaireTodoManager,
-        QuestionnaireTodoChecklistManager,
+        QuestionnaireTodoSrv,
+        QuestionnaireTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var questionnaireTodoCtrl = function (
  var vm = this;
  vm.questionnaireId = questionnaireTodoData.questionnaire_id;
  vm.questionnaireTodoId = questionnaireTodoData.id;
- vm.questionnaireTodoManager = new QuestionnaireTodoManager();
- vm.questionnaireTodoChecklistManager = new QuestionnaireTodoChecklistManager();
+ vm.questionnaireTodoSrv = new QuestionnaireTodoSrv();
+ vm.questionnaireTodoChecklistSrv = new QuestionnaireTodoChecklistSrv();
 
 
  vm.todoId = questionnaireTodoData.todo_id;
@@ -41,14 +41,14 @@ var questionnaireTodoCtrl = function (
  // vm.newQuestionnaireTodoData = vm.defaultQuestionnaireTodoData;
 
  vm.getQuestionnaireTodo = function (questionnaireId, todoId) {
-  vm.questionnaireTodoManager.getQuestionnaireTodo(questionnaireId, todoId).then(function (response) {
+  vm.questionnaireTodoSrv.getQuestionnaireTodo(questionnaireId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editQuestionnaireTodo = function (data) {
-  vm.questionnaireTodoManager.editQuestionnaireTodo(data).then(function (response) {
+  vm.questionnaireTodoSrv.editQuestionnaireTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var questionnaireTodoCtrl = function (
  }
 
  vm.getQuestionnaireTodoChecklist = function (todoId) {
-  vm.questionnaireTodoChecklistManager.getQuestionnaireTodoChecklist(todoId).then(function (response) {
+  vm.questionnaireTodoChecklistSrv.getQuestionnaireTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var questionnaireTodoCtrl = function (
  };
 
  vm.createQuestionnaireTodoChecklistItem = function (data) {
-  vm.questionnaireTodoChecklistManager.createQuestionnaireTodoChecklistItem(data).then(function (response) {
+  vm.questionnaireTodoChecklistSrv.createQuestionnaireTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var questionnaireTodoCtrl = function (
  };
 
  vm.editQuestionnaireTodoChecklistItem = function (data) {
-  vm.questionnaireTodoChecklistManager.editQuestionnaireTodoChecklistItem(data).then(function (response) {
+  vm.questionnaireTodoChecklistSrv.editQuestionnaireTodoChecklistItem(data).then(function (response) {
    vm.newQuestionnaireTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var questionnaireTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.questionnaireTodoChecklistManager.questionnaireTodoChecklist;
+  return vm.questionnaireTodoChecklistSrv.questionnaireTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.questionnaireTodoChecklistManager.questionnaireTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireTodoChecklistSrv.questionnaireTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var questionnaireTodoCtrl = function (
 };
 
 questionnaireTodoCtrl.$inject = [
- 'QuestionnaireTodoManager',
- 'QuestionnaireTodoChecklistManager',
+ 'QuestionnaireTodoSrv',
+ 'QuestionnaireTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

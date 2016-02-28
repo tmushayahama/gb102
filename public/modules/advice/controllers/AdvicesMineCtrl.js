@@ -1,6 +1,6 @@
 var advicesMineCtrl = function (
-        ConstantsManager,
-        AdvicesManager,
+        ConstantsSrv,
+        AdvicesSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var advicesMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.advicesManager = new AdvicesManager();
- vm.advicesManager.getMyAdvices();
+ vm.advicesSrv = new AdvicesSrv();
+ vm.advicesSrv.getMyAdvices();
 };
 
 
 advicesMineCtrl.$inject = [
- 'ConstantsManager',
- 'AdvicesManager',
+ 'ConstantsSrv',
+ 'AdvicesSrv',
  '$scope',
  '$state',
  '$stateParams',

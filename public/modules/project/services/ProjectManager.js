@@ -1,9 +1,9 @@
-var projectManager = function ($http, $q) {
+var projectSrv = function ($http, $q) {
 
- var ProjectManager = function () {
+ var ProjectSrv = function () {
   this.project = [];
  };
- ProjectManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var projectManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ProjectManager.prototype.getProject = function (projectId) {
+ ProjectSrv.prototype.getProject = function (projectId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/project/' + projectId).success(function (data) {
@@ -34,11 +34,11 @@ var projectManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectManager.prototype.getSubProjects = function (parentExploreId) {
+ ProjectSrv.prototype.getSubProjects = function (parentexplorerId) {
   var self = this;
   var deferred = $q.defer();
   //self.projects = [];
-  $http.get('/api/projects/subprojects/' + parentExploreId).success(function (data) {
+  $http.get('/api/projects/subprojects/' + parentexplorerId).success(function (data) {
    //self.projects = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -47,7 +47,7 @@ var projectManager = function ($http, $q) {
   return deferred.promise;
  };
 
- ProjectManager.prototype.editProject = function (projectData) {
+ ProjectSrv.prototype.editProject = function (projectData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,9 +62,9 @@ var projectManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProjectManager;
+ return ProjectSrv;
 };
 
-projectManager.$inject = ['$http', '$q'];
+projectSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectManager', projectManager);
+angular.module('app.project').service('ProjectSrv', projectSrv);

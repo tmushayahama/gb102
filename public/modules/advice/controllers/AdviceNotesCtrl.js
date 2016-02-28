@@ -1,5 +1,5 @@
 var adviceNotesCtrl = function (
-        AdviceNotesManager,
+        AdviceNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var adviceNotesCtrl = function (
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
  vm.adviceNotesCopy;
- vm.adviceNotesManager = new AdviceNotesManager();
+ vm.adviceNotesSrv = new AdviceNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultAdviceNoteData = {
@@ -27,20 +27,20 @@ var adviceNotesCtrl = function (
  };
 
  vm.createAdviceNote = function (data) {
-  vm.adviceNotesManager.createAdviceNote(data).then(function (response) {
+  vm.adviceNotesSrv.createAdviceNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newAdviceNoteData = angular.copy(vm.defaultAdviceNoteData);
-   vm.adviceNotesCopy = angular.copy(vm.adviceNotesManager.adviceNotes);
+   vm.adviceNotesCopy = angular.copy(vm.adviceNotesSrv.adviceNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editAdviceNote = function (data) {
-  vm.adviceNotesManager.editAdviceNote(data).then(function (response) {
+  vm.adviceNotesSrv.editAdviceNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newAdviceNoteData = angular.copy(vm.defaultAdviceNoteData);
-   vm.adviceNotesCopy = angular.copy(vm.adviceNotesManager.adviceNotes);
+   vm.adviceNotesCopy = angular.copy(vm.adviceNotesSrv.adviceNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var adviceNotesCtrl = function (
   adviceNote = adviceNoteCopy;
   /*
    $filter('filter')
-   (vm.adviceNotesManager.adviceNotes, {id: adviceNoteId}, true)[0]
+   (vm.adviceNotesSrv.adviceNotes, {id: adviceNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.adviceNotesCopy, {id: adviceNoteId}, true)[0]);
    if (adviceNote.length && adviceNoteCopy.length) {
-   // vm.adviceNotesManager.adviceNotes angular.copy(vm.adviceNotesCopy);
+   // vm.adviceNotesSrv.adviceNotes angular.copy(vm.adviceNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var adviceNotesCtrl = function (
   return vm.adviceNotes;
  }), function () {
   //vm.remainingCount = filterFilter(adviceNotes, {completed: false}).length;
-  vm.doneCount = vm.adviceNotesManager.adviceNotes.length - vm.remainingCount;
+  vm.doneCount = vm.adviceNotesSrv.adviceNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceNoteService.put(vm.adviceNotes);
  }, true);
@@ -147,12 +147,12 @@ var adviceNotesCtrl = function (
 
 
  //--------init------
- vm.adviceNotesManager.getAdviceNotes(vm.adviceId);
+ vm.adviceNotesSrv.getAdviceNotes(vm.adviceId);
 };
 
 
 adviceNotesCtrl.$inject = [
- 'AdviceNotesManager',
+ 'AdviceNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

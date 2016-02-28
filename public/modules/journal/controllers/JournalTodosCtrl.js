@@ -1,5 +1,5 @@
 var journalTodosCtrl = function (
-        JournalTodosManager,
+        JournalTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var journalTodosCtrl = function (
 
  var vm = this;
  vm.journalId = $stateParams.journalId;
- vm.journalTodosManager = new JournalTodosManager();
+ vm.journalTodosSrv = new JournalTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultJournalTodoData = {
@@ -25,7 +25,7 @@ var journalTodosCtrl = function (
  };
 
  vm.createJournalTodo = function (data) {
-  vm.journalTodosManager.createJournalTodo(data).then(function (response) {
+  vm.journalTodosSrv.createJournalTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newJournalTodoData = angular.copy(vm.defaultJournalTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var journalTodosCtrl = function (
  };
 
  vm.editJournalTodo = function (data) {
-  vm.journalTodosManager.editJournalTodo(data).then(function (response) {
+  vm.journalTodosSrv.editJournalTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newJournalTodoData = angular.copy(vm.defaultJournalTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var journalTodosCtrl = function (
   return vm.journalTodos;
  }), function () {
   //vm.remainingCount = filterFilter(journalTodos, {completed: false}).length;
-  vm.doneCount = vm.journalTodosManager.journalTodos.length - vm.remainingCount;
+  vm.doneCount = vm.journalTodosSrv.journalTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalTodoService.put(vm.journalTodos);
  }, true);
@@ -129,11 +129,11 @@ var journalTodosCtrl = function (
 
 
  //--------init------
- vm.journalTodosManager.getJournalTodos(vm.journalId);
+ vm.journalTodosSrv.getJournalTodos(vm.journalId);
 };
 
 journalTodosCtrl.$inject = [
- 'JournalTodosManager',
+ 'JournalTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

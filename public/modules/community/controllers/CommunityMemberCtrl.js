@@ -1,8 +1,8 @@
 
 var communityCtrl = function (
         _,
-        ConstantsManager,
-        CommunityManager,
+        ConstantsSrv,
+        CommunitySrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var communityCtrl = function (
 
  vm.communityId = $stateParams.communityId;
 
- vm.communityManager = new CommunityManager();
- vm.constantsManager = new ConstantsManager();
+ vm.communitySrv = new CommunitySrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.communityFormDisplay = false;
 
  vm.getCommunity = function (id, data) {
-  vm.communityManager.getCommunity(id, data).success(function (response) {
+  vm.communitySrv.getCommunity(id, data).success(function (response) {
    vm.community = response;
   }).error(function (response) {
    console.log(response);
@@ -75,20 +75,20 @@ var communityCtrl = function (
  };
 
  vm.createCommunity = function (data) {
-  vm.communityManager.createCommunity(data).then(function (response) {
+  vm.communitySrv.createCommunity(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCommunityData = angular.copy(vm.defaultCommunityData);
-   vm.communityCopy = angular.copy(vm.communityManager.community);
+   vm.communityCopy = angular.copy(vm.communitySrv.community);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCommunity = function (data) {
-  vm.communityManager.editCommunity(data).then(function (response) {
+  vm.communitySrv.editCommunity(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCommunityData = angular.copy(vm.defaultCommunityData);
-   vm.communityCopy = angular.copy(vm.communityManager.community);
+   vm.communityCopy = angular.copy(vm.communitySrv.community);
   }, function (response) {
    console.log(response);
   });
@@ -118,11 +118,11 @@ var communityCtrl = function (
   community = communityCopy;
   /*
    $filter('filter')
-   (vm.communityManager.community, {id: communityId}, true)[0]
+   (vm.communitySrv.community, {id: communityId}, true)[0]
    = angular.copy($filter('filter')
    (vm.communityCopy, {id: communityId}, true)[0]);
    if (community.length && communityCopy.length) {
-   // vm.communityManager.community angular.copy(vm.communityCopy);
+   // vm.communitySrv.community angular.copy(vm.communityCopy);
    }
    */
  };
@@ -138,7 +138,7 @@ var communityCtrl = function (
   return vm.community;
  }), function () {
   //vm.remainingCount = filterFilter(community, {completed: false}).length;
-  vm.doneCount = vm.communityManager.community.length - vm.remainingCount;
+  vm.doneCount = vm.communitySrv.community.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CommunityService.put(vm.community);
  }, true);
@@ -172,16 +172,16 @@ var communityCtrl = function (
  };
 
  //--------init------
- vm.communityManager.getCommunity(vm.communityId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.communitySrv.getCommunity(vm.communityId);
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.communityIcons = data;
   vm.getRandomCommunityIcons();
  });
 };
 
 communityCtrl.$inject = ['_',
- 'ConstantsManager',
- 'CommunityManager',
+ 'ConstantsSrv',
+ 'CommunitySrv',
  '$scope',
  '$state',
  '$stateParams',

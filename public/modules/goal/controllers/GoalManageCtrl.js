@@ -1,5 +1,5 @@
 var goalManageCtrl = function (
-        GoalManager,
+        GoalSrv,
         $state,
         $stateParams,
         $http,
@@ -8,17 +8,17 @@ var goalManageCtrl = function (
  var vm = this;
  vm.goalId = $stateParams.goalId;
  vm.goals;
- vm.goalManager = new GoalManager();
+ vm.goalSrv = new GoalSrv();
 
  vm.getGoal = function (id) {
-  vm.goalManager.getGoal(id).then(function (data) {
+  vm.goalSrv.getGoal(id).then(function (data) {
    vm.goal = data;
-   vm.getSubGoals(vm.goal.explore_id);
+   vm.getSubGoals(vm.goal.explorer_id);
   });
  };
 
- vm.getSubGoals = function (exploreId) {
-  vm.goalManager.getSubGoals(exploreId).then(function (data) {
+ vm.getSubGoals = function (explorerId) {
+  vm.goalSrv.getSubGoals(explorerId).then(function (data) {
    vm.goals = data;
   });
  }
@@ -28,7 +28,7 @@ var goalManageCtrl = function (
 };
 
 goalManageCtrl.$inject = [
- 'GoalManager',
+ 'GoalSrv',
  '$state',
  '$stateParams',
  '$http',

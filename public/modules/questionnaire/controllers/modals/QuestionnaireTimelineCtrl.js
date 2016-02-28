@@ -1,5 +1,5 @@
 var questionnaireProgressCtrl = function (
-        QuestionnaireProgressManager,
+        QuestionnaireProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var questionnaireProgressCtrl = function (
  var vm = this;
  vm.questionnaireId = questionnaireProgressData.questionnaire_id;
  vm.questionnaireProgressId = questionnaireProgressData.id;
- vm.questionnaireProgressManager = new QuestionnaireProgressManager();
+ vm.questionnaireProgressSrv = new QuestionnaireProgressSrv();
 
 
  vm.progressId = questionnaireProgressData.progress_id;
@@ -33,14 +33,14 @@ var questionnaireProgressCtrl = function (
  // vm.newQuestionnaireProgressData = vm.defaultQuestionnaireProgressData;
 
  vm.getQuestionnaireProgress = function (questionnaireId, progressId) {
-  vm.questionnaireProgressManager.getQuestionnaireProgress(questionnaireId, progressId).then(function (response) {
+  vm.questionnaireProgressSrv.getQuestionnaireProgress(questionnaireId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editQuestionnaireProgress = function (data) {
-  vm.questionnaireProgressManager.editQuestionnaireProgress(data).then(function (response) {
+  vm.questionnaireProgressSrv.editQuestionnaireProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var questionnaireProgressCtrl = function (
 
 
 questionnaireProgressCtrl.$inject = [
- 'QuestionnaireProgressManager',
+ 'QuestionnaireProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

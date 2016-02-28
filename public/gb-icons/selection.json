@@ -255,7 +255,7 @@
 				"width": 1074,
 				"grid": 0,
 				"tags": [
-					"gb-explore"
+					"gb-explorer"
 				]
 			},
 			"attrs": [],
@@ -264,7 +264,7 @@
 				"id": 16,
 				"prevSize": 32,
 				"code": 60223,
-				"name": "gb-explore"
+				"name": "gb-explorer"
 			},
 			"setIdx": 0,
 			"setId": 4,

@@ -1,9 +1,9 @@
-var questionnaireWeblinkManager = function ($http, $q) {
+var questionnaireWeblinkSrv = function ($http, $q) {
 
- var QuestionnaireWeblinkManager = function () {
+ var QuestionnaireWeblinkSrv = function () {
   this.questionnaireWeblinks = [];
  };
- QuestionnaireWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ QuestionnaireWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var questionnaireWeblinkManager = function ($http, $q) {
  };
 
 
- QuestionnaireWeblinkManager.prototype.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
+ QuestionnaireWeblinkSrv.prototype.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/questionnaire/' + questionnaireId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var questionnaireWeblinkManager = function ($http, $q) {
  };
 
 
- QuestionnaireWeblinkManager.prototype.editQuestionnaireWeblink = function (questionnaireWeblinkData) {
+ QuestionnaireWeblinkSrv.prototype.editQuestionnaireWeblink = function (questionnaireWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var questionnaireWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return QuestionnaireWeblinkManager;
+ return QuestionnaireWeblinkSrv;
 };
 
-questionnaireWeblinkManager.$inject = ['$http', '$q'];
+questionnaireWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.questionnaire').service('QuestionnaireWeblinkManager', questionnaireWeblinkManager);
+angular.module('app.questionnaire').service('QuestionnaireWeblinkSrv', questionnaireWeblinkSrv);

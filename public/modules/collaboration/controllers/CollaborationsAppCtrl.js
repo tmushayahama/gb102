@@ -1,7 +1,7 @@
 var collaborationsAppCtrl = function (
-        ConstantsManager,
-        CollaborationsManager,
-        SearchManager,
+        ConstantsSrv,
+        CollaborationsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -17,27 +17,27 @@ var collaborationsAppCtrl = function (
 
  vm.appName = $stateParams.app_name;
 
- vm.collaborationsManager = new CollaborationsManager();
+ vm.collaborationsSrv = new CollaborationsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.collaborations = data;
   });
  } else {
-  vm.collaborationsManager.getAppCollaborations(vm.appName).then(function (data) {
+  vm.collaborationsSrv.getAppCollaborations(vm.appName).then(function (data) {
    vm.collaborations = data;
   });
  }
 };
 
 collaborationsAppCtrl.$inject = [
- 'ConstantsManager',
- 'CollaborationsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'CollaborationsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

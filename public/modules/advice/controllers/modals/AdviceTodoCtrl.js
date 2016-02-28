@@ -1,6 +1,6 @@
 var adviceTodoCtrl = function (
-        AdviceTodoManager,
-        AdviceTodoChecklistManager,
+        AdviceTodoSrv,
+        AdviceTodoChecklistSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -13,8 +13,8 @@ var adviceTodoCtrl = function (
  var vm = this;
  vm.adviceId = adviceTodoData.advice_id;
  vm.adviceTodoId = adviceTodoData.id;
- vm.adviceTodoManager = new AdviceTodoManager();
- vm.adviceTodoChecklistManager = new AdviceTodoChecklistManager();
+ vm.adviceTodoSrv = new AdviceTodoSrv();
+ vm.adviceTodoChecklistSrv = new AdviceTodoChecklistSrv();
 
 
  vm.todoId = adviceTodoData.todo_id;
@@ -41,14 +41,14 @@ var adviceTodoCtrl = function (
  // vm.newAdviceTodoData = vm.defaultAdviceTodoData;
 
  vm.getAdviceTodo = function (adviceId, todoId) {
-  vm.adviceTodoManager.getAdviceTodo(adviceId, todoId).then(function (response) {
+  vm.adviceTodoSrv.getAdviceTodo(adviceId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceTodo = function (data) {
-  vm.adviceTodoManager.editAdviceTodo(data).then(function (response) {
+  vm.adviceTodoSrv.editAdviceTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -66,7 +66,7 @@ var adviceTodoCtrl = function (
  }
 
  vm.getAdviceTodoChecklist = function (todoId) {
-  vm.adviceTodoChecklistManager.getAdviceTodoChecklist(todoId).then(function (response) {
+  vm.adviceTodoChecklistSrv.getAdviceTodoChecklist(todoId).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -77,7 +77,7 @@ var adviceTodoCtrl = function (
  };
 
  vm.createAdviceTodoChecklistItem = function (data) {
-  vm.adviceTodoChecklistManager.createAdviceTodoChecklistItem(data).then(function (response) {
+  vm.adviceTodoChecklistSrv.createAdviceTodoChecklistItem(data).then(function (response) {
    vm.checklistFormVisible = false;
    vm.newAdviceTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
@@ -86,7 +86,7 @@ var adviceTodoCtrl = function (
  };
 
  vm.editAdviceTodoChecklistItem = function (data) {
-  vm.adviceTodoChecklistManager.editAdviceTodoChecklistItem(data).then(function (response) {
+  vm.adviceTodoChecklistSrv.editAdviceTodoChecklistItem(data).then(function (response) {
    vm.newAdviceTodoChecklistData = angular.copy(vm.defaultTodoChecklistData);
   }, function (response) {
    console.log(response);
@@ -116,10 +116,10 @@ var adviceTodoCtrl = function (
  };
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.adviceTodoChecklistManager.adviceTodoChecklist;
+  return vm.adviceTodoChecklistSrv.adviceTodoChecklist;
  }), function () {
   //vm.remainingCount = filterFilter(todoChecklist, {completed: false}).length;
-  vm.doneCount = vm.adviceTodoChecklistManager.adviceTodoChecklist.length - vm.remainingCount;
+  vm.doneCount = vm.adviceTodoChecklistSrv.adviceTodoChecklist.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TodoChecklistService.put(vm.todoChecklist);
  }, true);
@@ -130,8 +130,8 @@ var adviceTodoCtrl = function (
 };
 
 adviceTodoCtrl.$inject = [
- 'AdviceTodoManager',
- 'AdviceTodoChecklistManager',
+ 'AdviceTodoSrv',
+ 'AdviceTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

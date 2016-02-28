@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/teach/services/TeachsManager.js',
-                  'public/modules/teach/controllers/TeachsCtrl.js',
-                  'public/modules/teach/controllers/modals/CreateTeachCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/teach/services/Teachs.srv.js',
+                  'public/modules/teach/controllers/Teachs.ctrl.js',
+                  'public/modules/teach/controllers/modals/CreateTeach.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/controllers/TeachsAllCtrl.js',
+                  'public/modules/teach/controllers/TeachsAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/controllers/TeachsAppCtrl.js',
+                  'public/modules/teach/controllers/TeachsApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/controllers/TeachsMineCtrl.js',
+                  'public/modules/teach/controllers/TeachsMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/teach/services/TeachManager.js',
-                  'public/modules/teach/controllers/TeachCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/teach/services/Teach.srv.js',
+                  'public/modules/teach/controllers/Teach.ctrl.js',
                   'public/modules/teach/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/controllers/TeachOverviewCtrl.js',
+                  'public/modules/teach/controllers/TeachOverview.ctrl.js',
                   //Timeline
-                  'public/modules/teach/services/TeachTimelineManager.js',
-                  'public/modules/teach/services/TeachTimelinesManager.js',
-                  'public/modules/teach/controllers/TeachTimelinesCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachTimelineCtrl.js',
+                  'public/modules/teach/services/TeachTimeline.srv.js',
+                  'public/modules/teach/services/TeachTimelines.srv.js',
+                  'public/modules/teach/controllers/TeachTimelines.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachTimeline.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/controllers/TeachManageCtrl.js',
+                  'public/modules/teach/controllers/TeachManage.ctrl.js',
                   //Timeline
-                  'public/modules/teach/services/TeachTimelineManager.js',
-                  'public/modules/teach/services/TeachTimelinesManager.js',
-                  'public/modules/teach/controllers/TeachTimelinesCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachTimelineCtrl.js',
+                  'public/modules/teach/services/TeachTimeline.srv.js',
+                  'public/modules/teach/services/TeachTimelines.srv.js',
+                  'public/modules/teach/controllers/TeachTimelines.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachTimeline.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/teach/directives/todoEscape.js',
                   'public/modules/teach/directives/todoFocus.js',
-                  'public/modules/teach/services/TeachTodoManager.js',
-                  'public/modules/teach/services/TeachTodosManager.js',
-                  'public/modules/teach/services/TeachTodoChecklistManager.js',
-                  'public/modules/teach/controllers/TeachTodosCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachTodoCtrl.js',
+                  'public/modules/teach/services/TeachTodo.srv.js',
+                  'public/modules/teach/services/TeachTodos.srv.js',
+                  'public/modules/teach/services/TeachTodoChecklist.srv.js',
+                  'public/modules/teach/controllers/TeachTodos.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachTodo.ctrl.js',
                   //Notes,
-                  'public/modules/teach/services/TeachNoteManager.js',
-                  'public/modules/teach/services/TeachNotesManager.js',
-                  'public/modules/teach/controllers/TeachNotesCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachNoteCtrl.js',
+                  'public/modules/teach/services/TeachNote.srv.js',
+                  'public/modules/teach/services/TeachNotes.srv.js',
+                  'public/modules/teach/controllers/TeachNotes.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachNote.ctrl.js',
                   //Weblink
-                  'public/modules/teach/services/TeachWeblinkManager.js',
-                  'public/modules/teach/services/TeachWeblinksManager.js',
-                  'public/modules/teach/controllers/TeachWeblinksCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachWeblinkCtrl.js',
+                  'public/modules/teach/services/TeachWeblink.srv.js',
+                  'public/modules/teach/services/TeachWeblinks.srv.js',
+                  'public/modules/teach/controllers/TeachWeblinks.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.teach',
                  serie: true,
                  files: [
-                  'public/modules/teach/services/TeachCommentManager.js',
-                  'public/modules/teach/services/TeachCommentsManager.js',
-                  'public/modules/teach/controllers/TeachCommentsCtrl.js',
-                  'public/modules/teach/controllers/modals/TeachCommentCtrl.js',
+                  'public/modules/teach/services/TeachComment.srv.js',
+                  'public/modules/teach/services/TeachComments.srv.js',
+                  'public/modules/teach/controllers/TeachComments.ctrl.js',
+                  'public/modules/teach/controllers/modals/TeachComment.ctrl.js',
                  ]
                 });
                }]

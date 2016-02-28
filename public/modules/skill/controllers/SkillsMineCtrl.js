@@ -1,6 +1,6 @@
 var skillsMineCtrl = function (
-        ConstantsManager,
-        SkillsManager,
+        ConstantsSrv,
+        SkillsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var skillsMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.skillsManager = new SkillsManager();
- vm.skillsManager.getMySkills();
+ vm.skillsSrv = new SkillsSrv();
+ vm.skillsSrv.getMySkills();
 };
 
 
 skillsMineCtrl.$inject = [
- 'ConstantsManager',
- 'SkillsManager',
+ 'ConstantsSrv',
+ 'SkillsSrv',
  '$scope',
  '$state',
  '$stateParams',

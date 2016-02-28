@@ -1,5 +1,5 @@
 var questionnaireNoteCtrl = function (
-        QuestionnaireNoteManager,
+        QuestionnaireNoteSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var questionnaireNoteCtrl = function (
  var vm = this;
  vm.questionnaireId = questionnaireNoteData.questionnaire_id;
  vm.questionnaireNoteId = questionnaireNoteData.id;
- vm.questionnaireNoteManager = new QuestionnaireNoteManager();
+ vm.questionnaireNoteSrv = new QuestionnaireNoteSrv();
 
 
  vm.noteId = questionnaireNoteData.note_id;
@@ -33,14 +33,14 @@ var questionnaireNoteCtrl = function (
  // vm.newQuestionnaireNoteData = vm.defaultQuestionnaireNoteData;
 
  vm.getQuestionnaireNote = function (questionnaireId, noteId) {
-  vm.questionnaireNoteManager.getQuestionnaireNote(questionnaireId, noteId).then(function (response) {
+  vm.questionnaireNoteSrv.getQuestionnaireNote(questionnaireId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editQuestionnaireNote = function (data) {
-  vm.questionnaireNoteManager.editQuestionnaireNote(data).then(function (response) {
+  vm.questionnaireNoteSrv.editQuestionnaireNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var questionnaireNoteCtrl = function (
 
 
 questionnaireNoteCtrl.$inject = [
- 'QuestionnaireNoteManager',
+ 'QuestionnaireNoteSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

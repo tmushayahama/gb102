@@ -1,7 +1,7 @@
 var advicesAppCtrl = function (
-        ConstantsManager,
-        AdvicesManager,
-        SearchManager,
+        ConstantsSrv,
+        AdvicesSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -17,27 +17,27 @@ var advicesAppCtrl = function (
 
  vm.appName = $stateParams.app_name;
 
- vm.advicesManager = new AdvicesManager();
+ vm.advicesSrv = new AdvicesSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.advices = data;
   });
  } else {
-  vm.advicesManager.getAppAdvices(vm.appName).then(function (data) {
+  vm.advicesSrv.getAppAdvices(vm.appName).then(function (data) {
    vm.advices = data;
   });
  }
 };
 
 advicesAppCtrl.$inject = [
- 'ConstantsManager',
- 'AdvicesManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'AdvicesSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

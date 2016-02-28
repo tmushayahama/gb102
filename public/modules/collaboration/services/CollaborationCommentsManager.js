@@ -1,9 +1,9 @@
-var collaborationCommentsManager = function ($http, $q) {
+var collaborationCommentsSrv = function ($http, $q) {
 
- var CollaborationCommentsManager = function () {
+ var CollaborationCommentsSrv = function () {
   this.collaborationComments = [];
  };
- CollaborationCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationCommentsManager.prototype.getCollaborationComments = function (collaborationId) {
+ CollaborationCommentsSrv.prototype.getCollaborationComments = function (collaborationId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationComments = [];
@@ -35,7 +35,7 @@ var collaborationCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationCommentsManager.prototype.getCollaborationComment = function (collaborationId, commentId) {
+ CollaborationCommentsSrv.prototype.getCollaborationComment = function (collaborationId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationComments = [];
@@ -48,7 +48,7 @@ var collaborationCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationCommentsManager.prototype.createCollaborationComment = function (collaborationCommentData) {
+ CollaborationCommentsSrv.prototype.createCollaborationComment = function (collaborationCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var collaborationCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationCommentsManager.prototype.editCollaborationComment = function (collaborationCommentData) {
+ CollaborationCommentsSrv.prototype.editCollaborationComment = function (collaborationCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var collaborationCommentsManager = function ($http, $q) {
  };
 
 
- return CollaborationCommentsManager;
+ return CollaborationCommentsSrv;
 };
 
-collaborationCommentsManager.$inject = ['$http', '$q'];
+collaborationCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationCommentsManager', collaborationCommentsManager);
+angular.module('app.collaboration').service('CollaborationCommentsSrv', collaborationCommentsSrv);

@@ -38,13 +38,13 @@ class Questionnaire extends Model {
   $userId = $user->id;
   $questionnaires = Questionnaire::where('creator_id', $userId)
           ->orderBy('id', 'desc')
-          ->with('explore')
+          ->with('explorer')
           ->with('creator')
           ->with('level')
-          ->with('explore.app_type')
-          ->with('explore.creator')
-          ->with('explore.icon')
-          ->with('explore.level')
+          ->with('explorer.app_type')
+          ->with('explorer.creator')
+          ->with('explorer.icon')
+          ->with('explorer.level')
           ->take(50)
           ->get();
   return $questionnaires;
@@ -52,26 +52,26 @@ class Questionnaire extends Model {
 
  public static function getQuestionnaire() {
   $howMany = 1;
-  $exploreQuestionnaires = (new Collection(
-          Explore::with('icon')
+  $explorerQuestionnaires = (new Collection(
+          Explorer::with('icon')
           ->with('creator')
           ->with('level')
           ->with('app_type')
           ->take(500)
           ->get()))
           ->random($howMany);
-  return $exploreQuestionnaires;
+  return $explorerQuestionnaires;
  }
 
  public static function createQuestionnaire() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $exploreId = Request::get("exploreId");
+  $explorerId = Request::get("explorerId");
   $level_id = Request::get("levelId");
   $description = Request::get("description");
   $questionnaire = new Questionnaire;
   $questionnaire->creator_id = $userId;
-  $questionnaire->explore_id = $exploreId;
+  $questionnaire->explorer_id = $explorerId;
   $questionnaire->level_id = $level_id;
   $questionnaire->description = $description;
 

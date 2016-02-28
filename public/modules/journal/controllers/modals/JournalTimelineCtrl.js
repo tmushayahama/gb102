@@ -1,5 +1,5 @@
 var journalProgressCtrl = function (
-        JournalProgressManager,
+        JournalProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var journalProgressCtrl = function (
  var vm = this;
  vm.journalId = journalProgressData.journal_id;
  vm.journalProgressId = journalProgressData.id;
- vm.journalProgressManager = new JournalProgressManager();
+ vm.journalProgressSrv = new JournalProgressSrv();
 
 
  vm.progressId = journalProgressData.progress_id;
@@ -33,14 +33,14 @@ var journalProgressCtrl = function (
  // vm.newJournalProgressData = vm.defaultJournalProgressData;
 
  vm.getJournalProgress = function (journalId, progressId) {
-  vm.journalProgressManager.getJournalProgress(journalId, progressId).then(function (response) {
+  vm.journalProgressSrv.getJournalProgress(journalId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalProgress = function (data) {
-  vm.journalProgressManager.editJournalProgress(data).then(function (response) {
+  vm.journalProgressSrv.editJournalProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var journalProgressCtrl = function (
 
 
 journalProgressCtrl.$inject = [
- 'JournalProgressManager',
+ 'JournalProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -1,5 +1,5 @@
 var profileOverviewCtrl = function (
-        ProfileManager,
+        ProfileSrv,
         $state,
         $stateParams,
         $http,
@@ -9,7 +9,7 @@ var profileOverviewCtrl = function (
 };
 
 profileOverviewCtrl.$inject = [
- 'ProfileManager',
+ 'ProfileSrv',
  '$state',
  '$stateParams',
  '$http',

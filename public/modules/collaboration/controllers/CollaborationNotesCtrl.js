@@ -1,5 +1,5 @@
 var collaborationNotesCtrl = function (
-        CollaborationNotesManager,
+        CollaborationNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var collaborationNotesCtrl = function (
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
  vm.collaborationNotesCopy;
- vm.collaborationNotesManager = new CollaborationNotesManager();
+ vm.collaborationNotesSrv = new CollaborationNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultCollaborationNoteData = {
@@ -27,20 +27,20 @@ var collaborationNotesCtrl = function (
  };
 
  vm.createCollaborationNote = function (data) {
-  vm.collaborationNotesManager.createCollaborationNote(data).then(function (response) {
+  vm.collaborationNotesSrv.createCollaborationNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newCollaborationNoteData = angular.copy(vm.defaultCollaborationNoteData);
-   vm.collaborationNotesCopy = angular.copy(vm.collaborationNotesManager.collaborationNotes);
+   vm.collaborationNotesCopy = angular.copy(vm.collaborationNotesSrv.collaborationNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCollaborationNote = function (data) {
-  vm.collaborationNotesManager.editCollaborationNote(data).then(function (response) {
+  vm.collaborationNotesSrv.editCollaborationNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newCollaborationNoteData = angular.copy(vm.defaultCollaborationNoteData);
-   vm.collaborationNotesCopy = angular.copy(vm.collaborationNotesManager.collaborationNotes);
+   vm.collaborationNotesCopy = angular.copy(vm.collaborationNotesSrv.collaborationNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var collaborationNotesCtrl = function (
   collaborationNote = collaborationNoteCopy;
   /*
    $filter('filter')
-   (vm.collaborationNotesManager.collaborationNotes, {id: collaborationNoteId}, true)[0]
+   (vm.collaborationNotesSrv.collaborationNotes, {id: collaborationNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.collaborationNotesCopy, {id: collaborationNoteId}, true)[0]);
    if (collaborationNote.length && collaborationNoteCopy.length) {
-   // vm.collaborationNotesManager.collaborationNotes angular.copy(vm.collaborationNotesCopy);
+   // vm.collaborationNotesSrv.collaborationNotes angular.copy(vm.collaborationNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var collaborationNotesCtrl = function (
   return vm.collaborationNotes;
  }), function () {
   //vm.remainingCount = filterFilter(collaborationNotes, {completed: false}).length;
-  vm.doneCount = vm.collaborationNotesManager.collaborationNotes.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationNotesSrv.collaborationNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationNoteService.put(vm.collaborationNotes);
  }, true);
@@ -147,12 +147,12 @@ var collaborationNotesCtrl = function (
 
 
  //--------init------
- vm.collaborationNotesManager.getCollaborationNotes(vm.collaborationId);
+ vm.collaborationNotesSrv.getCollaborationNotes(vm.collaborationId);
 };
 
 
 collaborationNotesCtrl.$inject = [
- 'CollaborationNotesManager',
+ 'CollaborationNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

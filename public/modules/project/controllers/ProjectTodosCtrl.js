@@ -1,5 +1,5 @@
 var projectTodosCtrl = function (
-        ProjectTodosManager,
+        ProjectTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var projectTodosCtrl = function (
 
  var vm = this;
  vm.projectId = $stateParams.projectId;
- vm.projectTodosManager = new ProjectTodosManager();
+ vm.projectTodosSrv = new ProjectTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultProjectTodoData = {
@@ -25,7 +25,7 @@ var projectTodosCtrl = function (
  };
 
  vm.createProjectTodo = function (data) {
-  vm.projectTodosManager.createProjectTodo(data).then(function (response) {
+  vm.projectTodosSrv.createProjectTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newProjectTodoData = angular.copy(vm.defaultProjectTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var projectTodosCtrl = function (
  };
 
  vm.editProjectTodo = function (data) {
-  vm.projectTodosManager.editProjectTodo(data).then(function (response) {
+  vm.projectTodosSrv.editProjectTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newProjectTodoData = angular.copy(vm.defaultProjectTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var projectTodosCtrl = function (
   return vm.projectTodos;
  }), function () {
   //vm.remainingCount = filterFilter(projectTodos, {completed: false}).length;
-  vm.doneCount = vm.projectTodosManager.projectTodos.length - vm.remainingCount;
+  vm.doneCount = vm.projectTodosSrv.projectTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProjectTodoService.put(vm.projectTodos);
  }, true);
@@ -129,11 +129,11 @@ var projectTodosCtrl = function (
 
 
  //--------init------
- vm.projectTodosManager.getProjectTodos(vm.projectId);
+ vm.projectTodosSrv.getProjectTodos(vm.projectId);
 };
 
 projectTodosCtrl.$inject = [
- 'ProjectTodosManager',
+ 'ProjectTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

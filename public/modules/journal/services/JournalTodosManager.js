@@ -1,9 +1,9 @@
-var journalTodosManager = function ($http, $q) {
+var journalTodosSrv = function ($http, $q) {
 
- var JournalTodosManager = function () {
+ var JournalTodosSrv = function () {
   this.journalTodos = [];
  };
- JournalTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var journalTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalTodosManager.prototype.getJournalTodos = function (journalId) {
+ JournalTodosSrv.prototype.getJournalTodos = function (journalId) {
   var self = this;
   var deferred = $q.defer();
   self.journalTodos = [];
@@ -35,7 +35,7 @@ var journalTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodosManager.prototype.getJournalTodo = function (journalId, todoId) {
+ JournalTodosSrv.prototype.getJournalTodo = function (journalId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.journalTodos = [];
@@ -48,7 +48,7 @@ var journalTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodosManager.prototype.createJournalTodo = function (journalTodoData) {
+ JournalTodosSrv.prototype.createJournalTodo = function (journalTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var journalTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalTodosManager.prototype.editJournalTodo = function (journalTodoData) {
+ JournalTodosSrv.prototype.editJournalTodo = function (journalTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var journalTodosManager = function ($http, $q) {
  };
 
 
- return JournalTodosManager;
+ return JournalTodosSrv;
 };
 
-journalTodosManager.$inject = ['$http', '$q'];
+journalTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalTodosManager', journalTodosManager);
+angular.module('app.journal').service('JournalTodosSrv', journalTodosSrv);

@@ -1,9 +1,9 @@
-var profileCommentManager = function ($http, $q) {
+var profileCommentSrv = function ($http, $q) {
 
- var ProfileCommentManager = function () {
+ var ProfileCommentSrv = function () {
   this.profileComments = [];
  };
- ProfileCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProfileCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var profileCommentManager = function ($http, $q) {
  };
 
 
- ProfileCommentManager.prototype.getProfileComment = function (profileId, commentId) {
+ ProfileCommentSrv.prototype.getProfileComment = function (profileId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + profileId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var profileCommentManager = function ($http, $q) {
  };
 
 
- ProfileCommentManager.prototype.editProfileComment = function (profileCommentData) {
+ ProfileCommentSrv.prototype.editProfileComment = function (profileCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var profileCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProfileCommentManager;
+ return ProfileCommentSrv;
 };
 
-profileCommentManager.$inject = ['$http', '$q'];
+profileCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('ProfileCommentManager', profileCommentManager);
+angular.module('app.profile').service('ProfileCommentSrv', profileCommentSrv);

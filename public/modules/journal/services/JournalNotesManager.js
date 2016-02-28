@@ -1,9 +1,9 @@
-var journalNotesManager = function ($http, $q) {
+var journalNotesSrv = function ($http, $q) {
 
- var JournalNotesManager = function () {
+ var JournalNotesSrv = function () {
   this.journalNotes = [];
  };
- JournalNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var journalNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalNotesManager.prototype.getJournalNotes = function (journalId) {
+ JournalNotesSrv.prototype.getJournalNotes = function (journalId) {
   var self = this;
   var deferred = $q.defer();
   self.journalNotes = [];
@@ -35,7 +35,7 @@ var journalNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalNotesManager.prototype.getJournalNote = function (journalId, noteId) {
+ JournalNotesSrv.prototype.getJournalNote = function (journalId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.journalNotes = [];
@@ -48,7 +48,7 @@ var journalNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalNotesManager.prototype.createJournalNote = function (journalNoteData) {
+ JournalNotesSrv.prototype.createJournalNote = function (journalNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var journalNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalNotesManager.prototype.editJournalNote = function (journalNoteData) {
+ JournalNotesSrv.prototype.editJournalNote = function (journalNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var journalNotesManager = function ($http, $q) {
  };
 
 
- return JournalNotesManager;
+ return JournalNotesSrv;
 };
 
-journalNotesManager.$inject = ['$http', '$q'];
+journalNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalNotesManager', journalNotesManager);
+angular.module('app.journal').service('JournalNotesSrv', journalNotesSrv);

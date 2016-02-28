@@ -1,9 +1,9 @@
-var collaborationTodosManager = function ($http, $q) {
+var collaborationTodosSrv = function ($http, $q) {
 
- var CollaborationTodosManager = function () {
+ var CollaborationTodosSrv = function () {
   this.collaborationTodos = [];
  };
- CollaborationTodosManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationTodosManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationTodosManager.prototype.getCollaborationTodos = function (collaborationId) {
+ CollaborationTodosSrv.prototype.getCollaborationTodos = function (collaborationId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationTodos = [];
@@ -35,7 +35,7 @@ var collaborationTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodosManager.prototype.getCollaborationTodo = function (collaborationId, todoId) {
+ CollaborationTodosSrv.prototype.getCollaborationTodo = function (collaborationId, todoId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationTodos = [];
@@ -48,7 +48,7 @@ var collaborationTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodosManager.prototype.createCollaborationTodo = function (collaborationTodoData) {
+ CollaborationTodosSrv.prototype.createCollaborationTodo = function (collaborationTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var collaborationTodosManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationTodosManager.prototype.editCollaborationTodo = function (collaborationTodoData) {
+ CollaborationTodosSrv.prototype.editCollaborationTodo = function (collaborationTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var collaborationTodosManager = function ($http, $q) {
  };
 
 
- return CollaborationTodosManager;
+ return CollaborationTodosSrv;
 };
 
-collaborationTodosManager.$inject = ['$http', '$q'];
+collaborationTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationTodosManager', collaborationTodosManager);
+angular.module('app.collaboration').service('CollaborationTodosSrv', collaborationTodosSrv);

@@ -1,8 +1,8 @@
 
 var collaborationCtrl = function (
         _,
-        ConstantsManager,
-        CollaborationManager,
+        ConstantsSrv,
+        CollaborationSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var collaborationCtrl = function (
 
  vm.collaborationId = $stateParams.collaborationId;
 
- vm.collaborationManager = new CollaborationManager();
- vm.constantsManager = new ConstantsManager();
+ vm.collaborationSrv = new CollaborationSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.collaborationFormDisplay = false;
 
  vm.getCollaboration = function (id) {
-  vm.collaborationManager.getCollaboration(id).then(function (data) {
+  vm.collaborationSrv.getCollaboration(id).then(function (data) {
    vm.collaboration = data;
   });
  };
@@ -73,20 +73,20 @@ var collaborationCtrl = function (
  };
 
  vm.createCollaboration = function (data) {
-  vm.collaborationManager.createCollaboration(data).then(function (response) {
+  vm.collaborationSrv.createCollaboration(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCollaborationData = angular.copy(vm.defaultCollaborationData);
-   vm.collaborationCopy = angular.copy(vm.collaborationManager.collaboration);
+   vm.collaborationCopy = angular.copy(vm.collaborationSrv.collaboration);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCollaboration = function (data) {
-  vm.collaborationManager.editCollaboration(data).then(function (response) {
+  vm.collaborationSrv.editCollaboration(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCollaborationData = angular.copy(vm.defaultCollaborationData);
-   vm.collaborationCopy = angular.copy(vm.collaborationManager.collaboration);
+   vm.collaborationCopy = angular.copy(vm.collaborationSrv.collaboration);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var collaborationCtrl = function (
  //--------init------
 
  vm.getCollaboration(vm.collaborationId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.collaborationIcons = data;
   vm.getRandomCollaborationIcons();
  });
 };
 
 collaborationCtrl.$inject = ['_',
- 'ConstantsManager',
- 'CollaborationManager',
+ 'ConstantsSrv',
+ 'CollaborationSrv',
  '$scope',
  '$state',
  '$stateParams',

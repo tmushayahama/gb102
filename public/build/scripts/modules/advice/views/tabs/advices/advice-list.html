@@ -2,20 +2,20 @@
  <div ng-repeat="advice in advicesTabCtrl.advices" class="gb-box-1 row">
   <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <span class="fa-stack fa-lg">
-    <i class="fa fa-outer icon-gb-{{advice.explore.app_type.name.toLowerCase()}} fa-stack-2x"></i>
-    <i class="fa fa-inner {{advice.explore.icon.name}} fa-stack-1x"></i>
+    <i class="fa fa-outer icon-gb-{{advice.explorer.app_type.name.toLowerCase()}} fa-stack-2x"></i>
+    <i class="fa fa-inner {{advice.explorer.icon.name}} fa-stack-1x"></i>
    </span>
   </div>
   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="gb-heading row">
-    <p class="gb-title">{{advice.explore.app_type.name + ' - ' + advice.explore.level.name}}</p>
+    <p class="gb-title">{{advice.explorer.app_type.name + ' - ' + advice.explorer.level.name}}</p>
     <div class="gb-dropdown-action">
      <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa fa-chevron-down"></i>
      </a>
      <ul class="dropdown-menu dropdown-menu-right">
       <li>
-       <a href ui-sref="apps.advice.explore.overview({adviceId: advice.explore.id})">
+       <a href ui-sref="apps.advice.explorer.overview({adviceId: advice.explorer.id})">
         Open
        </a>
       </li>
@@ -24,21 +24,21 @@
    </div>
    <div class="gb-description row">
     <a href ui-sref="apps.advice.overview({adviceId: advice.id})" class="">
-     {{advice.explore.title}}
+     {{advice.explorer.title}}
     </a>
-    {{advice.explore.description}}
-    <a ui-sref="profile.overview({profileId: advice.explore.creator.id})">
+    {{advice.explorer.description}}
+    <a ui-sref="profile.overview({profileId: advice.explorer.creator.id})">
      {{advice.mentor.firstname + ' ' + advice.mentor.lastname}}
     </a>
-    <a ui-sref="profile.overview({profileId: advice.explore.creator.id})">
+    <a ui-sref="profile.overview({profileId: advice.explorer.creator.id})">
      {{advice.mentee.firstname + ' ' + advice.mentee.lastname}}
     </a>
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
      <h5 class="gb-ellipsis">
-      <a ui-sref="profile.overview({profileId: advice.explore.creator.id})">
-       {{advice.explore.creator.firstname + ' ' + advice.explore.creator.lastname}}
+      <a ui-sref="profile.overview({profileId: advice.explorer.creator.id})">
+       {{advice.explorer.creator.firstname + ' ' + advice.explorer.creator.lastname}}
       </a>
      </h5>
     </div>

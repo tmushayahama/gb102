@@ -1,8 +1,8 @@
 
 var usersCtrl = function (
         level_categories,
-        ConstantsManager,
-        CommunityManager,
+        ConstantsSrv,
+        CommunitySrv,
         $scope,
         $state,
         $stateParams,
@@ -22,17 +22,17 @@ var usersCtrl = function (
 
  $rootScope.appName = 'COMMUNITY';
 
- vm.communityManager = new CommunityManager();
- vm.constantsManager = new ConstantsManager();
+ vm.communitySrv = new CommunitySrv();
+ vm.constantsSrv = new ConstantsSrv();
 
- vm.communityManager.getUsers();
+ vm.communitySrv.getUsers();
 
 };
 
 usersCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'CommunityManager',
+ 'ConstantsSrv',
+ 'CommunitySrv',
  '$scope',
  '$state',
  '$stateParams',

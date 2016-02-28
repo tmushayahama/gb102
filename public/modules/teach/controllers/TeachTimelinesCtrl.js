@@ -1,5 +1,5 @@
 var teachProgressCtrl = function (
-        TeachProgressManager,
+        TeachProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var teachProgressCtrl = function (
  var vm = this;
  vm.teachId = $stateParams.teachId;
  vm.teachProgressCopy;
- vm.teachProgressManager = new TeachProgressManager();
+ vm.teachProgressSrv = new TeachProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultTeachProgressData = {
@@ -27,20 +27,20 @@ var teachProgressCtrl = function (
  };
 
  vm.createTeachProgress = function (data) {
-  vm.teachProgressManager.createTeachProgress(data).then(function (response) {
+  vm.teachProgressSrv.createTeachProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newTeachProgressData = angular.copy(vm.defaultTeachProgressData);
-   vm.teachProgressCopy = angular.copy(vm.teachProgressManager.teachProgress);
+   vm.teachProgressCopy = angular.copy(vm.teachProgressSrv.teachProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editTeachProgress = function (data) {
-  vm.teachProgressManager.editTeachProgress(data).then(function (response) {
+  vm.teachProgressSrv.editTeachProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newTeachProgressData = angular.copy(vm.defaultTeachProgressData);
-   vm.teachProgressCopy = angular.copy(vm.teachProgressManager.teachProgress);
+   vm.teachProgressCopy = angular.copy(vm.teachProgressSrv.teachProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var teachProgressCtrl = function (
   teachTimeline = teachTimelineCopy;
   /*
    $filter('filter')
-   (vm.teachTimelinesManager.teachTimelines, {id: teachTimelineId}, true)[0]
+   (vm.teachTimelinesSrv.teachTimelines, {id: teachTimelineId}, true)[0]
    = angular.copy($filter('filter')
    (vm.teachTimelinesCopy, {id: teachTimelineId}, true)[0]);
    if (teachTimeline.length && teachTimelineCopy.length) {
-   // vm.teachTimelinesManager.teachTimelines angular.copy(vm.teachTimelinesCopy);
+   // vm.teachTimelinesSrv.teachTimelines angular.copy(vm.teachTimelinesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var teachProgressCtrl = function (
   return vm.teachTimelines;
  }), function () {
   //vm.remainingCount = filterFilter(teachTimelines, {completed: false}).length;
-  vm.doneCount = vm.teachTimelinesManager.teachTimelines.length - vm.remainingCount;
+  vm.doneCount = vm.teachTimelinesSrv.teachTimelines.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //TeachTimelineService.put(vm.teachTimelines);
  }, true);
@@ -147,11 +147,11 @@ var teachProgressCtrl = function (
 
 
  //--------init------
- vm.teachTimelinesManager.getTeachTimelines(vm.teachId);
+ vm.teachTimelinesSrv.getTeachTimelines(vm.teachId);
 };
 
 teachTimelinesCtrl.$inject = [
- 'TeachTimelinesManager',
+ 'TeachTimelinesSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,9 +1,9 @@
-var goalManager = function ($http, $q) {
+var goalSrv = function ($http, $q) {
 
- var GoalManager = function () {
+ var GoalSrv = function () {
   this.goal = [];
  };
- GoalManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var goalManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalManager.prototype.getGoal = function (goalId) {
+ GoalSrv.prototype.getGoal = function (goalId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId).success(function (data) {
@@ -34,11 +34,11 @@ var goalManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalManager.prototype.getSubGoals = function (parentExploreId) {
+ GoalSrv.prototype.getSubGoals = function (parentexplorerId) {
   var self = this;
   var deferred = $q.defer();
   //self.goals = [];
-  $http.get('/api/goals/subgoals/' + parentExploreId).success(function (data) {
+  $http.get('/api/goals/subgoals/' + parentexplorerId).success(function (data) {
    //self.goals = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -47,7 +47,7 @@ var goalManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalManager.prototype.editGoal = function (goalData) {
+ GoalSrv.prototype.editGoal = function (goalData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -62,9 +62,9 @@ var goalManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalManager;
+ return GoalSrv;
 };
 
-goalManager.$inject = ['$http', '$q'];
+goalSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalManager', goalManager);
+angular.module('app.goal').service('GoalSrv', goalSrv);

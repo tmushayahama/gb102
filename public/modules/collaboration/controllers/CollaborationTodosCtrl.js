@@ -1,5 +1,5 @@
 var collaborationTodosCtrl = function (
-        CollaborationTodosManager,
+        CollaborationTodosSrv,
         $scope,
         $state,
         $stateParams,
@@ -11,7 +11,7 @@ var collaborationTodosCtrl = function (
 
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
- vm.collaborationTodosManager = new CollaborationTodosManager();
+ vm.collaborationTodosSrv = new CollaborationTodosSrv();
  vm.todoFormDisplay = false;
 
  vm.defaultCollaborationTodoData = {
@@ -25,7 +25,7 @@ var collaborationTodosCtrl = function (
  };
 
  vm.createCollaborationTodo = function (data) {
-  vm.collaborationTodosManager.createCollaborationTodo(data).then(function (response) {
+  vm.collaborationTodosSrv.createCollaborationTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newCollaborationTodoData = angular.copy(vm.defaultCollaborationTodoData);
   }, function (response) {
@@ -34,7 +34,7 @@ var collaborationTodosCtrl = function (
  };
 
  vm.editCollaborationTodo = function (data) {
-  vm.collaborationTodosManager.editCollaborationTodo(data).then(function (response) {
+  vm.collaborationTodosSrv.editCollaborationTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newCollaborationTodoData = angular.copy(vm.defaultCollaborationTodoData);
   }, function (response) {
@@ -72,7 +72,7 @@ var collaborationTodosCtrl = function (
   return vm.collaborationTodos;
  }), function () {
   //vm.remainingCount = filterFilter(collaborationTodos, {completed: false}).length;
-  vm.doneCount = vm.collaborationTodosManager.collaborationTodos.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationTodosSrv.collaborationTodos.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationTodoService.put(vm.collaborationTodos);
  }, true);
@@ -129,11 +129,11 @@ var collaborationTodosCtrl = function (
 
 
  //--------init------
- vm.collaborationTodosManager.getCollaborationTodos(vm.collaborationId);
+ vm.collaborationTodosSrv.getCollaborationTodos(vm.collaborationId);
 };
 
 collaborationTodosCtrl.$inject = [
- 'CollaborationTodosManager',
+ 'CollaborationTodosSrv',
  '$scope',
  '$state',
  '$stateParams',

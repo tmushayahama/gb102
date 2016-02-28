@@ -1,9 +1,9 @@
-var teachCommentsManager = function ($http, $q) {
+var teachCommentsSrv = function ($http, $q) {
 
- var TeachCommentsManager = function () {
+ var TeachCommentsSrv = function () {
   this.teachComments = [];
  };
- TeachCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachCommentsManager.prototype.getTeachComments = function (teachId) {
+ TeachCommentsSrv.prototype.getTeachComments = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   self.teachComments = [];
@@ -35,7 +35,7 @@ var teachCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachCommentsManager.prototype.getTeachComment = function (teachId, commentId) {
+ TeachCommentsSrv.prototype.getTeachComment = function (teachId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.teachComments = [];
@@ -48,7 +48,7 @@ var teachCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachCommentsManager.prototype.createTeachComment = function (teachCommentData) {
+ TeachCommentsSrv.prototype.createTeachComment = function (teachCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var teachCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachCommentsManager.prototype.editTeachComment = function (teachCommentData) {
+ TeachCommentsSrv.prototype.editTeachComment = function (teachCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var teachCommentsManager = function ($http, $q) {
  };
 
 
- return TeachCommentsManager;
+ return TeachCommentsSrv;
 };
 
-teachCommentsManager.$inject = ['$http', '$q'];
+teachCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachCommentsManager', teachCommentsManager);
+angular.module('app.teach').service('TeachCommentsSrv', teachCommentsSrv);

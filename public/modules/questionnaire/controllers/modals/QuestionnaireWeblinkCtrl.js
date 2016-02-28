@@ -1,5 +1,5 @@
 var questionnaireWeblinkCtrl = function (
-        QuestionnaireWeblinkManager,
+        QuestionnaireWeblinkSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var questionnaireWeblinkCtrl = function (
  var vm = this;
  vm.questionnaireId = questionnaireWeblinkData.questionnaire_id;
  vm.questionnaireWeblinkId = questionnaireWeblinkData.id;
- vm.questionnaireWeblinkManager = new QuestionnaireWeblinkManager();
+ vm.questionnaireWeblinkSrv = new QuestionnaireWeblinkSrv();
 
 
  vm.weblinkId = questionnaireWeblinkData.weblink_id;
@@ -33,14 +33,14 @@ var questionnaireWeblinkCtrl = function (
  // vm.newQuestionnaireWeblinkData = vm.defaultQuestionnaireWeblinkData;
 
  vm.getQuestionnaireWeblink = function (questionnaireId, weblinkId) {
-  vm.questionnaireWeblinkManager.getQuestionnaireWeblink(questionnaireId, weblinkId).then(function (response) {
+  vm.questionnaireWeblinkSrv.getQuestionnaireWeblink(questionnaireId, weblinkId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editQuestionnaireWeblink = function (data) {
-  vm.questionnaireWeblinkManager.editQuestionnaireWeblink(data).then(function (response) {
+  vm.questionnaireWeblinkSrv.editQuestionnaireWeblink(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var questionnaireWeblinkCtrl = function (
 
 
 questionnaireWeblinkCtrl.$inject = [
- 'QuestionnaireWeblinkManager',
+ 'QuestionnaireWeblinkSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -1,5 +1,5 @@
 var skillProgressCtrl = function (
-        SkillProgressManager,
+        SkillProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var skillProgressCtrl = function (
  var vm = this;
  vm.skillId = $stateParams.skillId;
  vm.skillProgressCopy;
- vm.skillProgressManager = new SkillProgressManager();
+ vm.skillProgressSrv = new SkillProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultSkillProgressData = {
@@ -27,20 +27,20 @@ var skillProgressCtrl = function (
  };
 
  vm.createSkillProgress = function (data) {
-  vm.skillProgressManager.createSkillProgress(data).then(function (response) {
+  vm.skillProgressSrv.createSkillProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData);
-   vm.skillProgressCopy = angular.copy(vm.skillProgressManager.skillProgress);
+   vm.skillProgressCopy = angular.copy(vm.skillProgressSrv.skillProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editSkillProgress = function (data) {
-  vm.skillProgressManager.editSkillProgress(data).then(function (response) {
+  vm.skillProgressSrv.editSkillProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newSkillProgressData = angular.copy(vm.defaultSkillProgressData);
-   vm.skillProgressCopy = angular.copy(vm.skillProgressManager.skillProgress);
+   vm.skillProgressCopy = angular.copy(vm.skillProgressSrv.skillProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var skillProgressCtrl = function (
   skillProgress = skillProgressCopy;
   /*
    $filter('filter')
-   (vm.skillProgressManager.skillProgress, {id: skillProgressId}, true)[0]
+   (vm.skillProgressSrv.skillProgress, {id: skillProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.skillProgressCopy, {id: skillProgressId}, true)[0]);
    if (skillProgress.length && skillProgressCopy.length) {
-   // vm.skillProgressManager.skillProgress angular.copy(vm.skillProgressCopy);
+   // vm.skillProgressSrv.skillProgress angular.copy(vm.skillProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var skillProgressCtrl = function (
   return vm.skillProgress;
  }), function () {
   //vm.remainingCount = filterFilter(skillProgress, {completed: false}).length;
-  vm.doneCount = vm.skillProgressManager.skillProgress.length - vm.remainingCount;
+  vm.doneCount = vm.skillProgressSrv.skillProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillProgressService.put(vm.skillProgress);
  }, true);
@@ -147,11 +147,11 @@ var skillProgressCtrl = function (
 
 
  //--------init------
- vm.skillProgressManager.getSkillProgress(vm.skillId);
+ vm.skillProgressSrv.getSkillProgress(vm.skillId);
 };
 
 skillProgressCtrl.$inject = [
- 'SkillProgressManager',
+ 'SkillProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

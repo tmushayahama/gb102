@@ -1,9 +1,9 @@
-var skillNoteManager = function ($http, $q) {
+var skillNoteSrv = function ($http, $q) {
 
- var SkillNoteManager = function () {
+ var SkillNoteSrv = function () {
   this.skillNotes = [];
  };
- SkillNoteManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var skillNoteManager = function ($http, $q) {
  };
 
 
- SkillNoteManager.prototype.getSkillNote = function (skillId, noteId) {
+ SkillNoteSrv.prototype.getSkillNote = function (skillId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var skillNoteManager = function ($http, $q) {
  };
 
 
- SkillNoteManager.prototype.editSkillNote = function (skillNoteData) {
+ SkillNoteSrv.prototype.editSkillNote = function (skillNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var skillNoteManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillNoteManager;
+ return SkillNoteSrv;
 };
 
-skillNoteManager.$inject = ['$http', '$q'];
+skillNoteSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillNoteManager', skillNoteManager);
+angular.module('app.skills').service('SkillNoteSrv', skillNoteSrv);

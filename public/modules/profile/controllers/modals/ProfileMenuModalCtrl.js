@@ -1,5 +1,5 @@
 var profileMenuModalCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         $uibModalInstance,
         $scope
         ) {
@@ -11,7 +11,7 @@ var profileMenuModalCtrl = function (
 };
 
 profileMenuModalCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  '$uibModalInstance',
  '$scope',
 ];

@@ -1,5 +1,5 @@
 var projectProgressCtrl = function (
-        ProjectProgressManager,
+        ProjectProgressSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var projectProgressCtrl = function (
  var vm = this;
  vm.projectId = projectProgressData.project_id;
  vm.projectProgressId = projectProgressData.id;
- vm.projectProgressManager = new ProjectProgressManager();
+ vm.projectProgressSrv = new ProjectProgressSrv();
 
 
  vm.progressId = projectProgressData.progress_id;
@@ -33,14 +33,14 @@ var projectProgressCtrl = function (
  // vm.newProjectProgressData = vm.defaultProjectProgressData;
 
  vm.getProjectProgress = function (projectId, progressId) {
-  vm.projectProgressManager.getProjectProgress(projectId, progressId).then(function (response) {
+  vm.projectProgressSrv.getProjectProgress(projectId, progressId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectProgress = function (data) {
-  vm.projectProgressManager.editProjectProgress(data).then(function (response) {
+  vm.projectProgressSrv.editProjectProgress(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var projectProgressCtrl = function (
 
 
 projectProgressCtrl.$inject = [
- 'ProjectProgressManager',
+ 'ProjectProgressSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

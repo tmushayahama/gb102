@@ -1,8 +1,8 @@
 
 var projectCtrl = function (
         _,
-        ConstantsManager,
-        ProjectManager,
+        ConstantsSrv,
+        ProjectSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var projectCtrl = function (
 
  vm.projectId = $stateParams.projectId;
 
- vm.projectManager = new ProjectManager();
- vm.constantsManager = new ConstantsManager();
+ vm.projectSrv = new ProjectSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.projectFormDisplay = false;
 
  vm.getProject = function (id) {
-  vm.projectManager.getProject(id).then(function (data) {
+  vm.projectSrv.getProject(id).then(function (data) {
    vm.project = data;
   });
  };
@@ -73,20 +73,20 @@ var projectCtrl = function (
  };
 
  vm.createProject = function (data) {
-  vm.projectManager.createProject(data).then(function (response) {
+  vm.projectSrv.createProject(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProjectData = angular.copy(vm.defaultProjectData);
-   vm.projectCopy = angular.copy(vm.projectManager.project);
+   vm.projectCopy = angular.copy(vm.projectSrv.project);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProject = function (data) {
-  vm.projectManager.editProject(data).then(function (response) {
+  vm.projectSrv.editProject(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newProjectData = angular.copy(vm.defaultProjectData);
-   vm.projectCopy = angular.copy(vm.projectManager.project);
+   vm.projectCopy = angular.copy(vm.projectSrv.project);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var projectCtrl = function (
  //--------init------
 
  vm.getProject(vm.projectId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.projectIcons = data;
   vm.getRandomProjectIcons();
  });
 };
 
 projectCtrl.$inject = ['_',
- 'ConstantsManager',
- 'ProjectManager',
+ 'ConstantsSrv',
+ 'ProjectSrv',
  '$scope',
  '$state',
  '$stateParams',

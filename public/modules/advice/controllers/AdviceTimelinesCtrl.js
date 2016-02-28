@@ -1,5 +1,5 @@
 var adviceProgressCtrl = function (
-        AdviceProgressManager,
+        AdviceProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var adviceProgressCtrl = function (
  var vm = this;
  vm.adviceId = $stateParams.adviceId;
  vm.adviceProgressCopy;
- vm.adviceProgressManager = new AdviceProgressManager();
+ vm.adviceProgressSrv = new AdviceProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultAdviceProgressData = {
@@ -27,20 +27,20 @@ var adviceProgressCtrl = function (
  };
 
  vm.createAdviceProgress = function (data) {
-  vm.adviceProgressManager.createAdviceProgress(data).then(function (response) {
+  vm.adviceProgressSrv.createAdviceProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData);
-   vm.adviceProgressCopy = angular.copy(vm.adviceProgressManager.adviceProgress);
+   vm.adviceProgressCopy = angular.copy(vm.adviceProgressSrv.adviceProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editAdviceProgress = function (data) {
-  vm.adviceProgressManager.editAdviceProgress(data).then(function (response) {
+  vm.adviceProgressSrv.editAdviceProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newAdviceProgressData = angular.copy(vm.defaultAdviceProgressData);
-   vm.adviceProgressCopy = angular.copy(vm.adviceProgressManager.adviceProgress);
+   vm.adviceProgressCopy = angular.copy(vm.adviceProgressSrv.adviceProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var adviceProgressCtrl = function (
   adviceProgress = adviceProgressCopy;
   /*
    $filter('filter')
-   (vm.adviceProgressManager.adviceProgress, {id: adviceProgressId}, true)[0]
+   (vm.adviceProgressSrv.adviceProgress, {id: adviceProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.adviceProgressCopy, {id: adviceProgressId}, true)[0]);
    if (adviceProgress.length && adviceProgressCopy.length) {
-   // vm.adviceProgressManager.adviceProgress angular.copy(vm.adviceProgressCopy);
+   // vm.adviceProgressSrv.adviceProgress angular.copy(vm.adviceProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var adviceProgressCtrl = function (
   return vm.adviceProgress;
  }), function () {
   //vm.remainingCount = filterFilter(adviceProgress, {completed: false}).length;
-  vm.doneCount = vm.adviceProgressManager.adviceProgress.length - vm.remainingCount;
+  vm.doneCount = vm.adviceProgressSrv.adviceProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //AdviceProgressService.put(vm.adviceProgress);
  }, true);
@@ -147,11 +147,11 @@ var adviceProgressCtrl = function (
 
 
  //--------init------
- vm.adviceProgressManager.getAdviceProgress(vm.adviceId);
+ vm.adviceProgressSrv.getAdviceProgress(vm.adviceId);
 };
 
 adviceProgressCtrl.$inject = [
- 'AdviceProgressManager',
+ 'AdviceProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

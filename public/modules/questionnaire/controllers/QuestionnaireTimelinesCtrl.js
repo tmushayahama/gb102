@@ -1,5 +1,5 @@
 var questionnaireProgressCtrl = function (
-        QuestionnaireProgressManager,
+        QuestionnaireProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var questionnaireProgressCtrl = function (
  var vm = this;
  vm.questionnaireId = $stateParams.questionnaireId;
  vm.questionnaireProgressCopy;
- vm.questionnaireProgressManager = new QuestionnaireProgressManager();
+ vm.questionnaireProgressSrv = new QuestionnaireProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultQuestionnaireProgressData = {
@@ -27,20 +27,20 @@ var questionnaireProgressCtrl = function (
  };
 
  vm.createQuestionnaireProgress = function (data) {
-  vm.questionnaireProgressManager.createQuestionnaireProgress(data).then(function (response) {
+  vm.questionnaireProgressSrv.createQuestionnaireProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData);
-   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressManager.questionnaireProgress);
+   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressSrv.questionnaireProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editQuestionnaireProgress = function (data) {
-  vm.questionnaireProgressManager.editQuestionnaireProgress(data).then(function (response) {
+  vm.questionnaireProgressSrv.editQuestionnaireProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newQuestionnaireProgressData = angular.copy(vm.defaultQuestionnaireProgressData);
-   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressManager.questionnaireProgress);
+   vm.questionnaireProgressCopy = angular.copy(vm.questionnaireProgressSrv.questionnaireProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var questionnaireProgressCtrl = function (
   questionnaireProgress = questionnaireProgressCopy;
   /*
    $filter('filter')
-   (vm.questionnaireProgressManager.questionnaireProgress, {id: questionnaireProgressId}, true)[0]
+   (vm.questionnaireProgressSrv.questionnaireProgress, {id: questionnaireProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.questionnaireProgressCopy, {id: questionnaireProgressId}, true)[0]);
    if (questionnaireProgress.length && questionnaireProgressCopy.length) {
-   // vm.questionnaireProgressManager.questionnaireProgress angular.copy(vm.questionnaireProgressCopy);
+   // vm.questionnaireProgressSrv.questionnaireProgress angular.copy(vm.questionnaireProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var questionnaireProgressCtrl = function (
   return vm.questionnaireProgress;
  }), function () {
   //vm.remainingCount = filterFilter(questionnaireProgress, {completed: false}).length;
-  vm.doneCount = vm.questionnaireProgressManager.questionnaireProgress.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireProgressSrv.questionnaireProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionnaireProgressService.put(vm.questionnaireProgress);
  }, true);
@@ -147,11 +147,11 @@ var questionnaireProgressCtrl = function (
 
 
  //--------init------
- vm.questionnaireProgressManager.getQuestionnaireProgress(vm.questionnaireId);
+ vm.questionnaireProgressSrv.getQuestionnaireProgress(vm.questionnaireId);
 };
 
 questionnaireProgressCtrl.$inject = [
- 'QuestionnaireProgressManager',
+ 'QuestionnaireProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

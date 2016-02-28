@@ -1,9 +1,9 @@
-var teachTimelinesManager = function ($http, $q) {
+var teachTimelinesSrv = function ($http, $q) {
 
- var TeachTimelinesManager = function () {
+ var TeachTimelinesSrv = function () {
   this.teachTimelines = [];
  };
- TeachTimelinesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachTimelinesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachTimelinesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachTimelinesManager.prototype.getTeachTimelines = function (teachId) {
+ TeachTimelinesSrv.prototype.getTeachTimelines = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTimelines = [];
@@ -35,7 +35,7 @@ var teachTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTimelinesManager.prototype.getTeachTimeline = function (teachId, progressId) {
+ TeachTimelinesSrv.prototype.getTeachTimeline = function (teachId, progressId) {
   var self = this;
   var deferred = $q.defer();
   self.teachTimelines = [];
@@ -48,7 +48,7 @@ var teachTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTimelinesManager.prototype.createTeachTimeline = function (teachTimelineData) {
+ TeachTimelinesSrv.prototype.createTeachTimeline = function (teachTimelineData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var teachTimelinesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachTimelinesManager.prototype.editTeachTimeline = function (teachTimelineData) {
+ TeachTimelinesSrv.prototype.editTeachTimeline = function (teachTimelineData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var teachTimelinesManager = function ($http, $q) {
  };
 
 
- return TeachTimelinesManager;
+ return TeachTimelinesSrv;
 };
 
-teachTimelinesManager.$inject = ['$http', '$q'];
+teachTimelinesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachTimelinesManager', teachTimelinesManager);
+angular.module('app.teach').service('TeachTimelinesSrv', teachTimelinesSrv);

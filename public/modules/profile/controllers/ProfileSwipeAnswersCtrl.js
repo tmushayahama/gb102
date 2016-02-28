@@ -1,7 +1,7 @@
 var profileSwipeAnswersCtrl = function (
         level_categories,
-        ConstantsManager,
-        SwipeManager,
+        ConstantsSrv,
+        SwipeSrv,
         $scope,
         $state,
         $stateParams,
@@ -15,16 +15,16 @@ var profileSwipeAnswersCtrl = function (
  var vm = this;
  vm.profileId = $stateParams.profileId;
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
  vm.profileSwipeLevels;
 
  vm.getSwipes = function () {
-  vm.swipeManager.getSwipes(vm.profileId);
+  vm.swipeSrv.getSwipes(vm.profileId);
  };
 
- vm.swipeManager = new SwipeManager();
+ vm.swipeSrv = new SwipeSrv();
  vm.getSwipes();
- vm.constantsManager.getLevel(level_categories.profile_swipe).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.profile_swipe).then(function (data) {
   vm.profileSwipeLevels = data;
  });
 
@@ -33,8 +33,8 @@ var profileSwipeAnswersCtrl = function (
 
 profileSwipeAnswersCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SwipeManager',
+ 'ConstantsSrv',
+ 'SwipeSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,5 +1,5 @@
 var goalNotesCtrl = function (
-        GoalNotesManager,
+        GoalNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var goalNotesCtrl = function (
  var vm = this;
  vm.goalId = $stateParams.goalId;
  vm.goalNotesCopy;
- vm.goalNotesManager = new GoalNotesManager();
+ vm.goalNotesSrv = new GoalNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultGoalNoteData = {
@@ -27,20 +27,20 @@ var goalNotesCtrl = function (
  };
 
  vm.createGoalNote = function (data) {
-  vm.goalNotesManager.createGoalNote(data).then(function (response) {
+  vm.goalNotesSrv.createGoalNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newGoalNoteData = angular.copy(vm.defaultGoalNoteData);
-   vm.goalNotesCopy = angular.copy(vm.goalNotesManager.goalNotes);
+   vm.goalNotesCopy = angular.copy(vm.goalNotesSrv.goalNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editGoalNote = function (data) {
-  vm.goalNotesManager.editGoalNote(data).then(function (response) {
+  vm.goalNotesSrv.editGoalNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newGoalNoteData = angular.copy(vm.defaultGoalNoteData);
-   vm.goalNotesCopy = angular.copy(vm.goalNotesManager.goalNotes);
+   vm.goalNotesCopy = angular.copy(vm.goalNotesSrv.goalNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var goalNotesCtrl = function (
   goalNote = goalNoteCopy;
   /*
    $filter('filter')
-   (vm.goalNotesManager.goalNotes, {id: goalNoteId}, true)[0]
+   (vm.goalNotesSrv.goalNotes, {id: goalNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.goalNotesCopy, {id: goalNoteId}, true)[0]);
    if (goalNote.length && goalNoteCopy.length) {
-   // vm.goalNotesManager.goalNotes angular.copy(vm.goalNotesCopy);
+   // vm.goalNotesSrv.goalNotes angular.copy(vm.goalNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var goalNotesCtrl = function (
   return vm.goalNotes;
  }), function () {
   //vm.remainingCount = filterFilter(goalNotes, {completed: false}).length;
-  vm.doneCount = vm.goalNotesManager.goalNotes.length - vm.remainingCount;
+  vm.doneCount = vm.goalNotesSrv.goalNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //GoalNoteService.put(vm.goalNotes);
  }, true);
@@ -147,12 +147,12 @@ var goalNotesCtrl = function (
 
 
  //--------init------
- vm.goalNotesManager.getGoalNotes(vm.goalId);
+ vm.goalNotesSrv.getGoalNotes(vm.goalId);
 };
 
 
 goalNotesCtrl.$inject = [
- 'GoalNotesManager',
+ 'GoalNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

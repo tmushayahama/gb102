@@ -1,7 +1,7 @@
 var goalsAllCtrl = function (
-        ConstantsManager,
-        GoalsManager,
-        SearchManager,
+        ConstantsSrv,
+        GoalsSrv,
+        SearchSrv,
         isSearch,
         $scope,
         $state,
@@ -16,18 +16,18 @@ var goalsAllCtrl = function (
  var vm = this;
  vm.goals = [];
 
- vm.goalsManager = new GoalsManager();
+ vm.goalsSrv = new GoalsSrv();
 
  if (isSearch) {
-  vm.searchManager = new SearchManager();
+  vm.searchSrv = new SearchSrv();
   var searchData = {
    query: $rootScope.searchKeyword
   };
-  vm.searchManager.simpleSearch(searchData).then(function (data) {
+  vm.searchSrv.simpleSearch(searchData).then(function (data) {
    vm.goals = data;
   });
  } else {
-  vm.goalsManager.getAllGoals().then(function (data) {
+  vm.goalsSrv.getAllGoals().then(function (data) {
    vm.goals = data;
   });
  }
@@ -36,9 +36,9 @@ var goalsAllCtrl = function (
 };
 
 goalsAllCtrl.$inject = [
- 'ConstantsManager',
- 'GoalsManager',
- 'SearchManager',
+ 'ConstantsSrv',
+ 'GoalsSrv',
+ 'SearchSrv',
  'isSearch',
  '$scope',
  '$state',

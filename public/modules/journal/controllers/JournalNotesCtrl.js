@@ -1,5 +1,5 @@
 var journalNotesCtrl = function (
-        JournalNotesManager,
+        JournalNotesSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var journalNotesCtrl = function (
  var vm = this;
  vm.journalId = $stateParams.journalId;
  vm.journalNotesCopy;
- vm.journalNotesManager = new JournalNotesManager();
+ vm.journalNotesSrv = new JournalNotesSrv();
  vm.noteFormDisplay = false;
 
  vm.defaultJournalNoteData = {
@@ -27,20 +27,20 @@ var journalNotesCtrl = function (
  };
 
  vm.createJournalNote = function (data) {
-  vm.journalNotesManager.createJournalNote(data).then(function (response) {
+  vm.journalNotesSrv.createJournalNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newJournalNoteData = angular.copy(vm.defaultJournalNoteData);
-   vm.journalNotesCopy = angular.copy(vm.journalNotesManager.journalNotes);
+   vm.journalNotesCopy = angular.copy(vm.journalNotesSrv.journalNotes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editJournalNote = function (data) {
-  vm.journalNotesManager.editJournalNote(data).then(function (response) {
+  vm.journalNotesSrv.editJournalNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newJournalNoteData = angular.copy(vm.defaultJournalNoteData);
-   vm.journalNotesCopy = angular.copy(vm.journalNotesManager.journalNotes);
+   vm.journalNotesCopy = angular.copy(vm.journalNotesSrv.journalNotes);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var journalNotesCtrl = function (
   journalNote = journalNoteCopy;
   /*
    $filter('filter')
-   (vm.journalNotesManager.journalNotes, {id: journalNoteId}, true)[0]
+   (vm.journalNotesSrv.journalNotes, {id: journalNoteId}, true)[0]
    = angular.copy($filter('filter')
    (vm.journalNotesCopy, {id: journalNoteId}, true)[0]);
    if (journalNote.length && journalNoteCopy.length) {
-   // vm.journalNotesManager.journalNotes angular.copy(vm.journalNotesCopy);
+   // vm.journalNotesSrv.journalNotes angular.copy(vm.journalNotesCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var journalNotesCtrl = function (
   return vm.journalNotes;
  }), function () {
   //vm.remainingCount = filterFilter(journalNotes, {completed: false}).length;
-  vm.doneCount = vm.journalNotesManager.journalNotes.length - vm.remainingCount;
+  vm.doneCount = vm.journalNotesSrv.journalNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalNoteService.put(vm.journalNotes);
  }, true);
@@ -147,12 +147,12 @@ var journalNotesCtrl = function (
 
 
  //--------init------
- vm.journalNotesManager.getJournalNotes(vm.journalId);
+ vm.journalNotesSrv.getJournalNotes(vm.journalId);
 };
 
 
 journalNotesCtrl.$inject = [
- 'JournalNotesManager',
+ 'JournalNotesSrv',
  '$scope',
  '$state',
  '$stateParams',

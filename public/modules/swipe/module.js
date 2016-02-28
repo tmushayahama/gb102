@@ -20,10 +20,9 @@ define(['angular'
                  name: 'app.swipe',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/swipe/services/SwipesManager.js',
-                  'public/modules/swipe/controllers/SwipesCtrl.js',
-                  'public/modules/swipe/controllers/modals/AddSwipeCtrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/swipe/services/swipes.srv.js',
+                  'public/modules/swipe/controllers/swipes.ctrl.js',
                  ]
                 });
                }]
@@ -43,8 +42,8 @@ define(['angular'
                  name: 'app.swipe',
                  serie: true,
                  files: [
-                  'public/modules/swipe/services/SwipeManager.js',
-                  'public/modules/swipe/controllers/SwipeHistoryCtrl.js',
+                  'public/modules/swipe/services/swipe.srv.js',
+                  'public/modules/swipe/controllers/swipe-history.ctrl.js',
                  ]
                 });
                }]
@@ -63,8 +62,8 @@ define(['angular'
                  name: 'app.swipe',
                  serie: true,
                  files: [
-                  'public/modules/swipe/controllers/SwipeCtrl.js',
-                  'public/modules/swipe/services/SwipeManager.js',
+                  'public/modules/swipe/controllers/Swipe.ctrl.js',
+                  'public/modules/swipe/services/Swipe.srv.js',
                  ]
                 });
                }]
@@ -86,9 +85,9 @@ define(['angular'
    name: 'app.swipe',
    serie: true,
    files: [
-   'public/modules/app/services/ConstantsManager.js',
-   'public/modules/swipe/services/SwipeManager.js',
-   'public/modules/swipe/controllers/SwipeCtrl.js',
+   'public/modules/app/services/Constants.srv.js',
+   'public/modules/swipe/services/Swipe.srv.js',
+   'public/modules/swipe/controllers/Swipe.ctrl.js',
    'public/modules/swipe/filters/randomize.js',
    ]
    });
@@ -108,12 +107,12 @@ define(['angular'
    name: 'app.swipe',
    serie: true,
    files: [
-   'public/modules/swipe/controllers/SwipeOverviewCtrl.js',
+   'public/modules/swipe/controllers/SwipeOverview.ctrl.js',
    //Progress
-   'public/modules/swipe/services/SwipeProgressManager.js',
-   'public/modules/swipe/services/SwipeProgressManager.js',
-   'public/modules/swipe/controllers/SwipeProgressCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeProgressCtrl.js',
+   'public/modules/swipe/services/SwipeProgress.srv.js',
+   'public/modules/swipe/services/SwipeProgress.srv.js',
+   'public/modules/swipe/controllers/SwipeProgress.ctrl.js',
+   'public/modules/swipe/controllers/modals/SwipeProgress.ctrl.js',
    ]
    });
    }]
@@ -135,21 +134,21 @@ define(['angular'
    //Todos
    'public/modules/swipe/directives/todoEscape.js',
    'public/modules/swipe/directives/todoFocus.js',
-   'public/modules/swipe/services/SwipeTodoManager.js',
-   'public/modules/swipe/services/SwipeTodosManager.js',
-   'public/modules/swipe/services/SwipeTodoChecklistManager.js',
-   'public/modules/swipe/controllers/SwipeTodosCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeTodoCtrl.js',
+   'public/modules/swipe/services/SwipeTodo.srv.js',
+   'public/modules/swipe/services/SwipeTodos.srv.js',
+   'public/modules/swipe/services/SwipeTodoChecklist.srv.js',
+   'public/modules/swipe/controllers/SwipeTodos.ctrl.js',
+   'public/modules/swipe/controllers/modals/SwipeTodo.ctrl.js',
    //Notes,
-   'public/modules/swipe/services/SwipeNoteManager.js',
-   'public/modules/swipe/services/SwipeNotesManager.js',
-   'public/modules/swipe/controllers/SwipeNotesCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeNoteCtrl.js',
+   'public/modules/swipe/services/SwipeNote.srv.js',
+   'public/modules/swipe/services/SwipeNotes.srv.js',
+   'public/modules/swipe/controllers/SwipeNotes.ctrl.js',
+   'public/modules/swipe/controllers/modals/SwipeNote.ctrl.js',
    //Weblink
-   'public/modules/swipe/services/SwipeWeblinkManager.js',
-   'public/modules/swipe/services/SwipeWeblinksManager.js',
-   'public/modules/swipe/controllers/SwipeWeblinksCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeWeblinkCtrl.js',
+   'public/modules/swipe/services/SwipeWeblink.srv.js',
+   'public/modules/swipe/services/SwipeWeblinks.srv.js',
+   'public/modules/swipe/controllers/SwipeWeblinks.ctrl.js',
+   'public/modules/swipe/controllers/modals/SwipeWeblink.ctrl.js',
    ]
    });
    }]
@@ -168,10 +167,10 @@ define(['angular'
    name: 'app.swipe',
    serie: true,
    files: [
-   'public/modules/swipe/services/SwipeCommentManager.js',
-   'public/modules/swipe/services/SwipeCommentsManager.js',
-   'public/modules/swipe/controllers/SwipeCommentsCtrl.js',
-   'public/modules/swipe/controllers/modals/SwipeCommentCtrl.js',
+   'public/modules/swipe/services/SwipeComment.srv.js',
+   'public/modules/swipe/services/SwipeComments.srv.js',
+   'public/modules/swipe/controllers/SwipeComments.ctrl.js',
+   'public/modules/swipe/controllers/modals/SwipeComment.ctrl.js',
    ]
    });
    }]

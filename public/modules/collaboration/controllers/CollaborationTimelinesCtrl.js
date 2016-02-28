@@ -1,5 +1,5 @@
 var collaborationProgressCtrl = function (
-        CollaborationProgressManager,
+        CollaborationProgressSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var collaborationProgressCtrl = function (
  var vm = this;
  vm.collaborationId = $stateParams.collaborationId;
  vm.collaborationProgressCopy;
- vm.collaborationProgressManager = new CollaborationProgressManager();
+ vm.collaborationProgressSrv = new CollaborationProgressSrv();
  vm.progressFormDisplay = false;
 
  vm.defaultCollaborationProgressData = {
@@ -27,20 +27,20 @@ var collaborationProgressCtrl = function (
  };
 
  vm.createCollaborationProgress = function (data) {
-  vm.collaborationProgressManager.createCollaborationProgress(data).then(function (response) {
+  vm.collaborationProgressSrv.createCollaborationProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData);
-   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressManager.collaborationProgress);
+   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressSrv.collaborationProgress);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCollaborationProgress = function (data) {
-  vm.collaborationProgressManager.editCollaborationProgress(data).then(function (response) {
+  vm.collaborationProgressSrv.editCollaborationProgress(data).then(function (response) {
    vm.progressFormDisplay = false;
    vm.newCollaborationProgressData = angular.copy(vm.defaultCollaborationProgressData);
-   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressManager.collaborationProgress);
+   vm.collaborationProgressCopy = angular.copy(vm.collaborationProgressSrv.collaborationProgress);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var collaborationProgressCtrl = function (
   collaborationProgress = collaborationProgressCopy;
   /*
    $filter('filter')
-   (vm.collaborationProgressManager.collaborationProgress, {id: collaborationProgressId}, true)[0]
+   (vm.collaborationProgressSrv.collaborationProgress, {id: collaborationProgressId}, true)[0]
    = angular.copy($filter('filter')
    (vm.collaborationProgressCopy, {id: collaborationProgressId}, true)[0]);
    if (collaborationProgress.length && collaborationProgressCopy.length) {
-   // vm.collaborationProgressManager.collaborationProgress angular.copy(vm.collaborationProgressCopy);
+   // vm.collaborationProgressSrv.collaborationProgress angular.copy(vm.collaborationProgressCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var collaborationProgressCtrl = function (
   return vm.collaborationProgress;
  }), function () {
   //vm.remainingCount = filterFilter(collaborationProgress, {completed: false}).length;
-  vm.doneCount = vm.collaborationProgressManager.collaborationProgress.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationProgressSrv.collaborationProgress.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationProgressService.put(vm.collaborationProgress);
  }, true);
@@ -147,11 +147,11 @@ var collaborationProgressCtrl = function (
 
 
  //--------init------
- vm.collaborationProgressManager.getCollaborationProgress(vm.collaborationId);
+ vm.collaborationProgressSrv.getCollaborationProgress(vm.collaborationId);
 };
 
 collaborationProgressCtrl.$inject = [
- 'CollaborationProgressManager',
+ 'CollaborationProgressSrv',
  '$scope',
  '$state',
  '$stateParams',

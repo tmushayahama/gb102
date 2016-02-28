@@ -1,5 +1,5 @@
 var profileWeblinksCtrl = function (
-        ProfileWeblinksManager,
+        ProfileWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var profileWeblinksCtrl = function (
  var vm = this;
  vm.profileId = $stateParams.profileId;
  vm.profileWeblinksCopy;
- vm.profileWeblinksManager = new ProfileWeblinksManager();
+ vm.profileWeblinksSrv = new ProfileWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultProfileWeblinkData = {
@@ -27,20 +27,20 @@ var profileWeblinksCtrl = function (
  };
 
  vm.createProfileWeblink = function (data) {
-  vm.profileWeblinksManager.createProfileWeblink(data).then(function (response) {
+  vm.profileWeblinksSrv.createProfileWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newProfileWeblinkData = angular.copy(vm.defaultProfileWeblinkData);
-   vm.profileWeblinksCopy = angular.copy(vm.profileWeblinksManager.profileWeblinks);
+   vm.profileWeblinksCopy = angular.copy(vm.profileWeblinksSrv.profileWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editProfileWeblink = function (data) {
-  vm.profileWeblinksManager.editProfileWeblink(data).then(function (response) {
+  vm.profileWeblinksSrv.editProfileWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newProfileWeblinkData = angular.copy(vm.defaultProfileWeblinkData);
-   vm.profileWeblinksCopy = angular.copy(vm.profileWeblinksManager.profileWeblinks);
+   vm.profileWeblinksCopy = angular.copy(vm.profileWeblinksSrv.profileWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var profileWeblinksCtrl = function (
   profileWeblink = profileWeblinkCopy;
   /*
    $filter('filter')
-   (vm.profileWeblinksManager.profileWeblinks, {id: profileWeblinkId}, true)[0]
+   (vm.profileWeblinksSrv.profileWeblinks, {id: profileWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.profileWeblinksCopy, {id: profileWeblinkId}, true)[0]);
    if (profileWeblink.length && profileWeblinkCopy.length) {
-   // vm.profileWeblinksManager.profileWeblinks angular.copy(vm.profileWeblinksCopy);
+   // vm.profileWeblinksSrv.profileWeblinks angular.copy(vm.profileWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var profileWeblinksCtrl = function (
   return vm.profileWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(profileWeblinks, {completed: false}).length;
-  vm.doneCount = vm.profileWeblinksManager.profileWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.profileWeblinksSrv.profileWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ProfileWeblinkService.put(vm.profileWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var profileWeblinksCtrl = function (
 
 
  //--------init------
- vm.profileWeblinksManager.getProfileWeblinks(vm.profileId);
+ vm.profileWeblinksSrv.getProfileWeblinks(vm.profileId);
 };
 
 profileWeblinksCtrl.$inject = [
- 'ProfileWeblinksManager',
+ 'ProfileWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

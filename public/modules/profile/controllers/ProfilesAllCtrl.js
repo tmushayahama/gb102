@@ -1,6 +1,6 @@
 var profileAllCtrl = function (
-        ConstantsManager,
-        ProfileManager,
+        ConstantsSrv,
+        ProfileSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,13 +13,13 @@ var profileAllCtrl = function (
 
  var vm = this;
 
- vm.profileManager = new ProfileManager();
- vm.profileManager.getAllProfile();
+ vm.profileSrv = new ProfileSrv();
+ vm.profileSrv.getAllProfile();
 };
 
 profileAllCtrl.$inject = [
- 'ConstantsManager',
- 'ProfileManager',
+ 'ConstantsSrv',
+ 'ProfileSrv',
  '$scope',
  '$state',
  '$stateParams',

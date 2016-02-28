@@ -1,9 +1,9 @@
-var projectCommentManager = function ($http, $q) {
+var projectCommentSrv = function ($http, $q) {
 
- var ProjectCommentManager = function () {
+ var ProjectCommentSrv = function () {
   this.projectComments = [];
  };
- ProjectCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var projectCommentManager = function ($http, $q) {
  };
 
 
- ProjectCommentManager.prototype.getProjectComment = function (projectId, commentId) {
+ ProjectCommentSrv.prototype.getProjectComment = function (projectId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/project/' + projectId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var projectCommentManager = function ($http, $q) {
  };
 
 
- ProjectCommentManager.prototype.editProjectComment = function (projectCommentData) {
+ ProjectCommentSrv.prototype.editProjectComment = function (projectCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var projectCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProjectCommentManager;
+ return ProjectCommentSrv;
 };
 
-projectCommentManager.$inject = ['$http', '$q'];
+projectCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectCommentManager', projectCommentManager);
+angular.module('app.project').service('ProjectCommentSrv', projectCommentSrv);

@@ -1,9 +1,9 @@
-var skillWeblinkManager = function ($http, $q) {
+var skillWeblinkSrv = function ($http, $q) {
 
- var SkillWeblinkManager = function () {
+ var SkillWeblinkSrv = function () {
   this.skillWeblinks = [];
  };
- SkillWeblinkManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillWeblinkSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var skillWeblinkManager = function ($http, $q) {
  };
 
 
- SkillWeblinkManager.prototype.getSkillWeblink = function (skillId, weblinkId) {
+ SkillWeblinkSrv.prototype.getSkillWeblink = function (skillId, weblinkId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/weblink/' + weblinkId).success(function (data) {
@@ -36,7 +36,7 @@ var skillWeblinkManager = function ($http, $q) {
  };
 
 
- SkillWeblinkManager.prototype.editSkillWeblink = function (skillWeblinkData) {
+ SkillWeblinkSrv.prototype.editSkillWeblink = function (skillWeblinkData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var skillWeblinkManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillWeblinkManager;
+ return SkillWeblinkSrv;
 };
 
-skillWeblinkManager.$inject = ['$http', '$q'];
+skillWeblinkSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillWeblinkManager', skillWeblinkManager);
+angular.module('app.skills').service('SkillWeblinkSrv', skillWeblinkSrv);

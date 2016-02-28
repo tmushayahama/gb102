@@ -1,8 +1,8 @@
 
 var journalCtrl = function (
         _,
-        ConstantsManager,
-        JournalManager,
+        ConstantsSrv,
+        JournalSrv,
         $scope,
         $state,
         $stateParams,
@@ -48,13 +48,13 @@ var journalCtrl = function (
 
  vm.journalId = $stateParams.journalId;
 
- vm.journalManager = new JournalManager();
- vm.constantsManager = new ConstantsManager();
+ vm.journalSrv = new JournalSrv();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.journalFormDisplay = false;
 
  vm.getJournal = function (id) {
-  vm.journalManager.getJournal(id).then(function (data) {
+  vm.journalSrv.getJournal(id).then(function (data) {
    vm.journal = data;
   });
  };
@@ -73,20 +73,20 @@ var journalCtrl = function (
  };
 
  vm.createJournal = function (data) {
-  vm.journalManager.createJournal(data).then(function (response) {
+  vm.journalSrv.createJournal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newJournalData = angular.copy(vm.defaultJournalData);
-   vm.journalCopy = angular.copy(vm.journalManager.journal);
+   vm.journalCopy = angular.copy(vm.journalSrv.journal);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editJournal = function (data) {
-  vm.journalManager.editJournal(data).then(function (response) {
+  vm.journalSrv.editJournal(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newJournalData = angular.copy(vm.defaultJournalData);
-   vm.journalCopy = angular.copy(vm.journalManager.journal);
+   vm.journalCopy = angular.copy(vm.journalSrv.journal);
   }, function (response) {
    console.log(response);
   });
@@ -97,15 +97,15 @@ var journalCtrl = function (
  //--------init------
 
  vm.getJournal(vm.journalId);
- vm.constantsManager.getIcons(1).then(function (data) {
+ vm.constantsSrv.getIcons(1).then(function (data) {
   vm.journalIcons = data;
   vm.getRandomJournalIcons();
  });
 };
 
 journalCtrl.$inject = ['_',
- 'ConstantsManager',
- 'JournalManager',
+ 'ConstantsSrv',
+ 'JournalSrv',
  '$scope',
  '$state',
  '$stateParams',

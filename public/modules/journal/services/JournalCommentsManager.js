@@ -1,9 +1,9 @@
-var journalCommentsManager = function ($http, $q) {
+var journalCommentsSrv = function ($http, $q) {
 
- var JournalCommentsManager = function () {
+ var JournalCommentsSrv = function () {
   this.journalComments = [];
  };
- JournalCommentsManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalCommentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var journalCommentsManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- JournalCommentsManager.prototype.getJournalComments = function (journalId) {
+ JournalCommentsSrv.prototype.getJournalComments = function (journalId) {
   var self = this;
   var deferred = $q.defer();
   self.journalComments = [];
@@ -35,7 +35,7 @@ var journalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalCommentsManager.prototype.getJournalComment = function (journalId, commentId) {
+ JournalCommentsSrv.prototype.getJournalComment = function (journalId, commentId) {
   var self = this;
   var deferred = $q.defer();
   self.journalComments = [];
@@ -48,7 +48,7 @@ var journalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalCommentsManager.prototype.createJournalComment = function (journalCommentData) {
+ JournalCommentsSrv.prototype.createJournalComment = function (journalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var journalCommentsManager = function ($http, $q) {
   return deferred.promise;
  };
 
- JournalCommentsManager.prototype.editJournalComment = function (journalCommentData) {
+ JournalCommentsSrv.prototype.editJournalComment = function (journalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var journalCommentsManager = function ($http, $q) {
  };
 
 
- return JournalCommentsManager;
+ return JournalCommentsSrv;
 };
 
-journalCommentsManager.$inject = ['$http', '$q'];
+journalCommentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalCommentsManager', journalCommentsManager);
+angular.module('app.journal').service('JournalCommentsSrv', journalCommentsSrv);

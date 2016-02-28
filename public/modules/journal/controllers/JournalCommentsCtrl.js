@@ -1,5 +1,5 @@
 var journalCommentsCtrl = function (
-        JournalCommentsManager,
+        JournalCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var journalCommentsCtrl = function (
  var vm = this;
  vm.journalId = $stateParams.journalId;
  vm.journalCommentsCopy;
- vm.journalCommentsManager = new JournalCommentsManager();
+ vm.journalCommentsSrv = new JournalCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultJournalCommentData = {
   journalId: $stateParams.journalId,
@@ -24,19 +24,19 @@ var journalCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createJournalComment = function (data) {
-  vm.journalCommentsManager.createJournalComment(data).then(function (response) {
+  vm.journalCommentsSrv.createJournalComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newJournalCommentData = angular.copy(vm.defaultJournalCommentData);
-   vm.journalCommentsCopy = angular.copy(vm.journalCommentsManager.journalComments);
+   vm.journalCommentsCopy = angular.copy(vm.journalCommentsSrv.journalComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editJournalComment = function (data) {
-  vm.journalCommentsManager.editJournalComment(data).then(function (response) {
+  vm.journalCommentsSrv.editJournalComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newJournalCommentData = angular.copy(vm.defaultJournalCommentData);
-   vm.journalCommentsCopy = angular.copy(vm.journalCommentsManager.journalComments);
+   vm.journalCommentsCopy = angular.copy(vm.journalCommentsSrv.journalComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var journalCommentsCtrl = function (
   journalComment = journalCommentCopy;
   /*
    $filter('filter')
-   (vm.journalCommentsManager.journalComments, {id: journalCommentId}, true)[0]
+   (vm.journalCommentsSrv.journalComments, {id: journalCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.journalCommentsCopy, {id: journalCommentId}, true)[0]);
    if (journalComment.length && journalCommentCopy.length) {
-   // vm.journalCommentsManager.journalComments angular.copy(vm.journalCommentsCopy);
+   // vm.journalCommentsSrv.journalComments angular.copy(vm.journalCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var journalCommentsCtrl = function (
   return vm.journalComments;
  }), function () {
   //vm.remainingCount = filterFilter(journalComments, {completed: false}).length;
-  vm.doneCount = vm.journalCommentsManager.journalComments.length - vm.remainingCount;
+  vm.doneCount = vm.journalCommentsSrv.journalComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //JournalCommentService.put(vm.journalComments);
  }, true);
@@ -126,11 +126,11 @@ var journalCommentsCtrl = function (
   });
  };
  //--------init------
- vm.journalCommentsManager.getJournalComments(vm.journalId);
+ vm.journalCommentsSrv.getJournalComments(vm.journalId);
 };
 
 journalCommentsCtrl.$inject = [
- 'JournalCommentsManager',
+ 'JournalCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

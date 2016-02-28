@@ -20,10 +20,10 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/journal/services/JournalsManager.js',
-                  'public/modules/journal/controllers/JournalsCtrl.js',
-                  'public/modules/journal/controllers/modals/CreateJournalCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/journal/services/Journals.srv.js',
+                  'public/modules/journal/controllers/Journals.ctrl.js',
+                  'public/modules/journal/controllers/modals/CreateJournal.ctrl.js',
                  ]
                 });
                }]
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/controllers/JournalsAllCtrl.js',
+                  'public/modules/journal/controllers/JournalsAll.ctrl.js',
                  ]
                 });
                }]
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/controllers/JournalsAppCtrl.js',
+                  'public/modules/journal/controllers/JournalsApp.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/controllers/JournalsMineCtrl.js',
+                  'public/modules/journal/controllers/JournalsMine.ctrl.js',
                  ]
                 });
                }]
@@ -107,9 +107,9 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/app/services/ConstantsManager.js',
-                  'public/modules/journal/services/JournalManager.js',
-                  'public/modules/journal/controllers/JournalCtrl.js',
+                  'public/modules/app/services/Constants.srv.js',
+                  'public/modules/journal/services/Journal.srv.js',
+                  'public/modules/journal/controllers/Journal.ctrl.js',
                   'public/modules/journal/filters/randomize.js',
                  ]
                 });
@@ -129,12 +129,12 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/controllers/JournalOverviewCtrl.js',
+                  'public/modules/journal/controllers/JournalOverview.ctrl.js',
                   //Progress
-                  'public/modules/journal/services/JournalProgressManager.js',
-                  'public/modules/journal/services/JournalProgressManager.js',
-                  'public/modules/journal/controllers/JournalProgressCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalProgressCtrl.js',
+                  'public/modules/journal/services/JournalProgress.srv.js',
+                  'public/modules/journal/services/JournalProgress.srv.js',
+                  'public/modules/journal/controllers/JournalProgress.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalProgress.ctrl.js',
                  ]
                 });
                }]
@@ -153,12 +153,12 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/controllers/JournalManageCtrl.js',
+                  'public/modules/journal/controllers/JournalManage.ctrl.js',
                   //Progress
-                  'public/modules/journal/services/JournalProgressManager.js',
-                  'public/modules/journal/services/JournalProgressManager.js',
-                  'public/modules/journal/controllers/JournalProgressCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalProgressCtrl.js',
+                  'public/modules/journal/services/JournalProgress.srv.js',
+                  'public/modules/journal/services/JournalProgress.srv.js',
+                  'public/modules/journal/controllers/JournalProgress.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalProgress.ctrl.js',
                  ]
                 });
                }]
@@ -180,21 +180,21 @@ define(['angular'
                   //Todos
                   'public/modules/journal/directives/todoEscape.js',
                   'public/modules/journal/directives/todoFocus.js',
-                  'public/modules/journal/services/JournalTodoManager.js',
-                  'public/modules/journal/services/JournalTodosManager.js',
-                  'public/modules/journal/services/JournalTodoChecklistManager.js',
-                  'public/modules/journal/controllers/JournalTodosCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalTodoCtrl.js',
+                  'public/modules/journal/services/JournalTodo.srv.js',
+                  'public/modules/journal/services/JournalTodos.srv.js',
+                  'public/modules/journal/services/JournalTodoChecklist.srv.js',
+                  'public/modules/journal/controllers/JournalTodos.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalTodo.ctrl.js',
                   //Notes,
-                  'public/modules/journal/services/JournalNoteManager.js',
-                  'public/modules/journal/services/JournalNotesManager.js',
-                  'public/modules/journal/controllers/JournalNotesCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalNoteCtrl.js',
+                  'public/modules/journal/services/JournalNote.srv.js',
+                  'public/modules/journal/services/JournalNotes.srv.js',
+                  'public/modules/journal/controllers/JournalNotes.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalNote.ctrl.js',
                   //Weblink
-                  'public/modules/journal/services/JournalWeblinkManager.js',
-                  'public/modules/journal/services/JournalWeblinksManager.js',
-                  'public/modules/journal/controllers/JournalWeblinksCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalWeblinkCtrl.js',
+                  'public/modules/journal/services/JournalWeblink.srv.js',
+                  'public/modules/journal/services/JournalWeblinks.srv.js',
+                  'public/modules/journal/controllers/JournalWeblinks.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalWeblink.ctrl.js',
                  ]
                 });
                }]
@@ -213,10 +213,10 @@ define(['angular'
                  name: 'app.journal',
                  serie: true,
                  files: [
-                  'public/modules/journal/services/JournalCommentManager.js',
-                  'public/modules/journal/services/JournalCommentsManager.js',
-                  'public/modules/journal/controllers/JournalCommentsCtrl.js',
-                  'public/modules/journal/controllers/modals/JournalCommentCtrl.js',
+                  'public/modules/journal/services/JournalComment.srv.js',
+                  'public/modules/journal/services/JournalComments.srv.js',
+                  'public/modules/journal/controllers/JournalComments.ctrl.js',
+                  'public/modules/journal/controllers/modals/JournalComment.ctrl.js',
                  ]
                 });
                }]

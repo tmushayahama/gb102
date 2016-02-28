@@ -1,9 +1,9 @@
-var teachNotesManager = function ($http, $q) {
+var teachNotesSrv = function ($http, $q) {
 
- var TeachNotesManager = function () {
+ var TeachNotesSrv = function () {
   this.teachNotes = [];
  };
- TeachNotesManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var teachNotesManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- TeachNotesManager.prototype.getTeachNotes = function (teachId) {
+ TeachNotesSrv.prototype.getTeachNotes = function (teachId) {
   var self = this;
   var deferred = $q.defer();
   self.teachNotes = [];
@@ -35,7 +35,7 @@ var teachNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachNotesManager.prototype.getTeachNote = function (teachId, noteId) {
+ TeachNotesSrv.prototype.getTeachNote = function (teachId, noteId) {
   var self = this;
   var deferred = $q.defer();
   self.teachNotes = [];
@@ -48,7 +48,7 @@ var teachNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachNotesManager.prototype.createTeachNote = function (teachNoteData) {
+ TeachNotesSrv.prototype.createTeachNote = function (teachNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var teachNotesManager = function ($http, $q) {
   return deferred.promise;
  };
 
- TeachNotesManager.prototype.editTeachNote = function (teachNoteData) {
+ TeachNotesSrv.prototype.editTeachNote = function (teachNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var teachNotesManager = function ($http, $q) {
  };
 
 
- return TeachNotesManager;
+ return TeachNotesSrv;
 };
 
-teachNotesManager.$inject = ['$http', '$q'];
+teachNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachNotesManager', teachNotesManager);
+angular.module('app.teach').service('TeachNotesSrv', teachNotesSrv);

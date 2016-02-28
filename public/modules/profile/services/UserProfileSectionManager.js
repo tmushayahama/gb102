@@ -1,9 +1,9 @@
-var userProfileSectionManager = function ($http, $q) {
+var userProfileSectionSrv = function ($http, $q) {
 
- var UserProfileSectionManager = function () {
+ var UserProfileSectionSrv = function () {
   this.userProfileSections = [];
  };
- UserProfileSectionManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ UserProfileSectionSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var userProfileSectionManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- UserProfileSectionManager.prototype.getUserProfileSection = function (userId) {
+ UserProfileSectionSrv.prototype.getUserProfileSection = function (userId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/profile/' + userId + '/sections').success(function (data) {
@@ -35,7 +35,7 @@ var userProfileSectionManager = function ($http, $q) {
  };
 
 
- UserProfileSectionManager.prototype.editProfile = function (profileData) {
+ UserProfileSectionSrv.prototype.editProfile = function (profileData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -50,9 +50,9 @@ var userProfileSectionManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return UserProfileSectionManager;
+ return UserProfileSectionSrv;
 };
 
-userProfileSectionManager.$inject = ['$http', '$q'];
+userProfileSectionSrv.$inject = ['$http', '$q'];
 
-angular.module('app.profile').service('UserProfileSectionManager', userProfileSectionManager);
+angular.module('app.profile').service('UserProfileSectionSrv', userProfileSectionSrv);

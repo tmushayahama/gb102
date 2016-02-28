@@ -1,5 +1,5 @@
 var createProjectCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -19,10 +19,10 @@ var createProjectCtrl = function (
  vm.selectedProjectType;
  vm.wizardCurrentStep = "Choose Project Type";
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getLevel(appId).then(function (data) {
    vm.projectLevels = data;
   });
  };
@@ -51,7 +51,7 @@ var createProjectCtrl = function (
 };
 
 createProjectCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

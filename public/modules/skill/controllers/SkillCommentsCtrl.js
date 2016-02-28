@@ -1,5 +1,5 @@
 var skillCommentsCtrl = function (
-        SkillCommentsManager,
+        SkillCommentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var skillCommentsCtrl = function (
  var vm = this;
  vm.skillId = $stateParams.skillId;
  vm.skillCommentsCopy;
- vm.skillCommentsManager = new SkillCommentsManager();
+ vm.skillCommentsSrv = new SkillCommentsSrv();
  vm.commentFormDisplay = false;
  vm.defaultSkillCommentData = {
   skillId: $stateParams.skillId,
@@ -24,19 +24,19 @@ var skillCommentsCtrl = function (
   vm.commentFormDisplay = true;
  };
  vm.createSkillComment = function (data) {
-  vm.skillCommentsManager.createSkillComment(data).then(function (response) {
+  vm.skillCommentsSrv.createSkillComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newSkillCommentData = angular.copy(vm.defaultSkillCommentData);
-   vm.skillCommentsCopy = angular.copy(vm.skillCommentsManager.skillComments);
+   vm.skillCommentsCopy = angular.copy(vm.skillCommentsSrv.skillComments);
   }, function (response) {
    console.log(response);
   });
  };
  vm.editSkillComment = function (data) {
-  vm.skillCommentsManager.editSkillComment(data).then(function (response) {
+  vm.skillCommentsSrv.editSkillComment(data).then(function (response) {
    vm.commentFormDisplay = false;
    vm.newSkillCommentData = angular.copy(vm.defaultSkillCommentData);
-   vm.skillCommentsCopy = angular.copy(vm.skillCommentsManager.skillComments);
+   vm.skillCommentsCopy = angular.copy(vm.skillCommentsSrv.skillComments);
   }, function (response) {
    console.log(response);
   });
@@ -64,11 +64,11 @@ var skillCommentsCtrl = function (
   skillComment = skillCommentCopy;
   /*
    $filter('filter')
-   (vm.skillCommentsManager.skillComments, {id: skillCommentId}, true)[0]
+   (vm.skillCommentsSrv.skillComments, {id: skillCommentId}, true)[0]
    = angular.copy($filter('filter')
    (vm.skillCommentsCopy, {id: skillCommentId}, true)[0]);
    if (skillComment.length && skillCommentCopy.length) {
-   // vm.skillCommentsManager.skillComments angular.copy(vm.skillCommentsCopy);
+   // vm.skillCommentsSrv.skillComments angular.copy(vm.skillCommentsCopy);
    }
    */
  };
@@ -77,7 +77,7 @@ var skillCommentsCtrl = function (
   return vm.skillComments;
  }), function () {
   //vm.remainingCount = filterFilter(skillComments, {completed: false}).length;
-  vm.doneCount = vm.skillCommentsManager.skillComments.length - vm.remainingCount;
+  vm.doneCount = vm.skillCommentsSrv.skillComments.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //SkillCommentService.put(vm.skillComments);
  }, true);
@@ -126,11 +126,11 @@ var skillCommentsCtrl = function (
   });
  };
  //--------init------
- vm.skillCommentsManager.getSkillComments(vm.skillId);
+ vm.skillCommentsSrv.getSkillComments(vm.skillId);
 };
 
 skillCommentsCtrl.$inject = [
- 'SkillCommentsManager',
+ 'SkillCommentsSrv',
  '$scope',
  '$state',
  '$stateParams',

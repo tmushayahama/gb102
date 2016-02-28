@@ -1,5 +1,5 @@
 var createCollaborationCtrl = function (
-        ConstantsManager,
+        ConstantsSrv,
         level_categories,
         $uibModalInstance,
         WizardHandler,
@@ -19,10 +19,10 @@ var createCollaborationCtrl = function (
  vm.selectedCollaborationType;
  vm.wizardCurrentStep = "Choose Collaboration Type";
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsManager.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getLevel(appId).then(function (data) {
    vm.collaborationLevels = data;
   });
  };
@@ -51,7 +51,7 @@ var createCollaborationCtrl = function (
 };
 
 createCollaborationCtrl.$inject = [
- 'ConstantsManager',
+ 'ConstantsSrv',
  'level_categories',
  '$uibModalInstance',
  'WizardHandler',

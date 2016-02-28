@@ -1,9 +1,9 @@
-var collaborationProgressManager = function ($http, $q) {
+var collaborationProgressSrv = function ($http, $q) {
 
- var CollaborationProgressManager = function () {
+ var CollaborationProgressSrv = function () {
   this.collaborationProgress = [];
  };
- CollaborationProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CollaborationProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var collaborationProgressManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CollaborationProgressManager.prototype.getCollaborationProgress = function (collaborationId) {
+ CollaborationProgressSrv.prototype.getCollaborationProgress = function (collaborationId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationProgress = [];
@@ -35,7 +35,7 @@ var collaborationProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationProgressManager.prototype.getCollaborationProgress = function (collaborationId, progressId) {
+ CollaborationProgressSrv.prototype.getCollaborationProgress = function (collaborationId, progressId) {
   var self = this;
   var deferred = $q.defer();
   self.collaborationProgress = [];
@@ -48,7 +48,7 @@ var collaborationProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationProgressManager.prototype.createCollaborationProgress = function (collaborationProgressData) {
+ CollaborationProgressSrv.prototype.createCollaborationProgress = function (collaborationProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var collaborationProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- CollaborationProgressManager.prototype.editCollaborationProgress = function (collaborationProgressData) {
+ CollaborationProgressSrv.prototype.editCollaborationProgress = function (collaborationProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var collaborationProgressManager = function ($http, $q) {
  };
 
 
- return CollaborationProgressManager;
+ return CollaborationProgressSrv;
 };
 
-collaborationProgressManager.$inject = ['$http', '$q'];
+collaborationProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.collaboration').service('CollaborationProgressManager', collaborationProgressManager);
+angular.module('app.collaboration').service('CollaborationProgressSrv', collaborationProgressSrv);

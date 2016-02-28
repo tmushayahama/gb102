@@ -1,5 +1,5 @@
 var questionnaireWeblinksCtrl = function (
-        QuestionnaireWeblinksManager,
+        QuestionnaireWeblinksSrv,
         $scope,
         $state,
         $stateParams,
@@ -13,7 +13,7 @@ var questionnaireWeblinksCtrl = function (
  var vm = this;
  vm.questionnaireId = $stateParams.questionnaireId;
  vm.questionnaireWeblinksCopy;
- vm.questionnaireWeblinksManager = new QuestionnaireWeblinksManager();
+ vm.questionnaireWeblinksSrv = new QuestionnaireWeblinksSrv();
  vm.weblinkFormDisplay = false;
 
  vm.defaultQuestionnaireWeblinkData = {
@@ -27,20 +27,20 @@ var questionnaireWeblinksCtrl = function (
  };
 
  vm.createQuestionnaireWeblink = function (data) {
-  vm.questionnaireWeblinksManager.createQuestionnaireWeblink(data).then(function (response) {
+  vm.questionnaireWeblinksSrv.createQuestionnaireWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData);
-   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksManager.questionnaireWeblinks);
+   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksSrv.questionnaireWeblinks);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editQuestionnaireWeblink = function (data) {
-  vm.questionnaireWeblinksManager.editQuestionnaireWeblink(data).then(function (response) {
+  vm.questionnaireWeblinksSrv.editQuestionnaireWeblink(data).then(function (response) {
    vm.weblinkFormDisplay = false;
    vm.newQuestionnaireWeblinkData = angular.copy(vm.defaultQuestionnaireWeblinkData);
-   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksManager.questionnaireWeblinks);
+   vm.questionnaireWeblinksCopy = angular.copy(vm.questionnaireWeblinksSrv.questionnaireWeblinks);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var questionnaireWeblinksCtrl = function (
   questionnaireWeblink = questionnaireWeblinkCopy;
   /*
    $filter('filter')
-   (vm.questionnaireWeblinksManager.questionnaireWeblinks, {id: questionnaireWeblinkId}, true)[0]
+   (vm.questionnaireWeblinksSrv.questionnaireWeblinks, {id: questionnaireWeblinkId}, true)[0]
    = angular.copy($filter('filter')
    (vm.questionnaireWeblinksCopy, {id: questionnaireWeblinkId}, true)[0]);
    if (questionnaireWeblink.length && questionnaireWeblinkCopy.length) {
-   // vm.questionnaireWeblinksManager.questionnaireWeblinks angular.copy(vm.questionnaireWeblinksCopy);
+   // vm.questionnaireWeblinksSrv.questionnaireWeblinks angular.copy(vm.questionnaireWeblinksCopy);
    }
    */
  };
@@ -90,7 +90,7 @@ var questionnaireWeblinksCtrl = function (
   return vm.questionnaireWeblinks;
  }), function () {
   //vm.remainingCount = filterFilter(questionnaireWeblinks, {completed: false}).length;
-  vm.doneCount = vm.questionnaireWeblinksManager.questionnaireWeblinks.length - vm.remainingCount;
+  vm.doneCount = vm.questionnaireWeblinksSrv.questionnaireWeblinks.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //QuestionnaireWeblinkService.put(vm.questionnaireWeblinks);
  }, true);
@@ -147,11 +147,11 @@ var questionnaireWeblinksCtrl = function (
 
 
  //--------init------
- vm.questionnaireWeblinksManager.getQuestionnaireWeblinks(vm.questionnaireId);
+ vm.questionnaireWeblinksSrv.getQuestionnaireWeblinks(vm.questionnaireId);
 };
 
 questionnaireWeblinksCtrl.$inject = [
- 'QuestionnaireWeblinksManager',
+ 'QuestionnaireWeblinksSrv',
  '$scope',
  '$state',
  '$stateParams',

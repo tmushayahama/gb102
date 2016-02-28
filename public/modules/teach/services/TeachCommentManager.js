@@ -1,9 +1,9 @@
-var teachCommentManager = function ($http, $q) {
+var teachCommentSrv = function ($http, $q) {
 
- var TeachCommentManager = function () {
+ var TeachCommentSrv = function () {
   this.teachComments = [];
  };
- TeachCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var teachCommentManager = function ($http, $q) {
  };
 
 
- TeachCommentManager.prototype.getTeachComment = function (teachId, commentId) {
+ TeachCommentSrv.prototype.getTeachComment = function (teachId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var teachCommentManager = function ($http, $q) {
  };
 
 
- TeachCommentManager.prototype.editTeachComment = function (teachCommentData) {
+ TeachCommentSrv.prototype.editTeachComment = function (teachCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var teachCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachCommentManager;
+ return TeachCommentSrv;
 };
 
-teachCommentManager.$inject = ['$http', '$q'];
+teachCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachCommentManager', teachCommentManager);
+angular.module('app.teach').service('TeachCommentSrv', teachCommentSrv);

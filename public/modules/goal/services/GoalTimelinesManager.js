@@ -1,9 +1,9 @@
-var goalProgressManager = function ($http, $q) {
+var goalProgressSrv = function ($http, $q) {
 
- var GoalProgressManager = function () {
+ var GoalProgressSrv = function () {
   this.goalProgress = [];
  };
- GoalProgressManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalProgressSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var goalProgressManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- GoalProgressManager.prototype.getGoalProgress = function (goalId) {
+ GoalProgressSrv.prototype.getGoalProgress = function (goalId) {
   var self = this;
   var deferred = $q.defer();
   self.goalProgress = [];
@@ -35,7 +35,7 @@ var goalProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalProgressManager.prototype.getGoalProgress = function (goalId, progressId) {
+ GoalProgressSrv.prototype.getGoalProgress = function (goalId, progressId) {
   var self = this;
   var deferred = $q.defer();
   self.goalProgress = [];
@@ -48,7 +48,7 @@ var goalProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalProgressManager.prototype.createGoalProgress = function (goalProgressData) {
+ GoalProgressSrv.prototype.createGoalProgress = function (goalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -64,7 +64,7 @@ var goalProgressManager = function ($http, $q) {
   return deferred.promise;
  };
 
- GoalProgressManager.prototype.editGoalProgress = function (goalProgressData) {
+ GoalProgressSrv.prototype.editGoalProgress = function (goalProgressData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -80,9 +80,9 @@ var goalProgressManager = function ($http, $q) {
  };
 
 
- return GoalProgressManager;
+ return GoalProgressSrv;
 };
 
-goalProgressManager.$inject = ['$http', '$q'];
+goalProgressSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalProgressManager', goalProgressManager);
+angular.module('app.goal').service('GoalProgressSrv', goalProgressSrv);

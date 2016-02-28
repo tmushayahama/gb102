@@ -4,21 +4,21 @@
    Add To Explorer
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="createRequestExploreCtrl.close()">
+ <a class="pull-right gb-ghost-btn-2" ng-click="createRequestExplorerCtrl.close()">
   x
  </a>
 </div>
 <div class="modal-body gb-modal-body">
- <form editable-form name="addExploreForm">
+ <form editable-form name="addExplorerForm">
   <wizard template="public/build/scripts/modules/app/views/templates/wizard.html"
           on-finish="finishedWizard()"
-          name="explore-form"
-          current-step="createRequestExploreCtrl.wizardCurrentStep">
+          name="explorer-form"
+          current-step="createRequestExplorerCtrl.wizardCurrentStep">
    <wz-step wz-title="Choose App">
     <div class="row">
-     <div ng-repeat="requestOption in createRequestExploreCtrl.requestOptions"
+     <div ng-repeat="requestOption in createRequestExplorerCtrl.requestOptions"
           class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
-          ng-click="createRequestExploreCtrl.chooseRequestOption(requestOption)"
+          ng-click="createRequestExplorerCtrl.chooseRequestOption(requestOption)"
           wz-next value="Fill">
       <div class="gb-apptype-btn-2">
        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -36,14 +36,14 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">App Name:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <input value="{{createRequestExploreCtrl.selectedRequestOption.level.description}}" readonly
+      <input value="{{createRequestExplorerCtrl.selectedRequestOption.level.description}}" readonly
              class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
      </div>
     </div>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea ng-model="createRequestExploreCtrl.explore.title" name="title" required
+      <textarea ng-model="createRequestExplorerCtrl.explorer.title" name="title" required
                 rows="2" placeholder="title"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>
@@ -52,31 +52,31 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea ng-model="createRequestExploreCtrl.explore.description" name="description" required
+      <textarea ng-model="createRequestExplorerCtrl.explorer.description" name="description" required
                 rows="4" placeholder="description"
                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </textarea>
      </div>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{createRequestExploreCtrl.explore.appType.name}} Level:</label>
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{createRequestExplorerCtrl.explorer.appType.name}} Level:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="createRequestExploreCtrl.explore.level">
-       <option  ng-repeat="option in createRequestExploreCtrl.exploreLevels" value="{{option.id}}">{{option.name}}</option>
+      <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="createRequestExplorerCtrl.explorer.level">
+       <option  ng-repeat="option in createRequestExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
       </select>
      </div>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{createRequestExploreCtrl.selectedRequestOption.level.appType.name}} Level:</label>
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{createRequestExplorerCtrl.selectedRequestOption.level.appType.name}} Level:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div ng-repeat="requestType in createRequestExploreCtrl.requestTypes" class="row">
+      <div ng-repeat="requestType in createRequestExplorerCtrl.requestTypes" class="row">
        <div class="checkbox">
         <label>
-         <input type="checkbox" data-checklist-model="createRequestExploreCtrl.selectedRequestTypes" data-checklist-value="requestType">
+         <input type="checkbox" data-checklist-model="createRequestExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType">
          {{requestType.requestLevel.name}}
         </label>
        </div>
-       <textarea ng-model="requestType.exploreRequest.description" name="description"
+       <textarea ng-model="requestType.explorerRequest.description" name="description"
                  rows="3" placeholder="Display Message"
                  class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
        </textarea>
@@ -93,21 +93,21 @@
 </div>
 <div class="modal-footer">
  <div class="btn-group pull-right col-lg-8 col-md-8 col-sm-8 col-xs-8">
-  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.close()">
+  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExplorerCtrl.close()">
    Close
   </a>
   <a ng-class="{
     'gb-disabled'
-    : createRequestExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.previous()">
+    : createRequestExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExplorerCtrl.previous()">
    Previous
   </a>
   <a ng-class="{
     'gb-disabled'
-    : createRequestExploreCtrl.wizardCurrentStep === 'Privacy' && createRequestExploreCtrl.selectedRequestOption}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.next()">
+    : createRequestExplorerCtrl.wizardCurrentStep === 'Privacy' && createRequestExplorerCtrl.selectedRequestOption}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExplorerCtrl.next()">
    Next
   </a>
   <a ng-class="{
-    'gb-disabled': createRequestExploreCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExploreCtrl.ok()">
+    'gb-disabled': createRequestExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createRequestExplorerCtrl.ok()">
    Add
   </a>
  </div>

@@ -1,9 +1,9 @@
 
 var collaborationsCtrl = function (
         level_categories,
-        ConstantsManager,
-        SearchManager,
-        CollaborationsManager,
+        ConstantsSrv,
+        SearchSrv,
+        CollaborationsSrv,
         $scope,
         $state,
         $stateParams,
@@ -21,8 +21,8 @@ var collaborationsCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-collaboration.css'
  }, $scope);
 
- vm.collaborationsManager = new CollaborationsManager();
- vm.constantsManager = new ConstantsManager();
+ vm.collaborationsSrv = new CollaborationsSrv();
+ vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'COLLABORATIONR';
  vm.collaborationLevels;
  vm.collaborationTypes;
@@ -41,20 +41,20 @@ var collaborationsCtrl = function (
  });
 
  vm.createCollaboration = function (data) {
-  vm.collaborationsManager.createCollaboration(data).then(function (response) {
+  vm.collaborationsSrv.createCollaboration(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCollaborationData = angular.copy(vm.defaultCollaborationData);
-   vm.collaborationsCopy = angular.copy(vm.collaborationsManager.collaborations);
+   vm.collaborationsCopy = angular.copy(vm.collaborationsSrv.collaborations);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editCollaboration = function (data) {
-  vm.collaborationsManager.editCollaboration(data).then(function (response) {
+  vm.collaborationsSrv.editCollaboration(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newCollaborationData = angular.copy(vm.defaultCollaborationData);
-   vm.collaborationsCopy = angular.copy(vm.collaborationsManager.collaborations);
+   vm.collaborationsCopy = angular.copy(vm.collaborationsSrv.collaborations);
   }, function (response) {
    console.log(response);
   });
@@ -84,11 +84,11 @@ var collaborationsCtrl = function (
   collaboration = collaborationCopy;
   /*
    $filter('filter')
-   (vm.collaborationsManager.collaborations, {id: collaborationId}, true)[0]
+   (vm.collaborationsSrv.collaborations, {id: collaborationId}, true)[0]
    = angular.copy($filter('filter')
    (vm.collaborationsCopy, {id: collaborationId}, true)[0]);
    if (collaboration.length && collaborationCopy.length) {
-   // vm.collaborationsManager.collaborations angular.copy(vm.collaborationsCopy);
+   // vm.collaborationsSrv.collaborations angular.copy(vm.collaborationsCopy);
    }
    */
  };
@@ -104,7 +104,7 @@ var collaborationsCtrl = function (
   return vm.collaborations;
  }), function () {
   //vm.remainingCount = filterFilter(collaborations, {completed: false}).length;
-  vm.doneCount = vm.collaborationsManager.collaborations.length - vm.remainingCount;
+  vm.doneCount = vm.collaborationsSrv.collaborations.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //CollaborationService.put(vm.collaborations);
  }, true);
@@ -137,7 +137,7 @@ var collaborationsCtrl = function (
   }
  };
 
- $rootScope.openAddExploreModal = function () {
+ $rootScope.openAddExplorerModal = function () {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'create-collaboration-modal.html',
@@ -152,26 +152,26 @@ var collaborationsCtrl = function (
   });
 
   modalInstance.result.then(function (collaboration) {
-   vm.collaborationsManager.createCollaboration(collaboration);
+   vm.collaborationsSrv.createCollaboration(collaboration);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
  };
 
  //--------init------
- vm.constantsManager.getLevel(level_categories.collaboration).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.collaboration).then(function (data) {
   vm.collaborationTypes = data;
  });
- vm.constantsManager.getLevel(level_categories.collaboration).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.collaboration).then(function (data) {
   vm.collaborationLevels = data;
  });
 };
 
 collaborationsCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SearchManager',
- 'CollaborationsManager',
+ 'ConstantsSrv',
+ 'SearchSrv',
+ 'CollaborationsSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,7 +1,7 @@
 var skillSwipesCtrl = function (
         level_categories,
-        ConstantsManager,
-        SkillSwipesManager,
+        ConstantsSrv,
+        SkillSwipesSrv,
         $scope,
         $state,
         $stateParams,
@@ -14,12 +14,12 @@ var skillSwipesCtrl = function (
 
  var vm = this;
 
- vm.constantsManager = new ConstantsManager();
+ vm.constantsSrv = new ConstantsSrv();
  vm.currentSkillSwipe;
  vm.skillSwipeLevels;
 
  vm.getSkillSwipe = function () {
-  vm.skillSwipesManager.getSkillSwipe().then(function (response) {
+  vm.skillSwipesSrv.getSkillSwipe().then(function (response) {
    vm.currentSkillSwipe = response;
   });
  };
@@ -30,19 +30,19 @@ var skillSwipesCtrl = function (
    levelId: levelId,
    description: ""
   };
-  vm.skillSwipesManager.createSkillSwipe(data).then(function (response) {
+  vm.skillSwipesSrv.createSkillSwipe(data).then(function (response) {
    //vm.currentSkillSwipe = response;
   });
   vm.getSkillSwipe();
  };
 
  vm.viewSkillSwipes = function () {
-  vm.skillSwipesManager.getSkillSwipes();
+  vm.skillSwipesSrv.getSkillSwipes();
  };
 
- vm.skillSwipesManager = new SkillSwipesManager();
+ vm.skillSwipesSrv = new SkillSwipesSrv();
  vm.getSkillSwipe();
- vm.constantsManager.getLevel(level_categories.skill_swipe).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.skill_swipe).then(function (data) {
   vm.skillSwipeLevels = data;
  });
 
@@ -51,8 +51,8 @@ var skillSwipesCtrl = function (
 
 skillSwipesCtrl.$inject = [
  'level_categories',
- 'ConstantsManager',
- 'SkillSwipesManager',
+ 'ConstantsSrv',
+ 'SkillSwipesSrv',
  '$scope',
  '$state',
  '$stateParams',

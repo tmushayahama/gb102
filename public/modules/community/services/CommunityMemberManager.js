@@ -1,9 +1,9 @@
-var communityManager = function ($http, $q) {
+var communitySrv = function ($http, $q) {
 
- var CommunityManager = function () {
+ var CommunitySrv = function () {
   this.community = [];
  };
- CommunityManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ CommunitySrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var communityManager = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- CommunityManager.prototype.getCommunity = function (communityId) {
+ CommunitySrv.prototype.getCommunity = function (communityId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/community/' + communityId).success(function (data) {
@@ -35,7 +35,7 @@ var communityManager = function ($http, $q) {
  };
 
 
- CommunityManager.prototype.editCommunity = function (communityData) {
+ CommunitySrv.prototype.editCommunity = function (communityData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -50,9 +50,9 @@ var communityManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return CommunityManager;
+ return CommunitySrv;
 };
 
-communityManager.$inject = ['$http', '$q'];
+communitySrv.$inject = ['$http', '$q'];
 
-angular.module('app.communitys').service('CommunityManager', communityManager);
+angular.module('app.communitys').service('CommunitySrv', communitySrv);

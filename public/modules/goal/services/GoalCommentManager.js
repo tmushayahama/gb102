@@ -1,9 +1,9 @@
-var goalCommentManager = function ($http, $q) {
+var goalCommentSrv = function ($http, $q) {
 
- var GoalCommentManager = function () {
+ var GoalCommentSrv = function () {
   this.goalComments = [];
  };
- GoalCommentManager.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalCommentSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var goalCommentManager = function ($http, $q) {
  };
 
 
- GoalCommentManager.prototype.getGoalComment = function (goalId, commentId) {
+ GoalCommentSrv.prototype.getGoalComment = function (goalId, commentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId + '/comment/' + commentId).success(function (data) {
@@ -36,7 +36,7 @@ var goalCommentManager = function ($http, $q) {
  };
 
 
- GoalCommentManager.prototype.editGoalComment = function (goalCommentData) {
+ GoalCommentSrv.prototype.editGoalComment = function (goalCommentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var goalCommentManager = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalCommentManager;
+ return GoalCommentSrv;
 };
 
-goalCommentManager.$inject = ['$http', '$q'];
+goalCommentSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalCommentManager', goalCommentManager);
+angular.module('app.goal').service('GoalCommentSrv', goalCommentSrv);

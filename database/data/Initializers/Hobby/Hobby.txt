@@ -322,8 +322,8 @@ id	app_id	parent_goal_id	creator_id	hobby_icon	hobby_picture_url	title	descripti
 321	3	NULL	1	98	hobby_default.png	"Exercise (aerobics, weights)"		0000-00-00 00:00:00	10	0	1	0
 322	3	NULL	1	21	hobby_default.png	Exercising and body building		0000-00-00 00:00:00	10	0	1	0
 323	3	NULL	1	138	hobby_default.png	Exhibition drill		0000-00-00 00:00:00	10	0	1	0
-324	3	NULL	1	210	hobby_default.png	Explore a corn maze		0000-00-00 00:00:00	10	0	1	0
-325	3	NULL	1	62	hobby_default.png	Explore asceticism		0000-00-00 00:00:00	10	0	1	0
+324	3	NULL	1	210	hobby_default.png	Explorer a corn maze		0000-00-00 00:00:00	10	0	1	0
+325	3	NULL	1	62	hobby_default.png	Explorer asceticism		0000-00-00 00:00:00	10	0	1	0
 326	3	NULL	1	340	hobby_default.png	Face painting		0000-00-00 00:00:00	10	0	1	0
 327	3	NULL	1	168	hobby_default.png	Falconry		0000-00-00 00:00:00	10	0	1	0
 328	3	NULL	1	2	hobby_default.png	Family vacations / family fun		0000-00-00 00:00:00	10	0	1	0
