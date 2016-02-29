@@ -204,8 +204,15 @@ input[type="checkbox"] {
 
   .gb-profile-pic {
    @include position(absolute, 10px null null 10px);
-   height: 80px;
-   width: 80px;
+   height: 110px;
+   width: 110px;
+  }
+
+  .gb-explorer-pic {
+   background-color: rgba($primary-color, 0.4);
+   @include position(absolute, 10px null null 10px);
+   height: 100px;
+   width: 100px;
   }
   .gb-icons-row {
    margin: 0;
@@ -265,9 +272,7 @@ input[type="checkbox"] {
  }
 
  .gb-profile-row-2 {
-  //@include position(absolute, null 0 0 0);
-  margin-top: -50px;
-  position: relative;
+  @include position(absolute, null 0 0 0);
   height: 50px;
   .gb-profile-pic {
    margin-right: 5px;
@@ -275,20 +280,15 @@ input[type="checkbox"] {
    height: 20px;
    width: 20px;
   }
-  .gb-icon {
-   text-align: center;
-   background-color: #FAFAFA;
-   height: 50px;
-   width: 50px;
-   i {
-    font-size: 30px;
-    line-height: 50px;
-    color: rgba($primary-color, 0.7);
+  .gb-image {
+   img {
+    height: 50px;
+    width: 50px;
    }
   }
   .gb-row-content {
    padding: 7px 0 0 10px;
-   @include position(absolute, 0 0 0 51px);
+   @include position(absolute, 0 0 0 50px);
    background-color: rgba(#000, 0.4);
 
    &.gb-full {
@@ -1770,6 +1770,12 @@ input.gb-form-show{
 
  &:hover {
   background-color: #F7F7F7;
+ }
+ .gb-image {
+  padding: 0px 0px 0 5px;
+  .gb-explorer-pic {
+   width: 100%;
+  }
  }
  .gb-dropdown-action {
   padding: 4px 8px 0 0;

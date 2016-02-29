@@ -3,28 +3,29 @@
   <div class="gb-background-white">
    <div class="gb-cover">
     <div ng-include="'public/modules/explorer/views/components/explorer-cover.html'"></div>
-   </div>
-   <div class="gb-profile-row-2">
-    <div class="gb-icon">
-     <i class="fa {{explorerCtrl.explorerSrv.explorer.icon.name}}"></i>
-    </div>
-    <div class="gb-row-content">
-     <h1 class="gb-title gb-ellipsis">
-      <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong> {{explorerCtrl.explorerSrv.explorer.description}}
-     </h1>
-     <a class="gb-description gb-ellipsis"
-        ui-sref="profile.overview({profileId: explorerCtrl.explorerSrv.explorer.creator.id})">
-      <img src="public/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="gb-profile-pic" alt="">
-      <h2 class="gb-heading">
-       <i>by: </i>{{explorerCtrl.explorerSrv.explorer.creator.firstname + " " + explorerCtrl.explorerSrv.explorer.creator.lastname}}
-      </h2>
-     </a>
+    <img ng-src="public/img/explorer/{{ ::explorerCtrl.explorerSrv.explorer.explorer_picture_url}}"
+         onerror="this.src = 'public/img/explorer/default.png'" class="gb-explorer-pic" alt="">
+    <div class="gb-profile-row-2">
+     <div class="gb-image">
+      <img src="public/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="" alt="">
+     </div>
+     <div class="gb-row-content">
+      <h1 class="gb-title gb-ellipsis">
+       <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong> {{explorerCtrl.explorerSrv.explorer.description}}
+      </h1>
+      <a class="gb-description gb-ellipsis"
+         ui-sref="profile.overview({profileId: explorerCtrl.explorerSrv.explorer.creator.id})">
+       <h2 class="gb-heading">
+        <i>by: </i>{{explorerCtrl.explorerSrv.explorer.creator.firstname + " " + explorerCtrl.explorerSrv.explorer.creator.lastname}}
+       </h2>
+      </a>
+     </div>
     </div>
    </div>
    <div class="row">
     <ul class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <li ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="apps.explorer.overview">
+     <li data-ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
+      <a class="gb-ellipsis" data-ui-sref="apps.explorer.overview">
        <i class="gb-icon fa fa-home"></i>
        <div class="gb-title">
         HOME

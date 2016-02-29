@@ -1,7 +1,12 @@
 <div id="gb-explorers" class="gb-list row">
  <div ng-repeat="explorer in explorersTabCtrl.explorers" class="gb-box-1 row">
-  <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-   <span class="fa-stack fa-lg">
+  <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+        ng-src="public/img/explorer/{{ ::explorer.explorer_picture_url}}"
+        onerror="this.src = 'public/img/explorer/default.png'" class="gb-explorer-pic" alt="">
+  </div>
+  <div ng-if="false" class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+   <span  class="fa-stack fa-lg">
     <i class="fa fa-outer icon-gb-{{explorer.app_type.name.toLowerCase()}} fa-stack-2x"></i>
     <i class="fa fa-inner {{explorer.icon.name}} fa-stack-1x"></i>
    </span>
@@ -27,7 +32,7 @@
     </div>
    </div>
    <div class="gb-description row">
-    <a href ui-sref="apps.explorer.overview({explorerId: explorer.id})" class="">
+    <a data-ui-sref="apps.explorer.overview({explorerId: explorer.id})" class="">
      {{explorer.title}}
     </a>
     {{explorer.description}}

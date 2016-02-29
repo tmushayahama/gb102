@@ -2729,8 +2729,16 @@ input[type="checkbox"] {
   position: absolute;
   top: 10px;
   left: 10px;
-  height: 80px;
-  width: 80px;
+  height: 110px;
+  width: 110px;
+}
+#gb-middle-nav .gb-cover .gb-explorer-pic {
+  background-color: rgba(7, 117, 104, 0.4);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+  width: 100px;
 }
 #gb-middle-nav .gb-cover .gb-icons-row {
   margin: 0;
@@ -2792,8 +2800,10 @@ input[type="checkbox"] {
   font-size: 18px;
 }
 #gb-middle-nav .gb-profile-row-2 {
-  margin-top: -50px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   height: 50px;
 }
 #gb-middle-nav .gb-profile-row-2 .gb-profile-pic {
@@ -2802,16 +2812,9 @@ input[type="checkbox"] {
   height: 20px;
   width: 20px;
 }
-#gb-middle-nav .gb-profile-row-2 .gb-icon {
-  text-align: center;
-  background-color: #FAFAFA;
+#gb-middle-nav .gb-profile-row-2 .gb-image img {
   height: 50px;
   width: 50px;
-}
-#gb-middle-nav .gb-profile-row-2 .gb-icon i {
-  font-size: 30px;
-  line-height: 50px;
-  color: rgba(7, 117, 104, 0.7);
 }
 #gb-middle-nav .gb-profile-row-2 .gb-row-content {
   padding: 7px 0 0 10px;
@@ -2819,7 +2822,7 @@ input[type="checkbox"] {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 51px;
+  left: 50px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 #gb-middle-nav .gb-profile-row-2 .gb-row-content.gb-full {
@@ -4347,6 +4350,12 @@ input.gb-form-show {
 }
 .gb-box-1:hover {
   background-color: #F7F7F7;
+}
+.gb-box-1 .gb-image {
+  padding: 0px 0px 0 5px;
+}
+.gb-box-1 .gb-image .gb-explorer-pic {
+  width: 100%;
 }
 .gb-box-1 .gb-dropdown-action {
   padding: 4px 8px 0 0;
