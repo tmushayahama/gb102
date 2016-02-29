@@ -3,7 +3,18 @@
 }
 
 .gb-search-result-dropdown {
- background-color: #f9f9f9;
+ background-color: #FFF;
+ md-list-item, md-list-item .md-list-item-inner {
+  display: block;
+ }
+ h3.gb-title {
+  margin-bottom: 10px;
+  color: $primary-color;
+ }
+ .gb-app-type {
+  text-transform: uppercase;
+  color: #777;
+ }
 }
 
 .typeahead-demo .custom-popup-wrapper {
@@ -68,9 +79,9 @@
    margin-bottom: 0;
   }
   .gb-input-btn-group {
-   @include position(absolute, 5px 0 5px null);
+   @include position(absolute, 2px 0 2px null);
    .btn {
-    height: 40px;
+    height: 35px;
    }
   }
 

@@ -42,6 +42,10 @@ md-input-container.md-input-focused .md-input {
  transition: border-color ease 0.28s;
  border-color: rgba($primary-color, 0.6)!important;
 }
+.md-button {
+ min-height: 20px;
+ min-width: 22px;
+}
 
 html {
  display: block;
@@ -1077,17 +1081,16 @@ input.gb-form-show{
 
  .gb-nav-strip {
   padding: 0;
-  background-color: #FFF;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   margin-bottom: 20px;
   overflow: hidden;
   .gb-heading {
-   font-size: 8px;
+   text-align: center;
+   font-size: 14px;
    padding: 7px 2px 7px 5px;
    margin: 0;
-   color: #DDD;
-   background-color: #555;
+   color: #444;
   }
  }
 
@@ -1097,14 +1100,29 @@ input.gb-form-show{
   display: block;
   text-decoration: none;
   width: 100%;
-  border-bottom: #DDD solid 1px;
+  border-bottom: rgba($primary-color, 0.2) solid 1px;
   /*
   -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   font-size: 40px;
+   display: inline-block;
+   margin: 0 auto;
+   background-color: rgba($primary-color, 0.2);
+   line-height: 80px;
+   min-width: 0;
+   width: 80px;
+   height: 80px;
+   box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+   border-radius: 50%;
+   background-clip: padding-box;
+   overflow: hidden;
+   transition: all .3s cubic-bezier(.55,0,.55,.2);
+   transition-property: background-color,box-shadow,-webkit-transform;
+   transition-property: background-color,box-shadow,transform;
+   font-size: 50px;
+   color: darken($primary-color, 5%);
    @include respond-to (gb-sm) {
     font-size: 40px;
    }
@@ -1146,14 +1164,15 @@ input.gb-form-show{
   }
 
   &:hover {
-   background-color: #EEE;
    .gb-title {
     font-weight: bold;
     font-size: 9px;
    }
+   .gb-icon {
+    color: darken($primary-color, 5%);
+   }
   }
   &.active {
-   background-color: #E2E2E2;
    .gb-title {
     font-weight: bold;
     font-size: 9px;
