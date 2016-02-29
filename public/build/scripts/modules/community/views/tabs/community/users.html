@@ -1,42 +1,25 @@
-<div id="gb-communitys" class="gb-list row">
- <div ng-repeat="user in usersTabCtrl.communityManager.users" class="gb-box-1 row">
-  <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-   <span class="fa-stack fa-lg">
-    <i class="fa fa-outer icon-gb-community fa-stack-2x"></i>
-   </span>
-   <img ui-sref="profile.overview({profileId: user.id})" src="public/build/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
-  </div>
-  <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <div class="gb-heading row">
-    <div class="gb-dropdown-action">
-     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-chevron-down"></i>
+<div class="gb-list row">
+ <div ng-repeat="user in usersTabCtrl.communitySrv.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+      ng-init="ss = 'ddd' + usersTabCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
+  <div class="gb-person-box">
+   <img src="public/build/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
+   <div class="gb-box-body">
+    <div class="gb-heading row">
+     <p class="gb-title">
+      NOT SELECTED {{ss}}
+     </p>
+    </div>
+    <div class="gb-description row">
+     <a ui-sref="profile.overview({profileId: user.id})" target="_blank" class="gb-ellipsis">
+      {{user.firstname + " " + user.lastname}}
      </a>
-     <ul class="dropdown-menu dropdown-menu-right">
-      <li>
-       <a href ui-sref="profile.overview({profileId: user.id})" class="">
-        Open
-       </a>
-      </li>
-     </ul>
     </div>
    </div>
-   <div class="gb-description row">
-    <a href ui-sref="profile.overview({profileId: user.id})" class="">
-     {{user.firstname + ' ' + user.lastname}}
+   <div class="gb-footer">
+    <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
+       ng-click="usersTabCtrl.sendRequest(user.id)">
+     Request
     </a>
-    {{}}
-   </div>
-   <div class="gb-footer row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-     <h5 class="gb-ellipsis">
-      <a href ui-sref="profile.overview({profileId: user.id})" class="">
-       {{user.firstname + ' ' + user.lastname}}
-      </a>
-     </h5>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-    </div>
    </div>
   </div>
  </div>

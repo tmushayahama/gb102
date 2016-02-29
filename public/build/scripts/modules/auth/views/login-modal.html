@@ -1,0 +1,45 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   Login
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="loginModalCtrl.close()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <form>
+  <div ng-show="loginModalCtrl.errorMessage.length > 0" class="alert alert-danger">
+   {{loginModalCtrl.errorMessage}}
+  </div>
+  <md-input-container class="md-block">
+   <input type="text" name="username"
+          class="form-control"
+          placeholder="Username"
+          ng-model="loginModalCtrl.user.email"
+          data-required
+          data-message-required="Please enter your username">
+  </md-input-container>
+  <md-input-container class="md-block">
+   <input type="password" name="password"
+          class="form-control"
+          ng-model="loginModalCtrl.user.password"
+          placeholder="Password"
+          data-required
+          data-minlength="3"
+          data-maxnlength="50"
+          data-message="Please enter your password">
+  </md-input-container>
+ </form>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right col-lg-4 col-md-4 col-sm-4 col-xs-4">
+  <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="loginModalCtrl.close()">
+   Cancel
+  </a>
+  <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="loginModalCtrl.login()">
+   Login
+  </a>
+ </div>
+</div>

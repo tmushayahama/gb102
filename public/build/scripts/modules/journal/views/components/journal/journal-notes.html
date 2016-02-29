@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!journalNotesCtrl.noteFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{journalCtrl.journalManager.journal.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{journalCtrl.journalSrv.journal.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="journalNotesCtrl.showNoteForm()" placeholder="Jot down some notes" readonly>
    </div>
    <form class="gb-form-1" ng-show="journalNotesCtrl.noteFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-note-body row" ng-show="journalNotesCtrl.journalNotesManager.journalNotes.length" ng-cloak>
+  <div class="gb-note-body row" ng-show="journalNotesCtrl.journalNotesSrv.journalNotes.length" ng-cloak>
    <ul id="note-list">
-    <li ng-repeat="journalNote in journalNotesCtrl.journalNotesManager.journalNotes| filter:statusFilter track by $index" ng-class="{completed: journalNote.completed, editing: journalNote == journalNotesCtrl.editedNote}">
+    <li ng-repeat="journalNote in journalNotesCtrl.journalNotesSrv.journalNotes| filter:statusFilter track by $index" ng-class="{completed: journalNote.completed, editing: journalNote == journalNotesCtrl.editedNote}">
      <div class="gb-note-row row" ng-init="journalNoteCopy = angular.copy(journalNote)">
       <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
        <div class="gb-content-text">

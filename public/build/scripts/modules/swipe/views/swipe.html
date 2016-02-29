@@ -78,16 +78,16 @@
      <div ng-include="'public/build/scripts/modules/swipe/views/components/swipe/swipe-cover.html'"></div>
     </div>
     <div class="gb-profile-row">
-     <img src="public/build/img/profile_pic/{{swipeCtrl.swipeManager.swipe.creator.avatar_url}}" class="gb-profile-pic" alt="">
+     <img src="public/build/img/profile_pic/{{swipeCtrl.swipeSrv.swipe.creator.avatar_url}}" class="gb-profile-pic" alt="">
      <div class="gb-row-content">
       <a class="gb-ellipsis">
-       {{swipeCtrl.swipeManager.swipe.creator.firstname + " " + swipeCtrl.swipeManager.swipe.creator.lastname}}
+       {{swipeCtrl.swipeSrv.swipe.creator.firstname + " " + swipeCtrl.swipeSrv.swipe.creator.lastname}}
       </a>
      </div>
     </div>
     <div class="gb-heading-row">
      <h2 class="gb-heading gb-ellipsis">
-      <strong>{{swipeCtrl.swipeManager.swipe.title}}</strong> {{swipeCtrl.swipeManager.swipe.description}}
+      <strong>{{swipeCtrl.swipeSrv.swipe.title}}</strong> {{swipeCtrl.swipeSrv.swipe.description}}
      </h2>
     </div>
     <ul class="gb-menu-row nav gb-nav-1">

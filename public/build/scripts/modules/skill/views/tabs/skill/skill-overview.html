@@ -13,14 +13,14 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div ng-hide="editDescriptionForm.$visible" id="gb-skill-item-todo-panel" class="row">
-   <strong>{{skillCtrl.skillManager.skill.title}}</strong>
-   {{skillCtrl.skillManager.skill.description}}
+   <strong>{{skillCtrl.skillSrv.skill.title}}</strong>
+   {{skillCtrl.skillSrv.skill.description}}
   </div>
-  <form editable-form name="editDescriptionForm" onbeforesave="skillCtrl.editSkillSections.details(skillCtrl.skillManager.skill.id, $data)" ng-show="editDescriptionForm.$visible">
+  <form editable-form name="editDescriptionForm" onbeforesave="skillCtrl.editSkillSections.details(skillCtrl.skillSrv.skill.id, $data)" ng-show="editDescriptionForm.$visible">
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="skillCtrl.skillManager.skill.title" e-name="title" e-required
+     <div editable-textarea="skillCtrl.skillSrv.skill.title" e-name="title" e-required
           e-rows="2" e-placeholder="title"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>
@@ -29,7 +29,7 @@
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="skillCtrl.skillManager.skill.description" e-name="description"
+     <div editable-textarea="skillCtrl.skillSrv.skill.description" e-name="description"
           e-rows="4" e-placeholder="description"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>

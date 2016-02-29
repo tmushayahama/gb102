@@ -78,16 +78,16 @@
      <div ng-include="'public/build/scripts/modules/questionnaire/views/components/questionnaire/questionnaire-cover.html'"></div>
     </div>
     <div class="gb-profile-row">
-     <img src="public/build/img/profile_pic/{{questionnaireCtrl.questionnaireManager.questionnaire.creator.avatar_url}}" class="gb-profile-pic" alt="">
+     <img src="public/build/img/profile_pic/{{questionnaireCtrl.questionnaireSrv.questionnaire.creator.avatar_url}}" class="gb-profile-pic" alt="">
      <div class="gb-row-content">
       <a class="gb-ellipsis">
-       {{questionnaireCtrl.questionnaireManager.questionnaire.creator.firstname + " " + questionnaireCtrl.questionnaireManager.questionnaire.creator.lastname}}
+       {{questionnaireCtrl.questionnaireSrv.questionnaire.creator.firstname + " " + questionnaireCtrl.questionnaireSrv.questionnaire.creator.lastname}}
       </a>
      </div>
     </div>
     <div class="gb-heading-row">
      <h2 class="gb-heading gb-ellipsis">
-      <strong>{{questionnaireCtrl.questionnaireManager.questionnaire.title}}</strong> {{questionnaireCtrl.questionnaireManager.questionnaire.description}}
+      <strong>{{questionnaireCtrl.questionnaireSrv.questionnaire.title}}</strong> {{questionnaireCtrl.questionnaireSrv.questionnaire.description}}
      </h2>
     </div>
     <ul class="gb-menu-row nav gb-nav-1">

@@ -59,30 +59,6 @@ module.exports = function (grunt) {
   }
  };
 
- grunt.registerTask('lowerCaseFiles', function () {
-
-  apps.forEach(function (app) {
-   var files = [];
-   srcs.forEach(function (src) {
-    files.push(
-            {
-             expand: true,
-             cwd: src.cwd,
-             src: src.src,
-             dest: src.cwd,
-             rename: function (dest, src) {
-              return dest + src.replace(src, src.toLowerCase());
-
-             }
-            });
-   });
-   grunt.config.set("copy." + app, {
-    files: files
-   });
-   grunt.task.run('copy:' + app);
-  });
- });
-
  grunt.registerTask('copyFiles', function () {
 
   apps.forEach(function (app) {
@@ -239,10 +215,18 @@ module.exports = function (grunt) {
     {
      expand: true,
      //flatten: true,
-     src: ['modules/**/*.js'],
+     src: ['modules/**/*.ctrl.js'],
      dest: 'public/build/scripts',
      cwd: 'public',
-     ext: '.js'
+     ext: '.ctrl.js'
+    },
+    {
+     expand: true,
+     //flatten: true,
+     src: ['modules/**/*.srv.js'],
+     dest: 'public/build/scripts',
+     cwd: 'public',
+     ext: '.srv.js'
     }
    ]
   }

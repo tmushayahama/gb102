@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!mentorshipCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{mentorshipCtrl.mentorshipManager.mentorship.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{mentorshipCtrl.mentorshipSrv.mentorship.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="mentorshipCommentsCtrl.showCommentForm()" placeholder="Say something" readonly>
    </div>
    <form class="gb-form-1" ng-show="mentorshipCommentsCtrl.commentFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-comment-body row" ng-show="mentorshipCommentsCtrl.mentorshipCommentsManager.mentorshipComments.length" ng-cloak>
+  <div class="gb-comment-body row" ng-show="mentorshipCommentsCtrl.mentorshipCommentsSrv.mentorshipComments.length" ng-cloak>
    <ul id="comment-list">
-    <li ng-repeat="mentorshipComment in mentorshipCommentsCtrl.mentorshipCommentsManager.mentorshipComments| filter:statusFilter track by $index" ng-class="{completed: mentorshipComment.completed, editing: mentorshipComment == mentorshipCommentsCtrl.editedComment}">
+    <li ng-repeat="mentorshipComment in mentorshipCommentsCtrl.mentorshipCommentsSrv.mentorshipComments| filter:statusFilter track by $index" ng-class="{completed: mentorshipComment.completed, editing: mentorshipComment == mentorshipCommentsCtrl.editedComment}">
      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-comment-heading">
        <p class="gb-title">COMMENT</p>

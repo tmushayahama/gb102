@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{skillTodoCtrl.skillTodoManager.skillTodo.todo.title}}
+   {{skillTodoCtrl.skillTodoSrv.skillTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="skillTodoCtrl.close()">
@@ -25,14 +25,14 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="editableForm.$visible" id="gb-skill-item-todo-panel" class="row">
-    <strong>{{skillTodoCtrl.skillTodoManager.skillTodo.todo.title}}</strong>
-    {{skillTodoCtrl.skillTodoManager.skillTodo.todo.description}}
+    <strong>{{skillTodoCtrl.skillTodoSrv.skillTodo.todo.title}}</strong>
+    {{skillTodoCtrl.skillTodoSrv.skillTodo.todo.description}}
    </div>
    <form editable-form name="editableForm" onbeforesave="skillTodoCtrl.editSkillTodoSections.details($data)" ng-show="editableForm.$visible">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="skillTodoCtrl.skillTodoManager.skillTodo.todo.title" e-name="title" e-required
+      <div editable-textarea="skillTodoCtrl.skillTodoSrv.skillTodo.todo.title" e-name="title" e-required
            e-rows="2" e-placeholder="title"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -41,7 +41,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="skillTodoCtrl.skillTodoManager.skillTodo.todo.description" e-name="description"
+      <div editable-textarea="skillTodoCtrl.skillTodoSrv.skillTodo.todo.description" e-name="description"
            e-rows="2" e-placeholder="description"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -122,9 +122,9 @@
       </div>
      </div>
     </form>
-    <div class="gb-todo-body row" ng-show="skillTodoCtrl.skillTodoChecklistManager.skillTodoChecklist.length" ng-cloak>
+    <div class="gb-todo-body row" ng-show="skillTodoCtrl.skillTodoChecklistSrv.skillTodoChecklist.length" ng-cloak>
      <ul class="gb-checklist-nav">
-      <li ng-repeat="todoChecklistItem in skillTodoCtrl.skillTodoChecklistManager.skillTodoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == skillTodoCtrl.editedTodo}">
+      <li ng-repeat="todoChecklistItem in skillTodoCtrl.skillTodoChecklistSrv.skillTodoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == skillTodoCtrl.editedTodo}">
        <div class="gb-checklist-row row">
         <input class="toggle col-lg-1" type="checkbox" ng-model="todoChecklistItem.completed">
         <div class='gb-checklist-item-content col-lg-9'>

@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!teachCommentsCtrl.commentFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{teachCtrl.teachManager.teach.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{teachCtrl.teachSrv.teach.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="teachCommentsCtrl.showCommentForm()" placeholder="Say something" readonly>
    </div>
    <form class="gb-form-1" ng-show="teachCommentsCtrl.commentFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-comment-body row" ng-show="teachCommentsCtrl.teachCommentsManager.teachComments.length" ng-cloak>
+  <div class="gb-comment-body row" ng-show="teachCommentsCtrl.teachCommentsSrv.teachComments.length" ng-cloak>
    <ul id="comment-list">
-    <li ng-repeat="teachComment in teachCommentsCtrl.teachCommentsManager.teachComments| filter:statusFilter track by $index" ng-class="{completed: teachComment.completed, editing: teachComment == teachCommentsCtrl.editedComment}">
+    <li ng-repeat="teachComment in teachCommentsCtrl.teachCommentsSrv.teachComments| filter:statusFilter track by $index" ng-class="{completed: teachComment.completed, editing: teachComment == teachCommentsCtrl.editedComment}">
      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-comment-heading">
        <p class="gb-title">COMMENT</p>

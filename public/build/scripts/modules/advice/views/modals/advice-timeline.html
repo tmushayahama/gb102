@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{adviceProgressCtrl.adviceProgressManager.adviceProgress.progress.title}}
+   {{adviceProgressCtrl.adviceProgressSrv.adviceProgress.progress.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="adviceProgressCtrl.close()">
@@ -13,7 +13,7 @@
   <div class="gb-progress-row row">
    <div class='gb-progress-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
     <div class="gb-content-text">
-     <textarea autofocus ng-model="adviceProgressCtrl.adviceProgressManager.adviceProgress.progress.description"></textarea>
+     <textarea autofocus ng-model="adviceProgressCtrl.adviceProgressSrv.adviceProgress.progress.description"></textarea>
     </div>
    </div>
    <div class="gb-progress-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">

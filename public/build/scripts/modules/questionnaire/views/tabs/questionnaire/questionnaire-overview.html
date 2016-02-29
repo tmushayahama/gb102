@@ -13,14 +13,14 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div ng-hide="editDescriptionForm.$visible" id="gb-questionnaire-item-todo-panel" class="row">
-   <strong>{{questionnaireCtrl.questionnaireManager.questionnaire.title}}</strong>
-   {{questionnaireCtrl.questionnaireManager.questionnaire.description}}
+   <strong>{{questionnaireCtrl.questionnaireSrv.questionnaire.title}}</strong>
+   {{questionnaireCtrl.questionnaireSrv.questionnaire.description}}
   </div>
-  <form editable-form name="editDescriptionForm" onbeforesave="questionnaireCtrl.editQuestionnaireSections.details(questionnaireCtrl.questionnaireManager.questionnaire.id, $data)" ng-show="editDescriptionForm.$visible">
+  <form editable-form name="editDescriptionForm" onbeforesave="questionnaireCtrl.editQuestionnaireSections.details(questionnaireCtrl.questionnaireSrv.questionnaire.id, $data)" ng-show="editDescriptionForm.$visible">
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="questionnaireCtrl.questionnaireManager.questionnaire.title" e-name="title" e-required
+     <div editable-textarea="questionnaireCtrl.questionnaireSrv.questionnaire.title" e-name="title" e-required
           e-rows="2" e-placeholder="title"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>
@@ -29,7 +29,7 @@
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="questionnaireCtrl.questionnaireManager.questionnaire.description" e-name="description"
+     <div editable-textarea="questionnaireCtrl.questionnaireSrv.questionnaire.description" e-name="description"
           e-rows="4" e-placeholder="description"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>

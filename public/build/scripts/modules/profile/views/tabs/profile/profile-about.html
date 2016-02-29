@@ -1,4 +1,4 @@
-<section ng-repeat="userProfileSection in profileCtrl.userProfileSectionManager.userProfileSections" class="gb-section-row-2 row">
+<section ng-repeat="userProfileSection in profileCtrl.userProfileSectionSrv.userProfileSections" class="gb-section-row-2 row">
  <header class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
    <p class="gb-title gb-ellipsis">
@@ -15,7 +15,7 @@
   <div ng-hide="editDescriptionForm.$visible" id="gb-profile-item-todo-panel" class="row">
    {{userProfileSection.description}}
   </div>
-  <form editable-form name="editDescriptionForm" onbeforesave="profileCtrl.editProfileSections.details(profileCtrl.profileManager.profile.id, $data)" ng-show="editDescriptionForm.$visible">
+  <form editable-form name="editDescriptionForm" onbeforesave="profileCtrl.editProfileSections.details(profileCtrl.profileSrv.profile.id, $data)" ng-show="editDescriptionForm.$visible">
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{userProfileSection.profile_section.title}}:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -55,13 +55,13 @@
  </header>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div ng-hide="editDescriptionForm.$visible" id="gb-profile-item-todo-panel" class="row">
-   {{profileCtrl.profileManager.profile.favorite_quote}}
+   {{profileCtrl.profileSrv.profile.favorite_quote}}
   </div>
-  <form editable-form name="editDescriptionForm" onbeforesave="profileCtrl.editProfileSections.details(profileCtrl.profileManager.profile.id, $data)" ng-show="editDescriptionForm.$visible">
+  <form editable-form name="editDescriptionForm" onbeforesave="profileCtrl.editProfileSections.details(profileCtrl.profileSrv.profile.id, $data)" ng-show="editDescriptionForm.$visible">
    <div class="form-group row">
     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-     <div editable-textarea="profileCtrl.profileManager.profile.favorite_quote" e-name="title" e-required
+     <div editable-textarea="profileCtrl.profileSrv.profile.favorite_quote" e-name="title" e-required
           e-rows="2" e-placeholder="title"
           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      </div>

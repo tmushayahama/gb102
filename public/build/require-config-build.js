@@ -25,10 +25,12 @@ requirejs.config({
   'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min',
   'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
   'checklist-model': '../../../bower_components/checklist-model/checklist-model',
-  'angular-svg-round-progress': '../../../bower_components/angular-svg-round-progressbar/build/roundProgress.min',
-  'ng-tags-input': '../../../bower_components/ng-tags-input/ng-tags-input',
-  //Local pugins--common
+  'ng-tags-input': '../../../bower_components/ng-tags-input/ng-tags-input.min',
+  'angular-aria': '../../../bower_components/angular-aria/angular-aria.min',
+  'angular-material': '../../../bower_components/angular-material/angular-material.min',
+  'infinite-scroll': '../../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min',
   'truncate-filters': 'scripts/modules/common/filters/truncate'
+
 
  },
  shim: {
@@ -54,8 +56,12 @@ requirejs.config({
   'angular-aside': {deps: ['angular', 'angular-animate']},
   'angular-sanitize': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
-  'angular-svg-round-progress': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
+  'angular-aria': {deps: ['angular']},
+  'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},
+  'material': {deps: ['jquery']},
+  'ripples': {deps: ['jquery']},
+  'infinite-scroll': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },
  priority: [

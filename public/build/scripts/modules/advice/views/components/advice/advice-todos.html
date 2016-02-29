@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!adviceTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{adviceCtrl.adviceManager.advice.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{adviceCtrl.adviceSrv.advice.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="adviceTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="adviceTodosCtrl.todoFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-todo-body row" ng-show="adviceTodosCtrl.adviceTodosManager.adviceTodos.length" ng-cloak>
+  <div class="gb-todo-body row" ng-show="adviceTodosCtrl.adviceTodosSrv.adviceTodos.length" ng-cloak>
    <ul id="todo-list">
-    <li ng-repeat="adviceTodo in adviceTodosCtrl.adviceTodosManager.adviceTodos| filter:statusFilter track by $index" ng-class="{completed: adviceTodo.completed, editing: adviceTodo == adviceTodosCtrl.editedTodo}">
+    <li ng-repeat="adviceTodo in adviceTodosCtrl.adviceTodosSrv.adviceTodos| filter:statusFilter track by $index" ng-class="{completed: adviceTodo.completed, editing: adviceTodo == adviceTodosCtrl.editedTodo}">
      <div class="gb-todo-row row">
       <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="adviceTodo.completed">
       <div class='gb-todo-content col-lg-10 col-md-10 col-sm-10 col-xs-9'>

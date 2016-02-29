@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!mentorshipWeblinksCtrl.weblinkFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{mentorshipCtrl.mentorshipManager.mentorship.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{mentorshipCtrl.mentorshipSrv.mentorship.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="mentorshipWeblinksCtrl.showWeblinkForm()" placeholder="Add links" readonly>
    </div>
    <form class="gb-form-1" ng-show="mentorshipWeblinksCtrl.weblinkFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-weblink-body row" ng-show="mentorshipWeblinksCtrl.mentorshipWeblinksManager.mentorshipWeblinks.length" ng-cloak>
+  <div class="gb-weblink-body row" ng-show="mentorshipWeblinksCtrl.mentorshipWeblinksSrv.mentorshipWeblinks.length" ng-cloak>
    <ul id="weblink-list">
-    <li ng-repeat="mentorshipWeblink in mentorshipWeblinksCtrl.mentorshipWeblinksManager.mentorshipWeblinks| filter:statusFilter track by $index" ng-class="{completed: mentorshipWeblink.completed, editing: mentorshipWeblink == mentorshipWeblinksCtrl.editedWeblink}">
+    <li ng-repeat="mentorshipWeblink in mentorshipWeblinksCtrl.mentorshipWeblinksSrv.mentorshipWeblinks| filter:statusFilter track by $index" ng-class="{completed: mentorshipWeblink.completed, editing: mentorshipWeblink == mentorshipWeblinksCtrl.editedWeblink}">
      <div class="gb-weblink-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-weblink-heading">
        <p class="gb-title">WEBLINK</p>

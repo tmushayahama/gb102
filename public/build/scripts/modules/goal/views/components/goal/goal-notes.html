@@ -14,7 +14,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class='row'>
    <div ng-show="!goalNotesCtrl.noteFormDisplay" class="gb-form-placeholder">
-    <img src="public/build/img/profile_pic/{{goalCtrl.goalManager.goal.creator.avatar_url}}" class="gb-img" alt="">
+    <img src="public/build/img/profile_pic/{{goalCtrl.goalSrv.goal.creator.avatar_url}}" class="gb-img" alt="">
     <input class="" ng-click="goalNotesCtrl.showNoteForm()" placeholder="Jot down some notes" readonly>
    </div>
    <form class="gb-form-1" ng-show="goalNotesCtrl.noteFormDisplay" name="form" novalidate>
@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-note-body row" ng-show="goalNotesCtrl.goalNotesManager.goalNotes.length" ng-cloak>
+  <div class="gb-note-body row" ng-show="goalNotesCtrl.goalNotesSrv.goalNotes.length" ng-cloak>
    <ul id="note-list">
-    <li ng-repeat="goalNote in goalNotesCtrl.goalNotesManager.goalNotes| filter:statusFilter track by $index" ng-class="{completed: goalNote.completed, editing: goalNote == goalNotesCtrl.editedNote}">
+    <li ng-repeat="goalNote in goalNotesCtrl.goalNotesSrv.goalNotes| filter:statusFilter track by $index" ng-class="{completed: goalNote.completed, editing: goalNote == goalNotesCtrl.editedNote}">
      <div class="gb-note-row row" ng-init="goalNoteCopy = angular.copy(goalNote)">
       <div class='gb-note-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
        <div class="gb-content-text">

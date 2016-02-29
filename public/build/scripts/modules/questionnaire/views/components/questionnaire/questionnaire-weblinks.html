@@ -87,9 +87,9 @@
     </div>
    </form>
   </div>
-  <div class="gb-weblink-body row" ng-show="questionnaireWeblinksCtrl.questionnaireWeblinksManager.questionnaireWeblinks.length" ng-cloak>
+  <div class="gb-weblink-body row" ng-show="questionnaireWeblinksCtrl.questionnaireWeblinksSrv.questionnaireWeblinks.length" ng-cloak>
    <ul id="weblink-list">
-    <li ng-repeat="questionnaireWeblink in questionnaireWeblinksCtrl.questionnaireWeblinksManager.questionnaireWeblinks| filter:statusFilter track by $index" ng-class="{completed: questionnaireWeblink.completed, editing: questionnaireWeblink == questionnaireWeblinksCtrl.editedWeblink}">
+    <li ng-repeat="questionnaireWeblink in questionnaireWeblinksCtrl.questionnaireWeblinksSrv.questionnaireWeblinks| filter:statusFilter track by $index" ng-class="{completed: questionnaireWeblink.completed, editing: questionnaireWeblink == questionnaireWeblinksCtrl.editedWeblink}">
      <div class="gb-weblink-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-weblink-heading">
        <p class="gb-title">WEBLINK</p>

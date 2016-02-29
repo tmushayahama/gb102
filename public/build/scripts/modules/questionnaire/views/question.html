@@ -8,13 +8,13 @@
     <div class="gb-row-content gb-full">
      <div class="gb-ellipsis">
       <h1 class="gb-title">
-       <strong>{{questionCtrl.questionManager.question.title}}</strong> {{questionCtrl.questionManager.question.description}}
+       <strong>{{questionCtrl.questionSrv.question.title}}</strong> {{questionCtrl.questionSrv.question.description}}
       </h1>
       <a class="gb-description"
-         ui-sref="profile.overview({profileId: questionCtrl.questionManager.question.creator.id})">
-       <img src="public/build/img/profile_pic/{{questionCtrl.questionManager.question.creator.avatar_url}}" class="gb-profile-pic" alt="">
+         ui-sref="profile.overview({profileId: questionCtrl.questionSrv.question.creator.id})">
+       <img src="public/build/img/profile_pic/{{questionCtrl.questionSrv.question.creator.avatar_url}}" class="gb-profile-pic" alt="">
        <h2 class="gb-heading">
-        <i>by: </i>{{questionCtrl.questionManager.question.creator.firstname + " " + questionCtrl.questionManager.question.creator.lastname}}
+        <i>by: </i>{{questionCtrl.questionSrv.question.creator.firstname + " " + questionCtrl.questionSrv.question.creator.lastname}}
        </h2>
       </a>
      </div>
