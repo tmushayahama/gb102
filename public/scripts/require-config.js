@@ -29,8 +29,11 @@ requirejs.config({
   'checklist-model': '../../bower_components/checklist-model/checklist-model',
   'angular-svg-round-progress': '../../bower_components/angular-svg-round-progressbar/build/roundProgress',
   'ng-tags-input': '../../bower_components/ng-tags-input/ng-tags-input',
+  'angular-aria': '../../bower_components/angular-aria/angular-aria',
+  'angular-material': '../../bower_components/angular-material/angular-material',
   'material': '../../bower_components/bootstrap-material-design/dist/js/material',
   'ripples': '../../bower_components/bootstrap-material-design/dist/js/ripples',
+  'infinite-scroll': '../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
   'truncate-filters': '../modules/common/filters/truncate'
  },
  shim: {
@@ -59,9 +62,12 @@ requirejs.config({
   'checklist-model': {deps: ['angular']},
   'angular-svg-round-progress': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
-  'truncate-filters': {deps: ['angular']},
+  'angular-aria': {deps: ['angular']},
+  'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},
   'material': {deps: ['jquery']},
   'ripples': {deps: ['jquery']},
+  'infinite-scroll': {deps: ['angular']},
+  'truncate-filters': {deps: ['angular']},
  },
  priority: [
   'jquery',

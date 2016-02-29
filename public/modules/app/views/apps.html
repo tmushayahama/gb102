@@ -31,28 +31,29 @@
    </div>
   </div>
   <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
-   <div class="gb-flex-container">
-    <div class="gb-container form-group gb-input-form-group col-lg-10 col-md-10 col-sm-10 col-xs-10">
+   <div class="form-group gb-input-form-group">
+    <md-input-container class="md-block" md-no-float>
      <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in appsCtrl.getSearchSuggestions($viewValue)"
-            typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-     <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
-        ng-click="$root.searchKeyword = ''">
-      <i class="fa fa-times"></i>
-     </a>
-    </div>
-    <div class="gb-input-btn-group btn-group">
-     <button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
-      <i class="fa fa-search"></i>
-     </button>
-     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-aria-expanded="false">
-      <span class="caret"></span>
-     </button>
-     <ul class="dropdown-menu dropdown-menu-right">
-      <li>
-       <a href="#">Advanced Search</a>
-      </li>
-     </ul>
-    </div>
+            typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
+            typeahead-popup-template-url="customPopupTemplate.html" >
+    </md-input-container>
+    <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
+       ng-click="$root.searchKeyword = ''">
+     <i class="fa fa-times"></i>
+    </a>
+   </div>
+   <div class="gb-input-btn-group btn-group">
+    <md-button ng-click="appsCtrl.search()" type="button" class="btn btn-primary">
+     <i class="fa fa-search"></i>
+    </md-button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li>
+      <a href="#">Advanced Search</a>
+     </li>
+    </ul>
    </div>
   </form>
   <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">
@@ -302,7 +303,7 @@
 </div>
 <!-- ------------------------------- MODALS --------------------------->
 <script type="text/ng-template" id="menu-modal.html">
- <div ng-include="'public/modules/app/views/modals/menu-modal.html'"></div>
+ <div ng-include="'public/modules/app/views/menu-modal.html'"></div>
 </script>
 
 <script type="text/ng-template" id="customTemplate.html">
@@ -314,18 +315,5 @@
 </script>
 
 <script type="text/ng-template" id="customPopupTemplate.html">
- <div class="custom-popup-wrapper"
- ng-style="{top: position().top+'px', left: position().left+'px'}"
- style="display: block;"
- ng-show="isOpen() && !moveInProgress"
- aria-hidden="{{!isOpen()}}">
- <p class="message">select location from drop down.</p>
-
- <ul class="dropdown-menu" role="listbox">
- <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
- ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
- <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
- </li>
- </ul>
- </div>
+ <div ng-include="'public/modules/app/views/templates/search-dropdown.html'"></div>
 </script>

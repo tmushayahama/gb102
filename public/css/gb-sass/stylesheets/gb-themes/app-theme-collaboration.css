@@ -21,6 +21,10 @@ and open the template in the editor.
   margin: 3px 0px 0px 0px;
 }
 
+.gb-search-result-dropdown {
+  background-color: #f9f9f9;
+}
+
 .typeahead-demo .custom-popup-wrapper {
   position: absolute;
   top: 100%;
@@ -50,6 +54,9 @@ and open the template in the editor.
 .gb-top-nav-1 .gb-search {
   height: 100%;
   padding: 5px 0;
+}
+.gb-top-nav-1 .gb-search md-input-container {
+  margin: 0;
 }
 .gb-top-nav-1 .gb-search .gb-clear-btn {
   position: absolute;
@@ -87,11 +94,16 @@ and open the template in the editor.
   bottom: 5px;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group .btn {
-  height: 100%;
+  height: 40px;
+}
+
+.btn {
+  margin: 0;
 }
 
 btn:focus {
   border: none;
+  outline: none;
   box-shadow: none;
 }
 
@@ -2574,6 +2586,11 @@ body > .ui-select-bootstrap.open {
   display: none !important;
 }
 
+md-input-container.md-input-focused .md-input {
+  transition: border-color ease 0.28s;
+  border-color: rgba(29, 63, 0, 0.6) !important;
+}
+
 html {
   display: block;
   padding: 0;
@@ -2592,6 +2609,10 @@ body {
 
 .gb-background-white {
   background-color: #FFF;
+}
+
+.form-group {
+  margin: 0;
 }
 
 a,
@@ -2890,7 +2911,7 @@ input[type="checkbox"] {
 }
 
 .gb-form-1 {
-  padding: 0px;
+  padding: 10px 20px;
   margin-bottom: 20px;
   background-color: #FFFFFF;
   border: #DDD solid 1px;

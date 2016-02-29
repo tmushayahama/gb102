@@ -22,6 +22,11 @@ define([
  'checklist-model',
  'angular-svg-round-progress',
  'ng-tags-input',
+ 'angular-aria',
+ 'angular-material',
+ //'material',
+ //'ripples',
+ 'infinite-scroll',
  'truncate-filters',
  '../auth/module',
  '../search/module',
@@ -58,6 +63,9 @@ define([
   'checklist-model',
   'angular-svg-round-progress',
   'ngTagsInput',
+  'infinite-scroll',
+  'ngAria',
+  'ngMaterial',
   'gb-filters.truncate',
   'app.auth',
   'app.search',
@@ -149,12 +157,12 @@ define([
             }
            }
           });
- }
+ };
  appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', 'hammerDefaultOptsProvider', '$provide'];
  app.config(appConfig);
 
  var appRun = function ($stateParams, $rootScope, $state, editableOptions, localStorageService) {
-
+  //$.material.init();
   $rootScope.$on('$stateChangeStart', function (event, toState) {
    var user = JSON.parse(localStorageService.get('user'));
    if (user) {

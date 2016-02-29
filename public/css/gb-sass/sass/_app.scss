@@ -38,6 +38,11 @@ and open the template in the editor.
  display: none !important;
 }
 
+md-input-container.md-input-focused .md-input {
+ transition: border-color ease 0.28s;
+ border-color: rgba($primary-color, 0.6)!important;
+}
+
 html {
  display: block;
  padding: 0;
@@ -58,7 +63,9 @@ body {
 .gb-background-white {
  background-color: #FFF;
 }
-
+.form-group {
+ margin: 0;
+}
 a,
 a.btn-link {
  color: $primary-color;
@@ -358,7 +365,7 @@ input[type="checkbox"] {
 }
 
 .gb-form-1 {
- padding: 0px;
+ padding: 10px 20px;
  margin-bottom: 20px;
  background-color: #FFFFFF;
  border: #DDD solid 1px;

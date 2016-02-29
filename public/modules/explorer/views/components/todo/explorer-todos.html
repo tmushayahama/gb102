@@ -18,27 +18,18 @@
     <input class="" ng-click="explorerTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
    </div>
    <form class="gb-form-1" ng-show="explorerTodosCtrl.todoFormDisplay" name="form" novalidate>
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explorer Todo Description" ng-model="explorerTodosCtrl.newExplorerTodoData.title"
-                name="title" required="" rows="2">
-      </textarea>
-      <div ng-show="form.$submitted || form.title.$touched">
-       <div ng-show="form.title.$error.required">description required.</div>
-      </div>
-     </div>
-    </div>
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                placeholder="Explorer Todo Description (optional)" ng-model="explorerTodosCtrl.newExplorerTodoData.description"
-                name="description" required="" rows="4">
-      </textarea>
-     </div>
-    </div>
+    <md-input-container class="md-block">
+     <label>Title</label>
+     <input class="" md-no-autogrow md-maxlength="150"
+            ng-model="explorerTodosCtrl.newExplorerTodoData.title"
+            name="title" required=""/>
+    </md-input-container>
+    <md-input-container class="md-block">
+     <label>Description</label>
+     <input class="" md-no-autogrow md-maxlength="500"
+            ng-model="explorerTodosCtrl.newExplorerTodoData.description"
+            name="title" required=""/>
+    </md-input-container>
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">

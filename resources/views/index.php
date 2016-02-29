@@ -28,6 +28,12 @@
   <meta name="theme-color" content="#ffffff">
 
   <link href='http://fonts.googleapis.com/css?family=Schoolbell&v1' rel='stylesheet' type='text/css'>
+
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="bower_components/angular-material/angular-material.css" rel="stylesheet" type="text/css"/>
+
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
   <link href="public/gb-icons/gb-icons.css" rel="stylesheet" type="text/css"/>
   <link href="public/css/gb-sass/stylesheets/main.css" rel="stylesheet" type="text/css"/>

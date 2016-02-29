@@ -2,6 +2,10 @@
  margin: 3px 0px 0px 0px;
 }
 
+.gb-search-result-dropdown {
+ background-color: #f9f9f9;
+}
+
 .typeahead-demo .custom-popup-wrapper {
  position: absolute;
  top: 100%;
@@ -30,6 +34,9 @@
 
 .gb-top-nav-1 {
  .gb-search {
+  md-input-container {
+   margin: 0;
+  }
   height: 100%;
   padding: 5px 0;
   .gb-clear-btn {
@@ -63,7 +70,7 @@
   .gb-input-btn-group {
    @include position(absolute, 5px 0 5px null);
    .btn {
-    height: 100%;
+    height: 40px;
    }
   }
 

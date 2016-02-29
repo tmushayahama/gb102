@@ -49,7 +49,10 @@
     "checklist-model": "~0.9.0",
     "angular-svg-round-progressbar": "~0.3.10",
     "angular-ui-calendar": "~1.0.1",
-    "bootstrap-material-design": "~0.5.8"
+    "bootstrap-material-design": "~0.5.8",
+    "ngInfiniteScroll": "~1.2.2",
+    "angular-material": "~1.0.5",
+    "angular-aria": "1.4.8"
   },
   "resolutions": {
     "angular": "1.4.8",
