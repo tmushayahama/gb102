@@ -40,7 +40,8 @@ and open the template in the editor.
 
 md-input-container.md-input-focused .md-input {
  transition: border-color ease 0.28s;
- border-color: rgba($primary-color, 0.6)!important;
+ border-color: $primary-color!important;
+ border-bottom-width: 3px;
 }
 .md-button {
  min-height: 20px;
@@ -1513,7 +1514,7 @@ input.gb-form-show{
  padding: 0 5px 0 5px!important;
  height: 41px;
  list-style: none;
- border-bottom: rgba($primary-color, 0.6) solid 3px;
+ border-bottom: #BBB solid 1px;
  background-color: #FFF;
  margin: 0;
  z-index: 900;
@@ -1762,7 +1763,7 @@ input.gb-form-show{
  margin-bottom: 5px;
 }
 .gb-app-item-heading .gb-faded-link {
- color: #AAA;
+ color: #AAA; 
 }
 
 .gb-item-level-heading{
@@ -1789,7 +1790,7 @@ input.gb-form-show{
 .gb-box-1 {
  position: relative;
  background-color: #FFF;
- padding:  15px 0;
+ padding:  10px 0;
  margin: 0;
  overflow: hidden;
  border-bottom: #CCC solid 1px;
@@ -1798,7 +1799,7 @@ input.gb-form-show{
   background-color: #F7F7F7;
  }
  .gb-image {
-  padding: 0px 0px 0 5px;
+  padding: 0px 0px 0 10px;
   .gb-explorer-pic {
    width: 100%;
   }

@@ -31,6 +31,8 @@ var explorerTodosCtrl = function (
  };
 
  vm.createExplorerTodo = function (data) {
+  data.level_id = level_categories.todo_level_normal;
+  data.status_id = level_categories.todo_status_in_progress;
   vm.explorerTodosSrv.createExplorerTodo(data).then(function (response) {
    vm.todoFormDisplay = false;
    vm.newExplorerTodoData = angular.copy(vm.defaultExplorerTodoData);

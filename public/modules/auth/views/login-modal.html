@@ -13,42 +13,24 @@
   <div ng-show="loginModalCtrl.errorMessage.length > 0" class="alert alert-danger">
    {{loginModalCtrl.errorMessage}}
   </div>
-  <div class="form-group">
-   <div class="input-group">
-    <div class="input-group-addon">
-     <i class="fa fa-user"></i>
-    </div>
-    <input type="text" name="username"
-           class="form-control"
-           placeholder="Username"
-           ng-model="loginModalCtrl.user.email"
-           data-required
-           data-message-required="Please enter your username">
-    <b class="tooltip tooltip-top-right">
-     <i class="fa fa-user txt-color-teal"></i>
-     Please enter username
-    </b>
-   </div>
-  </div>
-  <div class="form-group">
-   <div class="input-group">
-    <div class="input-group-addon">
-     <i class="fa fa-lock"></i>
-    </div>
-    <input type="password" name="password"
-           class="form-control"
-           ng-model="loginModalCtrl.user.password"
-           placeholder="Password"
-           data-required
-           data-minlength="3"
-           data-maxnlength="50"
-           data-message="Please enter your password">
-    <b class="tooltip tooltip-top-right">
-     <i class="fa fa-lock txt-color-teal"></i> Enter
-     your password
-    </b>
-   </div>
-  </div>
+  <md-input-container class="md-block">
+   <input type="text" name="username"
+          class="form-control"
+          placeholder="Username"
+          ng-model="loginModalCtrl.user.email"
+          data-required
+          data-message-required="Please enter your username">
+  </md-input-container>
+  <md-input-container class="md-block">
+   <input type="password" name="password"
+          class="form-control"
+          ng-model="loginModalCtrl.user.password"
+          placeholder="Password"
+          data-required
+          data-minlength="3"
+          data-maxnlength="50"
+          data-message="Please enter your password">
+  </md-input-container>
  </form>
 </div>
 <div class="modal-footer">

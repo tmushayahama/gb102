@@ -27,7 +27,6 @@ requirejs.config({
   //'angular-ui-select': '../../bower_components/ui-select/dist/select',
   //Local pugins--common
   'checklist-model': '../../bower_components/checklist-model/checklist-model',
-  'angular-svg-round-progress': '../../bower_components/angular-svg-round-progressbar/build/roundProgress',
   'ng-tags-input': '../../bower_components/ng-tags-input/ng-tags-input',
   'angular-aria': '../../bower_components/angular-aria/angular-aria',
   'angular-material': '../../bower_components/angular-material/angular-material',
@@ -60,7 +59,6 @@ requirejs.config({
   'angular-sanitize': {deps: ['angular']},
   //'angular-ui-select': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
-  'angular-svg-round-progress': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
   'angular-aria': {deps: ['angular']},
   'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},

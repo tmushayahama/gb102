@@ -20,7 +20,6 @@ define([
  //'angular-sanitize',
  //'angular-ui-select',
  'checklist-model',
- 'angular-svg-round-progress',
  'ng-tags-input',
  'angular-aria',
  'angular-material',
@@ -61,7 +60,6 @@ define([
   //'ui.select',
   //'ngSanitize',
   'checklist-model',
-  'angular-svg-round-progress',
   'ngTagsInput',
   'infinite-scroll',
   'ngAria',
@@ -202,6 +200,9 @@ define([
           request_type_goal: 1002,
           todo_level_normal: 50000,
           todo_level_progress: 50001,
+          todo_status_in_progress: 50100,
+          todo_status_later: 50101,
+          todo_status_done: 50102,
           contribution_types: 60000,
          });
 

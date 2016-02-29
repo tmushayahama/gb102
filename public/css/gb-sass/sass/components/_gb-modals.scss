@@ -8,7 +8,8 @@
 
 .modal-md {
  .modal-content {
-  height: 220px;
+  min-height: 260px;
+  max-height: 320px;
  }
 }
 .modal-header {

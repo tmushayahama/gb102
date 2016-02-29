@@ -81,21 +81,7 @@
   <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos| filter:statusFilter track by $index" ng-class="{completed: explorerTodo.completed, editing: explorerTodo == explorerTodosCtrl.editedTodo}">
    <div class="gb-box-1 row">
     <div class="gb-todo-progress col-lg-2 col-md-2 col-sm-2 col-xs-2">
-     <div
-      round-progress
-      max=100
-      current=40
-      color="#888888"
-      bgcolor="#EEEEEE"
-      radius="4"
-      stroke="1"
-      semi="false"
-      rounded="true"
-      clockwise="true"
-      responsive="true"
-      duration="800"
-      animation="easeInOutQuart"
-      animation-delay="2"></div>
+     <md-progress-circular md-mode="determinate" value="20"></md-progress-circular>
      <div class="gb-title">
       {{explorerTodosCtrl.getExplorerTodoPercentage(explorerTodo.id) + '%'}}
      </div>

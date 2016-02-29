@@ -27,11 +27,30 @@ and open the template in the editor.
 .gb-search-result-dropdown md-list-item, .gb-search-result-dropdown md-list-item .md-list-item-inner {
   display: block;
 }
-.gb-search-result-dropdown h3.gb-title {
-  margin-bottom: 10px;
+.gb-search-result-dropdown .md-list-item-inner {
+  line-height: 20px;
+  height: 70px;
+  border-bottom: rgba(154, 109, 54, 0.2) solid 1px;
+}
+.gb-search-result-dropdown .md-list-item-inner img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.gb-search-result-dropdown .md-list-item-inner .md-list-item-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 55px;
+}
+.gb-search-result-dropdown .md-list-item-inner .md-list-item-text .gb-title {
+  margin: 10px 5px 0 5px;
   color: #9A6D36;
 }
-.gb-search-result-dropdown .gb-app-type {
+.gb-search-result-dropdown .md-list-item-inner .md-list-item-text .gb-app-type {
+  padding-left: 5px;
   text-transform: uppercase;
   color: #777;
 }
@@ -260,7 +279,8 @@ btn:focus {
 }
 
 .modal-md .modal-content {
-  height: 220px;
+  min-height: 260px;
+  max-height: 320px;
 }
 
 .modal-header {
@@ -2596,7 +2616,8 @@ body > .ui-select-bootstrap.open {
 
 md-input-container.md-input-focused .md-input {
   transition: border-color ease 0.28s;
-  border-color: rgba(154, 109, 54, 0.6) !important;
+  border-color: #9A6D36 !important;
+  border-bottom-width: 3px;
 }
 
 .md-button {
@@ -4106,7 +4127,7 @@ input.gb-form-show {
   padding: 0 5px 0 5px !important;
   height: 41px;
   list-style: none;
-  border-bottom: rgba(154, 109, 54, 0.6) solid 3px;
+  border-bottom: #BBB solid 1px;
   background-color: #FFF;
   margin: 0;
   z-index: 900;
@@ -4388,7 +4409,7 @@ input.gb-form-show {
 .gb-box-1 {
   position: relative;
   background-color: #FFF;
-  padding: 15px 0;
+  padding: 10px 0;
   margin: 0;
   overflow: hidden;
   border-bottom: #CCC solid 1px;
@@ -4397,7 +4418,7 @@ input.gb-form-show {
   background-color: #F7F7F7;
 }
 .gb-box-1 .gb-image {
-  padding: 0px 0px 0 5px;
+  padding: 0px 0px 0 10px;
 }
 .gb-box-1 .gb-image .gb-explorer-pic {
   width: 100%;

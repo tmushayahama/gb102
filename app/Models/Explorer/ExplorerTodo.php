@@ -59,11 +59,15 @@ class ExplorerTodo extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $explorerId = Request::get("explorerId");
+  $levelId = Request::get("level_id");
+  $statusId = Request::get("status_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $todo = new Todo;
   $explorerTodo = new ExplorerTodo;
   $todo->creator_id = $userId;
+  $todo->level_id = $levelId;
+  $todo->status_id = $statusId;
   $todo->title = $title;
   $todo->description = $description;
   $explorerTodo->explorer_id = $explorerId;

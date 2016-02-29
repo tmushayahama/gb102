@@ -4,12 +4,15 @@
      ng-show="isOpen() && !moveInProgress"
      aria-hidden="{{!isOpen()}}">
  <md-list class="gb-search-result-dropdown">
-  <md-list-item class="md-2-line" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+  <md-list-item class="row" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
                 ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
    <img ng-src="public/img/explorer/{{ match.model.explorer_picture_url}}"
-        onerror="this.src = 'public/img/explorer/default.png'" class="md-avatar" alt="{{match.model.title}}" />
+        onerror="this.src = 'public/img/explorer/default.png'" class="pull-left md-avatar" alt="{{match.model.title}}" />
    <div class="md-list-item-text">
-    <h4>{{match.model.title}}</h4>
+    <h4 class="gb-title">
+     <div class="gb-ellipsis">
+      {{match.model.title}}
+     </div></h4>
     <p class="gb-app-type">{{match.model.app_type.name}}</p>
    </div>
   </md-list-item>
