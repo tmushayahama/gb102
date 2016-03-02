@@ -33,20 +33,25 @@ class MentorshipTodo extends Model {
   */
  protected $fillable = [];
 
- public static function getMentorshipTodos($mentorshipId) {
+ public static function getMentorshipTodos($mentorshipId, $levelId) {
   $mentorshipTodos = MentorshipTodo::with('todo')
-    ->orderBy('id', 'DESC')
-    ->where('mentorship_id', $mentorshipId)
-    ->get();
+          ->with('todo.status')
+          ->with('todo.creator')
+          ->whereHas('todo', function($q) use ($levelId) {
+           $q->where('level_id', $levelId);
+          })
+          ->orderBy('id', 'DESC')
+          ->where('mentorship_id', $mentorshipId)
+          ->get();
   return $mentorshipTodos;
  }
 
  public static function getMentorshipTodo($mentorshipId, $todoId) {
   $mentorshipTodo = MentorshipTodo::with('todo')
-    ->orderBy('id', 'DESC')
-    ->where('mentorship_id', $mentorshipId)
-    ->where('todo_id', $todoId)
-    ->first();
+          ->orderBy('id', 'DESC')
+          ->where('mentorship_id', $mentorshipId)
+          ->where('todo_id', $todoId)
+          ->first();
   return $mentorshipTodo;
  }
 
@@ -54,11 +59,15 @@ class MentorshipTodo extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $mentorshipId = Request::get("mentorshipId");
+  $levelId = Request::get("level_id");
+  $statusId = Request::get("status_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $todo = new Todo;
   $mentorshipTodo = new MentorshipTodo;
   $todo->creator_id = $userId;
+  $todo->level_id = $levelId;
+  $todo->status_id = $statusId;
   $todo->title = $title;
   $todo->description = $description;
   $mentorshipTodo->mentorship_id = $mentorshipId;

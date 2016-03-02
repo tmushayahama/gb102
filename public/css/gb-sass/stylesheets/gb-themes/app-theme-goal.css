@@ -796,13 +796,16 @@ Copyright (c) 2014 Daniel Eden
   padding: 15px 5px 15px 5px;
 }
 .gb-section-row-2 .gb-heading .gb-title {
-  padding: 3px 0 0 0;
+  padding: 0 0 0 0;
   width: 100%;
-  font-size: 15px;
+  font-size: 20px;
   color: rgba(0, 34, 119, 0.8);
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
+}
+.gb-section-row-2 .gb-heading .gb-title.gb-small {
+  font-size: 12px;
 }
 .gb-section-row-2 .gb-heading .gb-heading-img {
   width: 30px;
@@ -927,9 +930,20 @@ Copyright (c) 2014 Daniel Eden
   color: #002277;
 }
 
+.gb-shadow-1 {
+  position: relative;
+  font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+  border: 1px solid #c5c5c5;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
+  -moz-box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
+  box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 .gb-icon-top-nav-1 {
   padding: 0;
-  margin-bottom: 20px;
   list-style: none;
   background-color: #FFF;
   text-align: center;
@@ -938,6 +952,7 @@ Copyright (c) 2014 Daniel Eden
   display: block;
   height: 100%;
   width: 100%;
+  border-right: #DDD solid 1px;
   text-decoration: none;
 }
 .gb-icon-top-nav-1 a .gb-icon {
@@ -953,23 +968,23 @@ Copyright (c) 2014 Daniel Eden
   color: #002277;
 }
 .gb-icon-top-nav-1 > li {
-  border-bottom: transparent solid 4px;
+  border-bottom: transparent solid 5px;
 }
 .gb-icon-top-nav-1 > li a {
-  padding: 10px 2px 10px 2px;
+  padding: 15px 2px 15px 2px;
 }
 .gb-icon-top-nav-1 > li a .gb-icon {
-  font-size: 24px;
+  font-size: 35px;
   margin-bottom: 10px;
 }
 .gb-icon-top-nav-1 > li a .gb-title {
   font-size: 10px;
 }
 .gb-icon-top-nav-1 > li:hover {
-  border-bottom: rgba(0, 34, 119, 0.4) solid 4px;
+  border-bottom: rgba(0, 34, 119, 0.4) solid 5px;
 }
 .gb-icon-top-nav-1 > li.active {
-  border-bottom: rgba(0, 34, 119, 0.7) solid 4px;
+  border-bottom: rgba(0, 34, 119, 0.8) solid 5px;
 }
 .gb-icon-top-nav-1 > li li a {
   border-left: transparent solid 4px;
@@ -2625,6 +2640,10 @@ md-input-container.md-input-focused .md-input {
   min-width: 22px;
 }
 
+.md-default {
+  background-color: #F2F2F2 !important;
+}
+
 html {
   display: block;
   padding: 0;
@@ -2732,7 +2751,7 @@ input[type="checkbox"] {
 
 .gb-container.gb-app-list {
   -webkit-overflow-scrolling: touch;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 @media (max-width: 767px) {
   .gb-container.gb-app-list {
@@ -4410,9 +4429,12 @@ input.gb-form-show {
   position: relative;
   background-color: #FFF;
   padding: 10px 0;
-  margin: 0;
+  margin-bottom: 25px;
   overflow: hidden;
-  border-bottom: #CCC solid 1px;
+  border: 1px solid #CCC;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
+  -moz-box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
+  box-shadow: 0 3px 8px rgba(0, 34, 119, 0.5);
 }
 .gb-box-1:hover {
   background-color: #F7F7F7;

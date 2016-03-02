@@ -18,7 +18,7 @@ module.exports = function (grunt) {
  };
 
  var apps = [
-  'explorer'
+  'mentorship'
  ];
  var srcs = [
   {
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
        replacement: app.capitalizeFirstLetter()
       },
       {
-       match: /EXPLORE/g,
+       match: /EXPLORER/g,
        replacement: app.toUpperCase()
       },
       {
@@ -215,19 +215,10 @@ module.exports = function (grunt) {
     {
      expand: true,
      //flatten: true,
-     src: ['modules/**/*.ctrl.js'],
+     src: ['modules/**/*.js'],
      dest: 'public/build/scripts',
-     cwd: 'public',
-     ext: '.ctrl.js'
+     cwd: 'public'
     },
-    {
-     expand: true,
-     //flatten: true,
-     src: ['modules/**/*.srv.js'],
-     dest: 'public/build/scripts',
-     cwd: 'public',
-     ext: '.srv.js'
-    }
    ]
   }
  });

@@ -62,8 +62,8 @@ define(['angular'
                  name: 'app.swipe',
                  serie: true,
                  files: [
-                  'public/modules/swipe/controllers/Swipe.ctrl.js',
-                  'public/modules/swipe/services/Swipe.srv.js',
+                  'public/modules/swipe/controllers/swipe.ctrl.js',
+                  'public/modules/swipe/services/swipe.srv.js',
                  ]
                 });
                }]

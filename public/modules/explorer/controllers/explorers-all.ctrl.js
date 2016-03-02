@@ -16,6 +16,8 @@ var explorersAllCtrl = function (
  var vm = this;
  vm.explorers = [];
 
+ vm.appName = "ALL";
+
  vm.explorersSrv = new ExplorersSrv();
 
  if (isSearch) {

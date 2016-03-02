@@ -39,13 +39,16 @@
  .gb-heading {
   padding: 15px 5px 15px 5px;
   .gb-title {
-   padding: 3px 0 0 0;
+   padding: 0 0 0 0;
    width: 100%;
-   font-size: 15px;
+   font-size: 20px;
    color: rgba($primary-color, 0.8);
    -webkit-text-rendering: optimizeLegibility;
    -moz-text-rendering: optimizeLegibility;
    text-rendering: optimizeLegibility;
+   &.gb-small {
+    font-size: 12px;
+   }
   }
   .gb-heading-img {
    width: 30px;

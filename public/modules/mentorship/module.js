@@ -20,17 +20,17 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/mentorship/services/Mentorships.srv.js',
-                  'public/modules/mentorship/controllers/Mentorships.ctrl.js',
-                  'public/modules/mentorship/controllers/modals/CreateMentorship.ctrl.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/mentorship/services/mentorships.srv.js',
+                  'public/modules/mentorship/controllers/mentorships.ctrl.js',
+                  'public/modules/mentorship/controllers/add-mentorship-modal.ctrl.js',
+                  'public/modules/mentorship/controllers/create-request-mentorship-modal.ctrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-
           .state('apps.mentorships.all', {
            url: '/all',
            views: {
@@ -46,15 +46,15 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/mentorship/controllers/MentorshipsAll.ctrl.js',
+                  'public/modules/mentorship/controllers/mentorships-all.ctrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-          .state('apps.mentorships.type', {
-           url: '/all/{type_id}',
+          .state('apps.mentorships.app', {
+           url: '/all/{app_name}',
            views: {
             "app-tab": {
              controller: 'MentorshipsAppCtrl as mentorshipsTabCtrl',
@@ -68,7 +68,7 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/mentorship/controllers/MentorshipsApp.ctrl.js',
+                  'public/modules/mentorship/controllers/mentorships-app.ctrl.js',
                  ]
                 });
                }]
@@ -87,7 +87,7 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/mentorship/controllers/MentorshipsMine.ctrl.js',
+                  'public/modules/mentorship/controllers/mentorships-mine.ctrl.js',
                  ]
                 });
                }]
@@ -107,13 +107,14 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/app/services/Constants.srv.js',
-                  'public/modules/mentorship/services/Mentorship.srv.js',
-                  'public/modules/mentorship/controllers/Mentorship.ctrl.js',
+                  'public/modules/community/services/community.srv.js',
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/mentorship/services/mentorship.srv.js',
+                  'public/modules/mentorship/controllers/mentorship.ctrl.js',
                   'public/modules/mentorship/filters/randomize.js',
                  ]
                 });
-               }],
+               }]
              }
             }
            }})
@@ -124,32 +125,22 @@ define(['angular'
              controller: 'MentorshipOverviewCtrl as mentorshipOverviewCtrl',
              templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-overview.html',
              resolve: {
+              todoLevelId: function (level_categories) {
+               return  level_categories.todo_level_progress;
+              },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/mentorship/controllers/MentorshipOverview.ctrl.js',
-                 ]
-                });
-               }]
-             }
-            }
-           }})
-          .state('apps.mentorship.manage', {
-           url: '/manage',
-           views: {
-            "content": {
-             controller: 'MentorshipManageCtrl as mentorshipManageCtrl',
-             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-manage.html',
-             resolve: {
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.mentorship',
-                 serie: true,
-                 files: [
-                  'public/modules/mentorship/controllers/MentorshipManage.ctrl.js',
-                 ]
+                  'public/modules/mentorship/controllers/mentorship-overview.ctrl.js',
+                  //Progress
+                  'public/modules/mentorship/services/todo/mentorship-todo.srv.js',
+                  'public/modules/mentorship/services/todo/mentorship-todos.srv.js',
+                  'public/modules/mentorship/services/todo/mentorship-todo-checklist.srv.js',
+                  'public/modules/mentorship/controllers/todo/mentorship-todos.ctrl.js',
+                  'public/modules/mentorship/controllers/todo/mentorship-progress.ctrl.js',
+                  'public/modules/mentorship/controllers/todo/mentorship-todo-modal.ctrl.js', ]
                 });
                }]
              }
@@ -170,43 +161,66 @@ define(['angular'
                   //Todos
                   'public/modules/mentorship/directives/todoEscape.js',
                   'public/modules/mentorship/directives/todoFocus.js',
-                  'public/modules/mentorship/services/MentorshipTodo.srv.js',
-                  'public/modules/mentorship/services/MentorshipTodos.srv.js',
-                  'public/modules/mentorship/services/MentorshipTodoChecklist.srv.js',
-                  'public/modules/mentorship/controllers/MentorshipTodos.ctrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipTodo.ctrl.js',
+                  'public/modules/mentorship/services/todo/mentorship-todo.srv.js',
+                  'public/modules/mentorship/services/todo/mentorship-todos.srv.js',
+                  'public/modules/mentorship/services/todo/mentorship-todo-checklist.srv.js',
+                  'public/modules/mentorship/controllers/todo/mentorship-todos.ctrl.js',
+                  'public/modules/mentorship/controllers/todo/mentorship-todo-modal.ctrl.js',
                   //Notes,
-                  'public/modules/mentorship/services/MentorshipNote.srv.js',
-                  'public/modules/mentorship/services/MentorshipNotes.srv.js',
-                  'public/modules/mentorship/controllers/MentorshipNotes.ctrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipNote.ctrl.js',
+                  'public/modules/mentorship/services/note/mentorship-note.srv.js',
+                  'public/modules/mentorship/services/note/mentorship-notes.srv.js',
+                  'public/modules/mentorship/controllers/note/mentorship-notes.ctrl.js',
+                  'public/modules/mentorship/controllers/note/mentorship-note-modal.ctrl.js',
                   //Weblink
-                  'public/modules/mentorship/services/MentorshipWeblink.srv.js',
-                  'public/modules/mentorship/services/MentorshipWeblinks.srv.js',
-                  'public/modules/mentorship/controllers/MentorshipWeblinks.ctrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipWeblink.ctrl.js',
+                  'public/modules/mentorship/services/weblink/mentorship-weblink.srv.js',
+                  'public/modules/mentorship/services/weblink/mentorship-weblinks.srv.js',
+                  'public/modules/mentorship/controllers/weblink/mentorship-weblinks.ctrl.js',
+                  'public/modules/mentorship/controllers/weblink/mentorship-weblink-modal.ctrl.js',
                  ]
                 });
                }]
              }
             }
            }})
-          .state('apps.mentorship.community', {
-           url: '/community',
+          .state('apps.mentorship.discussion', {
+           url: '/discussion',
            views: {
             "content": {
              //controller: 'MentorshipNotesCtrl as mentorshipNotesCtrl',
-             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-community.html',
+             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-discussion.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
                  name: 'app.mentorship',
                  serie: true,
                  files: [
-                  'public/modules/mentorship/services/MentorshipComment.srv.js',
-                  'public/modules/mentorship/services/MentorshipComments.srv.js',
-                  'public/modules/mentorship/controllers/MentorshipComments.ctrl.js',
-                  'public/modules/mentorship/controllers/modals/MentorshipComment.ctrl.js',
+                  'public/modules/mentorship/services/comment/mentorship-comment.srv.js',
+                  'public/modules/mentorship/services/comment/mentorship-comments.srv.js',
+                  'public/modules/mentorship/controllers/comment/mentorship-comments.ctrl.js',
+                  'public/modules/mentorship/controllers/comment/mentorship-comment-modal.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.mentorship.contribution', {
+           url: '/contribution',
+           views: {
+            "content": {
+             //controller: 'MentorshipNotesCtrl as mentorshipNotesCtrl',
+             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-contribution.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorship',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorship/services/contribution/mentorship-contribution.srv.js',
+                  'public/modules/mentorship/services/contribution/mentorship-contributions.srv.js',
+                  'public/modules/mentorship/controllers/contribution/mentorship-contributions.ctrl.js',
+                  'public/modules/mentorship/controllers/contribution/mentorship-contribution.ctrl.js',
+                  'public/modules/mentorship/controllers/contribution/create-mentorship-contribution-modal.ctrl.js',
                  ]
                 });
                }]
@@ -214,7 +228,6 @@ define(['angular'
             }
            }});
  };
-
 
  mentorshipConfig.$inject = ['$stateProvider'];
 

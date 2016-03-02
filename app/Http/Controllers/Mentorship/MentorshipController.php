@@ -10,12 +10,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Mentorship\Mentorship;
 use App\Models\Mentorship\MentorshipComment;
+use App\Models\Mentorship\MentorshipContribution;
 use App\Models\Mentorship\MentorshipNote;
+use App\Models\Mentorship\MentorshipRequestOption;
 use App\Models\Mentorship\MentorshipTodo;
 use App\Models\Mentorship\MentorshipWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
 use App\Models\Comment\Comment;
+use App\Models\Contribution\Contribution;
 use App\Models\Note\Note;
 use App\Models\Weblink\Weblink;
 use App\Models\Mentorship\MentorshipSwipe;
@@ -26,11 +29,6 @@ class MentorshipController extends Controller {
 
  public function getMentorshipsAll() {
   $mentorships = Mentorship::getMentorshipsAll();
-  return \Response::json($mentorships);
- }
-
- public function getSubMentorships($mentorshipId) {
-  $mentorships = Mentorship::getSubMentorships($mentorshipId);
   return \Response::json($mentorships);
  }
 
@@ -59,10 +57,15 @@ class MentorshipController extends Controller {
   return \Response::json($mentorship);
  }
 
+ public function getMentorshipRequestOptions($mentorshipId) {
+  $mentorshipRequestOptions = MentorshipRequestOption::getMentorshipRequestOptions($mentorshipId);
+  return \Response::json($mentorshipRequestOptions);
+ }
+
  /* TODOS */
 
- public function getMentorshipTodos($mentorshipId) {
-  $mentorshipTodos = MentorshipTodo::getMentorshipTodos($mentorshipId);
+ public function getMentorshipTodos($mentorshipId, $levelId) {
+  $mentorshipTodos = MentorshipTodo::getMentorshipTodos($mentorshipId, $levelId);
   return \Response::json($mentorshipTodos);
  }
 
@@ -134,6 +137,31 @@ class MentorshipController extends Controller {
  public function editMentorshipComment() {
   $mentorshipComment = MentorshipComment::editMentorshipComment();
   return \Response::json($mentorshipComment);
+ }
+
+ public function getMentorshipContributions($mentorshipId) {
+  $mentorshipContributions = MentorshipContribution::getMentorshipContributions($mentorshipId);
+  return \Response::json($mentorshipContributions);
+ }
+
+ public function getMentorshipContribution($mentorshipId, $contributionId) {
+  $mentorshipContribution = MentorshipContribution::getMentorshipContribution($mentorshipId, $contributionId);
+  return \Response::json($mentorshipContribution);
+ }
+
+ public function getMentorshipContributionLevel($mentorshipId, $contributionId) {
+  $level = MentorshipContribution::getMentorshipContributionLevel($mentorshipId, $contributionId);
+  return \Response::json($level);
+ }
+
+ public function createMentorshipContribution() {
+  $mentorshipContribution = MentorshipContribution::createMentorshipContribution();
+  return \Response::json($mentorshipContribution);
+ }
+
+ public function editMentorshipContribution() {
+  $mentorshipContribution = MentorshipContribution::editMentorshipContribution();
+  return \Response::json($mentorshipContribution);
  }
 
  public function getMentorshipWeblinks($mentorshipId) {

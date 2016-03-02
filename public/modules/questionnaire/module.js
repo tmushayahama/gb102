@@ -62,8 +62,8 @@ define(['angular'
                  name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/controllers/Questionnaire.ctrl.js',
-                  'public/modules/questionnaire/services/Questionnaire.srv.js',
+                  'public/modules/questionnaire/controllers/questionnaire.ctrl.js',
+                  'public/modules/questionnaire/services/questionnaire.srv.js',
                  ]
                 });
                }]
