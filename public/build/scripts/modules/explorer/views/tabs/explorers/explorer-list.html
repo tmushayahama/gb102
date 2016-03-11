@@ -1,5 +1,13 @@
-<div id="gb-explorers" class="gb-list row"
-     infinite-scroll="addMoreItems()">
+<div id="gb-explorers" class="gb-list row" infinite-scroll="addMoreItems()">
+ <section class=" gb-section-row-2 gb-padding-none row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-small gb-ellipsis">
+     {{explorersTabCtrl.appName.toUpperCase()}}
+    </p>
+   </div>
+  </header>
+ </section>
  <div ng-repeat="explorer in explorersTabCtrl.explorers" class="gb-box-1 row">
   <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"

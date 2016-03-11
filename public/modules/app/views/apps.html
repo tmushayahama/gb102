@@ -1,307 +1,231 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
- <div class="row gb-mega-dropdown">
-  <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
-   <a ng-click="appsCtrl.openMenuModal('left')"
-      class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
-    <i class="fa fa-bars"></i>
-   </a>
-   <a class="gb-logo" ui-sref="apps.explorers.all">
-    <i class="gb-logo-icon fa icon-gb-logo"></i>
-    <div class="pull-left visible-lg visible-md hidden-sm hidden-xs">
-     <strong>SKILL</strong>SECTION<br>
-    </div>
-   </a>
-   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs"
-        data-dropdown data-dropdown-append-to-body>
-    <button type="button" class="dropdown-toggle btn btn-default" data-dropdown-toggle>
-     {{$root.appName}} <span class="caret"></span>
-    </button>
-    <button ng-click="$root.openAddExplorerModal()" type="button" class="btn btn-default">
-     <i class="fa fa-plus"></i>
-    </button>
-    <ul class="dropdown-menu gb-full-width">
-     <li>
-      <div class="gb-content">
-       <div class="row">
-        d
-       </div>
-      </div>
-     </li>
-    </ul>
-   </div>
-  </div>
-  <form ng-submit="appsCtrl.search()" class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
-   <div class="form-group gb-input-form-group">
-    <md-input-container class="md-block" md-no-float>
-     <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
-            typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
-            typeahead-popup-template-url="customPopupTemplate.html" >
-    </md-input-container>
-    <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
-       ng-click="$root.searchKeyword = ''">
-     <i class="fa fa-times"></i>
+ <div class="container">
+  <div class="row gb-mega-dropdown">
+   <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
+    <a ng-click="appsCtrl.openMenuModal('left')"
+       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
+     <i class="fa fa-bars"></i>
+    </a>
+    <a class="gb-logo" ui-sref="apps.explorers.all">
+     <i class="gb-logo-icon fa icon-gb-logo"></i>
+     <div class="pull-left visible-lg visible-md hidden-sm hidden-xs">
+      <strong>SKILL</strong>SECTION<br>
+     </div>
     </a>
    </div>
-   <div class="gb-input-btn-group btn-group">
-    <md-button type="submit" class="btn btn-primary">
-     <i class="fa fa-search"></i>
-    </md-button>
-    <md-button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <span class="caret"></span>
-    </md-button>
-    <ul class="dropdown-menu dropdown-menu-right">
-     <li>
-      <a href="#">Advanced Search</a>
-     </li>
-    </ul>
-   </div>
-  </form>
-  <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">
-   <div class="gb-action pull-right">
-    <div class="btn-group">
-     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="gb-menu-icon fa fa-user"></i>
+   <form ng-submit="appsCtrl.search()" class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
+    <div class="form-group gb-input-form-group">
+     <md-input-container class="md-block" md-no-float>
+      <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
+             typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
+             typeahead-popup-template-url="customPopupTemplate.html" >
+     </md-input-container>
+     <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
+        ng-click="$root.searchKeyword = ''">
+      <i class="fa fa-times"></i>
      </a>
-     <ul class="dropdown-menu dropdown-menu-right text-left">
-      <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a ng-click="appsCtrl.logout()">
-        <i class="fa fa-power-off"></i> Log Out</a>
+    </div>
+    <div class="gb-input-btn-group btn-group">
+     <md-button type="submit" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+     </md-button>
+     <md-button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+     </md-button>
+     <ul class="dropdown-menu dropdown-menu-right">
+      <li>
+       <a href="#">Advanced Search</a>
       </li>
      </ul>
     </div>
+   </form>
+   <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">
+    <div class="gb-action pull-right">
+     <div class="btn-group">
+      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="gb-menu-icon fa fa-user"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right text-left">
+       <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a ng-click="appsCtrl.logout()">
+         <i class="fa fa-power-off"></i> Log Out</a>
+       </li>
+      </ul>
+     </div>
+    </div>
    </div>
   </div>
  </div>
 </div>
-<div class="col-lg-1 col-md-2 col-sm-2 hidden-xs" id="gb-left-nav-3" role="navigation">
- <div class="gb-body">
-  <div class="gb-nav-strip gb-nav-strip-mini row">
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <md-button ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link">
-     <div class="gb-icon">
-      <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
-     </div>
-     <div class="gb-title gb-ellipsis gb-padding-none">
-      {{$root.user.firstname + " " + $root.user.lastname}}
-     </div>
-    </md-button>
+<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs" id="gb-top-nav-3" role="navigation">
+ <div class="container gb-body">
+  <md-button ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link">
+   <div class="gb-icon">
+    <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.community.users" class="gb-link"
-               ng-class="{
+   <div class="gb-title gb-ellipsis gb-padding-none">
+    {{$root.user.firstname + " " + $root.user.lastname}}
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.community.users" class="gb-link"
+             ng-class="{
                   active: ('apps.community' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-community"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      COMMUNITY
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-community"></i>
    </div>
-  </div>
-  <div class="gb-nav-strip row">
-   <h6 class="gb-heading gb-ellipsis">
-    <div class="visible-lg visible-md visible-sm hidden-xs">
-     <i class="fa icon-gb-discover"></i> DISCOVER
-    </div>
-   </h6>
-   <div class="row">
-    <md-button ui-sref="apps.explorers.all" class="gb-link"
-               data-ripple-color="#DDD"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    COMMUNITY
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.explorers.all" class="gb-link"
+             data-ripple-color="#DDD"
+             ng-class="{
                   active: ('apps.explorers' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-explorer"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      EXPLORE
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-explorer"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.swipes.swipe" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    EXPLORE
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.swipes.swipe" class="gb-link row"
+             ng-class="{
                   active: ('apps.swipes' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-swipe"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      SWIPE
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-swipe"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    SWIPE
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link row"
+             ng-class="{
                   active: ('apps.questionnaires' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-matcher"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      MATCHER
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-matcher"></i>
    </div>
-  </div>
-  <div class="gb-nav-strip row">
-   <h6 class="gb-heading gb-ellipsis">
-    <div class="visible-lg visible-md visible-sm hidden-xs">
-     <i class="fa icon-gb-apply"></i> APPLICATION
-    </div>
-   </h6>
-   <div class="row">
-    <md-button ui-sref="apps.mentorships.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    MATCHER
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.mentorships.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.mentorships' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-mentorship"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      MENTORSHIP
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-mentorships"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.teachs.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    MENTORSHIP
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.teachs.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.teachs' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-teach"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      TEACH
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-teach"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.advices.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    TEACH
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.advices.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.advices' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-advice"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      ADVISE
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-advices"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.collaborations.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    ADVISE
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.collaborations.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.collaborations' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-collaboration"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      COLLABORATION
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-collaborations"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.goals.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    COLLABORATION
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.goals.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.goals' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-goal"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      GOAL
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-goals"></i>
    </div>
-  </div>
-  <div class="gb-nav-strip row">
-   <h6 class="gb-heading gb-ellipsis">
-    <div class="visible-lg visible-md visible-sm hidden-xs">
-     <i class="fa icon-gb-organize"></i> ORGANIZE
-    </div>
-   </h6>
-   <div class="row">
-    <md-button ui-sref="apps.journals.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    GOAL
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.journals.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.journal' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-journal"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      JOURNAL
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-journals"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.projects.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    JOURNAL
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.projects.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.projects' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-project"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      PROJECTS
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-project"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.groups.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    PROJECTS
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.groups.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.group' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-group"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      GROUPS
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa icon-gb-groups"></i>
    </div>
-  </div>
-  <div class="gb-nav-strip row">
-   <h6 class="gb-heading gb-ellipsis">
-    <div class="visible-lg visible-md visible-sm hidden-xs">
-     <i class="fa icon-tools"></i> TOOLS
-    </div>
-   </h6>
-   <div class="row">
-    <md-button ui-sref="apps.todos.all" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    GROUPS
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.todos.all" class="gb-link row"
+             ng-class="{
                   active: ('apps.todo' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa fa-check-circle-o"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      TODOS
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa fa-check-circle-o"></i>
    </div>
-   <div class="row">
-    <md-button ui-sref="apps.calendar" class="gb-link row"
-               ng-class="{
+   <div class="gb-title gb-ellipsis">
+    TODOS
+   </div>
+  </md-button>
+  <md-button ui-sref="apps.calendar" class="gb-link row"
+             ng-class="{
                   active: ('apps.calendar' | includedByState)
                  }">
-     <div class="gb-icon">
-      <i class="fa fa-calendar"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      CALENDAR
-     </div>
-    </md-button>
+   <div class="gb-icon">
+    <i class="fa fa-calendar"></i>
    </div>
-  </div>
+   <div class="gb-title gb-ellipsis">
+    CALENDAR
+   </div>
+  </md-button>
  </div>
 </div>
-<div ui-view="apps" class="gb-flex-container col-lg-offset-1 col-md-offset-2 col-sm-offset-2 col-xs-offset-0 col-lg-11 col-md-10 col-sm-10 col-xs-12">
+<div ui-view="apps" class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
 </div>
 <!-- ------------------------------- MODALS --------------------------->
 <script type="text/ng-template" id="menu-modal.html">
