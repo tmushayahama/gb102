@@ -178,9 +178,9 @@ input[type="checkbox"] {
 .gb-container.gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
- padding-top: 150px;
+ padding-top: 20px;
  @include respond-to (gb-xs) {
-  padding-top: 40px;
+  padding-top: 0px;
  }
 }
 .gb-container.gb-app-detail {
@@ -872,8 +872,6 @@ ul,li{
  width: 100%;
  border-radius: 0!important;
  box-shadow:0 0 0;
- border: #BBB solid 1px;
- border-bottom: #999 solid 2px!important;
 }
 .gb-bordered-btn {
  border: #BBB solid 1px;
@@ -1037,9 +1035,10 @@ input.gb-form-show{
 }
 
 #gb-top-nav-3 {
- @include position(fixed, 41px 0 null 0);
- height: 50px;
- background-color: #F7F7F7;
+ //@include position(fixed, 41px 0 null 0);
+ margin-top: 44px;
+ height: 106px;
+ background-color: #F2F2F1;
  border-bottom: #BBB solid 1px;
 }
 
@@ -1070,13 +1069,17 @@ input.gb-form-show{
  //background-color: rgba($primary-color, 0.2);
  z-index: 1;
  .gb-body {
-  height: 150px;
+  padding: 10px 0 10px 0;
+  height: 100%;
+  width: 100%;
   //@include position(absolute, -10px 0 0 0);
-  overflow-y: hidden;
-  overflow-x: auto;
+  overflow: visible;
   -webkit-overflow-scrolling: touch;
  }
 
+ .dropdown-menu {
+  width: 300px;
+ }
 
 
  .gb-heading .gb-superscript {
@@ -1109,13 +1112,11 @@ input.gb-form-show{
  }
 
  .gb-link {
-  float: left;
+  margin: 0;
   text-align: center;
   padding:8px 2px 8px 2px;
-  display: block;
   text-decoration: none;
-  width: 100px;
-  border-bottom: rgba($primary-color, 0.2) solid 1px;
+  border-bottom: transparent solid 3px;
   /*
   -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
@@ -1179,6 +1180,7 @@ input.gb-form-show{
   }
 
   &:hover {
+   border-bottom: rgba($primary-color, 0.5) solid 3px;
    .gb-title {
     font-weight: bold;
     font-size: 9px;
@@ -1188,6 +1190,7 @@ input.gb-form-show{
    }
   }
   &.active {
+   border-bottom: rgba($primary-color, 0.7) solid 3px;
    .gb-title {
     font-weight: bold;
     font-size: 9px;
@@ -1528,8 +1531,8 @@ input.gb-form-show{
  padding: 0 5px 0 5px!important;
  height: 41px;
  list-style: none;
- background-color: #FFF;
- border-bottom: #BBB solid 1px;
+ background-color: #F7F7F7;
+ border-bottom: rgba($primary-color, 0.8) solid 3px;
  margin: 0;
  z-index: 900;
 
@@ -1805,7 +1808,7 @@ input.gb-form-show{
  position: relative;
  background-color: #FFF;
  padding:  10px 0;
- margin-bottom: 25px;
+ margin-bottom: 0px;
  overflow: hidden;
  &:hover {
   background-color: #F7F7F7;

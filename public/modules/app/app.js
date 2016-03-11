@@ -144,7 +144,9 @@ define([
                return $ocLazyLoad.load({
                 name: 'app',
                 serie: true,
-                files: ['public/modules/common/directives/show-tab.js',
+                files: [
+                 'public/modules/common/directives/show-tab.drv.js',
+                 'public/modules/common/directives/sticky.drv.js',
                  'public/modules/search/services/search.srv.js',
                  'public/modules/app/controllers/apps.ctrl.js',
                  'public/modules/app/controllers/menu-modal.ctrl.js',

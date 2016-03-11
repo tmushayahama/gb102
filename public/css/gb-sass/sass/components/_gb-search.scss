@@ -65,9 +65,9 @@
   height: 100%;
   padding: 5px 0;
   .gb-clear-btn {
-   @include position(absolute, 6px 15px null null);
+   @include position(absolute, 10px 57px null null);
    padding: 0 12px;
-   color: #888;
+   color: #AAA;
    font-weight: bold;
    font-weight: normal;
   }
@@ -89,13 +89,13 @@
   }
 
   .gb-input-form-group {
-   padding-right: 18px;
+   padding-right: 64px;
    margin-bottom: 0;
   }
   .gb-input-btn-group {
-   @include position(absolute, 2px 0 2px null);
+   @include position(absolute, 5px 0 null null);
    .btn {
-    height: 35px;
+    height: 30px;
    }
   }
 
