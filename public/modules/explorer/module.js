@@ -7,8 +7,8 @@ define(['angular'
  var explorerConfig = function ($stateProvider) {
 
   $stateProvider
-          .state('apps.explorers', {
-           url: '/explorers',
+          .state('apps.explorer', {
+           url: '/explorer',
            abstract: true,
            views: {
             "apps": {
@@ -31,7 +31,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorers.all', {
+          .state('apps.explorer.all', {
            url: '/all',
            views: {
             "app-tab": {
@@ -53,7 +53,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorers.app', {
+          .state('apps.explorer.app', {
            url: '/all/{app_name}',
            views: {
             "app-tab": {
@@ -75,7 +75,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorers.mine', {
+          .state('apps.explorer.mine', {
            url: '/mine',
            views: {
             "app-tab": {
@@ -94,7 +94,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer', {
+          .state('apps.explorerItem', {
            abstract: true,
            url: '/explorer/{explorerId}',
            views: {
@@ -118,7 +118,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.overview', {
+          .state('apps.explorerItem.overview', {
            url: '/overview',
            views: {
             "content": {
@@ -146,7 +146,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.tools', {
+          .state('apps.explorerItem.tools', {
            url: '/tools',
            views: {
             "content": {
@@ -182,7 +182,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.discussion', {
+          .state('apps.explorerItem.discussion', {
            url: '/discussion',
            views: {
             "content": {
@@ -204,7 +204,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.contribution', {
+          .state('apps.explorerItem.contribution', {
            url: '/contribution',
            views: {
             "content": {

@@ -1,3 +1,5 @@
+<div ng-include="'public/modules/app/views/navbar.html'"></div>
+
 <div id="gb-middle-nav" class="gb-container gb-app-detail col-lg-6 col-md-8 col-sm-11 col-xs-12">
  <div class="row">
   <div class="gb-background-white">
@@ -25,7 +27,7 @@
    <div class="row">
     <ul class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <li data-ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-      <a class="gb-ellipsis" data-ui-sref="apps.explorer.overview">
+      <a class="gb-ellipsis" data-ui-sref="apps.explorerItem.overview">
        <i class="gb-icon fa fa-home"></i>
        <div class="gb-title">
         HOME
@@ -33,7 +35,7 @@
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="apps.explorer.tools">
+      <a class="gb-ellipsis" ui-sref="apps.explorerItem.tools">
        <i class="gb-icon fa icon-tools2"></i>
        <div class="gb-title">
         TOOLS
@@ -41,7 +43,7 @@
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="apps.explorer.discussion">
+      <a class="gb-ellipsis" ui-sref="apps.explorerItem.discussion">
        <i class="gb-icon fa icon-chat"></i>
        <div class="gb-title">
         DISCUSSION
@@ -49,7 +51,7 @@
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="apps.explorer.contribution">
+      <a class="gb-ellipsis" ui-sref="apps.explorerItem.contribution">
        <i class="gb-icon fa icon-gb-community"></i>
        <div class="gb-title">
         CONTRIBUTION
@@ -57,7 +59,7 @@
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-      <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'promise'})">
+      <a class="gb-ellipsis" ui-sref="apps.explorerItem.app({'app_name': 'promise'})">
        <i class="gb-icon fa fa-bar-chart-o"></i>
        <div class="gb-title">
         STATS
@@ -65,7 +67,7 @@
       </a>
      </li>
      <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <a class="gb-ellipsis" ui-sref="apps.explorers.manage">
+      <a class="gb-ellipsis" ui-sref="apps.explorerItem.manage">
        <i class="gb-icon fa fa-cogs"></i>
        <div class="gb-title">
         MANAGE
@@ -74,7 +76,7 @@
      </li>
      <li class="btn-group col-lg-1 col-md-1 col-sm-1 col-xs-1">
       <a class="gb-ellipsis dropdown-toggle" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false" ui-sref="apps.explorers.skill">
+         aria-haspopup="true" aria-expanded="false" ui-sref="apps.explorer.skill">
        <i class="gb-icon fa fa-ellipsis-h"></i>
        <div class="gb-title">
         MORE
@@ -82,7 +84,7 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs">
-        <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'hobby'})">
+        <a class="gb-ellipsis" ui-sref="apps.explorerItem.app({'app_name': 'hobby'})">
          <i class="gb-icon fa icon-gb-hobby"></i>
          <div class="gb-title">
           HOBBIES
@@ -90,7 +92,7 @@
         </a>
        </li>
        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'mentorship'})">
+        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'mentorship'})">
          <i class="gb-icon fa icon-gb-mentorship"></i>
          <div class="gb-title">
           MENTORSHIP
@@ -98,7 +100,7 @@
         </a>
        </li>
        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'advice'})">
+        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'advice'})">
          <i class="gb-icon fa icon-gb-advice"></i>
          <div class="gb-title">
           ADVICE
@@ -106,7 +108,7 @@
         </a>
        </li>
        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'teach'})">
+        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'teach'})">
          <i class="gb-icon fa icon-gb-teach"></i>
          <div class="gb-title">
           TEACH
@@ -114,7 +116,7 @@
         </a>
        </li>
        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorers.app({'app_name': 'collaboration'})">
+        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'collaboration'})">
          <i class="gb-icon fa icon-gb-collaboration"></i>
          <div class="gb-title">
           COLLABORATION

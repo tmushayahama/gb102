@@ -31,6 +31,13 @@ btn:focus {
  }
 }
 
+.btn-link {
+ color: $primary-color;
+ &:hover {
+  color: darken($primary-color, 5%);
+ }
+}
+
 .gb-btn {
  &.gb-disabled {
   opacity: 0.35;

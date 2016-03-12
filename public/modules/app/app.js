@@ -133,7 +133,7 @@ define([
   $urlRouterProvider.otherwise('/auth');
   $stateProvider
           .state('apps', {
-           url: '/apps',
+           url: '',
            abstract: true,
            views: {
             "root": {
@@ -170,7 +170,7 @@ define([
     $rootScope.user = user;
     if (toState.name === "auth") {
      event.preventDefault();
-     $state.go('apps.explorers.all');
+     $state.go('apps.explorer.all');
     }
    } else {
     if (toState.name !== "auth") {
