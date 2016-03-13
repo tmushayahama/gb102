@@ -28,6 +28,24 @@ class Todo extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
+ public static function editTodoStatus() {
+  $todoId = Request::get("todo_id");
+  $statusId = Request::get("status_id");
+  $todo = Todo::find($todoId);
+  $todo->status_id = $statusId;
+
+  DB::beginTransaction();
+  try {
+   $todo->save();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return $todo;
+ }
+
  /**
   * The attributes that are mass assignable.
   *

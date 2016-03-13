@@ -1,4 +1,6 @@
 var explorerTodoCtrl = function (
+        level_categories,
+        ConstantsSrv,
         ExplorerTodoSrv,
         ExplorerTodoChecklistSrv,
         $uibModalInstance,
@@ -15,7 +17,26 @@ var explorerTodoCtrl = function (
  vm.explorerTodoId = explorerTodoData.id;
  vm.explorerTodoSrv = new ExplorerTodoSrv();
  vm.explorerTodoChecklistSrv = new ExplorerTodoChecklistSrv();
+ vm.constantsSrv = new ConstantsSrv();
+ vm.progressStatusTypes;
 
+ /*
+  $scope.$watch(function () {
+  return vm.explorerTodoSrv.explorerTodo.todo.status_id;
+  }, function (newValue, oldValue) {
+  console.log('From', oldValue, ' - ', newValue)
+  });
+  */
+
+ vm.changeTodoStatus = function () {
+  var data = {
+   todo_id: vm.explorerTodoSrv.explorerTodo.todo_id,
+   status_id: vm.explorerTodoSrv.explorerTodo.todo.status_id
+  };
+  vm.explorerTodoSrv.editTodoStatus(data).then(function (response) {
+
+  });
+ };
 
  vm.todoId = explorerTodoData.todo_id;
  vm.checklistFormVisible = false;
@@ -127,9 +148,17 @@ var explorerTodoCtrl = function (
  //--------init------
  vm.getExplorerTodo(vm.explorerId, vm.todoId);
  vm.getExplorerTodoChecklist(vm.todoId);
+
+ vm.constantsSrv.getLevel(level_categories.todo_level_progress).then(function (data) {
+  vm.progressStatusTypes = data;
+ });
 };
 
+
+
 explorerTodoCtrl.$inject = [
+ 'level_categories',
+ 'ConstantsSrv',
  'ExplorerTodoSrv',
  'ExplorerTodoChecklistSrv',
  '$uibModalInstance',

@@ -35,9 +35,14 @@
 }
 
 .gb-section-row-2 {
+ &.gb-background-white {
+  .gb-heading {
+   padding-left: 15px;
+  }
+ }
  padding-bottom: 30px;
  .gb-heading {
-  padding: 15px 5px 15px 15px;
+  padding: 15px 5px 15px 0px;
   .gb-title {
    padding: 5px 0 0 0px;
    width: 100%;

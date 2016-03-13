@@ -13,6 +13,25 @@
   <header class="gb-heading row">
    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
     <p class="gb-title gb-ellipsis">
+     STATUS
+    </p>
+   </div>
+  </header>
+  <div class="row">
+   <md-radio-group ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.status_id"
+                   ng-change="explorerTodoCtrl.changeTodoStatus()"
+                   layout="row">
+    <md-radio-button ng-repeat="progressStatusType in explorerTodoCtrl.progressStatusTypes"
+                     ng-value="progressStatusType.id" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     {{progressStatusType.name}}
+    </md-radio-button>
+   </md-radio-group>
+  </div>
+ </section>
+ <section class="gb-section-row-1 row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-ellipsis">
      DESCRIPTION
     </p>
    </div>

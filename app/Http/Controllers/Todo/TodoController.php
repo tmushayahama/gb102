@@ -14,6 +14,11 @@ use DB;
 
 class TodoController extends Controller {
 
+ public function editTodoStatus() {
+  $todo = Todo::editTodoStatus();
+  return \Response::json($todo);
+ }
+
  public function getTodoChecklist($todoId) {
   $todoTodos = TodoChecklist::getTodoChecklist($todoId);
   return \Response::json($todoTodos);

@@ -87,7 +87,7 @@
     </div>
    </form>
   </div>
-  <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos | filter:statusFilter track by $index" ng-class="{completed: explorerTodo.completed, editing: explorerTodo == explorerTodosCtrl.editedTodo}">
+  <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos| filter:statusFilter track by $index" ng-class="{completed: explorerTodo.completed, editing: explorerTodo == explorerTodosCtrl.editedTodo}">
    <div class="gb-box-1 row">
 
     <div class="gb-todo-progress col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -125,7 +125,7 @@
    </div>
   </div>
   <script type="text/ng-template" id="explorer-todo-modal.html">
-   <div class="" ng-include="'public/modules/explorer/views/components/todo/explorer-todo.html'"></div>
+   <div class="" ng-include="'public/modules/explorer/views/components/todo/explorer-todo-modal.html'"></div>
   </script>
  </div>
 </section>

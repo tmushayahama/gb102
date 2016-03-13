@@ -1029,12 +1029,12 @@ input.gb-form-show{
  @include respond-to (gb-xs) {
   padding: 0 2px 0 0;
   .gb-logo-icon {
-   font-size: 14px;
+   font-size: 14px;  
   }
  }
 }
 
-#gb-top-nav-3 { 
+#gb-top-nav-3 {
  //@include position(fixed, 41px 0 null 0);
  margin-top: 44px;
  height: 100px;

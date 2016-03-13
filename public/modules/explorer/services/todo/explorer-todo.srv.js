@@ -51,6 +51,21 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerTodoSrv.prototype.editTodoStatus = function (todoData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/todo/editstatus',
+   data: todoData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  return ExplorerTodoSrv;
 };
 explorerTodoSrv.$inject = ['$http', '$q'];
