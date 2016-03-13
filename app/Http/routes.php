@@ -527,4 +527,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('todo/{todoId}/checklist', 'Skill\SkillController@getSkillTodoChecklist');
  Route::post('todo/checklist/create', 'Skill\SkillController@createSkillTodoChecklist');
  Route::post('todo/checklist/edit', 'Skill\SkillController@editSkillTodoChecklist');
+
+ Route::post('checklist/editstatus', 'Todo\TodoController@editChecklistStatus');
 });

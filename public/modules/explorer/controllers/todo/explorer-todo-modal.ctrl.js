@@ -38,6 +38,18 @@ var explorerTodoCtrl = function (
   });
  };
 
+ vm.toggleChecklistStatus = function (checklist) {
+  checklist.status = (checklist.status + 1) % 2;
+
+  var data = {
+   checklist_id: checklist.id,
+   status: checklist.status
+  };
+  vm.explorerTodoSrv.editChecklistStatus(data).then(function (response) {
+
+  });
+ };
+
  vm.todoId = explorerTodoData.todo_id;
  vm.checklistFormVisible = false;
 
@@ -74,6 +86,8 @@ var explorerTodoCtrl = function (
    console.log(response);
   });
  };
+
+
 
  vm.editExplorerTodoSections = {
   details: function (details) {

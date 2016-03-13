@@ -66,6 +66,21 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerTodoSrv.prototype.editChecklistStatus = function (checklistData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/checklist/editstatus',
+   data: checklistData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  return ExplorerTodoSrv;
 };
 explorerTodoSrv.$inject = ['$http', '$q'];

@@ -8,6 +8,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Todo\Todo;
+use App\Models\Checklist\Checklist;
 use App\Models\Todo\TodoChecklist;
 use Request;
 use DB;
@@ -17,6 +18,11 @@ class TodoController extends Controller {
  public function editTodoStatus() {
   $todo = Todo::editTodoStatus();
   return \Response::json($todo);
+ }
+
+ public function editChecklistStatus() {
+  $checklist = Checklist::editChecklistStatus();
+  return \Response::json($checklist);
  }
 
  public function getTodoChecklist($todoId) {

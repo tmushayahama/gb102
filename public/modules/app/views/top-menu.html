@@ -1,11 +1,11 @@
-<div dr-sticky class="col-lg-12 col-md-12 col-sm-12 hidden-xs" id="gb-top-nav-3" role="navigation">
+<div dr-sticky class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="gb-top-nav-3" role="navigation">
  <div class="container">
   <div class="gb-body row">
    <md-button ui-sref="profile.overview({profileId: $root.user.id})" class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
     <div class="gb-icon">
      <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-image-icon" alt="">
     </div>
-    <div class="gb-title gb-ellipsis gb-padding-none">
+    <div class="gb-title gb-ellipsis hidden-xs gb-padding-none">
      {{$root.user.firstname + " " + $root.user.lastname}}
     </div>
    </md-button>
@@ -16,7 +16,7 @@
     <div class="gb-icon">
      <i class="fa icon-gb-community"></i>
     </div>
-    <div class="gb-title gb-ellipsis">
+    <div class="gb-title gb-ellipsis hidden-xs">
      COMMUNITY
     </div>
    </md-button>
@@ -26,7 +26,7 @@
      <div class="gb-icon">
       <i class="fa icon-gb-discover"></i>
      </div>
-     <div class="gb-title gb-ellipsis">
+     <div class="gb-title gb-ellipsis hidden-xs">
       DISCOVER
      </div>
     </md-button>
@@ -73,7 +73,7 @@
      <div class="gb-icon">
       <i class="fa icon-gb-apply"></i>
      </div>
-     <div class="gb-title gb-ellipsis">
+     <div class="gb-title gb-ellipsis hidden-xs">
       APPLICATION
      </div>
     </md-button>
@@ -196,7 +196,7 @@
      <div class="gb-icon">
       <i class="fa icon-gb-organize"></i>
      </div>
-     <div class="gb-title gb-ellipsis">
+     <div class="gb-title gb-ellipsis hidden-xs">
       ORGANIZE
      </div>
     </md-button>
@@ -231,7 +231,7 @@
      <div class="gb-icon">
       <i class="fa icon-tools2"></i>
      </div>
-     <div class="gb-title gb-ellipsis">
+     <div class="gb-title gb-ellipsis hidden-xs">
       TOOLS
      </div>
     </md-button>

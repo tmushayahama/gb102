@@ -2775,6 +2775,12 @@ form .gb-heading {
   /* put this if you want to stack elements vertically */
 }
 
+@media (max-width: 767px) {
+  .container {
+    padding: 0;
+  }
+}
+
 .gb-container {
   display: inline-block;
   height: 100%;
@@ -2829,6 +2835,11 @@ input[type="checkbox"] {
 .gb-container.gb-app-list {
   -webkit-overflow-scrolling: touch;
   padding-top: 20px;
+}
+@media (max-width: 991px) {
+  .gb-container.gb-app-list {
+    padding-top: 0px;
+  }
 }
 @media (max-width: 767px) {
   .gb-container.gb-app-list {
@@ -3735,6 +3746,11 @@ input.gb-form-show {
   background-color: #F2F2F1;
   border-bottom: #BBB solid 1px;
 }
+@media (max-width: 767px) {
+  #gb-top-nav-3 {
+    height: 70px;
+  }
+}
 
 .gb-menu-nav .gb-profile-pic {
   margin-bottom: 10px;
@@ -4508,6 +4524,7 @@ input.gb-form-show {
 .gb-box-1 {
   position: relative;
   background-color: #FFF;
+  border-bottom: rgba(65, 29, 29, 0.6) solid 1px;
   padding: 10px 0;
   margin-bottom: 0px;
   overflow: hidden;
@@ -4522,10 +4539,13 @@ input.gb-form-show {
   width: 100%;
 }
 .gb-box-1 .gb-dropdown-action {
-  padding: 4px 8px 0 0;
+  padding: 0px 8px 0 0;
   position: absolute;
   top: 0;
   right: 0;
+}
+.gb-box-1 .gb-dropdown-action button {
+  margin: 0;
 }
 .gb-box-1 .gb-icon-image {
   padding: 10px 25px 0 15px;
@@ -4559,9 +4579,9 @@ input.gb-form-show {
   height: 60px;
 }
 .gb-box-1 .gb-box-body .gb-heading {
-  padding: 8px 5px 0 10px;
+  padding: 15px 5px 0 10px;
   margin-bottom: 10px;
-  height: 22px;
+  height: 30px;
 }
 .gb-box-1 .gb-box-body .gb-heading .gb-title {
   color: #888;
@@ -5053,4 +5073,62 @@ input.gb-form-show {
   .gb-top-nav-1 {
     right: 0px;
   }
+}
+.example-animate-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.animate-repeat {
+  list-style: none;
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 40px;
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.animate-repeat.ng-leave-stagger {
+  /* this will have a 100ms delay between each successive leave animation */
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  /* in case the stagger doesn't work then these two values
+   must be set to 0 to avoid an accidental CSS inheritance */
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.animate-repeat.ng-enter-stagger {
+  /* this will have a 100ms delay between each successive enter animation */
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  /* in case the stagger doesn't work then these two values
+   must be set to 0 to avoid an accidental CSS inheritance */
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
 }

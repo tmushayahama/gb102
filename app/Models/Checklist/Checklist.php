@@ -20,6 +20,24 @@ class Checklist extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public static function editChecklistStatus() {
+  $checklistId = Request::get("checklist_id");
+  $status = Request::get("status");
+  $checklist = Checklist::find($checklistId);
+  $checklist->status = $status;
+
+  DB::beginTransaction();
+  try {
+   $checklist->save();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return $checklist;
+ }
+
  /**
   * The attributes that are mass assignable.
   *

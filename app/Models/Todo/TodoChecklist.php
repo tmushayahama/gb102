@@ -35,18 +35,19 @@ class TodoChecklist extends Model {
 
  public static function getTodoChecklist($todoId) {
   $todoChecklist = TodoChecklist::with('checklist')
-    ->orderBy('id', 'DESC')
-    ->where('todo_id', $todoId)
-    ->get();
+          ->orderBy('id', 'DESC')
+          ->where('todo_id', $todoId)
+          ->get();
   return $todoChecklist;
  }
 
  public static function getTodoChecklistItem($todoId, $todoId) {
   $todoChecklist = TodoChecklist::with('todo')
-    ->orderBy('id', 'DESC')
-    ->where('todo_id', $todoId)
-    ->where('todo_id', $todoId)
-    ->first();
+          ->with('checklist')
+          ->orderBy('id', 'DESC')
+          ->where('todo_id', $todoId)
+          ->where('todo_id', $todoId)
+          ->first();
   return $todoChecklist;
  }
 
@@ -59,6 +60,7 @@ class TodoChecklist extends Model {
   $todoChecklist = new TodoChecklist;
   $checklist->creator_id = $userId;
   $checklist->title = $title;
+  $checklist->status = 0;
   $todoChecklist->todo_id = $todoId;
 
   DB::beginTransaction();
