@@ -20,10 +20,14 @@
           class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
           ng-click="addMentorshipCtrl.chooseAppType(appType)"
           wz-next value="Fill">
-      <div class="gb-apptype-btn">
-       <i class="gb-icon fa icon-gb-{{appType.name.toLowerCase()}}"></i>
-       <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        {{appType.name}}
+      <div class="md-raised gb-apptype-btn">
+       <div class="gb-icon col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <i class=" fa icon-gb-{{appType.name.toLowerCase()}}"></i>
+       </div>
+       <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="gb-ellipsis">
+         {{appType.name}}
+        </div>
        </div>
       </div>
      </div>
@@ -105,7 +109,7 @@
   </a>
   <a ng-class="{
     'gb-disabled'
-    : addMentorshipCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addMentorshipCtrl.ok()">
+            : addMentorshipCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addMentorshipCtrl.ok()">
    Add
   </a>
  </div>

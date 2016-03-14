@@ -4,6 +4,8 @@ namespace App\Models\Todo;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Checklist\Checklist;
+use App\Models\Level\Level;
+use App\Models\Todo\Todo;
 use Request;
 use DB;
 use JWTAuth;
@@ -24,6 +26,10 @@ class TodoChecklist extends Model {
 
  public function checklist() {
   return $this->belongsTo('App\Models\Checklist\Checklist', 'checklist_id');
+ }
+
+ public function todo() {
+  return $this->belongsTo('App\Models\Todo\Todo', 'todo_id');
  }
 
  /**
@@ -122,14 +128,18 @@ class TodoChecklist extends Model {
  }
 
  private static function todoChecklistStatusPercentage($todoId, $statusData) {
-  $todoChecklistData = TodoChecklist::where('todo_id', $todoId)
-          ->get();
+  $doneCount = Todo::where('id', $todoId)
+          ->where('status_id', Level::$level_categories['todo_status_done'])
+          ->count();
 
-  // if($todoChecklistData->todo->status = )
+  if ($doneCount > 0) {
+   return 100;
+  }
 
   if ($statusData['total'] > 0) {
    return round(($statusData['done'] / $statusData['total']) * 100);
   }
+  return 0;
  }
 
 }

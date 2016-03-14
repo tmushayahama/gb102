@@ -7,11 +7,11 @@ define(['angular'
  var profileConfig = function ($stateProvider) {
 
   $stateProvider
-          .state('profile', {
+          .state('apps.profile', {
            abstract: true,
            url: '/profile/{profileId}',
            views: {
-            "root": {
+            "apps": {
              controller: 'ProfileCtrl as profileCtrl',
              templateUrl: 'public/modules/profile/views/profile.html',
              resolve: {
@@ -33,7 +33,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.overview', {
+          .state('apps.profile.overview', {
            url: '/overview',
            views: {
             "content": {
@@ -52,7 +52,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.about', {
+          .state('apps.profile.about', {
            url: '/about',
            views: {
             "content": {
@@ -71,7 +71,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.explorer', {
+          .state('apps.profile.explorer', {
            url: '/explorer',
            views: {
             "content": {
@@ -98,7 +98,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.swipe', {
+          .state('apps.profile.swipe', {
            url: '/swipe',
            views: {
             "content": {
@@ -121,7 +121,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.matcher', {
+          .state('apps.profile.matcher', {
            url: '/matcher',
            views: {
             "content": {
@@ -144,7 +144,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.discover.questions', {
+          .state('apps.profile.discover.questions', {
            url: '/questions',
            views: {
             "content": {
@@ -164,7 +164,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.discover.matcher', {
+          .state('apps.profile.discover.matcher', {
            url: '/matcher',
            views: {
             "content": {
@@ -184,7 +184,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.discover.swipes', {
+          .state('apps.profile.discover.swipes', {
            url: '/swipes',
            views: {
             "content": {
@@ -204,7 +204,7 @@ define(['angular'
              }
             }
            }})
-          .state('profile.discover.swipe', {
+          .state('apps.profile.discover.swipe', {
            url: '/swipe',
            views: {
             "content": {

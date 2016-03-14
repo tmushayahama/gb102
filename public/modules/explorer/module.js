@@ -160,8 +160,6 @@ define(['angular'
                  serie: true,
                  files: [
                   //Todos
-                  'public/modules/explorer/directives/todoEscape.js',
-                  'public/modules/explorer/directives/todoFocus.js',
                   'public/modules/explorer/services/todo/explorer-todo.srv.js',
                   'public/modules/explorer/services/todo/explorer-todos.srv.js',
                   'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',

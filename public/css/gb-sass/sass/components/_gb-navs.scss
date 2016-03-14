@@ -80,7 +80,7 @@
 
 
 }
-.gb-icon-top-nav-1 {
+.gb-icon-top-nav-4 {
  padding: 0;
  list-style: none;
  background-color: #FFF;
@@ -160,6 +160,109 @@
   }
  }
 }
+
+.gb-icon-top-nav-1{
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+ transition: all 0.5s ease;
+ -webkit-backface-visibility: hidden;
+ //background-color: rgba($primary-color, 0.2);
+ z-index: 1;
+ .gb-body {
+  padding: 0px 0 0px 0;
+  height: 100%;
+  width: 100%;
+  //@include position(absolute, -10px 0 0 0);
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+ }
+
+ .dropdown-menu {
+  width: 300px;
+ }
+
+ .gb-link {
+  margin: 0;
+  text-align: center;
+  padding:5px 2px 5px 2px;
+  text-decoration: none;
+  border-bottom: transparent solid 3px;
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+  .gb-icon {
+   display: inline-block;
+   margin: 0 auto;
+   background-color: rgba($primary-color, 0.2);
+   line-height: 35px;
+   min-width: 0;
+   width: 35px;
+   height: 35px;
+   box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+   border-radius: 50%;
+   background-clip: padding-box;
+   overflow: hidden;
+   transition: all .3s cubic-bezier(.55,0,.55,.2);
+   transition-property: background-color,box-shadow,-webkit-transform;
+   transition-property: background-color,box-shadow,transform;
+   font-size: 18px;
+   color: darken($primary-color, 5%);
+   @include respond-to (gb-sm) {
+    font-size: 18px;
+   }
+   @include respond-to (gb-xs) {
+    font-size: 15px;
+   }
+  }
+
+  .gb-title {
+   padding:0px 0px 5px 0px;
+   font-size: 8px;
+   color: #333;
+   line-height: 12px;
+   overflow: hidden;
+  }
+  .gb-description{
+   padding: 3px 5px;
+   font-size: 0.9em;
+   color: #777;
+   text-decoration: none;
+  }
+
+  &:hover {
+   border-bottom: rgba($primary-color, 0.5) solid 3px;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+   .gb-icon {
+    color: darken($primary-color, 5%);
+   }
+  }
+  &.active {
+   border-bottom: rgba($primary-color, 0.7) solid 3px;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+  }
+
+  .thumbnail{
+   margin-bottom: 0px;
+   border: none;
+   background-color: transparent;
+  }
+
+  .gb-image-icon {
+   width: 100%;
+   padding: 0px;
+   margin-right: 7px;
+  }
+ }
+}
+
 
 .gb-icon-side-nav-1 {
  padding: 0;

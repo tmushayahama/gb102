@@ -1042,7 +1042,7 @@ input.gb-form-show{
  }
 }
 
-#gb-top-nav-3 {
+.gb-top-nav-3 {
  //@include position(fixed, 41px 0 null 0);
  margin-top: 44px;
  height: 100px;
@@ -1072,7 +1072,7 @@ input.gb-form-show{
   }
  }
 }
-#gb-top-nav-3, .gb-menu-nav {
+.gb-top-nav-3, .gb-menu-nav {
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
@@ -1134,7 +1134,7 @@ input.gb-form-show{
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   display: inline-block;
+   display: inline-block;  
    margin: 0 auto;
    background-color: rgba($primary-color, 0.2);
    line-height: 40px;
@@ -1151,10 +1151,10 @@ input.gb-form-show{
    font-size: 20px;
    color: darken($primary-color, 5%);
    @include respond-to (gb-sm) {
-    font-size: 40px;
+    font-size: 20px;
    }
    @include respond-to (gb-xs) {
-    font-size: 40px;
+    font-size: 20px;
    }
    .fa-outer {
     color: rgba($primary-color, 0.4);
@@ -1470,7 +1470,7 @@ input.gb-form-show{
  font-weight: normal;
 }
 
-#gb-top-nav-3::-webkit-scrollbar {
+.gb-top-nav-3::-webkit-scrollbar {
  display: none;
 }
 

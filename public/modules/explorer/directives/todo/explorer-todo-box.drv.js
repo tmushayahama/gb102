@@ -1,4 +1,4 @@
-angular.module('app.explorer').directive('explorerTodoBox',
+angular.module('app.explorer').directive('gbExplorerTodoBox',
         ['ExplorerTodosSrv',
          'level_categories',
          '$q',
