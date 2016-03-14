@@ -107,6 +107,7 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
+                  'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorer.srv.js',

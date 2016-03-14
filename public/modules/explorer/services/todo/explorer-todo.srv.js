@@ -66,6 +66,28 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerTodoSrv.prototype.todoChecklistCount = function (todoId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/todo/' + todoId + '/checklist/count').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerTodoSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/todo/' + todoId + '/checklist/' + status + '/count').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorerTodoSrv.prototype.editChecklistStatus = function (checklistData) {
   var self = this;
   var deferred = $q.defer();

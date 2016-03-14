@@ -51,6 +51,15 @@ class TodoChecklist extends Model {
   return $todoChecklist;
  }
 
+ public static function todoChecklistStatusData($todoId) {
+  $result = array(
+      'done' => TodoChecklist::todoChecklistStatusCount($todoId, 1),
+      'total' => TodoChecklist::todoChecklistCount($todoId),
+  );
+  $result['percentage'] = TodoChecklist::todoChecklistStatusPercentage($todoId, $result);
+  return $result;
+ }
+
  public static function createTodoChecklist() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
@@ -95,6 +104,32 @@ class TodoChecklist extends Model {
   }
   DB::commit();
   return $todoChecklist;
+ }
+
+ private static function todoChecklistCount($todoId) {
+  $todoChecklistCount = TodoChecklist::where('todo_id', $todoId)
+          ->count();
+  return $todoChecklistCount;
+ }
+
+ private static function todoChecklistStatusCount($todoId, $status) {
+  $todoChecklistCount = TodoChecklist::where('todo_id', $todoId)
+          ->whereHas('checklist', function($q) use ($status) {
+           $q->where('status', $status);
+          })
+          ->count();
+  return $todoChecklistCount;
+ }
+
+ private static function todoChecklistStatusPercentage($todoId, $statusData) {
+  $todoChecklistData = TodoChecklist::where('todo_id', $todoId)
+          ->get();
+
+  // if($todoChecklistData->todo->status = )
+
+  if ($statusData['total'] > 0) {
+   return round(($statusData['done'] / $statusData['total']) * 100);
+  }
  }
 
 }

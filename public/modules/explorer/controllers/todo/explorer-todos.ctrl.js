@@ -18,7 +18,21 @@ var explorerTodosCtrl = function (
 
  vm.getExplorerTodoPercentage = function (explorerTodoId) {
   return 100;
- }
+ };
+
+ vm.todoChecklistCount = function (todoId) {
+  vm.explorerTodosSrv.todoChecklistCount(todoId)
+          .then(function (data) {
+           return data;
+          });
+ };
+
+ vm.showTodoForm = function (todoId) {
+  vm.explorerTodosSrv.todoChecklistCount(vm.explorerId, level_categories.todo_level_normal)
+          .then(function (data) {
+           vm.explorerTodos = data;
+          });
+ };
 
  vm.defaultExplorerTodoData = {
   explorerId: $stateParams.explorerId,

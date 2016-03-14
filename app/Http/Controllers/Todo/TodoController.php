@@ -35,4 +35,9 @@ class TodoController extends Controller {
   return \Response::json($todoTodos);
  }
 
+ public function todoChecklistStatusData($todoId) {
+  $todoChecklistStatusData = TodoChecklist::todoChecklistStatusData($todoId);
+  return \Response::json($todoChecklistStatusData);
+ }
+
 }
