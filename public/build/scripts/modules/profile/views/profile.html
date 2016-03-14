@@ -1,80 +1,8 @@
-<div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
- <div class="row">
-  <div class="gb-header col-lg-4 col-md-4 col-sm-4 col-xs-2">
-   <a ng-click="profileCtrl.openProfileMenuModal('left')"
-      class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
-    <i class="fa fa-bars"></i>
-   </a>
-   <a class="gb-logo" ui-sref="apps.explorer.all">
-    <i class="gb-logo-icon fa icon-gb-logo"></i>
-    <div class="pull-left visible-lg visible-md hidden-sm hidden-xs">
-     <strong>SKILL</strong>SECTION<br>
-    </div>
-   </a>
-   <div class="gb-app-name visible-lg visible-md visible-sm hidden-xs">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{profileCtrl.profileSrv.profile.firstname + " " + profileCtrl.profileSrv.profile.lastname| chars: 10:true}} <span class="caret"></span>
-    </button>
-    <button type="button" class="btn btn-default">
-     <i class="fa fa-plus"></i>
-    </button>
-    <ul class="dropdown-menu">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
-    </ul>
-   </div>
-  </div>
-  <form class="gb-search col-lg-4 col-md-6 col-sm-6 col-xs-8">
-   <div class="form-group gb-input-form-group">
-    <input type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state as state for state in profileCtrl.getSearchSuggestions($viewValue)"
-           typeahead-wait-ms=200 class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
-    <a class="gb-clear-btn btn btn-link"
-       ng-click="main.clear($event, $select)">
-     <i class="fa fa-times"></i>
-    </a>
-   </div>
-   <div class="gb-input-btn-group btn-group">
-    <button ng-click="profileCtrl.search()" type="button" class="btn btn-primary">
-     <i class="fa fa-search"></i>
-    </button>
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-right">
-     <li><a href="#">Action</a></li>
-     <li><a href="#">Another action</a></li>
-     <li><a href="#">Something else here</a></li>
-     <li role="separator" class="divider"></li>
-     <li><a href="#">Separated link</a></li>
-    </ul>
-   </div>
-  </form>
-  <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2">
-   <div class="gb-action pull-right">
-    <div class="btn-group">
-     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="gb-menu-icon fa fa-user"></i>
-     </a>
-     <ul class="dropdown-menu dropdown-menu-right text-left">
-      <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a ng-click="profileCtrl.logout()">
-        <i class="fa fa-power-off"></i> Log Out</a>
-      </li>
-     </ul>
-    </div>
-   </div>
-  </div>
- </div>
-</div>
 <div  class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div id="gb-middle-nav" class="gb-container gb-app-detail col-lg-8 col-md-9 col-sm-12 col-xs-12">
   <div class="gb-cover">
    <div ng-include="'public/build/scripts/modules/profile/views/components/profile/profile-cover.html'"></div>
-   <img data-ui-sref="profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="gb-profile-pic" alt="">
+   <img data-ui-sref="apps.profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="gb-profile-pic" alt="">
    <div class="gb-profile-row-3">
     <div class="gb-row-content">
      <a class="gb-ellipsis">
@@ -85,108 +13,225 @@
   </div>
   <div id="gb-profile-right-pane" class="row">
    <div class="row">
-    <ul class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <li ui-sref-active="active" class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.overview">
-       <i class="gb-icon fa fa-home"></i>
-       <div class="gb-title">
-        HOME
+    <div class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <md-button data-ui-sref-active="active" ui-sref="apps.profile.overview"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       HOME
+      </div>
+     </md-button>
+     <md-button data-ui-sref-active="active" ui-sref="apps.profile.connections"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa icon-gb-community"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       CONNECTIONS
+      </div>
+     </md-button>
+     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-gb-discover"></i>
        </div>
-      </a>
-     </li>
-     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.explorer">
-       <i class="gb-icon fa icon-gb-discover"></i>
-       <div class="gb-title">
-        EXPLORER
+       <div class="gb-title gb-ellipsis hidden-xs">
+        DISCOVER
        </div>
-      </a>
-     </li>
-     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.swipe">
-       <i class="gb-icon fa icon-gb-swipe"></i>
-       <div class="gb-title">
-        SWIPE
+      </md-button>
+      <div class="dropdown-menu dropdown-menu-right">
+       <md-button data-ui-sref-active="active" ui-sref="apps.profile.explorer"
+                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-explorer"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         EXPLORER
+        </div>
+       </md-button>
+       <md-button data-ui-sref-active="active" ui-sref="apps.profile.swipe"
+                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-swipe"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         SWIPE
+        </div>
+       </md-button>
+       <md-button data-ui-sref-active="active" ui-sref="apps.profile.matcher"
+                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-matcher"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         MATCHER
+        </div>
+       </md-button>
+      </div>
+     </div>
+     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-gb-apply"></i>
        </div>
-      </a>
-     </li>
-     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.matcher">
-       <i class="gb-icon fa icon-gb-matcher"></i>
-       <div class="gb-title">
-        MATCHER
+       <div class="gb-title gb-ellipsis hidden-xs">
+        APPLICATION
        </div>
-      </a>
-     </li>
-     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.about">
-       <i class="gb-icon fa fa-info"></i>
-       <div class="gb-title">
-        ABOUT
+      </md-button>
+      <div class="dropdown-menu dropdown-menu-right">
+       <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-mentorships"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         MENTORSHIP
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.teachs.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-teach"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         TEACH
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.advices.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-advices"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         ADVISE
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.collaborations.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-collaborations"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         COLLABORATION
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.goals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-goals"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         GOAL
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.journals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-journals"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         JOURNAL
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-project"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         PROJECTS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-groups"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         GROUPS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa fa-check-circle-o"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         TODOS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa fa-calendar"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         CALENDAR
+        </div>
+       </md-button>
+      </div>
+     </div>
+     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-gb-organize"></i>
        </div>
-      </a>
-     </li>
-     <li ui-sref-active="active" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <a class="gb-ellipsis" ui-sref="profile.matcher">
-       <i class="gb-icon fa icon-gb-matcher"></i>
-       <div class="gb-title">
-        ABOUT
+       <div class="gb-title gb-ellipsis hidden-xs">
+        ORGANIZE
        </div>
-      </a>
-     </li>
-     <li class="btn-group col-lg-1 col-md-1 col-sm-1 col-xs-1">
-      <a class="gb-ellipsis dropdown-toggle" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-       <i class="gb-icon fa fa-ellipsis-h"></i>
-       <div class="gb-title">
-        MORE
+      </md-button>
+      <div class="dropdown-menu dropdown-menu-right">
+       <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-project"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         PROJECTS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-groups"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         GROUPS
+        </div>
+       </md-button>
+      </div>
+     </div>
+     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-tools2"></i>
        </div>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-lg hidden-md hidden-sm visible-xs">
-        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'hobby'})">
-         <i class="gb-icon fa icon-gb-hobby"></i>
-         <div class="gb-title">
-          HOBBIES
-         </div>
-        </a>
-       </li>
-       <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'mentorship'})">
-         <i class="gb-icon fa icon-gb-mentorship"></i>
-         <div class="gb-title">
-          MENTORSHIP
-         </div>
-        </a>
-       </li>
-       <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'advice'})">
-         <i class="gb-icon fa icon-gb-advice"></i>
-         <div class="gb-title">
-          ADVICE
-         </div>
-        </a>
-       </li>
-       <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'teach'})">
-         <i class="gb-icon fa icon-gb-teach"></i>
-         <div class="gb-title">
-          TEACH
-         </div>
-        </a>
-       </li>
-       <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'collaboration'})">
-         <i class="gb-icon fa icon-gb-collaboration"></i>
-         <div class="gb-title">
-          COLLABORATION
-         </div>
-        </a>
-       </li>
-       <li role="separator" class="divider"></li>
-      </ul>
-     </li>
-    </ul>
+       <div class="gb-title gb-ellipsis hidden-xs">
+        TOOLS
+       </div>
+      </md-button>
+      <div class="dropdown-menu dropdown-menu-right">
+       <md-button ui-sref="apps.journals.all" class="gb-link hidden-lg col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa icon-gb-journals"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         JOURNAL
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa fa-check-circle-o"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         TODOS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="gb-icon">
+         <i class="fa fa-calendar"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         CALENDAR
+        </div>
+       </md-button>
+      </div>
+     </div>
+    </div>
    </div>
    <div data-ui-view="content" class="row gb-padding-medium"></div>
    <div class="gb-dummy-height row"></div>
