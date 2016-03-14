@@ -51,6 +51,18 @@ class Explorer extends Model {
   return $explorers;
  }
 
+ public static function getUserExplorersAll($userId) {
+  $explorers = Explorer::orderBy('updated_at', 'desc')
+          ->where('creator_id', $userId)
+          ->with('app_type')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->take(50)
+          ->get();
+  return $explorers;
+ }
+
  public static function getExplorers($appName) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {

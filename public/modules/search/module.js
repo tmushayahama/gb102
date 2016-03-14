@@ -39,8 +39,8 @@ define(['angular'
              controller: 'ExplorersAllCtrl as explorersTabCtrl',
              templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
              resolve: {
-              isSearch: function () {
-               return true;
+              listType: function () {
+               return 3;
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -61,8 +61,8 @@ define(['angular'
              controller: 'ExplorersAppCtrl as explorersTabCtrl',
              templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
              resolve: {
-              isSearch: function () {
-               return true;
+              listType: function () {
+               return 3;
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({

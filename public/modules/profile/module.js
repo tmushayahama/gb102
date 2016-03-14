@@ -76,10 +76,10 @@ define(['angular'
            views: {
             "content": {
              controller: 'ExplorersAllCtrl as explorersTabCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
+             templateUrl: 'public/modules/profile/views/components/explorer/explorers.html',
              resolve: {
-              isSearch: function () {
-               return false;
+              listType: function () {
+               return 2;
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -92,6 +92,28 @@ define(['angular'
                   'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/explorers-all.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.profile.explorer.app', {
+           url: '/{app_name}',
+           views: {
+            "app-tab": {
+             controller: 'ExplorersAppCtrl as explorersTabCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
+             resolve: {
+              listType: function () {
+               return 2;
+              },
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explorer',
+                 serie: true,
+                 files: [
+                  'public/modules/explorer/controllers/explorers-app.ctrl.js',
                  ]
                 });
                }]

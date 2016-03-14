@@ -2,7 +2,7 @@ var explorersAllCtrl = function (
         ConstantsSrv,
         ExplorersSrv,
         SearchSrv,
-        isSearch,
+        listType,
         $scope,
         $state,
         $stateParams,
@@ -20,28 +20,35 @@ var explorersAllCtrl = function (
 
  vm.explorersSrv = new ExplorersSrv();
 
- if (isSearch) {
-  vm.searchSrv = new SearchSrv();
-  var searchData = {
-   query: $rootScope.searchKeyword
-  };
-  vm.searchSrv.simpleSearch(searchData).then(function (data) {
-   vm.explorers = data;
-  });
- } else {
-  vm.explorersSrv.getAllExplorers().then(function (data) {
-   vm.explorers = data;
-  });
+ switch (listType) {
+  case 1:
+   vm.explorersSrv.getAllExplorers().then(function (data) {
+    vm.explorers = data;
+   });
+   break;
+  case 2:
+   vm.userId = $stateParams.profileId;
+   vm.explorersSrv.getUserExplorers(vm.userId).then(function (data) {
+    vm.explorers = data;
+   });
+   break;
+  case 3:
+   vm.searchSrv = new SearchSrv();
+   var searchData = {
+    query: $rootScope.searchKeyword
+   };
+   vm.searchSrv.simpleSearch(searchData).then(function (data) {
+    vm.explorers = data;
+   });
+   break;
  }
-
-
 };
 
 explorersAllCtrl.$inject = [
  'ConstantsSrv',
  'ExplorersSrv',
  'SearchSrv',
- 'isSearch',
+ 'listType',
  '$scope',
  '$state',
  '$stateParams',

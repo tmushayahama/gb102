@@ -35,6 +35,19 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorersSrv.prototype.getUserExplorers = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  //self.explorers = [];
+  $http.get('/api/explorers/user/' + userId + '/all').success(function (data) {
+   //self.explorers = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorersSrv.prototype.getAppExplorers = function (appName) {
   var self = this;
   var deferred = $q.defer();
