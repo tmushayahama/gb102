@@ -1,1 +1,0 @@
-var teachOverviewCtrl=function(TeachSrv,$state,$stateParams,$http,$rootScope){};teachOverviewCtrl.$inject=["TeachSrv","$state","$stateParams","$http","$rootScope"],angular.module("app.teach").controller("TeachOverviewCtrl",teachOverviewCtrl);

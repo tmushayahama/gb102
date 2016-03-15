@@ -1,1 +1,0 @@
-var journalOverviewCtrl=function(JournalSrv,$state,$stateParams,$http,$rootScope){};journalOverviewCtrl.$inject=["JournalSrv","$state","$stateParams","$http","$rootScope"],angular.module("app.journal").controller("JournalOverviewCtrl",journalOverviewCtrl);

@@ -158,7 +158,7 @@ input[type="checkbox"] {
 }
 
 .gb-mega-dropdown {
- .nav, .collapse, .dropup, .dropdown {
+ .nav, .collapse, .dropup, .dropdown, .dropdown-menu {
   position: static;
  }
 
@@ -173,9 +173,29 @@ input[type="checkbox"] {
  .gb-content {
   padding: 20px 30px;
  }
-
-
 }
+
+.gb-shadow-1 {
+ box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.gb-shadow-2 {
+ position: relative;
+ box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+ &:before, &:after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:50%;
+  bottom:0;
+  left:10px;
+  right:10px;
+  border-radius:100px / 10px;
+ }
+}
+
 .dropdown-menu.gb-full-width {
  left: 0!important;
  right: 0!important;
@@ -1044,7 +1064,7 @@ input.gb-form-show{
 
 .gb-top-nav-3 {
  //@include position(fixed, 41px 0 null 0);
- margin-top: 44px;
+ margin-top: 41px;
  height: 100px;
  background-color: #F2F2F1;
  border-bottom: #BBB solid 1px;
@@ -1090,6 +1110,35 @@ input.gb-form-show{
 
  .dropdown-menu {
   width: 300px;
+  &.gb-dropdown-menu-center {
+   left: -50px;
+  }
+  &.gb-dropdown-menu-left-1 {
+   left: 0px;
+   @include respond-to (gb-xs) {
+    left: -100px;
+   }
+  }
+  &.gb-dropdown-menu-left-2 {
+   left: 0px;
+   @include respond-to (gb-xs) {
+    left: -100px;
+   }
+  }  
+  &.gb-dropdown-menu-right-1 {
+   right: 0px;
+   left: auto;
+   @include respond-to (gb-xs) {
+    left: -150px;
+   }
+  }
+  &.gb-dropdown-menu-right-2 {
+   right: 0px;
+   left: auto;
+   @include respond-to (gb-xs) {
+    left: -200px;
+   }
+  }
  }
 
 
@@ -1134,7 +1183,7 @@ input.gb-form-show{
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   display: inline-block;  
+   display: inline-block;
    margin: 0 auto;
    background-color: rgba($primary-color, 0.2);
    line-height: 40px;
@@ -1818,9 +1867,8 @@ input.gb-form-show{
 .gb-box-1 {
  position: relative;
  background-color: #FFF;
- border-bottom: rgba($primary-color, 0.6) solid 1px;
  padding:  10px 0;
- margin-bottom: 0px;
+ margin-bottom: 15px;
  overflow: hidden;
  &:hover {
   background-color: #F7F7F7;

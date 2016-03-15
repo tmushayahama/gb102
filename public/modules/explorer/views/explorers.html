@@ -1,20 +1,24 @@
 <div ng-include="'public/modules/app/views/top-menu.html'"></div>
 <div class="gb-container gb-app-list col-lg-7 col-md-8 col-sm-12 col-xs-12">
- <section class="gb-shadow-1 gb-background-white gb-section-row-2 gb-padding-none row">
-  <header class="gb-heading row">
-   <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-    <p class="gb-title gb-ellipsis">
-     {{$root.appName}}
-    </p>
-   </div>
-   <button class="btn btn-link pull-right" ng-click="$root.openAddExplorerModal()">
-    <i class="fa fa-plus"></i>
-   </button>
-  </header>
- </section>
  <div class="row">
-  <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
-   <ul class="nav gb-icon-side-nav-1">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+   <section class="gb-shadow-1 gb-background-white gb-section-row-2">
+    <header class="gb-heading gb-background-white">
+     <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
+      <p class="gb-title gb-ellipsis">
+       {{$root.appName}}
+      </p>
+     </div>
+     <button class="btn btn-link pull-right" ng-click="$root.openAddExplorerModal()">
+      <i class="fa fa-plus"></i>
+     </button>
+    </header>
+   </section>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-lg-3 col-md-3 gb-padding-thin hidden-sm hidden-xs">
+   <ul class="nav gb-shadow-1 gb-icon-side-nav-1">
     <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <md-button class="gb-ellipsis" ui-sref="apps.explorer.all">
      <i class="gb-icon fa icon-gb-discover"></i>
@@ -89,7 +93,7 @@
     </li>
    </ul>
   </div>
-  <div data-ui-view="app-tab" class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
+  <div data-ui-view="app-tab" class="col-lg-9 col-md-9 gb-padding-thin col-sm-12 col-xs-12"></div>
  </div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->

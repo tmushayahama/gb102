@@ -1,4 +1,4 @@
-<div dr-sticky class="gb-top-nav-3 col-lg-12 col-md-12 col-sm-12 col-xs-12" role="navigation">
+<div sticky class="gb-top-nav-3 gb-shadow-1 col-lg-12 col-md-12 col-sm-12 col-xs-12" role="navigation">
  <div class="container">
   <div class="gb-body row">
    <md-button ui-sref="apps.profile.overview({profileId: $root.user.id})" class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -30,7 +30,7 @@
       DISCOVER
      </div>
     </md-button>
-    <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-menu gb-dropdown-menu-left-1">
      <md-button ui-sref="apps.explorer.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                 ng-class="{
                    active: ('apps.explorer' | includedByState)
@@ -76,7 +76,7 @@
       APPLICATION
      </div>
     </md-button>
-    <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-menu gb-dropdown-menu-right-1">
      <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                 ng-class="{
                    active: ('apps.mentorships' | includedByState)
@@ -199,7 +199,7 @@
       ORGANIZE
      </div>
     </md-button>
-    <div class="dropdown-menu dropdown-menu-right">
+    <div class="dropdown-menu gb-dropdown-menu-right-2">
      <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                 ng-class="{
                    active: ('apps.projects' | includedByState)
