@@ -258,7 +258,7 @@ input[type="checkbox"] {
    width: 110px;
   }
 
-  .gb-explorer-pic {
+  .gb-heading-pic {
    background-color: rgba($primary-color, 0.4);
    @include position(absolute, 10px null null 10px);
    height: 100px;
@@ -1875,7 +1875,7 @@ input.gb-form-show{
  }
  .gb-image {
   padding: 0px 0px 0 10px;
-  .gb-explorer-pic {
+  .gb-heading-pic {
    width: 100%;
   }
  }

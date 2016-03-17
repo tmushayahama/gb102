@@ -35,6 +35,19 @@ var mentorshipsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ MentorshipsSrv.prototype.getUserMentorships = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  //self.mentorships = [];
+  $http.get('/api/mentorships/user/' + userId + '/all').success(function (data) {
+   //self.mentorships = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  MentorshipsSrv.prototype.getAppMentorships = function (appName) {
   var self = this;
   var deferred = $q.defer();

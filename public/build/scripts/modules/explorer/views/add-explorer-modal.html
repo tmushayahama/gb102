@@ -1,0 +1,116 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   Add To Explorer
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="addExplorerCtrl.close()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <form editable-form name="addExplorerForm">
+  <wizard template="public/build/scripts/modules/app/views/templates/wizard.html"
+          on-finish="finishedWizard()"
+          name="explorer-form"
+          current-step="addExplorerCtrl.wizardCurrentStep">
+   <wz-step wz-title="Choose App">
+    <div class="row">
+     <div ng-repeat="appType in addExplorerCtrl.appTypes"
+          class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+          ng-click="addExplorerCtrl.chooseAppType(appType)"
+          wz-next value="Fill">
+      <md-button class="md-raised gb-apptype-btn">
+       <div class="gb-icon col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <i class=" fa icon-gb-{{appType.name.toLowerCase()}}"></i>
+       </div>
+       <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="gb-ellipsis">
+         {{appType.name}}
+        </div>
+       </div>
+      </md-button>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Fill">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">App Name:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <input value="{{addExplorerCtrl.selectedAppType.name}}" readonly
+             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="addExplorerCtrl.explorer.title" name="title" required
+                rows="2" placeholder="title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="addExplorerCtrl.explorer.description" name="description" required
+                rows="4" placeholder="description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{addExplorerCtrl.explorer.appType.name}} Level:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="addExplorerCtrl.explorer.level">
+       <option  ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
+      </select>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{addExplorerCtrl.explorer.appType.name}} Level:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="row">
+       <div class="checkbox">
+        <label>
+         <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType">
+         {{requestType.requestLevel.name}}
+        </label>
+       </div>
+       <textarea ng-model="requestType.explorerRequest.description" name="description"
+                 rows="3" placeholder="Display Message"
+                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       </textarea>
+       <br>
+      </div>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Privacy">
+    Privacy
+   </wz-step>
+  </wizard>
+ </form>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.close()">
+   Close
+  </a>
+  <a ng-class="{
+    'gb-disabled'
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.previous()">
+   Previous
+  </a>
+  <a ng-class="{
+    'gb-disabled'
+            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.next()">
+   Next
+  </a>
+  <a ng-class="{
+    'gb-disabled'
+    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.ok()">
+   Add
+  </a>
+ </div>
+</div>

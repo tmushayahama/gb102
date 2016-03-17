@@ -18,7 +18,21 @@ var mentorshipTodosCtrl = function (
 
  vm.getMentorshipTodoPercentage = function (mentorshipTodoId) {
   return 100;
- }
+ };
+
+ vm.todoChecklistCount = function (todoId) {
+  vm.mentorshipTodosSrv.todoChecklistCount(todoId)
+          .then(function (data) {
+           return data;
+          });
+ };
+
+ vm.showTodoForm = function (todoId) {
+  vm.mentorshipTodosSrv.todoChecklistCount(vm.mentorshipId, level_categories.todo_level_normal)
+          .then(function (data) {
+           vm.mentorshipTodos = data;
+          });
+ };
 
  vm.defaultMentorshipTodoData = {
   mentorshipId: $stateParams.mentorshipId,

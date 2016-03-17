@@ -1,4 +1,6 @@
 var mentorshipTodoCtrl = function (
+        level_categories,
+        ConstantsSrv,
         MentorshipTodoSrv,
         MentorshipTodoChecklistSrv,
         $uibModalInstance,
@@ -15,7 +17,38 @@ var mentorshipTodoCtrl = function (
  vm.mentorshipTodoId = mentorshipTodoData.id;
  vm.mentorshipTodoSrv = new MentorshipTodoSrv();
  vm.mentorshipTodoChecklistSrv = new MentorshipTodoChecklistSrv();
+ vm.constantsSrv = new ConstantsSrv();
+ vm.progressStatusTypes;
 
+ /*
+  $scope.$watch(function () {
+  return vm.mentorshipTodoSrv.mentorshipTodo.todo.status_id;
+  }, function (newValue, oldValue) {
+  console.log('From', oldValue, ' - ', newValue)
+  });
+  */
+
+ vm.changeTodoStatus = function () {
+  var data = {
+   todo_id: vm.mentorshipTodoSrv.mentorshipTodo.todo_id,
+   status_id: vm.mentorshipTodoSrv.mentorshipTodo.todo.status_id
+  };
+  vm.mentorshipTodoSrv.editTodoStatus(data).then(function (response) {
+
+  });
+ };
+
+ vm.toggleChecklistStatus = function (checklist) {
+  checklist.status = (checklist.status + 1) % 2;
+
+  var data = {
+   checklist_id: checklist.id,
+   status: checklist.status
+  };
+  vm.mentorshipTodoSrv.editChecklistStatus(data).then(function (response) {
+
+  });
+ };
 
  vm.todoId = mentorshipTodoData.todo_id;
  vm.checklistFormVisible = false;
@@ -53,6 +86,8 @@ var mentorshipTodoCtrl = function (
    console.log(response);
   });
  };
+
+
 
  vm.editMentorshipTodoSections = {
   details: function (details) {
@@ -127,9 +162,17 @@ var mentorshipTodoCtrl = function (
  //--------init------
  vm.getMentorshipTodo(vm.mentorshipId, vm.todoId);
  vm.getMentorshipTodoChecklist(vm.todoId);
+
+ vm.constantsSrv.getLevel(level_categories.todo_level_progress).then(function (data) {
+  vm.progressStatusTypes = data;
+ });
 };
 
+
+
 mentorshipTodoCtrl.$inject = [
+ 'level_categories',
+ 'ConstantsSrv',
  'MentorshipTodoSrv',
  'MentorshipTodoChecklistSrv',
  '$uibModalInstance',

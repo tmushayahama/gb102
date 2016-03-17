@@ -51,6 +51,58 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ MentorshipTodoSrv.prototype.editTodoStatus = function (todoData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/todo/editstatus',
+   data: todoData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ MentorshipTodoSrv.prototype.todoChecklistCount = function (todoId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/todo/' + todoId + '/checklist/count').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ MentorshipTodoSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/todo/' + todoId + '/checklist/' + status + '/count').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ MentorshipTodoSrv.prototype.editChecklistStatus = function (checklistData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/checklist/editstatus',
+   data: checklistData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  return MentorshipTodoSrv;
 };
 mentorshipTodoSrv.$inject = ['$http', '$q'];

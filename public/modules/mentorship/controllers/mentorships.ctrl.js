@@ -23,7 +23,7 @@ var mentorshipsCtrl = function (
 
  vm.mentorshipsSrv = new MentorshipsSrv();
  vm.constantsSrv = new ConstantsSrv();
- $rootScope.appName = 'MENTORSHIP';
+ $rootScope.appName = 'MENTORSHIP APP';
  vm.mentorshipLevels;
  vm.appTypes;
 

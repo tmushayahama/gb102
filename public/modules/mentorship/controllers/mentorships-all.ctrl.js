@@ -2,7 +2,7 @@ var mentorshipsAllCtrl = function (
         ConstantsSrv,
         MentorshipsSrv,
         SearchSrv,
-        isSearch,
+        listType,
         $scope,
         $state,
         $stateParams,
@@ -16,30 +16,39 @@ var mentorshipsAllCtrl = function (
  var vm = this;
  vm.mentorships = [];
 
+ vm.appName = "ALL";
+
  vm.mentorshipsSrv = new MentorshipsSrv();
 
- if (isSearch) {
-  vm.searchSrv = new SearchSrv();
-  var searchData = {
-   query: $rootScope.searchKeyword
-  };
-  vm.searchSrv.simpleSearch(searchData).then(function (data) {
-   vm.mentorships = data;
-  });
- } else {
-  vm.mentorshipsSrv.getAllMentorships().then(function (data) {
-   vm.mentorships = data;
-  });
+ switch (listType) {
+  case 1:
+   vm.mentorshipsSrv.getAllMentorships().then(function (data) {
+    vm.mentorships = data;
+   });
+   break;
+  case 2:
+   vm.userId = $stateParams.profileId;
+   vm.mentorshipsSrv.getUserMentorships(vm.userId).then(function (data) {
+    vm.mentorships = data;
+   });
+   break;
+  case 3:
+   vm.searchSrv = new SearchSrv();
+   var searchData = {
+    query: $rootScope.searchKeyword
+   };
+   vm.searchSrv.simpleSearch(searchData).then(function (data) {
+    vm.mentorships = data;
+   });
+   break;
  }
-
-
 };
 
 mentorshipsAllCtrl.$inject = [
  'ConstantsSrv',
  'MentorshipsSrv',
  'SearchSrv',
- 'isSearch',
+ 'listType',
  '$scope',
  '$state',
  '$stateParams',

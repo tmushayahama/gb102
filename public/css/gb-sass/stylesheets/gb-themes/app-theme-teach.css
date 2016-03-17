@@ -2996,7 +2996,7 @@ input[type="checkbox"] {
   height: 110px;
   width: 110px;
 }
-#gb-middle-nav .gb-cover .gb-explorer-pic {
+#gb-middle-nav .gb-cover .gb-heading-pic {
   background-color: rgba(65, 29, 29, 0.4);
   position: absolute;
   top: 10px;
@@ -4673,7 +4673,7 @@ input.gb-form-show {
 .gb-box-1 .gb-image {
   padding: 0px 0px 0 10px;
 }
-.gb-box-1 .gb-image .gb-explorer-pic {
+.gb-box-1 .gb-image .gb-heading-pic {
   width: 100%;
 }
 .gb-box-1 .gb-dropdown-action {

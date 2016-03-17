@@ -1,0 +1,1109 @@
+<nav class="gb-landing-page gb-header gb-top-nav-1 gb-nav col-lg-12 col-md-12 col-sm-12 col-xs-12"  role="navigation">
+ <div class="container">
+  <div class="gb-header pull-left">
+   <a class="gb-logo" ui-sref="apps.explorer.all">
+    <i class="gb-logo-icon fa icon-gb-logo"></i>
+    <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
+     <strong>SKILL</strong>SECTION<br>
+    </div>
+   </a>
+  </div>
+  <div class="gb-action pull-right">
+   <a ng-click="authCtrl.openRegistrationModal()" class="btn btn-link">
+    <i class='fa fa-key'></i>
+    <span class=''> BETA ACCESS</span>
+   </a>
+   <a ng-click="authCtrl.openLoginModal()" class="btn btn-link">
+    <i class='fa fa-sign-in'></i>
+    <span class=''> LOG IN</span>
+   </a>
+  </div>
+ </div>
+</nav>
+<div class="gb-landing-page">
+ <header id="gb-intro-section" class="">
+  <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
+   <span class="fa-stack fa-lg">
+    <i class="fa fa-outer fa-circle fa-stack-2x"></i>
+    <i class="fa fa-inner {{authCtrl.skillIcons[iconIndex].name}} fa-stack-1x"></i>
+   </span>
+  </div>
+  <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
+   <div class="intro-heading">
+    Discover, Apply & Organize skills
+   </div>
+   <div class="intro-lead-in">
+    Applications and Tools you need to <br>
+    <span class="gb-dynamic-word gb-dynamic-word-{{authCtrl.headerWord}}">{{authCtrl.headerWord}}</span>
+   </div>
+   <div class="btn-toolbar row">
+    <a ng-click="authCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
+     <i class="fa fa-key"></i> Beta Access Free
+    </a>
+    <div class="gb-or">
+     or
+    </div>
+    <a ng-click="authCtrl.openLoginModal()" class="btn btn-default">
+     <i class="fa fa-sign-in"></i> Login
+    </a>
+   </div>
+  </div>
+ </header>
+
+ <!-- Services Section -->
+ <section ng-if="true" class="gb-services">
+  <div class="container">
+   <div class="row text-center">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     <i class="gb-icon-service fa icon-gb-discover"></i>
+     <h4 class="service-heading">Discover</h4>
+     <p class="text-muted">using skill explorers</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     <i class="gb-icon-service fa icon-gb-apply"></i>
+     <h4 class="service-heading">Apply</h4>
+     <p class="text-muted">using skill applications</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     <i class="gb-icon-service fa icon-gb-organize"></i>
+     <h4 class="service-heading">Organize</h4>
+     <p class="text-muted">using skill organizers</p>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-heading-row">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <h1 class="text-center">
+      <i class="fa icon-gb-discover"></i>
+      DISCOVERING SKILLS
+      <i class="fa fa-flip-horizontal icon-gb-discover"></i>
+     </h1>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-explorer-row">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+     <h2>
+      <i class="fa icon-gb-discover"></i> SKILL EXPLORER
+     </h2>
+     <p>
+      Browse skills, goals, hobbies, mentorships … from our skill bank and from other users.
+     </p>
+    </div>
+    <div class="pull-right col-lg-5 col-md-5 col-sm-5 col-xs-12">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/explorer.png" alt="">
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-swipe-row">
+  <div class="container">
+   <div class="row">
+    <div class="hidden-lg hidden-md hidden-sm visible-xs col-xs-12">
+     <h2>
+      <i class="fa icon-gb-swipe"></i> SKILL SWIPE
+     </h2>
+     <p>
+      Quickly select a skill, goal, advice, hobby etc you are interested in exploring more by swiping
+      Swipe right or press 'explorer' if you are interested in further discovering, exploring and applying the skill goal, hobby...
+      Not interested for now, swipe left
+     </p>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/swipe.png" alt="">
+    </div>
+    <div class="pull-right col-lg-5 col-md-5 col-sm-6 col-xs-12 visible-lg visible-md visible-sm hidden-xs">
+     <h2>
+      <i class="fa icon-gb-swipe"></i> SKILL SWIPE
+     </h2>
+     <p>
+      Quickly select a skill, goal, advice, hobby etc you are interested in exploring more by swiping.
+      Swipe right or press 'explorer' if you are interested further discovering, exploring and applying the skill goal, hobby...
+      Not interested for now, swipe left
+     </p>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-matcher-row">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+     <h2>
+      <i class="fa icon-gb-matcher"></i> SKILL MATCHER
+     </h2>
+     <p>
+      Find perfect mentors, teachers, team members, collaborators
+      by answering as many questions as possible from our question bank.
+     </p>
+    </div>
+    <div class="pull-right col-lg-5 col-md-5 col-sm-5 col-xs-12">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/matcher.png" alt="">
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-heading-row">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <h1 class="text-center">
+      <i class="fa icon-gb-apply"></i>
+      APPLYING SKILLS
+      <i class="fa icon-gb-apply"></i>
+     </h1>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-explorer-row">
+  <div class="container">
+   <div class="row">
+    <div class="text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <h2>
+      <i class="fa icon-gb-skill"></i> SKILL
+     </h2>
+     <p>
+      Each skill has a profile. You can add things, collaborate, make it a template to others, make it part of portfolio
+      and many more tools
+     </p>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/explorer-description.png" alt="">
+    </div>
+    <div class="pull-right col-lg-5 col-md-5 col-sm-5 col-xs-6">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/explorer-tools.png" alt="">
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-background-white">
+  <div class="container">
+   <div class="row">
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-skill"></i>
+     <h4 class="feature-heading">SKILLS</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-goal"></i>
+     <h4 class="feature-heading">GOALS</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-promise"></i>
+     <h4 class="feature-heading">PROMISES</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-hobby"></i>
+     <h4 class="feature-heading">HOBBIES</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-mentorship"></i>
+     <h4 class="feature-heading">MENTORSHIP</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-advice"></i>
+     <h4 class="feature-heading">ADVICE</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-teach"></i>
+     <h4 class="feature-heading">TEACH</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-collaboration"></i>
+     <h4 class="feature-heading">COLLABORATION</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-project"></i>
+     <h4 class="feature-heading">PROJECTS</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-group"></i>
+     <h4 class="feature-heading">GROUPS</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-journal"></i>
+     <h4 class="feature-heading">JOURNALS</h4>
+    </div>
+    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
+     <i class="fa icon-gb-community"></i>
+     <h4 class="feature-heading">COMMUNITY</h4>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-heading-row">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <h1 class="text-center">
+      <i class="fa icon-gb-logo"></i>
+      SKILL SECTION
+      <i class="fa fa-flip-horizontal icon-gb-logo"></i>
+     </h1>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section class="gb-background-white">
+  <div class="container">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/screen-1.png" alt="">
+   </div>
+  </div>
+ </section>
+
+ <!-- Portfolio Grid Section -->
+ <section ng-if="false" id="portfolio" class="bg-light-gray ">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 text-center">
+     <h2 class="section-heading">Skill Applications</h2>
+     <h3 class="section-subheading text-muted">Make use of our Applications.</h3>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/scree-1/roundicons.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Round Icons</h4>
+      <p class="text-muted">Graphic Design</p>
+     </div>
+    </div>
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/portfolio/startup-framework.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Startup Framework</h4>
+      <p class="text-muted">Website Design</p>
+     </div>
+    </div>
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/portfolio/treehouse.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Treehouse</h4>
+      <p class="text-muted">Website Design</p>
+     </div>
+    </div>
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/portfolio/golden.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Golden</h4>
+      <p class="text-muted">Website Design</p>
+     </div>
+    </div>
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/portfolio/escape.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Escape</h4>
+      <p class="text-muted">Website Design</p>
+     </div>
+    </div>
+    <div class="col-md-4 col-sm-6 portfolio-item">
+     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+      <div class="portfolio-hover">
+       <div class="portfolio-hover-content">
+        <i class="fa fa-plus fa-3x"></i>
+       </div>
+      </div>
+      <img src="public/build/img/portfolio/dreams.png" class="img-responsive" alt="">
+     </a>
+     <div class="portfolio-caption">
+      <h4>Dreams</h4>
+      <p class="text-muted">Website Design</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- About Section -->
+ <section ng-if="false" id="about" class="gb-background-white">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 text-center">
+     <h2 class="section-heading">Skill Section</h2>
+     <h3 class="section-subheading text-muted">.</h3>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-5">
+     <div class="progress-heading">
+      <h4>Skill App</h4>
+      <h4 class="subheading">Discover your Skills</h4>
+     </div>
+     <div class="progress-body">
+      <p class="text-muted">
+       Skills gained<br>
+       Skills to improve<br>
+       Skills to learn </p>
+     </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+     <h4 class="fa gb-icon-inner icon-gb-skill"></h4>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-5">
+
+    </div>
+    <div ng-if="false"class="col-lg-12">
+     <ul class="progress">
+      <li>
+       <div class="progress-image">
+        <h4 class="fa gb-icon-inner icon-gb-skill"></h4>
+       </div>
+       <div class="progress-panel">
+        <div class="progress-heading">
+         <h4>Skill App</h4>
+         <h4 class="subheading">Discover your Skills</h4>
+        </div>
+        <div class="progress-body">
+         <p class="text-muted">
+          Skills gained<br>
+          Skills to improve<br>
+          Skills to learn </p>
+        </div>
+       </div>
+      </li>
+      <li class="progress-inverted">
+       <div class="progress-image">
+        <h4 class="fa gb-icon-inner icon-gb-goal"></h4>
+       </div>
+       <div class="progress-panel">
+        <div class="progress-heading">
+         <h4>Goal App</h4>
+         <h4 class="subheading">Discover your goals</h4>
+        </div>
+        <div class="progress-body">
+         <p class="text-muted">
+          Goals Achieved<br>
+          Goals to Accomplish<br>
+         </p>
+        </div>
+       </div>
+      </li>
+      <li>
+       <div class="progress-image">
+        <h4 class="fa gb-icon-inner icon-gb-promise"></h4>
+       </div>
+       <div class="progress-panel">
+        <div class="progress-heading">
+         <h4>Promise App</h4>
+         <h4 class="subheading">Your promises</h4>
+        </div>
+        <div class="progress-body">
+         <p class="text-muted">
+          Promises to keep
+          Promises to develop
+         </p>
+        </div>
+       </div>
+      </li>
+      <li class="progress-inverted">
+       <div class="progress-image">
+        <h4 class="fa gb-icon-inner icon-gb-hobby"></h4>
+       </div>
+       <div class="progress-panel">
+        <div class="progress-heading">
+         <h4>Hobby App</h4>
+         <h4 class="subheading">Discover your hobbies</h4>
+        </div>
+        <div class="progress-body">
+         <p class="text-muted">
+          Hobbies Developed<br>
+          Hobbies of Interest
+         </p>
+        </div>
+       </div>
+      </li>
+      <li class="progress-inverted">
+       <div class="progress-image">
+        <h4>Be Part
+         <br>Of Our
+         <br>Story!</h4>
+       </div>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- Team Section -->
+ <section ng-if="false" id="team" class="bg-light-gray">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-12 text-center">
+     <h2 class="section-heading">Our Amazing Team</h2>
+     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-sm-4">
+     <div class="team-member">
+      <img src="public/build/img/team/1.jpg" class="img-responsive img-circle" alt="">
+      <h4>Kay Garland</h4>
+      <p class="text-muted">Lead Designer</p>
+      <ul class="list-inline social-buttons">
+       <li><a href="#"><i class="fa fa-twitter"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-facebook"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-linkedin"></i></a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="team-member">
+      <img src="public/build/img/team/2.jpg" class="img-responsive img-circle" alt="">
+      <h4>Larry Parker</h4>
+      <p class="text-muted">Lead Marketer</p>
+      <ul class="list-inline social-buttons">
+       <li><a href="#"><i class="fa fa-twitter"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-facebook"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-linkedin"></i></a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="team-member">
+      <img src="public/build/img/team/3.jpg" class="img-responsive img-circle" alt="">
+      <h4>Diana Pertersen</h4>
+      <p class="text-muted">Lead Developer</p>
+      <ul class="list-inline social-buttons">
+       <li><a href="#"><i class="fa fa-twitter"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-facebook"></i></a>
+       </li>
+       <li><a href="#"><i class="fa fa-linkedin"></i></a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+     <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- Clients Aside -->
+ <aside ng-if="false" class="clients ">
+  <div class="container">
+   <div class="row">
+    <div class="col-md-3 col-sm-6">
+     <a href="#">
+      <img src="public/build/img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+     </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+     <a href="#">
+      <img src="public/build/img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+     </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+     <a href="#">
+      <img src="public/build/img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+     </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+     <a href="#">
+      <img src="public/build/img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+     </a>
+    </div>
+   </div>
+  </div>
+ </aside>
+
+ <!-- Contact Section -->
+
+ <footer ng-if="false" class="">
+  <div class="container">
+   <div class="row">
+    <div class="col-md-4">
+     <span class="copyright">Copyright &copy; Your Website 2014</span>
+    </div>
+    <div class="col-md-4">
+     <ul class="list-inline social-buttons">
+      <li><a href="#"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li><a href="#"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li><a href="#"><i class="fa fa-linkedin"></i></a>
+      </li>
+     </ul>
+    </div>
+    <div class="col-md-4">
+     <ul class="list-inline quicklinks">
+      <li><a href="#">Privacy Policy</a>
+      </li>
+      <li><a href="#">Terms of Use</a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </footer>
+
+ <!-- Portfolio Modals -->
+ <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+ <!-- Portfolio Modal 1 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <!-- Project Details Go Here -->
+       <h2>Project Name</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/roundicons-free.png" alt="">
+       <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+       <p>
+        <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+       <ul class="list-inline">
+        <li>Date: July 2014</li>
+        <li>Client: Round Icons</li>
+        <li>Category: Graphic Design</li>
+       </ul>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Portfolio Modal 2 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <h2>Project Heading</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/startup-framework-preview.png" alt="">
+       <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+       <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Portfolio Modal 3 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <!-- Project Details Go Here -->
+       <h2>Project Name</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/treehouse-preview.png" alt="">
+       <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+       <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Portfolio Modal 4 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <!-- Project Details Go Here -->
+       <h2>Project Name</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/golden-preview.png" alt="">
+       <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, progress, and meet your team sections that can be easily modified to fit your needs.</p>
+       <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Portfolio Modal 5 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <!-- Project Details Go Here -->
+       <h2>Project Name</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/escape-preview.png" alt="">
+       <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+       <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Portfolio Modal 6 -->
+ <div ng-if="false" class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="false">
+  <div class="modal-content">
+   <div class="close-modal" data-dismiss="modal">
+    <div class="lr">
+     <div class="rl">
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+      <div class="modal-body">
+       <!-- Project Details Go Here -->
+       <h2>Project Name</h2>
+       <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+       <img class="img-responsive img-centered" src="public/build/img/portfolio/dreams-preview.png" alt="">
+       <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+       <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+       <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div ng-if="false"class="">
+  <div class="gb-intro-header-3 row">
+   <div class="container">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+     <ul>
+      <li>
+       <a>
+        <i class="fa icon-gb-skill"></i>
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/landing-page/screen-1.png" alt="">
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+     <ul>
+      <li>
+       <a>
+        <i class="fa icon-gb-skill"></i>
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div ng-if="false" class="row gb-intro-header-2">
+   <div class="gb-intro-header-2-top row">
+    <div class="container">
+     <br>
+     <br>
+     <div class="row gb-title text-center">
+      <h2 class="">Make use of our Applications</h2>
+      <p class="title-description"><b>First Generation Apps</b>, the foundation.
+      </p>
+      <br>
+     </div>
+     <div class="row ">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-1">
+        <div class="panel-heading">
+         Skill App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_skill.png" alt="SKILLS">
+         <ul class="list-group">
+          <li class="list-group-item">Skill Mentorships</li>
+          <li class="list-group-item">Skill Collaborative</li>
+          <li class="list-group-item">Skill Progress</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-1">
+        <div class="panel-heading">
+         Goal App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_goal.png" alt="GOAL">
+         <ul class="list-group">
+          <li class="list-group-item">Goal Setting</li>
+          <li class="list-group-item">Goal Tracking</li>
+          <li class="list-group-item">Contribution</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-1">
+        <div class="panel-heading">
+         Promise App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_promise.png" alt="">
+         <ul class="list-group">
+          <li class="list-group-item">Promise Commitments</li>
+          <li class="list-group-item">Promise Sharing</li>
+          <li class="list-group-item">Promise Templates</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-1">
+        <div class="panel-heading">
+         Hobby App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_hobby.png" alt="SKILLS">
+         <ul class="list-group">
+          <li class="list-group-item">Hobby Sharing</li>
+          <li class="list-group-item">Hobby events</li>
+          <li class="list-group-item">Hobby Show Offs</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div ng-if="false" class="gb-intro-header-4 row">
+   <div class="container">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/screenshot_5.png" alt="">
+    </div>
+    <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+     <h3 class="gb-title">Skill App Example
+      <small>
+       List your skill by level, skills you want to learn, skills to improve and skills you have gained
+      </small>
+     </h3>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill to learn </strong>
+      You can request mentorship, advice, set a goal, ...
+     </p>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill to Improve </strong>
+      Collaborate with someone, learn together, ...
+     </p>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill Gained </strong>
+      Prove it, mentor someone, write a template, ...
+     </p>
+     <br>
+    </div>
+   </div>
+  </div>
+  <div ng-if="false" class="row gb-intro-header-2">
+   <div class="gb-intro-header-2-top row">
+    <div class="container">
+     <br>
+     <br>
+     <div class="row gb-title">
+      <p class="title-description">
+       <b>Second Generation Apps</b>, applying combination of foundation apps.
+      </p>
+      <br>
+     </div>
+     <div class="row ">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-2">
+        <div class="panel-heading">
+         Mentorship App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_mentorship.png" alt="SKILLS">
+         <ul class="list-group">
+          <li class="list-group-item">Multiple Mentorship</li>
+          <li class="list-group-item">Mentorship Tracking</li>
+          <li class="list-group-item">Mentorship Management</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-2">
+        <div class="panel-heading">
+         Advice App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_advice.png" alt="GOAL">
+         <ul class="list-group">
+          <li class="list-group-item">Advice Show Offs</li>
+          <li class="list-group-item">Advice Blogging</li>
+          <li class="list-group-item">Advice Mapping</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+       <div class="panel panel-default gb-panel-2">
+        <div class="panel-heading">
+         Journal App
+        </div>
+        <div class="panel-body ">
+         <img class="" src="public/build/img/icons/apps/gb_journal.png" alt="">
+         <ul class="list-group">
+          <li class="list-group-item">Journal Tracking</li>
+          <li class="list-group-item">Journal Progress</li>
+          <li class="list-group-item">AutoJournal</li>
+          <li class="list-group-item"> <strong>...</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div ng-if="false" class="gb-intro-header-4 row">
+   <div class="container">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+     <h3 class="gb-title">Mentorship App Example
+      <small>
+       Request mentorship or mentor someone
+      </small>
+     </h3>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Peer/Friendly Mentorship </strong>
+     </p>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Natural, i.e. senior mentoring junior </strong>
+     </p>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Formal, i.e. trainer, trainee </strong>
+     </p>
+     <br>
+     <p class="gb-title-description">
+      <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Supervisory </strong>
+     </p>
+     <br>
+    </div>
+    <div class="pull-right col-lg-8 col-sm-12 col-xs-12 ">
+     <img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="public/build/img/screenshot_6.png" alt="">
+    </div>
+   </div>
+  </div>
+  <div ng-if="false" class="gb-intro-header-3 row">
+
+  </div>
+  <div ng-if="false" class="container">
+   <div class=" col-lg-12">
+    <div class="row gb-title text-center">
+     <h2 class="">Sign up, get all the benefits.</h2>
+    </div>
+    <br>
+    <br>
+    <div class='row'>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Manage Your Skills</h4>
+      <p><strong>Define your skills </strong> by listing skills
+       you've gained, skills you want to learn and skills you want to improve. </p>
+     </div>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Access All Skill Applications</h4>
+      <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
+       advice pages app, skill showoffs app, daily journal app etc</p>
+     </div>
+    </div>
+    <div class='row'>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Share & Connect with people</h4>
+      <p><strong>Share with your connections,</strong>Share to the right people. There are 4 types of connections, friends, family, followers and
+       general connections. </p>
+     </div>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Daily Personal Journal</h4>
+      <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and
+       new skills you learn, skills you mentor, pages you write etc
+      </p>
+     </div>
+    </div>
+    <div class='row'>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Skill Bank</h4>
+      <p><strong>Make good use of our skill bank</strong> whether you want to add any skill,
+       want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
+     </div>
+     <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+      <h4>Get Puntos & Trophies</h4>
+      <p><strong>Get rewarded</strong> be actively involved and earn points.
+       More points you gain the more proof of how skillful you are.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="item active container">
+        <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                                    ?>/img/tablet_screenshot_define.png" alt="">
+        <div class="carousel-caption">
+          <h1 class="">1. Define</h1>
+          <br>
+          <h4> Define your skills and their levels.
+          </h4>
+        </div>
+      </div>
+      <div class="item container">
+        <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                                    ?>/img/tablet_screenshot_community.png" alt="">
+        <div class="carousel-caption">
+          <h1 class="">2. Learn</h1>
+          <br>
+          <h4>Learn from your Skill Section community.
+          </h4>
+        </div>
+      </div>
+      <div class="item container">
+        <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                                    ?>/img/tablet_screenshot_prove.png" alt="">
+        <div class="carousel-caption">
+          <h1 class="">3. Prove</h1>
+          <br>
+          <h4>Apply your skills using Skill Section Apps.
+          </h4>
+        </div>
+      </div>
+
+    </div>
+
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-cchevron-right"></span>
+    </a>
+  </div>
+  -->
+ </div>
+</div>
+
+<script type="text/ng-template" id="login-modal.html">
+ <div ng-include="'public/build/scripts/modules/auth/views/login-modal.html'"></div>
+</script>

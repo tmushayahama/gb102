@@ -18,7 +18,7 @@ module.exports = function (grunt) {
  };
 
  var apps = [
-  'mentorship'
+  'advice'
  ];
  var srcs = [
   {

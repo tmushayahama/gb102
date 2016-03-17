@@ -38,8 +38,8 @@ define(['angular'
              controller: 'MentorshipsAllCtrl as mentorshipsTabCtrl',
              templateUrl: 'public/modules/mentorship/views/tabs/mentorships/mentorship-list.html',
              resolve: {
-              isSearch: function () {
-               return false;
+              listType: function () {
+               return 1;
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -60,8 +60,8 @@ define(['angular'
              controller: 'MentorshipsAppCtrl as mentorshipsTabCtrl',
              templateUrl: 'public/modules/mentorship/views/tabs/mentorships/mentorship-list.html',
              resolve: {
-              isSearch: function () {
-               return false;
+              listType: function () {
+               return 1;
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
@@ -94,7 +94,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorship', {
+          .state('apps.mentorshipItem', {
            abstract: true,
            url: '/mentorship/{mentorshipId}',
            views: {
@@ -107,6 +107,7 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
+                  'public/modules/mentorship/directives/todo/mentorship-todo-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/mentorship/services/mentorship.srv.js',
@@ -118,7 +119,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorship.overview', {
+          .state('apps.mentorshipItem.overview', {
            url: '/overview',
            views: {
             "content": {
@@ -146,7 +147,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorship.tools', {
+          .state('apps.mentorshipItem.tools', {
            url: '/tools',
            views: {
             "content": {
@@ -159,8 +160,6 @@ define(['angular'
                  serie: true,
                  files: [
                   //Todos
-                  'public/modules/mentorship/directives/todoEscape.js',
-                  'public/modules/mentorship/directives/todoFocus.js',
                   'public/modules/mentorship/services/todo/mentorship-todo.srv.js',
                   'public/modules/mentorship/services/todo/mentorship-todos.srv.js',
                   'public/modules/mentorship/services/todo/mentorship-todo-checklist.srv.js',
@@ -182,7 +181,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorship.discussion', {
+          .state('apps.mentorshipItem.discussion', {
            url: '/discussion',
            views: {
             "content": {
@@ -204,7 +203,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.mentorship.contribution', {
+          .state('apps.mentorshipItem.contribution', {
            url: '/contribution',
            views: {
             "content": {

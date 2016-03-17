@@ -76,6 +76,16 @@ var mentorshipTodosSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ MentorshipTodosSrv.prototype.todoChecklistStatusData = function (todoId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/todo/' + todoId + '/checklist/data').success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
 
  return MentorshipTodosSrv;
 };

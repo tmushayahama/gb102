@@ -1,0 +1,128 @@
+<div ng-include="'public/build/scripts/modules/app/views/navbar.html'"></div>
+
+<div id="gb-middle-nav" class="gb-container gb-app-detail col-lg-6 col-md-8 col-sm-12 col-xs-12">
+ <div class="row">
+  <div class="gb-background-white">
+   <div class="gb-cover">
+    <div ng-include="'public/build/scripts/modules/explorer/views/components/explorer-cover.html'"></div>
+    <img ng-src="public/build/img/explorer/{{ ::explorerCtrl.explorerSrv.explorer.explorer_picture_url}}"
+         onerror="this.src = 'public/build/img/explorer/default.png'" class="gb-heading-pic" alt="">
+    <div class="gb-profile-row-2">
+     <div class="gb-image">
+      <img src="public/build/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="" alt="">
+     </div>
+     <div class="gb-row-content">
+      <h1 class="gb-title gb-ellipsis">
+       <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong> {{explorerCtrl.explorerSrv.explorer.description}}
+      </h1>
+      <a class="gb-description gb-ellipsis"
+         ui-sref="profile.overview({profileId: explorerCtrl.explorerSrv.explorer.creator.id})">
+       <h2 class="gb-heading">
+        <i>by: </i>{{explorerCtrl.explorerSrv.explorer.creator.firstname + " " + explorerCtrl.explorerSrv.explorer.creator.lastname}}
+       </h2>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <md-button data-ui-sref-active="active" data-ui-sref="apps.explorerItem.overview"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       HOME
+      </div>
+     </md-button>
+     <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.tools"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa icon-tools2"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       TOOLS
+      </div>
+     </md-button>
+     <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.discussion"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa icon-chat2"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       DISCUSSION
+      </div>
+     </md-button>
+     <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.contribution"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa icon-gb-community"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       CONTRIBUTION
+      </div>
+     </md-button>
+     <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.manage"
+                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <div class="gb-icon">
+       <i class="fa fa-cogs"></i>
+      </div>
+      <div class="gb-title gb-ellipsis hidden-xs">
+       MANAGE
+      </div>
+     </md-button>
+
+     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-gb-discover"></i>
+       </div>
+       <div class="gb-title gb-ellipsis hidden-xs">
+        MORE
+       </div>
+      </md-button>
+      <div class="dropdown-menu dropdown-menu-right">
+       <md-button ui-sref="apps.explorer.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  data-ripple-color="#DDD"
+                  ng-class="{
+                     active: ('apps.explorer' | includedByState)
+                    }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-explorer"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         EXPLORE
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.swipes.swipe" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                     active: ('apps.swipes' | includedByState)
+                    }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-swipe"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         SWIPE
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                     active: ('apps.questionnaires' | includedByState)
+                    }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-matcher"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         MATCHER
+        </div>
+       </md-button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div ui-view="content" class="row gb-padding-medium"></div>
+   <div class="gb-dummy-height row"></div>
+  </div>
+ </div>
+</div>

@@ -4,6 +4,7 @@ namespace App\Models\Mentorship;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AppType\AppType;
+use App\Models\Explorer\Explorer;
 use Request;
 use DB;
 use JWTAuth;
@@ -19,6 +20,10 @@ class Mentorship extends Model {
 
  public function app_type() {
   return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
+ }
+
+ public function explorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
  public function creator() {
@@ -42,6 +47,19 @@ class Mentorship extends Model {
 
  public static function getMentorshipsAll() {
   $mentorships = Mentorship::orderBy('updated_at', 'desc')
+          ->with('explorer.app_type')
+          ->with('explorer.level')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->take(50)
+          ->get();
+  return $mentorships;
+ }
+
+ public static function getUserMentorshipsAll($userId) {
+  $mentorships = Mentorship::orderBy('updated_at', 'desc')
+          ->where('creator_id', $userId)
           ->with('app_type')
           ->with('creator')
           ->with('icon')
