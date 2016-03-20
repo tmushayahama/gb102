@@ -87,45 +87,13 @@
     </div>
    </form>
   </div>
-  <div ng-repeat="mentorshipTodo in mentorshipTodosCtrl.mentorshipTodos | filter:statusFilter track by $index" ng-class="{completed: mentorshipTodo.completed, editing: mentorshipTodo == mentorshipTodosCtrl.editedTodo}">
-   <div class="gb-box-1 row">
-
-    <div class="gb-todo-progress col-lg-2 col-md-2 col-sm-2 col-xs-2">
-     <md-progress-circular md-mode="determinate" value="20"></md-progress-circular>
-     <div class="gb-title">
-      {{mentorshipTodosCtrl.getMentorshipTodoPercentage(mentorshipTodo.id) + '%'}}
-     </div>
-    </div>
-    <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
-     <div class="gb-heading row">
-      <p class="gb-title">
-       {{mentorshipTodo.todo.status.name}}
-      </p>
-     </div>
-     <div class="gb-description row">
-      <a ng-click="mentorshipTodosCtrl.openMentorshipTodo(mentorshipTodo)">
-       {{mentorshipTodo.todo.title}}
-      </a>
-      {{mentorshipTodo.todo.description}}
-     </div>
-     <div class="gb-footer row gb-padding-none">
-      <div class="gb-summary-bar btn-group">
-       <a class="btn btn-xs btn-link">
-        <i class="fa fa-clock-o"></i> {{mentorshipTodo.todo.due_date}}
-       </a>
-       <a class="btn btn-xs btn-link">
-        <i class="gb-icon fa icon-chat2"></i> 0
-       </a>
-       <a class="btn btn-xs btn-link">
-        <i class="gb-icon fa icon-users"></i> 0
-       </a>
-      </div>
-     </div>
-    </div>
+  <div ng-repeat="mentorshipTodo in mentorshipTodosCtrl.mentorshipTodos track by $index">
+   <div gb-mentorship-todo-box mentorship-todo="mentorshipTodo"
+        open-mentorship-todo="mentorshipTodosCtrl.openMentorshipTodo(mentorshipTodo)">
    </div>
   </div>
   <script type="text/ng-template" id="mentorship-todo-modal.html">
-   <div class="" ng-include="'public/build/scripts/modules/mentorship/views/components/todo/mentorship-todo.html'"></div>
+   <div class="" ng-include="'public/build/scripts/modules/mentorship/views/components/todo/mentorship-todo-modal.html'"></div>
   </script>
  </div>
 </section>

@@ -13,6 +13,25 @@
   <header class="gb-heading row">
    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
     <p class="gb-title gb-ellipsis">
+     STATUS
+    </p>
+   </div>
+  </header>
+  <div class="row">
+   <md-radio-group ng-model="mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.status_id"
+                   ng-change="mentorshipTodoCtrl.changeTodoStatus()"
+                   layout="row">
+    <md-radio-button ng-repeat="progressStatusType in mentorshipTodoCtrl.progressStatusTypes"
+                     ng-value="progressStatusType.id" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     {{progressStatusType.name}}
+    </md-radio-button>
+   </md-radio-group>
+  </div>
+ </section>
+ <section class="gb-section-row-1 row">
+  <header class="gb-heading row">
+   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+    <p class="gb-title gb-ellipsis">
      DESCRIPTION
     </p>
    </div>
@@ -126,7 +145,11 @@
      <ul class="gb-checklist-nav">
       <li ng-repeat="todoChecklistItem in mentorshipTodoCtrl.mentorshipTodoChecklistSrv.mentorshipTodoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == mentorshipTodoCtrl.editedTodo}">
        <div class="gb-checklist-row row">
-        <input class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="todoChecklistItem.completed">
+        <div class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="todoChecklistItem.completed">
+         <md-checkbox ng-checked="todoChecklistItem.checklist.status === 1"
+                      ng-click="mentorshipTodoCtrl.toggleChecklistStatus(todoChecklistItem.checklist)" class="">
+         </md-checkbox>
+        </div>
         <div class='gb-checklist-item-content col-lg-9 col-md-9 col-sm-9 col-xs-9'>
          <p class="text-left" editable-text="todoChecklistItem.checklist.title"
             e-class="col-lg-10 col-md-10 col-sm-10 col-xs-9"

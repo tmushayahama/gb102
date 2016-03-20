@@ -147,6 +147,25 @@ define(['angular'
              }
             }
            }})
+          .state('apps.mentorshipItem.manage', {
+           url: '/manage',
+           views: {
+            "content": {
+             controller: 'MentorshipManageCtrl as mentorshipManageCtrl',
+             templateUrl: 'public/modules/mentorship/views/tabs/mentorship/mentorship-manage.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.mentorship',
+                 serie: true,
+                 files: [
+                  'public/modules/mentorship/controllers/mentorship-manage.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.mentorshipItem.tools', {
            url: '/tools',
            views: {

@@ -200,7 +200,7 @@ input[type="checkbox"] {
  left: 0!important;
  right: 0!important;
 }
-.gb-container.gb-app-list {
+.gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
  padding-top: 20px;
@@ -211,7 +211,7 @@ input[type="checkbox"] {
   padding-top: 0px;
  }
 }
-.gb-container.gb-app-detail {
+.gb-app-detail {
  margin-top: 50px;
  overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
@@ -1124,7 +1124,7 @@ input.gb-form-show{
    @include respond-to (gb-xs) {
     left: -100px;
    }
-  }  
+  }
   &.gb-dropdown-menu-right-1 {
    right: 0px;
    left: auto;

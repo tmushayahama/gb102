@@ -2934,22 +2934,22 @@ input[type="checkbox"] {
   right: 0 !important;
 }
 
-.gb-container.gb-app-list {
+.gb-app-list {
   -webkit-overflow-scrolling: touch;
   padding-top: 20px;
 }
 @media (max-width: 991px) {
-  .gb-container.gb-app-list {
+  .gb-app-list {
     padding-top: 0px;
   }
 }
 @media (max-width: 767px) {
-  .gb-container.gb-app-list {
+  .gb-app-list {
     padding-top: 0px;
   }
 }
 
-.gb-container.gb-app-detail {
+.gb-app-detail {
   margin-top: 50px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;

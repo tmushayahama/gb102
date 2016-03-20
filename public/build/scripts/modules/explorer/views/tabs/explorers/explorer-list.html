@@ -8,8 +8,8 @@
    </div>
   </header>
  </section>
- <ul class="example-animate-container">
-  <li ng-repeat="explorer in explorersTabCtrl.explorers track by $index" class="animate-repeat gb-box-1 gb-shadow-1 row">
+ <ul class="gb-padding-none">
+  <li ng-repeat="explorer in explorersTabCtrl.explorers track by $index" class="gb-box-1 gb-shadow-1 row">
    <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
     <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
          ng-src="public/build/img/explorer/{{ ::explorer.explorer_picture_url}}"
@@ -23,7 +23,7 @@
    </div>
    <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
     <div class="gb-heading row">
-     <p class="gb-title">{{explorer.app_type.name}}-{{::explorer.level.name}}</p>
+     <p class="gb-title">{{explorer.app_type.name}} - {{::explorer.level.name}}</p>
      <div class="btn-toolbar gb-dropdown-action">
       <md-button class="md-icon-button md-mini"
                  ng-click="$root.openCreateRequestExplorerModal(explorer.id)">

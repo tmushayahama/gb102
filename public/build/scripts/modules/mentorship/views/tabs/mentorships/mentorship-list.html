@@ -1,63 +1,74 @@
-<div id="gb-mentorships" class="gb-list row"
-     infinite-scroll="addMoreItems()">
- <div ng-repeat="mentorship in mentorshipsTabCtrl.mentorships" class="gb-box-1 row">
-  <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-   <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
-        ng-src="public/build/img/mentorship/{{ ::mentorship.mentorship_picture_url}}"
-        onerror="this.src = 'public/build/img/mentorship/default.png'" class="gb-mentorship-pic" alt="">
-  </div>
-  <div ng-if="false" class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-   <span  class="fa-stack fa-lg">
-    <i class="fa fa-outer icon-gb-{{mentorship.app_type.name.toLowerCase()}} fa-stack-2x"></i>
-    <i class="fa fa-inner {{mentorship.icon.name}} fa-stack-1x"></i>
-   </span>
-  </div>
-  <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <div class="gb-heading row">
-    <p class="gb-title">{{mentorship.app_type.name + ' - ' + mentorship.level.name}}</p>
-    <div class="btn-group gb-dropdown-action">
-     <a class="btn gb-ghost-btn-2"  data-ripple-color="#DDD"
-        ng-click="$root.openCreateRequestMentorshipModal(mentorship.id)">
-      Request
+<div id="gb-mentorships" class="gb-list row" infinite-scroll="addMoreItems()">
+ <section ng-show="false" class=" gb-section-row-2 gb-padding-none row">
+  <header class="gb-heading row">
+   <div class="col-lg-4 col-md-4 col-sm-9 col-xs-9">
+    <p class="gb-title gb-small gb-ellipsis">
+     {{::mentorshipsTabCtrl.appName.toUpperCase()}}
+    </p>
+   </div>
+  </header>
+ </section>
+ <ul class="gb-padding-none">
+  <li ng-repeat="mentorship in mentorshipsTabCtrl.mentorships track by $index" class="gb-box-1 gb-shadow-1 row">
+   <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
+         ng-src="public/build/img/mentorship-app/{{ ::mentorship.mentorship_picture_url}}"
+         onerror="this.src = 'public/build/img/mentorship-app/default.png'" class="gb-heading-pic" alt="">
+   </div>
+   <div ng-if="false" class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <span  class="fa-stack fa-lg">
+     <i class="fa fa-outer icon-gb-{{::mentorship.app_type.name.toLowerCase()}} fa-stack-2x"></i>
+     <i class="fa fa-inner {{::mentorship.icon.name}} fa-stack-1x"></i>
+    </span>
+   </div>
+   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <div class="gb-heading row">
+     <p class="gb-title">{{mentorship.explorer.app_type.name}} - {{::mentorship.explorer.level.name}}</p>
+     <div class="btn-toolbar gb-dropdown-action">
+      <md-button class="md-icon-button md-mini"
+                 ng-click="$root.openCreateRequestMentorshipModal(mentorship.id)">
+       <i class="fa fa-send-o"></i>
+      </md-button>
+      <md-button class="md-icon-button md-mini dropdown-toggle"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fa fa-chevron-down"></i>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li>
+        <a ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})">
+         Open
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="gb-description row">
+     <a data-ui-sref="apps.mentorshipItem.overview({mentorshipId: mentorship.id})" class="">
+      {{::mentorship.title}}
      </a>
-     <a class="btn gb-ghost-btn-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-chevron-down"></i>
-     </a>
-     <ul class="dropdown-menu dropdown-menu-right">
-      <li>
-       <a ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})">
-        Open
-       </a>
-      </li>
-     </ul>
+     {{::mentorship.description}}
+    </div>
+    <div class="gb-footer row">
+     <h5 class="gb-ellipsis">
+      <a ui-sref="profile.overview({profileId: mentorship.creator.id})">
+       {{::mentorship.creator.firstname}} {{::mentorship.creator.lastname}}
+      </a>
+     </h5>
+     <div class="gb-summary-bar btn-group">
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa fa-check-square-o"></i> [0/0]
+      </a>
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa icon-chat2"></i> 0
+      </a>
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa icon-users"></i> 0
+      </a>
+     </div>
     </div>
    </div>
-   <div class="gb-description row">
-    <a data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})" class="">
-     {{mentorship.title}}
-    </a>
-    {{mentorship.description}}
-   </div>
-   <div class="gb-footer row">
-    <h5 class="gb-ellipsis">
-     <a ui-sref="profile.overview({profileId: mentorship.creator.id})">
-      {{mentorship.creator.firstname + ' ' + mentorship.creator.lastname}}
-     </a>
-    </h5>
-    <div class="gb-summary-bar btn-group">
-     <a class="btn btn-xs btn-link">
-      <i class="gb-icon fa fa-check-square-o"></i> [0/0]
-     </a>
-     <a class="btn btn-xs btn-link">
-      <i class="gb-icon fa icon-chat2"></i> 0
-     </a>
-     <a class="btn btn-xs btn-link">
-      <i class="gb-icon fa icon-users"></i> 0
-     </a>
-    </div>
-   </div>
-  </div>
- </div>
+  </li>
+ </ul>
 </div>
 <div class="gb-dummy-height row"></div>
 <!-- ------------------------------- MODALS --------------------------->
