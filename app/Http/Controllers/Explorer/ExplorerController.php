@@ -42,6 +42,11 @@ class ExplorerController extends Controller {
   return \Response::json($explorers);
  }
 
+ public function getUserExplorers($userId, $appName) {
+  $explorers = Explorer::getUserExplorers($userId, $appName);
+  return \Response::json($explorers);
+ }
+
  public function getExplorersMine() {
   $explorers = Explorer::getExplorersMine();
   return \Response::json($explorers);

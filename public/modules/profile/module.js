@@ -98,8 +98,30 @@ define(['angular'
              }
             }
            }})
+          .state('apps.profile.explorer.all', {
+           url: '/all',
+           views: {
+            "app-tab": {
+             controller: 'ExplorersAllCtrl as explorersTabCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
+             resolve: {
+              listType: function () {
+               return 2;
+              },
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/explorer/controllers/explorers-all.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.profile.explorer.app', {
-           url: '/{app_name}',
+           url: '/all/{app_name}',
            views: {
             "app-tab": {
              controller: 'ExplorersAppCtrl as explorersTabCtrl',
@@ -110,7 +132,7 @@ define(['angular'
               },
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({
-                 name: 'app.explorer',
+                 name: 'app.profile',
                  serie: true,
                  files: [
                   'public/modules/explorer/controllers/explorers-app.ctrl.js',

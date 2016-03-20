@@ -28,7 +28,7 @@ var explorersAppCtrl = function (
    break;
   case 2:
    vm.userId = $stateParams.profileId;
-   vm.explorersSrv.getUserExplorers(vm.userId).then(function (data) {
+   vm.explorersSrv.getUserAppExplorers(vm.userId, vm.appName).then(function (data) {
     vm.explorers = data;
    });
    break;
@@ -42,9 +42,6 @@ var explorersAppCtrl = function (
    });
    break;
  }
-
-
-
 
 };
 

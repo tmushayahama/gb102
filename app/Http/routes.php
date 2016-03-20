@@ -62,6 +62,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorers/all', 'Explorer\ExplorerController@getExplorersAll');
  Route::get('explorers/all/{appName}', 'Explorer\ExplorerController@getExplorers');
  Route::get('explorers/user/{userId}/all', 'Explorer\ExplorerController@getUserExplorersAll');
+ Route::get('explorers/user/{userId}/all/{appName}', 'Explorer\ExplorerController@getUserExplorers');
 
 
  Route::get('explorers/swipe', 'Explorer\ExplorerController@getExplorerSwipe');

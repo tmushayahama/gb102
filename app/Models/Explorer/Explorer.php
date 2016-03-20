@@ -78,6 +78,22 @@ class Explorer extends Model {
   return $explorers;
  }
 
+ public static function getUserExplorers($userId, $appName) {
+  $appId = AppType::where('name', $appName)->first();
+  if ($appId) {
+   $explorers = Explorer::where('app_type_id', $appId->id)
+           ->where('creator_id', $userId)
+           ->orderBy('updated_at', 'desc')
+           ->with('app_type')
+           ->with('creator')
+           ->with('icon')
+           ->with('level')
+           ->take(50)
+           ->get();
+   return $explorers;
+  }
+ }
+
  public static function getExplorersMine() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
