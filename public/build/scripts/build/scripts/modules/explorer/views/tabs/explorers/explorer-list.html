@@ -1,0 +1,74 @@
+<div id="gb-explorers" class="gb-list row" infinite-scroll="addMoreItems()">
+ <section ng-show="false" class=" gb-section-row-2 gb-padding-none row">
+  <header class="gb-heading row">
+   <div class="col-lg-4 col-md-4 col-sm-9 col-xs-9">
+    <p class="gb-title gb-small gb-ellipsis">
+     {{::explorersTabCtrl.appName.toUpperCase()}}
+    </p>
+   </div>
+  </header>
+ </section>
+ <ul class="gb-padding-none">
+  <li ng-repeat="explorer in explorersTabCtrl.explorers track by $index" class="gb-box-1 gb-shadow-1 row">
+   <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+         ng-src="public/build/img/explorer/{{ ::explorer.explorer_picture_url}}"
+         onerror="this.src = 'public/build/img/explorer/default.png'" class="gb-heading-pic" alt="">
+   </div>
+   <div ng-if="false" class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <span  class="fa-stack fa-lg">
+     <i class="fa fa-outer icon-gb-{{::explorer.app_type.name.toLowerCase()}} fa-stack-2x"></i>
+     <i class="fa fa-inner {{::explorer.icon.name}} fa-stack-1x"></i>
+    </span>
+   </div>
+   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <div class="gb-heading row">
+     <p class="gb-title">{{explorer.app_type.name}} - {{::explorer.level.name}}</p>
+     <div class="btn-toolbar gb-dropdown-action">
+      <md-button class="md-icon-button md-mini"
+                 ng-click="$root.openCreateRequestExplorerModal(explorer.id)">
+       <i class="fa fa-send-o"></i>
+      </md-button>
+      <md-button class="md-icon-button md-mini dropdown-toggle"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fa fa-chevron-down"></i>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li>
+        <a ui-sref="apps.explorer.overview({explorerId: explorer.id})">
+         Open
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="gb-description row">
+     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+      {{::explorer.title}}
+     </a>
+     {{::explorer.description}}
+    </div>
+    <div class="gb-footer row">
+     <h5 class="gb-ellipsis">
+      <a ui-sref="profile.overview({profileId: explorer.creator.id})">
+       {{::explorer.creator.firstname}} {{::explorer.creator.lastname}}
+      </a>
+     </h5>
+     <div class="gb-summary-bar btn-group">
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa fa-check-square-o"></i> [0/0]
+      </a>
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa icon-chat2"></i> 0
+      </a>
+      <a class="btn btn-xs btn-link">
+       <i class="gb-icon fa icon-users"></i> 0
+      </a>
+     </div>
+    </div>
+   </div>
+  </li>
+ </ul>
+</div>
+<div class="gb-dummy-height row"></div>
+<!-- ------------------------------- MODALS --------------------------->

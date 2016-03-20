@@ -1,0 +1,80 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   Create Journal
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="createJournalCtrl.close()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <form editable-form name="addJournalForm">
+  <wizard template="public/build/scripts/modules/app/views/templates/wizard.html"
+          on-finish="finishedWizard()"
+          name="journal-form"
+          current-step="createJournalCtrl.wizardCurrentStep">
+   <wz-step wz-title="Choose Type">
+    <div class="row">
+     <div ng-repeat="journalType in createJournalCtrl.journalTypes"
+          class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
+          ng-click="createJournalCtrl.chooseJournalType(journalType)"
+          wz-next value="Fill">
+      <div class="gb-apptype-btn">
+       <i class="gb-icon fa icon-gb-{{journalType.name.toLowerCase()}}"></i>
+       <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        {{journalType.name}}
+       </div>
+      </div>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Fill">
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Journal Type:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <input value="{{createJournalCtrl.selectedJournalType.name}}" readonly
+             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="createJournalCtrl.journal.title" name="title" required
+                rows="2" placeholder="title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+    <div class="form-group row">
+     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <textarea ng-model="createJournalCtrl.journal.description" name="description" required
+                rows="4" placeholder="description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      </textarea>
+     </div>
+    </div>
+   </wz-step>
+   <wz-step wz-title="Privacy">
+    Privacy
+   </wz-step>
+  </wizard>
+ </form>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createJournalCtrl.close()">
+   Close
+  </a>
+  <a ng-class="{'gb-disabled': createJournalCtrl.wizardCurrentStep === 'Choose Journal Type'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createJournalCtrl.previous()">
+   Previous
+  </a>
+  <a ng-class="{'gb-disabled': createJournalCtrl.wizardCurrentStep === 'Privacy' && createJournalCtrl.selectedJournalType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createJournalCtrl.next()">
+   Next
+  </a>
+  <a ng-class="{'gb-disabled': createJournalCtrl.wizardCurrentStep === 'Choose Journal Type'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="createJournalCtrl.ok()">
+   Add
+  </a>
+ </div>
+</div>

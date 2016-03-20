@@ -1017,7 +1017,7 @@ input.gb-form-show{
 }
 
 .gb-logo {
- padding: 0 20px 0 0;
+ padding: 0;
  float: left;
  height: 100%;
  line-height: 40px;
@@ -1596,12 +1596,22 @@ input.gb-form-show{
  margin: 0;
  z-index: 900;
 
+ .container {
+  height: 100%;
+ }
+ .gb-navbar-container {
+  position: relative;
+  height: 100%;
+ }
+
  &:hover {
   opacity: 1;
  }
 
  .gb-header {
-  padding: 0 5px 0 20px;
+  @include position(absolute, 0 null 0 3px);
+  width: 140px;
+  padding: 0;
   a,
   a:hover{
    text-decoration: none;
@@ -1620,6 +1630,9 @@ input.gb-form-show{
    }
   }
  }
+ .gb-search {
+  @include position(absolute, 0 100px 0 140px);
+ }
 
  .gb-title {
   margin-right:10px;
@@ -1630,6 +1643,8 @@ input.gb-form-show{
  }
 
  .gb-action {
+  @include position(absolute, 0 3px 0 null);
+  width: 100px;
   padding-top: 2px;
   .btn{
    margin-left: 5px;

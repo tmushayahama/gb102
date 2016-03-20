@@ -15,12 +15,6 @@
          ng-src="public/img/mentorship-app/{{ ::mentorship.mentorship_picture_url}}"
          onerror="this.src = 'public/img/mentorship-app/default.png'" class="gb-heading-pic" alt="">
    </div>
-   <div ng-if="false" class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <span  class="fa-stack fa-lg">
-     <i class="fa fa-outer icon-gb-{{::mentorship.app_type.name.toLowerCase()}} fa-stack-2x"></i>
-     <i class="fa fa-inner {{::mentorship.icon.name}} fa-stack-1x"></i>
-    </span>
-   </div>
    <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
     <div class="gb-heading row">
      <p class="gb-title">{{mentorship.explorer.app_type.name}} - {{::mentorship.explorer.level.name}}</p>

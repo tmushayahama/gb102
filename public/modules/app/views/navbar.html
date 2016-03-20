@@ -1,7 +1,7 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="container">
-  <div class="row gb-mega-dropdown">
-   <div class="gb-header col-lg-3 col-md-3 col-sm-3 col-xs-2">
+  <div class="row gb-navbar-container">
+   <div class="gb-header">
     <a ng-click="appsCtrl.openMenuModal('left')"
        class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
      <i class="fa fa-bars"></i>
@@ -13,32 +13,36 @@
      </div>
     </a>
    </div>
-   <form ng-submit="appsCtrl.search()" class="gb-search col-lg-6 col-md-6 col-sm-6 col-xs-8">
-    <div class="form-group gb-input-form-group">
-     <input class="form-control" type="text" ng-model="$root.searchKeyword" placeholder="Search SkillSection" uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
-            typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
-            typeahead-popup-template-url="customPopupTemplate.html" >
-     <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
-        ng-click="$root.searchKeyword = ''">
-      <i class="fa fa-times"></i>
-     </a>
-    </div>
-    <div class="gb-input-btn-group btn-group">
-     <button type="submit" class="btn btn-primary">
-      <i class="fa fa-search"></i>
-     </button>
-     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="caret"></span>
-     </button>
-     <ul class="dropdown-menu dropdown-menu-right">
-      <li>
-       <a href="#">Advanced Search</a>
-      </li>
-     </ul>
-    </div>
-   </form>
-   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-2">
-    <div class="gb-action pull-right">
+   <div class="gb-search">
+    <form ng-submit="appsCtrl.search()" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+     <div class="form-group gb-input-form-group">
+      <input class="form-control" type="text" ng-model="$root.searchKeyword"
+             placeholder="Search SkillSection"
+             uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
+             typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
+             typeahead-popup-template-url="search-dropdown.tpl.html" >
+      <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
+         ng-click="$root.searchKeyword = ''">
+       <i class="fa fa-times"></i>
+      </a>
+     </div>
+     <div class="gb-input-btn-group btn-group">
+      <button type="submit" class="btn btn-primary">
+       <i class="fa fa-search"></i>
+      </button>
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li>
+        <a href="#">Advanced Search</a>
+       </li>
+      </ul>
+     </div>
+    </form>
+   </div>
+   <div class="gb-action">
+    <div class=" pull-right">
      <div class="btn-group">
       <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <i class="gb-menu-icon fa fa-user"></i>
@@ -67,8 +71,8 @@
  </a>
 </script>
 
-<script type="text/ng-template" id="customPopupTemplate.html">
- <div ng-include="'public/modules/app/views/templates/search-dropdown.html'"></div>
+<script type="text/ng-template" id="search-dropdown.tpl.html">
+ <div ng-include="'public/modules/app/views/templates/search-dropdown.tpl.html'"></div>
 </script>
 
 <script type="text/ng-template" id="menu-modal.html">

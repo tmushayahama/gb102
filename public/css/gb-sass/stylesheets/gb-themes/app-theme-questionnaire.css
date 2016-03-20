@@ -21,56 +21,46 @@ and open the template in the editor.
   margin: 3px 0px 0px 0px;
 }
 
-.gb-search-result-dropdown {
-  background-color: #FFF;
+.gb-dropdown-popup-wrapper {
+  padding: 5px;
+  width: 600px;
+  background-color: #F2F2F2;
 }
-.gb-search-result-dropdown md-list-item, .gb-search-result-dropdown md-list-item .md-list-item-inner {
-  display: block;
+.gb-dropdown-popup-wrapper .gb-search-result-dropdown {
+  max-height: 400px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.gb-search-result-dropdown .md-list-item-inner {
-  line-height: 20px;
-  height: 70px;
-  border-bottom: rgba(0, 34, 119, 0.2) solid 1px;
+.gb-dropdown-popup-wrapper .gb-box-1 {
+  border-bottom: rgba(0, 34, 119, 0.4) solid 1px;
 }
-.gb-search-result-dropdown .md-list-item-inner img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+.gb-dropdown-popup-wrapper .gb-box-1 .gb-description {
+  padding: 0 0 0 5px;
 }
-.gb-search-result-dropdown .md-list-item-inner .md-list-item-text {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 55px;
-}
-.gb-search-result-dropdown .md-list-item-inner .md-list-item-text .gb-title {
-  margin: 10px 5px 0 5px;
-  color: #027;
-}
-.gb-search-result-dropdown .md-list-item-inner .md-list-item-text .gb-app-type {
-  padding-left: 5px;
+.gb-dropdown-popup-wrapper .gb-box-1 .gb-app-type {
+  padding: 3px 0;
   text-transform: uppercase;
+  font-size: 10px;
   color: #777;
 }
 
-.typeahead-demo .custom-popup-wrapper {
+.custom-popup-wrapper {
   position: absolute;
   top: 100%;
   left: 0;
+  width: 500px;
   z-index: 1000;
   display: none;
   background-color: #f9f9f9;
 }
 
-.typeahead-demo .custom-popup-wrapper > .message {
+.custom-popup-wrapper > .message {
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
   color: #868686;
 }
 
-.typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+.custom-popup-wrapper > .dropdown-menu {
   position: static;
   float: none;
   display: block;
@@ -90,8 +80,8 @@ and open the template in the editor.
 }
 .gb-top-nav-1 .gb-search .gb-clear-btn {
   position: absolute;
-  top: 10px;
-  right: 57px;
+  top: 4px;
+  right: 60px;
   padding: 0 12px;
   color: #AAA;
   font-weight: bold;
@@ -114,12 +104,12 @@ and open the template in the editor.
   background-color: #F9F9F9;
 }
 .gb-top-nav-1 .gb-search .gb-input-form-group {
-  padding-right: 64px;
+  padding-right: 52px;
   margin-bottom: 0;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group {
   position: absolute;
-  top: 5px;
+  top: 0;
   right: 0;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group .btn {
@@ -3798,7 +3788,7 @@ input.gb-form-show {
 }
 
 .gb-logo {
-  padding: 0 20px 0 0;
+  padding: 0;
   float: left;
   height: 100%;
   line-height: 40px;
@@ -4386,11 +4376,23 @@ input.gb-form-show {
   margin: 0;
   z-index: 900;
 }
+.gb-top-nav-1 .container {
+  height: 100%;
+}
+.gb-top-nav-1 .gb-navbar-container {
+  position: relative;
+  height: 100%;
+}
 .gb-top-nav-1:hover {
   opacity: 1;
 }
 .gb-top-nav-1 .gb-header {
-  padding: 0 5px 0 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 140px;
+  padding: 0;
 }
 .gb-top-nav-1 .gb-header a,
 .gb-top-nav-1 .gb-header a:hover {
@@ -4409,6 +4411,13 @@ input.gb-form-show {
   height: 100%;
   font-size: 10px;
 }
+.gb-top-nav-1 .gb-search {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  bottom: 0;
+  left: 140px;
+}
 .gb-top-nav-1 .gb-title {
   margin-right: 10px;
   padding: 0 0 0 5px;
@@ -4417,6 +4426,11 @@ input.gb-form-show {
   color: #555;
 }
 .gb-top-nav-1 .gb-action {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  bottom: 0;
+  width: 100px;
   padding-top: 2px;
 }
 .gb-top-nav-1 .gb-action .btn {

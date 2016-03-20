@@ -1,52 +1,50 @@
 .gb-search-btn-grp {
  margin: 3px 0px 0px 0px;
 }
+.gb-dropdown-popup-wrapper {
+ padding: 5px;
+ width: 600px;
+ background-color: #F2F2F2;
 
-.gb-search-result-dropdown {
- background-color: #FFF;
- md-list-item, md-list-item .md-list-item-inner {
-  display: block;
+ .gb-search-result-dropdown {
+  max-height: 400px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
  }
- .md-list-item-inner {
-  line-height: 20px;
-  height: 70px;
-  border-bottom: rgba($primary-color, 0.2) solid 1px;
-  img {
-   @include position(absolute, 0 null 0 0);
+
+ .gb-box-1 {
+  border-bottom: rgba($primary-color, 0.4) solid 1px;
+  .gb-description {
+   padding: 0 0 0 5px;
   }
-  .md-list-item-text {
-   @include position(absolute, 0 0 0 55px);
-   .gb-title {
-    margin: 10px 5px 0 5px;
-    color: $primary-color;
-   }
-   .gb-app-type {
-    padding-left: 5px;
-    text-transform: uppercase;
-    color: #777;
-   }
+  .gb-app-type {
+   padding: 3px 0;
+   text-transform: uppercase;
+   font-size: 10px;
+   color: #777;
   }
  }
 
 
 }
 
-.typeahead-demo .custom-popup-wrapper {
+.custom-popup-wrapper {
  position: absolute;
  top: 100%;
  left: 0;
+ width: 500px;
  z-index: 1000;
  display: none;
  background-color: #f9f9f9;
 }
 
-.typeahead-demo .custom-popup-wrapper > .message {
+.custom-popup-wrapper > .message {
  padding: 10px 20px;
  border-bottom: 1px solid #ddd;
  color: #868686;
 }
 
-.typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+.custom-popup-wrapper > .dropdown-menu {
  position: static;
  float: none;
  display: block;
@@ -65,7 +63,7 @@
   height: 100%;
   padding: 5px 0;
   .gb-clear-btn {
-   @include position(absolute, 10px 57px null null);
+   @include position(absolute, 4px 60px null null);
    padding: 0 12px;
    color: #AAA;
    font-weight: bold;
@@ -89,11 +87,11 @@
   }
 
   .gb-input-form-group {
-   padding-right: 64px;
+   padding-right: 52px;
    margin-bottom: 0;
   }
   .gb-input-btn-group {
-   @include position(absolute, 5px 0 null null);
+   @include position(absolute, 0 0 null null);
    .btn {
     height: 30px;
    }

@@ -1,240 +1,244 @@
-<div  class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
- <div id="gb-middle-nav" class="gb-container gb-app-detail col-lg-8 col-md-9 col-sm-12 col-xs-12">
-  <div class="gb-cover">
-   <div ng-include="'public/build/scripts/modules/profile/views/components/profile/profile-cover.html'"></div>
-   <img data-ui-sref="apps.profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="gb-profile-pic" alt="">
-   <div class="gb-profile-row-3">
-    <div class="gb-row-content">
-     <a class="gb-ellipsis">
-      {{profileCtrl.profileSrv.profile.firstname + ' ' + profileCtrl.profileSrv.profile.lastname}}
-     </a>
-    </div>
-   </div>
-  </div>
-  <div id="gb-profile-right-pane" class="row">
-   <div class="row">
-    <div class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <md-button data-ui-sref-active="active" ui-sref="apps.profile.overview"
-                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <div class="gb-icon">
-       <i class="fa fa-home"></i>
-      </div>
-      <div class="gb-title gb-ellipsis hidden-xs">
-       HOME
-      </div>
-     </md-button>
-     <md-button data-ui-sref-active="active" ui-sref="apps.profile.connections"
-                class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <div class="gb-icon">
-       <i class="fa icon-gb-community"></i>
-      </div>
-      <div class="gb-title gb-ellipsis hidden-xs">
-       CONNECTIONS
-      </div>
-     </md-button>
-     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-       <div class="gb-icon">
-        <i class="fa icon-gb-discover"></i>
-       </div>
-       <div class="gb-title gb-ellipsis hidden-xs">
-        DISCOVER
-       </div>
-      </md-button>
-      <div class="dropdown-menu gb-dropdown-menu-left-1">
-       <md-button data-ui-sref-active="active" ui-sref="apps.profile.explorer"
-                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-explorer"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         EXPLORER
-        </div>
-       </md-button>
-       <md-button data-ui-sref-active="active" ui-sref="apps.profile.swipe"
-                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-swipe"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         SWIPE
-        </div>
-       </md-button>
-       <md-button data-ui-sref-active="active" ui-sref="apps.profile.matcher"
-                  class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-matcher"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         MATCHER
-        </div>
-       </md-button>
-      </div>
-     </div>
-     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-       <div class="gb-icon">
-        <i class="fa icon-gb-apply"></i>
-       </div>
-       <div class="gb-title gb-ellipsis hidden-xs">
-        APPLICATION
-       </div>
-      </md-button>
-      <div class="dropdown-menu gb-dropdown-menu-right-1">
-       <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-mentorships"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         MENTORSHIP
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.teachs.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-teach"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         TEACH
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.advices.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-advices"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         ADVISE
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.collaborations.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-collaborations"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         COLLABORATION
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.goals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-goals"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         GOAL
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.journals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-journals"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         JOURNAL
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-project"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         PROJECTS
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-groups"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         GROUPS
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa fa-check-circle-o"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         TODOS
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa fa-calendar"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         CALENDAR
-        </div>
-       </md-button>
-      </div>
-     </div>
-     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-       <div class="gb-icon">
-        <i class="fa icon-gb-organize"></i>
-       </div>
-       <div class="gb-title gb-ellipsis hidden-xs">
-        ORGANIZE
-       </div>
-      </md-button>
-      <div class="dropdown-menu gb-dropdown-menu-right-2">
-       <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-project"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         PROJECTS
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-groups"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         GROUPS
-        </div>
-       </md-button>
-      </div>
-     </div>
-     <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-       <div class="gb-icon">
-        <i class="fa icon-tools2"></i>
-       </div>
-       <div class="gb-title gb-ellipsis hidden-xs">
-        TOOLS
-       </div>
-      </md-button>
-      <div class="dropdown-menu dropdown-menu-right">
-       <md-button ui-sref="apps.journals.all" class="gb-link hidden-lg col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa icon-gb-journals"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         JOURNAL
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa fa-check-circle-o"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         TODOS
-        </div>
-       </md-button>
-       <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <div class="gb-icon">
-         <i class="fa fa-calendar"></i>
-        </div>
-        <div class="gb-title gb-ellipsis">
-         CALENDAR
-        </div>
-       </md-button>
+<div  class="row-fluid">
+ <div id="gb-middle-nav" class="container gb-app-detail">
+  <div class="row">
+   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div class="gb-cover">
+     <div ng-include="'public/build/scripts/modules/profile/views/components/profile/profile-cover.html'"></div>
+     <img data-ui-sref="apps.profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="gb-profile-pic" alt="">
+     <div class="gb-profile-row-3">
+      <div class="gb-row-content">
+       <a class="gb-ellipsis">
+        {{profileCtrl.profileSrv.profile.firstname + ' ' + profileCtrl.profileSrv.profile.lastname}}
+       </a>
       </div>
      </div>
     </div>
+    <div id="gb-profile-right-pane" class="row">
+     <div class="row">
+      <div class="nav gb-icon-top-nav-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <md-button data-ui-sref-active="active" ui-sref="apps.profile.overview"
+                  class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="gb-icon">
+         <i class="fa fa-home"></i>
+        </div>
+        <div class="gb-title gb-ellipsis hidden-xs">
+         HOME
+        </div>
+       </md-button>
+       <md-button data-ui-sref-active="active" ui-sref="apps.profile.connections"
+                  class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="gb-icon">
+         <i class="fa icon-gb-community"></i>
+        </div>
+        <div class="gb-title gb-ellipsis hidden-xs">
+         CONNECTIONS
+        </div>
+       </md-button>
+       <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+         <div class="gb-icon">
+          <i class="fa icon-gb-discover"></i>
+         </div>
+         <div class="gb-title gb-ellipsis hidden-xs">
+          DISCOVER
+         </div>
+        </md-button>
+        <div class="dropdown-menu gb-dropdown-menu-left-1">
+         <md-button data-ui-sref-active="active" ui-sref="apps.profile.explorer"
+                    class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-explorer"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           EXPLORER
+          </div>
+         </md-button>
+         <md-button data-ui-sref-active="active" ui-sref="apps.profile.swipe"
+                    class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-swipe"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           SWIPE
+          </div>
+         </md-button>
+         <md-button data-ui-sref-active="active" ui-sref="apps.profile.matcher"
+                    class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-matcher"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           MATCHER
+          </div>
+         </md-button>
+        </div>
+       </div>
+       <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+         <div class="gb-icon">
+          <i class="fa icon-gb-apply"></i>
+         </div>
+         <div class="gb-title gb-ellipsis hidden-xs">
+          APPLICATION
+         </div>
+        </md-button>
+        <div class="dropdown-menu gb-dropdown-menu-right-1">
+         <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-mentorships"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           MENTORSHIP
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.teachs.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-teach"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           TEACH
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.advices.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-advices"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           ADVISE
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.collaborations.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-collaborations"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           COLLABORATION
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.goals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-goals"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           GOAL
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.journals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-journals"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           JOURNAL
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-project"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           PROJECTS
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-groups"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           GROUPS
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa fa-check-circle-o"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           TODOS
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa fa-calendar"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           CALENDAR
+          </div>
+         </md-button>
+        </div>
+       </div>
+       <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+         <div class="gb-icon">
+          <i class="fa icon-gb-organize"></i>
+         </div>
+         <div class="gb-title gb-ellipsis hidden-xs">
+          ORGANIZE
+         </div>
+        </md-button>
+        <div class="dropdown-menu gb-dropdown-menu-right-2">
+         <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-project"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           PROJECTS
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-groups"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           GROUPS
+          </div>
+         </md-button>
+        </div>
+       </div>
+       <div class="btn-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+         <div class="gb-icon">
+          <i class="fa icon-tools2"></i>
+         </div>
+         <div class="gb-title gb-ellipsis hidden-xs">
+          TOOLS
+         </div>
+        </md-button>
+        <div class="dropdown-menu dropdown-menu-right">
+         <md-button ui-sref="apps.journals.all" class="gb-link hidden-lg col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa icon-gb-journals"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           JOURNAL
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.todos.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa fa-check-circle-o"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           TODOS
+          </div>
+         </md-button>
+         <md-button ui-sref="apps.calendar" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="gb-icon">
+           <i class="fa fa-calendar"></i>
+          </div>
+          <div class="gb-title gb-ellipsis">
+           CALENDAR
+          </div>
+         </md-button>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div data-ui-view="content" class="row gb-padding-medium"></div>
+     <div class="gb-dummy-height row"></div>
+    </div>
    </div>
-   <div data-ui-view="content" class="row gb-padding-medium"></div>
-   <div class="gb-dummy-height row"></div>
   </div>
  </div>
 </div>

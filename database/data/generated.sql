@@ -763,7 +763,6 @@ CREATE TABLE `gb_explorer` (
   `app_type_id` int(11) NOT NULL DEFAULT '1',
   `parent_explorer_id` int(11),
   `creator_id` int(11) NOT NULL,
-  `icon_id` int(11) NOT NULL DEFAULT '27',
   `explorer_picture_url` varchar(250) NOT NULL DEFAULT "explorer_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
@@ -776,12 +775,10 @@ CREATE TABLE `gb_explorer` (
   PRIMARY KEY (`id`),
   KEY `explorer_app_type_id` (`app_type_id`),
   KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
-  KEY `explorer_icon_id` (`icon_id`),
   KEY `explorer_creator_id` (`creator_id`),
   KEY `explorer_level_id` (`level_id`),
   CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explorer_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1082,7 +1079,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`,	`icon_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerRequestOption.txt'
     into table gb102.gb_explorer_request_option
@@ -1126,11 +1123,10 @@ DROP TABLE IF EXISTS `gb_mentorship`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `explorer_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
-  `icon_id` int(11) NOT NULL DEFAULT '27',
   `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
   `title` varchar(500) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
@@ -1140,13 +1136,11 @@ CREATE TABLE `gb_mentorship` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_explorer_id` (`explorer_id`),
-  KEY `mentorship_icon_id` (`icon_id`),
+  KEY `mentorship_mentorship_id` (`mentorship_id`),
   KEY `mentorship_creator_id` (`creator_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
   KEY `mentorship_mentee_id` (`mentee_id`),
-  CONSTRAINT `mentorship_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_icon_id` FOREIGN KEY (`icon_id`) REFERENCES `gb_icon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -1161,7 +1155,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `explorer_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`icon_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);
+  (`id`, `mentorship_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);
 --
 -- Table structure for table `gb_explorer_questionnaire`
 --

@@ -3,12 +3,16 @@
   <div ng-repeat="contributionType in explorerContributionsCtrl.explorerContributionTypes"
        class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
        ng-click="explorerContributionsCtrl.prepareSelectUsers(contributionType)">
-   <div class="gb-apptype-btn">
-    <i class="gb-icon fa {{contributionType.icon}}"></i>
-    <div class="gb-title gb-ellipsis col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     Add {{contributionType.name}}(s)
+   <md-button class="md-raised gb-apptype-btn">
+    <div class="gb-icon col-lg-2 col-md-2 col-sm-2 col-xs-2">
+     <i class=" fa {{contributionType.icon}}"></i>
     </div>
-   </div>
+    <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
+     <div class="gb-ellipsis">
+      Add {{contributionType.name}}(s)
+     </div>
+    </div>
+   </md-button> 
   </div>
  </div>
  <header class="gb-heading row">

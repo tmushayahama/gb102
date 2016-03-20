@@ -6,8 +6,8 @@
  <md-list class="gb-search-result-dropdown">
   <md-list-item class="row" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
                 ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-   <img ng-src="public/img/explorer/{{ match.model.explorer_picture_url}}"
-        onerror="this.src = 'public/img/explorer/default.png'" class="pull-left md-avatar" alt="{{match.model.title}}" />
+   <img ng-src="public/build/img/explorer/{{ match.model.explorer_picture_url}}"
+        onerror="this.src = 'public/build/img/explorer/default.png'" class="pull-left md-avatar" alt="{{match.model.title}}" />
    <div class="md-list-item-text">
     <h4 class="gb-title">
      <div class="gb-ellipsis">
