@@ -36,6 +36,8 @@ var explorerTodosCtrl = function (
 
  vm.defaultExplorerTodoData = {
   explorerId: $stateParams.explorerId,
+  title: '',
+  description: '',
   privacy: 0
  };
  vm.newExplorerTodoData = angular.copy(vm.defaultExplorerTodoData);

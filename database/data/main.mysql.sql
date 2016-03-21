@@ -695,6 +695,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Categor
     ignore 1 LINES
     (`id`, `type`, `code`, `name`, `description`);
 
+-- ----------- CHECKLIST  ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Checklist.txt'
+    into table gb102.gb_checklist
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`,	`parent_checklist_id`,	`creator_id`,	`title`,	`description`,	`created_at`,	`updated_at`,	`importance`,	`status`);
+
 -- ----------- ICON ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.txt'
     into table gb102.gb_icon
@@ -714,6 +724,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `parent_todo_id`,	`level_id`,	`status_id`,	`creator_id`,	`created_at`,	`updated_at`,	`due_date`,	`title`,	`description`);
+
+-- ----------- TODO CHECKLIST ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/TodoChecklist.txt'
+    into table gb102.gb_todo_checklist
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `checklist_id`,	`todo_id`,	`privacy`,	`status`);
+
 
 -- ----------- NOTE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.txt'

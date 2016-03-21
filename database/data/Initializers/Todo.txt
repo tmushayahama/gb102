@@ -15,4 +15,5 @@ id	parent_todo_id	level_id	status_id	creator_id	created_at	updated_at	due_date	t
 2001	NULL	50001	50100	2				"After you have discovered/rediscovered your passion, research the types of careers that center around your passion"	
 2002	NULL	50001	50100	2				Applying your current skills to your new career	
 2003	NULL	50001	50100	2				Gain more experience 	
-3000	NULL	50001	50100	2				Coming up with a good conversation topic	
+3000	NULL	50001	50100	3				Coming up with a good conversation topic	
+3001	NULL	50001	50100	3				Start a conversation in a coffee shop	

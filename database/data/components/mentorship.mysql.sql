@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `gb_mentorship`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentorship_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
@@ -16,11 +16,11 @@ CREATE TABLE `gb_mentorship` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_mentorship_id` (`mentorship_id`),
+  KEY `mentorship_explorer_id` (`explorer_id`),
   KEY `mentorship_creator_id` (`creator_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
   KEY `mentorship_mentee_id` (`mentee_id`),
-  CONSTRAINT `mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -35,4 +35,4 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `mentorship_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);
+  (`id`, `explorer_id`, `creator_id`,	`mentor_id`,	`mentee_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`updated_at`, `privacy`,	`order`,	`status`);

@@ -11,7 +11,7 @@ CREATE TABLE `gb_explorer` (
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `level_id` int(11) NOT NULL,
+  `level_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',

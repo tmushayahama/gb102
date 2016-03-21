@@ -1,0 +1,43 @@
+id	parent_checklist_id	creator_id	title	description	created_at	updated_at	importance	status
+1	NULL	3	Ask for their opinion.		14-10-01 08:07:00	16-01-25 18:21:00	1	0
+2	NULL	3	Ask them a question that is easy to answer.		14-10-01 08:07:01	16-01-25 18:21:01	1	0
+3	NULL	3	Ask for an update.		14-10-01 08:07:02	16-01-25 18:21:02	1	0
+4	NULL	3	Comment on the environment.		14-10-01 08:07:03	16-01-25 18:21:03	1	0
+5	NULL	3	Ask for advice or recommendations.		14-10-01 08:07:04	16-01-25 18:21:04	1	0
+6	NULL	3	Ask a hypothetical question		14-10-01 08:07:05	16-01-25 18:21:05	1	0
+7	NULL	3	Ask open-ended questions.		14-10-01 08:07:06	16-01-25 18:21:06	1	0
+8	NULL	3	Where they grow up		14-10-01 08:07:07	16-01-25 18:21:07	1	0
+9	NULL	3	If they have any pets		14-10-01 08:07:08	16-01-25 18:21:08	1	0
+10	NULL	3	About siblings		14-10-01 08:07:09	16-01-25 18:21:09	1	0
+11	NULL	3	What their name means		14-10-01 08:07:10	16-01-25 18:21:10	1	0
+12	NULL	3	What type of phone do their have		14-10-01 08:07:11	16-01-25 18:21:11	1	0
+13	NULL	3	What did they do this past weekend		14-10-01 08:07:12	16-01-25 18:21:12	1	0
+14	NULL	3	Plans for this weekend		14-10-01 08:07:13	16-01-25 18:21:13	1	0
+15	NULL	3	Spare time activities		14-10-01 08:07:14	16-01-25 18:21:14	1	0
+16	NULL	3	First thing they do when you wake up		14-10-01 08:07:15	16-01-25 18:21:15	1	0
+17	NULL	3	The last thing they do before they go to sleep		14-10-01 08:07:16	16-01-25 18:21:16	1	0
+18	NULL	3	Their middle name		14-10-01 08:07:17	16-01-25 18:21:17	1	0
+19	NULL	3	Favorite holiday		14-10-01 08:07:18	16-01-25 18:21:18	1	0
+20	NULL	3	Favorite day of the week		14-10-01 08:07:19	16-01-25 18:21:19	1	0
+21	NULL	3	What they like to do to relax		14-10-01 08:07:20	16-01-25 18:21:20	1	0
+22	NULL	3	If they play any instruments		14-10-01 08:07:21	16-01-25 18:21:21	1	0
+23	NULL	3	Favorite children's book		14-10-01 08:07:22	16-01-25 18:21:22	1	0
+24	NULL	3	Childhood memory		14-10-01 08:07:23	16-01-25 18:21:23	1	0
+25	NULL	3	Type of kid they were		14-10-01 08:07:24	16-01-25 18:21:24	1	0
+26	NULL	3	One thing they miss about their childhood		14-10-01 08:07:25	16-01-25 18:21:25	1	0
+27	NULL	3	Dream job the they were younger		14-10-01 08:07:26	16-01-25 18:21:26	1	0
+28	NULL	3	Dream job		14-10-01 08:07:27	16-01-25 18:21:27	1	0
+29	NULL	3	Where they go to school.		14-10-01 08:07:28	16-01-25 18:21:28	1	0
+30	NULL	3	Favorite subject		14-10-01 08:07:29	16-01-25 18:21:29	1	0
+31	NULL	3	Least favorite subject		14-10-01 08:07:30	16-01-25 18:21:30	1	0
+32	NULL	3	First thing they do after school or work		14-10-01 08:07:31	16-01-25 18:21:31	1	0
+33	NULL	3	What do they do for a living		14-10-01 08:07:32	16-01-25 18:21:32	1	0
+100	NULL	4	Borrow a plug/outlet		14-10-01 08:07:33	16-01-25 18:21:33	1	0
+101	NULL	5	Ask them to watch your things (hopefully they are not a thief)		14-10-01 08:07:34	16-01-25 18:21:34	1	0
+102	NULL	6	Steal their drink and offer to buy them another		14-10-01 08:07:35	16-01-25 18:21:35	1	0
+103	NULL	7	Ask if the seat is taken		14-10-01 08:07:36	16-01-25 18:21:36	1	0
+104	NULL	8	Ask what they are working on		14-10-01 08:07:37	16-01-25 18:21:37	1	0
+105	NULL	9	Smile and say a hello		14-10-01 08:07:38	16-01-25 18:21:38	1	0
+106	NULL	10	Request a small favor		14-10-01 08:07:39	16-01-25 18:21:39	1	0
+107	NULL	11	Comment on a mutual experience or observation		14-10-01 08:07:40	16-01-25 18:21:40	1	0
+108	NULL	12	Ask they are drinking		14-10-01 08:07:41	16-01-25 18:21:41	1	0
