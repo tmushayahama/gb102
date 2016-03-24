@@ -6,21 +6,36 @@
 // Base styles
 // --------------------------------------------------
 
-.modal-md {
+.modal-login {
+ width: 350px;
  .modal-content {
   min-height: 260px;
   max-height: 320px;
  }
+ @include respond-to (gb-xs) {
+  width: 250px;
+ }
 }
+
 .modal-header {
  @include position(absolute, 0 0 null 0);
  @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
- padding: 7px 8px;
+
  border-bottom: rgba($primary-color, 0.6) solid 3px;
  font-weight: normal;
  height: 40px;
  .gb-title {
+  @include position(absolute, 0 40px 0 0);
+  padding: 7px 8px;
   font-size: 18px;
+ }
+ .gb-close {
+  @include position(absolute, 0 0 0 null);
+  width: 40px;
+  margin: 0;
+  padding: 2px;
+  font-size: 22px;
+  color: #777;
  }
 }
 .modal-body {
@@ -31,7 +46,11 @@
  @include position(absolute, null 0 0 0);
  @include linear-gradient(70deg, #CCC 0%, #FFF 50%, #EEE 51%, #CCC 100%);
  height: 45px;
- padding: 5px;
+ padding: 4px;
+ .md-button {
+  margin: 0;
+  padding: 0 12px;
+ }
 }
 
 .modal-xl {

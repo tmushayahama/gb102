@@ -71,7 +71,7 @@ var authCtrl = function (
    templateUrl: 'login-modal.html',
    controller: 'LoginModalCtrl as loginModalCtrl',
    backdrop: 'static',
-   size: 'md',
+   size: 'login',
    resolve: {
    }
   });

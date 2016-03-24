@@ -43,6 +43,24 @@ and open the template in the editor.
   font-size: 10px;
   color: #777;
 }
+@media (max-width: 991px) {
+  .gb-dropdown-popup-wrapper {
+    width: 700px;
+  }
+  .gb-dropdown-popup-wrapper .gb-search-result-dropdown {
+    position: absolute;
+    left: -50px;
+  }
+}
+@media (max-width: 767px) {
+  .gb-dropdown-popup-wrapper {
+    width: 300px;
+  }
+  .gb-dropdown-popup-wrapper .gb-search-result-dropdown {
+    position: absolute;
+    left: -50px;
+  }
+}
 
 .custom-popup-wrapper {
   position: absolute;
@@ -277,9 +295,17 @@ btn:focus {
   font-size: 25px;
 }
 
-.modal-md .modal-content {
+.modal-login {
+  width: 350px;
+}
+.modal-login .modal-content {
   min-height: 260px;
   max-height: 320px;
+}
+@media (max-width: 767px) {
+  .modal-login {
+    width: 250px;
+  }
 }
 
 .modal-header {
@@ -290,13 +316,29 @@ btn:focus {
   background-color: #EEE;
   background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
-  padding: 7px 8px;
   border-bottom: rgba(0, 34, 119, 0.6) solid 3px;
   font-weight: normal;
   height: 40px;
 }
 .modal-header .gb-title {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  left: 0;
+  padding: 7px 8px;
   font-size: 18px;
+}
+.modal-header .gb-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  margin: 0;
+  padding: 2px;
+  font-size: 22px;
+  color: #777;
 }
 
 .modal-body {
@@ -317,7 +359,11 @@ btn:focus {
   background-image: -webkit-linear-gradient(-340deg, #CCC 0%, #FFF 50%, #EEE 51%, #CCC 100%);
   background-image: linear-gradient(70deg,#CCC 0%, #FFF 50%, #EEE 51%, #CCC 100%);
   height: 45px;
-  padding: 5px;
+  padding: 4px;
+}
+.modal-footer .md-button {
+  margin: 0;
+  padding: 0 12px;
 }
 
 .modal-xl {
@@ -1044,8 +1090,8 @@ Copyright (c) 2014 Daniel Eden
   */
 }
 .gb-icon-top-nav-1 .gb-link .gb-icon {
-  display: inline-block;
-  margin: 0 auto;
+  display: block;
+  margin: 0 auto 15px auto;
   background-color: rgba(0, 34, 119, 0.2);
   line-height: 35px;
   min-width: 0;
@@ -2784,6 +2830,22 @@ md-input-container.md-input-focused .md-input {
   min-width: 22px;
 }
 
+md-checkbox.md-checked.gb-primary .md-icon {
+  background-color: #027;
+}
+
+md-progress-circular.gb-primary .md-inner .md-half-circle {
+  border-color: #027;
+}
+
+md-radio-button.md-checked .md-off {
+  border-color: #027;
+}
+
+md-radio-button.gb-primary .md-on {
+  background-color: #027;
+}
+
 .md-default {
   background-color: #F2F2F2 !important;
   color: #444 !important;
@@ -3473,7 +3535,8 @@ input[type="checkbox"] {
 
 .gb-checklist .gb-checklist-row {
   background-color: #FFFFFF;
-  border-bottom: rgba(0, 34, 119, 0.7) solid 1px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 .gb-checklist .gb-checklist-nav {
   margin: 0;
@@ -3488,7 +3551,6 @@ input[type="checkbox"] {
   padding: 3px 0 3px 10px;
   font-size: 14px;
   transition: color 0.4s;
-  border-left: rgba(0, 34, 119, 0.7) solid 1px;
 }
 .gb-checklist .gb-checklist-nav li .gb-checklist-item-content p {
   padding: 5px 0 0px 0px;
@@ -3499,6 +3561,10 @@ input[type="checkbox"] {
 }
 .gb-checklist .gb-checklist-nav li .gb-checklist-item-action {
   padding: 8px 2px 0 0;
+}
+
+.gb-dummy-height {
+  height: 300px;
 }
 
 .gb-height-100pc {
@@ -3958,8 +4024,8 @@ input.gb-form-show {
   */
 }
 .gb-top-nav-3 .gb-link .gb-icon, .gb-menu-nav .gb-link .gb-icon {
-  display: inline-block;
-  margin: 0 auto;
+  display: block;
+  margin: 0 auto 13px auto;
   background-color: rgba(0, 34, 119, 0.2);
   line-height: 40px;
   min-width: 0;
@@ -4005,14 +4071,8 @@ input.gb-form-show {
   padding: 0px 0px 0px 0px;
   font-size: 10px;
   color: #333;
-  line-height: 25px;
+  line-height: 25px !important;
   overflow: hidden;
-}
-.gb-top-nav-3 .gb-link .gb-description, .gb-menu-nav .gb-link .gb-description {
-  padding: 3px 5px;
-  font-size: 0.9em;
-  color: #777;
-  text-decoration: none;
 }
 .gb-top-nav-3 .gb-link:hover, .gb-menu-nav .gb-link:hover {
   border-bottom: rgba(0, 34, 119, 0.5) solid 3px;
@@ -4391,7 +4451,7 @@ input.gb-form-show {
   top: 0;
   bottom: 0;
   left: 3px;
-  width: 140px;
+  width: 150px;
   padding: 0;
 }
 .gb-top-nav-1 .gb-header a,
@@ -4416,7 +4476,7 @@ input.gb-form-show {
   top: 0;
   right: 100px;
   bottom: 0;
-  left: 140px;
+  left: 150px;
 }
 .gb-top-nav-1 .gb-title {
   margin-right: 10px;
@@ -4439,23 +4499,19 @@ input.gb-form-show {
 .gb-top-nav-1 .gb-menu-icon {
   font-size: 20px;
 }
-@media (max-width: 1199px) {
-  .gb-top-nav-1 .gb-header {
-    padding: 0 5px 0 5px;
-  }
-  .gb-top-nav-1 .gb-header .gb-app-name {
-    float: left;
-    padding: 8px 5px;
-  }
-}
-@media (max-width: 991px) {
-  .gb-top-nav-1 .gb-header {
-    padding: 0 5px 0 10px;
-  }
-}
 @media (max-width: 767px) {
   .gb-top-nav-1 .gb-header {
-    padding: 0 5px 0 5px;
+    width: 50px;
+  }
+  .gb-top-nav-1 .gb-search {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    bottom: 0;
+    left: 50px;
+  }
+  .gb-top-nav-1 .gb-action {
+    width: 40px;
   }
 }
 

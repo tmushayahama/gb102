@@ -10,6 +10,7 @@
   max-height: 400px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+
  }
 
  .gb-box-1 {
@@ -22,6 +23,19 @@
    text-transform: uppercase;
    font-size: 10px;
    color: #777;
+  }
+ }
+
+ @include respond-to (gb-sm) {
+  width: 700px;
+  .gb-search-result-dropdown {
+   @include position(absolute, null null null -50px!important);
+  }
+ }
+ @include respond-to (gb-xs) {
+  width: 300px;
+  .gb-search-result-dropdown {
+   @include position(absolute, null null null -50px!important);
   }
  }
 

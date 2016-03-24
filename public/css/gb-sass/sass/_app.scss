@@ -48,6 +48,21 @@ md-input-container.md-input-focused .md-input {
  min-height: 20px;
  min-width: 22px;
 }
+md-checkbox.md-checked.gb-primary .md-icon {
+ background-color: $primary-color;
+}
+
+md-progress-circular.gb-primary .md-inner .md-half-circle {
+ border-color: $primary-color;
+}
+
+md-radio-button.md-checked .md-off {
+ border-color: $primary-color;
+}
+
+md-radio-button.gb-primary .md-on {
+ background-color: $primary-color;
+}
 
 .md-default {
  background-color: #F2F2F2!important;
@@ -751,7 +766,8 @@ input[type="checkbox"] {
 
  .gb-checklist-row {
   background-color: #FFFFFF;
-  border-bottom: rgba($primary-color, 0.7) solid 1px;
+  padding: 5px;
+  margin-bottom: 10px;
   .gb-heading {
 
   }
@@ -771,7 +787,6 @@ input[type="checkbox"] {
    padding: 3px 0 3px 10px;
    font-size: 14px;
    transition: color 0.4s;
-   border-left: rgba($primary-color, 0.7) solid 1px;
    p {
     padding: 5px 0 0px 0px;
    }
@@ -786,7 +801,9 @@ input[type="checkbox"] {
   }
  }
 }
-
+.gb-dummy-height {
+ height: 300px;
+}
 .gb-height-100pc {
  height: 100%;
 }
@@ -1183,8 +1200,8 @@ input.gb-form-show{
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   display: inline-block;
-   margin: 0 auto;
+   display: block;
+   margin: 0 auto 13px auto;
    background-color: rgba($primary-color, 0.2);
    line-height: 40px;
    min-width: 0;
@@ -1224,19 +1241,12 @@ input.gb-form-show{
     }
    }
   }
-
   .gb-title {
    padding:0px 0px 0px 0px;
    font-size: 10px;
    color: #333;
-   line-height: 25px;
+   line-height: 25px!important;
    overflow: hidden;
-  }
-  .gb-description{
-   padding: 3px 5px;
-   font-size: 0.9em;
-   color: #777;
-   text-decoration: none;
   }
 
   &:hover {
@@ -1610,7 +1620,7 @@ input.gb-form-show{
 
  .gb-header {
   @include position(absolute, 0 null 0 3px);
-  width: 140px;
+  width: 150px;
   padding: 0;
   a,
   a:hover{
@@ -1631,7 +1641,7 @@ input.gb-form-show{
   }
  }
  .gb-search {
-  @include position(absolute, 0 100px 0 140px);
+  @include position(absolute, 0 100px 0 150px);
  }
 
  .gb-title {
@@ -1654,24 +1664,19 @@ input.gb-form-show{
   font-size: 20px;
  }
 
- @include respond-to (gb-md) {
-  .gb-header {
-   padding: 0 5px 0 5px;
-   .gb-app-name {
-    float: left;
-    padding: 8px 5px;
-   }
-  }
- }
 
  @include respond-to (gb-sm) {
-  .gb-header {
-   padding: 0 5px 0 10px;
-  }
+
  }
  @include respond-to (gb-xs) {
   .gb-header {
-   padding: 0 5px 0 5px;
+   width: 50px;
+  }
+  .gb-search {
+   @include position(absolute, 0 40px 0 50px);
+  }
+  .gb-action {
+   width: 40px;
   }
  }
 }

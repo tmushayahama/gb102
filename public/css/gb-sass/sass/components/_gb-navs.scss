@@ -175,8 +175,8 @@
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
   .gb-icon {
-   display: inline-block;
-   margin: 0 auto;
+   display: block;
+   margin: 0 auto 15px auto;
    background-color: rgba($primary-color, 0.2);
    line-height: 35px;
    min-width: 0;

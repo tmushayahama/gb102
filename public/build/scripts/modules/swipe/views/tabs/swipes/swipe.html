@@ -1,0 +1,44 @@
+
+<div class="gb-swipe-container gb-list row">
+ <ul  class="stack col-lg-8 col-md-8 col-sm-10 col-xs-11">
+  <li hm-swipe-left="swipeCtrl.swipeLeft($event, swipeCtrl.currentExplorer.id)"
+      hm-swipe-right="swipeCtrl.swipeRight($event, swipeCtrl.currentExplorer.id)"
+      class="">
+   <a class="row gb-box-1">
+    <div class="gb-icon-image col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+          ng-src="public/build/img/explorer/{{ ::swipeCtrl.currentExplorer.explorer_picture_url}}"
+          onerror="this.src = 'public/build/img/explorer/default.png'" class="gb-heading-pic" alt="">
+
+    </div>
+    <div class="gb-box-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-heading row">
+      <p class="gb-title">
+       {{swipeCtrl.currentExplorer.app_type.name + ' - ' + swipeCtrl.currentExplorer.level.name}}
+      </p>
+     </div>
+     <div class="gb-description row">
+      <p class="">
+       {{swipeCtrl.currentExplorer.title}}
+      </p>
+      {{swipeCtrl.currentExplorer.description}}
+     </div>
+    </div>
+   </a>
+  </li>
+ </ul>
+ <div class="gb-footer row">
+  <div class="btn-toolbar">
+   <a ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplorer.id, swipeCtrl.swipeLevels[0].id)"
+      class="btn btn-default">
+    {{swipeCtrl.swipeLevels[0].name}}
+   </a>
+   <a ng-click="swipeCtrl.createSwipe(swipeCtrl.currentExplorer.id, swipeCtrl.swipeLevels[2].id)"
+      class="btn btn-default">
+    {{swipeCtrl.swipeLevels[2].name}}
+   </a>
+  </div>
+ </div>
+</div>
+<div class="gb-dummy-height row"></div>
+<!-- ------------------------------- MODALS --------------------------->

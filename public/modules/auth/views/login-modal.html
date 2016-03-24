@@ -1,12 +1,12 @@
 <div class="modal-header gb-modal-header row">
- <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+ <div class="gb-title">
   <p class="gb-ellipsis">
    Login
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="loginModalCtrl.close()">
+ <md-button class="gb-close" ng-click="loginModalCtrl.close()">
   x
- </a>
+ </md-button>
 </div>
 <div class="modal-body gb-modal-body">
  <form>
@@ -34,12 +34,12 @@
  </form>
 </div>
 <div class="modal-footer">
- <div class="btn-group pull-right col-lg-4 col-md-4 col-sm-4 col-xs-4">
-  <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="loginModalCtrl.close()">
+ <div class="btn-group pull-right">
+  <md-button class="md-raised" ng-click="loginModalCtrl.close()">
    Cancel
-  </a>
-  <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="loginModalCtrl.login()">
+  </md-button>
+  <md-button class="md-raised" ng-click="loginModalCtrl.login()">
    Login
-  </a>
+  </md-button>
  </div>
 </div>

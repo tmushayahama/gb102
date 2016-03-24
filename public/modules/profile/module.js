@@ -73,6 +73,7 @@ define(['angular'
            }})
           .state('apps.profile.explorer', {
            url: '/explorer',
+           abstract: true,
            views: {
             "content": {
              controller: 'ExplorersAllCtrl as explorersTabCtrl',
