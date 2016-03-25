@@ -1,12 +1,12 @@
 <div class="modal-header gb-modal-header row">
- <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+ <div class="gb-title">
   <p class="gb-ellipsis">
    {{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title}}
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="explorerTodoCtrl.close()">
+ <md-button class="gb-close" ng-click="explorerTodoCtrl.close()">
   x
- </a>
+ </md-button>
 </div>
 <div class="modal-body">
  <section class="gb-section-row-1 row">
@@ -22,7 +22,7 @@
                    ng-change="explorerTodoCtrl.changeTodoStatus()"
                    layout="row">
     <md-radio-button ng-repeat="progressStatusType in explorerTodoCtrl.progressStatusTypes"
-                     ng-value="progressStatusType.id" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                     ng-value="progressStatusType.id" class="gb-primary col-lg-4 col-md-4 col-sm-4 col-xs-4">
      {{progressStatusType.name}}
     </md-radio-button>
    </md-radio-group>
@@ -144,10 +144,11 @@
     <div class="gb-todo-body row" ng-show="explorerTodoCtrl.explorerTodoChecklistSrv.explorerTodoChecklist.length" ng-cloak>
      <ul class="gb-checklist-nav">
       <li ng-repeat="todoChecklistItem in explorerTodoCtrl.explorerTodoChecklistSrv.explorerTodoChecklist| filter:statusFilter track by $index" ng-class="{completed: todoChecklist.completed, editing: todoChecklist == explorerTodoCtrl.editedTodo}">
-       <div class="gb-checklist-row row">
+       <div class="gb-checklist-row gb-shadow-1 row">
         <div class="toggle col-lg-1 col-md-1 col-sm-1 col-xs-1" type="checkbox" ng-model="todoChecklistItem.completed">
          <md-checkbox ng-checked="todoChecklistItem.checklist.status === 1"
-                      ng-click="explorerTodoCtrl.toggleChecklistStatus(todoChecklistItem.checklist)" class="">
+                      ng-click="explorerTodoCtrl.toggleChecklistStatus(todoChecklistItem.checklist)"
+                      class="gb-primary">
          </md-checkbox>
         </div>
         <div class='gb-checklist-item-content col-lg-9 col-md-9 col-sm-9 col-xs-9'>
@@ -178,9 +179,8 @@
  </section>
 </div>
 <div class="modal-footer">
- <div class="btn-group pull-right col-lg-2 col-md-2 col-sm-4 col-xs-4">
-  <a class="btn gb-btn gb-btn-sm col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="explorerTodoCtrl.close()">
-   Close
-  </a>
- </div>
+ <md-button class="md-raised md-mini pull-right" aria-label="Close Todo Modal"
+            ng-click="explorerTodoCtrl.close()">
+  Close
+ </md-button>
 </div>
