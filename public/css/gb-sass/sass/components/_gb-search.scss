@@ -27,14 +27,16 @@
  }
 
  @include respond-to (gb-sm) {
-  width: 700px;
+  width: 600px;
   .gb-search-result-dropdown {
    @include position(absolute, null null null -50px!important);
+   width: 600px;
   }
  }
  @include respond-to (gb-xs) {
-  width: 300px;
+  width: 320px;
   .gb-search-result-dropdown {
+   width: 320px;
    @include position(absolute, null null null -50px!important);
   }
  }
