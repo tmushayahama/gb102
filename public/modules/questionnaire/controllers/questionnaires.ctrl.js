@@ -17,7 +17,7 @@ var questionnairesCtrl = function (
  var vm = this;
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-questionnaire.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-matcher.css'
  }, $scope);
 
  vm.questionnairesSrv = new QuestionnairesSrv();

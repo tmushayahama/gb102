@@ -2971,7 +2971,7 @@ input[type="checkbox"] {
 }
 
 .gb-shadow-1 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .gb-shadow-2 {
@@ -3867,27 +3867,27 @@ input.gb-form-show {
   float: left;
   height: 100%;
   line-height: 40px;
-  color: #777;
+  color: #effdff;
   font-size: 15px;
 }
 .gb-logo .gb-logo-icon {
   float: left;
   margin-right: 5px;
   line-height: 38px;
-  color: rgba(2, 120, 135, 0.8);
+  color: #effdff;
 }
 .gb-logo .fa-lg {
   font-size: 14px;
   text-align: center;
 }
 .gb-logo .fa-lg .fa-outer {
-  color: rgba(2, 120, 135, 0.4);
+  color: #effdff;
 }
 .gb-logo .fa-lg .fa-inner {
-  color: rgba(2, 120, 135, 0.8);
+  color: #effdff;
 }
 .gb-logo strong {
-  color: #027887;
+  color: #effdff;
 }
 .gb-logo .gb-beta {
   font-size: 5px;
@@ -3910,7 +3910,7 @@ input.gb-form-show {
 .gb-top-nav-3 {
   margin-top: 41px;
   height: 100px;
-  background-color: #F2F2F1;
+  background-color: #EEE;
   border-bottom: #BBB solid 1px;
 }
 @media (max-width: 767px) {
@@ -4304,7 +4304,7 @@ input.gb-form-show {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(2, 120, 135, 0.2);
+  background-color: #F7F7F7;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -4440,8 +4440,8 @@ input.gb-form-show {
   padding: 0 5px 0 5px !important;
   height: 41px;
   list-style: none;
-  background-color: #F7F7F7;
-  border-bottom: rgba(2, 120, 135, 0.8) solid 3px;
+  color: #F7F7F7;
+  background-color: rgba(2, 120, 135, 0.8);
   margin: 0;
   z-index: 900;
 }
@@ -4466,7 +4466,7 @@ input.gb-form-show {
 .gb-top-nav-1 .gb-header a,
 .gb-top-nav-1 .gb-header a:hover {
   text-decoration: none;
-  color: #000;
+  color: white;
 }
 .gb-top-nav-1 .gb-header .gb-app-name {
   float: left;
@@ -4492,7 +4492,7 @@ input.gb-form-show {
   padding: 0 0 0 5px;
   font-weight: bold;
   line-height: 40px;
-  color: #555;
+  color: white;
 }
 .gb-top-nav-1 .gb-action {
   position: absolute;
@@ -4503,6 +4503,7 @@ input.gb-form-show {
   padding-top: 2px;
 }
 .gb-top-nav-1 .gb-action .btn {
+  color: #effdff;
   margin-left: 5px;
 }
 .gb-top-nav-1 .gb-menu-icon {
