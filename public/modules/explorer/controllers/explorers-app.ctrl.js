@@ -16,7 +16,7 @@ var explorersAppCtrl = function (
  var vm = this;
 
  vm.appName = $stateParams.app_name;
- //$rootScope.filterAppName = vm.appName;
+ $rootScope.subAppName = vm.appName.toUpperCase();
 
  vm.explorersSrv = new ExplorersSrv();
 

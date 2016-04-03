@@ -223,6 +223,16 @@ input[type="checkbox"] {
  left: 0!important;
  right: 0!important;
 }
+.gb-home-menu {
+ -webkit-overflow-scrolling: touch;
+ padding-top: 40px;
+ @include respond-to (gb-sm) {
+  padding-top: 40px;
+ }
+ @include respond-to (gb-xs) {
+  padding-top: 40px;
+ }
+}
 .gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
@@ -1076,7 +1086,7 @@ input.gb-form-show{
  @include respond-to (gb-sm) {
   .gb-logo-icon {
    font-size: 26px;
-  } 
+  }
  }
 
  @include respond-to (gb-xs) {
@@ -1495,7 +1505,7 @@ input.gb-form-show{
 
 #main-container {
  @include position(absolute, 0 0 0 0);
- background-color: #F7F7F7;
+ background-color: #ECEFF1;
  overflow-y: scroll;
  overflow-x: hidden;
  -webkit-overflow-scrolling: touch;
@@ -1627,8 +1637,8 @@ input.gb-form-show{
  }
 
  .gb-header {
-  @include position(absolute, 0 null 0 3px);
-  width: 150px;
+  // @include position(absolute, 0 null 0 3px);
+  // width: 150px;
   padding: 0;
   a,
   a:hover{
@@ -1649,7 +1659,7 @@ input.gb-form-show{
   }
  }
  .gb-search {
-  @include position(absolute, 0 100px 0 150px);
+  //@include position(absolute, 0 100px 0 150px);
  }
 
  .gb-title {
@@ -1661,8 +1671,8 @@ input.gb-form-show{
  }
 
  .gb-action {
-  @include position(absolute, 0 3px 0 null);
-  width: 100px;
+  //@include position(absolute, 0 3px 0 null);
+  //width: 100px;
   padding-top: 2px;
   .btn{
    color: lighten($primary-color, 70%);
@@ -1679,13 +1689,10 @@ input.gb-form-show{
  }
  @include respond-to (gb-xs) {
   .gb-header {
-   width: 50px;
   }
   .gb-search {
-   @include position(absolute, 0 40px 0 50px);
   }
   .gb-action {
-   width: 40px;
   }
  }
 }
@@ -1888,7 +1895,7 @@ input.gb-form-show{
 }
 .gb-level-4 .gb-item-level-heading{
  color: #FF887E;
-}
+}  
 
 
 
@@ -1896,7 +1903,7 @@ input.gb-form-show{
 .gb-box-1 {
  position: relative;
  background-color: #FFF;
- padding:  10px 0;
+ padding: 0;
  margin-bottom: 15px;
  overflow: hidden;
  &:hover {
@@ -1905,7 +1912,9 @@ input.gb-form-show{
  .gb-image {
   padding: 0px 0px 0 10px;
   .gb-heading-pic {
-   width: 100%;
+   margin-top: 20px;
+   margin-left:25%;
+   width: 50%;
   }
  }
  .gb-dropdown-action {
@@ -1918,28 +1927,6 @@ input.gb-form-show{
  .gb-icon-image {
   padding: 10px 25px 0 15px;
   overflow: hidden;
-  .fa-lg {
-   float: right;
-   font-size: 50px;
-   .fa-outer {
-    color: rgba($primary-color, 0.2);
-   }
-   .fa-inner{
-    top: 25px;
-    left: 30px;
-    font-size: 50px;
-    line-height:2.0em;
-    color: darken($primary-color, 0%);
-   }
-   &:hover {
-    .fa-outer {
-     color: rgba($primary-color, 0.7);
-    }
-    .fa-inner{
-     color: darken($primary-color, 10%);
-    }
-   }
-  }
   .gb-profile-img {
    @include position(absolute, null 0 0 null);
    width: 60px;
@@ -1947,6 +1934,8 @@ input.gb-form-show{
   }
  }
  .gb-box-body {
+  padding: 5px 5px 10px 5px;
+  border-left: #999 solid 1px;
   .gb-heading {
    //@include position(absolute, 0 0 null 0);
    padding: 15px 5px 0 10px;
@@ -1971,6 +1960,80 @@ input.gb-form-show{
     text-transform: uppercase;
    }
   }
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   padding: 2px 10px 2px 10px;
+   overflow: hidden;
+  }
+  .gb-footer {
+   //@include position(absolute, null 0 0 0);
+   padding: 8px 3px 0 10px;
+   .gb-profile-pic {
+    margin-left: 5px;
+    height: 35px;
+    width: 35px;
+   }
+   .gb-summary-bar {
+    margin-top: 5px;
+    background-color: transparent;
+    .btn {
+     min-width: 50px;
+     color: #999;
+     text-decoration: none;
+    }
+    .gb-icon {
+     color: #777;
+    }
+   }
+   .gb-footer-content {
+    padding: 10px 0 0 0;
+   }
+  }
+ }
+}
+
+.gb-box-2 {
+ position: relative;
+ height: 140px;
+ width: 100%;
+ background-color: #FFF;
+ padding: 20px 5px;
+ overflow: hidden;
+ &:hover {
+  background-color: #F7F7F7;
+ }
+
+ .gb-icon-image {
+  height: 70px;
+  position: relative;
+  padding: 10px 0 0 0;
+  overflow: hidden;
+  .gb-icon {
+   font-size: 50px;
+   text-align: center;
+   color: rgba($primary-color, 0.8);
+  }
+  .gb-profile-img {
+   margin: 0 auto;
+   width: 55px;
+   height: 55px;
+  }
+ }
+ .gb-box-body {
+  padding: 5px 5px 10px 5px;
+  border-left: #999 solid 1px;
+  .gb-heading {
+   //@include position(absolute, 0 0 null 0);
+   padding: 15px 5px 0 10px;
+   margin-bottom: 10px;
+   height: 30px;
+   .gb-title {
+    color: #888;
+    font-size:10px;
+    text-transform: uppercase;
+   }
+  }
+
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    padding: 2px 10px 2px 10px;
@@ -2049,85 +2112,7 @@ input.gb-form-show{
 .gb-suggestions {
  background-color: #F2F2F2;
 }
-.gb-box-2 {
- margin-bottom: 20px;
- background-color: #FAFAFA;
- overflow: hidden;
-}
-.gb-box-2 .gb-heading-img-container {
- height: 150px;
- overflow: hidden;
-}
 
-.gb-box-2 .gb-heading-img {
- height: auto;
-}
-
-.gb-box-2:hover {
- background-color: #EEE;
- -webkit-box-shadow: #AAA -1px 1px 2px;
- -moz-box-shadow: #AAA -1px 1px 2px;
- box-shadow: #AAA -1px 1px 2px;
-}
-.gb-box-2 .gb-heading {
- padding: 5px 8px;
- border-bottom: #AAA solid 1px;
- overflow: hidden;
-}
-.gb-box-2 .gb-body {
- padding: 5px 8px;
- overflow: hidden;
-}
-.gb-box-2 .gb-body .gb-title {
- font-weight: bold;
- font-size: 1.2em;
-}
-.gb-box-2 .gb-footer {
- padding: 5px 8px;
- border-top: #BBB solid 1px;
- overflow: hidden;
-}
-
-
-.gb-box-3 {
- margin-bottom: 20px;
- background-color: #FAFAFA;
- overflow: hidden;
-}
-
-.gb-box-3 .gb-heading .gb-heading {
- width: 100px;
- height: 100px;
-}
-.gb-box-3 .gb-heading .gb-arrow {
- color: #888;
- line-height: 100px;
-}
-
-.gb-box-3:hover {
- background-color: #EEE;
- -webkit-box-shadow: #AAA -1px 1px 2px;
- -moz-box-shadow: #AAA -1px 1px 2px;
- box-shadow: #AAA -1px 1px 2px;
-}
-.gb-box-3 .gb-heading {
- padding: 5px 8px;
- border-bottom: #AAA solid 1px;
- overflow: hidden;
-}
-.gb-box-3 .gb-body {
- padding: 5px 8px;
- overflow: hidden;
-}
-.gb-box-3 .gb-body .gb-title {
- font-weight: bold;
- font-size: 1.2em;
-}
-.gb-box-3 .gb-footer {
- padding: 5px 8px;
- border-top: #BBB solid 1px;
- overflow: hidden;
-}
 
 
 .gb-box-7 {

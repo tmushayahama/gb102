@@ -158,7 +158,25 @@ define([
              }
             }
            }
-          });
+          })
+          .state('apps.home', {
+           url: '/home',
+           views: {
+            "apps": {
+             templateUrl: 'public/modules/app/views/apps-home.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app',
+                 serie: true,
+                 files: [
+                  'public/modules/app/services/constants.srv.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }});
  };
  appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', 'hammerDefaultOptsProvider', '$provide'];
  app.config(appConfig);

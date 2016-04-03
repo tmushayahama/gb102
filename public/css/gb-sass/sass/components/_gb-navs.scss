@@ -148,7 +148,7 @@
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
  -webkit-backface-visibility: hidden;
- //background-color: rgba($primary-color, 0.2);
+ background-color: #FFF;
  z-index: 1;
  .gb-body {
   padding: 0px 0 0px 0;
@@ -245,6 +245,47 @@
  }
 }
 
+.gb-section-row-2 {
+ .gb-dropdown-nav-1 {
+  padding: 0;
+  list-style: none;
+  background-color: #FFF;
+
+  li {
+   border-left: transparent solid 4px;
+   border-bottom: #CCC solid 1px;
+   a{
+    padding: 5px 10px 5px 10px;
+    display: block;
+    line-height: 25px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    background-color: transparent;
+    .gb-icon {
+     float: left;
+     font-size: 24px;
+     margin-right: 5px;
+     color: rgba($primary-color, 0.8);
+    }
+    .gb-title {
+     color: #777;
+     float: left;
+     padding-top: 0px;
+     font-size: 12px;
+    }
+   }
+   &:hover {
+    color: rgba($primary-color, 0.5);
+    border-left: rgba($primary-color, 0.4) solid 4px;
+   }
+   &.active {
+    color: rgba($primary-color, 1);
+    border-left: rgba($primary-color, 0.8) solid 4px;
+   }
+  }
+ }
+}
 
 .gb-icon-side-nav-1 {
  padding: 0;

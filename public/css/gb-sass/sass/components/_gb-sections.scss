@@ -40,12 +40,12 @@
    padding-left: 15px;
   }
  }
- padding-bottom: 30px;
+ padding-bottom: 20px;
  .gb-heading {
-  padding: 15px 5px 15px 0px;
+  padding: 10px 5px 10px 0px;
   .gb-title {
    padding: 5px 0 0 0px;
-   width: 100%;
+   margin-right: 5px;
    font-size: 20px;
    color: rgba($primary-color, 0.8);
    -webkit-text-rendering: optimizeLegibility;
@@ -55,6 +55,12 @@
     padding: 0 0 0 0;
     font-size: 15px;
    }
+  }
+  .gb-filter-btn {
+   color: #656565;
+   margin-top: 5px;
+   border: none;
+   border-bottom: rgba($primary-color, 0.4) solid 1px;
   }
   .gb-heading-img {
    width: 30px;

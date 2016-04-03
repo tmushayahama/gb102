@@ -1,25 +1,61 @@
-<nav class="gb-landing-page gb-header gb-top-nav-1 gb-nav col-lg-12 col-md-12 col-sm-12 col-xs-12"  role="navigation">
+<div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="container">
-  <div class="gb-header pull-left">
-   <a class="gb-logo" ui-sref="apps.explorer.all">
-    <i class="gb-logo-icon fa icon-gb-logo"></i>
-    <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
-     <strong>SKILL</strong>SECTION<br>
+  <div class="row gb-navbar-container">
+   <div class="gb-header col-lg-2 col-md-3 col-sm-3 col-xs-1">
+    <a ng-click="appsCtrl.openMenuModal('left')"
+       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm hidden-xs">
+     <i class="fa fa-bars"></i>
+    </a>
+    <a class="gb-logo" ui-sref="apps.home">
+     <i class="gb-logo-icon fa icon-gb-logo"></i>
+     <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
+      <strong>SKILL</strong>SECTION<br>
+     </div>
+    </a>
+   </div>
+   <div class="gb-search col-lg-6 col-md-5 col-sm-5 col-xs-8">
+    <form ng-submit="appsCtrl.search()" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="form-group gb-input-form-group">
+      <input class="form-control" type="text" ng-model="$root.searchKeyword"
+             placeholder="Search SkillSection"
+             uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
+             typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
+             typeahead-popup-template-url="search-dropdown.tpl.html" >
+      <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
+         ng-click="$root.searchKeyword = ''">
+       <i class="fa fa-times"></i>
+      </a>
+     </div>
+     <div class="gb-input-btn-group btn-group">
+      <button type="submit" class="btn btn-default">
+       <i class="fa fa-search"></i>
+      </button>
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li>
+        <a href="#">Advanced Search</a>
+       </li>
+      </ul>
+     </div>
+    </form>
+   </div>
+   <div class="gb-action col-lg-3 col-md-4 col-sm-4 col-xs-3">
+    <div class="btn-group pull-right">
+     <button type="button" ng-click="authCtrl.openRegistrationModal()" class="btn btn-link">
+      <i class='fa fa-key pull-left'></i>
+      <span class='visible-lg visible-md visible-sm hidden-xs'> BETA ACCESS</span>
+     </button>
+     <button type="button" ng-click="authCtrl.openLoginModal()" class="btn btn-link">
+      <i class='fa fa-sign-in pull-left'></i>
+      <span class='visible-lg visible-md visible-sm hidden-xs'> LOG IN</span>
+     </button>
     </div>
-   </a>
-  </div>
-  <div class="gb-action pull-right">
-   <a ng-click="authCtrl.openRegistrationModal()" class="btn btn-link">
-    <i class='fa fa-key'></i>
-    <span class=''> BETA ACCESS</span>
-   </a>
-   <a ng-click="authCtrl.openLoginModal()" class="btn btn-link">
-    <i class='fa fa-sign-in'></i>
-    <span class=''> LOG IN</span>
-   </a>
+   </div>
   </div>
  </div>
-</nav>
+</div>
 <div class="gb-landing-page">
  <header id="gb-intro-section" class="">
   <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
@@ -1106,4 +1142,19 @@
 
 <script type="text/ng-template" id="login-modal.html">
  <div ng-include="'public/build/scripts/modules/auth/views/login-modal.html'"></div>
+</script>
+
+<script type="text/ng-template" id="customTemplate.html">
+ <a>
+ <div ng-bind-html="match.label | uibTypeaheadHighlight:query"></div>
+ {{match|json}}
+ </a>
+</script>
+
+<script type="text/ng-template" id="search-dropdown.tpl.html">
+ <div ng-include="'public/build/scripts/modules/app/views/templates/search-dropdown.tpl.html'"></div>
+</script>
+
+<script type="text/ng-template" id="menu-modal.html">
+ <div ng-include="'public/build/scripts/modules/app/views/menu-modal.html'"></div>
 </script>

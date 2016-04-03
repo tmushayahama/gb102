@@ -1,10 +1,10 @@
 id	parent_todo_id	level_id	status_id	creator_id	created_at	updated_at	due_date	title	description
-1	NULL	50000	50100	2				Making my bed	Make my bed after waking up.
-2	NULL	50000	50100	2				Clothes	Remove all clothes on the floor or from the top of my bed
-3	NULL	50001	50100	2				Calm down	Being calm and panic less.
-4	NULL	50001	50100	2				Prioritize	Prioritize what to clean first
-5	NULL	50001	50100	2				Take breaks	Learn to take breaks despite the time constraints
-6	NULL	50001	50100	2				Distractions	Remove all distractions
+1	NULL	50000	50100	2				Make my bed after waking up.	
+2	NULL	50000	50100	2				Remove all clothes on the floor or from the top of my bed	
+3	NULL	50001	50100	2				Being calm and panic less.	
+4	NULL	50001	50100	2				Prioritize what to clean first	
+5	NULL	50001	50100	2				Learn to take breaks despite the time constraints	
+6	NULL	50001	50100	2				Remove all distractions	
 1000	NULL	50000	50100	2				Drawing a straight line	
 1001	NULL	50001	50100	2				Checking out difference shades of pencil 	
 1002	NULL	50001	50100	2				Practice drawing straight lines	
@@ -15,5 +15,56 @@ id	parent_todo_id	level_id	status_id	creator_id	created_at	updated_at	due_date	t
 2001	NULL	50001	50100	2				"After you have discovered/rediscovered your passion, research the types of careers that center around your passion"	
 2002	NULL	50001	50100	2				Applying your current skills to your new career	
 2003	NULL	50001	50100	2				Gain more experience 	
-3000	NULL	50001	50100	3				Coming up with a good conversation topic	
-3001	NULL	50001	50100	3				Start a conversation in a coffee shop	
+3000	NULL	50001	50100	2				"Communicate in a noisy area. i.e. bars, concerts"	
+3000	NULL	50001	50100	2				Conflict Resolution	
+3001	NULL	50001	50100	2				Speaking Up For Yourself	
+3003	NULL	50001	50100	2				Communicating with a business competition	
+3004	NULL	50001	50100	2				Communicating with my co-workers	
+3005	NULL	50001	50100	2				Communicating with my boss	
+3006	NULL	50001	50100	2				Giving feedback	
+3007	NULL	50001	50100	2				Making introductions	
+3008	NULL	50001	50100	2				Speaking at special occasions	
+3009	NULL	50001	50100	2				Improving English	
+3010	NULL	50001	50100	2				Working with a bully	
+3011	NULL	50001	50100	2				Making a recommendation	
+3012	NULL	50001	50100	2				Communicating with accuracy	
+3013	NULL	50001	50100	2				Pausing during a conversation	
+3014	NULL	50001	50100	2				Asking great questions	
+3015	NULL	50001	50100	2				Communicate with people who are upset	
+3016	NULL	50001	50100	2				Teaching others how to do something	
+3017	NULL	50001	50100	2				Finding my best voice	
+3018	NULL	50001	50100	2				Convey my value without sounding arrogant	
+3019	NULL	50001	50100	2				Public speaking	
+3020	NULL	50001	50100	2				Having the Right Attitude	
+3021	NULL	50001	50100	2				During an interview	
+3022	NULL	50001	50100	2				Avoiding gossips	
+3023	NULL	50001	50100	2				Giving constructive criticism	
+3024	NULL	50001	50100	2				Dealing with interrupters	
+3025	NULL	50001	50100	2				Making a request	
+3026	NULL	50001	50100	2				Communicating with confidence	
+3027	NULL	50001	50100	2				Cross-cultural communication	
+3028	NULL	50001	50100	2				Making your message stick	
+3029	NULL	50001	50100	2				Telling stories	
+3030	NULL	50001	50100	2				Communicating assertively	
+3031	NULL	50001	50100	2				Tactful bragging	
+3032	NULL	50001	50100	2				Having empathy	
+3033	NULL	50001	50100	2				Exiting a conversation	
+3034	NULL	50001	50100	2				Making small talk	
+3035	NULL	50001	50100	2				Delivering bad news	
+3036	NULL	50001	50100	2				Negotiating my needs	
+3037	NULL	50001	50100	2				Sharing ideas	
+3038	NULL	50001	50100	2				Understanding introversion and extroversion	
+3039	NULL	50001	50100	2				Becoming a more active and a better listener	
+3040	NULL	50001	50100	2				Giving and getting feedback	
+3041	NULL	50001	50100	2				Avoiding miscommunication	
+3042	NULL	50001	50100	2				Watching word choices	
+3043	NULL	50001	50100	2				Knowing how to persuade people	
+3044	NULL	50001	50100	2				Knowledge of basic verbal skills	
+3045	NULL	50001	50100	2				Interpreting non-verbal communication	
+3046	NULL	50001	50100	2				How to understand and use non-verbal communication.	
+3047	NULL	50001	50100	2				Avoid distractions when communicating	
+3048	NULL	50001	50100	2				Not making assumptions	
+3049	NULL	50001	50100	2				Handling language barrier	
+3050	NULL	50001	50100	2				Using appropriate method of communication	
+4000	NULL	50001	50100	3				Coming up with a good conversation topic	
+4001	NULL	50001	50100	3				Starting a conversation in a coffee shop	

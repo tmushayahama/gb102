@@ -744,7 +744,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
+   (`id`, `parent_note_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
 
 -- ----------- IWEBLINK ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink.txt'

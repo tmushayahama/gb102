@@ -16,7 +16,7 @@ var explorersAllCtrl = function (
  var vm = this;
  vm.explorers = [];
 
- vm.appName = "ALL";
+ $rootScope.subAppName = "ALL";
 
  vm.explorersSrv = new ExplorersSrv();
 
