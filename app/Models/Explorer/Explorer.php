@@ -21,6 +21,10 @@ class Explorer extends Model {
   return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
  }
 
+ public function parentExplorer() {
+  return $this->belongsTo('App\Models\Explorer\Explorer', 'parent_explorer_id');
+ }
+
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
@@ -75,6 +79,17 @@ class Explorer extends Model {
            ->take(50)
            ->get();
   }
+  return $explorers;
+ }
+
+ public static function getSubExplorers($explorerId) {
+  $explorers = Explorer::orderBy('id', 'desc')
+          ->where('parent_explorer_id', $explorerId)
+          ->with('app_type')
+          ->with('creator')
+          ->with('level')
+          ->take(100)
+          ->get();
   return $explorers;
  }
 

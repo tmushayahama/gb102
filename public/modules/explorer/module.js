@@ -139,6 +139,7 @@ define(['angular'
                   'public/modules/explorer/services/todo/explorer-todo.srv.js',
                   'public/modules/explorer/services/todo/explorer-todos.srv.js',
                   'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
+                  'public/modules/explorer/controllers/sub-explorer/sub-explorers.ctrl.js',
                   'public/modules/explorer/controllers/todo/explorer-todos.ctrl.js',
                   'public/modules/explorer/controllers/todo/explorer-progress.ctrl.js',
                   'public/modules/explorer/controllers/todo/explorer-todo-modal.ctrl.js', ]

@@ -9,3 +9,4 @@ id	name	description
 8	Advices	\N
 9	Groups	\N
 10	Journals	\N
+11	Topic	\N
