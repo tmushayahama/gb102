@@ -219,56 +219,165 @@
    </div>
   </div>
  </section>
- <section class="gb-background-white">
+ <section class="gb-landing-page-apps">
   <div class="container">
    <div class="row">
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-skill"></i>
-     <h4 class="feature-heading">SKILLS</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.explorer.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.explorer' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-explorer"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       EXPLORER
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-goal"></i>
-     <h4 class="feature-heading">GOALS</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.swipes.swipe" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.swipes' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-swipe"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       SWIPE
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-promise"></i>
-     <h4 class="feature-heading">PROMISES</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.questionnaires' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-matcher"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       MATCHER
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-hobby"></i>
-     <h4 class="feature-heading">HOBBIES</h4>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.mentorships.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.mentorships' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-mentorships"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       MENTORSHIP
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-mentorship"></i>
-     <h4 class="feature-heading">MENTORSHIP</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.teachs.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.teachs' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-teach"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       TEACH
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-advice"></i>
-     <h4 class="feature-heading">ADVICE</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.advices.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.advices' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-advices"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       ADVISE
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-teach"></i>
-     <h4 class="feature-heading">TEACH</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.collaborations.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.collaborations' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-collaborations"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       COLLABORATION
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-collaboration"></i>
-     <h4 class="feature-heading">COLLABORATION</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.goals.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.goals' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-goals"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       GOAL
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-project"></i>
-     <h4 class="feature-heading">PROJECTS</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.journals.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.journal' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-journals"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       JOURNAL
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-group"></i>
-     <h4 class="feature-heading">GROUPS</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.projects.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.projects' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa icon-gb-project"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       PROJECTS
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-journal"></i>
-     <h4 class="feature-heading">JOURNALS</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.todos.all" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.todo' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa fa-check-circle-o"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       TODOS
+      </div>
+     </md-button>
     </div>
-    <div class="gb-icon-feature col-lg-3 col-md-3 col-sm-3 col-xs-4">
-     <i class="fa icon-gb-community"></i>
-     <h4 class="feature-heading">COMMUNITY</h4>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <md-button ui-sref="apps.calendar" class="gb-box-2 gb-shadow-1"
+                ng-class="{
+                   active: ('apps.calendar' | includedByState)
+                  }">
+      <div class="gb-icon-image">
+       <i class="gb-icon fa fa-calendar"></i>
+      </div>
+      <div class="gb-title gb-ellipsis">
+       CALENDAR
+      </div>
+     </md-button>
     </div>
    </div>
   </div>

@@ -272,17 +272,19 @@ btn:focus {
   overflow: hidden;
   width: 100%;
   padding: 5px 5px 5px 5px;
-  text-align: center;
   border: rgba(7, 117, 104, 0.4) solid 1px;
   height: 90px;
 }
 .gb-apptype-btn-2 .gb-icon {
   margin-top: 10px;
   color: rgba(7, 117, 104, 0.8);
-  font-size: 50px;
+  font-size: 30px;
 }
 .gb-apptype-btn-2 .gb-title {
   margin-top: 10px;
+}
+.gb-apptype-btn-2 .gb-title p {
+  text-transform: lowercase;
 }
 .gb-apptype-btn-2:hover {
   background-color: rgba(7, 117, 104, 0.2);
@@ -843,6 +845,9 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-section-row-2.gb-background-white .gb-heading {
   padding-left: 15px;
+}
+.gb-section-row-2.gb-mg {
+  margin-bottom: 15px;
 }
 .gb-section-row-2 .gb-heading {
   display: block;

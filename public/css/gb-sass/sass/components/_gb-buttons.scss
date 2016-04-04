@@ -141,16 +141,18 @@ btn:focus {
  overflow: hidden;
  width: 100%;
  padding: 5px 5px 5px 5px;
- text-align: center;
  border: rgba($primary-color, 0.4) solid 1px;
  height: 90px;
  .gb-icon {
   margin-top: 10px;
   color: rgba($primary-color, 0.8);
-  font-size: 50px;
+  font-size: 30px;
  }
  .gb-title {
   margin-top: 10px;
+  p {
+   text-transform: lowercase;
+  }
  }
  &:hover {
   background-color: rgba($primary-color, 0.2);

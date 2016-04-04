@@ -16,7 +16,7 @@ var mentorshipsAllCtrl = function (
  var vm = this;
  vm.mentorships = [];
 
- vm.appName = "ALL";
+ $rootScope.subAppName = "ALL";
 
  vm.mentorshipsSrv = new MentorshipsSrv();
 

@@ -156,6 +156,12 @@ and open the template in the editor.
 .gb-landing-page .text-muted {
   color: #777;
 }
+.gb-landing-page .gb-landing-page-apps {
+  background-color: #ECEFF1;
+}
+.gb-landing-page .gb-landing-page-apps .gb-title {
+  margin: 0;
+}
 .gb-landing-page .img-centered {
   margin: 0 auto;
 }
