@@ -127,7 +127,7 @@ var swipeCtrl = function (
 
  vm.swipeSrv = new SwipeSrv();
  vm.getSwipe();
- vm.constantsSrv.getLevel(11).then(function (data) {
+ vm.constantsSrv.getLevel(12).then(function (data) {
   vm.swipeLevels = data;
  });
 

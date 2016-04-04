@@ -39,6 +39,7 @@
  }
 }
 .modal-body {
+ background-color: #F7F7F7;
  @include position(absolute, 41px 0 46px 0);
  overflow-y: auto;
 }

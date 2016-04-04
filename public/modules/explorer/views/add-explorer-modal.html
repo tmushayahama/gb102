@@ -1,12 +1,12 @@
 <div class="modal-header gb-modal-header row">
- <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+ <div class="gb-title">
   <p class="gb-ellipsis">
    Add To Explorer
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="addExplorerCtrl.close()">
+ <md-button class="gb-close" ng-click="addExplorerCtrl.close()">
   x
- </a>
+ </md-button>
 </div>
 <div class="modal-body gb-modal-body">
  <form editable-form name="addExplorerForm">
@@ -35,42 +35,46 @@
    </wz-step>
    <wz-step wz-title="Fill">
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">App Name:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <input value="{{addExplorerCtrl.selectedAppType.name}}" readonly
-             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
-     </div>
+     <md-input-container class="md-block">
+      <input value="{{addExplorerCtrl.selectedAppType.name}}" ng-readonly="true"
+             class=""/>
+     </md-input-container>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea ng-model="addExplorerCtrl.explorer.title" name="title" required
-                rows="2" placeholder="title"
-                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <md-input-container class="md-block">
+      <label class="">Title:</label>
+      <textarea ng-model="addExplorerCtrl.explorer.title" name="title" ng-required
+                rows="2" placeholder="Title"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       </textarea>
-     </div>
+     </md-input-container>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea ng-model="addExplorerCtrl.explorer.description" name="description" required
-                rows="4" placeholder="description"
-                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <md-input-container class="md-block">
+      <label class="">Description:</label>
+      <textarea ng-model="addExplorerCtrl.explorer.description" name="description" ng-required
+                rows="5" placeholder="Description"
+                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       </textarea>
-     </div>
+     </md-input-container>
     </div>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{addExplorerCtrl.explorer.appType.name}} Level:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+     <div class="row">
+      <label class="gb-label control-label row">
+       {{addExplorerCtrl.explorer.appType.name}} Level:
+      </label>
       <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-model="addExplorerCtrl.explorer.level">
        <option  ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
       </select>
      </div>
     </div>
+    <br>
     <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">{{addExplorerCtrl.explorer.appType.name}} Level:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="row">
+     <label class="gb-label control-label row">
+      Extra
+     </label>
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="form-group row">
        <div class="checkbox">
         <label>
          <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType">
@@ -78,8 +82,8 @@
         </label>
        </div>
        <textarea ng-model="requestType.explorerRequest.description" name="description"
-                 rows="3" placeholder="Display Message"
-                 class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                 rows="2" placeholder="Display Message"
+                 class="form-control">
        </textarea>
        <br>
       </div>
@@ -93,24 +97,28 @@
  </form>
 </div>
 <div class="modal-footer">
- <div class="btn-group pull-right col-lg-8 col-md-8 col-sm-8 col-xs-8">
-  <a class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.close()">
+ <div class="pull-right">
+  <md-button class="md-raised md-mini" ng-click="addExplorerCtrl.close()"
+             aria-label="Close">
    Close
-  </a>
-  <a ng-class="{
+  </md-button>
+  <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.previous()">
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="md-raised md-mini" ng-click="addExplorerCtrl.previous()"
+             aria-label="Previous">
    Previous
-  </a>
-  <a ng-class="{
+  </md-button>
+  <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.next()">
+            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="md-raised md-mini" ng-click="addExplorerCtrl.next()"
+             aria-label="Next">
    Next
-  </a>
-  <a ng-class="{
+  </md-button>
+  <md-button ng-class="{
     'gb-disabled'
-    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="btn gb-btn gb-btn-sm col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-click="addExplorerCtrl.ok()">
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="md-raised md-mini" ng-click="addExplorerCtrl.ok()"
+             aria-label="Add">
    Add
-  </a>
+  </md-button>
  </div>
 </div>

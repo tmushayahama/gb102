@@ -125,7 +125,7 @@ and open the template in the editor.
   background-color: #F9F9F9;
 }
 .gb-top-nav-1 .gb-search .gb-input-form-group {
-  padding-right: 52px;
+  padding-right: 48px;
   margin-bottom: 0;
 }
 .gb-top-nav-1 .gb-search .gb-input-btn-group {
@@ -345,6 +345,7 @@ btn:focus {
 }
 
 .modal-body {
+  background-color: #F7F7F7;
   position: absolute;
   top: 41px;
   right: 0;
@@ -838,13 +839,13 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .gb-section-row-2 {
-  padding-bottom: 20px;
+  padding: 5px 0 0 0;
 }
 .gb-section-row-2.gb-background-white .gb-heading {
   padding-left: 15px;
 }
 .gb-section-row-2 .gb-heading {
-  padding: 10px 5px 10px 0px;
+  display: block;
 }
 .gb-section-row-2 .gb-heading .gb-title {
   padding: 5px 0 0 0px;
@@ -864,6 +865,10 @@ Copyright (c) 2014 Daniel Eden
   margin-top: 5px;
   border: none;
   border-bottom: rgba(7, 117, 104, 0.4) solid 1px;
+}
+.gb-section-row-2 .gb-heading .gb-action.md-button {
+  width: 30px;
+  margin: 0;
 }
 .gb-section-row-2 .gb-heading .gb-heading-img {
   width: 30px;
@@ -1169,6 +1174,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .gb-section-row-2 .gb-dropdown-nav-1 {
+  width: 200px;
   padding: 0;
   list-style: none;
   background-color: #FFF;
@@ -2868,6 +2874,10 @@ body > .ui-select-bootstrap.open {
   display: none !important;
 }
 
+md-input-container .md-input {
+  flex: none !important;
+}
+
 md-input-container.md-input-focused .md-input {
   transition: border-color ease 0.28s;
   border-color: #077568 !important;
@@ -2945,6 +2955,7 @@ li[class*="col-"] {
 
 textarea {
   resize: none;
+  overflow: auto !important;
 }
 
 form .gb-heading {
@@ -3773,10 +3784,22 @@ ul, li {
   width: 60px;
 }
 
+.gb-label {
+  color: rgba(0, 0, 0, 0.26);
+  font-size: 12px;
+}
+
 .form-control {
   width: 100%;
   border-radius: 0 !important;
   box-shadow: 0 0 0;
+  border: none;
+  border-bottom: #BBB solid 2px;
+}
+.form-control:focus {
+  border: none;
+  border-bottom: #077568 solid 3px;
+  box-shadow: none;
 }
 
 .gb-bordered-btn {

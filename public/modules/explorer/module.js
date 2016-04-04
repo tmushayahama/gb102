@@ -20,6 +20,7 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
+                  'public/modules/explorer/directives/explorer-box.drv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorers.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',

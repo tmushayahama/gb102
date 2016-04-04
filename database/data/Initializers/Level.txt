@@ -1,4 +1,46 @@
 id	category	code	name	description	icon	app_type_id
+60003	60000	CTBT	Administrator		icon-gb-admin	
+1002	1001	EAPP3	I need advice	Advise	icon-gb-advices	8
+1003	1001	EAPP4	I can give advise	Get Advice	icon-gb-advices	8
+1009	1002	EAPP10	I need advice	Advise	icon-gb-advices	8
+1010	1002	EAPP11	I can give advise	Get Advice	icon-gb-advices	8
+1016	1003	EAPP18	I need advice	Advise	icon-gb-advices	8
+1017	1003	EAPP19	I can give advise	Get Advice	icon-gb-advices	8
+1023	1004	EAPP26	I need advice	Advise	icon-gb-advices	8
+1024	1004	EAPP27	I can give advise	Get Advice	icon-gb-advices	8
+1028	1005	EAPP31	I need advice	Advise	icon-gb-advices	8
+1029	1005	EAPP32	I can give advise	Get Advice	icon-gb-advices	8
+1034	1008	EAPP31	I need more advice	Advise	icon-gb-advices	8
+1035	1008	EAPP32	I can give more advise	Get Advice	icon-gb-advices	8
+1004	1001	EAPP5	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+1011	1002	EAPP12	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+1018	1003	EAPP20	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+1025	1004	EAPP28	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+1030	1005	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+1036	1008	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaborations	6
+60000	60000	CTBT	Follower		icon-gb-follower	
+1012	1002	EAPP14	I want to make it a hobby	Make a hobby	icon-gb-hobby	3
+1005	1001	EAPP6	I want to make it a hobby	Make a hobby	icon-gb-journals	10
+1006	1001	EAPP7	Write it in journal	Put it in Journal	icon-gb-journals	10
+1013	1002	EAPP15	Write it in journal	Put it in Journal	icon-gb-journals	10
+1019	1003	EAPP22	Write it in journal	Put it in Journal	icon-gb-journals	10
+1020	1004	EAPP23	Write it in journal	Put it in Journal	icon-gb-journals	10
+1031	1005	EAPP34	Write it in journal	Put it in Journal	icon-gb-journals	10
+1037	1008	EAPP34	Write it in journal	Put it in Journal	icon-gb-journals	10
+60002	60000	CTBT	Judge		icon-gb-judge	
+1000	1001	EAPP1	I can provide mentorship	Request Mentorship	icon-gb-mentorships	5
+1001	1001	EAPP2	I want mentorship	Be a mentor	icon-gb-mentorships	5
+1007	1002	EAPP8	I can provide mentorship	Request Mentorship	icon-gb-mentorships	5
+1008	1002	EAPP9	I want mentorship	Be a mentor	icon-gb-mentorships	5
+1014	1003	EAPP16	I can provide mentorship	Request Mentorship	icon-gb-mentorships	5
+1015	1003	EAPP17	I want mentorship	Be a mentor	icon-gb-mentorships	5
+1021	1004	EAPP24	I can provide mentorship	Request Mentorship	icon-gb-mentorships	5
+1022	1004	EAPP25	I want mentorship	Be a mentor	icon-gb-mentorships	5
+1026	1005	EAPP29	I can provide more mentorship	Request Mentorship	icon-gb-mentorships	5
+1027	1005	EAPP30	I want more mentorship	Be a mentor	icon-gb-mentorships	5
+1032	1008	EAPP29	I can provide mentorship	Request Mentorship	icon-gb-mentorships	5
+1033	1008	EAPP30	I want mentorship	Be a mentor	icon-gb-mentorships	5
+60001	60000	CTBT	Observer		icon-gb-observer	
 1	1	SK1	Skill Gained	\N		1
 2	1	SK2	Skill to Improve	\N		1
 3	1	SK3	Skill to Learn	\N		1
@@ -27,48 +69,11 @@ id	category	code	name	description	icon	app_type_id
 26	8	AD3	Recommendation	\N		
 27	8	AD4	"Natural, senior advising junior"	\N		
 28	8	AD5	Similar Experiences	\N		
-29	11	SWS1	Not Now	\N		
-30	11	SWS2	Ehh!!	\N		
-31	11	SWS3	Explorer	\N		
-32	11	SWS4	Super Explorer	\N		
-1000	1001	EAPP1	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
-1001	1001	EAPP2	I want mentorship	Be a mentor	icon-gb-mentorship	5
-1002	1001	EAPP3	I need advice	Advise	icon-gb-advice	8
-1003	1001	EAPP4	I can give advise	Get Advice	icon-gb-advice	8
-1004	1001	EAPP5	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1005	1001	EAPP6	I want to make it a hobby	Make a hobby	icon-gb-journal	10
-1006	1001	EAPP7	Write it in journal	Put it in Journal	icon-gb-journal	10
-1007	1002	EAPP8	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
-1008	1002	EAPP9	I want mentorship	Be a mentor	icon-gb-mentorship	5
-1009	1002	EAPP10	I need advice	Advise	icon-gb-advice	8
-1010	1002	EAPP11	I can give advise	Get Advice	icon-gb-advice	8
-1011	1002	EAPP12	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1012	1002	EAPP14	I want to make it a hobby	Make a hobby	icon-gb-hobby	3
-1013	1002	EAPP15	Write it in journal	Put it in Journal	icon-gb-journal	10
-1014	1003	EAPP16	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
-1015	1003	EAPP17	I want mentorship	Be a mentor	icon-gb-mentorship	5
-1016	1003	EAPP18	I need advice	Advise	icon-gb-advice	8
-1017	1003	EAPP19	I can give advise	Get Advice	icon-gb-advice	8
-1018	1003	EAPP20	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1019	1003	EAPP22	Write it in journal	Put it in Journal	icon-gb-journal	10
-1020	1004	EAPP23	Write it in journal	Put it in Journal	icon-gb-journal	10
-1021	1004	EAPP24	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
-1022	1004	EAPP25	I want mentorship	Be a mentor	icon-gb-mentorship	5
-1023	1004	EAPP26	I need advice	Advise	icon-gb-advice	8
-1024	1004	EAPP27	I can give advise	Get Advice	icon-gb-advice	8
-1025	1004	EAPP28	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1026	1005	EAPP29	I can provide more mentorship	Request Mentorship	icon-gb-mentorship	5
-1027	1005	EAPP30	I want more mentorship	Be a mentor	icon-gb-mentorship	5
-1028	1005	EAPP31	I need advice	Advise	icon-gb-advice	8
-1029	1005	EAPP32	I can give advise	Get Advice	icon-gb-advice	8
-1030	1005	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1031	1005	EAPP34	Write it in journal	Put it in Journal	icon-gb-journal	10
-1032	1008	EAPP29	I can provide mentorship	Request Mentorship	icon-gb-mentorship	5
-1033	1008	EAPP30	I want mentorship	Be a mentor	icon-gb-mentorship	5
-1034	1008	EAPP31	I need more advice	Advise	icon-gb-advice	8
-1035	1008	EAPP32	I can give more advise	Get Advice	icon-gb-advice	8
-1036	1008	EAPP33	I want to collaborate	Start Collaboration	icon-gb-collaboration	6
-1037	1008	EAPP34	Write it in journal	Put it in Journal	icon-gb-journal	10
+29	11	TPC	General	\N		
+30	12	SWS1	Not Now	\N		
+31	12	SWS2	Ehh!!	\N		
+32	12	SWS3	Explore	\N		
+33	12	SWS4	Super Explore	\N		
 5000	5000	FRND	Connection			
 5001	5000	FRND	Friend			
 5002	5000	FRND	Family			
@@ -79,9 +84,5 @@ id	category	code	name	description	icon	app_type_id
 50100	50001	TDP	in progress			
 50101	50001	TDP	later			
 50102	50001	TDP	done			
-60000	60000	CTBT	Follower		icon-gb-follower	
-60001	60000	CTBT	Observer		icon-gb-observer	
-60002	60000	CTBT	Judge		icon-gb-judge	
-60003	60000	CTBT	Administrator		icon-gb-admin	
 70000	70000	STS	pending			
 70001	70000	STS	accepted			

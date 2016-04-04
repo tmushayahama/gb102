@@ -38,7 +38,7 @@ and open the template in the editor.
 [x-ng-cloak], .ng-cloak, .x-ng-cloak {
  display: none !important;
 }
-
+md-input-container .md-input { flex: none !important; }
 md-input-container.md-input-focused .md-input {
  transition: border-color ease 0.28s;
  border-color: $primary-color!important;
@@ -111,6 +111,10 @@ li[class*="col-"]{
 }
 textarea {
  resize: none;
+ overflow: auto!important;
+ &.form-control {
+  //padding: 0 5px 0 0;
+ } 
 }
 
 form {
@@ -931,10 +935,21 @@ ul,li{
  height: 60px;
  width: 60px;
 }
+.gb-label {
+ color: rgba(0,0,0,0.26);
+ font-size: 12px;
+}
 .form-control{
  width: 100%;
  border-radius: 0!important;
  box-shadow:0 0 0;
+ border: none;
+ border-bottom: #BBB solid 2px;
+ &:focus {
+  border: none;
+  border-bottom: $primary-color solid 3px;
+  box-shadow: none;
+ }
 }
 .gb-bordered-btn {
  border: #BBB solid 1px;
@@ -1895,7 +1910,7 @@ input.gb-form-show{
 }
 .gb-level-4 .gb-item-level-heading{
  color: #FF887E;
-}  
+}
 
 
 

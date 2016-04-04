@@ -41,7 +41,7 @@ requirejs.config({
   'angular-bootstrap': {deps: ['angular']},
   'angular-ui-router': {deps: ['angular']},
   'angular-resource': {deps: ['angular']},
-  'angular-animate': {deps: ['angular']},
+  'angular-animate': {deps: ['angular', 'jquery']},
   'oc-lazy-load': {deps: ['angular']},
   'satellizer': {deps: ['angular']},
   'bootstrap': {'exports': 'bootstrap', deps: ['jquery']},

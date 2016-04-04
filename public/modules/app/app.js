@@ -45,9 +45,9 @@ define([
 ], function (angular) {
 
  var app = angular.module('app', [
+  'ngAnimate',
   'ui.router',
   'ngResource',
-  'ngAnimate',
   'satellizer',
   'oc.lazyLoad',
   'ui.bootstrap',
