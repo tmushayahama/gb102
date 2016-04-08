@@ -1493,7 +1493,7 @@ input.gb-form-show{
     text-align: center;
     .fa-circle {
      color: rgba($primary-color, 0.4);
-    } 
+    }
     .fa-inverse{
      //font-size: 1.3em;
      color: rgba($primary-color, 0.8);
@@ -1732,7 +1732,7 @@ input.gb-form-show{
   padding: 0 0 0 5px;
   font-weight: bold;
   line-height: 40px;
-  color: #555;
+  color: #555; 
  }
 
  .gb-action {
@@ -2009,6 +2009,7 @@ input.gb-form-show{
 
 .gb-box-2 {
  position: relative;
+ margin: 0;
  height: 140px;
  width: 100%;
  background-color: #FFF;

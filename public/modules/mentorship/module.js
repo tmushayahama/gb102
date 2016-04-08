@@ -20,6 +20,7 @@ define(['angular'
                  name: 'app.mentorship',
                  serie: true,
                  files: [
+                  'public/modules/mentorship/directives/mentorship-box.drv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/mentorship/services/mentorships.srv.js',
                   'public/modules/mentorship/controllers/mentorships.ctrl.js',

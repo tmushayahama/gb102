@@ -849,6 +849,9 @@ Copyright (c) 2014 Daniel Eden
 .gb-section-row-2.gb-mg {
   margin-bottom: 15px;
 }
+.gb-section-row-2.gb-mg .gb-heading {
+  margin-bottom: 10px;
+}
 .gb-section-row-2 .gb-heading {
   display: block;
 }
@@ -872,7 +875,7 @@ Copyright (c) 2014 Daniel Eden
   border-bottom: rgba(65, 29, 29, 0.4) solid 1px;
 }
 .gb-section-row-2 .gb-heading .gb-action.md-button {
-  width: 30px;
+  max-width: 150px;
   margin: 0;
 }
 .gb-section-row-2 .gb-heading .gb-heading-img {
@@ -4892,6 +4895,7 @@ input.gb-form-show {
 
 .gb-box-2 {
   position: relative;
+  margin: 0;
   height: 140px;
   width: 100%;
   background-color: #FFF;

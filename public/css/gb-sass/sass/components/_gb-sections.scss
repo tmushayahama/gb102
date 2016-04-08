@@ -43,6 +43,9 @@
  }
  &.gb-mg {
   margin-bottom: 15px;
+  .gb-heading {
+   margin-bottom: 10px;
+  }
  }
  .gb-heading {
   display: block;
@@ -66,7 +69,7 @@
    border-bottom: rgba($primary-color, 0.4) solid 1px;
   }
   .gb-action.md-button {
-   width: 30px;
+   max-width: 150px;
    margin: 0;
   }
   .gb-heading-img {

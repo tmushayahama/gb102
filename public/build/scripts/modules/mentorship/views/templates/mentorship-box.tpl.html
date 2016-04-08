@@ -1,0 +1,55 @@
+<div class="gb-box-1 gb-shadow-1 row">
+ <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+  <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
+       ng-src="public/build/img/mentorship-app/{{ ::mentorship.mentorship_picture_url}}"
+       class="gb-heading-pic" alt="">
+ </div>
+ <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+  <div class="gb-heading row">
+   <p class="gb-title">{{mentorship.explorer.app_type.name}} - {{::mentorship.explorer.level.name}}</p>
+   <div class="btn-toolbar gb-dropdown-action">
+    <md-button class="md-icon-button md-mini"
+               ng-click="$root.openCreateRequestMentorshipModal(mentorship.id)"
+               aria-label="Open Create Request Dialog">
+     <i class="fa fa-send-o"></i>
+    </md-button>
+    <md-button class="md-icon-button md-mini dropdown-toggle"
+               aria-label="More Options"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="fa fa-chevron-down"></i>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li>
+      <a ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})">
+       Open
+      </a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <div class="gb-description row">
+   <a data-ui-sref="apps.mentorshipItem.overview({mentorshipId: mentorship.id})" class="">
+    {{::mentorship.title}}
+   </a>
+   {{::mentorship.description}}
+  </div>
+  <div class="gb-footer row">
+   <h5 class="gb-ellipsis">
+    <a ui-sref="profile.overview({profileId: mentorship.creator.id})">
+     {{::mentorship.creator.firstname}} {{::mentorship.creator.lastname}}
+    </a>
+   </h5>
+   <div class="gb-summary-bar btn-group">
+    <a class="btn btn-xs btn-link">
+     <i class="gb-icon fa fa-check-square-o"></i> [0/0]
+    </a>
+    <a class="btn btn-xs btn-link">
+     <i class="gb-icon fa icon-chat2"></i> 0
+    </a>
+    <a class="btn btn-xs btn-link">
+     <i class="gb-icon fa icon-users"></i> 0
+    </a>
+   </div>
+  </div>
+ </div>
+</div>

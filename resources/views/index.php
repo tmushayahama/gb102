@@ -33,7 +33,6 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet" type="text/css"/>
-  <link href="bower_components/angular-material/angular-material.layouts.min.css" rel="stylesheet" type="text/css"/>
 
   <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
   <link href="public/gb-icons/gb-icons.css" rel="stylesheet" type="text/css"/>
