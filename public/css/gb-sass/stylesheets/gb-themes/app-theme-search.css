@@ -4795,12 +4795,12 @@ input.gb-form-show {
 /*----------------- Gb Large Boxes --------------*/
 .gb-box-1 {
   position: relative;
-  background-color: #FFF;
-  padding: 0;
+  min-height: 120px;
+  padding: 0 0 0 25px;
   margin-bottom: 15px;
   overflow: hidden;
 }
-.gb-box-1:hover {
+.gb-box-1:hover .gb-box-body {
   background-color: #F7F7F7;
 }
 .gb-box-1 .gb-image {
@@ -4821,19 +4821,31 @@ input.gb-form-show {
   margin: 0;
 }
 .gb-box-1 .gb-icon-image {
-  padding: 10px 25px 0 15px;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 10px 0 0 0;
   overflow: hidden;
+  text-align: center;
+  background-color: #505e4f;
+  color: #EEE;
+  z-index: 1;
+}
+.gb-box-1 .gb-icon-image .gb-icon {
+  font-size: 30px;
 }
 .gb-box-1 .gb-icon-image .gb-profile-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 60px;
-  height: 60px;
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
 }
 .gb-box-1 .gb-box-body {
-  padding: 5px 5px 10px 5px;
-  border-left: #999 solid 1px;
+  width: 100%;
+  background-color: #FFF;
+  padding: 5px 5px 10px 40px;
 }
 .gb-box-1 .gb-box-body .gb-heading {
   padding: 15px 5px 0 10px;
@@ -5016,6 +5028,87 @@ input.gb-form-show {
   padding: 10px 0 0 0;
 }
 
+.gb-box-4 {
+  position: relative;
+  margin: 0;
+  height: 140px;
+  width: 100%;
+  padding: 20px 5px;
+  background-color: transparent;
+  overflow: hidden;
+}
+.gb-box-4:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-box-4 .gb-icon-image {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 10px 0 0 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #505e4f;
+  color: #EEE;
+  z-index: 1;
+}
+.gb-box-4 .gb-icon-image .gb-icon {
+  font-size: 30px;
+}
+.gb-box-4 .gb-icon-image .gb-profile-img {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+}
+.gb-box-4 .gb-box-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 25px;
+  background-color: #FFF;
+  padding: 5px 5px 10px 40px;
+}
+.gb-box-4 .gb-box-body .gb-heading {
+  padding: 15px 5px 0 0;
+  margin-bottom: 10px;
+  height: 30px;
+}
+.gb-box-4 .gb-box-body .gb-heading .gb-title {
+  color: #777;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.gb-box-4 .gb-box-body .gb-description {
+  padding: 2px 10px 2px 10px;
+  overflow: hidden;
+}
+.gb-box-4 .gb-box-body .gb-footer {
+  padding: 8px 3px 0 10px;
+}
+.gb-box-4 .gb-box-body .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-box-4 .gb-box-body .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-box-4 .gb-box-body .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-box-4 .gb-box-body .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-box-4 .gb-box-body .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
 .gb-person-box {
   position: relative;
   background-color: #FFF;
@@ -5143,89 +5236,6 @@ input.gb-form-show {
 
 .gb-box-7 .stats .thumbnail:hover {
   background-color: #d3d6da;
-}
-
-.gb-box-4 {
-  height: 120px;
-  margin-bottom: 20px;
-  background-color: #FAFAFA;
-  overflow: hidden;
-}
-
-.gb-box-4 .gb-heading-img-container {
-  height: 120px;
-  overflow: hidden;
-}
-
-.gb-box-4 .gb-heading-img {
-  width: auto;
-}
-
-.gb-box-4:hover {
-  background-color: #EEE;
-  -webkit-box-shadow: #AAA -1px 1px 2px;
-  -moz-box-shadow: #AAA -1px 1px 2px;
-  box-shadow: #AAA -1px 1px 2px;
-}
-
-.gb-box-4 .gb-title {
-  padding-top: 7px;
-  font-size: 1.3em;
-  font-weight: bold;
-  height: 40px;
-}
-
-.gb-box-4 .gb-description {
-  height: 80px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.gb-box-4 .questionnaire-summary {
-  height: 120px;
-}
-
-.gb-box-4 .questionnaire-summary a {
-  font-size: 0.9em;
-}
-
-.gb-box-4 .stats .thumbnail:hover {
-  background-color: #d3d6da;
-}
-
-.gb-box-5 {
-  margin-bottom: 0px;
-  border-bottom: #AAA solid 2px;
-  overflow: hidden;
-}
-
-.gb-box-5 .gb-heading-img-container {
-  height: 35px;
-  padding: 2px;
-  overflow: hidden;
-}
-
-.gb-box-5 .gb-heading-img {
-  width: auto;
-}
-
-.gb-box-5:hover {
-  background-color: #EEE;
-}
-
-.gb-box-5.active {
-  background-color: #E2E2E2;
-}
-
-.gb-box-5 .gb-title {
-  color: #444;
-  padding-top: 6px;
-  font-weight: bold;
-}
-
-.gb-box-5 .gb-description {
-  padding-top: 2px;
-  font-size: 0.8em;
 }
 
 .gb-box-6 {

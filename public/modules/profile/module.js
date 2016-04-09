@@ -45,6 +45,7 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
+                  'public/modules/explorer/services/explorers.srv.js',
                   'public/modules/profile/controllers/profile-overview.ctrl.js',
                  ]
                 });
