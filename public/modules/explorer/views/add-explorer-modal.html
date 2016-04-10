@@ -20,13 +20,13 @@
           class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
           ng-click="addExplorerCtrl.chooseAppType(appType)"
           wz-next value="Fill">
-      <md-button class="md-raised gb-apptype-btn">
+      <md-button class="md-raised gb-shadow-1 gb-apptype-btn">
        <div class="gb-icon col-lg-2 col-md-2 col-sm-2 col-xs-2">
         <i class=" fa icon-gb-{{appType.name.toLowerCase()}}"></i>
        </div>
        <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <div class="gb-ellipsis">
-         {{appType.name}}
+         {{appType.add_description}}
         </div>
        </div>
       </md-button>

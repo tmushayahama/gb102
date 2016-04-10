@@ -1,12 +1,12 @@
-id	name	description
-1	Skills	\N
-2	Goals	\N
-3	Hobbies	\N
-4	Promises	\N
-5	Mentorships	\N
-6	Collaborations	\N
-7	Teach	\N
-8	Advices	\N
-9	Groups	\N
-10	Journals	\N
-11	Topic	\N
+id	name	description	add_description	request_description
+1	Skills	\N	Add a Skill	Skill Request
+2	Goals	\N	Add a Goal	Goal Request
+3	Hobbies	\N	Add a Hobby	Hobby Request
+4	Promises	\N	Add a Promise	Promise Request
+5	Mentorships	\N	Create a Mentorship	Mentorship Request
+6	Collaborations	\N	Create A Collaboration	Collaboration Request
+7	Teach	\N	Create A Lesson	Lesson Request
+8	Advices	\N	Add an Advice	Advice Request
+9	Groups	\N	Create A Group	Group Request
+10	Journals	\N	Write a Journal	Journal Request
+11	Topic	\N	Create A Topic	Topic Request

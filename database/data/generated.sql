@@ -84,6 +84,20 @@ CREATE TABLE `gb_activity` (
   CONSTRAINT `activity_parent_activity_id` FOREIGN KEY (`parent_activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_level`
+--
+DROP TABLE IF EXISTS `gb_app_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_app_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(500),
+  `add_description` varchar(500),
+  `request_description` varchar(500),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_assignment`
@@ -141,18 +155,7 @@ CREATE TABLE `gb_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_level`
---
-DROP TABLE IF EXISTS `gb_app_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_app_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(500),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_checklist`
@@ -632,7 +635,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `name`, `description`);
+    (`id`, `name`, `description`, `add_description`, `request_description`);
 
 -- ----------- LEVEL ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'

@@ -1,18 +1,72 @@
 <section class="gb-section-row-2 row">
- <header class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-   <p class="gb-title gb-ellipsis">
-    OVERVIEW
-   </p>
+ <div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+   <md-button ui-sref="apps.community.users" class="gb-box-3 gb-shadow-1"
+              ng-class="{
+                 active: ('apps.community'| includedByState)
+                }">
+    <div class="gb-stat-number">
+     0
+    </div>
+    <div class="gb-title gb-ellipsis hidden-xs">
+     <i class="gb-icon fa icon-gb-community"></i> CONNECTIONS
+    </div>
+   </md-button>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3">
-   <a class="gb-ghost-btn-2 pull-right" ng-click="editDescriptionForm.$show()" ng-hide="editDescriptionForm.$visible">
-    <i class="fa fa-pencil"></i>
-   </a>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+   <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+              ng-class="{
+                   active: ('apps.group' | includedByState)
+                  }">
+    <div class="gb-stat-number">
+     0
+    </div>
+    <div class="gb-title gb-ellipsis">
+     <i class="gb-icon fa icon-gb-groups"></i> GROUPS
+    </div>
+   </md-button>
   </div>
- </header>
- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+   <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+              ng-class="{
+                   active: ('apps.group' | includedByState)
+                  }">
+    <div class="gb-stat-number">
+     {{profileOverviewCtrl.explorersStats.totalCount}}
+    </div>
+    <div class="gb-title gb-ellipsis">
+     <i class="gb-icon fa icon-gb-explorer"></i> EXPLORATIONS
+    </div>
+   </md-button>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+   <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+              ng-class="{
+                   active: ('apps.group' | includedByState)
+                  }">
+    <div class="gb-stat-number">
+     0
+    </div>
+    <div class="gb-title gb-ellipsis">
+     <i class="gb-icon fa icon-gb-apply"></i> APPLICATIONS
+    </div>
+   </md-button>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+   <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+              ng-class="{
+                   active: ('apps.group' | includedByState)
+                  }">
+    <div class="gb-stat-number">
+     0
+    </div>
+    <div class="gb-title gb-ellipsis">
+     <i class="gb-icon fa icon-gb-collaborations"></i> CONTRIBUTIONS
+    </div>
+   </md-button>
+  </div>
  </div>
 </section>
+<div ng-include="'public/build/scripts/modules/profile/views/tabs/profile/profile-about.html'"></div>
+
 <div class="gb-dummy-height row"></div>

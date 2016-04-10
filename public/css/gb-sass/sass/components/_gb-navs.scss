@@ -245,44 +245,51 @@
  }
 }
 
-.gb-section-row-2 {
- .gb-dropdown-nav-1 {
-  width: 200px;
-  padding: 0;
-  list-style: none;
-  background-color: #FFF;
+.gb-dropdown-nav-1 {
+ width: 200px;
+ padding: 0;
+ list-style: none;
+ background-color: #FFF;
 
-  li {
-   border-left: transparent solid 4px;
-   border-bottom: #CCC solid 1px;
-   a{
-    padding: 5px 10px 5px 10px;
-    display: block;
-    line-height: 25px;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    background-color: transparent;
-    .gb-icon {
-     float: left;
-     font-size: 24px;
-     margin-right: 5px;
-     color: rgba($primary-color, 0.8);
-    }
-    .gb-title {
-     color: #777;
-     float: left;
-     padding-top: 0px;
-     font-size: 12px;
-    }
+ li {
+  border-left: transparent solid 4px;
+  border-bottom: #CCC solid 1px;
+  a{
+   padding: 5px 10px 5px 10px;
+   display: block;
+   line-height: 25px;
+   height: 100%;
+   width: 100%;
+   text-decoration: none;
+   background-color: #FFF;
+   .gb-icon {
+    float: left;
+    font-size: 24px;
+    margin-right: 5px;
+    color: rgba($primary-color, 0.8);
    }
-   &:hover {
-    color: rgba($primary-color, 0.5);
-    border-left: rgba($primary-color, 0.4) solid 4px;
+   .gb-title {
+    color: #777;
+    float: left;
+    padding: 0 0 0 0;
+    font-size: 12px;
    }
-   &.active {
-    color: rgba($primary-color, 1);
-    border-left: rgba($primary-color, 0.8) solid 4px;
+   &:focus, &:hover, &.active {
+    background-color: transparent!important;
+   }
+  }
+  &:hover {
+   color: rgba($primary-color, 0.5);
+   border-left: rgba($primary-color, 0.4) solid 4px;
+   a, a:focus, a:hover, a.active {
+    background-color: #F2F2F2!important;
+   }
+  }
+  &.active {
+   color: rgba($primary-color, 1);
+   border-left: rgba($primary-color, 0.8) solid 4px;
+   a, a:focus, a:hover, a.active {
+    background-color: #E2E2E2!important;
    }
   }
  }
