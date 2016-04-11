@@ -5,6 +5,7 @@ define([
  'angular-ui-router',
  'angular-resource',
  'angular-animate',
+ 'angular-messages',
  'oc-lazy-load',
  'satellizer',
  'angular-bootstrap',
@@ -46,6 +47,8 @@ define([
 
  var app = angular.module('app', [
   'ngAnimate',
+  'ngMessages',
+  'ngMaterial',
   'ui.router',
   'ngResource',
   'satellizer',
@@ -64,7 +67,6 @@ define([
   'ngTagsInput',
   'infinite-scroll',
   'ngAria',
-  'ngMaterial',
   //'gajus.swing',
   'gb-filters.truncate',
   'app.auth',

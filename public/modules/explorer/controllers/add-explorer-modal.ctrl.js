@@ -63,6 +63,7 @@ var addExplorerCtrl = function (
 
  vm.ok = function () {
   vm.explorer.explorer_requests = [];
+  vm.explorer.explorer_picture_url = 'default.png';
   angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
    vm.explorer.explorer_requests.push(selectedRequestType.explorerRequest);
   });

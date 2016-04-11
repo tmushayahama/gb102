@@ -119,8 +119,9 @@ btn:focus {
 .gb-apptype-btn {
  width: 100%;
  padding: 7px 5px 5px 5px;
+ margin: 0;
+ text-transform: capitalize;
  text-align: left;
- border: rgba($primary-color, 0.4) solid 1px;
  height: 50px;
  .gb-icon {
   color: rgba($primary-color, 0.8);

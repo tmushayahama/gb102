@@ -147,6 +147,7 @@ class Explorer extends Model {
   $appTypeId = Request::get("app_type_id");
   $parentExplorerId = Request::get("parent_explorer_id");
   $title = Request::get("title");
+  $explorerPictureUrl = Request::get("explorer_picture_url");
   $description = Request::get("description");
   $levelId = Request::get("level");
   $explorerRequests = Request::get("explorer_requests");
@@ -157,6 +158,7 @@ class Explorer extends Model {
   $explorer->app_type_id = $appTypeId;
   $explorer->title = $title;
   $explorer->description = $description;
+  $explorer->explorer_picture_url = $explorerPictureUrl;
   $explorer->level_id = $levelId;
 
   DB::beginTransaction();
@@ -169,7 +171,7 @@ class Explorer extends Model {
   }
   DB::commit();
   ExplorerRequestOption::createExplorerRequestOption($userId, $explorer->id, $explorerRequests);
-  return $explorer;
+  return self::getExplorer($explorer->id);
  }
 
  public static function editExplorer() {

@@ -21,8 +21,7 @@
     "branch": "master",
     "commit": "d48b7566166bd5bf1cd9191e31af0b32b2386f1a"
   },
-  "_source": "git://github.com/gajus/angular-swing.git",
+  "_source": "https://github.com/gajus/angular-swing.git",
   "_target": "*",
-  "_originalSource": "angular-swing",
-  "_direct": true
+  "_originalSource": "angular-swing"
 }

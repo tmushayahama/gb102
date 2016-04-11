@@ -250,8 +250,9 @@ btn:focus {
 .gb-apptype-btn {
   width: 100%;
   padding: 7px 5px 5px 5px;
+  margin: 0;
+  text-transform: capitalize;
   text-align: left;
-  border: rgba(109, 96, 60, 0.4) solid 1px;
   height: 50px;
 }
 .gb-apptype-btn .gb-icon {
@@ -298,6 +299,10 @@ btn:focus {
   margin: 0 5px 0 0;
   padding: 0 0 0 0;
   font-size: 25px;
+}
+
+.gb-modal-footer-btn {
+  text-transform: capitalize;
 }
 
 .modal-login {
@@ -347,7 +352,7 @@ btn:focus {
 }
 
 .modal-body {
-  background-color: #F7F7F7;
+  background-color: #FFF;
   position: absolute;
   top: 41px;
   right: 0;

@@ -1,15 +1,29 @@
-<div id="gb-explorers" class="gb-list row" infinite-scroll="addMoreItems()">
- <section ng-show="false" class=" gb-section-row-2 gb-padding-none row">
-  <header class="gb-heading row">
-   <div class="col-lg-4 col-md-4 col-sm-9 col-xs-9">
-    <p class="gb-title gb-small gb-ellipsis">
-     {{::explorersTabCtrl.appName.toUpperCase()}}
-    </p>
+<div class="row">
+ <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+  <md-button ng-click="explorersTabCtrl.openAddExplorerModal()" class="gb-box-2 gb-shadow-1">
+   <div class="gb-icon-image">
+    <i class="gb-icon fa fa-plus"></i>
    </div>
-  </header>
- </section>
- <div class="gb-padding-none">
-  <div ng-repeat="explorer in explorersTabCtrl.explorers track by $index"
+   <div class="gb-title gb-ellipsis">
+    Add To Explorer
+   </div>
+  </md-button>
+ </div>
+ <div ng-click="explorersTabCtrl.openAddExplorerModal()" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+  <md-button class="gb-box-2 gb-shadow-1">
+   <div class="gb-icon-image">
+    <i class="gb-icon fa fa-send-o"></i>
+   </div>
+   <div class="gb-title gb-ellipsis">
+    Send Request
+   </div>
+  </md-button>
+ </div>
+</div>
+<br>
+<div id="gb-explorers" class="gb-list row" finite-scroll="addMoreItems()">
+ <div class="gb-padding-thin">
+  <div ng-repeat="explorer in explorersTabCtrl.explorers"
        gb-explorer-box explorer="explorer">
   </div>
  </div>

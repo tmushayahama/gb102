@@ -25,7 +25,7 @@
     "tag": "v0.6.1",
     "commit": "d1a8147b585888655850e4f50749ae6180b8ca92"
   },
-  "_source": "git://github.com/mgonto/angular-wizard.git",
+  "_source": "https://github.com/mgonto/angular-wizard.git",
   "_target": "~0.6.1",
   "_originalSource": "angular-wizard"
 }

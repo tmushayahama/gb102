@@ -39,7 +39,7 @@
     "tag": "v1.0.7",
     "commit": "06232156c8c21aeee0626a3a6bf4d0499516c7e8"
   },
-  "_source": "git://github.com/door3/angular-css.git",
+  "_source": "https://github.com/door3/angular-css.git",
   "_target": "~1.0.7",
   "_originalSource": "angular-css"
 }

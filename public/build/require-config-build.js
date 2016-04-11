@@ -28,6 +28,7 @@ requirejs.config({
   'ng-tags-input': '../../../bower_components/ng-tags-input/ng-tags-input.min',
   'angular-aria': '../../../bower_components/angular-aria/angular-aria.min',
   'angular-material': '../../../bower_components/angular-material/angular-material.min',
+  'angular-messages': '../../bower_components/angular-messages/angular-messages.min',
   'infinite-scroll': '../../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min',
   'truncate-filters': 'scripts/modules/common/filters/truncate'
 
@@ -59,8 +60,7 @@ requirejs.config({
   'ng-tags-input': {deps: ['angular']},
   'angular-aria': {deps: ['angular']},
   'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},
-  'material': {deps: ['jquery']},
-  'ripples': {deps: ['jquery']},
+  'angular-messages': {deps: ['angular']},
   'infinite-scroll': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
  },

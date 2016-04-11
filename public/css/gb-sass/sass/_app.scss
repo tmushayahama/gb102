@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Tremmillicious
 */
 
-@import "app-variables";
+@import "app-variables";   
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
 @import "components/gb-search";
@@ -2009,7 +2009,7 @@ input.gb-form-show{
    padding: 10px 5px 10px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
-    margin: 10px 0 5px 0; 
+    margin: 10px 0 5px 0;
     .gb-title {
      color: #888;
      font-size:10px;

@@ -28,7 +28,7 @@
     "tag": "0.3.10",
     "commit": "add16783166c99cb9b83992762073c820af86056"
   },
-  "_source": "git://github.com/crisbeto/angular-svg-round-progressbar.git",
+  "_source": "https://github.com/crisbeto/angular-svg-round-progressbar.git",
   "_target": "~0.3.10",
   "_originalSource": "angular-svg-round-progressbar"
 }
