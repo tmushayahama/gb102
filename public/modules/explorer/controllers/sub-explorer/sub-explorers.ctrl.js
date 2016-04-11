@@ -10,15 +10,8 @@ var subExplorersCtrl = function (
  vm.subExplorers;
  vm.explorerSrv = new ExplorerSrv();
 
- vm.getSubExplorers = function (id) {
-  vm.explorerSrv.getSubExplorers(id).then(function (data) {
-   vm.subExplorers = data;
-   vm.getSubSubExplorers(vm.explorer.explorer_id);
-  });
- };
-
- vm.getSubSubExplorers = function (explorerId) {
-  vm.explorerSrv.getSubSubExplorers(explorerId).then(function (data) {
+ vm.getSubExplorers = function (explorerId) {
+  vm.explorerSrv.getSubExplorers(explorerId).then(function (data) {
    vm.subExplorers = data;
   });
  }

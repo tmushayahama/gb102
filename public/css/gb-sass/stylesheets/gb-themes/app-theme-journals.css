@@ -2889,6 +2889,18 @@ body > .ui-select-bootstrap.open {
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
 }
 
+.gb-mg-top-md {
+  margin-top: 10px;
+}
+
+.gb-mg-top-lg {
+  margin-top: 15px;
+}
+
+.gb-mg-top-xl {
+  margin-top: 20px;
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -3035,7 +3047,7 @@ input[type="checkbox"] {
 
 .gb-heading-row-1 {
   margin: 10px 0;
-  padding: 0 0 0 0;
+  padding: 0 0 5px 0;
   background-color: #FFF;
 }
 .gb-heading-row-1 .gb-heading-icon {
@@ -4915,7 +4927,7 @@ input.gb-form-show {
   padding: 10px 5px 10px 15px;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-heading {
-  margin: 10px 0 5px 0;
+  margin: 5px 0 5px 0;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;

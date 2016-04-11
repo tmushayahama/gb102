@@ -3,15 +3,19 @@
  <div class="gb-icon-image">
   <i class="fa gb-icon icon-gb-{{explorer.app_type.name.toLowerCase()}}"></i>
  </div>
- <div class="gb-box-body gb-shadow-1 row">
-  <div class="gb-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+ <div class="gb-box-body gb-shadow-1">
+  <div class="gb-image">
    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
         ng-src="public/build/img/explorer/{{ ::explorer.explorer_picture_url}}"
-        class="img-polaroid gb-heading-pic" alt="">
+        class="gb-heading-pic" alt="">
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+  <div class="gb-box-content">
    <div class="gb-heading row">
-    <p class="gb-title">{{explorer.app_type.name}} - {{::explorer.level.name}}</p>
+    <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
+     <p class="gb-ellipsis">
+      {{explorer.app_type.name}} - {{::explorer.level.name}}
+     </p>
+    </div>
     <div class="btn-toolbar gb-dropdown-action">
      <md-button class="md-icon-button md-mini"
                 ng-click="$root.openCreateRequestExplorerModal(explorer.id)"

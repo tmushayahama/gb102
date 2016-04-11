@@ -4,120 +4,99 @@
   <div class="col-lg-7 col-md-8 col-sm-12 col-xs-12">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
-     <section class="gb-section-row-2 row">
-      <header class="gb-heading row">
-       <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
-        <p class="pull-left gb-title">
-         {{$root.appName}}
-        </p>
-       </div>
-       <div class="btn-group pull-right">
-        <md-button type="button" class="gb-action gb-background-white gb-shadow-1 pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <i class="gb-menu-icon fa fa-filter"></i> {{$root.subAppName}}
+     <div class="gb-heading-row-1 gb-shadow-1 row">
+      <div class="gb-heading-icon gb-shadow-1">
+       <i class="fa icon-gb-explorer"></i>
+      </div>
+      <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+       <p class="gb-ellipsis">
+        {{$root.appName}}
+       </p>
+      </div>
+      <div class="btn-group pull-right">
+       <md-button type="button" class="gb-action pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="gb-menu-icon fa fa-filter"></i> {{$root.subAppName}}
+       </md-button>
+       <ul class="gb-dropdown-nav-1 dropdown-menu text-left">
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.all">
+         <i class="gb-icon fa icon-gb-discover"></i>
+         <div class="gb-title">
+          ALL
+         </div>
         </md-button>
-        <ul class="gb-dropdown-nav-1 dropdown-menu text-left">
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.all">
-          <i class="gb-icon fa icon-gb-discover"></i>
-          <div class="gb-title">
-           ALL
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'skills'})">
-          <i class="gb-icon fa icon-gb-skills"></i>
-          <div class="gb-title">
-           SKILLS
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'goals'})">
-          <i class="gb-icon fa icon-gb-goals"></i>
-          <div class="gb-title">
-           GOALS
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'promises'})">
-          <i class="gb-icon fa icon-gb-promises"></i>
-          <div class="gb-title">
-           PROMISES
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'hobbies'})">
-          <i class="gb-icon fa icon-gb-hobbies"></i>
-          <div class="gb-title">
-           HOBBIES
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'mentorships'})">
-          <i class="gb-icon fa icon-gb-mentorships"></i>
-          <div class="gb-title">
-           MENTORSHIP
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'advices'})">
-          <i class="gb-icon fa icon-gb-advices"></i>
-          <div class="gb-title">
-           ADVICE
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'teach'})">
-          <i class="gb-icon fa icon-gb-teach"></i>
-          <div class="gb-title">
-           TEACH
-          </div>
-         </md-button>
-         </li>
-         <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'collaborations'})">
-          <i class="gb-icon fa icon-gb-collaborations"></i>
-          <div class="gb-title">
-           COLLABORATION
-          </div>
-         </md-button>
-         </li>
-        </ul>
-       </div>
-      </header>
-     </section>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'skills'})">
+         <i class="gb-icon fa icon-gb-skills"></i>
+         <div class="gb-title">
+          SKILLS
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'goals'})">
+         <i class="gb-icon fa icon-gb-goals"></i>
+         <div class="gb-title">
+          GOALS
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'promises'})">
+         <i class="gb-icon fa icon-gb-promises"></i>
+         <div class="gb-title">
+          PROMISES
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'hobbies'})">
+         <i class="gb-icon fa icon-gb-hobbies"></i>
+         <div class="gb-title">
+          HOBBIES
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'mentorships'})">
+         <i class="gb-icon fa icon-gb-mentorships"></i>
+         <div class="gb-title">
+          MENTORSHIP
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'advices'})">
+         <i class="gb-icon fa icon-gb-advices"></i>
+         <div class="gb-title">
+          ADVICE
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'teach'})">
+         <i class="gb-icon fa icon-gb-teach"></i>
+         <div class="gb-title">
+          TEACH
+         </div>
+        </md-button>
+        </li>
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'collaborations'})">
+         <i class="gb-icon fa icon-gb-collaborations"></i>
+         <div class="gb-title">
+          COLLABORATION
+         </div>
+        </md-button>
+        </li>
+       </ul>
+      </div>
+     </div>
     </div>
    </div>
    <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-     <md-button ng-click="$root.openAddExplorerModal()" class="gb-box-2 gb-shadow-1">
-      <div class="gb-icon-image">
-       <i class="gb-icon fa fa-plus"></i>
-      </div>
-      <div class="gb-title gb-ellipsis">
-       Add To Explorer
-      </div>
-     </md-button>
-    </div>
-    <div ng-click="$root.openAddExplorerModal()" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-     <md-button class="gb-box-2 gb-shadow-1">
-      <div class="gb-icon-image">
-       <i class="gb-icon fa fa-send-o"></i>
-      </div>
-      <div class="gb-title gb-ellipsis">
-       Send Request
-      </div>
-     </md-button>
-    </div>
-   </div>
-   <div class="row">
-    <div data-ui-view="app-tab" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin "></div>
+    <div data-ui-view="app-tab" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
    </div>
   </div>
  </div>

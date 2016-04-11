@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Tremmillicious
 */
 
-@import "app-variables";   
+@import "app-variables";
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
 @import "components/gb-search";
@@ -31,6 +31,16 @@ and open the template in the editor.
 //@import "components/gb-spinner";
 
 @import "components/gb-ui-select";
+
+.gb-mg-top-md {
+ margin-top: 10px;
+}
+.gb-mg-top-lg {
+ margin-top: 15px;
+}
+.gb-mg-top-xl {
+ margin-top: 20px;
+}
 
 [ng\:cloak],
 [ng-cloak],
@@ -183,7 +193,7 @@ input[type="checkbox"] {
 //-----------HEADINGS-------------//
 .gb-heading-row-1 {
  margin: 10px 0;
- padding: 0 0 0 0;
+ padding: 0 0 5px 0;
  background-color: #FFF;
 
  .gb-heading-icon {
@@ -2009,7 +2019,7 @@ input.gb-form-show{
    padding: 10px 5px 10px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
-    margin: 10px 0 5px 0;
+    margin: 5px 0 5px 0;
     .gb-title {
      color: #888;
      font-size:10px;

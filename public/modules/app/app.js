@@ -153,6 +153,7 @@ define([
                  'public/modules/common/directives/sticky.drv.js',
                  'public/modules/search/services/search.srv.js',
                  'public/modules/app/controllers/apps.ctrl.js',
+                 'public/modules/explorer/directives/explorer-box.drv.js',
                  'public/modules/app/controllers/menu-modal.ctrl.js',
                 ]
                });
