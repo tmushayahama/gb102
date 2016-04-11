@@ -10,9 +10,10 @@
       PROGRESS
      </p>
     </div>
-    <div ng-if="false" class="btn-group pull-right">
-     <md-button class="gb-action" ng-click="editDescriptionForm.$show()" ng-hide="editDescriptionForm.$visible">
-      <i class="fa fa-pencil"></i>
+    <div class="btn-group pull-right">
+     <md-button class="gb-action" ng-click="explorerTodosCtrl.showTodoForm()"
+                ng-show="!explorerTodosCtrl.todoFormDisplay">
+      <i class="fa fa-plus"></i>
      </md-button>
     </div>
    </div>
@@ -21,11 +22,7 @@
  <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class='row'>
-    <div ng-show="!explorerTodosCtrl.todoFormDisplay" class="gb-form-placeholder">
-     <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-img" alt="">
-     <input class="" ng-click="explorerTodosCtrl.showTodoForm()" placeholder="What needs to be done?" readonly>
-    </div>
-    <form class="gb-form-1" ng-show="explorerTodosCtrl.todoFormDisplay" name="form" novalidate>
+    <form class="gb-shadow-1 gb-background-white" ng-show="explorerTodosCtrl.todoFormDisplay" name="form" novalidate>
      <div class="form-group row">
       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -84,13 +81,13 @@
       </label>
      </div>
      <div class="gb-form-footer row">
-      <div class="btn-group pull-right col-lg-5 col-md-5 col-sm-66 col-xs-12">
-       <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerTodosCtrl.cancelExplorerTodo(form)">
+      <div class="btn-group pull-right">
+       <md-button type="button" class="" ng-click="explorerTodosCtrl.cancelExplorerTodo(form)">
         Cancel
-       </a>
-       <a class="btn gb-btn gb-btn-md col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="explorerTodosCtrl.createExplorerTodo(explorerTodosCtrl.newExplorerTodoData)">
+       </md-button>
+       <md-button type="button" class="gb-color-primary" ng-click="explorerTodosCtrl.createExplorerTodo(explorerTodosCtrl.newExplorerTodoData)">
         Add Todo
-       </a>
+       </md-button>
       </div>
      </div>
     </form>

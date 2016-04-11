@@ -19,7 +19,8 @@ var createExplorerContributionCtrl = function (
  vm.contributionType = contributionType;
  vm.communitySrv = new CommunitySrv();
  vm.explorerContributionsSrv = new ExplorerContributionsSrv();
- vm.users;
+ vm.users = [];
+ vm.selectedUsers = [];
  vm.getUsers = function () {
   vm.communitySrv.getUsers().then(function (data) {
    vm.users = data;
@@ -44,8 +45,12 @@ var createExplorerContributionCtrl = function (
   };
   vm.explorerContributionsSrv.createExplorerContribution(requestData)
           .then(function (data) {
-
+           vm.selectedUsers.push(data);
           });
+ };
+
+ vm.done = function () {
+  $uibModalInstance.close(vm.selectedUsers);
  };
 
  vm.cancel = function () {

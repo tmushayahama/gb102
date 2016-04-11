@@ -10,7 +10,7 @@
 </div>
 <div class="modal-body gb-modal-body">
  <div ng-repeat="user in createExplorerContributionCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
-      ng-init="ss = 'ddd' + createExplorerContributionCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
+      ng-init="ss = createExplorerContributionCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
   <div class="gb-person-box">
    <img src="public/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
    <div class="gb-box-body">
@@ -35,14 +35,9 @@
  </div>
 </div>
 <div class="modal-footer">
- <div class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="gb-container btn-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
-   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="createExplorerContributionCtrl.cancel()">
-    Cancel
-   </a>
-   <a class="btn gb-btn gb-btn-sm col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-click="createExplorerContributionCtrl.select()">
-    Select
-   </a>
-  </div>
+ <div class="btn-group pull-right">
+  <md-button class="gb-color-primary" ng-click="createExplorerContributionCtrl.done()">
+   Done
+  </md-button>
  </div>
 </div>

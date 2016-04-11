@@ -2922,6 +2922,9 @@ md-input-container.md-input-focused .md-input {
   min-height: 20px;
   min-width: 22px;
 }
+.md-button.gb-color-primary {
+  color: #41642A;
+}
 
 md-checkbox.md-checked.gb-primary .md-icon {
   background-color: #41642A;
@@ -3086,17 +3089,6 @@ input[type="checkbox"] {
 .gb-heading-row-1 .gb-action.md-button {
   max-width: 150px;
   margin: 0;
-}
-@media (max-width: 767px) {
-  .gb-heading-row-1 {
-    padding-bottom: 15px;
-  }
-  .gb-heading-row-1 .gb-heading .gb-title {
-    font-size: 20px;
-  }
-  .gb-heading-row-1 .gb-heading .gb-action {
-    padding: 2px 0 0 0;
-  }
 }
 
 .gb-mega-dropdown .nav, .gb-mega-dropdown .collapse, .gb-mega-dropdown .dropup, .gb-mega-dropdown .dropdown, .gb-mega-dropdown .dropdown-menu {
@@ -5203,6 +5195,136 @@ input.gb-form-show {
 }
 .gb-box-4 .gb-box-body .gb-footer .gb-footer-content {
   padding: 10px 0 0 0;
+}
+
+.gb-todo-box {
+  position: relative;
+  padding: 0 0 0 25px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.gb-todo-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-todo-box .gb-icon-image {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 10px 0 0 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(65, 100, 42, 0.8);
+  color: #EEE;
+  z-index: 1;
+}
+.gb-todo-box .gb-icon-image .gb-icon {
+  font-size: 30px;
+}
+.gb-todo-box .gb-icon-image .gb-profile-img {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+}
+.gb-todo-box .gb-box-body {
+  position: relative;
+  margin-bottom: 5px;
+  height: 150px;
+  width: 100%;
+  background-color: #FFF;
+}
+.gb-todo-box .gb-box-body .gb-todo-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 150px;
+  padding: 20px 0 0 50px;
+}
+.gb-todo-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.gb-todo-box .gb-box-body .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 150px;
+  padding: 10px 5px 10px 15px;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-heading {
+  margin: 5px 0 5px 0;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-faded-icon {
+  color: #999;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-relation {
+  padding: 8px 5px 0 10px;
+  height: 22px;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-relation .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-description {
+  padding: 2px 10px 2px 0px;
+  max-height: 61px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer {
+  padding: 8px 3px 0 0;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-todo-box .gb-box-body .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-todo-box .gb-box-body .gb-dropdown-action button {
+  margin: 0;
 }
 
 .gb-person-box {
