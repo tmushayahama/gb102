@@ -53,6 +53,25 @@ define(['angular'
              }
             }
            }})
+          .state('apps.profile.community', {
+           url: '/community',
+           views: {
+            "content": {
+             controller: 'ProfileCommunityCtrl as profileCommunityCtrl',
+             templateUrl: 'public/modules/profile/views/tabs/profile/profile-community.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.profile',
+                 serie: true,
+                 files: [
+                  'public/modules/profile/controllers/profile-community.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.profile.about', {
            url: '/about',
            views: {

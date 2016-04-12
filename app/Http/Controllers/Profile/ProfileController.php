@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\User\User;
 use App\Models\User\UserProfileSection;
+use App\Models\User\UserConnection;
 use App\Models\Profile\ProfileProgress;
 use App\Models\Profile\ProfileComment;
 use App\Models\Profile\ProfileNote;
@@ -30,6 +31,11 @@ class ProfileController extends Controller {
  public function getProfile($id) {
   $profile = User::getProfile($id);
   return \Response::json($profile);
+ }
+
+ public static function getUserConnections($userId) {
+  $userConnection = UserConnection::getUserConnections($userId);
+  return \Response::json($userConnection);
  }
 
  public function getUserProfileSections($id) {

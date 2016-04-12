@@ -70,8 +70,7 @@ class Explorer extends Model {
  public static function getUserExplorersAllStats($userId) {
   $explorersCount = Explorer::where('creator_id', $userId)
           ->count();
-  $results = array('totalCount' => $explorersCount);
-  return $results;
+  return array('totalCount' => $explorersCount);
  }
 
  public static function getExplorers($appName) {

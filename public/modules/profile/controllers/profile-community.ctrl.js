@@ -1,20 +1,14 @@
-var profileOverviewCtrl = function (
+var profileCommunityCtrl = function (
         ProfileSrv,
-        ExplorersSrv,
         $state,
         $stateParams,
         $http,
         $rootScope) {
  var vm = this;
- vm.explorersSrv = new ExplorersSrv();
  vm.profileSrv = new ProfileSrv();
  vm.connections;
 
  vm.userId = $stateParams.profileId;
-
- vm.explorersSrv.getUserExplorersStats(vm.userId).then(function (data) {
-  vm.explorersStats = data;
- });
 
  vm.profileSrv.getUserConnections(vm.userId).then(function (data) {
   vm.connections = data;
@@ -22,12 +16,11 @@ var profileOverviewCtrl = function (
 
 };
 
-profileOverviewCtrl.$inject = [
+profileCommunityCtrl.$inject = [
  'ProfileSrv',
- 'ExplorersSrv',
  '$state',
  '$stateParams',
  '$http',
  '$rootScope'];
 
-angular.module("app.profile").controller('ProfileOverviewCtrl', profileOverviewCtrl);
+angular.module("app.profile").controller('ProfileCommunityCtrl', profileCommunityCtrl);

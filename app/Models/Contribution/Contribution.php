@@ -39,4 +39,10 @@ class Contribution extends Model {
   */
  protected $fillable = ['description'];
 
+ public static function getContributionStats($userId) {
+  $contributionsCount = Contribution::where('contributor_id', $userId)
+          ->count();
+  return array('totalCount' => $contributionsCount);
+ }
+
 }

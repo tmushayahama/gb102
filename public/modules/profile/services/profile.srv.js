@@ -34,6 +34,17 @@ var profileSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ProfileSrv.prototype.getUserConnections = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/profile/' + userId + "/connections").success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
 
  ProfileSrv.prototype.editProfile = function (profileData) {
   var self = this;

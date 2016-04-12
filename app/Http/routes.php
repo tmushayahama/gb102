@@ -488,6 +488,8 @@ Route::group(['prefix' => 'api'], function() {
 
 
  //Profile
+ Route::get('profile/{id}/connections', 'Profile\ProfileController@getUserConnections');
+
  Route::get('profiles/all', 'Profile\ProfileController@getProfilesAll');
  Route::get('profiles/mine', 'Profile\ProfileController@getProfilesMine');
  Route::get('profiles/swipe', 'Profile\ProfileController@getProfileSwipe');
