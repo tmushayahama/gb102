@@ -27,17 +27,17 @@
      {{collaboration.explorer.title}}
     </a>
     {{collaboration.explorer.description}}
-    <a ui-sref="profile.overview({profileId: collaboration.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: collaboration.explorer.creator.id})">
      {{collaboration.mentor.firstname + ' ' + collaboration.mentor.lastname}}
     </a>
-    <a ui-sref="profile.overview({profileId: collaboration.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: collaboration.explorer.creator.id})">
      {{collaboration.mentee.firstname + ' ' + collaboration.mentee.lastname}}
     </a>
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
      <h5 class="gb-ellipsis">
-      <a ui-sref="profile.overview({profileId: collaboration.explorer.creator.id})">
+      <a ui-sref="apps.profile.overview({profileId: collaboration.explorer.creator.id})">
        {{collaboration.explorer.creator.firstname + ' ' + collaboration.explorer.creator.lastname}}
       </a>
      </h5>

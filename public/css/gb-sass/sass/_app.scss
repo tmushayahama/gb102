@@ -2305,11 +2305,10 @@ input.gb-form-show{
  }
 }
 
-.gb-todo-box {
+.gb-subexplorer-box {
  position: relative;
  //height: 153px; /*For box shadow*/
  padding: 0 0 0 25px;
- margin-bottom: 15px;
  overflow: hidden;
  &:hover {
   .gb-box-body {
@@ -2318,13 +2317,13 @@ input.gb-form-show{
  }
  .gb-icon-image {
   @include position(absolute, 15px null null 0);
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  padding: 10px 0 0 0;
+  padding: 5px 0 0 0;
   overflow: hidden;
   text-align: center;
-  background-color: rgba($primary-color, 0.8);
+  background-color: rgba(#000, 0.5); 
   color: #EEE;
   z-index: 1;
   .gb-icon {
@@ -2339,22 +2338,142 @@ input.gb-form-show{
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  margin-bottom: 5px;
-  height: 150px;
+  height: 70px;
   width: 100%;
   background-color: #FFF;
+  border-bottom: rgba($primary-color, 0.4) solid 1px;
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   height: 70px;
+   width: 70px;
+   .gb-heading-pic {
+    width: 100%;
+   }
+  }
+  .gb-box-content {
+   @include position(absolute, 0 0 0 70px);
+   padding: 10px 5px 10px 15px;
+   .gb-heading {
+    //@include position(absolute, 0 0 null 0);
+    margin: 5px 0 5px 0;
+    .gb-title {
+     color: #888;
+     font-size:10px;
+     text-transform: uppercase;
+    }
+   }
+   .gb-faded-icon {
+    color: #999;
+   }
+
+   .gb-relation {
+    padding: 8px 5px 0 10px;
+    height: 22px;
+    .gb-title {
+     color: #888;
+     font-size:10px;
+     text-transform: uppercase;
+    }
+   }
+   .gb-description {
+    //@include position(absolute, 23px 0 50px 0);
+    padding: 2px 10px 2px 0px;
+    max-height: 61px;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    /* Fallback for non-webkit */
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+   }
+   .gb-footer {
+    //@include position(absolute, null 0 0 0);
+    padding: 8px 3px 0 0;
+    .gb-profile-pic {
+     margin-left: 5px;
+     height: 35px;
+     width: 35px;
+    }
+    .gb-summary-bar {
+     margin-top: 5px;
+     background-color: transparent;
+     .btn {
+      min-width: 50px;
+      color: #999;
+      text-decoration: none;
+     }
+     .gb-icon {
+      color: #777;
+     }
+    }
+    .gb-footer-content {
+     padding: 10px 0 0 0;
+    }
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+}
+
+.gb-todo-box {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ padding: 0 0 0 20px;
+ overflow: hidden;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-icon-image {
+  @include position(absolute, 15px null null 0);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 5px 0 0 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(#000, 0.4);
+  color: #EEE;
+  z-index: 1;
+  .gb-icon {
+   font-size: 30px;
+  }
+  .gb-profile-img {
+   margin: 0 auto;
+   width: 55px;
+   height: 55px;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  height: 70px;
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: rgba($primary-color, 0.4) solid 1px;
   .gb-todo-progress {
    @include position(absolute, 0 null 0 0);
-   height: 150px;
-   width: 150px;
-   padding: 20px 0 0 50px;
+   height: 70px;
+   width: 70px;
+   padding: 5px 0 0 18px;
    .gb-progress-percentage {
-    @include position(absolute, 36px 0 0 0);
+    @include position(absolute, 10px 0 0 0);
     text-align: center;
    }
   }
   .gb-box-content {
-   @include position(absolute, 0 0 0 150px);
+   @include position(absolute, 0 0 0 70px);
    padding: 10px 5px 10px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);

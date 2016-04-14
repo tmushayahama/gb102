@@ -27,17 +27,17 @@
      {{journal.explorer.title}}
     </a>
     {{journal.explorer.description}}
-    <a ui-sref="profile.overview({profileId: journal.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: journal.explorer.creator.id})">
      {{journal.mentor.firstname + ' ' + journal.mentor.lastname}}
     </a>
-    <a ui-sref="profile.overview({profileId: journal.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: journal.explorer.creator.id})">
      {{journal.mentee.firstname + ' ' + journal.mentee.lastname}}
     </a>
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
      <h5 class="gb-ellipsis">
-      <a ui-sref="profile.overview({profileId: journal.explorer.creator.id})">
+      <a ui-sref="apps.profile.overview({profileId: journal.explorer.creator.id})">
        {{journal.explorer.creator.firstname + ' ' + journal.explorer.creator.lastname}}
       </a>
      </h5>

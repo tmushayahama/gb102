@@ -134,6 +134,7 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
+                  'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
                   //Progress
                   'public/modules/explorer/services/todo/explorer-todo.srv.js',

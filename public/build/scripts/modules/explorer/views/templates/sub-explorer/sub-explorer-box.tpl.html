@@ -1,0 +1,27 @@
+
+<div class="gb-subexplorer-box row">
+ <div class="gb-icon-image">
+  <i class="fa gb-icon icon-gb-{{explorer.app_type.name.toLowerCase()}}"></i>
+ </div>
+ <div class="gb-box-body gb-shadow-1">
+  <div class="gb-image">
+   <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+        ng-src="public/build/img/explorer/{{ ::explorer.explorer_picture_url}}"
+        class="gb-heading-pic" alt="">
+  </div>
+  <div class="gb-box-content">
+   <div class="gb-heading row">
+    <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
+     <p class="gb-ellipsis">
+      {{explorer.app_type.name}} - {{::explorer.level.name}}
+     </p>
+    </div>
+   </div>
+   <div class="gb-description row">
+    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="gb-ellipsis">
+     {{::explorer.title}}
+    </a>
+   </div>
+  </div>
+ </div>
+</div>

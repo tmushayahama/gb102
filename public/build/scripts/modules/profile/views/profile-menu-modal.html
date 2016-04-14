@@ -18,8 +18,8 @@
   <div class="gb-nav-strip gb-nav-strip-mini row">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="gb-profile-pic">
-     <img ui-sref="profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="" alt="">
-     <div ui-sref="profile.overview" class="gb-profile-name">
+     <img ui-sref="apps.profile.overview" src="public/build/img/profile_pic/{{profileCtrl.profileSrv.profile.avatar_url}}" class="" alt="">
+     <div ui-sref="apps.profile.overview" class="gb-profile-name">
       {{profileCtrl.profileSrv.profile.firstname + ' ' + profileCtrl.profileSrv.profile.lastname}}
      </div>
     </div>
@@ -27,7 +27,7 @@
   </div>
   <div class="gb-nav-strip row">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <a ui-sref-active="active" ui-sref="profile.overview"
+    <a ui-sref-active="active" ui-sref="apps.profile.overview"
        ng-click="menuProfileModalCtrl.close()" class="gb-link row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">

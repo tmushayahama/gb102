@@ -27,17 +27,17 @@
      {{goal.explorer.title}}
     </a>
     {{goal.explorer.description}}
-    <a ui-sref="profile.overview({profileId: goal.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: goal.explorer.creator.id})">
      {{goal.mentor.firstname + ' ' + goal.mentor.lastname}}
     </a>
-    <a ui-sref="profile.overview({profileId: goal.explorer.creator.id})">
+    <a ui-sref="apps.profile.overview({profileId: goal.explorer.creator.id})">
      {{goal.mentee.firstname + ' ' + goal.mentee.lastname}}
     </a>
    </div>
    <div class="gb-footer row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
      <h5 class="gb-ellipsis">
-      <a ui-sref="profile.overview({profileId: goal.explorer.creator.id})">
+      <a ui-sref="apps.profile.overview({profileId: goal.explorer.creator.id})">
        {{goal.explorer.creator.firstname + ' ' + goal.explorer.creator.lastname}}
       </a>
      </h5>

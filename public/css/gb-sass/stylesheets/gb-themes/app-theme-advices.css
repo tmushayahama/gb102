@@ -1460,6 +1460,115 @@ Copyright (c) 2014 Daniel Eden
   background-color: rgba(154, 109, 54, 0.4);
 }
 
+.gb-swipe-box {
+  position: relative;
+  height: 350px !important;
+  padding: 0 0 0 0px;
+  background-color: #FFF;
+  overflow: hidden;
+}
+.gb-swipe-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-swipe-box .gb-icon-image {
+  position: absolute;
+  top: 0px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 10px 0 0 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(154, 109, 54, 0.8);
+  color: #EEE;
+  z-index: 1;
+}
+.gb-swipe-box .gb-icon-image .gb-icon {
+  font-size: 30px;
+}
+.gb-swipe-box .gb-icon-image .gb-profile-img {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+}
+.gb-swipe-box .gb-box-body {
+  position: relative;
+  text-align: center;
+  margin-bottom: 5px;
+  height: 150px;
+  width: 100%;
+  background-color: #FFF;
+}
+.gb-swipe-box .gb-box-body .gb-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 150px;
+  width: 150px;
+}
+.gb-swipe-box .gb-box-body .gb-image .gb-heading-pic {
+  width: 100%;
+}
+.gb-swipe-box .gb-box-body .gb-box-content {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 5px 10px 15px;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-heading {
+  margin: 5px 0 5px 0;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-faded-icon {
+  color: #999;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-description {
+  padding: 2px 10px 2px 0px;
+  max-height: 61px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer {
+  padding: 8px 3px 0 0;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-swipe-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
 .gb-swipe-container .stack {
   height: 350px;
   position: absolute;
@@ -5197,10 +5306,132 @@ input.gb-form-show {
   padding: 10px 0 0 0;
 }
 
-.gb-todo-box {
+.gb-subexplorer-box {
   position: relative;
   padding: 0 0 0 25px;
-  margin-bottom: 15px;
+  overflow: hidden;
+}
+.gb-subexplorer-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-subexplorer-box .gb-icon-image {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 5px 0 0 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #EEE;
+  z-index: 1;
+}
+.gb-subexplorer-box .gb-icon-image .gb-icon {
+  font-size: 30px;
+}
+.gb-subexplorer-box .gb-icon-image .gb-profile-img {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+}
+.gb-subexplorer-box .gb-box-body {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: rgba(154, 109, 54, 0.4) solid 1px;
+}
+.gb-subexplorer-box .gb-box-body .gb-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  width: 70px;
+}
+.gb-subexplorer-box .gb-box-body .gb-image .gb-heading-pic {
+  width: 100%;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 70px;
+  padding: 10px 5px 10px 15px;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-heading {
+  margin: 5px 0 5px 0;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-faded-icon {
+  color: #999;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-relation {
+  padding: 8px 5px 0 10px;
+  height: 22px;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-relation .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-description {
+  padding: 2px 10px 2px 0px;
+  max-height: 61px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer {
+  padding: 8px 3px 0 0;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-subexplorer-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-subexplorer-box .gb-box-body .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-subexplorer-box .gb-box-body .gb-dropdown-action button {
+  margin: 0;
+}
+
+.gb-todo-box {
+  position: relative;
+  padding: 0 0 0 20px;
   overflow: hidden;
 }
 .gb-todo-box:hover .gb-box-body {
@@ -5210,13 +5441,13 @@ input.gb-form-show {
   position: absolute;
   top: 15px;
   left: 0;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  padding: 10px 0 0 0;
+  padding: 5px 0 0 0;
   overflow: hidden;
   text-align: center;
-  background-color: rgba(154, 109, 54, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #EEE;
   z-index: 1;
 }
@@ -5230,23 +5461,23 @@ input.gb-form-show {
 }
 .gb-todo-box .gb-box-body {
   position: relative;
-  margin-bottom: 5px;
-  height: 150px;
+  height: 70px;
   width: 100%;
   background-color: #FFF;
+  border-bottom: rgba(154, 109, 54, 0.4) solid 1px;
 }
 .gb-todo-box .gb-box-body .gb-todo-progress {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  height: 150px;
-  width: 150px;
-  padding: 20px 0 0 50px;
+  height: 70px;
+  width: 70px;
+  padding: 5px 0 0 18px;
 }
 .gb-todo-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
   position: absolute;
-  top: 36px;
+  top: 10px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -5257,7 +5488,7 @@ input.gb-form-show {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 150px;
+  left: 70px;
   padding: 10px 5px 10px 15px;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-heading {
