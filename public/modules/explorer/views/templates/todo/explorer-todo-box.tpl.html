@@ -11,18 +11,13 @@
    </div>
   </div>
   <div class="gb-box-content">
-   <div class="gb-heading row">
-    <p class="gb-title gb-ellipsis">
-     {{explorerTodo.todo.status.name}}
-    </p>
-   </div>
    <div class="gb-description row">
     <a ng-click="open()">
      {{explorerTodo.todo.title}}
     </a>
     {{explorerTodo.todo.description}}
    </div>
-   <div class="gb-footer gb-padding-none row">
+   <div ng-show="false" class="gb-footer gb-padding-none row">
     <div class="gb-footer row gb-padding-none">
      <div class="gb-summary-bar btn-group">
       <a class="btn btn-xs btn-link">
@@ -36,6 +31,11 @@
       </a>
      </div>
     </div>
+   </div>
+   <div class="gb-heading row">
+    <p class="gb-title gb-ellipsis">
+     {{explorerTodo.todo.status.name}}
+    </p>
    </div>
   </div>
  </div>

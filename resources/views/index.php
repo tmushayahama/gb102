@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <title>SkillSection</title>
+  <title>Skill Section</title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="public/img/favicons//apple-icon-57x57.png">

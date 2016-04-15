@@ -81,9 +81,11 @@ class Mentorship extends Model {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
    $mentorships = Mentorship::where('app_type_id', $appId->id)
-           ->whereHas('explorer', function($q) use ($mentorshipId) {
-            $q->where('parent_explorer_id', $mentorshipId);
-           })
+           /*
+             ->whereHas('explorer', function($q) use ($mentorshipId) {
+             $q->where('parent_explorer_id', $mentorshipId);
+             })
+            */
            ->orderBy('id', 'desc')
            ->with('explorer')
            ->with('explorer.app_type')

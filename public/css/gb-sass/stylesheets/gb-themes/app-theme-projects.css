@@ -5317,19 +5317,19 @@ input.gb-form-show {
 }
 .gb-subexplorer-box .gb-box-body {
   position: relative;
-  height: 70px;
+  height: 50px;
   width: 100%;
   background-color: #FFF;
   margin-bottom: 5px;
-  border-bottom: rgba(109, 96, 60, 0.4) solid 1px;
+  border-bottom: rgba(109, 96, 60, 0.3) solid 1px;
 }
 .gb-subexplorer-box .gb-box-body .gb-image {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
 }
 .gb-subexplorer-box .gb-box-body .gb-image .gb-heading-pic {
   width: 100%;
@@ -5339,8 +5339,8 @@ input.gb-form-show {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 70px;
-  padding: 10px 5px 10px 15px;
+  left: 50px;
+  padding: 3px 5px 3px 15px;
 }
 .gb-subexplorer-box .gb-box-body .gb-box-content .gb-heading {
   margin: 5px 0 5px 0;
@@ -5420,7 +5420,7 @@ input.gb-form-show {
 }
 .gb-todo-box .gb-box-body {
   position: relative;
-  height: 70px;
+  height: 50px;
   width: 100%;
   margin-bottom: 5px;
   background-color: #FFF;
@@ -5430,28 +5430,30 @@ input.gb-form-show {
   top: 0;
   bottom: 0;
   left: 0;
-  height: 70px;
-  width: 70px;
-  padding: 5px 0 0 18px;
+  height: 40px;
+  width: 40px;
+  padding: 0px 0 0 10px;
+}
+.gb-todo-box .gb-box-body .gb-todo-progress md-progress-circular {
+  width: 40px !important;
+  height: 40px !important;
 }
 .gb-todo-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 0;
   bottom: 0;
   left: 0;
   text-align: center;
+  font-size: 10px;
 }
 .gb-todo-box .gb-box-body .gb-box-content {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 70px;
-  padding: 10px 5px 10px 15px;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-heading {
-  margin: 5px 0 5px 0;
+  left: 50px;
+  padding: 3px 5px 3px 15px;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
@@ -5485,7 +5487,7 @@ input.gb-form-show {
   overflow: hidden;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-footer {
-  padding: 8px 3px 0 0;
+  padding: 3px 3px 0 0;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
   margin-left: 5px;
