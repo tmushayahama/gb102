@@ -2308,31 +2308,12 @@ input.gb-form-show{
 .gb-subexplorer-box {
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 0 0 0 25px;
+ padding: 0 0 0 0;
  overflow: hidden;
+ margin-bottom: 5px;
  &:hover {
   .gb-box-body {
    background-color: #F7F7F7;
-  }
- }
- .gb-icon-image {
-  @include position(absolute, 15px null null 0);
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  padding: 5px 0 0 0;
-  overflow: hidden;
-  text-align: center;
-  background-color: rgba(#000, 0.5); 
-  color: #EEE;
-  z-index: 1;
-  .gb-icon {
-   font-size: 30px;
-  }
-  .gb-profile-img {
-   margin: 0 auto;
-   width: 55px;
-   height: 55px;
   }
  }
  .gb-box-body {
@@ -2341,6 +2322,7 @@ input.gb-form-show{
   height: 70px;
   width: 100%;
   background-color: #FFF;
+  margin-bottom: 5px;
   border-bottom: rgba($primary-color, 0.4) solid 1px;
   .gb-image {
    @include position(absolute, 0 null 0 0);
@@ -2428,31 +2410,12 @@ input.gb-form-show{
 .gb-todo-box {
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 0 0 0 20px;
+ padding: 0 0 0 0;
  overflow: hidden;
+ margin-bottom: 5px;
  &:hover {
   .gb-box-body {
    background-color: #F7F7F7;
-  }
- }
- .gb-icon-image {
-  @include position(absolute, 15px null null 0);
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  padding: 5px 0 0 0;
-  overflow: hidden;
-  text-align: center;
-  background-color: rgba(#000, 0.4);
-  color: #EEE;
-  z-index: 1;
-  .gb-icon {
-   font-size: 30px;
-  }
-  .gb-profile-img {
-   margin: 0 auto;
-   width: 55px;
-   height: 55px;
   }
  }
  .gb-box-body {
@@ -2460,8 +2423,8 @@ input.gb-form-show{
   //@include position(absolute, 0 0 0 25px);
   height: 70px;
   width: 100%;
+  margin-bottom: 5px;
   background-color: #FFF;
-  border-bottom: rgba($primary-color, 0.4) solid 1px;
   .gb-todo-progress {
    @include position(absolute, 0 null 0 0);
    height: 70px;
