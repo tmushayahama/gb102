@@ -76,7 +76,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorer/{explorerId}/contributions', 'Explorer\ExplorerController@getExplorerContributions');
  Route::get('explorer/{explorerId}/contribution/{contributionId}', 'Explorer\ExplorerController@getExplorerContribution');
  Route::get('explorer/{explorerId}/contribution/{contributionId}/level', 'Explorer\ExplorerController@getExplorerContributionLevel');
- Route::get('explorer/{explorerId}/todos/{levelId}', 'Explorer\ExplorerController@getExplorerTodos');
+ Route::get('explorer/{explorerId}/todos/{statusId}', 'Explorer\ExplorerController@getExplorerTodos');
  Route::get('explorer/{explorerId}/todo/{todoId}', 'Explorer\ExplorerController@getExplorerTodo');
  Route::get('explorer/{explorerId}/notes', 'Explorer\ExplorerController@getExplorerNotes');
  Route::get('explorer/{explorerId}/note/{noteId}', 'Explorer\ExplorerController@getExplorerNote');

@@ -12,7 +12,7 @@ var explorerTodosCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerTodos;
+ vm.explorerTodos = {};
  vm.explorerTodosSrv = new ExplorerTodosSrv();
  vm.todoFormDisplay = false;
 
@@ -151,9 +151,19 @@ var explorerTodosCtrl = function (
  };
 
  //--------init------
- vm.explorerTodosSrv.getExplorerTodos(vm.explorerId, level_categories.todo_level_normal)
+ vm.explorerTodosSrv.getExplorerTodos(vm.explorerId, level_categories.todo_in_progress)
          .then(function (data) {
-          vm.explorerTodos = data;
+          vm.explorerTodos.inProgress = data;
+         });
+
+ vm.explorerTodosSrv.getExplorerTodos(vm.explorerId, level_categories.todo_done)
+         .then(function (data) {
+          vm.explorerTodos.done = data;
+         });
+
+ vm.explorerTodosSrv.getExplorerTodos(vm.explorerId, level_categories.todo_later)
+         .then(function (data) {
+          vm.explorerTodos.later = data;
          });
 };
 

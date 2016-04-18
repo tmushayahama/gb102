@@ -3010,6 +3010,10 @@ body > .ui-select-bootstrap.open {
   margin-top: 20px;
 }
 
+a {
+  display: block;
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -3198,6 +3202,37 @@ input[type="checkbox"] {
 .gb-heading-row-1 .gb-action.md-button {
   max-width: 150px;
   margin: 0;
+}
+
+.gb-heading-row-2 {
+  position: relative;
+  margin: 25px 0;
+}
+.gb-heading-row-2 .gb-title {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  line-height: 0.5;
+}
+.gb-heading-row-2 .gb-title span {
+  display: inline-block;
+  position: relative;
+}
+.gb-heading-row-2 .gb-title span:before, .gb-heading-row-2 .gb-title span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: rgba(65, 100, 42, 0.6) solid 1px;
+  top: 0;
+  width: 100%;
+}
+.gb-heading-row-2 .gb-title span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.gb-heading-row-2 .gb-title span:after {
+  left: 100%;
+  margin-left: 15px;
 }
 
 .gb-mega-dropdown .nav, .gb-mega-dropdown .collapse, .gb-mega-dropdown .dropup, .gb-mega-dropdown .dropdown, .gb-mega-dropdown .dropdown-menu {
@@ -5310,7 +5345,6 @@ input.gb-form-show {
   position: relative;
   padding: 0 0 0 0;
   overflow: hidden;
-  margin-bottom: 5px;
 }
 .gb-subexplorer-box:hover .gb-box-body {
   background-color: #F7F7F7;
@@ -5320,8 +5354,6 @@ input.gb-form-show {
   height: 50px;
   width: 100%;
   background-color: #FFF;
-  margin-bottom: 5px;
-  border-bottom: rgba(65, 100, 42, 0.3) solid 1px;
 }
 .gb-subexplorer-box .gb-box-body .gb-image {
   position: absolute;
@@ -5340,10 +5372,7 @@ input.gb-form-show {
   right: 0;
   bottom: 0;
   left: 50px;
-  padding: 3px 5px 3px 15px;
-}
-.gb-subexplorer-box .gb-box-body .gb-box-content .gb-heading {
-  margin: 5px 0 5px 0;
+  padding: 5px 5px 5px 15px;
 }
 .gb-subexplorer-box .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
@@ -5363,14 +5392,14 @@ input.gb-form-show {
   text-transform: uppercase;
 }
 .gb-subexplorer-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 2px 0px;
-  max-height: 61px;
+  padding: 2px 10px 0px 0px;
+  max-height: 41px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
   /* Fallback for non-webkit */
-  line-height: 1.4;
-  -webkit-line-clamp: 3;
+  line-height: 1.2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5413,7 +5442,6 @@ input.gb-form-show {
   position: relative;
   padding: 0 0 0 0;
   overflow: hidden;
-  margin-bottom: 5px;
 }
 .gb-todo-box:hover .gb-box-body {
   background-color: #F7F7F7;
@@ -5422,7 +5450,6 @@ input.gb-form-show {
   position: relative;
   height: 50px;
   width: 100%;
-  margin-bottom: 5px;
   background-color: #FFF;
 }
 .gb-todo-box .gb-box-body .gb-todo-progress {
@@ -5432,11 +5459,7 @@ input.gb-form-show {
   left: 0;
   height: 40px;
   width: 40px;
-  padding: 0px 0 0 10px;
-}
-.gb-todo-box .gb-box-body .gb-todo-progress md-progress-circular {
-  width: 40px !important;
-  height: 40px !important;
+  padding: 0 0 0 10px;
 }
 .gb-todo-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
   position: absolute;
@@ -5452,35 +5475,23 @@ input.gb-form-show {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 50px;
-  padding: 3px 5px 3px 15px;
+  left: 0;
+  padding: 5px 5px 5px 15px;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
   font-size: 10px;
   text-transform: uppercase;
 }
-.gb-todo-box .gb-box-body .gb-box-content .gb-faded-icon {
-  color: #999;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-relation {
-  padding: 8px 5px 0 10px;
-  height: 22px;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-relation .gb-title {
-  color: #888;
-  font-size: 10px;
-  text-transform: uppercase;
-}
 .gb-todo-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 2px 0px;
-  max-height: 61px;
+  padding: 2px 10px 0px 0px;
+  max-height: 41px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
   /* Fallback for non-webkit */
-  line-height: 1.4;
-  -webkit-line-clamp: 3;
+  line-height: 1.2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,10 +1,11 @@
 
 <div class="gb-todo-box row">
  <div class="gb-box-body gb-shadow-1">
-  <div class="gb-todo-progress">
-   <md-progress-circular md-mode="determinate" value="{{todoChecklistStatusData.percentage}}"
-                         class="gb-primary">
-
+  <div ng-if="false" class="gb-todo-progress">
+   <md-progress-circular  md-mode="determinate"
+                          md-diameter="40"
+                          value="{{todoChecklistStatusData.percentage}}"
+                          class="gb-primary">
    </md-progress-circular>
    <div class="gb-progress-percentage">
     {{todoChecklistStatusData.percentage + '%'}}
@@ -12,10 +13,10 @@
   </div>
   <div class="gb-box-content">
    <div class="gb-description row">
-    <a ng-click="open()">
-     {{explorerTodo.todo.title}}
+    <a ng-click="open()" class="gb-ellipsis">
+     {{explorerTodo.todo.title}} -
+     {{explorerTodo.todo.description}}
     </a>
-    {{explorerTodo.todo.description}}
    </div>
    <div ng-show="false" class="gb-footer gb-padding-none row">
     <div class="gb-footer row gb-padding-none">

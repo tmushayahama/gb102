@@ -32,7 +32,8 @@ requirejs.config({
   'angular-material': '../../bower_components/angular-material/angular-material',
   'angular-messages': '../../bower_components/angular-messages/angular-messages',
   'infinite-scroll': '../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
-  'truncate-filters': '../modules/common/filters/truncate'
+  'truncate-filters': '../modules/common/filters/truncate',
+  'dnd-draggable': 'lib/dnd-draggable'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
@@ -64,6 +65,7 @@ requirejs.config({
   'angular-messages': {deps: ['angular']},
   'infinite-scroll': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
+  'dnd-draggable': {deps: ['angular']}
  },
  priority: [
   'jquery',
@@ -71,8 +73,6 @@ requirejs.config({
   'angular'
  ]
 });
-
-
 requirejs([
  'angular',
  '../modules/app/app'

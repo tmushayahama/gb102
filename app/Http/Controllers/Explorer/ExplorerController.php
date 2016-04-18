@@ -84,8 +84,8 @@ class ExplorerController extends Controller {
 
  /* TODOS */
 
- public function getExplorerTodos($explorerId, $levelId) {
-  $explorerTodos = ExplorerTodo::getExplorerTodos($explorerId, $levelId);
+ public function getExplorerTodos($explorerId, $statusId) {
+  $explorerTodos = ExplorerTodo::getExplorerTodos($explorerId, $statusId);
   return \Response::json($explorerTodos);
  }
 

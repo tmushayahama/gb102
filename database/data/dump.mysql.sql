@@ -3094,139 +3094,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     ignore 1 LINES
   (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`icon_id`, `mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
--- ------------------Skill ----------------
-/*load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'
-    into table gb102.gb_skill
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`, `status`);
--- ------------------Skill Commitments ----------------
-/*load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillCommitment.txt'
-    into table gb102.gb_skill_commitment
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `creator_id`, `skill_id`);
-
--- ------------------Skill Commitment Share ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillCommitmentShare.txt'
-    into table gb102.gb_skill_commitment_share
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `skill_commitment_id`,	`connection_id`);
-
-
--- ------------------Skill Assignments ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillAssignment.txt'
-    into table gb102.gb_skill_assignment
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `creator_id`, `assignee_id`, `skill_id`, `connection_id`);
-
-
--- ------------------ Skill List Share ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillListShare.txt'
-    into table gb102.gb_skill_share
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `skill_id`, `connection_id`);
-
-
--- ------------------Todo Category ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/TodoCategory.txt'
-    into table gb102.gb_todo_category
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `category`);
-
--- ------------------ Todo ----------------
-/* load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.txt'
-    into table gb102.gb_todo
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, id	parent_todo_id	priority_id	creator_id	assignee_id	created_at	due_date	todo_color	description	type	status
-);
-
--- ------------------ DiscussionTitle ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/DiscussionTitle.txt'
-    into table gb102.gb_discussion_title
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `title`, `creator_id`, `skill_id`, `created_at`);
-
--- ------------------ Discussion ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Discussion.txt'
-    into table gb102.gb_discussion
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`,`title_id`, `creator_id`, `description`,`created_at`, `importance`,`status`);
-
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWeblink.txt'
-    into table gb102.gb_skill_weblink
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `link`, `title`, `creator_id`, `skill_id`, `description`, `importance`, `status`);
-
--- ------------------ Page ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Page.txt'
-    into table gb102.gb_page
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `creator_id`, `title`, `description`, `type`);
-
--- ------------------ SkillPage ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AdvicePage.txt'
-    into table gb102.gb_advice_page
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `skills`, `page_id`, `skill_id`, `level_id`);
-
-
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Post.txt'
-    into table gb102.gb_post
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `creator_id`, `source_id`, `type`, `status`);
-*/
-
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.txt'
     into table gb102.gb_todo
     fields terminated by '\t'
@@ -3234,7 +3101,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_at`,	`due_date`,	`todo_color`,	`title`, `description`,	`type`,	`status`);
+   (`id`, `parent_todo_id`,	`status_id`,	`creator_id`,	`created_at`,	`updated_at`,	`due_date`,	`title`,	`description`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTodo.txt'
     into table gb102.gb_skill_todo

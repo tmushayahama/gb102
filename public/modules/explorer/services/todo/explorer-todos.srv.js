@@ -22,11 +22,11 @@ var explorerTodosSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExplorerTodosSrv.prototype.getExplorerTodos = function (explorerId, levelId) {
+ ExplorerTodosSrv.prototype.getExplorerTodos = function (explorerId, statusId) {
   var self = this;
   var deferred = $q.defer();
   //self.explorerTodos = [];
-  $http.get('/api/explorer/' + explorerId + '/todos/' + levelId).success(function (data) {
+  $http.get('/api/explorer/' + explorerId + '/todos/' + statusId).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

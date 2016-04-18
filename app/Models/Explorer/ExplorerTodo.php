@@ -33,12 +33,12 @@ class ExplorerTodo extends Model {
   */
  protected $fillable = [];
 
- public static function getExplorerTodos($explorerId, $levelId) {
+ public static function getExplorerTodos($explorerId, $statusId) {
   $explorerTodos = ExplorerTodo::with('todo')
           ->with('todo.status')
           ->with('todo.creator')
-          ->whereHas('todo', function($q) use ($levelId) {
-           $q->where('level_id', $levelId);
+          ->whereHas('todo', function($q) use ($statusId) {
+           $q->where('status_id', $statusId);
           })
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)

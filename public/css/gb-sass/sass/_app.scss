@@ -42,6 +42,10 @@ and open the template in the editor.
  margin-top: 20px;
 }
 
+a {
+ display: block;
+}
+
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -236,6 +240,39 @@ input[type="checkbox"] {
  }
 }
 
+.gb-heading-row-2 {
+ position: relative;
+ margin: 25px 0;
+ //border-bottom: rgba($primary-color, 0.6) dottted 2px;
+
+ .gb-title {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  line-height: 0.5; 
+  span {
+   display: inline-block;
+   position: relative;
+   &:before,
+    &:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: rgba($primary-color, 0.6) solid 1px;
+    top: 0;
+    width: 100%;
+   }
+   &:before {
+    right: 100%;
+    margin-right: 15px;
+   }
+   &:after {
+    left: 100%;
+    margin-left: 15px;
+   }
+  }
+ }
+}
 
 
 .gb-mega-dropdown {
@@ -2310,7 +2347,6 @@ input.gb-form-show{
  //height: 153px; /*For box shadow*/
  padding: 0 0 0 0;
  overflow: hidden;
- margin-bottom: 5px;
  &:hover {
   .gb-box-body {
    background-color: #F7F7F7;
@@ -2322,8 +2358,6 @@ input.gb-form-show{
   height: 50px;
   width: 100%;
   background-color: #FFF;
-  margin-bottom: 5px;
-  border-bottom: rgba($primary-color, 0.3) solid 1px;
   .gb-image {
    @include position(absolute, 0 null 0 0);
    height: 50px;
@@ -2334,10 +2368,9 @@ input.gb-form-show{
   }
   .gb-box-content {
    @include position(absolute, 0 0 0 50px);
-   padding: 3px 5px 3px 15px;
+   padding: 5px 5px 5px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
-    margin: 5px 0 5px 0;
     .gb-title {
      color: #888;
      font-size:10px;
@@ -2359,14 +2392,14 @@ input.gb-form-show{
    }
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 2px 0px;
-    max-height: 61px;
+    padding: 2px 10px 0px 0px;
+    max-height: 41px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
     /* Fallback for non-webkit */
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
+    line-height: 1.2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2412,7 +2445,6 @@ input.gb-form-show{
  //height: 153px; /*For box shadow*/
  padding: 0 0 0 0;
  overflow: hidden;
- margin-bottom: 5px;
  &:hover {
   .gb-box-body {
    background-color: #F7F7F7;
@@ -2423,26 +2455,21 @@ input.gb-form-show{
   //@include position(absolute, 0 0 0 25px);
   height: 50px;
   width: 100%;
-  margin-bottom: 5px;
   background-color: #FFF;
   .gb-todo-progress {
    @include position(absolute, 0 null 0 0);
    height: 40px;
    width: 40px;
-   padding: 0px 0 0 10px;
-   md-progress-circular {
-    width: 40px!important;
-    height: 40px!important;
-   }
+   padding: 0 0 0 10px;
    .gb-progress-percentage {
     @include position(absolute, 20px 0 0 0);
     text-align: center;
     font-size: 10px;
-   } 
+   }
   }
   .gb-box-content {
-   @include position(absolute, 0 0 0 50px);
-   padding: 3px 5px 3px 15px;
+   @include position(absolute, 0 0 0 0);
+   padding: 5px 5px 5px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
     .gb-title {
@@ -2451,29 +2478,17 @@ input.gb-form-show{
      text-transform: uppercase;
     }
    }
-   .gb-faded-icon {
-    color: #999;
-   }
 
-   .gb-relation {
-    padding: 8px 5px 0 10px;
-    height: 22px;
-    .gb-title {
-     color: #888;
-     font-size:10px;
-     text-transform: uppercase;
-    }
-   }
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 2px 0px;
-    max-height: 61px;
+    padding: 2px 10px 0px 0px;
+    max-height: 41px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
     /* Fallback for non-webkit */
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
+    line-height: 1.2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
