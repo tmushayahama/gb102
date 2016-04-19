@@ -1,5 +1,5 @@
-var explorerNotesCtrl = function (
-        ExplorerNotesSrv,
+var explorerGuidelinesCtrl = function (
+        ExplorerGuidelinesSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var explorerNotesCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerNotesCopy;
- vm.explorerNotesSrv = new ExplorerNotesSrv();
- vm.noteFormDisplay = false;
+ vm.explorerGuidelinesCopy;
+ vm.explorerGuidelinesSrv = new ExplorerGuidelinesSrv();
+ vm.guidelineFormDisplay = false;
 
- vm.defaultExplorerNoteData = {
+ vm.defaultExplorerGuidelineData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
  }
- vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
+ vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
 
- vm.showNoteForm = function () {
-  vm.noteFormDisplay = true;
+ vm.showGuidelineForm = function () {
+  vm.guidelineFormDisplay = true;
  };
 
- vm.createExplorerNote = function (data) {
-  vm.explorerNotesSrv.createExplorerNote(data).then(function (response) {
-   vm.noteFormDisplay = false;
-   vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+ vm.createExplorerGuideline = function (data) {
+  vm.explorerGuidelinesSrv.createExplorerGuideline(data).then(function (response) {
+   vm.guidelineFormDisplay = false;
+   vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
+   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelinesSrv.explorerGuidelines);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNote = function (data) {
-  vm.explorerNotesSrv.editExplorerNote(data).then(function (response) {
-   vm.noteFormDisplay = false;
-   vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+ vm.editExplorerGuideline = function (data) {
+  vm.explorerGuidelinesSrv.editExplorerGuideline(data).then(function (response) {
+   vm.guidelineFormDisplay = false;
+   vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
+   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelinesSrv.explorerGuidelines);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNoteSections = {
-  details: function (explorerNoteId, detail) {
-   var explorerNoteData = {
-    explorerNoteId: explorerNoteId,
+ vm.editExplorerGuidelineSections = {
+  details: function (explorerGuidelineId, detail) {
+   var explorerGuidelineData = {
+    explorerGuidelineId: explorerGuidelineId,
     title: detail.title,
     description: detail.description
    };
-   vm.editExplorerNote(explorerNoteData);
+   vm.editExplorerGuideline(explorerGuidelineData);
   }
  }
 
- vm.cancelExplorerNote = function (form) {
-  vm.noteFormDisplay = false;
-  vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData)
+ vm.cancelExplorerGuideline = function (form) {
+  vm.guidelineFormDisplay = false;
+  vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertExplorerNote = function (explorerNote, explorerNoteCopy) {
-  explorerNote = explorerNoteCopy;
+ vm.revertExplorerGuideline = function (explorerGuideline, explorerGuidelineCopy) {
+  explorerGuideline = explorerGuidelineCopy;
   /*
    $filter('filter')
-   (vm.explorerNotesSrv.explorerNotes, {id: explorerNoteId}, true)[0]
+   (vm.explorerGuidelinesSrv.explorerGuidelines, {id: explorerGuidelineId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.explorerNotesCopy, {id: explorerNoteId}, true)[0]);
-   if (explorerNote.length && explorerNoteCopy.length) {
-   // vm.explorerNotesSrv.explorerNotes angular.copy(vm.explorerNotesCopy);
+   (vm.explorerGuidelinesCopy, {id: explorerGuidelineId}, true)[0]);
+   if (explorerGuideline.length && explorerGuidelineCopy.length) {
+   // vm.explorerGuidelinesSrv.explorerGuidelines angular.copy(vm.explorerGuidelinesCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var explorerNotesCtrl = function (
 
 
 
- vm.editedNote = null;
+ vm.editedGuideline = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.explorerNotes;
+  return vm.explorerGuidelines;
  }), function () {
-  //vm.remainingCount = filterFilter(explorerNotes, {completed: false}).length;
-  vm.doneCount = vm.explorerNotesSrv.explorerNotes.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(explorerGuidelines, {completed: false}).length;
+  vm.doneCount = vm.explorerGuidelinesSrv.explorerGuidelines.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //ExplorerNoteService.put(vm.explorerNotes);
+  //ExplorerGuidelineService.put(vm.explorerGuidelines);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var explorerNotesCtrl = function (
 
 
 
- vm.editNote = function (explorerNote) {
-  vm.editedNote = explorerNote;
-  // Clone the original explorerNote to restore it on demand.
-  vm.originalNote = angular.copy(explorerNote);
+ vm.editGuideline = function (explorerGuideline) {
+  vm.editedGuideline = explorerGuideline;
+  // Clone the original explorerGuideline to restore it on demand.
+  vm.originalGuideline = angular.copy(explorerGuideline);
  };
 
 
- vm.doneEditing = function (explorerNote) {
-  vm.editedNote = null;
-  explorerNote.title = explorerNote.title.trim();
+ vm.doneEditing = function (explorerGuideline) {
+  vm.editedGuideline = null;
+  explorerGuideline.title = explorerGuideline.title.trim();
 
-  if (!explorerNote.title) {
-   vm.removeNote(explorerNote);
+  if (!explorerGuideline.title) {
+   vm.removeGuideline(explorerGuideline);
   }
  };
 
- vm.openExplorerNote = function (explorerNote) {
+ vm.openExplorerGuideline = function (explorerGuideline) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'explorer-note-modal.html',
-   controller: 'ExplorerNoteCtrl as explorerNoteCtrl',
+   templateUrl: 'explorer-guideline-modal.html',
+   controller: 'ExplorerGuidelineCtrl as explorerGuidelineCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    explorerNoteData: function () {
-     return explorerNote;
+    explorerGuidelineData: function () {
+     return explorerGuideline;
     }
    }
   });
@@ -147,12 +147,12 @@ var explorerNotesCtrl = function (
 
 
  //--------init------
- vm.explorerNotesSrv.getExplorerNotes(vm.explorerId);
+ vm.explorerGuidelinesSrv.getExplorerGuidelines(vm.explorerId);
 };
 
 
-explorerNotesCtrl.$inject = [
- 'ExplorerNotesSrv',
+explorerGuidelinesCtrl.$inject = [
+ 'ExplorerGuidelinesSrv',
  '$scope',
  '$state',
  '$stateParams',
@@ -163,4 +163,4 @@ explorerNotesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.explorer").controller('ExplorerNotesCtrl', explorerNotesCtrl);
+angular.module("app.explorer").controller('ExplorerGuidelinesCtrl', explorerGuidelinesCtrl);

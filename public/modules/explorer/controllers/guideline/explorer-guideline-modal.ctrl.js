@@ -1,5 +1,5 @@
-var explorerNoteCtrl = function (
-        ExplorerNoteSrv,
+var explorerGuidelineCtrl = function (
+        ExplorerGuidelineSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var explorerNoteCtrl = function (
         $rootScope,
         $location,
         $log,
-        explorerNoteData) {
+        explorerGuidelineData) {
  var vm = this;
- vm.explorerId = explorerNoteData.explorer_id;
- vm.explorerNoteId = explorerNoteData.id;
- vm.explorerNoteSrv = new ExplorerNoteSrv();
+ vm.explorerId = explorerGuidelineData.explorer_id;
+ vm.explorerGuidelineId = explorerGuidelineData.id;
+ vm.explorerGuidelineSrv = new ExplorerGuidelineSrv();
 
 
- vm.noteId = explorerNoteData.note_id;
+ vm.guidelineId = explorerGuidelineData.guideline_id;
 
- vm.noteFormDisplay = false;
+ vm.guidelineFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var explorerNoteCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newExplorerNoteData = vm.defaultExplorerNoteData;
+ // vm.newExplorerGuidelineData = vm.defaultExplorerGuidelineData;
 
- vm.getExplorerNote = function (explorerId, noteId) {
-  vm.explorerNoteSrv.getExplorerNote(explorerId, noteId).then(function (response) {
+ vm.getExplorerGuideline = function (explorerId, guidelineId) {
+  vm.explorerGuidelineSrv.getExplorerGuideline(explorerId, guidelineId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editExplorerNote = function (data) {
-  vm.explorerNoteSrv.editExplorerNote(data).then(function (response) {
+ vm.editExplorerGuideline = function (data) {
+  vm.explorerGuidelineSrv.editExplorerGuideline(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNoteSections = {
+ vm.editExplorerGuidelineSections = {
   details: function (details) {
-   var explorerNoteData = {
-    explorerNoteId: vm.explorerNoteId,
+   var explorerGuidelineData = {
+    explorerGuidelineId: vm.explorerGuidelineId,
     title: details.title,
     description: details.description
    };
-   vm.editExplorerNote(explorerNoteData);
+   vm.editExplorerGuideline(explorerGuidelineData);
   }
  };
 
 
 
- vm.showNoteForm = function () {
-  vm.noteFormDisplay = true;
+ vm.showGuidelineForm = function () {
+  vm.guidelineFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getExplorerNote(vm.explorerId, vm.noteId);
+ vm.getExplorerGuideline(vm.explorerId, vm.guidelineId);
 };
 
 
-explorerNoteCtrl.$inject = [
- 'ExplorerNoteSrv',
+explorerGuidelineCtrl.$inject = [
+ 'ExplorerGuidelineSrv',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ explorerNoteCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'explorerNoteData'];
+ 'explorerGuidelineData'];
 
-angular.module("app.explorer").controller('ExplorerNoteCtrl', explorerNoteCtrl);
+angular.module("app.explorer").controller('ExplorerGuidelineCtrl', explorerGuidelineCtrl);

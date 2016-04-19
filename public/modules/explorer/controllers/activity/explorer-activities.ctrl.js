@@ -1,5 +1,5 @@
-var explorerNotesCtrl = function (
-        ExplorerNotesSrv,
+var explorerActivitysCtrl = function (
+        ExplorerActivitysSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,69 +12,69 @@ var explorerNotesCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerNotesCopy;
- vm.explorerNotesSrv = new ExplorerNotesSrv();
- vm.noteFormDisplay = false;
+ vm.explorerActivitysCopy;
+ vm.explorerActivitysSrv = new ExplorerActivitysSrv();
+ vm.activityFormDisplay = false;
 
- vm.defaultExplorerNoteData = {
+ vm.defaultExplorerActivityData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
  }
- vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
+ vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
 
- vm.showNoteForm = function () {
-  vm.noteFormDisplay = true;
+ vm.showActivityForm = function () {
+  vm.activityFormDisplay = true;
  };
 
- vm.createExplorerNote = function (data) {
-  vm.explorerNotesSrv.createExplorerNote(data).then(function (response) {
-   vm.noteFormDisplay = false;
-   vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+ vm.createExplorerActivity = function (data) {
+  vm.explorerActivitysSrv.createExplorerActivity(data).then(function (response) {
+   vm.activityFormDisplay = false;
+   vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
+   vm.explorerActivitysCopy = angular.copy(vm.explorerActivitysSrv.explorerActivitys);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNote = function (data) {
-  vm.explorerNotesSrv.editExplorerNote(data).then(function (response) {
-   vm.noteFormDisplay = false;
-   vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+ vm.editExplorerActivity = function (data) {
+  vm.explorerActivitysSrv.editExplorerActivity(data).then(function (response) {
+   vm.activityFormDisplay = false;
+   vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
+   vm.explorerActivitysCopy = angular.copy(vm.explorerActivitysSrv.explorerActivitys);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNoteSections = {
-  details: function (explorerNoteId, detail) {
-   var explorerNoteData = {
-    explorerNoteId: explorerNoteId,
+ vm.editExplorerActivitySections = {
+  details: function (explorerActivityId, detail) {
+   var explorerActivityData = {
+    explorerActivityId: explorerActivityId,
     title: detail.title,
     description: detail.description
    };
-   vm.editExplorerNote(explorerNoteData);
+   vm.editExplorerActivity(explorerActivityData);
   }
  }
 
- vm.cancelExplorerNote = function (form) {
-  vm.noteFormDisplay = false;
-  vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData)
+ vm.cancelExplorerActivity = function (form) {
+  vm.activityFormDisplay = false;
+  vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData)
   if (form) {
    form.$setPristine();
    form.$setUntouched();
   }
  };
 
- vm.revertExplorerNote = function (explorerNote, explorerNoteCopy) {
-  explorerNote = explorerNoteCopy;
+ vm.revertExplorerActivity = function (explorerActivity, explorerActivityCopy) {
+  explorerActivity = explorerActivityCopy;
   /*
    $filter('filter')
-   (vm.explorerNotesSrv.explorerNotes, {id: explorerNoteId}, true)[0]
+   (vm.explorerActivitysSrv.explorerActivitys, {id: explorerActivityId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.explorerNotesCopy, {id: explorerNoteId}, true)[0]);
-   if (explorerNote.length && explorerNoteCopy.length) {
-   // vm.explorerNotesSrv.explorerNotes angular.copy(vm.explorerNotesCopy);
+   (vm.explorerActivitysCopy, {id: explorerActivityId}, true)[0]);
+   if (explorerActivity.length && explorerActivityCopy.length) {
+   // vm.explorerActivitysSrv.explorerActivitys angular.copy(vm.explorerActivitysCopy);
    }
    */
  };
@@ -84,15 +84,15 @@ var explorerNotesCtrl = function (
 
 
 
- vm.editedNote = null;
+ vm.editedActivity = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.explorerNotes;
+  return vm.explorerActivitys;
  }), function () {
-  //vm.remainingCount = filterFilter(explorerNotes, {completed: false}).length;
-  vm.doneCount = vm.explorerNotesSrv.explorerNotes.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(explorerActivitys, {completed: false}).length;
+  vm.doneCount = vm.explorerActivitysSrv.explorerActivitys.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //ExplorerNoteService.put(vm.explorerNotes);
+  //ExplorerActivityService.put(vm.explorerActivitys);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -107,32 +107,32 @@ var explorerNotesCtrl = function (
 
 
 
- vm.editNote = function (explorerNote) {
-  vm.editedNote = explorerNote;
-  // Clone the original explorerNote to restore it on demand.
-  vm.originalNote = angular.copy(explorerNote);
+ vm.editActivity = function (explorerActivity) {
+  vm.editedActivity = explorerActivity;
+  // Clone the original explorerActivity to restore it on demand.
+  vm.originalActivity = angular.copy(explorerActivity);
  };
 
 
- vm.doneEditing = function (explorerNote) {
-  vm.editedNote = null;
-  explorerNote.title = explorerNote.title.trim();
+ vm.doneEditing = function (explorerActivity) {
+  vm.editedActivity = null;
+  explorerActivity.title = explorerActivity.title.trim();
 
-  if (!explorerNote.title) {
-   vm.removeNote(explorerNote);
+  if (!explorerActivity.title) {
+   vm.removeActivity(explorerActivity);
   }
  };
 
- vm.openExplorerNote = function (explorerNote) {
+ vm.openExplorerActivity = function (explorerActivity) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'explorer-note-modal.html',
-   controller: 'ExplorerNoteCtrl as explorerNoteCtrl',
+   templateUrl: 'explorer-activity-modal.html',
+   controller: 'ExplorerActivityCtrl as explorerActivityCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    explorerNoteData: function () {
-     return explorerNote;
+    explorerActivityData: function () {
+     return explorerActivity;
     }
    }
   });
@@ -147,12 +147,12 @@ var explorerNotesCtrl = function (
 
 
  //--------init------
- vm.explorerNotesSrv.getExplorerNotes(vm.explorerId);
+ vm.explorerActivitysSrv.getExplorerActivitys(vm.explorerId);
 };
 
 
-explorerNotesCtrl.$inject = [
- 'ExplorerNotesSrv',
+explorerActivitysCtrl.$inject = [
+ 'ExplorerActivitysSrv',
  '$scope',
  '$state',
  '$stateParams',
@@ -163,4 +163,4 @@ explorerNotesCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.explorer").controller('ExplorerNotesCtrl', explorerNotesCtrl);
+angular.module("app.explorer").controller('ExplorerActivitysCtrl', explorerActivitysCtrl);

@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Models\Note;
+namespace App\Models\Activity;
 
 use Illuminate\Database\Eloquent\Model;
 use Request;
 use DB;
 use JWTAuth;
 
-class Note extends Model {
+class Activity extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_note';
+ protected $table = 'gb_activity';
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');

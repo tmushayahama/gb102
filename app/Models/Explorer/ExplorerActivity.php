@@ -3,27 +3,27 @@
 namespace App\Models\Explorer;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Note\Note;
+use App\Models\Activity\Activity;
 use Request;
 use DB;
 use JWTAuth;
 
-class ExplorerNote extends Model {
+class ExplorerActivity extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_explorer_note';
+ protected $table = 'gb_explorer_activity';
  public $timestamps = false;
 
  public function explorer() {
   return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
- public function note() {
-  return $this->belongsTo('App\Models\Note\Note', 'note_id');
+ public function activity() {
+  return $this->belongsTo('App\Models\Activity\Activity', 'activity_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class ExplorerNote extends Model {
   */
  protected $fillable = [];
 
- public static function getExplorerNotes($explorerId) {
-  $explorerNotes = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->get();
-  return $explorerNotes;
+ public static function getExplorerActivitys($explorerId) {
+  $explorerActivitys = ExplorerActivity::with('activity')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->get();
+  return $explorerActivitys;
  }
 
- public static function getExplorerNote($explorerId, $noteId) {
-  $explorerNote = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->where('note_id', $noteId)
-    ->first();
-  return $explorerNote;
+ public static function getExplorerActivity($explorerId, $activityId) {
+  $explorerActivity = ExplorerActivity::with('activity')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->where('activity_id', $activityId)
+          ->first();
+  return $explorerActivity;
  }
 
- public static function createExplorerNote() {
+ public static function createExplorerActivity() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $explorerId = Request::get("explorerId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $note = new Note;
-  $explorerNote = new ExplorerNote;
-  $note->creator_id = $userId;
-  $note->title = $title;
-  $note->description = $description;
-  $explorerNote->explorer_id = $explorerId;
+  $activity = new Activity;
+  $explorerActivity = new ExplorerActivity;
+  $activity->creator_id = $userId;
+  $activity->title = $title;
+  $activity->description = $description;
+  $explorerActivity->explorer_id = $explorerId;
 
   DB::beginTransaction();
   try {
-   $note->save();
-   $explorerNote->note()->associate($note);
-   $explorerNote->save();
+   $activity->save();
+   $explorerActivity->activity()->associate($activity);
+   $explorerActivity->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $explorerNote;
+  return $explorerActivity;
  }
 
- public static function editExplorerNote() {
+ public static function editExplorerActivity() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $explorerNoteId = Request::get("explorerNoteId");
-  //$noteId = Request::get("noteId");
+  $explorerActivityId = Request::get("explorerActivityId");
+  //$activityId = Request::get("activityId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $explorerNote = ExplorerNote::find($explorerNoteId);
-  $explorerNote->note->title = $title;
-  $explorerNote->note->description = $description;
+  $explorerActivity = ExplorerActivity::find($explorerActivityId);
+  $explorerActivity->activity->title = $title;
+  $explorerActivity->activity->description = $description;
 
   DB::beginTransaction();
   try {
-   $explorerNote->push();
+   $explorerActivity->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $explorerNote;
+  return $explorerActivity;
  }
 
 }

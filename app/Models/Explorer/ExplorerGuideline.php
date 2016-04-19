@@ -3,27 +3,27 @@
 namespace App\Models\Explorer;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Note\Note;
+use App\Models\Guideline\Guideline;
 use Request;
 use DB;
 use JWTAuth;
 
-class ExplorerNote extends Model {
+class ExplorerGuideline extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_explorer_note';
+ protected $table = 'gb_explorer_guideline';
  public $timestamps = false;
 
  public function explorer() {
   return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
  }
 
- public function note() {
-  return $this->belongsTo('App\Models\Note\Note', 'note_id');
+ public function guideline() {
+  return $this->belongsTo('App\Models\Guideline\Guideline', 'guideline_id');
  }
 
  /**
@@ -33,71 +33,71 @@ class ExplorerNote extends Model {
   */
  protected $fillable = [];
 
- public static function getExplorerNotes($explorerId) {
-  $explorerNotes = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->get();
-  return $explorerNotes;
+ public static function getExplorerGuidelines($explorerId) {
+  $explorerGuidelines = ExplorerGuideline::with('guideline')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->get();
+  return $explorerGuidelines;
  }
 
- public static function getExplorerNote($explorerId, $noteId) {
-  $explorerNote = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->where('note_id', $noteId)
-    ->first();
-  return $explorerNote;
+ public static function getExplorerGuideline($explorerId, $guidelineId) {
+  $explorerGuideline = ExplorerGuideline::with('guideline')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->where('guideline_id', $guidelineId)
+          ->first();
+  return $explorerGuideline;
  }
 
- public static function createExplorerNote() {
+ public static function createExplorerGuideline() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $explorerId = Request::get("explorerId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $note = new Note;
-  $explorerNote = new ExplorerNote;
-  $note->creator_id = $userId;
-  $note->title = $title;
-  $note->description = $description;
-  $explorerNote->explorer_id = $explorerId;
+  $guideline = new Guideline;
+  $explorerGuideline = new ExplorerGuideline;
+  $guideline->creator_id = $userId;
+  $guideline->title = $title;
+  $guideline->description = $description;
+  $explorerGuideline->explorer_id = $explorerId;
 
   DB::beginTransaction();
   try {
-   $note->save();
-   $explorerNote->note()->associate($note);
-   $explorerNote->save();
+   $guideline->save();
+   $explorerGuideline->guideline()->associate($guideline);
+   $explorerGuideline->save();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $explorerNote;
+  return $explorerGuideline;
  }
 
- public static function editExplorerNote() {
+ public static function editExplorerGuideline() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $explorerNoteId = Request::get("explorerNoteId");
-  //$noteId = Request::get("noteId");
+  $explorerGuidelineId = Request::get("explorerGuidelineId");
+  //$guidelineId = Request::get("guidelineId");
   $title = Request::get("title");
   $description = Request::get("description");
-  $explorerNote = ExplorerNote::find($explorerNoteId);
-  $explorerNote->note->title = $title;
-  $explorerNote->note->description = $description;
+  $explorerGuideline = ExplorerGuideline::find($explorerGuidelineId);
+  $explorerGuideline->guideline->title = $title;
+  $explorerGuideline->guideline->description = $description;
 
   DB::beginTransaction();
   try {
-   $explorerNote->push();
+   $explorerGuideline->push();
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $explorerNote;
+  return $explorerGuideline;
  }
 
 }

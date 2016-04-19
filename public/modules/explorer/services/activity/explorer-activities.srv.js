@@ -1,9 +1,9 @@
-var explorerNotesSrv = function ($http, $q) {
+var explorerActivitysSrv = function ($http, $q) {
 
- var ExplorerNotesSrv = function () {
-  this.explorerNotes = [];
+ var ExplorerActivitysSrv = function () {
+  this.explorerActivitys = [];
  };
- ExplorerNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExplorerActivitysSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,12 +22,12 @@ var explorerNotesSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExplorerNotesSrv.prototype.getExplorerNotes = function (explorerId) {
+ ExplorerActivitysSrv.prototype.getExplorerActivitys = function (explorerId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerNotes = [];
-  $http.get('/api/explorer/' + explorerId + '/notes').success(function (data) {
-   self.explorerNotes = data;
+  self.explorerActivitys = [];
+  $http.get('/api/explorer/' + explorerId + '/activitys').success(function (data) {
+   self.explorerActivitys = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -35,12 +35,12 @@ var explorerNotesSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerNotesSrv.prototype.getExplorerNote = function (explorerId, noteId) {
+ ExplorerActivitysSrv.prototype.getExplorerActivity = function (explorerId, activityId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerNotes = [];
-  $http.get('/api/explorer/' + explorerId + '/note/' + noteId).success(function (data) {
-   self.explorerNotes = data;
+  self.explorerActivitys = [];
+  $http.get('/api/explorer/' + explorerId + '/activity/' + activityId).success(function (data) {
+   self.explorerActivitys = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -48,29 +48,29 @@ var explorerNotesSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerNotesSrv.prototype.createExplorerNote = function (explorerNoteData) {
-  var self = this;
-  var deferred = $q.defer();
-  $http({
-   method: 'POST',
-   url: '/api/explorer/note/create',
-   data: explorerNoteData
-  }).success(function (data) {
-   self.explorerNotes.unshift(data);
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
- ExplorerNotesSrv.prototype.editExplorerNote = function (explorerNoteData) {
+ ExplorerActivitysSrv.prototype.createExplorerActivity = function (explorerActivityData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/note/edit',
-   data: explorerNoteData
+   url: '/api/explorer/activity/create',
+   data: explorerActivityData
+  }).success(function (data) {
+   self.explorerActivitys.unshift(data);
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerActivitysSrv.prototype.editExplorerActivity = function (explorerActivityData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/activity/edit',
+   data: explorerActivityData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -80,9 +80,9 @@ var explorerNotesSrv = function ($http, $q) {
  };
 
 
- return ExplorerNotesSrv;
+ return ExplorerActivitysSrv;
 };
 
-explorerNotesSrv.$inject = ['$http', '$q'];
+explorerActivitysSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorerNotesSrv', explorerNotesSrv);
+angular.module('app.explorer').service('ExplorerActivitysSrv', explorerActivitysSrv);

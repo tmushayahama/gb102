@@ -1,9 +1,9 @@
-angular.module('app.explorer').directive('gbExplorerNoteBox',
-        ['ExplorerNotesSrv',
+angular.module('app.explorer').directive('gbExplorerActivityBox',
+        ['ExplorerActivitysSrv',
          'level_categories',
          '$q',
          function (
-                 ExplorerNotesSrv,
+                 ExplorerActivitysSrv,
                  level_categories,
                  $q) {
           'use strict';
@@ -11,10 +11,10 @@ angular.module('app.explorer').directive('gbExplorerNoteBox',
           return {
            restrict: 'EA',
            replace: true,
-           templateUrl: 'public/modules/explorer/views/templates/note/explorer-note-box.tpl.html',
+           templateUrl: 'public/modules/explorer/views/templates/activity/explorer-activity-box.tpl.html',
            scope: {
-            explorerNote: '=',
-            openExplorerNote: '&',
+            explorerActivity: '=',
+            openExplorerActivity: '&',
            },
            controller: [
             '$scope',
@@ -24,7 +24,7 @@ angular.module('app.explorer').directive('gbExplorerNoteBox',
            ],
            link: function (scope, element, attr, ctrl) {
             scope.open = function () {
-             scope.openExplorerNote({explorerNote: scope.explorerNote});
+             scope.openExplorerActivity({explorerActivity: scope.explorerActivity});
             };
            }
           };

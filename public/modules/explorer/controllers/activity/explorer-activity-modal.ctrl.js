@@ -1,5 +1,5 @@
-var explorerNoteCtrl = function (
-        ExplorerNoteSrv,
+var explorerActivityCtrl = function (
+        ExplorerActivitySrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -8,16 +8,16 @@ var explorerNoteCtrl = function (
         $rootScope,
         $location,
         $log,
-        explorerNoteData) {
+        explorerActivityData) {
  var vm = this;
- vm.explorerId = explorerNoteData.explorer_id;
- vm.explorerNoteId = explorerNoteData.id;
- vm.explorerNoteSrv = new ExplorerNoteSrv();
+ vm.explorerId = explorerActivityData.explorer_id;
+ vm.explorerActivityId = explorerActivityData.id;
+ vm.explorerActivitySrv = new ExplorerActivitySrv();
 
 
- vm.noteId = explorerNoteData.note_id;
+ vm.activityId = explorerActivityData.activity_id;
 
- vm.noteFormDisplay = false;
+ vm.activityFormDisplay = false;
 
 
 
@@ -30,48 +30,48 @@ var explorerNoteCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- // vm.newExplorerNoteData = vm.defaultExplorerNoteData;
+ // vm.newExplorerActivityData = vm.defaultExplorerActivityData;
 
- vm.getExplorerNote = function (explorerId, noteId) {
-  vm.explorerNoteSrv.getExplorerNote(explorerId, noteId).then(function (response) {
+ vm.getExplorerActivity = function (explorerId, activityId) {
+  vm.explorerActivitySrv.getExplorerActivity(explorerId, activityId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
- vm.editExplorerNote = function (data) {
-  vm.explorerNoteSrv.editExplorerNote(data).then(function (response) {
+ vm.editExplorerActivity = function (data) {
+  vm.explorerActivitySrv.editExplorerActivity(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerNoteSections = {
+ vm.editExplorerActivitySections = {
   details: function (details) {
-   var explorerNoteData = {
-    explorerNoteId: vm.explorerNoteId,
+   var explorerActivityData = {
+    explorerActivityId: vm.explorerActivityId,
     title: details.title,
     description: details.description
    };
-   vm.editExplorerNote(explorerNoteData);
+   vm.editExplorerActivity(explorerActivityData);
   }
  };
 
 
 
- vm.showNoteForm = function () {
-  vm.noteFormDisplay = true;
+ vm.showActivityForm = function () {
+  vm.activityFormDisplay = true;
  };
 
 
 
  //--------init------
- vm.getExplorerNote(vm.explorerId, vm.noteId);
+ vm.getExplorerActivity(vm.explorerId, vm.activityId);
 };
 
 
-explorerNoteCtrl.$inject = [
- 'ExplorerNoteSrv',
+explorerActivityCtrl.$inject = [
+ 'ExplorerActivitySrv',
  '$uibModalInstance',
  '$scope',
  '$state',
@@ -80,6 +80,6 @@ explorerNoteCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'explorerNoteData'];
+ 'explorerActivityData'];
 
-angular.module("app.explorer").controller('ExplorerNoteCtrl', explorerNoteCtrl);
+angular.module("app.explorer").controller('ExplorerActivityCtrl', explorerActivityCtrl);

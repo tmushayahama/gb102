@@ -1,9 +1,9 @@
-var explorerNoteSrv = function ($http, $q) {
+var explorerGuidelineSrv = function ($http, $q) {
 
- var ExplorerNoteSrv = function () {
-  this.explorerNotes = [];
+ var ExplorerGuidelineSrv = function () {
+  this.explorerGuidelines = [];
  };
- ExplorerNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExplorerGuidelineSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var explorerNoteSrv = function ($http, $q) {
  };
 
 
- ExplorerNoteSrv.prototype.getExplorerNote = function (explorerId, noteId) {
+ ExplorerGuidelineSrv.prototype.getExplorerGuideline = function (explorerId, guidelineId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/note/' + noteId).success(function (data) {
-   self.explorerNote = data;
+  $http.get('/api/explorer/' + explorerId + '/guideline/' + guidelineId).success(function (data) {
+   self.explorerGuideline = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var explorerNoteSrv = function ($http, $q) {
  };
 
 
- ExplorerNoteSrv.prototype.editExplorerNote = function (explorerNoteData) {
+ ExplorerGuidelineSrv.prototype.editExplorerGuideline = function (explorerGuidelineData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/note/edit',
-   data: explorerNoteData
+   url: '/api/explorer/guideline/edit',
+   data: explorerGuidelineData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var explorerNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExplorerNoteSrv;
+ return ExplorerGuidelineSrv;
 };
 
-explorerNoteSrv.$inject = ['$http', '$q'];
+explorerGuidelineSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorerNoteSrv', explorerNoteSrv);
+angular.module('app.explorer').service('ExplorerGuidelineSrv', explorerGuidelineSrv);
