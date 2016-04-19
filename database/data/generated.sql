@@ -245,7 +245,7 @@ CREATE TABLE `gb_discussion` (
   `title` varchar(1000) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -253,6 +253,27 @@ CREATE TABLE `gb_discussion` (
   KEY `discussion_parent_discussion_id` (`parent_discussion_id`),
   CONSTRAINT `discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `discussion_parent_discussion_id` FOREIGN KEY (`parent_discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `gb_exercise`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_exercise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_exercise_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL DEFAULT "",
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `exercise_creator_id` (`creator_id`),
+  KEY `exercise_parent_exercise_id` (`parent_exercise_id`),
+  CONSTRAINT `exercise_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `exercise_parent_exercise_id` FOREIGN KEY (`parent_exercise_id`) REFERENCES `gb_exercise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -625,7 +646,7 @@ CREATE TABLE `gb_weblink` (
 
 
 -- ----------- APP TYPE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/app-type.txt'
     into table gb102.gb_app_type
     fields terminated by '\t'
     enclosed by '"'
@@ -634,8 +655,46 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AppType
     ignore 1 LINES
     (`id`, `name`, `description`, `add_description`, `request_description`);
 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/activity.txt'
+    into table gb102.gb_activity
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `parent_activity_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
+
+-- ----------- COOMENT ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/comment.txt'
+    into table gb102.gb_comment
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `parent_comment_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/discussion.txt'
+    into table gb102.gb_discussion
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `parent_discussion_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
+
+-- ----------- APP TYPE ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/exercise.txt'
+    into table gb102.gb_exercise
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `parent_exercise_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
+
 -- ----------- LEVEL ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.txt'
     into table gb102.gb_level
     fields terminated by '\t'
     enclosed by '"'
@@ -645,7 +704,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.t
     (`id`, `category`, `code`, `name`, `description`, `icon`, `app_type_id`);
 
 -- ------------------ USER ------------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user.txt'
     into table gb102.gb_user
     fields terminated by '\t'
     enclosed by '"'
@@ -655,7 +714,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
 -- ----------- USER CONNECTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserConnection.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user-connection.txt'
     into table gb102.gb_user_connection
     fields terminated by '\t'
     enclosed by '"'
@@ -666,7 +725,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserCon
 
 
 -- ----------- PROFILE SECTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/ProfileSection.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/profile-section.txt'
     into table gb102.gb_profile_section
     fields terminated by '\t'
     enclosed by '"'
@@ -676,7 +735,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Profile
     (`id`, `title`,	`description`,	`creator_id`,	`created_at`,	`updated_at`, `type`,	`status`);
 
 -- ----------- USER PROFILE SECTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserProfileSection.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user-profile-section.txt'
     into table gb102.gb_user_profile_section
     fields terminated by '\t'
     enclosed by '"'
@@ -686,7 +745,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserPro
     (`id`,	`creator_id`,	`profile_section_id`,	`description`,	`created_at`,	`updated_at`,	`type`, `order`,	`status`);
 
 -- ----------- CATEGORY ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/category.txt'
     into table gb102.gb_category
     fields terminated by '\t'
     enclosed by '"'
@@ -696,7 +755,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Categor
     (`id`, `type`, `code`, `name`, `description`);
 
 -- ----------- CHECKLIST  ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Checklist.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/checklist.txt'
     into table gb102.gb_checklist
     fields terminated by '\t'
     enclosed by '"'
@@ -705,8 +764,19 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Checkli
     ignore 1 LINES
     (`id`,	`parent_checklist_id`,	`creator_id`,	`title`,	`description`,	`created_at`,	`updated_at`,	`importance`,	`status`);
 
+
+-- ----------- CHECKLIST  ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/contribution.txt'
+    into table gb102.gb_contribution
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`,	`level_id`,	`creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`);
+
 -- ----------- ICON ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/icon.txt'
     into table gb102.gb_icon
     fields terminated by '\t'
     enclosed by '"'
@@ -716,7 +786,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.tx
     (`id`, `name`, `description`, `type`);
 
 -- ----------- TODO ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/todo.txt'
     into table gb102.gb_todo
     fields terminated by '\t'
     enclosed by '"'
@@ -726,7 +796,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
    (`id`, `parent_todo_id`,	`status_id`,	`creator_id`,	`created_at`,	`updated_at`,	`due_date`,	`title`,	`description`);
 
 -- ----------- TODO CHECKLIST ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/TodoChecklist.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/todo-checklist.txt'
     into table gb102.gb_todo_checklist
     fields terminated by '\t'
     enclosed by '"'
@@ -737,7 +807,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/TodoChe
 
 
 -- ----------- NOTE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/note.txt'
     into table gb102.gb_note
     fields terminated by '\t'
     enclosed by '"'
@@ -747,7 +817,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.tx
    (`id`, `parent_note_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
 
 -- ----------- IWEBLINK ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/weblink.txt'
     into table gb102.gb_weblink
     fields terminated by '\t'
     enclosed by '"'
@@ -757,7 +827,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
    (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
 -- ----------- QUESTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/question.txt'
     into table gb102.gb_question
     fields terminated by '\t'
     enclosed by '"'
@@ -767,7 +837,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
   (`id`, `creator_id`, `description`, `level_id`,	`created_at`,	`updated_at`,	`type`, `status`);
 
 -- ----------- ANSWER CHOIICE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/AnswerChoice.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/answer-choice.txt'
     into table gb102.gb_answer_choice
     fields terminated by '\t'
     enclosed by '"'
@@ -923,6 +993,25 @@ CREATE TABLE `gb_explorer_discussion` (
   KEY `explorer_discussion_explorer_id` (`explorer_id`),
   CONSTRAINT `explorer_discussion_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_explorer_exercise`
+--
+DROP TABLE IF EXISTS `gb_explorer_exercise`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_exercise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `exercise_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_exercise_exercise_id` (`exercise_id`),
+  KEY `explorer_exercise_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_exercise_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_exercise_exercise_id` FOREIGN KEY (`exercise_id`) REFERENCES `gb_exercise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1092,8 +1181,8 @@ CREATE TABLE `gb_explorer_category` (
   CONSTRAINT `explorer_category_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ------------------ Explorer ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/Explorer.txt'
+-- ------------------ explorer ----------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer.txt'
     into table gb102.gb_explorer
     fields terminated by '\t'
     enclosed by '"'
@@ -1102,7 +1191,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     ignore 1 LINES
    (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerRequestOption.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-request-option.txt'
     into table gb102.gb_explorer_request_option
     fields terminated by '\t'
     enclosed by '"'
@@ -1112,7 +1201,53 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
    (`id`, `creator_id`,	`explorer_id`,	`level_id`,	`description`,	`created_at`,	`updated_at`,	`privacy`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerNote.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-activity.txt'
+    into table gb102.gb_explorer_activity
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `activity_id`,	`explorer_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-comment.txt'
+    into table gb102.gb_explorer_comment
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `comment_id`,	`explorer_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-contribution.txt'
+    into table gb102.gb_explorer_contribution
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `contribution_id`,	`explorer_id`,	`privacy`,	`status`);
+
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-discussion.txt'
+    into table gb102.gb_explorer_discussion
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `discussion_id`,	`explorer_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-exercise.txt'
+    into table gb102.gb_explorer_exercise
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `exercise_id`,	`explorer_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-note.txt'
     into table gb102.gb_explorer_note
     fields terminated by '\t'
     enclosed by '"'
@@ -1121,7 +1256,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     ignore 1 LINES
    (`id`, `note_id`,	`explorer_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerTodo.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-todo.txt'
     into table gb102.gb_explorer_todo
     fields terminated by '\t'
     enclosed by '"'
@@ -1130,7 +1265,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explore
     ignore 1 LINES
    (`id`, `todo_id`,	`explorer_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Explorer/ExplorerWeblink.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-weblink.txt'
     into table gb102.gb_explorer_weblink
     fields terminated by '\t'
     enclosed by '"'
@@ -1169,7 +1304,7 @@ CREATE TABLE `gb_mentorship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentorship/Mentorship.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/mentorship/mentorship.txt'
     into table gb102.gb_mentorship
     fields terminated by '\t'
     enclosed by '"'
@@ -1228,7 +1363,7 @@ CREATE TABLE `gb_questionnaire_question` (
   CONSTRAINT `questionnaire_question_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questionnaire.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Questionnaire.txt'
     into table gb102.gb_questionnaire
     fields terminated by '\t'
     enclosed by '"'
@@ -1237,7 +1372,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`,	`parent_questionnaire_id`,	`creator_id`,	`description`,	`level_id`, `created_at`,	`updated_at`, `type`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/QuestionnaireQuestion.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/QuestionnaireQuestion.txt'
     into table gb102.gb_questionnaire_question
     fields terminated by '\t'
     enclosed by '"'

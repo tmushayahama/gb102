@@ -2994,7 +2994,7 @@ CREATE TABLE `gb_weblink` (
 
 
 -- ------------------Initial Users ------------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/User.txt'
     into table gb102.gb_user
     fields terminated by '\t'
     enclosed by '"'
@@ -3004,7 +3004,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/User.tx
     (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Category.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Category.txt'
     into table gb102.gb_category
     fields terminated by '\t'
     enclosed by '"'
@@ -3014,7 +3014,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Categor
     (`id`, `type`, `code`, `name`, `description`);
 
 -- ----------------- Skill List Data
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillBank.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/SkillBank.txt'
     into table gb102.gb_bank
     fields terminated by '\t'
     enclosed by '"'
@@ -3024,7 +3024,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillBa
     (`id`, `source_id`, `creator_id`, `times_used`, `views`, `likes`);
 
 -- ----------- ICON ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/icon.txt'
     into table gb102.gb_icon
     fields terminated by '\t'
     enclosed by '"'
@@ -3034,7 +3034,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/icon.tx
     (`id`, `name`, `description`, `type`);
 
 -- ----------- Level ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Level.txt'
     into table gb102.gb_level
     fields terminated by '\t'
     enclosed by '"'
@@ -3045,7 +3045,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Level.t
 
 
 -- ------------------ Goal ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Goal.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Goal.txt'
     into table gb102.gb_goal
     fields terminated by '\t'
     enclosed by '"'
@@ -3055,7 +3055,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Goal.tx
    (`id`,	`parent_goal_id`,	`creator_id`,	`icon_id`, `goal_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Hobby ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Hobby.txt'
     into table gb102.gb_hobby
     fields terminated by '\t'
     enclosed by '"'
@@ -3065,7 +3065,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Hobby.t
    (`id`,	`parent_hobby_id`,	`creator_id`, `icon_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Promise ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Promise.txt'
     into table gb102.gb_promise
     fields terminated by '\t'
     enclosed by '"'
@@ -3075,7 +3075,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Promise
    (`id`,	`parent_promise_id`,	`creator_id`,	`icon_id`, `promise_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------ Skill ----------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Skill.txt'
     into table gb102.gb_skill
     fields terminated by '\t'
     enclosed by '"'
@@ -3085,7 +3085,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Skill.t
    (`id`,	`parent_skill_id`,	`creator_id`,	`icon_id`, `skill_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentorship.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Mentorship.txt'
     into table gb102.gb_mentorship
     fields terminated by '\t'
     enclosed by '"'
@@ -3094,7 +3094,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
     ignore 1 LINES
   (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`icon_id`, `mentorship_picture_url`,	`title`,	`description`,	`created_at`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Todo.txt'
     into table gb102.gb_todo
     fields terminated by '\t'
     enclosed by '"'
@@ -3103,7 +3103,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Todo.tx
     ignore 1 LINES
    (`id`, `parent_todo_id`,	`status_id`,	`creator_id`,	`created_at`,	`updated_at`,	`due_date`,	`title`,	`description`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTodo.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/SkillTodo.txt'
     into table gb102.gb_skill_todo
     fields terminated by '\t'
     enclosed by '"'
@@ -3112,7 +3112,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillTo
     ignore 1 LINES
    (`id`, `todo_id`,	`skill_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Note.txt'
     into table gb102.gb_note
     fields terminated by '\t'
     enclosed by '"'
@@ -3121,7 +3121,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Note.tx
     ignore 1 LINES
    (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillNote.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/SkillNote.txt'
     into table gb102.gb_skill_note
     fields terminated by '\t'
     enclosed by '"'
@@ -3130,7 +3130,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillNo
     ignore 1 LINES
    (`id`, `note_id`,	`skill_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Weblink.txt'
     into table gb102.gb_weblink
     fields terminated by '\t'
     enclosed by '"'
@@ -3139,7 +3139,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Weblink
     ignore 1 LINES
    (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_at`, `importance`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWeblink.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/SkillWeblink.txt'
     into table gb102.gb_skill_weblink
     fields terminated by '\t'
     enclosed by '"'
@@ -3148,7 +3148,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillWe
     ignore 1 LINES
    (`id`, `weblink_id`,	`skill_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Progress.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Progress.txt'
     into table gb102.gb_progress
     fields terminated by '\t'
     enclosed by '"'
@@ -3157,7 +3157,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Progres
     ignore 1 LINES
    (`id`, `parent_progress_id`,	`creator_id`,	`description`,	`created_at`,	`progress_date`,	`day`,	`progress_color`,	`importance`, `status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillProgress.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/SkillProgress.txt'
     into table gb102.gb_skill_progress
     fields terminated by '\t'
     enclosed by '"'
@@ -3167,7 +3167,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/SkillPr
    (`id`, `progress_id`,	`skill_id`,	`privacy`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/MentorshipSkill.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/MentorshipSkill.txt'
     into table gb102.gb_mentorship_skill
     fields terminated by '\t'
     enclosed by '"'
@@ -3177,7 +3177,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Mentors
   (`id`, `skill_id`,	`mentorship_id`,	`creator_id`,	`created_at`,	`type`, `privacy`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Question.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Question.txt'
     into table gb102.gb_question
     fields terminated by '\t'
     enclosed by '"'
@@ -3186,7 +3186,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`, `creator_id`, `description`, `type`, `status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questionnaire.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Questionnaire.txt'
     into table gb102.gb_questionnaire
     fields terminated by '\t'
     enclosed by '"'
@@ -3195,7 +3195,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`, `parent_questionnaire_id`, `creator_id`, `description`, `type`, `status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/QuestionnaireQuestion.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/QuestionnaireQuestion.txt'
     into table gb102.gb_questionnaire_question
     fields terminated by '\t'
     enclosed by '"'
@@ -3204,7 +3204,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`, `question_id`, `questionnaire_id`, `creator_id`, `description`, `type`, `status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/QuestionAnswerChoice.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/QuestionAnswerChoice.txt'
     into table gb102.gb_question_answer_choice
     fields terminated by '\t'
     enclosed by '"'
@@ -3214,7 +3214,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
   (`id`,	`question_id`,	`answer`,	`description`,	`type`,	`status`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/UserQuestionChoice.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/UserQuestionChoice.txt'
     into table gb102.gb_user_question_answer
     fields terminated by '\t'
     enclosed by '"'

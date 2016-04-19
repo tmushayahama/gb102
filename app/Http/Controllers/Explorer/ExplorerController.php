@@ -9,8 +9,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Explorer\Explorer;
+use App\Models\Explorer\ExplorerActivity;
 use App\Models\Explorer\ExplorerComment;
 use App\Models\Explorer\ExplorerContribution;
+use App\Models\Explorer\ExplorerDiscussion;
+use App\Models\Explorer\ExplorerExercise;
+use App\Models\Explorer\ExplorerGuideline;
 use App\Models\Explorer\ExplorerNote;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
@@ -119,6 +123,66 @@ class ExplorerController extends Controller {
   return \Response::json($todoChecklist);
  }
 
+ public function getExplorerActivitys($explorerId) {
+  $explorerActivitys = ExplorerActivity::getExplorerActivitys($explorerId);
+  return \Response::json($explorerActivitys);
+ }
+
+ public function getExplorerActivity($explorerId, $activityId) {
+  $explorerActivity = ExplorerActivity::getExplorerActivity($explorerId, $activityId);
+  return \Response::json($explorerActivity);
+ }
+
+ public function createExplorerActivity() {
+  $explorerActivity = ExplorerActivity::createExplorerActivity();
+  return \Response::json($explorerActivity);
+ }
+
+ public function editExplorerActivity() {
+  $explorerActivity = ExplorerActivity::editExplorerActivity();
+  return \Response::json($explorerActivity);
+ }
+
+ public function getExplorerExercises($explorerId) {
+  $explorerExercises = ExplorerExercise::getExplorerExercises($explorerId);
+  return \Response::json($explorerExercises);
+ }
+
+ public function getExplorerExercise($explorerId, $exerciseId) {
+  $explorerExercise = ExplorerExercise::getExplorerExercise($explorerId, $exerciseId);
+  return \Response::json($explorerExercise);
+ }
+
+ public function createExplorerExercise() {
+  $explorerExercise = ExplorerExercise::createExplorerExercise();
+  return \Response::json($explorerExercise);
+ }
+
+ public function editExplorerExercise() {
+  $explorerExercise = ExplorerExercise::editExplorerExercise();
+  return \Response::json($explorerExercise);
+ }
+
+ public function getExplorerGuidelines($explorerId) {
+  $explorerGuidelines = ExplorerGuideline::getExplorerGuidelines($explorerId);
+  return \Response::json($explorerGuidelines);
+ }
+
+ public function getExplorerGuideline($explorerId, $guidelineId) {
+  $explorerGuideline = ExplorerGuideline::getExplorerGuideline($explorerId, $guidelineId);
+  return \Response::json($explorerGuideline);
+ }
+
+ public function createExplorerGuideline() {
+  $explorerGuideline = ExplorerGuideline::createExplorerGuideline();
+  return \Response::json($explorerGuideline);
+ }
+
+ public function editExplorerGuideline() {
+  $explorerGuideline = ExplorerGuideline::editExplorerGuideline();
+  return \Response::json($explorerGuideline);
+ }
+
  public function getExplorerNotes($explorerId) {
   $explorerNotes = ExplorerNote::getExplorerNotes($explorerId);
   return \Response::json($explorerNotes);
@@ -182,6 +246,26 @@ class ExplorerController extends Controller {
  public function editExplorerContribution() {
   $explorerContribution = ExplorerContribution::editExplorerContribution();
   return \Response::json($explorerContribution);
+ }
+
+ public function getExplorerDiscussions($explorerId) {
+  $explorerDiscussions = ExplorerDiscussion::getExplorerDiscussions($explorerId);
+  return \Response::json($explorerDiscussions);
+ }
+
+ public function getExplorerDiscussion($explorerId, $discussionId) {
+  $explorerDiscussion = ExplorerDiscussion::getExplorerDiscussion($explorerId, $discussionId);
+  return \Response::json($explorerDiscussion);
+ }
+
+ public function createExplorerDiscussion() {
+  $explorerDiscussion = ExplorerDiscussion::createExplorerDiscussion();
+  return \Response::json($explorerDiscussion);
+ }
+
+ public function editExplorerDiscussion() {
+  $explorerDiscussion = ExplorerDiscussion::editExplorerDiscussion();
+  return \Response::json($explorerDiscussion);
  }
 
  public function getExplorerWeblinks($explorerId) {

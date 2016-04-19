@@ -108,6 +108,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
+                  'public/modules/explorer/directives/note/explorer-note-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorer.srv.js',
@@ -198,6 +199,10 @@ define(['angular'
                   'public/modules/explorer/services/comment/explorer-comments.srv.js',
                   'public/modules/explorer/controllers/comment/explorer-comments.ctrl.js',
                   'public/modules/explorer/controllers/comment/explorer-comment-modal.ctrl.js',
+                  'public/modules/explorer/services/discussion/explorer-discussion.srv.js',
+                  'public/modules/explorer/services/discussion/explorer-discussions.srv.js',
+                  'public/modules/explorer/controllers/discussion/explorer-discussions.ctrl.js',
+                  'public/modules/explorer/controllers/discussion/explorer-discussion-modal.ctrl.js',
                  ]
                 });
                }]

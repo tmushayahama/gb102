@@ -18,25 +18,17 @@
      {{explorerTodo.todo.description}}
     </a>
    </div>
-   <div ng-show="false" class="gb-footer gb-padding-none row">
+   <div class="gb-footer gb-padding-none row">
     <div class="gb-footer row gb-padding-none">
      <div class="gb-summary-bar btn-group">
-      <a class="btn btn-xs btn-link">
-       <i class="fa fa-clock-o"></i> {{explorerTodo.todo.due_date}}
-      </a>
-      <a class="btn btn-xs btn-link">
-       <i class="gb-icon fa icon-checkmark"></i> [ {{todoChecklistStatusData.done}} / {{todoChecklistStatusData.total}}
+      <a ng-show="todoChecklistStatusData.total > 0"class="btn btn-xs btn-link">
+       <i class="gb-icon fa icon-checkmark"></i> [ {{todoChecklistStatusData.done}} / {{todoChecklistStatusData.total}} ]
       </a>
       <a class="btn btn-xs btn-link">
        <i class="gb-icon fa icon-users"></i> 0
       </a>
      </div>
     </div>
-   </div>
-   <div class="gb-heading row">
-    <p class="gb-title gb-ellipsis">
-     {{explorerTodo.todo.status.name}}
-    </p>
    </div>
   </div>
  </div>

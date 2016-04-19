@@ -3211,7 +3211,7 @@ input[type="checkbox"] {
 .gb-heading-row-2 .gb-title {
   position: relative;
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 0.5;
 }
 .gb-heading-row-2 .gb-title span {
@@ -5448,7 +5448,7 @@ input.gb-form-show {
 }
 .gb-todo-box .gb-box-body {
   position: relative;
-  height: 50px;
+  height: 55px;
   width: 100%;
   background-color: #FFF;
 }
@@ -5476,7 +5476,7 @@ input.gb-form-show {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 5px 5px 5px 15px;
+  padding: 7px 10px 5px 10px;
 }
 .gb-todo-box .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
@@ -5527,6 +5527,98 @@ input.gb-form-show {
   right: 0;
 }
 .gb-todo-box .gb-box-body .gb-dropdown-action button {
+  margin: 0;
+}
+
+.gb-note-box {
+  position: relative;
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+.gb-note-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-note-box .gb-box-body {
+  position: relative;
+  height: 55px;
+  width: 100%;
+  background-color: #FFF;
+}
+.gb-note-box .gb-box-body .gb-todo-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0 0 0 10px;
+}
+.gb-note-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 10px;
+}
+.gb-note-box .gb-box-body .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 7px 10px 5px 10px;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-description {
+  padding: 2px 10px 0px 0px;
+  max-height: 41px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer {
+  padding: 3px 3px 0 0;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-note-box .gb-box-body .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-note-box .gb-box-body .gb-dropdown-action button {
   margin: 0;
 }
 

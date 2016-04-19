@@ -79,10 +79,8 @@ id	category	code	name	description	icon	app_type_id
 5002	5000	FRND	Family			
 5003	5000	FRND	Follower			
 5004	5000	FRND	Co Worker			
-50000	50000	TDL	normal			
-50001	50000	TDL	progress			
-50100	50001	TDP	in progress			
-50101	50001	TDP	later			
-50102	50001	TDP	done			
+50000	50001	TDP	in progress			
+50001	50001	TDP	later			
+50002	50001	TDP	done			
 70000	70000	STS	pending			
 70001	70000	STS	accepted			

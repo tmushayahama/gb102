@@ -76,6 +76,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorer/{explorerId}/contributions', 'Explorer\ExplorerController@getExplorerContributions');
  Route::get('explorer/{explorerId}/contribution/{contributionId}', 'Explorer\ExplorerController@getExplorerContribution');
  Route::get('explorer/{explorerId}/contribution/{contributionId}/level', 'Explorer\ExplorerController@getExplorerContributionLevel');
+ Route::get('explorer/{explorerId}/discussions', 'Explorer\ExplorerController@getExplorerDiscussions');
+ Route::get('explorer/{explorerId}/discussion/{discussionId}', 'Explorer\ExplorerController@getExplorerDiscussion');
  Route::get('explorer/{explorerId}/todos/{statusId}', 'Explorer\ExplorerController@getExplorerTodos');
  Route::get('explorer/{explorerId}/todo/{todoId}', 'Explorer\ExplorerController@getExplorerTodo');
  Route::get('explorer/{explorerId}/notes', 'Explorer\ExplorerController@getExplorerNotes');
@@ -90,6 +92,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explorer/comment/edit', 'Explorer\ExplorerController@editExplorerComment');
  Route::post('explorer/contribution/create', 'Explorer\ExplorerController@createExplorerContribution');
  Route::post('explorer/contribution/edit', 'Explorer\ExplorerController@editExplorerContribution');
+ Route::post('explorer/discussion/create', 'Explorer\ExplorerController@createExplorerDiscussion');
+ Route::post('explorer/discussion/edit', 'Explorer\ExplorerController@editExplorerDiscussion');
  Route::post('explorer/todo/create', 'Explorer\ExplorerController@createExplorerTodo');
  Route::post('explorer/todo/edit', 'Explorer\ExplorerController@editExplorerTodo');
  Route::post('explorer/note/create', 'Explorer\ExplorerController@createExplorerNote');

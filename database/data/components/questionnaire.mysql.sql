@@ -49,7 +49,7 @@ CREATE TABLE `gb_questionnaire_question` (
   CONSTRAINT `questionnaire_question_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questionnaire.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/Questionnaire.txt'
     into table gb102.gb_questionnaire
     fields terminated by '\t'
     enclosed by '"'
@@ -58,7 +58,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/Questio
     ignore 1 LINES
   (`id`,	`parent_questionnaire_id`,	`creator_id`,	`description`,	`level_id`, `created_at`,	`updated_at`, `type`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/Initializers/QuestionnaireQuestion.txt'
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/QuestionnaireQuestion.txt'
     into table gb102.gb_questionnaire_question
     fields terminated by '\t'
     enclosed by '"'

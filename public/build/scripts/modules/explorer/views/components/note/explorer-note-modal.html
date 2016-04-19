@@ -1,12 +1,12 @@
 <div class="modal-header gb-modal-header row">
- <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+ <div class="gb-title">
   <p class="gb-ellipsis">
    {{explorerNoteCtrl.explorerNoteSrv.explorerNote.note.title}}
   </p>
  </div>
- <a class="pull-right gb-ghost-btn-2" ng-click="explorerNoteCtrl.close()">
+ <md-button class="gb-close" ng-click="explorerNoteCtrl.close()">
   x
- </a>
+ </md-button>
 </div>
 <div class="modal-body gb-modal-body">
  <section class="gb-section-row-1 row">
@@ -33,9 +33,8 @@
  </section>
 </div>
 <div class="modal-footer">
- <div class="btn-group pull-right col-lg-2 col-md-2 col-sm-4 col-xs-4">
-  <a class="btn gb-btn gb-btn-sm col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="explorerNoteCtrl.close()">
-   Close
-  </a>
- </div>
+ <md-button class="pull-right" aria-label="Close Todo Modal"
+            ng-click="explorerNoteCtrl.close()">
+  Close
+ </md-button>
 </div>
