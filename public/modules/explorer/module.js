@@ -108,7 +108,11 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
+                  'public/modules/explorer/directives/activity/explorer-activity-box.drv.js',
+                  'public/modules/explorer/directives/exercise/explorer-exercise-box.drv.js',
+                  'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
+                  'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorer.srv.js',

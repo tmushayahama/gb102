@@ -1,0 +1,108 @@
+<div class="gb-plans row" ng-controller='ExplorerPlansCtrl as explorerPlansCtrl'>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-1 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-th-large"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      PLANS AND STRATEGIES
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button class="gb-action" ng-click="explorerPlansCtrl.showPlanForm()"
+                ng-show="!explorerPlansCtrl.planFormDisplay">
+      <i class="fa fa-plus"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class='row'>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class='row'>
+    <form class="gb-shadow-1 gb-background-white" ng-show="explorerPlansCtrl.planFormDisplay" name="form" novalidate>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Plan Description" ng-model="explorerPlansCtrl.newExplorerPlanData.title"
+                 name="title" required="" rows="2">
+       </textarea>
+       <div ng-show="form.$submitted || form.title.$touched">
+        <div ng-show="form.title.$error.required">description required.</div>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Plan Description (optional)" ng-model="explorerPlansCtrl.newExplorerPlanData.description"
+                 name="description" required="" rows="4">
+       </textarea>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <div class="radio gb-radio-row">
+        <label class="">
+         <input type="radio" ng-model="explorerPlansCtrl.newExplorerPlanData.privacy" value="0" />
+         <strong>public</strong> All people can see this plan
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerPlansCtrl.newExplorerPlanData.privacy" value="1" />
+         <strong>private</strong> only you can see this plan
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerPlansCtrl.newExplorerPlanData.privacy" value="2" />
+         <strong>custom</strong> choose who to see this plan
+        </label>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row" ng-class="{'gb-disabled-2': explorerPlansCtrl.newExplorerPlanData.privacy != 2}">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <input type="text" class="form-control" placeholder="Select members"/>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+       <a class="btn btn-link" ng-click="explorerPlansCtrl.showAdvanced()">
+        Show Advanced
+       </a>
+      </label>
+     </div>
+     <div class="gb-form-footer row">
+      <div class="btn-group pull-right">
+       <md-button type="button" class="" ng-click="explorerPlansCtrl.cancelExplorerPlan(form)">
+        Cancel
+       </md-button>
+       <md-button type="button" class="gb-color-primary" ng-click="explorerPlansCtrl.createExplorerPlan(explorerPlansCtrl.newExplorerPlanData)">
+        Add Plan
+       </md-button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="gb-plan-body row" ng-show="explorerPlansCtrl.explorerPlansSrv.explorerPlans.length" ng-cloak>
+    <div ng-repeat="explorerPlan in explorerPlansCtrl.explorerPlansSrv.explorerPlans track by $index">
+     <div gb-explorer-plan-box explorer-plan="explorerPlan"
+          open-explorer-plan="explorerPlansCtrl.openExplorerPlan(explorerPlan)"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+     </div>
+    </div>
+   </div>
+   <script type="text/ng-template" id="explorer-plan-modal.html">
+    <div class="gb-plan-page" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plan-modal.html'"></div>
+   </script>
+  </div>
+ </div>
+</div>

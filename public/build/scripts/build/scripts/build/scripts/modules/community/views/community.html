@@ -1,0 +1,45 @@
+<div ng-include="'public/build/scripts/modules/app/views/top-menu.html'"></div>
+<div class="container gb-app-list">
+ <div class="row">
+  <div class="col-lg-7 col-md-8 col-sm-12 col-xs-12">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+     <div class="gb-heading-row-1 gb-shadow-1 row">
+      <div class="gb-heading-icon gb-shadow-1">
+       <i class="fa icon-gb-community"></i>
+      </div>
+      <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+       <p class="gb-ellipsis">
+        {{$root.appName}}
+       </p>
+      </div>
+      <div class="btn-group pull-right">
+       <md-button type="button" class="gb-action gb-background-white gb-shadow-1 pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="gb-menu-icon fa fa-filter"></i> {{$root.subAppName}}
+       </md-button>
+       <ul class="gb-dropdown-nav-1 dropdown-menu text-left">
+        <li ui-sref-active="active" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <md-button class="gb-ellipsis" ui-sref="apps.explorer.all">
+         <i class="gb-icon fa icon-gb-discover"></i>
+         <div class="gb-title">
+          ALL
+         </div>
+        </md-button>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div ui-view="app-tab" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->
+
+<script type="text/ng-template" id="add-community-modal.html">
+ <div ng-include="'public/build/scripts/modules/communitys/views/modals/add-community.html'"></div>
+</script>

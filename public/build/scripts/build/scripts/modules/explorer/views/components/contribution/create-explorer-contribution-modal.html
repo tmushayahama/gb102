@@ -1,0 +1,43 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   Add {{createExplorerContributionCtrl.contributionType.name}}(s)
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="createExplorerContributionCtrl.cancel()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <div ng-repeat="user in createExplorerContributionCtrl.users" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
+      ng-init="ss = createExplorerContributionCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
+  <div class="gb-person-box">
+   <img src="public/build/img/profile_pic/{{user.avatar_url}}" class="gb-profile-img" alt="">
+   <div class="gb-box-body">
+    <div class="gb-heading row">
+     <p class="gb-title">
+      NOT SELECTED {{ss}}
+     </p>
+    </div>
+    <div class="gb-description row">
+     <a ui-sref="apps.profile.overview({profileId: user.id})" target="_blank" class="gb-ellipsis">
+      {{user.firstname + " " + user.lastname}}
+     </a>
+    </div>
+   </div>
+   <div class="gb-footer">
+    <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
+       ng-click="createExplorerContributionCtrl.sendRequest(user.id)">
+     Request
+    </a>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right">
+  <md-button class="gb-color-primary" ng-click="createExplorerContributionCtrl.done()">
+   Done
+  </md-button>
+ </div>
+</div>

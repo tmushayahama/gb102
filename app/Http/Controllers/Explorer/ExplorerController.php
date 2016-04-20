@@ -16,6 +16,7 @@ use App\Models\Explorer\ExplorerDiscussion;
 use App\Models\Explorer\ExplorerExercise;
 use App\Models\Explorer\ExplorerGuideline;
 use App\Models\Explorer\ExplorerNote;
+use App\Models\Explorer\ExplorerPlan;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
 use App\Models\Explorer\ExplorerWeblink;

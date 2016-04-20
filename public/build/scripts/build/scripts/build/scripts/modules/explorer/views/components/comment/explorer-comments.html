@@ -1,0 +1,145 @@
+<div class="row gb-comments" ng-controller="ExplorerCommentsCtrl as explorerCommentsCtrl">
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-1 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-comments-o"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      COMMENTS
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button class="gb-action" ng-click="explorerCommentsCtrl.showCommentForm()"
+                ng-show="!explorerCommentsCtrl.commentFormDisplay">
+      <i class="fa fa-plus"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class='row'>
+    <form class="gb-shadow-1 gb-background-white" ng-show="explorerCommentsCtrl.commentFormDisplay" name="form" novalidate>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Comment:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Comment" ng-model="explorerCommentsCtrl.newExplorerCommentData.title"
+                 name="title" required="" rows="2">
+       </textarea>
+       <div ng-show="form.$submitted || form.title.$touched">
+        <div ng-show="form.title.$error.required">comment required.</div>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Comment Description (optional)" ng-model="explorerCommentsCtrl.newExplorerCommentData.description"
+                 name="description" required="" rows="4">
+       </textarea>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <div class="radio gb-radio-row">
+        <label class="">
+         <input type="radio" ng-model="explorerCommentsCtrl.newExplorerCommentData.privacy" value="0" />
+         <strong>public</strong> All people can see this comment
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerCommentsCtrl.newExplorerCommentData.privacy" value="1" />
+         <strong>private</strong> only you can see this comment
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerCommentsCtrl.newExplorerCommentData.privacy" value="2" />
+         <strong>custom</strong> choose who to see this comment
+        </label>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row" ng-class="{'gb-disabled-2': explorerCommentsCtrl.newExplorerCommentData.privacy != 2}">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <input type="text" class="form-control" placeholder="Select members"/>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+       <a class="btn btn-link" ng-click="explorerCommentsCtrl.showAdvanced()">
+        Show Advanced
+       </a>
+      </label>
+     </div>
+     <div class="gb-form-footer row">
+      <div class="btn-group pull-right">
+       <md-button type="button" class="" ng-click="explorerCommentsCtrl.cancelExplorerComment(form)">
+        Cancel
+       </md-button>
+       <md-button type="button" class="gb-color-primary" ng-click="explorerCommentsCtrl.createExplorerComment(explorerCommentsCtrl.newExplorerCommentData)">
+        Add Comment
+       </md-button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="gb-comment-body row" ng-show="explorerCommentsCtrl.explorerCommentsSrv.explorerComments.length" ng-cloak>
+    <ul id="comment-list">
+     <li ng-repeat="explorerComment in explorerCommentsCtrl.explorerCommentsSrv.explorerComments| filter:statusFilter track by $index" ng-class="{completed: explorerComment.completed, editing: explorerComment == explorerCommentsCtrl.editedComment}">
+      <div class="gb-comment-row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="gb-comment-heading">
+        <p class="gb-title">COMMENT</p>
+        <div class="gb-dropdown-action">
+         <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-chevron-down"></i>
+         </a>
+         <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+           <a ng-click="explorerCommentsCtrl.openExplorerComment(explorerComment)">
+            Open
+           </a>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="gb-description">
+        <a ng-click="explorerCommentsCtrl.openExplorerComment(explorerComment)" class="">
+         {{explorerComment.comment.title}}
+        </a>
+        {{explorerComment.comment.description}}
+       </div>
+       <div class="gb-footer">
+        <img src="public/build/img/profile_pic/{{explorerComment.comment.creator.avatar_url}}" class='gb-profile-pic' alt="">
+        <div class="gb-footer-content">
+         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <h5 class="gb-ellipsis"><a>{{explorerComment.comment.creator.firstname + ' ' + explorerComment.comment.creator.lastname}}</a></h5>
+          <p>{{explorerComment.comment.created_at| date:'MM/dd/yyyy'}}</p>
+         </div>
+         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+          <div class="pull-right btn-group">
+           <a ng-click="explorerCommentsCtrl.openExplorerComment(explorerComment)" class="btn gb-btn-xs gb-ghost-btn-2">
+            Open
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </li>
+    </ul>
+   </div>
+   <script type="text/ng-template" id="explorer-comment-modal.html">
+    <div class="gb-comment-page" ng-include="'public/build/scripts/modules/explorer/views/components/comment/explorer-comment-modal.html'"></div>
+   </script>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="gb-section-row-2 gb-todos row" ng-controller='ExplorerProgressCtrl as explorerTodosCtrl'>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-1 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa icon-checkmark"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      PROGRESS
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button class="gb-action" ng-click="explorerTodosCtrl.showTodoForm()"
+                ng-show="!explorerTodosCtrl.todoFormDisplay">
+      <i class="fa fa-plus"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class='row'>
+    <form class="gb-shadow-1 gb-background-white" ng-show="explorerTodosCtrl.todoFormDisplay" name="form" novalidate>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Todo Description" ng-model="explorerTodosCtrl.newExplorerTodoData.title"
+                 name="title" required="" rows="2">
+       </textarea>
+       <div ng-show="form.$submitted || form.title.$touched">
+        <div ng-show="form.title.$error.required">description required.</div>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Todo Description (optional)" ng-model="explorerTodosCtrl.newExplorerTodoData.description"
+                 name="description" required="" rows="4">
+       </textarea>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <div class="radio gb-radio-row">
+        <label class="">
+         <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="0" />
+         <strong>public</strong> All people can see this todo
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="1" />
+         <strong>private</strong> only you can see this todo
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerTodosCtrl.newExplorerTodoData.privacy" value="2" />
+         <strong>custom</strong> choose who to see this todo
+        </label>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row" ng-class="{'gb-disabled-2': explorerTodosCtrl.newExplorerTodoData.privacy != 2}">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <input type="text" class="form-control" placeholder="Select members"/>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+       <a class="btn btn-link" ng-click="explorerTodosCtrl.showAdvanced()">
+        Show Advanced
+       </a>
+      </label>
+     </div>
+     <div class="gb-form-footer row">
+      <div class="btn-group pull-right">
+       <md-button type="button" class="" ng-click="explorerTodosCtrl.cancelExplorerTodo(form)">
+        Cancel
+       </md-button>
+       <md-button type="button" class="gb-color-primary" ng-click="explorerTodosCtrl.createExplorerTodo(explorerTodosCtrl.newExplorerTodoData)">
+        Add Todo
+       </md-button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos track by $index">
+    <div gb-explorer-todo-box explorer-todo="explorerTodo"
+         open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)">
+    </div>
+   </div>
+   <script type="text/ng-template" id="explorer-todo-modal.html">
+    <div class="" ng-include="'public/build/scripts/modules/explorer/views/components/todo/explorer-todo-modal.html'"></div>
+   </script>
+  </div>
+ </div>
+</div>

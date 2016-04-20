@@ -1,0 +1,22 @@
+<div class="row" ng-controller='SubExplorersCtrl as subExplorersCtrl'>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+   <div class="gb-heading-row-1 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa icon-gb-explorer"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      SUB TOPICS
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="row gb-mg-top-md gb-padding-thin">
+  <div ng-repeat="subExplorer in subExplorersCtrl.subExplorers"
+       gb-sub-explorer-box explorer="subExplorer"
+       class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+  </div>
+ </div>
+</div>
