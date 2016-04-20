@@ -1,9 +1,9 @@
-angular.module('app.explorer').directive('gbExplorerActivityBox',
-        ['ExplorerActivitiesSrv',
+angular.module('app.explorer').directive('gbExplorerPlanBox',
+        ['ExplorerPlansSrv',
          'level_categories',
          '$q',
          function (
-                 ExplorerActivitiesSrv,
+                 ExplorerPlansSrv,
                  level_categories,
                  $q) {
           'use strict';
@@ -11,10 +11,10 @@ angular.module('app.explorer').directive('gbExplorerActivityBox',
           return {
            restrict: 'EA',
            replace: true,
-           templateUrl: 'public/modules/explorer/views/templates/activity/explorer-activity-box.tpl.html',
+           templateUrl: 'public/modules/explorer/views/templates/plan/explorer-plan-box.tpl.html',
            scope: {
-            explorerActivity: '=',
-            openExplorerActivity: '&',
+            explorerPlan: '=',
+            openExplorerPlan: '&',
            },
            controller: [
             '$scope',
@@ -24,7 +24,7 @@ angular.module('app.explorer').directive('gbExplorerActivityBox',
            ],
            link: function (scope, element, attr, ctrl) {
             scope.open = function () {
-             scope.openExplorerActivity({explorerActivity: scope.explorerActivity});
+             scope.openExplorerPlan({explorerPlan: scope.explorerPlan});
             };
            }
           };

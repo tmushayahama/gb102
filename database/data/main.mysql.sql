@@ -276,6 +276,30 @@ CREATE TABLE `gb_exercise` (
   CONSTRAINT `exercise_parent_exercise_id` FOREIGN KEY (`parent_exercise_id`) REFERENCES `gb_exercise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_guideline`
+--
+DROP TABLE IF EXISTS `gb_guideline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_guideline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_guideline_id` int(11),
+  `title` varchar(150) NOT NULL DEFAULT "",
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `guideline_creator_id` (`creator_id`),
+  KEY `guideline_parent_guideline_id` (`parent_guideline_id`),
+  CONSTRAINT `guideline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `guideline_parent_guideline_id` FOREIGN KEY (`parent_guideline_id`) REFERENCES `gb_guideline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 DROP TABLE IF EXISTS `gb_icon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -373,6 +397,30 @@ CREATE TABLE `gb_note` (
   KEY `note_parent_note_id` (`parent_note_id`),
   CONSTRAINT `note_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `note_parent_note_id` FOREIGN KEY (`parent_note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_plan`
+--
+DROP TABLE IF EXISTS `gb_plan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_plan_id` int(11),
+  `title` varchar(150) NOT NULL DEFAULT "",
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `plan_creator_id` (`creator_id`),
+  KEY `plan_parent_plan_id` (`parent_plan_id`),
+  CONSTRAINT `plan_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `plan_parent_plan_id` FOREIGN KEY (`parent_plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

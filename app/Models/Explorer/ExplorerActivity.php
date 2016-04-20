@@ -33,12 +33,12 @@ class ExplorerActivity extends Model {
   */
  protected $fillable = [];
 
- public static function getExplorerActivitys($explorerId) {
-  $explorerActivitys = ExplorerActivity::with('activity')
+ public static function getExplorerActivities($explorerId) {
+  $explorerActivities = ExplorerActivity::with('activity')
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
-  return $explorerActivitys;
+  return $explorerActivities;
  }
 
  public static function getExplorerActivity($explorerId, $activityId) {

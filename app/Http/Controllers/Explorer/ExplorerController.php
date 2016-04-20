@@ -123,9 +123,9 @@ class ExplorerController extends Controller {
   return \Response::json($todoChecklist);
  }
 
- public function getExplorerActivitys($explorerId) {
-  $explorerActivitys = ExplorerActivity::getExplorerActivitys($explorerId);
-  return \Response::json($explorerActivitys);
+ public function getExplorerActivities($explorerId) {
+  $explorerActivities = ExplorerActivity::getExplorerActivities($explorerId);
+  return \Response::json($explorerActivities);
  }
 
  public function getExplorerActivity($explorerId, $activityId) {
@@ -201,6 +201,26 @@ class ExplorerController extends Controller {
  public function editExplorerNote() {
   $explorerNote = ExplorerNote::editExplorerNote();
   return \Response::json($explorerNote);
+ }
+
+ public function getExplorerPlans($explorerId) {
+  $explorerPlans = ExplorerPlan::getExplorerPlans($explorerId);
+  return \Response::json($explorerPlans);
+ }
+
+ public function getExplorerPlan($explorerId, $planId) {
+  $explorerPlan = ExplorerPlan::getExplorerPlan($explorerId, $planId);
+  return \Response::json($explorerPlan);
+ }
+
+ public function createExplorerPlan() {
+  $explorerPlan = ExplorerPlan::createExplorerPlan();
+  return \Response::json($explorerPlan);
+ }
+
+ public function editExplorerPlan() {
+  $explorerPlan = ExplorerPlan::editExplorerPlan();
+  return \Response::json($explorerPlan);
  }
 
  public function getExplorerComments($explorerId) {

@@ -137,6 +137,11 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
+                  //Plans
+                  'public/modules/explorer/services/plan/explorer-plan.srv.js',
+                  'public/modules/explorer/services/plan/explorer-plans.srv.js',
+                  'public/modules/explorer/controllers/plan/explorer-plans.ctrl.js',
+                  'public/modules/explorer/controllers/plan/explorer-plan-modal.ctrl.js',
                   //Progress
                   'public/modules/explorer/services/todo/explorer-todo.srv.js',
                   'public/modules/explorer/services/todo/explorer-todos.srv.js',
@@ -161,12 +166,21 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
-                  //Todos
-                  'public/modules/explorer/services/todo/explorer-todo.srv.js',
-                  'public/modules/explorer/services/todo/explorer-todos.srv.js',
-                  'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
-                  'public/modules/explorer/controllers/todo/explorer-todos.ctrl.js',
-                  'public/modules/explorer/controllers/todo/explorer-todo-modal.ctrl.js',
+                  //Activity
+                  'public/modules/explorer/services/activity/explorer-activity.srv.js',
+                  'public/modules/explorer/services/activity/explorer-activities.srv.js',
+                  'public/modules/explorer/controllers/activity/explorer-activities.ctrl.js',
+                  'public/modules/explorer/controllers/activity/explorer-activity-modal.ctrl.js',
+                  //Exercise
+                  'public/modules/explorer/services/exercise/explorer-exercise.srv.js',
+                  'public/modules/explorer/services/exercise/explorer-exercises.srv.js',
+                  'public/modules/explorer/controllers/exercise/explorer-exercises.ctrl.js',
+                  'public/modules/explorer/controllers/exercise/explorer-exercise-modal.ctrl.js',
+                  //Guideline
+                  'public/modules/explorer/services/guideline/explorer-guideline.srv.js',
+                  'public/modules/explorer/services/guideline/explorer-guidelines.srv.js',
+                  'public/modules/explorer/controllers/guideline/explorer-guidelines.ctrl.js',
+                  'public/modules/explorer/controllers/guideline/explorer-guideline-modal.ctrl.js',
                   //Notes,
                   'public/modules/explorer/services/note/explorer-note.srv.js',
                   'public/modules/explorer/services/note/explorer-notes.srv.js',

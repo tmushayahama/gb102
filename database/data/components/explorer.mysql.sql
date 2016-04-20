@@ -167,6 +167,25 @@ CREATE TABLE `gb_explorer_exercise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_explorer_guideline`
+--
+DROP TABLE IF EXISTS `gb_explorer_guideline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_guideline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `guideline_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_guideline_guideline_id` (`guideline_id`),
+  KEY `explorer_guideline_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_guideline_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_guideline_guideline_id` FOREIGN KEY (`guideline_id`) REFERENCES `gb_guideline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_explorer_note`
 --
 DROP TABLE IF EXISTS `gb_explorer_note`;
@@ -183,6 +202,26 @@ CREATE TABLE `gb_explorer_note` (
   KEY `explorer_note_explorer_id` (`explorer_id`),
   CONSTRAINT `explorer_note_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_explorer_plan`
+--
+DROP TABLE IF EXISTS `gb_explorer_plan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_plan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_plan_plan_id` (`plan_id`),
+  KEY `explorer_plan_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_plan_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_plan_plan_id` FOREIGN KEY (`plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

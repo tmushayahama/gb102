@@ -82,6 +82,14 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorer/{explorerId}/todo/{todoId}', 'Explorer\ExplorerController@getExplorerTodo');
  Route::get('explorer/{explorerId}/notes', 'Explorer\ExplorerController@getExplorerNotes');
  Route::get('explorer/{explorerId}/note/{noteId}', 'Explorer\ExplorerController@getExplorerNote');
+ Route::get('explorer/{explorerId}/plans', 'Explorer\ExplorerController@getExplorerPlans');
+ Route::get('explorer/{explorerId}/plan/{planId}', 'Explorer\ExplorerController@getExplorerPlan');
+ Route::get('explorer/{explorerId}/activities', 'Explorer\ExplorerController@getExplorerActivities');
+ Route::get('explorer/{explorerId}/activity/{activityId}', 'Explorer\ExplorerController@getExplorerActivity');
+ Route::get('explorer/{explorerId}/exercises', 'Explorer\ExplorerController@getExplorerExercises');
+ Route::get('explorer/{explorerId}/exercise/{exerciseId}', 'Explorer\ExplorerController@getExplorerExercise');
+ Route::get('explorer/{explorerId}/guidelines', 'Explorer\ExplorerController@getExplorerGuidelines');
+ Route::get('explorer/{explorerId}/guideline/{guidelineId}', 'Explorer\ExplorerController@getExplorerGuideline');
  Route::get('explorer/{explorerId}/requestoptions', 'Explorer\ExplorerController@getExplorerRequestOptions');
  Route::get('explorer/{explorerId}/weblinks', 'Explorer\ExplorerController@getExplorerWeblinks');
  Route::get('explorer/{explorerId}/weblink/{weblinkId}', 'Explorer\ExplorerController@getExplorerWeblink');
@@ -98,10 +106,16 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explorer/todo/edit', 'Explorer\ExplorerController@editExplorerTodo');
  Route::post('explorer/note/create', 'Explorer\ExplorerController@createExplorerNote');
  Route::post('explorer/note/edit', 'Explorer\ExplorerController@editExplorerNote');
+ Route::post('explorer/plan/create', 'Explorer\ExplorerController@createExplorerPlan');
+ Route::post('explorer/plan/edit', 'Explorer\ExplorerController@editExplorerPlan');
+ Route::post('explorer/activity/create', 'Explorer\ExplorerController@createExplorerActivity');
+ Route::post('explorer/activity/edit', 'Explorer\ExplorerController@editExplorerActivity');
+ Route::post('explorer/exercise/create', 'Explorer\ExplorerController@createExplorerExercise');
+ Route::post('explorer/exercise/edit', 'Explorer\ExplorerController@editExplorerExercise');
+ Route::post('explorer/guideline/create', 'Explorer\ExplorerController@createExplorerGuideline');
+ Route::post('explorer/guideline/edit', 'Explorer\ExplorerController@editExplorerGuideline');
  Route::post('explorer/weblink/create', 'Explorer\ExplorerController@createExplorerWeblink');
- Route::post('explorer/weblink/edit', 'Explorer\ExplorerController@editExplorerWeblink');
-
- //Swipe
+ Route::post('explorer/weblink/edit', 'Explorer\ExplorerController@editExplorerWeblink'); //Swipe
  Route::get('swipe/answers', 'Swipe\SwipeController@getAllSwipeAnswers');
  Route::get('swipe/answers/{userId}', 'Swipe\SwipeController@getSwipeAnswers');
  Route::get('swipes/swipe', 'Swipe\SwipeController@getSwipe');

@@ -1,5 +1,5 @@
-var explorerActivitysCtrl = function (
-        ExplorerActivitysSrv,
+var explorerActivitiesCtrl = function (
+        ExplorerActivitiesSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,8 +12,8 @@ var explorerActivitysCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerActivitysCopy;
- vm.explorerActivitysSrv = new ExplorerActivitysSrv();
+ vm.explorerActivitiesCopy;
+ vm.explorerActivitiesSrv = new ExplorerActivitiesSrv();
  vm.activityFormDisplay = false;
 
  vm.defaultExplorerActivityData = {
@@ -27,20 +27,20 @@ var explorerActivitysCtrl = function (
  };
 
  vm.createExplorerActivity = function (data) {
-  vm.explorerActivitysSrv.createExplorerActivity(data).then(function (response) {
+  vm.explorerActivitiesSrv.createExplorerActivity(data).then(function (response) {
    vm.activityFormDisplay = false;
    vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
-   vm.explorerActivitysCopy = angular.copy(vm.explorerActivitysSrv.explorerActivitys);
+   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivitiesSrv.explorerActivities);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerActivity = function (data) {
-  vm.explorerActivitysSrv.editExplorerActivity(data).then(function (response) {
+  vm.explorerActivitiesSrv.editExplorerActivity(data).then(function (response) {
    vm.activityFormDisplay = false;
    vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
-   vm.explorerActivitysCopy = angular.copy(vm.explorerActivitysSrv.explorerActivitys);
+   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivitiesSrv.explorerActivities);
   }, function (response) {
    console.log(response);
   });
@@ -70,11 +70,11 @@ var explorerActivitysCtrl = function (
   explorerActivity = explorerActivityCopy;
   /*
    $filter('filter')
-   (vm.explorerActivitysSrv.explorerActivitys, {id: explorerActivityId}, true)[0]
+   (vm.explorerActivitiesSrv.explorerActivities, {id: explorerActivityId}, true)[0]
    = angular.copy($filter('filter')
-   (vm.explorerActivitysCopy, {id: explorerActivityId}, true)[0]);
+   (vm.explorerActivitiesCopy, {id: explorerActivityId}, true)[0]);
    if (explorerActivity.length && explorerActivityCopy.length) {
-   // vm.explorerActivitysSrv.explorerActivitys angular.copy(vm.explorerActivitysCopy);
+   // vm.explorerActivitiesSrv.explorerActivities angular.copy(vm.explorerActivitiesCopy);
    }
    */
  };
@@ -87,12 +87,12 @@ var explorerActivitysCtrl = function (
  vm.editedActivity = null;
 
  $scope.$watch(angular.bind(this, function () {
-  return vm.explorerActivitys;
+  return vm.explorerActivities;
  }), function () {
-  //vm.remainingCount = filterFilter(explorerActivitys, {completed: false}).length;
-  vm.doneCount = vm.explorerActivitysSrv.explorerActivitys.length - vm.remainingCount;
+  //vm.remainingCount = filterFilter(explorerActivities, {completed: false}).length;
+  vm.doneCount = vm.explorerActivitiesSrv.explorerActivities.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
-  //ExplorerActivityService.put(vm.explorerActivitys);
+  //ExplorerActivityService.put(vm.explorerActivities);
  }, true);
  /*
   $scope.$watch(angular.bind(this, function () {
@@ -147,12 +147,12 @@ var explorerActivitysCtrl = function (
 
 
  //--------init------
- vm.explorerActivitysSrv.getExplorerActivitys(vm.explorerId);
+ vm.explorerActivitiesSrv.getExplorerActivities(vm.explorerId);
 };
 
 
-explorerActivitysCtrl.$inject = [
- 'ExplorerActivitysSrv',
+explorerActivitiesCtrl.$inject = [
+ 'ExplorerActivitiesSrv',
  '$scope',
  '$state',
  '$stateParams',
@@ -163,4 +163,4 @@ explorerActivitysCtrl.$inject = [
  '$log',
  '$filter'];
 
-angular.module("app.explorer").controller('ExplorerActivitysCtrl', explorerActivitysCtrl);
+angular.module("app.explorer").controller('ExplorerActivitiesCtrl', explorerActivitiesCtrl);

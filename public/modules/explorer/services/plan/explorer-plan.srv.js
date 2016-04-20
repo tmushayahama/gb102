@@ -1,9 +1,9 @@
-var explorerActivitySrv = function ($http, $q) {
+var explorerPlanSrv = function ($http, $q) {
 
- var ExplorerActivitySrv = function () {
-  this.explorerActivities = [];
+ var ExplorerPlanSrv = function () {
+  this.explorerPlans = [];
  };
- ExplorerActivitySrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExplorerPlanSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,11 +23,11 @@ var explorerActivitySrv = function ($http, $q) {
  };
 
 
- ExplorerActivitySrv.prototype.getExplorerActivity = function (explorerId, activityId) {
+ ExplorerPlanSrv.prototype.getExplorerPlan = function (explorerId, planId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/activity/' + activityId).success(function (data) {
-   self.explorerActivity = data;
+  $http.get('/api/explorer/' + explorerId + '/plan/' + planId).success(function (data) {
+   self.explorerPlan = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -36,13 +36,13 @@ var explorerActivitySrv = function ($http, $q) {
  };
 
 
- ExplorerActivitySrv.prototype.editExplorerActivity = function (explorerActivityData) {
+ ExplorerPlanSrv.prototype.editExplorerPlan = function (explorerPlanData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/activity/edit',
-   data: explorerActivityData
+   url: '/api/explorer/plan/edit',
+   data: explorerPlanData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -51,9 +51,9 @@ var explorerActivitySrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExplorerActivitySrv;
+ return ExplorerPlanSrv;
 };
 
-explorerActivitySrv.$inject = ['$http', '$q'];
+explorerPlanSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorerActivitySrv', explorerActivitySrv);
+angular.module('app.explorer').service('ExplorerPlanSrv', explorerPlanSrv);
