@@ -16,6 +16,7 @@ use App\Models\Explorer\ExplorerDiscussion;
 use App\Models\Explorer\ExplorerExercise;
 use App\Models\Explorer\ExplorerGuideline;
 use App\Models\Explorer\ExplorerNote;
+use App\Models\Explorer\ExplorerObjective;
 use App\Models\Explorer\ExplorerPlan;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
@@ -202,6 +203,26 @@ class ExplorerController extends Controller {
  public function editExplorerNote() {
   $explorerNote = ExplorerNote::editExplorerNote();
   return \Response::json($explorerNote);
+ }
+
+ public function getExplorerObjectives($explorerId) {
+  $explorerObjectives = ExplorerObjective::getExplorerObjectives($explorerId);
+  return \Response::json($explorerObjectives);
+ }
+
+ public function getExplorerObjective($explorerId, $objectiveId) {
+  $explorerObjective = ExplorerObjective::getExplorerObjective($explorerId, $objectiveId);
+  return \Response::json($explorerObjective);
+ }
+
+ public function createExplorerObjective() {
+  $explorerObjective = ExplorerObjective::createExplorerObjective();
+  return \Response::json($explorerObjective);
+ }
+
+ public function editExplorerObjective() {
+  $explorerObjective = ExplorerObjective::editExplorerObjective();
+  return \Response::json($explorerObjective);
  }
 
  public function getExplorerPlans($explorerId) {

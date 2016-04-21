@@ -224,6 +224,27 @@ CREATE TABLE `gb_explorer_plan` (
   CONSTRAINT `explorer_plan_plan_id` FOREIGN KEY (`plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_explorer_objective`
+--
+DROP TABLE IF EXISTS `gb_explorer_objective`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_objective` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `objective_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_objective_objective_id` (`objective_id`),
+  KEY `explorer_objective_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_objective_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_objective_objective_id` FOREIGN KEY (`objective_id`) REFERENCES `gb_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 --
 -- Table structure for table `gb_explorer_anouncement`
 --
@@ -438,6 +459,15 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     ignore 1 LINES
    (`id`, `exercise_id`,	`explorer_id`,	`privacy`,	`status`);
 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-guideline.txt'
+    into table gb102.gb_explorer_guideline
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `guideline_id`,	`explorer_id`,	`privacy`,	`status`);
+
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-note.txt'
     into table gb102.gb_explorer_note
     fields terminated by '\t'
@@ -447,14 +477,25 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     ignore 1 LINES
    (`id`, `note_id`,	`explorer_id`,	`privacy`,	`status`);
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-todo.txt'
-    into table gb102.gb_explorer_todo
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-objective.txt'
+    into table gb102.gb_explorer_objective
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `todo_id`,	`explorer_id`,	`privacy`,	`status`);
+   (`id`, `objective_id`,	`explorer_id`,	`privacy`,	`status`);
+
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-plan.txt'
+    into table gb102.gb_explorer_plan
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `plan_id`,	`explorer_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-weblink.txt'
     into table gb102.gb_explorer_weblink

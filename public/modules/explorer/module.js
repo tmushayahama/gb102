@@ -112,6 +112,7 @@ define(['angular'
                   'public/modules/explorer/directives/exercise/explorer-exercise-box.drv.js',
                   'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
+                  'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
@@ -141,6 +142,11 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
+                  //Objectives,
+                  'public/modules/explorer/services/objective/explorer-objective.srv.js',
+                  'public/modules/explorer/services/objective/explorer-objectives.srv.js',
+                  'public/modules/explorer/controllers/objective/explorer-objectives.ctrl.js',
+                  'public/modules/explorer/controllers/objective/explorer-objective-modal.ctrl.js',
                   //Plans
                   'public/modules/explorer/services/plan/explorer-plan.srv.js',
                   'public/modules/explorer/services/plan/explorer-plans.srv.js',

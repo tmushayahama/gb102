@@ -82,6 +82,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorer/{explorerId}/todo/{todoId}', 'Explorer\ExplorerController@getExplorerTodo');
  Route::get('explorer/{explorerId}/notes', 'Explorer\ExplorerController@getExplorerNotes');
  Route::get('explorer/{explorerId}/note/{noteId}', 'Explorer\ExplorerController@getExplorerNote');
+ Route::get('explorer/{explorerId}/objectives', 'Explorer\ExplorerController@getExplorerObjectives');
+ Route::get('explorer/{explorerId}/objective/{objectiveId}', 'Explorer\ExplorerController@getExplorerObjective');
  Route::get('explorer/{explorerId}/plans', 'Explorer\ExplorerController@getExplorerPlans');
  Route::get('explorer/{explorerId}/plan/{planId}', 'Explorer\ExplorerController@getExplorerPlan');
  Route::get('explorer/{explorerId}/activities', 'Explorer\ExplorerController@getExplorerActivities');
@@ -106,6 +108,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explorer/todo/edit', 'Explorer\ExplorerController@editExplorerTodo');
  Route::post('explorer/note/create', 'Explorer\ExplorerController@createExplorerNote');
  Route::post('explorer/note/edit', 'Explorer\ExplorerController@editExplorerNote');
+ Route::post('explorer/objective/create', 'Explorer\ExplorerController@createExplorerObjective');
+ Route::post('explorer/objective/edit', 'Explorer\ExplorerController@editExplorerObjective');
  Route::post('explorer/plan/create', 'Explorer\ExplorerController@createExplorerPlan');
  Route::post('explorer/plan/edit', 'Explorer\ExplorerController@editExplorerPlan');
  Route::post('explorer/activity/create', 'Explorer\ExplorerController@createExplorerActivity');
@@ -116,6 +120,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('explorer/guideline/edit', 'Explorer\ExplorerController@editExplorerGuideline');
  Route::post('explorer/weblink/create', 'Explorer\ExplorerController@createExplorerWeblink');
  Route::post('explorer/weblink/edit', 'Explorer\ExplorerController@editExplorerWeblink'); //Swipe
+//Swipe
+
  Route::get('swipe/answers', 'Swipe\SwipeController@getAllSwipeAnswers');
  Route::get('swipe/answers/{userId}', 'Swipe\SwipeController@getSwipeAnswers');
  Route::get('swipes/swipe', 'Swipe\SwipeController@getSwipe');
