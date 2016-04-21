@@ -551,6 +551,14 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('constants/icons/{type}', 'ConstantsController@getIcons');
 
 
+ //Plan
+ Route::post('plan/editstatus', 'Plan\PlanController@editPlanStatus');
+ Route::get('plan/{planId}/checklist/data', 'Plan\PlanController@planChecklistStatusData');
+
+ Route::get('plan/{planId}/checklist', 'Explorer\ExplorerController@getExplorerPlanChecklist');
+ Route::post('plan/checklist/create', 'Explorer\ExplorerController@createExplorerPlanChecklist');
+ Route::post('plan/checklist/edit', 'Explorer\ExplorerController@editExplorerPlanChecklist');
+
 
  //Todos
  Route::post('todo/editstatus', 'Todo\TodoController@editTodoStatus');

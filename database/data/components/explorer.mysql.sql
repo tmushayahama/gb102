@@ -497,6 +497,15 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     ignore 1 LINES
    (`id`, `plan_id`,	`explorer_id`,	`privacy`,	`status`);
 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-todo.txt'
+    into table gb102.gb_explorer_todo
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `todo_id`,	`explorer_id`,	`privacy`,	`status`);
+
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-weblink.txt'
     into table gb102.gb_explorer_weblink
     fields terminated by '\t'

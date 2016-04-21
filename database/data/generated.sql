@@ -446,6 +446,25 @@ CREATE TABLE `gb_plan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_plan_checklist`
+--
+DROP TABLE IF EXISTS `gb_plan_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_plan_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checklist_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `plan_checklist_checklist_id` (`checklist_id`),
+  KEY `plan_checklist_plan_id` (`plan_id`),
+  CONSTRAINT `plan_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `plan_checklist_plan_id` FOREIGN KEY (`plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_notification`
 --
 
@@ -1463,6 +1482,15 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `plan_id`,	`explorer_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-todo.txt'
+    into table gb102.gb_explorer_todo
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `todo_id`,	`explorer_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-weblink.txt'
     into table gb102.gb_explorer_weblink

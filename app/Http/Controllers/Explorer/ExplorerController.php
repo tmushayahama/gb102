@@ -18,6 +18,7 @@ use App\Models\Explorer\ExplorerGuideline;
 use App\Models\Explorer\ExplorerNote;
 use App\Models\Explorer\ExplorerObjective;
 use App\Models\Explorer\ExplorerPlan;
+use App\Models\Plan\PlanChecklist;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
 use App\Models\Explorer\ExplorerWeblink;
@@ -243,6 +244,21 @@ class ExplorerController extends Controller {
  public function editExplorerPlan() {
   $explorerPlan = ExplorerPlan::editExplorerPlan();
   return \Response::json($explorerPlan);
+ }
+
+ public function getExplorerPlanChecklist($planId) {
+  $planChecklists = PlanChecklist::getPlanChecklist($planId);
+  return \Response::json($planChecklists);
+ }
+
+ public function createExplorerPlanChecklist() {
+  $planChecklist = PlanChecklist::createPlanChecklist();
+  return \Response::json($planChecklist);
+ }
+
+ public function editExplorerPlanChecklist() {
+  $planChecklist = PlanChecklist::editPlanChecklist();
+  return \Response::json($planChecklist);
  }
 
  public function getExplorerComments($explorerId) {

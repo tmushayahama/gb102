@@ -93,14 +93,12 @@
     </form>
    </div>
    <div class="gb-note-body row" ng-show="explorerNotesCtrl.explorerNotesSrv.explorerNotes.length" ng-cloak>
-    <ul id="note-list">
-     <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotesSrv.explorerNotes track by $index">
-      <div gb-explorer-note-box explorer-note="explorerNote"
-           open-explorer-note="explorerNotesCtrl.openExplorerNote(explorerNote)"
-           class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
-      </div>
+    <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotesSrv.explorerNotes track by $index">
+     <div gb-explorer-note-box explorer-note="explorerNote"
+          open-explorer-note="explorerNotesCtrl.openExplorerNote(explorerNote)"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
      </div>
-    </ul>
+    </div>
    </div>
    <script type="text/ng-template" id="explorer-note-modal.html">
     <div class="gb-note-page" ng-include="'public/modules/explorer/views/components/note/explorer-note-modal.html'"></div>
