@@ -9,113 +9,103 @@
  </md-button>
 </div>
 <div class="modal-body">
- <section class="gb-section-row-1 row">
-  <header class="gb-heading row">
-   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-    <p class="gb-title gb-ellipsis">
-     STATUS
-    </p>
-   </div>
-  </header>
-  <div class="row">
-   <md-radio-group ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.status_id"
-                   ng-change="explorerTodoCtrl.changeTodoStatus()"
-                   layout="row">
-    <md-radio-button ng-repeat="progressStatusType in explorerTodoCtrl.progressStatusTypes"
-                     ng-value="progressStatusType.id" class="gb-primary col-lg-4 col-md-4 col-sm-4 col-xs-4">
-     {{progressStatusType.name}}
-    </md-radio-button>
-   </md-radio-group>
-  </div>
- </section>
- <section class="gb-section-row-1 row">
-  <header class="gb-heading row">
-   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-    <p class="gb-title gb-ellipsis">
-     DESCRIPTION
-    </p>
-   </div>
-   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
-        ng-show="!explorerTodoCtrl.editDecriptionMode">
-    <a class="gb-ghost-btn-2 pull-right" ng-click="editableForm.$show()" ng-hide="editableForm.$visible">
-     <i class="fa fa-pencil"></i>
-    </a>
-   </div>
-  </header>
+ <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div ng-hide="editableForm.$visible" id="gb-explorer-item-todo-panel" class="row">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-file-text-o"></i>
+    </div>
+    <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-9">
+     <p class="gb-ellipsis">
+      STATUS
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <md-radio-group ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.status_id"
+                  ng-change="explorerTodoCtrl.changeTodoStatus()"
+                  layout="row">
+   <md-radio-button ng-repeat="progressStatusType in explorerTodoCtrl.progressStatusTypes"
+                    ng-value="progressStatusType.id" class="gb-primary col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    {{progressStatusType.name}}
+   </md-radio-button>
+  </md-radio-group>
+ </div>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-file-text-o"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      DESCRIPTION
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerTodoCtrl.editDecriptionMode"
+                ng-click="explorerTodoCtrl.editDecriptionMode = true">
+      <i class="fa fa-pencil"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class='gb-body-row-1 row'>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-hide="explorerTodoCtrl.editDecriptionMode" class="row">
     <strong>{{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title}}</strong>
     {{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.description}}
    </div>
-   <form editable-form name="editableForm" onbeforesave="explorerTodoCtrl.editExplorerTodoSections.details($data)" ng-show="editableForm.$visible">
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title" e-name="title" e-required
-           e-rows="2" e-placeholder="title"
-           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      </div>
-     </div>
-    </div>
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.description" e-name="description"
-           e-rows="2" e-placeholder="description"
-           e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      </div>
-     </div>
-    </div>
+   <form ng-show="explorerTodoCtrl.editDecriptionMode"
+         ng-submit="explorerTodoCtrl.editExplorerTodoSections.details()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <input ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.description" name="title"
+            placeholder="Description"
+            class="">
+    </md-input-container>
     <div class="row"
-         ng-show="editableForm.$visible">
+         ng-show="explorerTodoCtrl.editDecriptionMode">
      <div class="btn-group pull-right">
-      <button type="button" class="btn gb-btn gb-btn-xs"
-              ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-       <i class="text-danger fa fa-times"></i>
-      </button>
-      <button type="submit" class="btn gb-btn gb-btn-xs"
-              ng-disabled="editableForm.$waiting">
-       <i class="text-success fa fa-check"></i>
-      </button>
+      <md-button type="button" class="" ng-click="explorerTodoCtrl.editDecriptionMode = false">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
      </div>
     </div>
    </form>
-   <div ng-show="explorerTodoCtrl.editDecriptionMode" class="row">
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="2" ng-model="explorerTodoCtrl.sectionedData.explorerTodoDetails.title"
-                placeholder="title"
-                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      </textarea>
-     </div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-check-circle-o"></i>
     </div>
-    <div class="form-group row">
-     <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <textarea rows="3" ng-model="explorerTodoCtrl.sectionedData.explorerTodoDetails.description"
-                placeholder="description"
-                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      </textarea>
-     </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      CHECKLIST
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerTodoCtrl.checklistFormVisible"
+                ng-click="explorerTodoCtrl.checklistFormVisible = true">
+      <i class="fa fa-plus"></i>
+     </md-button>
     </div>
    </div>
   </div>
- </section>
- <section class="gb-section-row-1 row">
-  <header class="gb-heading row">
-   <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-    <p class="gb-title gb-ellipsis">
-     CHECKLIST
-    </p>
-   </div>
-   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-3"
-        ng-show="!explorerTodoCtrl.checklistFormVisible">
-    <a class="gb-ghost-btn-2 pull-right" ng-click="explorerTodoCtrl.checklistFormVisible = true">
-     <i class="fa fa-plus"></i>
-    </a>
-   </div>
-  </header>
+ </div>
+ <div class="gb-body-row-1 row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class="gb-checklist">
     <form class="" ng-show="explorerTodoCtrl.checklistFormVisible" name="form" novalidate>
@@ -176,7 +166,8 @@
     </div>
    </div>
   </div>
- </section>
+  </section>
+ </div>
 </div>
 <div class="modal-footer">
  <md-button class="pull-right" aria-label="Close Todo Modal"

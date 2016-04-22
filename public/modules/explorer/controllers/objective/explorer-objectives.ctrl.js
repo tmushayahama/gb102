@@ -38,24 +38,24 @@ var explorerObjectivesCtrl = function (
 
  vm.editExplorerObjective = function (data) {
   vm.explorerObjectivesSrv.editExplorerObjective(data).then(function (response) {
-   vm.objectiveFormDisplay = false;
-   vm.newExplorerObjectiveData = angular.copy(vm.defaultExplorerObjectiveData);
-   vm.explorerObjectivesCopy = angular.copy(vm.explorerObjectivesSrv.explorerObjectives);
+   vm.editDecriptionMode = false;
+   //vm.newExplorerObjectiveData = angular.copy(vm.defaultExplorerObjectiveData);
+   //vm.explorerObjectivesCopy = angular.copy(vm.explorerObjectivesSrv.explorerObjectives);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerObjectiveSections = {
-  details: function (explorerObjectiveId, detail) {
+  details: function () {
    var explorerObjectiveData = {
-    explorerObjectiveId: explorerObjectiveId,
-    title: detail.title,
-    description: detail.description
+    explorerObjectiveId: vm.explorerObjectiveSrv.explorerObjective.objective.id,
+    title: vm.explorerObjectiveSrv.explorerObjective.objective.title,
+    description: vm.explorerObjectiveSrv.explorerObjective.objective.description
    };
    vm.editExplorerObjective(explorerObjectiveData);
   }
- }
+ };
 
  vm.cancelExplorerObjective = function (form) {
   vm.objectiveFormDisplay = false;

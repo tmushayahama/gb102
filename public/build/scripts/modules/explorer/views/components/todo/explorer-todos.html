@@ -91,8 +91,9 @@
     </div>
     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.inProgress track by $index">
      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+          index={{$index}}
           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+          class="row">
      </div>
     </div>
    </div>
@@ -104,8 +105,9 @@
     </div>
     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.done track by $index">
      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+          index={{$index}}
           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+          class="row">
      </div>
     </div>
    </div>
@@ -117,8 +119,9 @@
     </div>
     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.later track by $index">
      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+          index={{$index}}
           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+          class="row">
      </div>
     </div>
    </div>

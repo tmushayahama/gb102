@@ -352,7 +352,7 @@ btn:focus {
 }
 
 .modal-body {
-  background-color: #FFF;
+  background-color: #F2F2F2;
   position: absolute;
   top: 41px;
   right: 0;
@@ -3162,6 +3162,7 @@ input[type="checkbox"] {
 }
 
 .gb-heading-row-1 {
+  height: 40px;
   margin: 10px 0;
   padding: 0 0 5px 0;
   background-color: #FFF;
@@ -3181,7 +3182,7 @@ input[type="checkbox"] {
   border-radius: 5px;
 }
 .gb-heading-row-1 .gb-title {
-  padding: 5px 0 0 80px;
+  padding: 7px 0 0 80px;
   margin-right: 5px;
   font-size: 20px;
   color: rgba(154, 109, 54, 0.8);
@@ -3200,6 +3201,8 @@ input[type="checkbox"] {
   border-bottom: rgba(154, 109, 54, 0.4) solid 1px;
 }
 .gb-heading-row-1 .gb-action.md-button {
+  height: 40px;
+  min-width: 40px;
   max-width: 150px;
   margin: 0;
 }
@@ -3233,6 +3236,56 @@ input[type="checkbox"] {
 .gb-heading-row-2 .gb-title span:after {
   left: 100%;
   margin-left: 15px;
+}
+
+.gb-heading-row-3 {
+  height: 28px;
+  margin: 10px 0;
+  padding: 0 0 5px 0;
+  background-color: #FFF;
+}
+.gb-heading-row-3 .gb-heading-icon {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 15px;
+  padding: 10px 0;
+  width: 40px;
+  display: block;
+  background-color: rgba(154, 109, 54, 0.8);
+  color: #F2F2F2;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 5px;
+}
+.gb-heading-row-3 .gb-title {
+  padding: 5px 0 0 60px;
+  margin-right: 5px;
+  font-size: 14px;
+  color: rgba(154, 109, 54, 0.8);
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+}
+.gb-heading-row-3 .gb-title.gb-small {
+  padding: 0 0 0 0;
+  font-size: 15px;
+}
+.gb-heading-row-3 .gb-filter-btn {
+  color: #656565;
+  margin-top: 5px;
+  border: none;
+  border-bottom: rgba(154, 109, 54, 0.4) solid 1px;
+}
+.gb-heading-row-3 .gb-action.md-button {
+  height: 28px;
+  width: 28px;
+  max-width: 150px;
+  margin: 0;
+}
+
+.gb-body-row-1 {
+  margin: 20px 0;
 }
 
 .gb-mega-dropdown .nav, .gb-mega-dropdown .collapse, .gb-mega-dropdown .dropup, .gb-mega-dropdown .dropdown, .gb-mega-dropdown .dropdown-menu {

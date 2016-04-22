@@ -82,23 +82,22 @@ var explorerTodoCtrl = function (
 
  vm.editExplorerTodo = function (data) {
   vm.explorerTodoSrv.editExplorerTodo(data).then(function (response) {
+   vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
   });
  };
 
-
-
  vm.editExplorerTodoSections = {
-  details: function (details) {
+  details: function () {
    var explorerTodoData = {
-    explorerTodoId: vm.explorerTodoId,
-    title: details.title,
-    description: details.description
+    explorerTodoId: vm.explorerTodoSrv.explorerTodo.todo.id,
+    title: vm.explorerTodoSrv.explorerTodo.todo.title,
+    description: vm.explorerTodoSrv.explorerTodo.todo.description
    };
    vm.editExplorerTodo(explorerTodoData);
   }
- }
+ };
 
  vm.getExplorerTodoChecklist = function (todoId) {
   vm.explorerTodoChecklistSrv.getExplorerTodoChecklist(todoId).then(function (response) {
