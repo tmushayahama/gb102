@@ -225,6 +225,7 @@ define([
           journals: 10,
           request_type_skill: 1001,
           request_type_goal: 1002,
+          todo_status: 50000,
           todo_in_progress: 50000,
           todo_later: 50001,
           todo_done: 50002,

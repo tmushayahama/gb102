@@ -15,6 +15,7 @@ angular.module('app.explorer').directive('gbExplorerTodoBox',
            scope: {
             explorerTodo: '=',
             openExplorerTodo: '&',
+            index: '@',
            },
            controller: [
             '$scope',
@@ -23,6 +24,8 @@ angular.module('app.explorer').directive('gbExplorerTodoBox',
             }
            ],
            link: function (scope, element, attr, ctrl) {
+            scope.number = parseInt(scope.index) + 1;
+
             scope.todoChecklistStatusData;
 
             scope.explorerTodosSrv = new ExplorerTodosSrv();

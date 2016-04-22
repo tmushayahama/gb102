@@ -3028,7 +3028,7 @@ md-input-container .md-input {
 md-input-container.md-input-focused .md-input {
   transition: border-color ease 0.28s;
   border-color: #4D1616 !important;
-  border-bottom-width: 3px;
+  border-bottom-width: 2px;
 }
 
 .md-button {
@@ -5448,86 +5448,57 @@ input.gb-form-show {
 }
 .gb-todo-box .gb-box-body {
   position: relative;
-  height: 55px;
+  height: 36px;
   width: 100%;
   background-color: #FFF;
 }
-.gb-todo-box .gb-box-body .gb-todo-progress {
+.gb-todo-box .gb-box-body .gb-number {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  height: 40px;
   width: 40px;
-  padding: 0 0 0 10px;
+  padding: 8px 0 8px 3px;
 }
-.gb-todo-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.gb-todo-box .gb-box-body .gb-number p {
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 .gb-todo-box .gb-box-body .gb-box-content {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  padding: 7px 10px 5px 10px;
+  left: 40px;
 }
-.gb-todo-box .gb-box-body .gb-box-content .gb-heading .gb-title {
-  color: #888;
-  font-size: 10px;
-  text-transform: uppercase;
+.gb-todo-box .gb-box-body .gb-box-content md-input-container {
+  margin: 0;
+  padding: 0;
 }
-.gb-todo-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 0px 0px;
-  max-height: 41px;
-  display: block;
-  /* Fallback for non-webkit */
-  display: -webkit-box;
-  /* Fallback for non-webkit */
-  line-height: 1.2;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer {
-  padding: 3px 3px 0 0;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
-  margin-left: 5px;
+.gb-todo-box .gb-box-body .gb-box-content .gb-input {
+  padding: 10px 150px 10px 10px;
   height: 35px;
-  width: 35px;
+  border-bottom: rgba(77, 22, 22, 0.3) solid 1px;
 }
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
-  margin-top: 5px;
-  background-color: transparent;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
-  min-width: 50px;
-  color: #999;
-  text-decoration: none;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
-  color: #777;
-}
-.gb-todo-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
-  padding: 10px 0 0 0;
-}
-.gb-todo-box .gb-box-body .gb-dropdown-action {
-  padding: 0px 8px 0 0;
+.gb-todo-box .gb-box-body .gb-action {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
 }
-.gb-todo-box .gb-box-body .gb-dropdown-action button {
+.gb-todo-box .gb-box-body .gb-action button {
+  height: 100%;
+  width: 35px;
+  color: #999;
   margin: 0;
+}
+.gb-todo-box .gb-box-body .gb-action button.gb-todo-status {
+  width: 100px;
+  font-size: 10px;
+  color: #444;
+}
+.gb-todo-box .gb-box-body .gb-action button:hover {
+  color: #444;
 }
 
 .gb-activity-box {
@@ -5908,86 +5879,52 @@ input.gb-form-show {
 }
 .gb-objective-box .gb-box-body {
   position: relative;
-  height: 55px;
+  height: 36px;
   width: 100%;
   background-color: #FFF;
 }
-.gb-objective-box .gb-box-body .gb-todo-progress {
+.gb-objective-box .gb-box-body .gb-number {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  height: 40px;
   width: 40px;
-  padding: 0 0 0 10px;
+  padding: 8px 0 8px 3px;
 }
-.gb-objective-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.gb-objective-box .gb-box-body .gb-number p {
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
 }
 .gb-objective-box .gb-box-body .gb-box-content {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  padding: 7px 10px 5px 10px;
+  left: 40px;
 }
-.gb-objective-box .gb-box-body .gb-box-content .gb-heading .gb-title {
-  color: #888;
-  font-size: 10px;
-  text-transform: uppercase;
+.gb-objective-box .gb-box-body .gb-box-content md-input-container {
+  margin: 0;
+  padding: 0;
 }
-.gb-objective-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 0px 0px;
-  max-height: 41px;
-  display: block;
-  /* Fallback for non-webkit */
-  display: -webkit-box;
-  /* Fallback for non-webkit */
-  line-height: 1.2;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer {
-  padding: 3px 3px 0 0;
-}
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
-  margin-left: 5px;
+.gb-objective-box .gb-box-body .gb-box-content .gb-input {
+  padding: 10px 50px 10px 10px;
   height: 35px;
-  width: 35px;
+  border-bottom: rgba(77, 22, 22, 0.3) solid 1px;
 }
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
-  margin-top: 5px;
-  background-color: transparent;
-}
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
-  min-width: 50px;
-  color: #999;
-  text-decoration: none;
-}
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
-  color: #777;
-}
-.gb-objective-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
-  padding: 10px 0 0 0;
-}
-.gb-objective-box .gb-box-body .gb-dropdown-action {
-  padding: 0px 8px 0 0;
+.gb-objective-box .gb-box-body .gb-action {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
 }
-.gb-objective-box .gb-box-body .gb-dropdown-action button {
+.gb-objective-box .gb-box-body .gb-action button {
+  height: 100%;
+  width: 35px;
+  color: #999;
   margin: 0;
+}
+.gb-objective-box .gb-box-body .gb-action button:hover {
+  color: #444;
 }
 
 .gb-plan-box {

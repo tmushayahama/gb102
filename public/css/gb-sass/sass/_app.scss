@@ -56,7 +56,7 @@ md-input-container .md-input { flex: none !important; }
 md-input-container.md-input-focused .md-input {
  transition: border-color ease 0.28s;
  border-color: $primary-color!important;
- border-bottom-width: 3px;
+ border-bottom-width: 2px;
 }
 .md-button {
  min-height: 20px;
@@ -2440,6 +2440,7 @@ input.gb-form-show{
  }
 }
 
+
 .gb-todo-box {
  position: relative;
  //height: 153px; /*For box shadow*/
@@ -2450,80 +2451,49 @@ input.gb-form-show{
    background-color: #F7F7F7;
   }
  }
+
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  height: 55px;
+  height: 36px;
   width: 100%;
   background-color: #FFF;
-  .gb-todo-progress {
+  .gb-number {
    @include position(absolute, 0 null 0 0);
-   height: 40px;
-   width: 40px;
-   padding: 0 0 0 10px;
-   .gb-progress-percentage {
-    @include position(absolute, 20px 0 0 0);
+   width:40px;
+   padding: 8px 0 8px 3px;
+   p {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
    }
   }
   .gb-box-content {
-   @include position(absolute, 0 0 0 0);
-   padding: 7px 10px 5px 10px;
-   .gb-heading {
-    //@include position(absolute, 0 0 null 0);
-    .gb-title {
-     color: #888;
-     font-size:10px;
-     text-transform: uppercase;
-    }
+   @include position(absolute, 0 0 0 40px);
+   md-input-container {
+    margin: 0;
+    padding: 0;
    }
-
-   .gb-description {
-    //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 0px 0px;
-    max-height: 41px;
-    display: block;
-    /* Fallback for non-webkit */
-    display: -webkit-box;
-    /* Fallback for non-webkit */
-    line-height: 1.2;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    overflow: hidden;
-   }
-   .gb-footer {
-    //@include position(absolute, null 0 0 0);
-    padding: 3px 3px 0 0;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
-    }
-    .gb-summary-bar {
-     margin-top: 5px;
-     background-color: transparent;
-     .btn {
-      min-width: 50px;
-      color: #999;
-      text-decoration: none;
-     }
-     .gb-icon {
-      color: #777;
-     }
-    }
-    .gb-footer-content {
-     padding: 10px 0 0 0;
-    }
+   .gb-input {
+    padding: 10px 150px 10px 10px;
+    height: 35px;
+    border-bottom: rgba($primary-color, 0.3) solid 1px;
    }
   }
-  .gb-dropdown-action {
-   padding: 0px 8px 0 0;
-   @include position(absolute, 0 0 null null);
+  .gb-action {
+   @include position(absolute, 0 0 0 null);
    button {
+    height: 100%;
+    width: 35px;
+    color: #999;
     margin: 0;
+    &.gb-todo-status {
+     width: 100px;
+     font-size: 10px;
+     color: #444;
+    }
+    &:hover {
+     color: #444;
+    }
    }
   }
  }
@@ -2898,77 +2868,41 @@ input.gb-form-show{
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  height: 55px;
+  height: 36px;
   width: 100%;
   background-color: #FFF;
-  .gb-todo-progress {
+
+  .gb-number {
    @include position(absolute, 0 null 0 0);
-   height: 40px;
-   width: 40px;
-   padding: 0 0 0 10px;
-   .gb-progress-percentage {
-    @include position(absolute, 20px 0 0 0);
+   width:40px;
+   padding: 8px 0 8px 3px;
+   p {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
    }
   }
   .gb-box-content {
-   @include position(absolute, 0 0 0 0);
-   padding: 7px 10px 5px 10px;
-   .gb-heading {
-    //@include position(absolute, 0 0 null 0);
-    .gb-title {
-     color: #888;
-     font-size:10px;
-     text-transform: uppercase;
-    }
+   @include position(absolute, 0 0 0 40px);
+   md-input-container {
+    margin: 0;
+    padding: 0;
    }
-
-   .gb-description {
-    //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 0px 0px;
-    max-height: 41px;
-    display: block;
-    /* Fallback for non-webkit */
-    display: -webkit-box;
-    /* Fallback for non-webkit */
-    line-height: 1.2;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    overflow: hidden;
-   }
-   .gb-footer {
-    //@include position(absolute, null 0 0 0);
-    padding: 3px 3px 0 0;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
-    }
-    .gb-summary-bar {
-     margin-top: 5px;
-     background-color: transparent;
-     .btn {
-      min-width: 50px;
-      color: #999;
-      text-decoration: none;
-     }
-     .gb-icon {
-      color: #777;
-     }
-    }
-    .gb-footer-content {
-     padding: 10px 0 0 0;
-    }
+   .gb-input {
+    padding: 10px 50px 10px 10px;
+    height: 35px;
+    border-bottom: rgba($primary-color, 0.3) solid 1px;
    }
   }
-  .gb-dropdown-action {
-   padding: 0px 8px 0 0;
-   @include position(absolute, 0 0 null null);
+  .gb-action {
+   @include position(absolute, 0 0 0 null);
    button {
+    height: 100%;
+    width: 35px;
+    color: #999;
     margin: 0;
+    &:hover {
+     color: #444;
+    }
    }
   }
  }

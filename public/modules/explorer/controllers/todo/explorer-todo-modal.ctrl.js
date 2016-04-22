@@ -163,7 +163,7 @@ var explorerTodoCtrl = function (
  vm.getExplorerTodo(vm.explorerId, vm.todoId);
  vm.getExplorerTodoChecklist(vm.todoId);
 
- vm.constantsSrv.getLevel(level_categories.todo_level_progress).then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.todo_status).then(function (data) {
   vm.progressStatusTypes = data;
  });
 };

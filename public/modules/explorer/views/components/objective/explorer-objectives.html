@@ -95,8 +95,9 @@
    <div class="gb-objective-body row" ng-show="explorerObjectivesCtrl.explorerObjectivesSrv.explorerObjectives.length" ng-cloak>
     <div ng-repeat="explorerObjective in explorerObjectivesCtrl.explorerObjectivesSrv.explorerObjectives track by $index">
      <div gb-explorer-objective-box explorer-objective="explorerObjective"
+          index={{$index}}
           open-explorer-objective="explorerObjectivesCtrl.openExplorerObjective(explorerObjective)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+          class="row">
      </div>
     </div>
    </div>

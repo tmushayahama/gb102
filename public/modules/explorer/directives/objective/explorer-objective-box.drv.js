@@ -15,6 +15,7 @@ angular.module('app.explorer').directive('gbExplorerObjectiveBox',
            scope: {
             explorerObjective: '=',
             openExplorerObjective: '&',
+            index: '@'
            },
            controller: [
             '$scope',
@@ -23,6 +24,7 @@ angular.module('app.explorer').directive('gbExplorerObjectiveBox',
             }
            ],
            link: function (scope, element, attr, ctrl) {
+            scope.number = parseInt(scope.index) + 1;
             scope.open = function () {
              scope.openExplorerObjective({explorerObjective: scope.explorerObjective});
             };
