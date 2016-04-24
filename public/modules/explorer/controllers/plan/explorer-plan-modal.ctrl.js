@@ -41,17 +41,18 @@ var explorerPlanCtrl = function (
 
  vm.editExplorerPlan = function (data) {
   vm.explorerPlanSrv.editExplorerPlan(data).then(function (response) {
+   vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerPlanSections = {
-  details: function (details) {
+  details: function () {
    var explorerPlanData = {
-    explorerPlanId: vm.explorerPlanId,
-    title: details.title,
-    description: details.description
+    explorerPlanId: vm.explorerPlanSrv.explorerPlan.plan.id,
+    title: vm.explorerPlanSrv.explorerPlan.plan.title,
+    description: vm.explorerPlanSrv.explorerPlan.plan.description
    };
    vm.editExplorerPlan(explorerPlanData);
   }

@@ -1,9 +1,2 @@
 id	parent_plan_id	creator_id	title	description	created_date	updated_date	importance	status
-1	NULL	2	Making the bed	Making the bed will make the space look much tidier than it actually is. But don't put anything on top of the bed. 	14-10-01 08:07:00	16-01-25 18:21:00	1	0
-2	NULL	2	Clean Bathroom	"Always make sure the bathroom is clean because if a friend passing by say, ""can I use your bathroom real quick, there is no way to say no."	14-05-16 04:01:00	16-01-09 07:37:00	1	0
-3000	NULL	2	Overall Communication	"Body Language plays a major role, then tone of voice and words"	14-10-01 08:07:03	16-01-25 18:21:03	1	0
-3001	NULL	2	Verbal Communication	"The use of sounds and words to express yourself where the other person can hear you. Such as speaking, listening and understanding"	14-10-01 08:07:04	16-01-25 18:21:04	1	0
-3002	NULL	2	Nonverbal Communication	"The use of visual cues to communicate, exchange information to the other person. I.e. using body language, sign language and eye contact."	14-10-01 08:07:05	16-01-25 18:21:05	1	0
-3100	NULL	2	You are receiving one word answers	If you are receiving one word answers it might be that you are asking too many close-ended questions.	14-10-01 08:07:01	16-01-25 18:21:01	1	0
-3101	NULL	2	Weekend Plans	Asking people about their weekend plans or how their weekend went can lead to other subjects. You can ask follow up questions about their plans since you have a grasp of what they like/dislike. E.g. "I went to a Justin Bieber convert on Saturday".	14-05-16 04:01:01	16-01-09 07:37:01	1	0
-3200	NULL	2	Is it a Cliche?	It is a cliche but it can lead to other subjects. It does not show how creative you are but the point is to show that you want to start the conversation. You can even talk about how cliche it is.	14-10-01 08:07:02	16-01-25 18:21:02	1	0
+1	NULL	2	Initiating conversation		14-10-01 08:07:00	16-01-25 18:21:00	1	0

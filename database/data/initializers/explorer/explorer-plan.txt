@@ -1,3 +1,2 @@
 id	plan_id	explorer_id	privacy	status
 1	1	2092	0	0
-2	2	2092	0	0

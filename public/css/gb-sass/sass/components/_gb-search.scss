@@ -1,6 +1,100 @@
 .gb-search-btn-grp {
  margin: 3px 0px 0px 0px;
 }
+
+.gb-result-box-1 {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ padding: 0 0 0 0;
+ overflow: hidden;
+ border-bottom: rgba($primary-color, 0.5) solid 1px;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  height: 50px;
+  width: 100%;
+  background-color: #FFF;
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   height: 50px;
+   width: 50px;
+   .gb-heading-pic {
+    width: 100%;
+   }
+  }
+  .gb-box-content {
+   @include position(absolute, 0 0 0 50px);
+   padding: 5px 5px 5px 15px;
+   .gb-heading {
+    //@include position(absolute, 0 0 null 0);
+    .gb-title {
+     margin-right: 0px!important;
+     padding: 0!important;
+     line-height: 18px!important;
+     color: #888;
+     font-size:10px;
+     text-transform: uppercase;
+    }
+   }
+   .gb-faded-icon {
+    color: #999;
+   }
+
+   .gb-description {
+    //@include position(absolute, 23px 0 50px 0);
+    padding: 2px 10px 0px 0px;
+    max-height: 41px;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    /* Fallback for non-webkit */
+    line-height: 1.2;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+   }
+   .gb-footer {
+    //@include position(absolute, null 0 0 0);
+    padding: 8px 3px 0 0;
+    .gb-profile-pic {
+     margin-left: 5px;
+     height: 35px;
+     width: 35px;
+    }
+    .gb-summary-bar {
+     margin-top: 5px;
+     background-color: transparent;
+     .btn {
+      min-width: 50px;
+      color: #999;
+      text-decoration: none;
+     }
+     .gb-icon {
+      color: #777;
+     }
+    }
+    .gb-footer-content {
+     padding: 10px 0 0 0;
+    }
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+}
+
 .gb-dropdown-popup-wrapper {
  color: #444;
  padding: 5px;
@@ -12,19 +106,6 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
- }
-
- .gb-box-1 {
-  border-bottom: rgba($primary-color, 0.4) solid 1px;
-  .gb-description {
-   padding: 0 0 0 5px;
-  }
-  .gb-app-type {
-   padding: 3px 0;
-   text-transform: uppercase;
-   font-size: 10px;
-   color: #777;
-  }
  }
 
  @include respond-to (gb-sm) {

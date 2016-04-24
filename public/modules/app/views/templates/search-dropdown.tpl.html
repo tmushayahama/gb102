@@ -3,27 +3,31 @@
      style="display: block;"
      ng-show="isOpen() && !moveInProgress"
      aria-hidden="{{!isOpen()}}">
- <ul class="gb-search-result-dropdown gb-padding-none">
-  <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-      ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}"
-      class="gb-box-1 gb-margin-none">
-   <div class="gb-image col-lg-1 col-md-1 col-sm-2 col-xs-2">
-    <img ng-src="public/img/explorer/{{ match.model.explorer_picture_url}}"
-         class="gb-heading-pic" alt="{{match.model.title}}" />
-   </div>
-   <div class="gb-box-body col-lg-11 col-md-11 col-sm-10 col-xs-10">
-    <div class="gb-description row">
-     <div class="gb-ellipsis">
-      {{match.model.title}}
+ <div class="gb-search-result-dropdown gb-padding-none">
+  <div ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+       ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}"
+       class="gb-result-box-1 gb-margin-none">
+   <div class="gb-box-body">
+    <div class="gb-image">
+     <img data-ui-sref="apps.match.model.overview({explorerId: match.model.id})"
+          ng-src="public/img/explorer/{{ ::match.model.explorer_picture_url}}"
+          class="gb-heading-pic" alt="">
+    </div>
+    <div class="gb-box-content">
+     <div class="gb-description row">
+      <a data-ui-sref="apps.explorerItem.overview({explorerId: match.model.id})" class="gb-ellipsis">
+       {{::match.model.title}} - {{::match.model.description}}
+      </a>
      </div>
-     <p class="gb-app-type gb-ellipsis">
-      {{match.model.app_type.name}} - {{::match.model.level.name}}
-     </p>
-     <h6 class="gb-ellipsis">
-      {{::match.model.creator.firstname}} {{::match.model.creator.lastname}}
-     </h6>
+     <div class="gb-heading row">
+      <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
+       <p class="gb-ellipsis">
+        {{match.model.app_type.name}} - {{::match.model.level.name}}
+       </p>
+      </div>
+     </div>
     </div>
    </div>
-  </li>
- </ul>
+  </div>
+ </div>
 </div>
