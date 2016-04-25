@@ -47,6 +47,17 @@ var explorerSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerSrv.prototype.getSubExplorersStats = function (parentExplorerId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/explorers/subexplorers/' + parentExplorerId + "/all/stats").success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorerSrv.prototype.editExplorer = function (explorerData) {
   var self = this;
   var deferred = $q.defer();

@@ -331,6 +331,15 @@ input[type="checkbox"] {
  margin: 20px 0;
 }
 
+.gb-info-row-1 {
+ padding: 20px 0;
+ background-color: #FFF;
+ border-bottom: #DDD solid 1px;
+ .gb-title {
+  padding: 0 15px;
+ }
+}
+
 .gb-mega-dropdown {
  .nav, .collapse, .dropup, .dropdown, .dropdown-menu {
   position: static;

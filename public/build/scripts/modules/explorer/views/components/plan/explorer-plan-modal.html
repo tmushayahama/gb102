@@ -9,28 +9,58 @@
  </md-button>
 </div>
 <div class="modal-body gb-modal-body">
- <section class="gb-section-row-1 row">
-  <div class="gb-plan-row row">
-   <div class='gb-plan-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
-    <div class="gb-content-text">
-     <textarea autofocus ng-model="explorerPlanCtrl.explorerPlanSrv.explorerPlan.plan.description"></textarea>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-file-text-o"></i>
     </div>
-   </div>
-   <div class="gb-plan-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
-    <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerPlansCtrl.editExplorerPlanSections.details(explorerPlan.id, explorerPlan.plan)">
-      <i class="fa fa-save"></i>
-     </button>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      DESCRIPTION
+     </p>
     </div>
-    <br>
-    <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerPlansCtrl.revertExplorerPlan(explorerPlan.id)">
-      <i class="fa fa-refresh"></i>
-     </button>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerPlanCtrl.editDecriptionMode"
+                ng-click="explorerPlanCtrl.editDecriptionMode = true">
+      <i class="fa fa-pencil"></i>
+     </md-button>
     </div>
    </div>
   </div>
- </section>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-hide="explorerPlanCtrl.editDecriptionMode" class="row">
+    <strong>{{explorerPlanCtrl.explorerPlanSrv.explorerPlan.plan.title}}</strong>
+    {{explorerPlanCtrl.explorerPlanSrv.explorerPlan.plan.description}}
+   </div>
+   <form ng-show="explorerPlanCtrl.editDecriptionMode"
+         ng-submit="explorerPlanCtrl.editExplorerPlanSections.details()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerPlanCtrl.explorerPlanSrv.explorerPlan.plan.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <input ng-model="explorerPlanCtrl.explorerPlanSrv.explorerPlan.plan.description" name="title"
+            placeholder="Description"
+            class="">
+    </md-input-container>
+    <div class="row"
+         ng-show="explorerPlanCtrl.editDecriptionMode">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerPlanCtrl.editDecriptionMode = false">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
 </div>
 <div class="modal-footer">
  <md-button class="pull-right" aria-label="Close Todo Modal"

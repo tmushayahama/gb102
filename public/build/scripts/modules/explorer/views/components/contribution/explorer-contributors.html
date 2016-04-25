@@ -34,6 +34,9 @@
    </div>
   </div>
  </div>
+ <div class="gb-no-info row" ng-show="!explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
+  No contributors yet
+ </div>
  <div class="gb-contribution-body row" ng-show="explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
   <div id="contribution-list">
    <div ng-repeat="explorerContribution in explorerContributionsCtrl.explorerContributions"

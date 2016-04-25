@@ -92,6 +92,9 @@
      </div>
     </form>
    </div>
+   <div class="gb-no-info row" ng-show="!explorerObjectivesCtrl.explorerObjectivesSrv.explorerObjectives.length" ng-cloak>
+    No objectives to show
+   </div>
    <div class="gb-objective-body row" ng-show="explorerObjectivesCtrl.explorerObjectivesSrv.explorerObjectives.length" ng-cloak>
     <div ng-repeat="explorerObjective in explorerObjectivesCtrl.explorerObjectivesSrv.explorerObjectives track by $index">
      <div gb-explorer-objective-box explorer-objective="explorerObjective"

@@ -21,7 +21,7 @@ class Explorer extends Model {
   return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
  }
 
- public function parentExplorer() {
+ public function parent_explorer() {
   return $this->belongsTo('App\Models\Explorer\Explorer', 'parent_explorer_id');
  }
 
@@ -99,6 +99,12 @@ class Explorer extends Model {
   return $explorers;
  }
 
+ public static function getSubExplorersStats($explorerId) {
+  $explorersCount = Explorer::where('parent_explorer_id', $explorerId)
+          ->count();
+  return array('totalCount' => $explorersCount);
+ }
+
  public static function getUserExplorers($userId, $appName) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
@@ -131,6 +137,7 @@ class Explorer extends Model {
 
  public static function getExplorer($id) {
   $explorer = Explorer::with('creator')
+          ->with('parent_explorer')
           ->with('app_type')
           ->with('icon')
           ->with('level')

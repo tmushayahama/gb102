@@ -19,7 +19,7 @@
    </div>
   </div>
  </div>
- <div class='row'>
+ <div class='gb-body-row-1 row'>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class='row'>
     <form class="gb-shadow-1 gb-background-white" ng-show="explorerExercisesCtrl.exerciseFormDisplay" name="form" novalidate>
@@ -91,6 +91,9 @@
       </div>
      </div>
     </form>
+   </div>
+   <div class="gb-no-info row" ng-show="!explorerExercisesCtrl.explorerExercisesSrv.explorerExercises.length" ng-cloak>
+    No exercises to show
    </div>
    <div class="gb-exercise-body row" ng-show="explorerExercisesCtrl.explorerExercisesSrv.explorerExercises.length" ng-cloak>
     <div ng-repeat="explorerExercise in explorerExercisesCtrl.explorerExercisesSrv.explorerExercises track by $index">

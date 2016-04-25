@@ -14,7 +14,7 @@ var subExplorersCtrl = function (
   vm.explorerSrv.getSubExplorers(explorerId).then(function (data) {
    vm.subExplorers = data;
   });
- }
+ };
 
  vm.getSubExplorers(vm.explorerId);
 

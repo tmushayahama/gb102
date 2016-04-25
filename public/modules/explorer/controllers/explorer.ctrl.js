@@ -170,10 +170,19 @@ var explorerCtrl = function (
    href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.name.toLowerCase() + '.css'
   }, $scope);
  });
+
+ vm.getSubExplorersStats = function (explorerId) {
+  vm.explorerSrv.getSubExplorersStats(explorerId).then(function (data) {
+   vm.subExplorersStats = data;
+  });
+ }
+
  vm.constantsSrv.getIcons(1).then(function (data) {
   vm.explorerIcons = data;
   vm.getRandomExplorerIcons();
  });
+
+ vm.getSubExplorersStats(vm.explorerId);
 };
 
 explorerCtrl.$inject = ['_',

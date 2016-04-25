@@ -3371,6 +3371,15 @@ input[type="checkbox"] {
   margin: 20px 0;
 }
 
+.gb-info-row-1 {
+  padding: 20px 0;
+  background-color: #FFF;
+  border-bottom: #DDD solid 1px;
+}
+.gb-info-row-1 .gb-title {
+  padding: 0 15px;
+}
+
 .gb-mega-dropdown .nav, .gb-mega-dropdown .collapse, .gb-mega-dropdown .dropup, .gb-mega-dropdown .dropdown, .gb-mega-dropdown .dropdown-menu {
   position: static;
 }

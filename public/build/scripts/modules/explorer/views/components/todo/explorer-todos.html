@@ -83,45 +83,60 @@
      </div>
     </form>
    </div>
-   <div class="row">
+   <div class="gb-body-row-1 row">
     <div class="gb-heading-row-2">
      <div class="gb-title">
       <span>IN PROGRESS</span>
      </div>
     </div>
-    <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.inProgress track by $index">
-     <div gb-explorer-todo-box explorer-todo="explorerTodo"
-          index={{$index}}
-          open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="row">
+    <div class="gb-no-info row" ng-show="!explorerTodosCtrl.explorerTodos.inProgress.length">
+     No todos in-progress to show
+    </div>
+    <div class="row" ng-show="explorerTodosCtrl.explorerTodos.inProgress.length">
+     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.inProgress track by $index">
+      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+           index={{$index}}
+           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
+           class="row">
+      </div>
      </div>
     </div>
    </div>
-   <div class="row">
+   <div class="gb-body-row-1 row">
     <div class="gb-heading-row-2">
      <div class="gb-title">
       <span>DONE</span>
      </div>
     </div>
-    <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.done track by $index">
-     <div gb-explorer-todo-box explorer-todo="explorerTodo"
-          index={{$index}}
-          open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="row">
+    <div class="gb-no-info row" ng-show="!explorerTodosCtrl.explorerTodos.done.length">
+     No todos done to show
+    </div>
+    <div class="row" ng-show="explorerTodosCtrl.explorerTodos.done.length">
+     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.done track by $index">
+      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+           index={{$index}}
+           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
+           class="row">
+      </div>
      </div>
     </div>
    </div>
-   <div class="row">
+   <div class="gb-body-row-1 row">
     <div class="gb-heading-row-2">
      <div class="gb-title">
       <span>NOT NOW</span>
      </div>
     </div>
-    <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.later track by $index">
-     <div gb-explorer-todo-box explorer-todo="explorerTodo"
-          index={{$index}}
-          open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
-          class="row">
+    <div class="gb-no-info row" ng-show="!explorerTodosCtrl.explorerTodos.later.length">
+     No todos to show
+    </div>
+    <div class="row" ng-show="explorerTodosCtrl.explorerTodos.later.length">
+     <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.later track by $index">
+      <div gb-explorer-todo-box explorer-todo="explorerTodo"
+           index={{$index}}
+           open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
+           class="row">
+      </div>
      </div>
     </div>
    </div>

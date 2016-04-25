@@ -1,25 +1,19 @@
-
 <div class="gb-plan-box row">
- <div class="gb-box-body gb-shadow-1">
+ <div class="gb-box-body">
+  <div class="gb-number">
+   <p class="gb-ellipsis">
+    {{number}}.
+   </p>
+  </div>
   <div class="gb-box-content">
-   <div class="gb-description row">
-    <a ng-click="open()" class="gb-ellipsis">
-     {{explorerPlan.plan.title}} -
-     {{explorerPlan.plan.description}}
-    </a>
-   </div>
-   <div class="gb-footer gb-padding-none row">
-    <div class="gb-footer row gb-padding-none">
-     <div class="gb-summary-bar btn-group">
-      <a ng-show="planChecklistStatusData.total > 0"class="btn btn-xs btn-link">
-       <i class="gb-icon fa icon-checkmark"></i> [ {{planChecklistStatusData.done}} / {{planChecklistStatusData.total}} ]
-      </a>
-      <a class="btn btn-xs btn-link">
-       <i class="gb-icon fa icon-users"></i> 0
-      </a>
-     </div>
-    </div>
-   </div>
+   <md-input-container class="md-block">
+    <input ng-model="explorerPlan.plan.title" class="gb-input">
+   </md-input-container>
+  </div>
+  <div class="gb-action">
+   <md-button ng-click="open()">
+    <i class="fa fa-arrows-alt"></i>
+   </md-button>
   </div>
  </div>
 </div>
