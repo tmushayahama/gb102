@@ -1,5 +1,5 @@
 var explorerExerciseCtrl = function (
-        ExplorerExerciseSrv,
+        ExplorerExercisesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerExerciseCtrl = function (
  var vm = this;
  vm.explorerId = explorerExerciseData.explorer_id;
  vm.explorerExerciseId = explorerExerciseData.id;
- vm.explorerExerciseSrv = new ExplorerExerciseSrv();
+ vm.explorerExercisesSrv = new ExplorerExercisesSrv();
 
 
  vm.exerciseId = explorerExerciseData.exercise_id;
@@ -33,14 +33,14 @@ var explorerExerciseCtrl = function (
  // vm.newExplorerExerciseData = vm.defaultExplorerExerciseData;
 
  vm.getExplorerExercise = function (explorerId, exerciseId) {
-  vm.explorerExerciseSrv.getExplorerExercise(explorerId, exerciseId).then(function (response) {
+  vm.explorerExercisesSrv.getExplorerExercise(explorerId, exerciseId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerExercise = function (data) {
-  vm.explorerExerciseSrv.editExplorerExercise(data).then(function (response) {
+  vm.explorerExercisesSrv.editExplorerExercise(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var explorerExerciseCtrl = function (
 
 
 explorerExerciseCtrl.$inject = [
- 'ExplorerExerciseSrv',
+ 'ExplorerExercisesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

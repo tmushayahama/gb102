@@ -1,5 +1,5 @@
 var collaborationTodoCtrl = function (
-        CollaborationTodoSrv,
+        CollaborationTodosSrv,
         CollaborationTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var collaborationTodoCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationTodoData.collaboration_id;
  vm.collaborationTodoId = collaborationTodoData.id;
- vm.collaborationTodoSrv = new CollaborationTodoSrv();
+ vm.collaborationTodosSrv = new CollaborationTodosSrv();
  vm.collaborationTodoChecklistSrv = new CollaborationTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var collaborationTodoCtrl = function (
  // vm.newCollaborationTodoData = vm.defaultCollaborationTodoData;
 
  vm.getCollaborationTodo = function (collaborationId, todoId) {
-  vm.collaborationTodoSrv.getCollaborationTodo(collaborationId, todoId).then(function (response) {
+  vm.collaborationTodosSrv.getCollaborationTodo(collaborationId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationTodo = function (data) {
-  vm.collaborationTodoSrv.editCollaborationTodo(data).then(function (response) {
+  vm.collaborationTodosSrv.editCollaborationTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var collaborationTodoCtrl = function (
 };
 
 collaborationTodoCtrl.$inject = [
- 'CollaborationTodoSrv',
+ 'CollaborationTodosSrv',
  'CollaborationTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

@@ -1,9 +1,9 @@
-var goalTodoSrv = function ($http, $q) {
+var goalTodosSrv = function ($http, $q) {
 
- var GoalTodoSrv = function () {
+ var GoalTodosSrv = function () {
   this.goalTodos = [];
  };
- GoalTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ GoalTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var goalTodoSrv = function ($http, $q) {
  };
 
 
- GoalTodoSrv.prototype.getGoalTodo = function (goalId, todoId) {
+ GoalTodosSrv.prototype.getGoalTodo = function (goalId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/goal/' + goalId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var goalTodoSrv = function ($http, $q) {
  };
 
 
- GoalTodoSrv.prototype.editGoalTodo = function (goalTodoData) {
+ GoalTodosSrv.prototype.editGoalTodo = function (goalTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var goalTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return GoalTodoSrv;
+ return GoalTodosSrv;
 };
-goalTodoSrv.$inject = ['$http', '$q'];
+goalTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.goal').service('GoalTodoSrv', goalTodoSrv);
+angular.module('app.goal').service('GoalTodosSrv', goalTodosSrv);

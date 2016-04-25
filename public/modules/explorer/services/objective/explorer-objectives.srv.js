@@ -35,19 +35,6 @@ var explorerObjectivesSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerObjectivesSrv.prototype.getExplorerObjective = function (explorerId, objectiveId) {
-  var self = this;
-  var deferred = $q.defer();
-  self.explorerObjectives = [];
-  $http.get('/api/explorer/' + explorerId + '/objective/' + objectiveId).success(function (data) {
-   self.explorerObjectives = data;
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
  ExplorerObjectivesSrv.prototype.createExplorerObjective = function (explorerObjectiveData) {
   var self = this;
   var deferred = $q.defer();
@@ -63,6 +50,37 @@ var explorerObjectivesSrv = function ($http, $q) {
   });
   return deferred.promise;
  };
+
+ ExplorerObjectivesSrv.prototype.editExplorerObjective = function (explorerObjectiveData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/objective/edit',
+   data: explorerObjectiveData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+
+ //Objective
+
+ ExplorerObjectivesSrv.prototype.getExplorerObjective = function (explorerId, objectiveId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/explorer/' + explorerId + '/objective/' + objectiveId).success(function (data) {
+   self.explorerObjective = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
 
  ExplorerObjectivesSrv.prototype.editExplorerObjective = function (explorerObjectiveData) {
   var self = this;

@@ -1,5 +1,5 @@
 var projectTodoCtrl = function (
-        ProjectTodoSrv,
+        ProjectTodosSrv,
         ProjectTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var projectTodoCtrl = function (
  var vm = this;
  vm.projectId = projectTodoData.project_id;
  vm.projectTodoId = projectTodoData.id;
- vm.projectTodoSrv = new ProjectTodoSrv();
+ vm.projectTodosSrv = new ProjectTodosSrv();
  vm.projectTodoChecklistSrv = new ProjectTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var projectTodoCtrl = function (
  // vm.newProjectTodoData = vm.defaultProjectTodoData;
 
  vm.getProjectTodo = function (projectId, todoId) {
-  vm.projectTodoSrv.getProjectTodo(projectId, todoId).then(function (response) {
+  vm.projectTodosSrv.getProjectTodo(projectId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectTodo = function (data) {
-  vm.projectTodoSrv.editProjectTodo(data).then(function (response) {
+  vm.projectTodosSrv.editProjectTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var projectTodoCtrl = function (
 };
 
 projectTodoCtrl.$inject = [
- 'ProjectTodoSrv',
+ 'ProjectTodosSrv',
  'ProjectTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

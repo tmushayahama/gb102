@@ -1,5 +1,5 @@
 var adviceTodoCtrl = function (
-        AdviceTodoSrv,
+        AdviceTodosSrv,
         AdviceTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var adviceTodoCtrl = function (
  var vm = this;
  vm.adviceId = adviceTodoData.advice_id;
  vm.adviceTodoId = adviceTodoData.id;
- vm.adviceTodoSrv = new AdviceTodoSrv();
+ vm.adviceTodosSrv = new AdviceTodosSrv();
  vm.adviceTodoChecklistSrv = new AdviceTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var adviceTodoCtrl = function (
  // vm.newAdviceTodoData = vm.defaultAdviceTodoData;
 
  vm.getAdviceTodo = function (adviceId, todoId) {
-  vm.adviceTodoSrv.getAdviceTodo(adviceId, todoId).then(function (response) {
+  vm.adviceTodosSrv.getAdviceTodo(adviceId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceTodo = function (data) {
-  vm.adviceTodoSrv.editAdviceTodo(data).then(function (response) {
+  vm.adviceTodosSrv.editAdviceTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var adviceTodoCtrl = function (
 };
 
 adviceTodoCtrl.$inject = [
- 'AdviceTodoSrv',
+ 'AdviceTodosSrv',
  'AdviceTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

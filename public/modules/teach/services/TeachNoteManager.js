@@ -1,9 +1,9 @@
-var teachNoteSrv = function ($http, $q) {
+var teachNotesSrv = function ($http, $q) {
 
- var TeachNoteSrv = function () {
+ var TeachNotesSrv = function () {
   this.teachNotes = [];
  };
- TeachNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ TeachNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var teachNoteSrv = function ($http, $q) {
  };
 
 
- TeachNoteSrv.prototype.getTeachNote = function (teachId, noteId) {
+ TeachNotesSrv.prototype.getTeachNote = function (teachId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/teach/' + teachId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var teachNoteSrv = function ($http, $q) {
  };
 
 
- TeachNoteSrv.prototype.editTeachNote = function (teachNoteData) {
+ TeachNotesSrv.prototype.editTeachNote = function (teachNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var teachNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return TeachNoteSrv;
+ return TeachNotesSrv;
 };
 
-teachNoteSrv.$inject = ['$http', '$q'];
+teachNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.teach').service('TeachNoteSrv', teachNoteSrv);
+angular.module('app.teach').service('TeachNotesSrv', teachNotesSrv);

@@ -1,9 +1,9 @@
-var mentorshipTodoSrv = function ($http, $q) {
+var mentorshipTodosSrv = function ($http, $q) {
 
- var MentorshipTodoSrv = function () {
+ var MentorshipTodosSrv = function () {
   this.mentorshipTodos = [];
  };
- MentorshipTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ MentorshipTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var mentorshipTodoSrv = function ($http, $q) {
  };
 
 
- MentorshipTodoSrv.prototype.getMentorshipTodo = function (mentorshipId, todoId) {
+ MentorshipTodosSrv.prototype.getMentorshipTodo = function (mentorshipId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/mentorship/' + mentorshipId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var mentorshipTodoSrv = function ($http, $q) {
  };
 
 
- MentorshipTodoSrv.prototype.editMentorshipTodo = function (mentorshipTodoData) {
+ MentorshipTodosSrv.prototype.editMentorshipTodo = function (mentorshipTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,7 +51,7 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- MentorshipTodoSrv.prototype.editTodoStatus = function (todoData) {
+ MentorshipTodosSrv.prototype.editTodoStatus = function (todoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -66,7 +66,7 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- MentorshipTodoSrv.prototype.todoChecklistCount = function (todoId) {
+ MentorshipTodosSrv.prototype.todoChecklistCount = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/todo/' + todoId + '/checklist/count').success(function (data) {
@@ -77,7 +77,7 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- MentorshipTodoSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
+ MentorshipTodosSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/todo/' + todoId + '/checklist/' + status + '/count').success(function (data) {
@@ -88,7 +88,7 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- MentorshipTodoSrv.prototype.editChecklistStatus = function (checklistData) {
+ MentorshipTodosSrv.prototype.editChecklistStatus = function (checklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -103,8 +103,8 @@ var mentorshipTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return MentorshipTodoSrv;
+ return MentorshipTodosSrv;
 };
-mentorshipTodoSrv.$inject = ['$http', '$q'];
+mentorshipTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.mentorship').service('MentorshipTodoSrv', mentorshipTodoSrv);
+angular.module('app.mentorship').service('MentorshipTodosSrv', mentorshipTodosSrv);

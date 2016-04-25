@@ -1,5 +1,5 @@
 var journalNoteCtrl = function (
-        JournalNoteSrv,
+        JournalNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var journalNoteCtrl = function (
  var vm = this;
  vm.journalId = journalNoteData.journal_id;
  vm.journalNoteId = journalNoteData.id;
- vm.journalNoteSrv = new JournalNoteSrv();
+ vm.journalNotesSrv = new JournalNotesSrv();
 
 
  vm.noteId = journalNoteData.note_id;
@@ -33,14 +33,14 @@ var journalNoteCtrl = function (
  // vm.newJournalNoteData = vm.defaultJournalNoteData;
 
  vm.getJournalNote = function (journalId, noteId) {
-  vm.journalNoteSrv.getJournalNote(journalId, noteId).then(function (response) {
+  vm.journalNotesSrv.getJournalNote(journalId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalNote = function (data) {
-  vm.journalNoteSrv.editJournalNote(data).then(function (response) {
+  vm.journalNotesSrv.editJournalNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var journalNoteCtrl = function (
 
 
 journalNoteCtrl.$inject = [
- 'JournalNoteSrv',
+ 'JournalNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{adviceTodoCtrl.adviceTodoSrv.adviceTodo.todo.title}}
+   {{adviceTodoCtrl.adviceTodosSrv.adviceTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="adviceTodoCtrl.close()">
@@ -25,14 +25,14 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="editableForm.$visible" id="gb-advice-item-todo-panel" class="row">
-    <strong>{{adviceTodoCtrl.adviceTodoSrv.adviceTodo.todo.title}}</strong>
-    {{adviceTodoCtrl.adviceTodoSrv.adviceTodo.todo.description}}
+    <strong>{{adviceTodoCtrl.adviceTodosSrv.adviceTodo.todo.title}}</strong>
+    {{adviceTodoCtrl.adviceTodosSrv.adviceTodo.todo.description}}
    </div>
    <form editable-form name="editableForm" onbeforesave="adviceTodoCtrl.editAdviceTodoSections.details($data)" ng-show="editableForm.$visible">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="adviceTodoCtrl.adviceTodoSrv.adviceTodo.todo.title" e-name="title" e-required
+      <div editable-textarea="adviceTodoCtrl.adviceTodosSrv.adviceTodo.todo.title" e-name="title" e-required
            e-rows="2" e-placeholder="title"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -41,7 +41,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="adviceTodoCtrl.adviceTodoSrv.adviceTodo.todo.description" e-name="description"
+      <div editable-textarea="adviceTodoCtrl.adviceTodosSrv.adviceTodo.todo.description" e-name="description"
            e-rows="2" e-placeholder="description"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>

@@ -1,5 +1,5 @@
 var skillNoteCtrl = function (
-        SkillNoteSrv,
+        SkillNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var skillNoteCtrl = function (
  var vm = this;
  vm.skillId = skillNoteData.skill_id;
  vm.skillNoteId = skillNoteData.id;
- vm.skillNoteSrv = new SkillNoteSrv();
+ vm.skillNotesSrv = new SkillNotesSrv();
 
 
  vm.noteId = skillNoteData.note_id;
@@ -33,14 +33,14 @@ var skillNoteCtrl = function (
  // vm.newSkillNoteData = vm.defaultSkillNoteData;
 
  vm.getSkillNote = function (skillId, noteId) {
-  vm.skillNoteSrv.getSkillNote(skillId, noteId).then(function (response) {
+  vm.skillNotesSrv.getSkillNote(skillId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editSkillNote = function (data) {
-  vm.skillNoteSrv.editSkillNote(data).then(function (response) {
+  vm.skillNotesSrv.editSkillNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var skillNoteCtrl = function (
 
 
 skillNoteCtrl.$inject = [
- 'SkillNoteSrv',
+ 'SkillNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

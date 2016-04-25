@@ -80,6 +80,21 @@ var explorerExercisesSrv = function ($http, $q) {
  };
 
 
+ ExplorerExercisesSrv.prototype.editExplorerExercise = function (explorerExerciseData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/exercise/edit',
+   data: explorerExerciseData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  return ExplorerExercisesSrv;
 };
 

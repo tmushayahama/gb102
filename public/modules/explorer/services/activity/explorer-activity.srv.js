@@ -1,9 +1,9 @@
-var explorerActivitySrv = function ($http, $q) {
+var explorerActivitiesSrv = function ($http, $q) {
 
- var ExplorerActivitySrv = function () {
+ var ExplorerActivitiesSrv = function () {
   this.explorerActivities = [];
  };
- ExplorerActivitySrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExplorerActivitiesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var explorerActivitySrv = function ($http, $q) {
  };
 
 
- ExplorerActivitySrv.prototype.getExplorerActivity = function (explorerId, activityId) {
+ ExplorerActivitiesSrv.prototype.getExplorerActivity = function (explorerId, activityId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/explorer/' + explorerId + '/activity/' + activityId).success(function (data) {
@@ -36,7 +36,7 @@ var explorerActivitySrv = function ($http, $q) {
  };
 
 
- ExplorerActivitySrv.prototype.editExplorerActivity = function (explorerActivityData) {
+ ExplorerActivitiesSrv.prototype.editExplorerActivity = function (explorerActivityData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var explorerActivitySrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExplorerActivitySrv;
+ return ExplorerActivitiesSrv;
 };
 
-explorerActivitySrv.$inject = ['$http', '$q'];
+explorerActivitiesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorerActivitySrv', explorerActivitySrv);
+angular.module('app.explorer').service('ExplorerActivitiesSrv', explorerActivitiesSrv);

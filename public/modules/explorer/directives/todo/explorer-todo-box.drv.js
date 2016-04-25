@@ -15,6 +15,7 @@ angular.module('app.explorer').directive('gbExplorerTodoBox',
            scope: {
             explorerTodo: '=',
             openExplorerTodo: '&',
+            updateExplorerTodo: '&',
             index: '@',
            },
            controller: [
@@ -32,6 +33,10 @@ angular.module('app.explorer').directive('gbExplorerTodoBox',
 
             scope.open = function () {
              scope.openExplorerTodo({explorerTodo: scope.explorerTodo});
+            };
+
+            scope.update = function () {
+             scope.updateExplorerTodo({explorerTodo: scope.explorerTodo});
             };
 
             scope.getTodoChecklistStatusData = function (todoId) {

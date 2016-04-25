@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.title}}
+   {{mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="mentorshipTodoCtrl.close()">
@@ -18,7 +18,7 @@
    </div>
   </header>
   <div class="row">
-   <md-radio-group ng-model="mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.status_id"
+   <md-radio-group ng-model="mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.status_id"
                    ng-change="mentorshipTodoCtrl.changeTodoStatus()"
                    layout="row">
     <md-radio-button ng-repeat="progressStatusType in mentorshipTodoCtrl.progressStatusTypes"
@@ -44,14 +44,14 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="editableForm.$visible" id="gb-mentorship-item-todo-panel" class="row">
-    <strong>{{mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.title}}</strong>
-    {{mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.description}}
+    <strong>{{mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.title}}</strong>
+    {{mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.description}}
    </div>
    <form editable-form name="editableForm" onbeforesave="mentorshipTodoCtrl.editMentorshipTodoSections.details($data)" ng-show="editableForm.$visible">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.title" e-name="title" e-required
+      <div editable-textarea="mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.title" e-name="title" e-required
            e-rows="2" e-placeholder="title"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -60,7 +60,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="mentorshipTodoCtrl.mentorshipTodoSrv.mentorshipTodo.todo.description" e-name="description"
+      <div editable-textarea="mentorshipTodoCtrl.mentorshipTodosSrv.mentorshipTodo.todo.description" e-name="description"
            e-rows="2" e-placeholder="description"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>

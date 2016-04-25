@@ -1,7 +1,7 @@
 var explorerTodoCtrl = function (
         level_categories,
         ConstantsSrv,
-        ExplorerTodoSrv,
+        ExplorerTodosSrv,
         ExplorerTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -15,14 +15,14 @@ var explorerTodoCtrl = function (
  var vm = this;
  vm.explorerId = explorerTodoData.explorer_id;
  vm.explorerTodoId = explorerTodoData.id;
- vm.explorerTodoSrv = new ExplorerTodoSrv();
+ vm.explorerTodosSrv = new ExplorerTodosSrv();
  vm.explorerTodoChecklistSrv = new ExplorerTodoChecklistSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.progressStatusTypes;
 
  /*
   $scope.$watch(function () {
-  return vm.explorerTodoSrv.explorerTodo.todo.status_id;
+  return vm.explorerTodosSrv.explorerTodo.todo.status_id;
   }, function (newValue, oldValue) {
   console.log('From', oldValue, ' - ', newValue)
   });
@@ -30,10 +30,10 @@ var explorerTodoCtrl = function (
 
  vm.changeTodoStatus = function () {
   var data = {
-   todo_id: vm.explorerTodoSrv.explorerTodo.todo_id,
-   status_id: vm.explorerTodoSrv.explorerTodo.todo.status_id
+   todo_id: vm.explorerTodosSrv.explorerTodo.todo_id,
+   status_id: vm.explorerTodosSrv.explorerTodo.todo.status_id
   };
-  vm.explorerTodoSrv.editTodoStatus(data).then(function (response) {
+  vm.explorerTodosSrv.editTodoStatus(data).then(function (response) {
 
   });
  };
@@ -45,7 +45,7 @@ var explorerTodoCtrl = function (
    checklist_id: checklist.id,
    status: checklist.status
   };
-  vm.explorerTodoSrv.editChecklistStatus(data).then(function (response) {
+  vm.explorerTodosSrv.editChecklistStatus(data).then(function (response) {
 
   });
  };
@@ -74,14 +74,14 @@ var explorerTodoCtrl = function (
  // vm.newExplorerTodoData = vm.defaultExplorerTodoData;
 
  vm.getExplorerTodo = function (explorerId, todoId) {
-  vm.explorerTodoSrv.getExplorerTodo(explorerId, todoId).then(function (response) {
+  vm.explorerTodosSrv.getExplorerTodo(explorerId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerTodo = function (data) {
-  vm.explorerTodoSrv.editExplorerTodo(data).then(function (response) {
+  vm.explorerTodosSrv.editExplorerTodo(data).then(function (response) {
    vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
@@ -91,9 +91,9 @@ var explorerTodoCtrl = function (
  vm.editExplorerTodoSections = {
   details: function () {
    var explorerTodoData = {
-    explorerTodoId: vm.explorerTodoSrv.explorerTodo.todo.id,
-    title: vm.explorerTodoSrv.explorerTodo.todo.title,
-    description: vm.explorerTodoSrv.explorerTodo.todo.description
+    explorerTodoId: vm.explorerTodosSrv.explorerTodo.todo.id,
+    title: vm.explorerTodosSrv.explorerTodo.todo.title,
+    description: vm.explorerTodosSrv.explorerTodo.todo.description
    };
    vm.editExplorerTodo(explorerTodoData);
   }
@@ -172,7 +172,7 @@ var explorerTodoCtrl = function (
 explorerTodoCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'ExplorerTodoSrv',
+ 'ExplorerTodosSrv',
  'ExplorerTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

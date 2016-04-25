@@ -1,9 +1,9 @@
-var projectNoteSrv = function ($http, $q) {
+var projectNotesSrv = function ($http, $q) {
 
- var ProjectNoteSrv = function () {
+ var ProjectNotesSrv = function () {
   this.projectNotes = [];
  };
- ProjectNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var projectNoteSrv = function ($http, $q) {
  };
 
 
- ProjectNoteSrv.prototype.getProjectNote = function (projectId, noteId) {
+ ProjectNotesSrv.prototype.getProjectNote = function (projectId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/project/' + projectId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var projectNoteSrv = function ($http, $q) {
  };
 
 
- ProjectNoteSrv.prototype.editProjectNote = function (projectNoteData) {
+ ProjectNotesSrv.prototype.editProjectNote = function (projectNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var projectNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProjectNoteSrv;
+ return ProjectNotesSrv;
 };
 
-projectNoteSrv.$inject = ['$http', '$q'];
+projectNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectNoteSrv', projectNoteSrv);
+angular.module('app.project').service('ProjectNotesSrv', projectNotesSrv);

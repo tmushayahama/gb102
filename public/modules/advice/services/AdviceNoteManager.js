@@ -1,9 +1,9 @@
-var adviceNoteSrv = function ($http, $q) {
+var adviceNotesSrv = function ($http, $q) {
 
- var AdviceNoteSrv = function () {
+ var AdviceNotesSrv = function () {
   this.adviceNotes = [];
  };
- AdviceNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ AdviceNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var adviceNoteSrv = function ($http, $q) {
  };
 
 
- AdviceNoteSrv.prototype.getAdviceNote = function (adviceId, noteId) {
+ AdviceNotesSrv.prototype.getAdviceNote = function (adviceId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/advice/' + adviceId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var adviceNoteSrv = function ($http, $q) {
  };
 
 
- AdviceNoteSrv.prototype.editAdviceNote = function (adviceNoteData) {
+ AdviceNotesSrv.prototype.editAdviceNote = function (adviceNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var adviceNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return AdviceNoteSrv;
+ return AdviceNotesSrv;
 };
 
-adviceNoteSrv.$inject = ['$http', '$q'];
+adviceNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.advice').service('AdviceNoteSrv', adviceNoteSrv);
+angular.module('app.advice').service('AdviceNotesSrv', adviceNotesSrv);

@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis">
-   {{collaborationTodoCtrl.collaborationTodoSrv.collaborationTodo.todo.title}}
+   {{collaborationTodoCtrl.collaborationTodosSrv.collaborationTodo.todo.title}}
   </p>
  </div>
  <a class="pull-right gb-ghost-btn-2" ng-click="collaborationTodoCtrl.close()">
@@ -25,14 +25,14 @@
   </header>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="editableForm.$visible" id="gb-collaboration-item-todo-panel" class="row">
-    <strong>{{collaborationTodoCtrl.collaborationTodoSrv.collaborationTodo.todo.title}}</strong>
-    {{collaborationTodoCtrl.collaborationTodoSrv.collaborationTodo.todo.description}}
+    <strong>{{collaborationTodoCtrl.collaborationTodosSrv.collaborationTodo.todo.title}}</strong>
+    {{collaborationTodoCtrl.collaborationTodosSrv.collaborationTodo.todo.description}}
    </div>
    <form editable-form name="editableForm" onbeforesave="collaborationTodoCtrl.editCollaborationTodoSections.details($data)" ng-show="editableForm.$visible">
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="collaborationTodoCtrl.collaborationTodoSrv.collaborationTodo.todo.title" e-name="title" e-required
+      <div editable-textarea="collaborationTodoCtrl.collaborationTodosSrv.collaborationTodo.todo.title" e-name="title" e-required
            e-rows="2" e-placeholder="title"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
@@ -41,7 +41,7 @@
     <div class="form-group row">
      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-      <div editable-textarea="collaborationTodoCtrl.collaborationTodoSrv.collaborationTodo.todo.description" e-name="description"
+      <div editable-textarea="collaborationTodoCtrl.collaborationTodosSrv.collaborationTodo.todo.description" e-name="description"
            e-rows="2" e-placeholder="description"
            e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>

@@ -35,19 +35,6 @@ var explorerPlansSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerPlansSrv.prototype.getExplorerPlan = function (explorerId, planId) {
-  var self = this;
-  var deferred = $q.defer();
-  self.explorerPlans = [];
-  $http.get('/api/explorer/' + explorerId + '/plan/' + planId).success(function (data) {
-   self.explorerPlans = data;
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
-
  ExplorerPlansSrv.prototype.createExplorerPlan = function (explorerPlanData) {
   var self = this;
   var deferred = $q.defer();
@@ -63,6 +50,37 @@ var explorerPlansSrv = function ($http, $q) {
   });
   return deferred.promise;
  };
+
+ ExplorerPlansSrv.prototype.editExplorerPlan = function (explorerPlanData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/plan/edit',
+   data: explorerPlanData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+
+ //Plan
+
+ ExplorerPlansSrv.prototype.getExplorerPlan = function (explorerId, planId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/explorer/' + explorerId + '/plan/' + planId).success(function (data) {
+   self.explorerPlan = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
 
  ExplorerPlansSrv.prototype.editExplorerPlan = function (explorerPlanData) {
   var self = this;

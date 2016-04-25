@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title">
   <p class="gb-ellipsis">
-   {{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title}}
+   {{explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.title}}
   </p>
  </div>
  <md-button class="gb-close" ng-click="explorerTodoCtrl.close()">
@@ -24,7 +24,7 @@
   </div>
  </div>
  <div class="gb-body-row-1 row">
-  <md-radio-group ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.status_id"
+  <md-radio-group ng-model="explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.status_id"
                   ng-change="explorerTodoCtrl.changeTodoStatus()"
                   layout="row">
    <md-radio-button ng-repeat="progressStatusType in explorerTodoCtrl.progressStatusTypes"
@@ -56,18 +56,18 @@
  <div class='gb-body-row-1 row'>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="explorerTodoCtrl.editDecriptionMode" class="row">
-    <strong>{{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title}}</strong>
-    {{explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.description}}
+    <strong>{{explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.title}}</strong>
+    {{explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.description}}
    </div>
    <form ng-show="explorerTodoCtrl.editDecriptionMode"
          ng-submit="explorerTodoCtrl.editExplorerTodoSections.details()">
     <md-input-container class="md-block">
-     <input ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.title" name="title" required
+     <input ng-model="explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.title" name="title" required
             placeholder="Title"
             class="">
     </md-input-container>
     <md-input-container class="md-block">
-     <input ng-model="explorerTodoCtrl.explorerTodoSrv.explorerTodo.todo.description" name="title"
+     <input ng-model="explorerTodoCtrl.explorerTodosSrv.explorerTodo.todo.description" name="title"
             placeholder="Description"
             class="">
     </md-input-container>

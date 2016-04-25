@@ -1,5 +1,5 @@
 var teachTodoCtrl = function (
-        TeachTodoSrv,
+        TeachTodosSrv,
         TeachTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var teachTodoCtrl = function (
  var vm = this;
  vm.teachId = teachTodoData.teach_id;
  vm.teachTodoId = teachTodoData.id;
- vm.teachTodoSrv = new TeachTodoSrv();
+ vm.teachTodosSrv = new TeachTodosSrv();
  vm.teachTodoChecklistSrv = new TeachTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var teachTodoCtrl = function (
  // vm.newTeachTodoData = vm.defaultTeachTodoData;
 
  vm.getTeachTodo = function (teachId, todoId) {
-  vm.teachTodoSrv.getTeachTodo(teachId, todoId).then(function (response) {
+  vm.teachTodosSrv.getTeachTodo(teachId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editTeachTodo = function (data) {
-  vm.teachTodoSrv.editTeachTodo(data).then(function (response) {
+  vm.teachTodosSrv.editTeachTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var teachTodoCtrl = function (
 };
 
 teachTodoCtrl.$inject = [
- 'TeachTodoSrv',
+ 'TeachTodosSrv',
  'TeachTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

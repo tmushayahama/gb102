@@ -1,5 +1,5 @@
 var goalNoteCtrl = function (
-        GoalNoteSrv,
+        GoalNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var goalNoteCtrl = function (
  var vm = this;
  vm.goalId = goalNoteData.goal_id;
  vm.goalNoteId = goalNoteData.id;
- vm.goalNoteSrv = new GoalNoteSrv();
+ vm.goalNotesSrv = new GoalNotesSrv();
 
 
  vm.noteId = goalNoteData.note_id;
@@ -33,14 +33,14 @@ var goalNoteCtrl = function (
  // vm.newGoalNoteData = vm.defaultGoalNoteData;
 
  vm.getGoalNote = function (goalId, noteId) {
-  vm.goalNoteSrv.getGoalNote(goalId, noteId).then(function (response) {
+  vm.goalNotesSrv.getGoalNote(goalId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalNote = function (data) {
-  vm.goalNoteSrv.editGoalNote(data).then(function (response) {
+  vm.goalNotesSrv.editGoalNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var goalNoteCtrl = function (
 
 
 goalNoteCtrl.$inject = [
- 'GoalNoteSrv',
+ 'GoalNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

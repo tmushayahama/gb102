@@ -39,19 +39,17 @@ var explorerObjectivesCtrl = function (
  vm.editExplorerObjective = function (data) {
   vm.explorerObjectivesSrv.editExplorerObjective(data).then(function (response) {
    vm.editDecriptionMode = false;
-   //vm.newExplorerObjectiveData = angular.copy(vm.defaultExplorerObjectiveData);
-   //vm.explorerObjectivesCopy = angular.copy(vm.explorerObjectivesSrv.explorerObjectives);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerObjectiveSections = {
-  details: function () {
+  details: function (explorerObjective) {
    var explorerObjectiveData = {
-    explorerObjectiveId: vm.explorerObjectiveSrv.explorerObjective.objective.id,
-    title: vm.explorerObjectiveSrv.explorerObjective.objective.title,
-    description: vm.explorerObjectiveSrv.explorerObjective.objective.description
+    explorerObjectiveId: explorerObjective.objective.id,
+    title: explorerObjective.objective.title,
+    description: explorerObjective.objective.description
    };
    vm.editExplorerObjective(explorerObjectiveData);
   }

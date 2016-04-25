@@ -79,6 +79,21 @@ var explorerGuidelinesSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerGuidelinesSrv.prototype.editExplorerGuideline = function (explorerGuidelineData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/guideline/edit',
+   data: explorerGuidelineData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
 
  return ExplorerGuidelinesSrv;
 };

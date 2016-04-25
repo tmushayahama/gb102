@@ -1,5 +1,5 @@
 var goalTodoCtrl = function (
-        GoalTodoSrv,
+        GoalTodosSrv,
         GoalTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var goalTodoCtrl = function (
  var vm = this;
  vm.goalId = goalTodoData.goal_id;
  vm.goalTodoId = goalTodoData.id;
- vm.goalTodoSrv = new GoalTodoSrv();
+ vm.goalTodosSrv = new GoalTodosSrv();
  vm.goalTodoChecklistSrv = new GoalTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var goalTodoCtrl = function (
  // vm.newGoalTodoData = vm.defaultGoalTodoData;
 
  vm.getGoalTodo = function (goalId, todoId) {
-  vm.goalTodoSrv.getGoalTodo(goalId, todoId).then(function (response) {
+  vm.goalTodosSrv.getGoalTodo(goalId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editGoalTodo = function (data) {
-  vm.goalTodoSrv.editGoalTodo(data).then(function (response) {
+  vm.goalTodosSrv.editGoalTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var goalTodoCtrl = function (
 };
 
 goalTodoCtrl.$inject = [
- 'GoalTodoSrv',
+ 'GoalTodosSrv',
  'GoalTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

@@ -1,5 +1,5 @@
 var adviceNoteCtrl = function (
-        AdviceNoteSrv,
+        AdviceNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var adviceNoteCtrl = function (
  var vm = this;
  vm.adviceId = adviceNoteData.advice_id;
  vm.adviceNoteId = adviceNoteData.id;
- vm.adviceNoteSrv = new AdviceNoteSrv();
+ vm.adviceNotesSrv = new AdviceNotesSrv();
 
 
  vm.noteId = adviceNoteData.note_id;
@@ -33,14 +33,14 @@ var adviceNoteCtrl = function (
  // vm.newAdviceNoteData = vm.defaultAdviceNoteData;
 
  vm.getAdviceNote = function (adviceId, noteId) {
-  vm.adviceNoteSrv.getAdviceNote(adviceId, noteId).then(function (response) {
+  vm.adviceNotesSrv.getAdviceNote(adviceId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editAdviceNote = function (data) {
-  vm.adviceNoteSrv.editAdviceNote(data).then(function (response) {
+  vm.adviceNotesSrv.editAdviceNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var adviceNoteCtrl = function (
 
 
 adviceNoteCtrl.$inject = [
- 'AdviceNoteSrv',
+ 'AdviceNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

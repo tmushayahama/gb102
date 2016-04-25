@@ -59,22 +59,22 @@ var explorerTodosCtrl = function (
 
  vm.editExplorerTodo = function (data) {
   vm.explorerTodosSrv.editExplorerTodo(data).then(function (response) {
-   vm.todoFormDisplay = false;
-   vm.newExplorerTodoData = angular.copy(vm.defaultExplorerTodoData);
+   vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerTodoSections = {
-  title: function (explorerTodoId, title) {
+  details: function (explorerTodo) {
    var explorerTodoData = {
-    explorerTodoId: explorerTodoId,
-    title: title
+    explorerTodoId: explorerTodo.todo.id,
+    title: explorerTodo.todo.title,
+    description: explorerTodo.todo.description
    };
    vm.editExplorerTodo(explorerTodoData);
   }
- }
+ };
 
  vm.cancelExplorerTodo = function (form) {
   vm.todoFormDisplay = false;

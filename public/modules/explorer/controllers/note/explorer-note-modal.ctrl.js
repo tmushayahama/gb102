@@ -1,5 +1,5 @@
 var explorerNoteCtrl = function (
-        ExplorerNoteSrv,
+        ExplorerNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerNoteCtrl = function (
  var vm = this;
  vm.explorerId = explorerNoteData.explorer_id;
  vm.explorerNoteId = explorerNoteData.id;
- vm.explorerNoteSrv = new ExplorerNoteSrv();
+ vm.explorerNotesSrv = new ExplorerNotesSrv();
 
 
  vm.noteId = explorerNoteData.note_id;
@@ -33,14 +33,14 @@ var explorerNoteCtrl = function (
  // vm.newExplorerNoteData = vm.defaultExplorerNoteData;
 
  vm.getExplorerNote = function (explorerId, noteId) {
-  vm.explorerNoteSrv.getExplorerNote(explorerId, noteId).then(function (response) {
+  vm.explorerNotesSrv.getExplorerNote(explorerId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerNote = function (data) {
-  vm.explorerNoteSrv.editExplorerNote(data).then(function (response) {
+  vm.explorerNotesSrv.editExplorerNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var explorerNoteCtrl = function (
 
 
 explorerNoteCtrl.$inject = [
- 'ExplorerNoteSrv',
+ 'ExplorerNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

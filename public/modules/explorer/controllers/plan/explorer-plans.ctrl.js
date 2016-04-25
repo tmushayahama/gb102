@@ -38,24 +38,22 @@ var explorerPlansCtrl = function (
 
  vm.editExplorerPlan = function (data) {
   vm.explorerPlansSrv.editExplorerPlan(data).then(function (response) {
-   vm.planFormDisplay = false;
-   vm.newExplorerPlanData = angular.copy(vm.defaultExplorerPlanData);
-   vm.explorerPlansCopy = angular.copy(vm.explorerPlansSrv.explorerPlans);
+   vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorerPlanSections = {
-  details: function (explorerPlanId, detail) {
+  details: function (explorerPlan) {
    var explorerPlanData = {
-    explorerPlanId: explorerPlanId,
-    title: detail.title,
-    description: detail.description
+    explorerPlanId: explorerPlan.plan.id,
+    title: explorerPlan.plan.title,
+    description: explorerPlan.plan.description
    };
    vm.editExplorerPlan(explorerPlanData);
   }
- }
+ };
 
  vm.cancelExplorerPlan = function (form) {
   vm.planFormDisplay = false;

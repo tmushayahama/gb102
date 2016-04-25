@@ -90,13 +90,14 @@
      </div>
     </div>
     <div class="gb-no-info row" ng-show="!explorerTodosCtrl.explorerTodos.inProgress.length">
-     No todos in-progress to show
+     No todos to show
     </div>
     <div class="row" ng-show="explorerTodosCtrl.explorerTodos.inProgress.length">
      <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.inProgress track by $index">
       <div gb-explorer-todo-box explorer-todo="explorerTodo"
            index={{$index}}
            open-explorer-todo="explorerTodosCtrl.openExplorerTodo(explorerTodo)"
+           update-explorer-todo="explorerTodosCtrl.editExplorerTodoSections.details(explorerTodo)"
            class="row">
       </div>
      </div>
@@ -109,7 +110,7 @@
      </div>
     </div>
     <div class="gb-no-info row" ng-show="!explorerTodosCtrl.explorerTodos.done.length">
-     No todos done to show
+     No todos to show
     </div>
     <div class="row" ng-show="explorerTodosCtrl.explorerTodos.done.length">
      <div ng-repeat="explorerTodo in explorerTodosCtrl.explorerTodos.done track by $index">

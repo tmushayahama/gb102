@@ -1,5 +1,5 @@
 var explorerPlanCtrl = function (
-        ExplorerPlanSrv,
+        ExplorerPlansSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerPlanCtrl = function (
  var vm = this;
  vm.explorerId = explorerPlanData.explorer_id;
  vm.explorerPlanId = explorerPlanData.id;
- vm.explorerPlanSrv = new ExplorerPlanSrv();
+ vm.explorerPlansSrv = new ExplorerPlansSrv();
 
 
  vm.planId = explorerPlanData.plan_id;
@@ -33,14 +33,14 @@ var explorerPlanCtrl = function (
  // vm.newExplorerPlanData = vm.defaultExplorerPlanData;
 
  vm.getExplorerPlan = function (explorerId, planId) {
-  vm.explorerPlanSrv.getExplorerPlan(explorerId, planId).then(function (response) {
+  vm.explorerPlansSrv.getExplorerPlan(explorerId, planId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerPlan = function (data) {
-  vm.explorerPlanSrv.editExplorerPlan(data).then(function (response) {
+  vm.explorerPlansSrv.editExplorerPlan(data).then(function (response) {
    vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
@@ -50,9 +50,9 @@ var explorerPlanCtrl = function (
  vm.editExplorerPlanSections = {
   details: function () {
    var explorerPlanData = {
-    explorerPlanId: vm.explorerPlanSrv.explorerPlan.plan.id,
-    title: vm.explorerPlanSrv.explorerPlan.plan.title,
-    description: vm.explorerPlanSrv.explorerPlan.plan.description
+    explorerPlanId: vm.explorerPlansSrv.explorerPlan.plan.id,
+    title: vm.explorerPlansSrv.explorerPlan.plan.title,
+    description: vm.explorerPlansSrv.explorerPlan.plan.description
    };
    vm.editExplorerPlan(explorerPlanData);
   }
@@ -72,7 +72,7 @@ var explorerPlanCtrl = function (
 
 
 explorerPlanCtrl.$inject = [
- 'ExplorerPlanSrv',
+ 'ExplorerPlansSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

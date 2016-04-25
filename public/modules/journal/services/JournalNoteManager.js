@@ -1,9 +1,9 @@
-var journalNoteSrv = function ($http, $q) {
+var journalNotesSrv = function ($http, $q) {
 
- var JournalNoteSrv = function () {
+ var JournalNotesSrv = function () {
   this.journalNotes = [];
  };
- JournalNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ JournalNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var journalNoteSrv = function ($http, $q) {
  };
 
 
- JournalNoteSrv.prototype.getJournalNote = function (journalId, noteId) {
+ JournalNotesSrv.prototype.getJournalNote = function (journalId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/journal/' + journalId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var journalNoteSrv = function ($http, $q) {
  };
 
 
- JournalNoteSrv.prototype.editJournalNote = function (journalNoteData) {
+ JournalNotesSrv.prototype.editJournalNote = function (journalNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var journalNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return JournalNoteSrv;
+ return JournalNotesSrv;
 };
 
-journalNoteSrv.$inject = ['$http', '$q'];
+journalNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.journal').service('JournalNoteSrv', journalNoteSrv);
+angular.module('app.journal').service('JournalNotesSrv', journalNotesSrv);

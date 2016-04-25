@@ -1,5 +1,5 @@
 var skillTodoCtrl = function (
-        SkillTodoSrv,
+        SkillTodosSrv,
         SkillTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var skillTodoCtrl = function (
  var vm = this;
  vm.skillId = skillTodoData.skill_id;
  vm.skillTodoId = skillTodoData.id;
- vm.skillTodoSrv = new SkillTodoSrv();
+ vm.skillTodosSrv = new SkillTodosSrv();
  vm.skillTodoChecklistSrv = new SkillTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var skillTodoCtrl = function (
  // vm.newSkillTodoData = vm.defaultSkillTodoData;
 
  vm.getSkillTodo = function (skillId, todoId) {
-  vm.skillTodoSrv.getSkillTodo(skillId, todoId).then(function (response) {
+  vm.skillTodosSrv.getSkillTodo(skillId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editSkillTodo = function (data) {
-  vm.skillTodoSrv.editSkillTodo(data).then(function (response) {
+  vm.skillTodosSrv.editSkillTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var skillTodoCtrl = function (
 };
 
 skillTodoCtrl.$inject = [
- 'SkillTodoSrv',
+ 'SkillTodosSrv',
  'SkillTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

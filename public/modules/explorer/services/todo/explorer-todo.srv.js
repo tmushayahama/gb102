@@ -1,9 +1,9 @@
-var explorerTodoSrv = function ($http, $q) {
+var explorerTodosSrv = function ($http, $q) {
 
- var ExplorerTodoSrv = function () {
+ var ExplorerTodosSrv = function () {
   this.explorerTodos = [];
  };
- ExplorerTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ExplorerTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var explorerTodoSrv = function ($http, $q) {
  };
 
 
- ExplorerTodoSrv.prototype.getExplorerTodo = function (explorerId, todoId) {
+ ExplorerTodosSrv.prototype.getExplorerTodo = function (explorerId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/explorer/' + explorerId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var explorerTodoSrv = function ($http, $q) {
  };
 
 
- ExplorerTodoSrv.prototype.editExplorerTodo = function (explorerTodoData) {
+ ExplorerTodosSrv.prototype.editExplorerTodo = function (explorerTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,7 +51,7 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerTodoSrv.prototype.editTodoStatus = function (todoData) {
+ ExplorerTodosSrv.prototype.editTodoStatus = function (todoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -66,7 +66,7 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerTodoSrv.prototype.todoChecklistCount = function (todoId) {
+ ExplorerTodosSrv.prototype.todoChecklistCount = function (todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/todo/' + todoId + '/checklist/count').success(function (data) {
@@ -77,7 +77,7 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerTodoSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
+ ExplorerTodosSrv.prototype.todoChecklistStatusCount = function (todoId, status) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/todo/' + todoId + '/checklist/' + status + '/count').success(function (data) {
@@ -88,7 +88,7 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerTodoSrv.prototype.editChecklistStatus = function (checklistData) {
+ ExplorerTodosSrv.prototype.editChecklistStatus = function (checklistData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -103,8 +103,8 @@ var explorerTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ExplorerTodoSrv;
+ return ExplorerTodosSrv;
 };
-explorerTodoSrv.$inject = ['$http', '$q'];
+explorerTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorerTodoSrv', explorerTodoSrv);
+angular.module('app.explorer').service('ExplorerTodosSrv', explorerTodosSrv);

@@ -143,17 +143,14 @@ define(['angular'
                   'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
                   //Objectives,
-                  'public/modules/explorer/services/objective/explorer-objective.srv.js',
                   'public/modules/explorer/services/objective/explorer-objectives.srv.js',
                   'public/modules/explorer/controllers/objective/explorer-objectives.ctrl.js',
                   'public/modules/explorer/controllers/objective/explorer-objective-modal.ctrl.js',
                   //Plans
-                  'public/modules/explorer/services/plan/explorer-plan.srv.js',
                   'public/modules/explorer/services/plan/explorer-plans.srv.js',
                   'public/modules/explorer/controllers/plan/explorer-plans.ctrl.js',
                   'public/modules/explorer/controllers/plan/explorer-plan-modal.ctrl.js',
                   //Progress
-                  'public/modules/explorer/services/todo/explorer-todo.srv.js',
                   'public/modules/explorer/services/todo/explorer-todos.srv.js',
                   'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
                   'public/modules/explorer/controllers/sub-explorer/sub-explorers.ctrl.js',
@@ -177,27 +174,22 @@ define(['angular'
                  serie: true,
                  files: [
                   //Activity
-                  'public/modules/explorer/services/activity/explorer-activity.srv.js',
                   'public/modules/explorer/services/activity/explorer-activities.srv.js',
                   'public/modules/explorer/controllers/activity/explorer-activities.ctrl.js',
                   'public/modules/explorer/controllers/activity/explorer-activity-modal.ctrl.js',
-                  //Exercise
-                  'public/modules/explorer/services/exercise/explorer-exercise.srv.js',
+                  //Exercise,
                   'public/modules/explorer/services/exercise/explorer-exercises.srv.js',
                   'public/modules/explorer/controllers/exercise/explorer-exercises.ctrl.js',
                   'public/modules/explorer/controllers/exercise/explorer-exercise-modal.ctrl.js',
                   //Guideline
-                  'public/modules/explorer/services/guideline/explorer-guideline.srv.js',
                   'public/modules/explorer/services/guideline/explorer-guidelines.srv.js',
                   'public/modules/explorer/controllers/guideline/explorer-guidelines.ctrl.js',
                   'public/modules/explorer/controllers/guideline/explorer-guideline-modal.ctrl.js',
                   //Notes,
-                  'public/modules/explorer/services/note/explorer-note.srv.js',
                   'public/modules/explorer/services/note/explorer-notes.srv.js',
                   'public/modules/explorer/controllers/note/explorer-notes.ctrl.js',
                   'public/modules/explorer/controllers/note/explorer-note-modal.ctrl.js',
                   //Weblink
-                  'public/modules/explorer/services/weblink/explorer-weblink.srv.js',
                   'public/modules/explorer/services/weblink/explorer-weblinks.srv.js',
                   'public/modules/explorer/controllers/weblink/explorer-weblinks.ctrl.js',
                   'public/modules/explorer/controllers/weblink/explorer-weblink-modal.ctrl.js',

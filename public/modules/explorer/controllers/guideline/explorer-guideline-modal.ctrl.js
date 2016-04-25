@@ -1,5 +1,5 @@
 var explorerGuidelineCtrl = function (
-        ExplorerGuidelineSrv,
+        ExplorerGuidelinesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerGuidelineCtrl = function (
  var vm = this;
  vm.explorerId = explorerGuidelineData.explorer_id;
  vm.explorerGuidelineId = explorerGuidelineData.id;
- vm.explorerGuidelineSrv = new ExplorerGuidelineSrv();
+ vm.explorerGuidelinesSrv = new ExplorerGuidelinesSrv();
 
 
  vm.guidelineId = explorerGuidelineData.guideline_id;
@@ -33,14 +33,14 @@ var explorerGuidelineCtrl = function (
  // vm.newExplorerGuidelineData = vm.defaultExplorerGuidelineData;
 
  vm.getExplorerGuideline = function (explorerId, guidelineId) {
-  vm.explorerGuidelineSrv.getExplorerGuideline(explorerId, guidelineId).then(function (response) {
+  vm.explorerGuidelinesSrv.getExplorerGuideline(explorerId, guidelineId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerGuideline = function (data) {
-  vm.explorerGuidelineSrv.editExplorerGuideline(data).then(function (response) {
+  vm.explorerGuidelinesSrv.editExplorerGuideline(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var explorerGuidelineCtrl = function (
 
 
 explorerGuidelineCtrl.$inject = [
- 'ExplorerGuidelineSrv',
+ 'ExplorerGuidelinesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

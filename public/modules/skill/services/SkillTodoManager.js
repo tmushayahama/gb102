@@ -1,9 +1,9 @@
-var skillTodoSrv = function ($http, $q) {
+var skillTodosSrv = function ($http, $q) {
 
- var SkillTodoSrv = function () {
+ var SkillTodosSrv = function () {
   this.skillTodos = [];
  };
- SkillTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ SkillTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var skillTodoSrv = function ($http, $q) {
  };
 
 
- SkillTodoSrv.prototype.getSkillTodo = function (skillId, todoId) {
+ SkillTodosSrv.prototype.getSkillTodo = function (skillId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/skill/' + skillId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var skillTodoSrv = function ($http, $q) {
  };
 
 
- SkillTodoSrv.prototype.editSkillTodo = function (skillTodoData) {
+ SkillTodosSrv.prototype.editSkillTodo = function (skillTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var skillTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return SkillTodoSrv;
+ return SkillTodosSrv;
 };
-skillTodoSrv.$inject = ['$http', '$q'];
+skillTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.skills').service('SkillTodoSrv', skillTodoSrv);
+angular.module('app.skills').service('SkillTodosSrv', skillTodosSrv);

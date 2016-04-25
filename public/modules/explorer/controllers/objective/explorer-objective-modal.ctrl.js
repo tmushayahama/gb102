@@ -1,5 +1,5 @@
 var explorerObjectiveCtrl = function (
-        ExplorerObjectiveSrv,
+        ExplorerObjectivesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerObjectiveCtrl = function (
  var vm = this;
  vm.explorerId = explorerObjectiveData.explorer_id;
  vm.explorerObjectiveId = explorerObjectiveData.id;
- vm.explorerObjectiveSrv = new ExplorerObjectiveSrv();
+ vm.explorerObjectivesSrv = new ExplorerObjectivesSrv();
 
 
  vm.objectiveId = explorerObjectiveData.objective_id;
@@ -33,14 +33,14 @@ var explorerObjectiveCtrl = function (
  // vm.newExplorerObjectiveData = vm.defaultExplorerObjectiveData;
 
  vm.getExplorerObjective = function (explorerId, objectiveId) {
-  vm.explorerObjectiveSrv.getExplorerObjective(explorerId, objectiveId).then(function (response) {
+  vm.explorerObjectivesSrv.getExplorerObjective(explorerId, objectiveId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerObjective = function (data) {
-  vm.explorerObjectiveSrv.editExplorerObjective(data).then(function (response) {
+  vm.explorerObjectivesSrv.editExplorerObjective(data).then(function (response) {
    vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
@@ -50,9 +50,9 @@ var explorerObjectiveCtrl = function (
  vm.editExplorerObjectiveSections = {
   details: function () {
    var explorerObjectiveData = {
-    explorerObjectiveId: vm.explorerObjectiveSrv.explorerObjective.objective.id,
-    title: vm.explorerObjectiveSrv.explorerObjective.objective.title,
-    description: vm.explorerObjectiveSrv.explorerObjective.objective.description
+    explorerObjectiveId: vm.explorerObjectivesSrv.explorerObjective.objective.id,
+    title: vm.explorerObjectivesSrv.explorerObjective.objective.title,
+    description: vm.explorerObjectivesSrv.explorerObjective.objective.description
    };
    vm.editExplorerObjective(explorerObjectiveData);
   }
@@ -72,7 +72,7 @@ var explorerObjectiveCtrl = function (
 
 
 explorerObjectiveCtrl.$inject = [
- 'ExplorerObjectiveSrv',
+ 'ExplorerObjectivesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

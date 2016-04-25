@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title">
   <p class="gb-ellipsis">
-   {{explorerObjectiveCtrl.explorerObjectiveSrv.explorerObjective.objective.title}}
+   {{explorerObjectiveCtrl.explorerObjectivesSrv.explorerObjective.objective.title}}
   </p>
  </div>
  <md-button class="gb-close" ng-click="explorerObjectiveCtrl.close()">
@@ -32,18 +32,18 @@
  <div class="gb-body-row-1 row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div ng-hide="explorerObjectiveCtrl.editDecriptionMode" class="row">
-    <strong>{{explorerObjectiveCtrl.explorerObjectiveSrv.explorerObjective.objective.title}}</strong>
-    {{explorerObjectiveCtrl.explorerObjectiveSrv.explorerObjective.objective.description}}
+    <strong>{{explorerObjectiveCtrl.explorerObjectivesSrv.explorerObjective.objective.title}}</strong>
+    {{explorerObjectiveCtrl.explorerObjectivesSrv.explorerObjective.objective.description}}
    </div>
    <form ng-show="explorerObjectiveCtrl.editDecriptionMode"
          ng-submit="explorerObjectiveCtrl.editExplorerObjectiveSections.details()">
     <md-input-container class="md-block">
-     <input ng-model="explorerObjectiveCtrl.explorerObjectiveSrv.explorerObjective.objective.title" name="title" required
+     <input ng-model="explorerObjectiveCtrl.explorerObjectivesSrv.explorerObjective.objective.title" name="title" required
             placeholder="Title"
             class="">
     </md-input-container>
     <md-input-container class="md-block">
-     <input ng-model="explorerObjectiveCtrl.explorerObjectiveSrv.explorerObjective.objective.description" name="title"
+     <input ng-model="explorerObjectiveCtrl.explorerObjectivesSrv.explorerObjective.objective.description" name="title"
             placeholder="Description"
             class="">
     </md-input-container>

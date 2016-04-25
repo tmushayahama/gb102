@@ -79,6 +79,20 @@ var explorerNotesSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerNotesSrv.prototype.editExplorerNote = function (explorerNoteData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/note/edit',
+   data: explorerNoteData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
 
  return ExplorerNotesSrv;
 };

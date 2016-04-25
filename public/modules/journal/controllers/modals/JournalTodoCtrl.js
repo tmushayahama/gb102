@@ -1,5 +1,5 @@
 var journalTodoCtrl = function (
-        JournalTodoSrv,
+        JournalTodosSrv,
         JournalTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -13,7 +13,7 @@ var journalTodoCtrl = function (
  var vm = this;
  vm.journalId = journalTodoData.journal_id;
  vm.journalTodoId = journalTodoData.id;
- vm.journalTodoSrv = new JournalTodoSrv();
+ vm.journalTodosSrv = new JournalTodosSrv();
  vm.journalTodoChecklistSrv = new JournalTodoChecklistSrv();
 
 
@@ -41,14 +41,14 @@ var journalTodoCtrl = function (
  // vm.newJournalTodoData = vm.defaultJournalTodoData;
 
  vm.getJournalTodo = function (journalId, todoId) {
-  vm.journalTodoSrv.getJournalTodo(journalId, todoId).then(function (response) {
+  vm.journalTodosSrv.getJournalTodo(journalId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editJournalTodo = function (data) {
-  vm.journalTodoSrv.editJournalTodo(data).then(function (response) {
+  vm.journalTodosSrv.editJournalTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -130,7 +130,7 @@ var journalTodoCtrl = function (
 };
 
 journalTodoCtrl.$inject = [
- 'JournalTodoSrv',
+ 'JournalTodosSrv',
  'JournalTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

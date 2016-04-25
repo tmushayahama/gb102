@@ -1,5 +1,5 @@
 var projectNoteCtrl = function (
-        ProjectNoteSrv,
+        ProjectNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var projectNoteCtrl = function (
  var vm = this;
  vm.projectId = projectNoteData.project_id;
  vm.projectNoteId = projectNoteData.id;
- vm.projectNoteSrv = new ProjectNoteSrv();
+ vm.projectNotesSrv = new ProjectNotesSrv();
 
 
  vm.noteId = projectNoteData.note_id;
@@ -33,14 +33,14 @@ var projectNoteCtrl = function (
  // vm.newProjectNoteData = vm.defaultProjectNoteData;
 
  vm.getProjectNote = function (projectId, noteId) {
-  vm.projectNoteSrv.getProjectNote(projectId, noteId).then(function (response) {
+  vm.projectNotesSrv.getProjectNote(projectId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editProjectNote = function (data) {
-  vm.projectNoteSrv.editProjectNote(data).then(function (response) {
+  vm.projectNotesSrv.editProjectNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var projectNoteCtrl = function (
 
 
 projectNoteCtrl.$inject = [
- 'ProjectNoteSrv',
+ 'ProjectNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

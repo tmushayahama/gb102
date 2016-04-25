@@ -15,6 +15,7 @@ angular.module('app.explorer').directive('gbExplorerPlanBox',
            scope: {
             explorerPlan: '=',
             openExplorerPlan: '&',
+            updateExplorerPlan: '&',
             index: '@'
            },
            controller: [
@@ -27,6 +28,9 @@ angular.module('app.explorer').directive('gbExplorerPlanBox',
             scope.number = parseInt(scope.index) + 1;
             scope.open = function () {
              scope.openExplorerPlan({explorerPlan: scope.explorerPlan});
+            };
+            scope.update = function () {
+             scope.updateExplorerPlan({explorerPlan: scope.explorerPlan});
             };
            }
           };

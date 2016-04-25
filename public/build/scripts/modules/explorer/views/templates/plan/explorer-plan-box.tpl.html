@@ -7,7 +7,10 @@
   </div>
   <div class="gb-box-content">
    <md-input-container class="md-block">
-    <input ng-model="explorerPlan.plan.title" class="gb-input">
+    <input ng-model="explorerPlan.plan.title"
+           ng-change="update()"
+           ng-model-options="{debounce: {default: 1500}}"
+           class="gb-input">
    </md-input-container>
   </div>
   <div class="gb-action">

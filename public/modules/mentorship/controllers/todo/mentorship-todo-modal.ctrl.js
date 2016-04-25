@@ -1,7 +1,7 @@
 var mentorshipTodoCtrl = function (
         level_categories,
         ConstantsSrv,
-        MentorshipTodoSrv,
+        MentorshipTodosSrv,
         MentorshipTodoChecklistSrv,
         $uibModalInstance,
         $scope,
@@ -15,14 +15,14 @@ var mentorshipTodoCtrl = function (
  var vm = this;
  vm.mentorshipId = mentorshipTodoData.mentorship_id;
  vm.mentorshipTodoId = mentorshipTodoData.id;
- vm.mentorshipTodoSrv = new MentorshipTodoSrv();
+ vm.mentorshipTodosSrv = new MentorshipTodosSrv();
  vm.mentorshipTodoChecklistSrv = new MentorshipTodoChecklistSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.progressStatusTypes;
 
  /*
   $scope.$watch(function () {
-  return vm.mentorshipTodoSrv.mentorshipTodo.todo.status_id;
+  return vm.mentorshipTodosSrv.mentorshipTodo.todo.status_id;
   }, function (newValue, oldValue) {
   console.log('From', oldValue, ' - ', newValue)
   });
@@ -30,10 +30,10 @@ var mentorshipTodoCtrl = function (
 
  vm.changeTodoStatus = function () {
   var data = {
-   todo_id: vm.mentorshipTodoSrv.mentorshipTodo.todo_id,
-   status_id: vm.mentorshipTodoSrv.mentorshipTodo.todo.status_id
+   todo_id: vm.mentorshipTodosSrv.mentorshipTodo.todo_id,
+   status_id: vm.mentorshipTodosSrv.mentorshipTodo.todo.status_id
   };
-  vm.mentorshipTodoSrv.editTodoStatus(data).then(function (response) {
+  vm.mentorshipTodosSrv.editTodoStatus(data).then(function (response) {
 
   });
  };
@@ -45,7 +45,7 @@ var mentorshipTodoCtrl = function (
    checklist_id: checklist.id,
    status: checklist.status
   };
-  vm.mentorshipTodoSrv.editChecklistStatus(data).then(function (response) {
+  vm.mentorshipTodosSrv.editChecklistStatus(data).then(function (response) {
 
   });
  };
@@ -74,14 +74,14 @@ var mentorshipTodoCtrl = function (
  // vm.newMentorshipTodoData = vm.defaultMentorshipTodoData;
 
  vm.getMentorshipTodo = function (mentorshipId, todoId) {
-  vm.mentorshipTodoSrv.getMentorshipTodo(mentorshipId, todoId).then(function (response) {
+  vm.mentorshipTodosSrv.getMentorshipTodo(mentorshipId, todoId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editMentorshipTodo = function (data) {
-  vm.mentorshipTodoSrv.editMentorshipTodo(data).then(function (response) {
+  vm.mentorshipTodosSrv.editMentorshipTodo(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -173,7 +173,7 @@ var mentorshipTodoCtrl = function (
 mentorshipTodoCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'MentorshipTodoSrv',
+ 'MentorshipTodosSrv',
  'MentorshipTodoChecklistSrv',
  '$uibModalInstance',
  '$scope',

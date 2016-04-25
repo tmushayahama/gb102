@@ -1,5 +1,5 @@
 var mentorshipNoteCtrl = function (
-        MentorshipNoteSrv,
+        MentorshipNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var mentorshipNoteCtrl = function (
  var vm = this;
  vm.mentorshipId = mentorshipNoteData.mentorship_id;
  vm.mentorshipNoteId = mentorshipNoteData.id;
- vm.mentorshipNoteSrv = new MentorshipNoteSrv();
+ vm.mentorshipNotesSrv = new MentorshipNotesSrv();
 
 
  vm.noteId = mentorshipNoteData.note_id;
@@ -33,14 +33,14 @@ var mentorshipNoteCtrl = function (
  // vm.newMentorshipNoteData = vm.defaultMentorshipNoteData;
 
  vm.getMentorshipNote = function (mentorshipId, noteId) {
-  vm.mentorshipNoteSrv.getMentorshipNote(mentorshipId, noteId).then(function (response) {
+  vm.mentorshipNotesSrv.getMentorshipNote(mentorshipId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editMentorshipNote = function (data) {
-  vm.mentorshipNoteSrv.editMentorshipNote(data).then(function (response) {
+  vm.mentorshipNotesSrv.editMentorshipNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var mentorshipNoteCtrl = function (
 
 
 mentorshipNoteCtrl.$inject = [
- 'MentorshipNoteSrv',
+ 'MentorshipNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

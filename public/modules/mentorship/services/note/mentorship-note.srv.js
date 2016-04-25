@@ -1,9 +1,9 @@
-var mentorshipNoteSrv = function ($http, $q) {
+var mentorshipNotesSrv = function ($http, $q) {
 
- var MentorshipNoteSrv = function () {
+ var MentorshipNotesSrv = function () {
   this.mentorshipNotes = [];
  };
- MentorshipNoteSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ MentorshipNotesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var mentorshipNoteSrv = function ($http, $q) {
  };
 
 
- MentorshipNoteSrv.prototype.getMentorshipNote = function (mentorshipId, noteId) {
+ MentorshipNotesSrv.prototype.getMentorshipNote = function (mentorshipId, noteId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/mentorship/' + mentorshipId + '/note/' + noteId).success(function (data) {
@@ -36,7 +36,7 @@ var mentorshipNoteSrv = function ($http, $q) {
  };
 
 
- MentorshipNoteSrv.prototype.editMentorshipNote = function (mentorshipNoteData) {
+ MentorshipNotesSrv.prototype.editMentorshipNote = function (mentorshipNoteData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,9 +51,9 @@ var mentorshipNoteSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return MentorshipNoteSrv;
+ return MentorshipNotesSrv;
 };
 
-mentorshipNoteSrv.$inject = ['$http', '$q'];
+mentorshipNotesSrv.$inject = ['$http', '$q'];
 
-angular.module('app.mentorship').service('MentorshipNoteSrv', mentorshipNoteSrv);
+angular.module('app.mentorship').service('MentorshipNotesSrv', mentorshipNotesSrv);

@@ -100,12 +100,13 @@
      <div gb-explorer-objective-box explorer-objective="explorerObjective"
           index={{$index}}
           open-explorer-objective="explorerObjectivesCtrl.openExplorerObjective(explorerObjective)"
+          update-explorer-objective="explorerObjectivesCtrl.editExplorerObjectiveSections.details(explorerObjective)"
           class="row">
      </div>
     </div>
    </div>
    <script type="text/ng-template" id="explorer-objective-modal.html">
-    <div class="gb-objective-page" ng-include="'public/build/scripts/modules/explorer/views/components/objective/explorer-objective-modal.html'"></div>
+   <div class="gb-objective-page" ng-include="'public/build/scripts/modules/explorer/views/components/objective/explorer-objective-modal.html'"></div>
    </script>
   </div>
  </div>

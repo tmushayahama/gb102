@@ -1,9 +1,9 @@
-var projectTodoSrv = function ($http, $q) {
+var projectTodosSrv = function ($http, $q) {
 
- var ProjectTodoSrv = function () {
+ var ProjectTodosSrv = function () {
   this.projectTodos = [];
  };
- ProjectTodoSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ProjectTodosSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -23,7 +23,7 @@ var projectTodoSrv = function ($http, $q) {
  };
 
 
- ProjectTodoSrv.prototype.getProjectTodo = function (projectId, todoId) {
+ ProjectTodosSrv.prototype.getProjectTodo = function (projectId, todoId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/project/' + projectId + '/todo/' + todoId).success(function (data) {
@@ -36,7 +36,7 @@ var projectTodoSrv = function ($http, $q) {
  };
 
 
- ProjectTodoSrv.prototype.editProjectTodo = function (projectTodoData) {
+ ProjectTodosSrv.prototype.editProjectTodo = function (projectTodoData) {
   var self = this;
   var deferred = $q.defer();
   $http({
@@ -51,8 +51,8 @@ var projectTodoSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- return ProjectTodoSrv;
+ return ProjectTodosSrv;
 };
-projectTodoSrv.$inject = ['$http', '$q'];
+projectTodosSrv.$inject = ['$http', '$q'];
 
-angular.module('app.project').service('ProjectTodoSrv', projectTodoSrv);
+angular.module('app.project').service('ProjectTodosSrv', projectTodosSrv);

@@ -1,5 +1,5 @@
 var collaborationNoteCtrl = function (
-        CollaborationNoteSrv,
+        CollaborationNotesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var collaborationNoteCtrl = function (
  var vm = this;
  vm.collaborationId = collaborationNoteData.collaboration_id;
  vm.collaborationNoteId = collaborationNoteData.id;
- vm.collaborationNoteSrv = new CollaborationNoteSrv();
+ vm.collaborationNotesSrv = new CollaborationNotesSrv();
 
 
  vm.noteId = collaborationNoteData.note_id;
@@ -33,14 +33,14 @@ var collaborationNoteCtrl = function (
  // vm.newCollaborationNoteData = vm.defaultCollaborationNoteData;
 
  vm.getCollaborationNote = function (collaborationId, noteId) {
-  vm.collaborationNoteSrv.getCollaborationNote(collaborationId, noteId).then(function (response) {
+  vm.collaborationNotesSrv.getCollaborationNote(collaborationId, noteId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editCollaborationNote = function (data) {
-  vm.collaborationNoteSrv.editCollaborationNote(data).then(function (response) {
+  vm.collaborationNotesSrv.editCollaborationNote(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var collaborationNoteCtrl = function (
 
 
 collaborationNoteCtrl.$inject = [
- 'CollaborationNoteSrv',
+ 'CollaborationNotesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

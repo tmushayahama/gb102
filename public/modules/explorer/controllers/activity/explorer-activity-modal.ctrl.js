@@ -1,5 +1,5 @@
 var explorerActivityCtrl = function (
-        ExplorerActivitySrv,
+        ExplorerActivitiesSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -12,7 +12,7 @@ var explorerActivityCtrl = function (
  var vm = this;
  vm.explorerId = explorerActivityData.explorer_id;
  vm.explorerActivityId = explorerActivityData.id;
- vm.explorerActivitySrv = new ExplorerActivitySrv();
+ vm.explorerActivitiesSrv = new ExplorerActivitiesSrv();
 
 
  vm.activityId = explorerActivityData.activity_id;
@@ -33,14 +33,14 @@ var explorerActivityCtrl = function (
  // vm.newExplorerActivityData = vm.defaultExplorerActivityData;
 
  vm.getExplorerActivity = function (explorerId, activityId) {
-  vm.explorerActivitySrv.getExplorerActivity(explorerId, activityId).then(function (response) {
+  vm.explorerActivitiesSrv.getExplorerActivity(explorerId, activityId).then(function (response) {
   }, function (error) {
    console.log(error);
   });
  };
 
  vm.editExplorerActivity = function (data) {
-  vm.explorerActivitySrv.editExplorerActivity(data).then(function (response) {
+  vm.explorerActivitiesSrv.editExplorerActivity(data).then(function (response) {
   }, function (response) {
    console.log(response);
   });
@@ -71,7 +71,7 @@ var explorerActivityCtrl = function (
 
 
 explorerActivityCtrl.$inject = [
- 'ExplorerActivitySrv',
+ 'ExplorerActivitiesSrv',
  '$uibModalInstance',
  '$scope',
  '$state',
