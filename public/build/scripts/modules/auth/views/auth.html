@@ -1,19 +1,19 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="container">
   <div class="row gb-navbar-container">
-   <div class="gb-header col-lg-2 col-md-3 col-sm-3 col-xs-1">
+   <div class="gb-header col-lg-8 col-md-8 col-sm-8 col-xs-9">
     <a ng-click="appsCtrl.openMenuModal('left')"
        class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm hidden-xs">
      <i class="fa fa-bars"></i>
     </a>
     <a class="gb-logo" ui-sref="apps.home">
      <i class="gb-logo-icon fa icon-gb-logo"></i>
-     <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
+     <div class="pull-left visible-lg visible-md visible-sm visible-xs">
       <strong>SKILL</strong>SECTION<br>
      </div>
     </a>
    </div>
-   <div class="gb-search col-lg-6 col-md-5 col-sm-5 col-xs-8">
+   <div ng-if="false" class="gb-search col-lg-6 col-md-5 col-sm-5 col-xs-8">
     <form ng-submit="appsCtrl.search()" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="form-group gb-input-form-group">
       <input class="form-control" type="text" ng-model="$root.searchKeyword"
@@ -43,11 +43,11 @@
    </div>
    <div class="gb-action col-lg-3 col-md-4 col-sm-4 col-xs-3">
     <div class="btn-group pull-right">
-     <md-button type="button" ng-click="authCtrl.openRegistrationModal()" class="gb-beta-access-btn btn btn-link">
+     <md-button type="button" ng-click="authCtrl.openRegistrationModal()" class="gb-beta-access-btn">
       <i class='fa fa-key pull-left'></i>
       <span class='visible-lg visible-md visible-sm hidden-xs'> Beta Access</span>
      </md-button>
-     <md-button type="button" ng-click="authCtrl.openLoginModal()" class="gb-login-btn btn btn-link">
+     <md-button type="button" ng-click="authCtrl.openLoginModal()" class="gb-login-btn ">
       <i class='fa fa-sign-in pull-left'></i>
       <span class='visible-lg visible-md visible-sm hidden-xs'> Login</span>
      </md-button>

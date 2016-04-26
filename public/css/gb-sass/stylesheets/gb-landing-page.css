@@ -23,6 +23,9 @@ and open the template in the editor.
 .gb-landing-page.gb-top-nav-1 .gb-action {
   padding-top: 3px;
 }
+.gb-landing-page.gb-top-nav-1 .gb-action md-button {
+  font-size: 12px;
+}
 .gb-landing-page #gb-intro-section {
   position: relative;
   height: 550px;
