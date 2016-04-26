@@ -59,67 +59,52 @@
 </div>
 <div class="row gb-mg-top-md">
  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-  <md-button ui-sref="apps.community.users" class="gb-box-3 gb-shadow-1"
-             ng-class="{
-                 active: ('apps.community'| includedByState)
-                }">
+  <md-button class="gb-box-3 gb-shadow-1">
    <div class="gb-stat-number">
-    0%
+    <i class="gb-icon fa icon-gb-community"></i> 0%
    </div>
    <div class="gb-title gb-ellipsis hidden-xs">
-    <i class="gb-icon fa icon-gb-community"></i> PROGRESS
+    PROGRESS
    </div>
   </md-button>
  </div>
  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
-                   active: ('apps.group' | includedByState)
-                  }">
+  <md-button class="gb-box-3 gb-shadow-1">
    <div class="gb-stat-number">
-    0
+    <i class="gb-icon fa fa-comments"></i> 0
    </div>
    <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa fa-comments"></i> DISCUSSIONS
+    DISCUSSIONS
    </div>
   </md-button>
  </div>
  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
-                   active: ('apps.group' | includedByState)
-                  }">
+  <md-button class="gb-box-3 gb-shadow-1">
    <div class="gb-stat-number">
-    {{explorerCtrl.subExplorersStats.totalCount}}
+    <i class="gb-icon fa icon-gb-explorer"></i> {{explorerCtrl.subExplorersStats.totalCount}}
    </div>
    <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-explorer"></i> SUB ENTRIES
+    SUB ENTRIES
    </div>
   </md-button>
  </div>
  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
-                   active: ('apps.group' | includedByState)
-                  }">
+  <md-button class="gb-box-3 gb-shadow-1">
    <div class="gb-stat-number">
-    0
+    <i class="gb-icon fa icon-gb-apply"></i> 0
    </div>
    <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-apply"></i> APPLICATIONS
+    APPLICATIONS
    </div>
   </md-button>
  </div>
  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
-                   active: ('apps.group' | includedByState)
-                  }">
+  <md-button class="gb-box-3 gb-shadow-1">
    <div class="gb-stat-number">
-    0
+    <i class="gb-icon fa icon-gb-collaborations"></i> 0
    </div>
    <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-collaborations"></i> CONTRIBUTIONS
+    CONTRIBUTIONS
    </div>
   </md-button>
  </div>
