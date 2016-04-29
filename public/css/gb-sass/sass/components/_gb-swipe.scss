@@ -3,14 +3,17 @@
  height: 350px!important;
  padding: 0 0 0 0px;
  background-color: #FFF;
- overflow: hidden;
+ margin-top: 30px!important;
  &:hover {
   .gb-box-body {
    background-color: #F7F7F7;
   }
  }
  .gb-icon-image {
-  @include position(absolute, 0px null null null);
+  @include position(absolute, -25px null null 50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -34,14 +37,14 @@
   //@include position(absolute, 0 0 0 25px);
   text-align: center;
   margin-bottom: 5px;
-  height: 150px;
+  height: 100%;
   width: 100%;
   background-color: #FFF;
   .gb-image {
-   @include position(absolute, 0 null null 50%);
-   -ms-transform: translate(-50%, -50%);
-   -webkit-transform: translate(-50%, -50%);
-   transform: translate(-50%, -50%);
+   @include position(absolute, 30px null null 50%);
+   -ms-transform: translateX(-50%);
+   -webkit-transform: translate(-50%);
+   transform: translate(-50%);
    height: 150px;
    width: 150px;
    .gb-heading-pic {
@@ -49,7 +52,7 @@
    }
   }
   .gb-box-content {
-   @include position(absolute, 150px 0 0 0);
+   @include position(absolute, 180px 0 0 0);
    padding: 10px 5px 10px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);

@@ -86,7 +86,7 @@ define(['angular'
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/questionnaire/services/question.srv.js',
                   'public/modules/questionnaire/controllers/question.ctrl.js',
-                  'public/modules/explore/filters/randomize.js',
+                          //'public/modules/explore/filters/randomize.js',
                  ]
                 });
                }]
@@ -105,7 +105,7 @@ define(['angular'
                  name: 'app.questionnaire',
                  serie: true,
                  files: [
-                  'public/modules/questionnaire/controllers/question/QuestionOverview.ctrl.js',
+                  'public/modules/questionnaire/controllers/question/question-overview.ctrl.js',
                           //Progress
                           //'public/modules/question/services/QuestionProgress.srv.js',
                           //'public/modules/question/services/QuestionProgress.srv.js',

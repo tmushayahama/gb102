@@ -1545,14 +1545,18 @@ Copyright (c) 2014 Daniel Eden
   height: 350px !important;
   padding: 0 0 0 0px;
   background-color: #FFF;
-  overflow: hidden;
+  margin-top: 30px !important;
 }
 .gb-swipe-box:hover .gb-box-body {
   background-color: #F7F7F7;
 }
 .gb-swipe-box .gb-icon-image {
   position: absolute;
-  top: 0px;
+  top: -25px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -1575,17 +1579,17 @@ Copyright (c) 2014 Daniel Eden
   position: relative;
   text-align: center;
   margin-bottom: 5px;
-  height: 150px;
+  height: 100%;
   width: 100%;
   background-color: #FFF;
 }
 .gb-swipe-box .gb-box-body .gb-image {
   position: absolute;
-  top: 0;
+  top: 30px;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
   height: 150px;
   width: 150px;
 }
@@ -1594,7 +1598,7 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-swipe-box .gb-box-body .gb-box-content {
   position: absolute;
-  top: 150px;
+  top: 180px;
   right: 0;
   bottom: 0;
   left: 0;

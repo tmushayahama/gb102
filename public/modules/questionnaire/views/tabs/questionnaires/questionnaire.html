@@ -42,14 +42,14 @@
   </div>
   <div class="row" ng-show="answerFormm.$visible">
    <div class="btn-group pull-right">
-    <button type="button" class="btn gb-btn gb-btn-lg"
-            ng-disabled="answerFormm.$waiting" ng-click="answerFormm.$cancel()">
-     <i class="text-danger fa fa-times"></i>
-    </button>
-    <button type="submit" class="btn gb-btn gb-btn-lg"
-            ng-disabled="answerFormm.$waiting">
-     <i class="text-success fa fa-check"></i>
-    </button>
+    <md-button type="button" class=""
+               ng-disabled="answerFormm.$waiting" ng-click="answerFormm.$cancel()">
+     skip
+    </md-button>
+    <md-button type="submit" class="gb-color-primary"
+               ng-disabled="answerFormm.$waiting">
+     answer
+    </md-button>
    </div>
   </div>
  </form>

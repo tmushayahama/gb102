@@ -1671,7 +1671,7 @@ input.gb-form-show{
  @include position(absolute, 0 0 0 0);
  background-color: #ECEFF1;
  overflow-y: scroll;
- overflow-x: hidden;
+ overflow-x: hidden; 
  -webkit-overflow-scrolling: touch;
 }
 
@@ -2270,7 +2270,7 @@ input.gb-form-show{
  overflow: hidden;
  &:hover {
   background-color: #F7F7F7;
- } 
+ }
 
  .gb-stat-number {
   position: relative;

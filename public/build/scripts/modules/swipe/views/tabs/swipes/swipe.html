@@ -5,13 +5,13 @@
        hm-swipe-left="swipeCtrl.swipeLeft($event, swipeCtrl.currentExplorer.id)"
        hm-swipe-right="swipeCtrl.swipeRight($event, swipeCtrl.currentExplorer.id)">
    <div class="gb-icon-image">
-    <i class="fa gb-icon icon-gb-{{explorer.app_type.name.toLowerCase()}}"></i>
+    <i class="fa gb-icon icon-gb-{{swipeCtrl.currentExplorer.app_type.name.toLowerCase()}}"></i>
    </div>
    <div class="gb-box-body gb-shadow-1">
     <div class="gb-image">
      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
           ng-src="public/build/img/explorer/{{ ::swipeCtrl.currentExplorer.explorer_picture_url}}"
-          onerror="this.src = 'public/build/img/explorer/default.png'" class="gb-heading-pic" alt="">
+          class="gb-heading-pic" alt="">
 
     </div>
     <div class="gb-box-content">
