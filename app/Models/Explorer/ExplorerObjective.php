@@ -35,7 +35,7 @@ class ExplorerObjective extends Model {
 
  public static function getExplorerObjectives($explorerId) {
   $explorerObjectives = ExplorerObjective::with('objective')
-          ->orderBy('id', 'DESC')
+          // ->orderBy('updated_at', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
   return $explorerObjectives;

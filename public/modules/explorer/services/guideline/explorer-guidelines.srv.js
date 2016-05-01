@@ -1,7 +1,6 @@
 var explorerGuidelinesSrv = function ($http, $q) {
 
  var ExplorerGuidelinesSrv = function () {
-  this.explorerGuidelines = [];
  };
  ExplorerGuidelinesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -25,9 +24,18 @@ var explorerGuidelinesSrv = function ($http, $q) {
  ExplorerGuidelinesSrv.prototype.getExplorerGuidelines = function (explorerId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerGuidelines = [];
   $http.get('/api/explorer/' + explorerId + '/guidelines').success(function (data) {
-   self.explorerGuidelines = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerGuidelinesSrv.prototype.getSubGuidelines = function (guidelineId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/guideline/' + guidelineId + '/guidelines').success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -38,9 +46,7 @@ var explorerGuidelinesSrv = function ($http, $q) {
  ExplorerGuidelinesSrv.prototype.getExplorerGuideline = function (explorerId, guidelineId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerGuidelines = [];
   $http.get('/api/explorer/' + explorerId + '/guideline/' + guidelineId).success(function (data) {
-   self.explorerGuidelines = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -56,7 +62,6 @@ var explorerGuidelinesSrv = function ($http, $q) {
    url: '/api/explorer/guideline/create',
    data: explorerGuidelineData
   }).success(function (data) {
-   self.explorerGuidelines.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

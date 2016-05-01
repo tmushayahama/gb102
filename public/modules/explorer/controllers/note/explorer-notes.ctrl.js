@@ -12,6 +12,7 @@ var explorerNotesCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
+ vm.explorerNotes = [];
  vm.explorerNotesCopy;
  vm.explorerNotesSrv = new ExplorerNotesSrv();
  vm.noteFormDisplay = false;
@@ -26,11 +27,17 @@ var explorerNotesCtrl = function (
   vm.noteFormDisplay = true;
  };
 
+ vm.getExplorerNotes = function (explorerId) {
+  vm.explorerNotesSrv.getExplorerNotes(explorerId).then(function (response) {
+   vm.explorerNotes = response;
+  });
+ }
+
  vm.createExplorerNote = function (data) {
   vm.explorerNotesSrv.createExplorerNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+   vm.explorerNotesCopy = angular.copy(vm.explorerNotes);
   }, function (response) {
    console.log(response);
   });
@@ -40,7 +47,7 @@ var explorerNotesCtrl = function (
   vm.explorerNotesSrv.editExplorerNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotesSrv.explorerNotes);
+   vm.explorerNotesCopy = angular.copy(vm.explorerNotes);
   }, function (response) {
    console.log(response);
   });
@@ -66,23 +73,6 @@ var explorerNotesCtrl = function (
   }
  };
 
- vm.revertExplorerNote = function (explorerNote, explorerNoteCopy) {
-  explorerNote = explorerNoteCopy;
-  /*
-   $filter('filter')
-   (vm.explorerNotesSrv.explorerNotes, {id: explorerNoteId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.explorerNotesCopy, {id: explorerNoteId}, true)[0]);
-   if (explorerNote.length && explorerNoteCopy.length) {
-   // vm.explorerNotesSrv.explorerNotes angular.copy(vm.explorerNotesCopy);
-   }
-   */
- };
-
-
-
-
-
 
  vm.editedNote = null;
 
@@ -90,7 +80,7 @@ var explorerNotesCtrl = function (
   return vm.explorerNotes;
  }), function () {
   //vm.remainingCount = filterFilter(explorerNotes, {completed: false}).length;
-  vm.doneCount = vm.explorerNotesSrv.explorerNotes.length - vm.remainingCount;
+  vm.doneCount = vm.explorerNotes.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ExplorerNoteService.put(vm.explorerNotes);
  }, true);
@@ -147,7 +137,7 @@ var explorerNotesCtrl = function (
 
 
  //--------init------
- vm.explorerNotesSrv.getExplorerNotes(vm.explorerId);
+ vm.getExplorerNotes(vm.explorerId);
 };
 
 

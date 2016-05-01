@@ -4936,6 +4936,11 @@ input.gb-form-show {
   color: #e8e1ee;
   margin-left: 5px;
 }
+@media (max-width: 767px) {
+  .gb-top-nav-1 .gb-action .btn {
+    margin-left: 0px;
+  }
+}
 .gb-top-nav-1 .gb-menu-icon {
   font-size: 20px;
 }
@@ -5157,7 +5162,7 @@ input.gb-form-show {
 /*----------------- Gb Large Boxes --------------*/
 .gb-box-1 {
   position: relative;
-  padding: 0 0 0 25px;
+  padding: 0;
   margin-bottom: 15px;
   overflow: hidden;
 }
@@ -5166,25 +5171,35 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-icon-image {
   position: absolute;
-  top: 15px;
-  left: 0;
-  height: 50px;
-  width: 50px;
+  top: 5px;
+  left: 100px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  padding: 10px 0 0 0;
+  padding: 7px 0 0 0;
   overflow: hidden;
   text-align: center;
-  background-color: rgba(54, 38, 68, 0.8);
+  background-color: rgba(54, 38, 68, 0.5);
+  border: transparent solid 1px;
   color: #EEE;
   z-index: 1;
+  -webkit-transition: all 1000ms linear;
+  -moz-transition: all 1000ms linear;
+  -o-transition: all 1000ms linear;
+  -ms-transition: all 1000ms linear;
+  transition: all 1000ms linear;
 }
 .gb-box-1 .gb-icon-image .gb-icon {
-  font-size: 30px;
+  font-size: 25px;
 }
 .gb-box-1 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
   width: 55px;
   height: 55px;
+}
+.gb-box-1 .gb-icon-image:hover {
+  background-color: #1c1423;
+  border: #DDD solid 1px;
 }
 .gb-box-1 .gb-box-body {
   position: relative;
@@ -5507,7 +5522,7 @@ input.gb-form-show {
   text-transform: uppercase;
 }
 .gb-subexplorer-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 0px 0px;
+  padding: 4px 10px 4px 0px;
   max-height: 41px;
   display: block;
   /* Fallback for non-webkit */
@@ -5810,27 +5825,9 @@ input.gb-form-show {
 }
 .gb-guideline-box .gb-box-body {
   position: relative;
-  height: 55px;
+  height: 128px;
   width: 100%;
-  background-color: #FFF;
-}
-.gb-guideline-box .gb-box-body .gb-todo-progress {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  width: 40px;
-  padding: 0 0 0 10px;
-}
-.gb-guideline-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  font-size: 10px;
+  background-color: #F9F9F9;
 }
 .gb-guideline-box .gb-box-body .gb-box-content {
   position: absolute;
@@ -5838,16 +5835,37 @@ input.gb-form-show {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 7px 10px 5px 10px;
+}
+.gb-guideline-box .gb-box-body .gb-box-content .gb-heading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 11px 10px 0px 10px;
+  height: 35px;
+  background-color: rgba(54, 38, 68, 0.2);
 }
 .gb-guideline-box .gb-box-body .gb-box-content .gb-heading .gb-title {
-  color: #888;
-  font-size: 10px;
+  color: #444;
+  font-size: 12px;
   text-transform: uppercase;
 }
+.gb-guideline-box .gb-box-body .gb-box-content .gb-heading .gb-open {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 35px;
+  width: 35px;
+}
 .gb-guideline-box .gb-box-body .gb-box-content .gb-description {
-  padding: 2px 10px 0px 0px;
-  max-height: 41px;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  padding: 5px 10px 0px 10px;
+  height: 65px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
@@ -5860,12 +5878,35 @@ input.gb-form-show {
   overflow: hidden;
 }
 .gb-guideline-box .gb-box-body .gb-box-content .gb-footer {
+  position: absolute;
+  top: 100px;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  border-top: #DDD solid 1px;
+  height: 28px;
   padding: 3px 3px 0 0;
 }
-.gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
-  margin-left: 5px;
-  height: 35px;
-  width: 35px;
+.gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 {
+  text-align: right;
+  height: 100%;
+  padding-right: 25px;
+  font-size: 11px;
+}
+.gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+}
+.gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: 20px;
+  width: 20px;
+}
+.gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }
 .gb-guideline-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
   margin-top: 5px;
@@ -5894,35 +5935,20 @@ input.gb-form-show {
 
 .gb-note-box {
   position: relative;
-  padding: 0 0 0 0;
+  padding: 10px;
   overflow: hidden;
 }
-.gb-note-box:hover .gb-box-body {
-  background-color: #F7F7F7;
-}
 .gb-note-box .gb-box-body {
+  display: block;
   position: relative;
-  height: 55px;
-  width: 100%;
   background-color: #FFF;
-}
-.gb-note-box .gb-box-body .gb-todo-progress {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  width: 40px;
-  padding: 0 0 0 10px;
-}
-.gb-note-box .gb-box-body .gb-todo-progress .gb-progress-percentage {
-  position: absolute;
-  top: 20px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  font-size: 10px;
+  height: 100px;
+  width: 100%;
+  color: #333;
+  box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -webkit-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -moz-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -o-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
 }
 .gb-note-box .gb-box-body .gb-box-content {
   position: absolute;
@@ -5939,25 +5965,46 @@ input.gb-form-show {
 }
 .gb-note-box .gb-box-body .gb-box-content .gb-description {
   padding: 2px 10px 0px 0px;
-  max-height: 41px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
   /* Fallback for non-webkit */
-  line-height: 1.2;
-  -webkit-line-clamp: 1;
+  line-height: 20px;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 .gb-note-box .gb-box-body .gb-box-content .gb-footer {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  border-top: #DDD solid 1px;
+  height: 28px;
   padding: 3px 3px 0 0;
 }
-.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
-  margin-left: 5px;
-  height: 35px;
-  width: 35px;
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 {
+  text-align: right;
+  height: 100%;
+  padding-right: 25px;
+  font-size: 11px;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: 20px;
+  width: 20px;
+}
+.gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }
 .gb-note-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
   margin-top: 5px;
@@ -5982,6 +6029,9 @@ input.gb-form-show {
 }
 .gb-note-box .gb-box-body .gb-dropdown-action button {
   margin: 0;
+}
+.gb-note-box .gb-box-body:hover {
+  background-color: #F2F2F2;
 }
 
 .gb-objective-box {

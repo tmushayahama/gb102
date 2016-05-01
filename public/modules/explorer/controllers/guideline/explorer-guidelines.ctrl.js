@@ -12,6 +12,7 @@ var explorerGuidelinesCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
+ vm.explorerGuidelines = [];
  vm.explorerGuidelinesCopy;
  vm.explorerGuidelinesSrv = new ExplorerGuidelinesSrv();
  vm.guidelineFormDisplay = false;
@@ -26,11 +27,17 @@ var explorerGuidelinesCtrl = function (
   vm.guidelineFormDisplay = true;
  };
 
+ vm.getExplorerGuidelines = function (explorerId) {
+  vm.explorerGuidelinesSrv.getExplorerGuidelines(explorerId).then(function (response) {
+   vm.explorerGuidelines = response;
+  });
+ }
+
  vm.createExplorerGuideline = function (data) {
   vm.explorerGuidelinesSrv.createExplorerGuideline(data).then(function (response) {
    vm.guidelineFormDisplay = false;
    vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
-   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelinesSrv.explorerGuidelines);
+   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelines);
   }, function (response) {
    console.log(response);
   });
@@ -40,7 +47,7 @@ var explorerGuidelinesCtrl = function (
   vm.explorerGuidelinesSrv.editExplorerGuideline(data).then(function (response) {
    vm.guidelineFormDisplay = false;
    vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
-   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelinesSrv.explorerGuidelines);
+   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelines);
   }, function (response) {
    console.log(response);
   });
@@ -66,23 +73,6 @@ var explorerGuidelinesCtrl = function (
   }
  };
 
- vm.revertExplorerGuideline = function (explorerGuideline, explorerGuidelineCopy) {
-  explorerGuideline = explorerGuidelineCopy;
-  /*
-   $filter('filter')
-   (vm.explorerGuidelinesSrv.explorerGuidelines, {id: explorerGuidelineId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.explorerGuidelinesCopy, {id: explorerGuidelineId}, true)[0]);
-   if (explorerGuideline.length && explorerGuidelineCopy.length) {
-   // vm.explorerGuidelinesSrv.explorerGuidelines angular.copy(vm.explorerGuidelinesCopy);
-   }
-   */
- };
-
-
-
-
-
 
  vm.editedGuideline = null;
 
@@ -90,7 +80,7 @@ var explorerGuidelinesCtrl = function (
   return vm.explorerGuidelines;
  }), function () {
   //vm.remainingCount = filterFilter(explorerGuidelines, {completed: false}).length;
-  vm.doneCount = vm.explorerGuidelinesSrv.explorerGuidelines.length - vm.remainingCount;
+  vm.doneCount = vm.explorerGuidelines.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ExplorerGuidelineService.put(vm.explorerGuidelines);
  }, true);
@@ -147,7 +137,7 @@ var explorerGuidelinesCtrl = function (
 
 
  //--------init------
- vm.explorerGuidelinesSrv.getExplorerGuidelines(vm.explorerId);
+ vm.getExplorerGuidelines(vm.explorerId);
 };
 
 

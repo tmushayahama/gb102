@@ -35,6 +35,10 @@ class ExplorerGuideline extends Model {
 
  public static function getExplorerGuidelines($explorerId) {
   $explorerGuidelines = ExplorerGuideline::with('guideline')
+          ->with('guideline.creator')
+          ->whereHas('guideline', function($q) {
+           $q->whereNull('parent_guideline_id');
+          })
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
@@ -44,6 +48,7 @@ class ExplorerGuideline extends Model {
  public static function getExplorerGuideline($explorerId, $guidelineId) {
   $explorerGuideline = ExplorerGuideline::with('guideline')
           ->orderBy('id', 'DESC')
+          ->with('guideline.creator')
           ->where('explorer_id', $explorerId)
           ->where('guideline_id', $guidelineId)
           ->first();

@@ -35,18 +35,20 @@ class ExplorerNote extends Model {
 
  public static function getExplorerNotes($explorerId) {
   $explorerNotes = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->get();
+          ->with('note.creator')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->get();
   return $explorerNotes;
  }
 
  public static function getExplorerNote($explorerId, $noteId) {
   $explorerNote = ExplorerNote::with('note')
-    ->orderBy('id', 'DESC')
-    ->where('explorer_id', $explorerId)
-    ->where('note_id', $noteId)
-    ->first();
+          ->with('note.creator')
+          ->orderBy('id', 'DESC')
+          ->where('explorer_id', $explorerId)
+          ->where('note_id', $noteId)
+          ->first();
   return $explorerNote;
  }
 

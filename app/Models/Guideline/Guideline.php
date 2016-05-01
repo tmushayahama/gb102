@@ -27,4 +27,13 @@ class Guideline extends Model {
   */
  protected $fillable = ['description'];
 
+ public static function getSubGuidelines($guidelineId) {
+  $guidelines = Guideline::orderBy('id', 'asc')
+          ->where('parent_guideline_id', $guidelineId)
+          ->with('creator')
+          ->take(100)
+          ->get();
+  return $guidelines;
+ }
+
 }

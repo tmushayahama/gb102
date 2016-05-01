@@ -289,7 +289,7 @@ CREATE TABLE `gb_guideline` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -299,6 +299,24 @@ CREATE TABLE `gb_guideline` (
   CONSTRAINT `guideline_parent_guideline_id` FOREIGN KEY (`parent_guideline_id`) REFERENCES `gb_guideline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_guideline_checklist`
+--
+DROP TABLE IF EXISTS `gb_guideline_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_guideline_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checklist_id` int(11) NOT NULL,
+  `guideline_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `guideline_checklist_checklist_id` (`checklist_id`),
+  KEY `guideline_checklist_guideline_id` (`guideline_id`),
+  CONSTRAINT `guideline_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `guideline_checklist_guideline_id` FOREIGN KEY (`guideline_id`) REFERENCES `gb_guideline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `gb_icon`;
@@ -411,8 +429,9 @@ CREATE TABLE `gb_objective` (
   `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
+  `learning_check` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -420,6 +439,25 @@ CREATE TABLE `gb_objective` (
   KEY `objective_parent_objective_id` (`parent_objective_id`),
   CONSTRAINT `objective_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `objective_parent_objective_id` FOREIGN KEY (`parent_objective_id`) REFERENCES `gb_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_objective_checklist`
+--
+DROP TABLE IF EXISTS `gb_objective_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_objective_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checklist_id` int(11) NOT NULL,
+  `objective_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `objective_checklist_checklist_id` (`checklist_id`),
+  KEY `objective_checklist_objective_id` (`objective_id`),
+  CONSTRAINT `objective_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `objective_checklist_objective_id` FOREIGN KEY (`objective_id`) REFERENCES `gb_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -435,7 +473,7 @@ CREATE TABLE `gb_plan` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -446,22 +484,26 @@ CREATE TABLE `gb_plan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_plan_checklist`
+-- Table structure for table `gb_plan_objective`
 --
-DROP TABLE IF EXISTS `gb_plan_checklist`;
+DROP TABLE IF EXISTS `gb_plan_objective`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_plan_checklist` (
+CREATE TABLE `gb_plan_objective` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `checklist_id` int(11) NOT NULL,
-  `plan_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
+  `parent_plan_objective_id` int(11),
+  `title` varchar(150) NOT NULL DEFAULT "",
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `plan_checklist_checklist_id` (`checklist_id`),
-  KEY `plan_checklist_plan_id` (`plan_id`),
-  CONSTRAINT `plan_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_checklist_plan_id` FOREIGN KEY (`plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `plan_objective_creator_id` (`creator_id`),
+  KEY `plan_objective_parent_plan_objective_id` (`parent_plan_objective_id`),
+  CONSTRAINT `plan_objective_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `plan_objective_parent_plan_objective_id` FOREIGN KEY (`parent_plan_objective_id`) REFERENCES `gb_plan_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -923,6 +965,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/guideli
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `parent_guideline_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
+
+-- ----------- TODO CHECKLIST ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/guideline-checklist.txt'
+    into table gb102.gb_guideline_checklist
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `checklist_id`,	`guideline_id`,	`privacy`,	`status`);
+
 
 -- ----------- NOTE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/note.txt'

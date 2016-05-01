@@ -553,6 +553,17 @@ Route::group(['prefix' => 'api'], function() {
 
 
  //Plan
+ Route::get('guideline/{guidelineId}/guidelines', 'Guideline\GuidelineController@getSubGuidelines');
+
+ Route::post('guideline/editstatus', 'Guideline\GuidelineController@editGuidelineStatus');
+ Route::get('guideline/{guidelineId}/checklist/data', 'Guideline\GuidelineController@guidelineChecklistStatusData');
+
+ Route::get('guideline/{guidelineId}/checklist', 'Explorer\ExplorerController@getExplorerGuidelineChecklist');
+ Route::post('guideline/checklist/create', 'Explorer\ExplorerController@createExplorerGuidelineChecklist');
+ Route::post('guideline/checklist/edit', 'Explorer\ExplorerController@editExplorerGuidelineChecklist');
+
+
+ //Plan
  Route::post('plan/editstatus', 'Plan\PlanController@editPlanStatus');
  Route::get('plan/{planId}/checklist/data', 'Plan\PlanController@planChecklistStatusData');
 

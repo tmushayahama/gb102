@@ -13,7 +13,7 @@ var explorerNoteCtrl = function (
  vm.explorerId = explorerNoteData.explorer_id;
  vm.explorerNoteId = explorerNoteData.id;
  vm.explorerNotesSrv = new ExplorerNotesSrv();
-
+ vm.explorerNote = explorerNoteData;
 
  vm.noteId = explorerNoteData.note_id;
 
@@ -34,6 +34,15 @@ var explorerNoteCtrl = function (
 
  vm.getExplorerNote = function (explorerId, noteId) {
   vm.explorerNotesSrv.getExplorerNote(explorerId, noteId).then(function (response) {
+   vm.explorerNote = response;
+  }, function (error) {
+   console.log(error);
+  });
+ };
+
+ vm.getSubNotes = function (noteId) {
+  vm.explorerNotesSrv.getSubNotes(noteId).then(function (response) {
+   var subs = response;
   }, function (error) {
    console.log(error);
   });
@@ -66,7 +75,8 @@ var explorerNoteCtrl = function (
 
 
  //--------init------
- vm.getExplorerNote(vm.explorerId, vm.noteId);
+ //vm.getExplorerNote(vm.explorerId, vm.noteId);
+ //vm.getSubNotes(vm.noteId);
 };
 
 

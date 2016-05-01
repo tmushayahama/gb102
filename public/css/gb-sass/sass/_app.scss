@@ -1671,7 +1671,7 @@ input.gb-form-show{
  @include position(absolute, 0 0 0 0);
  background-color: #ECEFF1;
  overflow-y: scroll;
- overflow-x: hidden; 
+ overflow-x: hidden;
  -webkit-overflow-scrolling: touch;
 }
 
@@ -1841,6 +1841,9 @@ input.gb-form-show{
   .btn{
    color: lighten($primary-color, 70%);
    margin-left: 5px;
+   @include respond-to (gb-xs) {
+    margin-left: 0px;
+   }
   }
  }
  .gb-menu-icon {
@@ -2067,7 +2070,7 @@ input.gb-form-show{
 .gb-box-1 {
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 0 0 0 25px;
+ padding: 0;
  margin-bottom: 15px;
  overflow: hidden;
  &:hover {
@@ -2076,23 +2079,33 @@ input.gb-form-show{
   }
  }
  .gb-icon-image {
-  @include position(absolute, 15px null null 0);
-  height: 50px;
-  width: 50px;
+  @include position(absolute, 5px null null 100px);
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  padding: 10px 0 0 0;
+  padding: 7px 0 0 0;
   overflow: hidden;
   text-align: center;
-  background-color: rgba($primary-color, 0.8);
+  background-color: rgba($primary-color, 0.5);
+  border: transparent solid 1px;
   color: #EEE;
   z-index: 1;
+  -webkit-transition: all 1000ms linear;
+  -moz-transition: all 1000ms linear;
+  -o-transition: all 1000ms linear;
+  -ms-transition: all 1000ms linear;
+  transition: all 1000ms linear;
   .gb-icon {
-   font-size: 30px;
+   font-size: 25px;
   }
   .gb-profile-img {
    margin: 0 auto;
    width: 55px;
    height: 55px;
+  }
+  &:hover {
+   background-color: darken($primary-color, 10%);
+   border: #DDD solid 1px;
   }
  }
  .gb-box-body {
@@ -2419,7 +2432,7 @@ input.gb-form-show{
    }
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 0px 0px;
+    padding: 4px 10px 4px 0px;
     max-height: 41px;
     display: block;
     /* Fallback for non-webkit */
@@ -2717,36 +2730,34 @@ input.gb-form-show{
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  height: 55px;
+  height: 128px;
   width: 100%;
-  background-color: #FFF;
-  .gb-todo-progress {
-   @include position(absolute, 0 null 0 0);
-   height: 40px;
-   width: 40px;
-   padding: 0 0 0 10px;
-   .gb-progress-percentage {
-    @include position(absolute, 20px 0 0 0);
-    text-align: center;
-    font-size: 10px;
-   }
-  }
+  background-color: #F9F9F9;
+
   .gb-box-content {
    @include position(absolute, 0 0 0 0);
-   padding: 7px 10px 5px 10px;
    .gb-heading {
-    //@include position(absolute, 0 0 null 0);
+    @include position(absolute, 0 0 null 0);
+    padding: 11px 10px 0px 10px;
+    height: 35px;
+    background-color: rgba($primary-color, 0.2);
     .gb-title {
-     color: #888;
-     font-size:10px;
+     color: #444;
+     font-size:12px;
      text-transform: uppercase;
+    }
+    .gb-open {
+     @include position(absolute, 0 0 null null);
+     margin: 0;
+     height: 35px;
+     width: 35px;
     }
    }
 
    .gb-description {
-    //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 0px 0px;
-    max-height: 41px;
+    @include position(absolute, 36px 0 50px 0);
+    padding: 5px 10px 0px 10px;
+    height: 65px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
@@ -2759,12 +2770,28 @@ input.gb-form-show{
     overflow: hidden;
    }
    .gb-footer {
-    //@include position(absolute, null 0 0 0);
+    @include position(absolute, 100px 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
     padding: 3px 3px 0 0;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
     }
     .gb-summary-bar {
      margin-top: 5px;
@@ -2793,33 +2820,25 @@ input.gb-form-show{
  }
 }
 
-.gb-note-box {
+.gb-note-box { 
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 0 0 0 0;
+ padding: 10px;
+
  overflow: hidden;
- &:hover {
-  .gb-box-body {
-   background-color: #F7F7F7;
-  }
- }
+
  .gb-box-body {
+  display: block;
   position: relative;
-  //@include position(absolute, 0 0 0 25px);
-  height: 55px;
-  width: 100%;
   background-color: #FFF;
-  .gb-todo-progress {
-   @include position(absolute, 0 null 0 0);
-   height: 40px;
-   width: 40px;
-   padding: 0 0 0 10px;
-   .gb-progress-percentage {
-    @include position(absolute, 20px 0 0 0);
-    text-align: center;
-    font-size: 10px;
-   }
-  }
+  //@include position(absolute, 0 0 0 25px);
+  height: 100px;
+  width: 100%;
+  color: #333;
+  box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -webkit-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -moz-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+  -o-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
   .gb-box-content {
    @include position(absolute, 0 0 0 0);
    padding: 7px 10px 5px 10px;
@@ -2835,25 +2854,42 @@ input.gb-form-show{
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
     padding: 2px 10px 0px 0px;
-    max-height: 41px;
+    // max-height: 41px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
     /* Fallback for non-webkit */
-    line-height: 1.2;
-    -webkit-line-clamp: 1;
+    line-height: 20px;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     overflow: hidden;
    }
+
    .gb-footer {
-    //@include position(absolute, null 0 0 0);
+    @include position(absolute, null 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
     padding: 3px 3px 0 0;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
     }
     .gb-summary-bar {
      margin-top: 5px;
@@ -2878,6 +2914,9 @@ input.gb-form-show{
    button {
     margin: 0;
    }
+  }
+  &:hover {
+   background-color: #F2F2F2;
   }
  }
 }
