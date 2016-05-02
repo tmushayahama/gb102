@@ -35,6 +35,7 @@ class ExplorerPlan extends Model {
 
  public static function getExplorerPlans($explorerId) {
   $explorerPlans = ExplorerPlan::with('plan')
+          ->with('plan.objective')
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
@@ -43,6 +44,7 @@ class ExplorerPlan extends Model {
 
  public static function getExplorerPlan($explorerId, $planId) {
   $explorerPlan = ExplorerPlan::with('plan')
+          ->with('plan.objective')
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->where('plan_id', $planId)

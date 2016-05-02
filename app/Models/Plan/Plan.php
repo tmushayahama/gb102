@@ -20,6 +20,10 @@ class Plan extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public function objective() {
+  return $this->belongsTo('App\Models\Objective\Objective', 'objective_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *

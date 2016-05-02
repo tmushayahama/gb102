@@ -62,29 +62,31 @@
   </div>
  </div>
 
- <div ng-repeat="guideline in explorerGuidelineCtrl.explorerSubGuidelines">
-  <div class="gb-guideline-box row">
-   <div class="gb-box-body gb-shadow-1">
+ <div ng-repeat="guideline in explorerGuidelineCtrl.explorerSubGuidelines track by $index">
+  <div class="gb-subguideline-box row">
+   <div class="gb-box-body row">
+    <div class="gb-number">
+     {{$index + 1}}
+    </div>
     <div class="gb-box-content">
-     <div class="gb-heading row">
-      <p class="gb-title gb-ellipsis">
-       GUIDELINE
-      </p>
-      <md-button class="gb-open" ng-click="open()">
-       <i class="fa fa-arrows-alt"></i>
-      </md-button>
-     </div>
      <div class="gb-description row">
       <a ng-click="open()" class="gb-ellipsis">
        <strong>{{guideline.title}}</strong>
        {{guideline.description}}
       </a>
      </div>
+     <div class="gb-steps" ng-repeat="step in guideline.steps track by $index">
+      <div class="gb-step">
+       <div class="gb-step-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-step-content">
+        {{step.title}}
+       </div>
+      </div>
+     </div>
     </div>
    </div>
-  </div>
-  <div ng-repeat="step in guideline.steps">
-   {{step.title}}
   </div>
  </div>
 

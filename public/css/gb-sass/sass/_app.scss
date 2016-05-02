@@ -15,13 +15,12 @@ and open the template in the editor.
 @import "components/gb-buttons";
 @import "components/gb-modals";
 @import "components/gb-sections";
+@import "components/gb-timeline";
 @import "components/gb-navs";
 @import "components/gb-wizard";
 @import "components/gb-swipe";
 @import "components/gb-questionnaire";
-
 @import "components/gb-tags-input";
-
 @import "components/gb-comments";
 @import "components/gb-todo";
 @import "components/gb-weblinks";
@@ -2552,36 +2551,34 @@ input.gb-form-show{
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  height: 55px;
+  height: 128px;
   width: 100%;
-  background-color: #FFF;
-  .gb-todo-progress {
-   @include position(absolute, 0 null 0 0);
-   height: 40px;
-   width: 40px;
-   padding: 0 0 0 10px;
-   .gb-progress-percentage {
-    @include position(absolute, 20px 0 0 0);
-    text-align: center;
-    font-size: 10px;
-   }
-  }
+  background-color: #F9F9F9;
+
   .gb-box-content {
    @include position(absolute, 0 0 0 0);
-   padding: 7px 10px 5px 10px;
    .gb-heading {
-    //@include position(absolute, 0 0 null 0);
+    @include position(absolute, 0 0 null 0);
+    padding: 11px 10px 0px 10px;
+    height: 35px;
+    background-color: rgba($primary-color, 0.2);
     .gb-title {
-     color: #888;
-     font-size:10px;
+     color: #444;
+     font-size:12px;
      text-transform: uppercase;
+    }
+    .gb-open {
+     @include position(absolute, 0 0 null null);
+     margin: 0;
+     height: 35px;
+     width: 35px;
     }
    }
 
    .gb-description {
-    //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 0px 0px;
-    max-height: 41px;
+    @include position(absolute, 36px 0 50px 0);
+    padding: 5px 10px 0px 10px;
+    height: 65px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
@@ -2594,12 +2591,28 @@ input.gb-form-show{
     overflow: hidden;
    }
    .gb-footer {
-    //@include position(absolute, null 0 0 0);
+    @include position(absolute, 100px 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
     padding: 3px 3px 0 0;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
     }
     .gb-summary-bar {
      margin-top: 5px;
@@ -2820,7 +2833,137 @@ input.gb-form-show{
  }
 }
 
-.gb-note-box { 
+.gb-subguideline-box {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ padding: 0 0 0 0;
+ overflow: hidden;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  // min-height: 88px;
+  padding-left: 20px;
+  width: 100%;
+  .gb-number {
+   @include position(absolute, 5px null null 0);
+   border-radius: 50%;
+   border: rgba($primary-color, 0.6) solid 1px;
+   background-color: #F2F2F2;
+   color: #333;
+   padding-top: 7px;
+   width: 40px;
+   height: 40px;
+   font-size: 18px;
+   text-align: center;
+  }
+  .gb-box-content {
+   padding: 11px 5px 5px 15px;
+   border-left: rgba($primary-color, 0.6) solid 1px;
+   //@include position(absolute, 0 0 0 20px);
+   .gb-heading {
+    @include position(absolute, 0 0 null 0);
+    padding: 11px 10px 0px 10px;
+    height: 35px;
+    background-color: rgba($primary-color, 0.2);
+    .gb-title {
+     color: #444;
+     font-size:12px;
+     text-transform: uppercase;
+    }
+    .gb-open {
+     @include position(absolute, 0 0 null null);
+     margin: 0;
+     height: 35px;
+     width: 35px;
+    }
+   }
+
+   .gb-description {
+    //@include position(absolute, 36px 0 50px 0);
+    padding: 5px 10px 5px 10px;
+   }
+   .gb-steps {
+    .gb-step {
+     position: relative;
+     padding-left: 15px;
+     width: 100%;
+     .gb-step-number {
+      @include position(absolute, 10px null null 0);
+      border-radius: 50%;
+      border: rgba($primary-color, 0.2) solid 1px;
+      background-color: #F2F2F2;
+      color: #333;
+      padding-top: 6px;
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      text-align: center;
+     }
+     .gb-step-content {
+      padding: 16px 5px 10px 20px;
+      border-left: rgba($primary-color, 0.2) solid 1px;
+     }
+    }
+   }
+
+
+   .gb-footer {
+    @include position(absolute, 100px 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
+    padding: 3px 3px 0 0;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
+    }
+    .gb-summary-bar {
+     margin-top: 5px;
+     background-color: transparent;
+     .btn {
+      min-width: 50px;
+      color: #999;
+      text-decoration: none;
+     }
+     .gb-icon {
+      color: #777;
+     }
+    }
+    .gb-footer-content {
+     padding: 10px 0 0 0;
+    }
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+}
+
+.gb-note-box {
  position: relative;
  //height: 153px; /*For box shadow*/
  padding: 10px;
@@ -3220,7 +3363,7 @@ input.gb-form-show{
 @media (max-width: 767px) {
 
  ::-webkit-scrollbar              {
-  display:none;
+  display:block;
  }
  ::-webkit-scrollbar-button       { /* 2 */ }
  ::-webkit-scrollbar-track        {/* 3 */ }

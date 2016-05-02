@@ -469,9 +469,13 @@ DROP TABLE IF EXISTS `gb_plan`;
 CREATE TABLE `gb_plan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_plan_id` int(11),
-  `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
+  `objective_id` int(11) NOT NULL,
+  `title` varchar(150) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
+  `start_point` int(11) NOT NULL DEFAULT '0',
+  `plan_length` int(11) NOT NULL DEFAULT '10',
+  `color` varchar(7) NOT NULL DEFAULT "EEEEEE",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
@@ -479,8 +483,10 @@ CREATE TABLE `gb_plan` (
   PRIMARY KEY (`id`),
   KEY `plan_creator_id` (`creator_id`),
   KEY `plan_parent_plan_id` (`parent_plan_id`),
+  KEY `plan_objective_id` (`objective_id`),
   CONSTRAINT `plan_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_parent_plan_id` FOREIGN KEY (`parent_plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `plan_parent_plan_id` FOREIGN KEY (`parent_plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `plan_objective_id` FOREIGN KEY (`objective_id`) REFERENCES `gb_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1005,7 +1011,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/plan.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_plan_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
+   (`id`, `parent_plan_id`, `creator_id`,	`objective_id`, `title`,	`description`, `start_point`, `plan_length`,	`color`, `created_at`, `importance`,	`status`);
 
 -- ----------- IWEBLINK ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/weblink.txt'

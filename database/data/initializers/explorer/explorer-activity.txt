@@ -1,1 +1,2 @@
-id	parent_activity_id	activity_id	explorer_id	title	description	"  created_at"	updated_at	privacy	status
+id	activity_id	explorer_id	privacy	status
+1	1	2092	0	0
