@@ -84,6 +84,26 @@ CREATE TABLE `gb_activity` (
   CONSTRAINT `activity_parent_activity_id` FOREIGN KEY (`parent_activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_activity_question`
+--
+DROP TABLE IF EXISTS `gb_activity_question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_activity_question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `activity_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `activity_question_question_id` (`question_id`),
+  KEY `activity_question_activity_id` (`activity_id`),
+  CONSTRAINT `activity_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `activity_question_activity_id` FOREIGN KEY (`activity_id`) REFERENCES `gb_activity` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_level`
 --
@@ -951,6 +971,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/activit
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `parent_activity_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
+
+-- ----------- TODO CHECKLIST ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/activity-question.txt'
+    into table gb102.gb_activity_question
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `activity_id`, `question_id`,	`privacy`,	`status`);
+
 
 -- ----------- EXERCISE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/exercise.txt'

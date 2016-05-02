@@ -1,7 +1,7 @@
 <div class="modal-header gb-modal-header row">
  <div class="gb-title">
   <p class="gb-ellipsis">
-   {{explorerGuidelineCtrl.explorerGuidelinesSrv.explorerGuideline.guideline.title}}
+   {{explorerGuidelineCtrl.explorerGuideline.guideline.title}}
   </p>
  </div>
  <md-button class="gb-close" ng-click="explorerGuidelineCtrl.close()">
@@ -9,28 +9,87 @@
  </md-button>
 </div>
 <div class="modal-body gb-modal-body">
- <section class="gb-section-row-1 row">
-  <div class="gb-guideline-row row">
-   <div class='gb-guideline-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
-    <div class="gb-content-text">
-     <textarea autofocus ng-model="explorerGuidelineCtrl.explorerGuidelinesSrv.explorerGuideline.guideline.description"></textarea>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon gb-shadow-1">
+     <i class="fa fa-file-text-o"></i>
     </div>
-   </div>
-   <div class="gb-guideline-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
-    <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerGuidelinesCtrl.editExplorerGuidelineSections.details(explorerGuideline.id, explorerGuideline.guideline)">
-      <i class="fa fa-save"></i>
-     </button>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      DESCRIPTION
+     </p>
     </div>
-    <br>
-    <div class="row">
-     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerGuidelinesCtrl.revertExplorerGuideline(explorerGuideline.id)">
-      <i class="fa fa-refresh"></i>
-     </button>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerGuidelineCtrl.editDecriptionMode"
+                ng-click="explorerGuidelineCtrl.editDecriptionMode = true">
+      <i class="fa fa-pencil"></i>
+     </md-button>
     </div>
    </div>
   </div>
- </section>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-hide="explorerGuidelineCtrl.editDecriptionMode" class="row">
+    <strong>{{explorerGuidelineCtrl.explorerGuideline.guideline.title}}</strong>
+    {{explorerGuidelineCtrl.explorerGuideline.guideline.description}}
+   </div>
+   <form ng-show="explorerGuidelineCtrl.editDecriptionMode"
+         ng-submit="explorerGuidelineCtrl.editExplorerGuidelineSections.details()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerGuidelineCtrl.explorerGuideline.guideline.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <input ng-model="explorerGuidelineCtrl.explorerGuideline.guideline.description" name="title"
+            placeholder="Description"
+            class="">
+    </md-input-container>
+    <div class="row"
+         ng-show="explorerGuidelineCtrl.editDecriptionMode">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerGuidelineCtrl.editDecriptionMode = false">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
+
+ <div ng-repeat="guideline in explorerGuidelineCtrl.explorerSubGuidelines track by $index">
+  <div class="gb-subguideline-box row">
+   <div class="gb-box-body row">
+    <div class="gb-number">
+     {{$index + 1}}
+    </div>
+    <div class="gb-box-content">
+     <div class="gb-description row">
+      <p class="">
+       {{guideline.title}}
+       <i>{{guideline.description}}</i>
+      </p>
+     </div>
+     <div class="gb-steps" ng-repeat="step in guideline.steps track by $index">
+      <div class="gb-step">
+       <div class="gb-step-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-step-content">
+        {{step.title}}
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
 </div>
 <div class="modal-footer">
  <md-button class="pull-right" aria-label="Close Todo Modal"

@@ -551,8 +551,18 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('constants/level/{code}', 'ConstantsController@getLevel');
  Route::get('constants/icons/{type}', 'ConstantsController@getIcons');
 
+ //Activity
+ Route::get('activity/{activityId}/activities', 'Activity\ActivityController@getSubActivities');
+ Route::get('activity/{activityId}/questions', 'Activity\ActivityController@getActivityQuestions');
 
- //Plan
+ Route::post('activity/editstatus', 'Activity\ActivityController@editActivityStatus');
+ Route::get('activity/{activityId}/checklist/data', 'Activity\ActivityController@activityChecklistStatusData');
+
+ Route::get('activity/{activityId}/checklist', 'Explorer\ExplorerController@getExplorerActivityChecklist');
+ Route::post('activity/checklist/create', 'Explorer\ExplorerController@createExplorerActivityChecklist');
+ Route::post('activity/checklist/edit', 'Explorer\ExplorerController@editExplorerActivityChecklist');
+
+ //Guideline
  Route::get('guideline/{guidelineId}/guidelines', 'Guideline\GuidelineController@getSubGuidelines');
 
  Route::post('guideline/editstatus', 'Guideline\GuidelineController@editGuidelineStatus');

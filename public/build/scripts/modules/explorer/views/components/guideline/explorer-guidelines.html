@@ -92,11 +92,11 @@
      </div>
     </form>
    </div>
-   <div class="gb-no-info row" ng-show="!explorerGuidelinesCtrl.explorerGuidelinesSrv.explorerGuidelines.length" ng-cloak>
+   <div class="gb-no-info row" ng-show="!explorerGuidelinesCtrl.explorerGuidelines.length" ng-cloak>
     No guidelines to show
    </div>
-   <div class="gb-guideline-body row" ng-show="explorerGuidelinesCtrl.explorerGuidelinesSrv.explorerGuidelines.length" ng-cloak>
-    <div ng-repeat="explorerGuideline in explorerGuidelinesCtrl.explorerGuidelinesSrv.explorerGuidelines track by $index">
+   <div class="gb-guideline-body row" ng-show="explorerGuidelinesCtrl.explorerGuidelines.length" ng-cloak>
+    <div ng-repeat="explorerGuideline in explorerGuidelinesCtrl.explorerGuidelines track by $index">
      <div gb-explorer-guideline-box explorer-guideline="explorerGuideline"
           open-explorer-guideline="explorerGuidelinesCtrl.openExplorerGuideline(explorerGuideline)"
           class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">

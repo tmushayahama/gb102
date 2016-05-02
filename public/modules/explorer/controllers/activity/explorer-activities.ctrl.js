@@ -12,6 +12,7 @@ var explorerActivitiesCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
+ vm.explorerActivities = [];
  vm.explorerActivitiesCopy;
  vm.explorerActivitiesSrv = new ExplorerActivitiesSrv();
  vm.activityFormDisplay = false;
@@ -26,11 +27,17 @@ var explorerActivitiesCtrl = function (
   vm.activityFormDisplay = true;
  };
 
+ vm.getExplorerActivities = function (explorerId) {
+  vm.explorerActivitiesSrv.getExplorerActivities(explorerId).then(function (response) {
+   vm.explorerActivities = response;
+  });
+ }
+
  vm.createExplorerActivity = function (data) {
   vm.explorerActivitiesSrv.createExplorerActivity(data).then(function (response) {
    vm.activityFormDisplay = false;
    vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
-   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivitiesSrv.explorerActivities);
+   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivities);
   }, function (response) {
    console.log(response);
   });
@@ -40,7 +47,7 @@ var explorerActivitiesCtrl = function (
   vm.explorerActivitiesSrv.editExplorerActivity(data).then(function (response) {
    vm.activityFormDisplay = false;
    vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
-   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivitiesSrv.explorerActivities);
+   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivities);
   }, function (response) {
    console.log(response);
   });
@@ -66,23 +73,6 @@ var explorerActivitiesCtrl = function (
   }
  };
 
- vm.revertExplorerActivity = function (explorerActivity, explorerActivityCopy) {
-  explorerActivity = explorerActivityCopy;
-  /*
-   $filter('filter')
-   (vm.explorerActivitiesSrv.explorerActivities, {id: explorerActivityId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.explorerActivitiesCopy, {id: explorerActivityId}, true)[0]);
-   if (explorerActivity.length && explorerActivityCopy.length) {
-   // vm.explorerActivitiesSrv.explorerActivities angular.copy(vm.explorerActivitiesCopy);
-   }
-   */
- };
-
-
-
-
-
 
  vm.editedActivity = null;
 
@@ -90,7 +80,7 @@ var explorerActivitiesCtrl = function (
   return vm.explorerActivities;
  }), function () {
   //vm.remainingCount = filterFilter(explorerActivities, {completed: false}).length;
-  vm.doneCount = vm.explorerActivitiesSrv.explorerActivities.length - vm.remainingCount;
+  vm.doneCount = vm.explorerActivities.length - vm.remainingCount;
   vm.allChecked = !vm.remainingCount;
   //ExplorerActivityService.put(vm.explorerActivities);
  }, true);
@@ -147,7 +137,7 @@ var explorerActivitiesCtrl = function (
 
 
  //--------init------
- vm.explorerActivitiesSrv.getExplorerActivities(vm.explorerId);
+ vm.getExplorerActivities(vm.explorerId);
 };
 
 

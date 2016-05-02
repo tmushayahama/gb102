@@ -35,6 +35,10 @@ class ExplorerActivity extends Model {
 
  public static function getExplorerActivities($explorerId) {
   $explorerActivities = ExplorerActivity::with('activity')
+          ->with('activity.creator')
+          ->whereHas('activity', function($q) {
+           $q->whereNull('parent_activity_id');
+          })
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
@@ -44,6 +48,7 @@ class ExplorerActivity extends Model {
  public static function getExplorerActivity($explorerId, $activityId) {
   $explorerActivity = ExplorerActivity::with('activity')
           ->orderBy('id', 'DESC')
+          ->with('activity.creator')
           ->where('explorer_id', $explorerId)
           ->where('activity_id', $activityId)
           ->first();

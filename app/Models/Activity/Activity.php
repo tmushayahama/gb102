@@ -27,4 +27,13 @@ class Activity extends Model {
   */
  protected $fillable = ['description'];
 
+ public static function getSubActivities($activityId) {
+  $activities = Activity::orderBy('id', 'asc')
+          ->where('parent_activity_id', $activityId)
+          ->with('creator')
+          ->take(100)
+          ->get();
+  return $activities;
+ }
+
 }

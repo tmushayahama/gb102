@@ -2641,6 +2641,136 @@ input.gb-form-show{
  }
 }
 
+.gb-subactivity-box {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ padding: 0 0 0 0;
+ overflow: hidden;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  // min-height: 88px;
+  padding-left: 20px;
+  width: 100%;
+  .gb-number {
+   @include position(absolute, 5px null null 0);
+   border-radius: 50%;
+   border: rgba($primary-color, 0.6) solid 1px;
+   background-color: #F2F2F2;
+   color: #333;
+   padding-top: 7px;
+   width: 40px;
+   height: 40px;
+   font-size: 18px;
+   text-align: center;
+  }
+  .gb-box-content {
+   padding: 11px 5px 5px 15px;
+   border-left: rgba($primary-color, 0.6) solid 1px;
+   //@include position(absolute, 0 0 0 20px);
+   .gb-heading {
+    @include position(absolute, 0 0 null 0);
+    padding: 11px 10px 0px 10px;
+    height: 35px;
+    background-color: rgba($primary-color, 0.2);
+    .gb-title {
+     color: #444;
+     font-size:12px;
+     text-transform: uppercase;
+    }
+    .gb-open {
+     @include position(absolute, 0 0 null null);
+     margin: 0;
+     height: 35px;
+     width: 35px;
+    }
+   }
+
+   .gb-description {
+    //@include position(absolute, 36px 0 50px 0);
+    padding: 5px 10px 5px 10px;
+   }
+   .gb-steps {
+    .gb-step {
+     position: relative;
+     padding-left: 15px;
+     width: 100%;
+     .gb-step-number {
+      @include position(absolute, 10px null null 0);
+      border-radius: 50%;
+      border: rgba($primary-color, 0.2) solid 1px;
+      background-color: #F2F2F2;
+      color: #333;
+      padding-top: 6px;
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      text-align: center;
+     }
+     .gb-step-content {
+      padding: 16px 5px 10px 20px;
+      border-left: rgba($primary-color, 0.2) solid 1px;
+     }
+    }
+   }
+
+
+   .gb-footer {
+    @include position(absolute, 100px 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
+    padding: 3px 3px 0 0;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
+    }
+    .gb-summary-bar {
+     margin-top: 5px;
+     background-color: transparent;
+     .btn {
+      min-width: 50px;
+      color: #999;
+      text-decoration: none;
+     }
+     .gb-icon {
+      color: #777;
+     }
+    }
+    .gb-footer-content {
+     padding: 10px 0 0 0;
+    }
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+}
+
 .gb-exercise-box {
  position: relative;
  //height: 153px; /*For box shadow*/
@@ -3363,7 +3493,7 @@ input.gb-form-show{
 @media (max-width: 767px) {
 
  ::-webkit-scrollbar              {
-  display:block;
+  display:none;
  }
  ::-webkit-scrollbar-button       { /* 2 */ }
  ::-webkit-scrollbar-track        {/* 3 */ }

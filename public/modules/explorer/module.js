@@ -109,7 +109,6 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
                   'public/modules/explorer/directives/activity/explorer-activity-box.drv.js',
-                  'public/modules/explorer/directives/exercise/explorer-exercise-box.drv.js',
                   'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
@@ -177,10 +176,6 @@ define(['angular'
                   'public/modules/explorer/services/activity/explorer-activities.srv.js',
                   'public/modules/explorer/controllers/activity/explorer-activities.ctrl.js',
                   'public/modules/explorer/controllers/activity/explorer-activity-modal.ctrl.js',
-                  //Exercise,
-                  'public/modules/explorer/services/exercise/explorer-exercises.srv.js',
-                  'public/modules/explorer/controllers/exercise/explorer-exercises.ctrl.js',
-                  'public/modules/explorer/controllers/exercise/explorer-exercise-modal.ctrl.js',
                   //Guideline
                   'public/modules/explorer/services/guideline/explorer-guidelines.srv.js',
                   'public/modules/explorer/controllers/guideline/explorer-guidelines.ctrl.js',

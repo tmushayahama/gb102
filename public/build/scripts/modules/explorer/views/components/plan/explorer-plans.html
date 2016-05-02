@@ -96,7 +96,30 @@
     No plans to show
    </div>
    <div class="gb-plan-body row" ng-show="explorerPlansCtrl.explorerPlansSrv.explorerPlans.length" ng-cloak>
-    <div ng-repeat="explorerPlan in explorerPlansCtrl.explorerPlansSrv.explorerPlans track by $index">
+    <div class="gb-timeline">
+     <ul class="ruler">
+      <li ng-repeat="number in explorerCtrl.range(1, 26)">
+       {{number}}
+      </li>
+     </ul>
+     <div class="gb-timeline-items">
+      <div ng-repeat="explorerPlan in explorerPlansCtrl.explorerPlansSrv.explorerPlans track by $index"
+           class="gb-timeline-item"
+           ng-style="{
+            'left':explorerPlan.plan.start_point + 'px',
+                    'backgroundColor':'#' + explorerPlan.plan.color,
+                    'width':explorerPlan.plan.plan_length + 'px'}">
+
+       {{explorerPlan.plan.objective.title}}
+      </div>
+     </div>
+     <ul class="ruler">
+      <li ng-repeat="number in explorerCtrl.range(1, 26)">
+       {{number}}
+      </li>
+     </ul>
+    </div>
+    <div ng-if="false" ng-repeat="explorerPlan in explorerPlansCtrl.explorerPlansSrv.explorerPlans track by $index">
      <div gb-explorer-plan-box explorer-plan="explorerPlan"
           index={{$index}}
           open-explorer-plan="explorerPlansCtrl.openExplorerPlan(explorerPlan)"
@@ -106,7 +129,7 @@
     </div>
    </div>
    <script type="text/ng-template" id="explorer-plan-modal.html">
-   <div class="gb-plan-page" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plan-modal.html'"></div>
+    <div class="gb-plan-page" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plan-modal.html'"></div>
    </script>
   </div>
  </div>

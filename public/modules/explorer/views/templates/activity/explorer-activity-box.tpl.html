@@ -2,21 +2,37 @@
 <div class="gb-activity-box row">
  <div class="gb-box-body gb-shadow-1">
   <div class="gb-box-content">
+   <div class="gb-heading row">
+    <p class="gb-title gb-ellipsis">
+     ACTIVITY
+    </p>
+    <md-button class="gb-open" ng-click="open()">
+     <i class="fa fa-arrows-alt"></i>
+    </md-button>
+   </div>
    <div class="gb-description row">
     <a ng-click="open()" class="gb-ellipsis">
-     {{explorerActivity.activity.title}} -
+     <strong>{{explorerActivity.activity.title}}</strong>
      {{explorerActivity.activity.description}}
     </a>
    </div>
-   <div class="gb-footer gb-padding-none row">
-    <div class="gb-footer row gb-padding-none">
-     <div class="gb-summary-bar btn-group">
-      <a ng-show="activityChecklistStatusData.total > 0"class="btn btn-xs btn-link">
-       <i class="gb-icon fa icon-checkmark"></i> [ {{activityChecklistStatusData.done}} / {{activityChecklistStatusData.total}} ]
-      </a>
-      <a class="btn btn-xs btn-link">
-       <i class="gb-icon fa icon-users"></i> 0
-      </a>
+   <div class="gb-footer row gb-padding-none">
+    <div class="gb-summary-bar col-lg-8 col-md-8 col-sm-8 col-xs-7">
+     <p ng-if="false" class="">
+      <i class="gb-icon fa fa-list-ol"></i> 0 steps
+     </p>
+    </div>
+    <div class="gb-name-badge-1 col-lg-4 col-md-4 col-sm-4 col-xs-5">
+     <a class="gb-name gb-ellipsis"
+        data-ui-sref="apps.profile.overview({profileId: explorerActivity.activity.creator_id})">
+      <i>by:</i>
+      {{ ::explorerActivity.activity.creator.firstname}}
+      {{ ::explorerActivity.activity.creator.lastname}}
+     </a>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           ng-src="public/img/profile_pic/{{ ::explorerActivity.activity.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
      </div>
     </div>
    </div>

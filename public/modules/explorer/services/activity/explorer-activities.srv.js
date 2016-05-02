@@ -1,7 +1,6 @@
 var explorerActivitiesSrv = function ($http, $q) {
 
  var ExplorerActivitiesSrv = function () {
-  this.explorerActivities = [];
  };
  ExplorerActivitiesSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -25,9 +24,18 @@ var explorerActivitiesSrv = function ($http, $q) {
  ExplorerActivitiesSrv.prototype.getExplorerActivities = function (explorerId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerActivities = [];
   $http.get('/api/explorer/' + explorerId + '/activities').success(function (data) {
-   self.explorerActivities = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerActivitiesSrv.prototype.getSubActivities = function (activityId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/activity/' + activityId + '/activities').success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -38,9 +46,7 @@ var explorerActivitiesSrv = function ($http, $q) {
  ExplorerActivitiesSrv.prototype.getExplorerActivity = function (explorerId, activityId) {
   var self = this;
   var deferred = $q.defer();
-  self.explorerActivities = [];
   $http.get('/api/explorer/' + explorerId + '/activity/' + activityId).success(function (data) {
-   self.explorerActivities = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -56,7 +62,6 @@ var explorerActivitiesSrv = function ($http, $q) {
    url: '/api/explorer/activity/create',
    data: explorerActivityData
   }).success(function (data) {
-   self.explorerActivities.unshift(data);
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -72,6 +77,32 @@ var explorerActivitiesSrv = function ($http, $q) {
    url: '/api/explorer/activity/edit',
    data: explorerActivityData
   }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerActivitiesSrv.prototype.editExplorerActivity = function (explorerActivityData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/explorer/activity/edit',
+   data: explorerActivityData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorerActivitiesSrv.prototype.getActivityQuestions = function (activityId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/activity/' + activityId + '/questions').success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');

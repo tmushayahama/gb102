@@ -92,11 +92,11 @@
      </div>
     </form>
    </div>
-   <div class="gb-no-info row" ng-show="!explorerNotesCtrl.explorerNotesSrv.explorerNotes.length" ng-cloak>
+   <div class="gb-no-info row" ng-show="!explorerNotesCtrl.explorerNotes.length" ng-cloak>
     No notes to show
    </div>
-   <div class="gb-note-body row" ng-show="explorerNotesCtrl.explorerNotesSrv.explorerNotes.length" ng-cloak>
-    <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotesSrv.explorerNotes track by $index">
+   <div class="gb-note-body row" ng-show="explorerNotesCtrl.explorerNotes.length" ng-cloak>
+    <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotes track by $index">
      <div gb-explorer-note-box explorer-note="explorerNote"
           open-explorer-note="explorerNotesCtrl.openExplorerNote(explorerNote)"
           class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">

@@ -70,10 +70,10 @@
     </div>
     <div class="gb-box-content">
      <div class="gb-description row">
-      <a ng-click="open()" class="gb-ellipsis">
-       <strong>{{guideline.title}}</strong>
-       {{guideline.description}}
-      </a>
+      <p class="">
+       {{guideline.title}}
+       <i>{{guideline.description}}</i>
+      </p>
      </div>
      <div class="gb-steps" ng-repeat="step in guideline.steps track by $index">
       <div class="gb-step">
