@@ -1,5 +1,16 @@
 id	parent_activity_id	creator_id	title	description	created_at	updated_at	importance	status
-1	NULL	2	Body Language Observation		14-10-01 08:07:00	16-01-25 18:21:00	1	0
-2	1	2	Spot a conversation across a room or on the television with volume turned down or in a crowded area		14-10-01 08:07:01	16-01-25 18:21:01	1	0
-3	1	2	" Note how facial expressions, gestures, body movements, posture, and eye contact or lack of it reveal."		14-10-01 08:07:02	16-01-25 18:21:02	1	0
-4	1	2	Guess what the speakers may be saying or talking about		14-10-01 08:07:03	16-01-25 18:21:03	1	0
+1	NULL	3	Body Language Observation		14-10-01 08:07:00	16-01-25 18:21:00	1	0
+2	1	3	Spot a conversation across a room or on the television with volume turned down or in a crowded area		14-10-01 08:07:01	16-01-25 18:21:01	1	0
+3	1	3	"Note how facial expressions, gestures, body movements, posture, and eye contact or lack of it reveal."		14-10-01 08:07:02	16-01-25 18:21:02	1	0
+4	1	3	Guess what the speakers may be saying or talking about		14-10-01 08:07:03	16-01-25 18:21:03	1	0
+100	NULL	5	Listening Observation		14-10-01 08:07:04	16-01-25 18:21:04	1	0
+101	100	5	Listen closely to someone you cannot see. i.e. on the radio or a telephone caller		14-10-01 08:07:05	16-01-25 18:21:05	1	0
+102	100	5	Analyze the person's manner of speaking		14-10-01 08:07:06	16-01-25 18:21:06	1	0
+103	100	5	Do this activity in different languages and settings		14-10-01 08:07:06	16-01-25 18:21:06	1	0
+104	100	5	Compare the differences among them.		14-10-01 08:07:07	16-01-25 18:21:07	1	0
+200	NULL	7	Listening Skills		14-10-01 08:07:08	16-01-25 18:21:08	1	0
+201	200	7	Ask something you know like directions to a place you know how to get to.		14-10-01 08:07:09	16-01-25 18:21:09	1	0
+202	200	7	Then ask for directions to an unfamiliar place.		14-10-01 08:07:10	16-01-25 18:21:10	1	0
+300	NULL	2	Conversation Listening Skills		14-10-01 08:07:11	16-01-25 18:21:11	1	0
+301	300	2	Have a normal conversation with someone.		14-10-01 08:07:12	16-01-25 18:21:12	1	0
+302	300	2	Analyze what went wrong when you miss part of what they said		14-10-01 08:07:13	16-01-25 18:21:13	1	0

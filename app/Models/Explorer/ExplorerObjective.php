@@ -43,7 +43,7 @@ class ExplorerObjective extends Model {
 
  public static function getExplorerObjective($explorerId, $objectiveId) {
   $explorerObjective = ExplorerObjective::with('objective')
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'asc')
           ->where('explorer_id', $explorerId)
           ->where('objective_id', $objectiveId)
           ->first();

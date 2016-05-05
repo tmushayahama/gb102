@@ -30,6 +30,11 @@ var explorerGuidelinesCtrl = function (
  vm.getExplorerGuidelines = function (explorerId) {
   vm.explorerGuidelinesSrv.getExplorerGuidelines(explorerId).then(function (response) {
    vm.explorerGuidelines = response;
+   angular.forEach(response, function (step, key) {
+    vm.explorerGuidelinesSrv.getSubGuidelines(step.guideline.id).then(function (stepResponse) {
+     vm.explorerGuidelines[key].steps = stepResponse;
+    });
+   });
   });
  }
 

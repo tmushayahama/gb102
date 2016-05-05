@@ -36,7 +36,7 @@ class ActivityQuestion extends Model {
  public static function getActivityQuestions($activityId) {
   $activityQuestions = ActivityQuestion::with('question')
           ->with('question.creator')
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'asc')
           ->where('activity_id', $activityId)
           ->get();
   return $activityQuestions;
@@ -45,7 +45,7 @@ class ActivityQuestion extends Model {
  public static function getActivityQuestion($activityId, $questionId) {
   $activityQuestion = ActivityQuestion::with('question')
           ->with('question.creator')
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'asc')
           ->where('activity_id', $activityId)
           ->where('question_id', $questionId)
           ->first();

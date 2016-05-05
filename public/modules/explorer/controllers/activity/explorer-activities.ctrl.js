@@ -30,8 +30,13 @@ var explorerActivitiesCtrl = function (
  vm.getExplorerActivities = function (explorerId) {
   vm.explorerActivitiesSrv.getExplorerActivities(explorerId).then(function (response) {
    vm.explorerActivities = response;
+   angular.forEach(response, function (step, key) {
+    vm.explorerActivitiesSrv.getSubActivities(step.activity.id).then(function (stepResponse) {
+     vm.explorerActivities[key].steps = stepResponse;
+    });
+   });
   });
- }
+ };
 
  vm.createExplorerActivity = function (data) {
   vm.explorerActivitiesSrv.createExplorerActivity(data).then(function (response) {

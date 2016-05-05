@@ -1,2 +1,5 @@
 id	activity_id	explorer_id	privacy	status
 1	1	2092	0	0
+2	100	2092	0	0
+3	200	2092	0	0
+4	300	2092	0	0

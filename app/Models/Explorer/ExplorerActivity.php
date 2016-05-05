@@ -39,7 +39,7 @@ class ExplorerActivity extends Model {
           ->whereHas('activity', function($q) {
            $q->whereNull('parent_activity_id');
           })
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'asc')
           ->where('explorer_id', $explorerId)
           ->get();
   return $explorerActivities;
@@ -47,7 +47,7 @@ class ExplorerActivity extends Model {
 
  public static function getExplorerActivity($explorerId, $activityId) {
   $explorerActivity = ExplorerActivity::with('activity')
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'asc')
           ->with('activity.creator')
           ->where('explorer_id', $explorerId)
           ->where('activity_id', $activityId)

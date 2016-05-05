@@ -96,7 +96,8 @@
     No activities to show
    </div>
    <div class="gb-activity-body row" ng-show="explorerActivitiesCtrl.explorerActivities.length" ng-cloak>
-    <div ng-repeat="explorerActivity in explorerActivitiesCtrl.explorerActivities track by $index">
+    <div ng-repeat="explorerActivity in explorerActivitiesCtrl.explorerActivities track by $index"
+         class="gb-activity-box-container">
      <div gb-explorer-activity-box explorer-activity="explorerActivity"
           open-explorer-activity="explorerActivitiesCtrl.openExplorerActivity(explorerActivity)"
           class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
