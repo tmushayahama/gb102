@@ -2,19 +2,43 @@
 <div class="gb-guideline-box row">
  <div class="gb-box-body gb-shadow-1">
   <div class="gb-box-content">
+   <md-button class="gb-open" ng-click="open()">
+    <i class="fa fa-arrows-alt"></i>
+   </md-button>
    <div class="gb-heading row">
     <p class="gb-title gb-ellipsis">
      GUIDELINE
     </p>
-    <md-button class="gb-open" ng-click="open()">
-     <i class="fa fa-arrows-alt"></i>
-    </md-button>
    </div>
    <div class="gb-description row">
     <a ng-click="open()" class="gb-ellipsis">
      <strong>{{explorerGuideline.guideline.title}}</strong>
      {{explorerGuideline.guideline.description}}
     </a>
+    <div class="gb-steps">
+     <div class="row" ng-repeat="step in explorerGuideline.steps| limitTo:stepsLimitTo track by $index">
+      <div class="gb-step">
+       <div class="gb-step-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-step-content">
+        <p class="gb-ellipsis">
+         {{step.title}}
+        </p>
+       </div>
+      </div>
+     </div>
+     <div ng-if="explorerGuideline.steps.length > stepsLimitTo" class="gb-step row">
+      <div class="gb-step-number gb-primary" ng-click="open()">
+       <i class="fa fa-ellipsis-v"></i>
+      </div>
+      <div class="gb-step-content">
+       <a ng-click="open()">
+        more
+       </a>
+      </div>
+     </div>
+    </div>
    </div>
    <div class="gb-footer row gb-padding-none">
     <div class="gb-summary-bar col-lg-8 col-md-8 col-sm-8 col-xs-7">

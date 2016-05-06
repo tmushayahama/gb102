@@ -29,6 +29,7 @@ define([
  //'ripples',
  'infinite-scroll',
  'truncate-filters',
+ 'angular-grid',
  //'dnd-draggable',
  '../auth/module',
  '../search/module',
@@ -57,7 +58,7 @@ define([
   'ui.bootstrap',
   'xeditable',
   'LocalStorageModule',
-  'door3.css',
+  'angularCSS',
   'mgo-angular-wizard',
   'angular-gestures',
   'angular-loading-bar',
@@ -70,6 +71,7 @@ define([
   'ngAria',
   //'gajus.swing',
   'gb-filters.truncate',
+  'angularGrid',
   //'dndLists',
   'app.auth',
   'app.search',
@@ -186,8 +188,8 @@ define([
  appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', 'hammerDefaultOptsProvider', '$provide'];
  app.config(appConfig);
 
- var appRun = function ($stateParams, $rootScope, $state, editableOptions, localStorageService) {
-  //$.material.init();
+ var appRun = function ($stateParams, $animate, $rootScope, $state, editableOptions, localStorageService) {
+  $animate.enabled(false);
   $rootScope.$on('$stateChangeStart', function (event, toState) {
    var user = JSON.parse(localStorageService.get('user'));
    if (user) {
@@ -206,8 +208,10 @@ define([
   });
 
   editableOptions.theme = 'bs3';
+  $animate.enabled(true);
+
  }
- appRun.$inject = ['$stateParams', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
+ appRun.$inject = ['$stateParams', '$animate', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
  app.run(appRun);
  app.constant('_', window._);
  app.constant('level_categories',

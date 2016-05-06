@@ -19,10 +19,11 @@ angular.module('app.explorer').directive('gbExplorerGuidelineBox',
            controller: [
             '$scope',
             function ($scope) {
-
+             $scope.stepsLimitTo = 3;
             }
            ],
            link: function (scope, element, attr, ctrl) {
+
             scope.open = function () {
              scope.openExplorerGuideline({explorerGuideline: scope.explorerGuideline});
             };

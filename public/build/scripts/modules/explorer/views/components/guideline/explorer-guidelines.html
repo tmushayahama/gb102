@@ -96,10 +96,14 @@
     No guidelines to show
    </div>
    <div class="gb-guideline-body row" ng-show="explorerGuidelinesCtrl.explorerGuidelines.length" ng-cloak>
-    <div ng-repeat="explorerGuideline in explorerGuidelinesCtrl.explorerGuidelines track by $index">
-     <div gb-explorer-guideline-box explorer-guideline="explorerGuideline"
-          open-explorer-guideline="explorerGuidelinesCtrl.openExplorerGuideline(explorerGuideline)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+    <div class="dynamic-grid" angular-grid="explorerGuidelinesCtrl.explorerGuidelines" angular-grid-id="guidelines"
+         ag-options="{gridWidth : 210, gutterSize: 8} "refresh-on-img-load="false" >
+     <div ng-repeat="explorerGuideline in explorerGuidelinesCtrl.explorerGuidelines track by $index"
+          class="grid">
+      <div gb-explorer-guideline-box explorer-guideline="explorerGuideline"
+           open-explorer-guideline="explorerGuidelinesCtrl.openExplorerGuideline(explorerGuideline)"
+           class="gb-padding-thin">
+      </div>
      </div>
     </div>
    </div>

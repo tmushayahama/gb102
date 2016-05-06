@@ -91,15 +91,20 @@
       <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="form-group row">
        <div class="checkbox">
         <label>
-         <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType">
+         <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType"
+                ng-change="requestType.checked = !requestType.checked">
          {{requestType.requestLevel.name}}
         </label>
        </div>
-       <textarea ng-model="requestType.explorerRequest.description" name="description"
-                 rows="2" placeholder="Display Message"
-                 class="form-control">
-       </textarea>
-       <br>
+       <md-input-container ng-show="requestType.checked" class="md-block">
+        <input type="text"
+               ng-model="requestType.explorerRequest.description"
+               placeholder="Display Message"
+               md-maxlength="150"
+               ng-maxlength="150"
+               maxlength ="150"
+               class=""/>
+       </md-input-container>
       </div>
      </div>
     </div>
@@ -112,27 +117,27 @@
 </div>
 <div class="modal-footer">
  <div class="pull-right">
-  <md-button class="gb-modal-footer-btn md-raised md-mini" ng-click="addExplorerCtrl.close()"
+  <md-button class="" ng-click="addExplorerCtrl.close()"
              aria-label="Close">
    Close
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="gb-modal-footer-btn md-raised md-mini" ng-click="addExplorerCtrl.previous()"
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
              aria-label="Previous">
    Previous
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="gb-modal-footer-btn md-raised md-mini" ng-click="addExplorerCtrl.next()"
+            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
              aria-label="Next">
    Next
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="gb-modal-footer-btn md-raised md-mini" ng-click="addExplorerCtrl.ok()"
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
              aria-label="Add">
    Add
   </md-button>
  </div>
-</div> 
+</div>

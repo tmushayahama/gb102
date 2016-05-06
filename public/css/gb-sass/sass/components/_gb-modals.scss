@@ -54,6 +54,9 @@
  .md-button {
   margin: 0;
   padding: 0 12px;
+  .gb-disabled {
+   background-color: transparent!important;
+  }
  }
 }
 

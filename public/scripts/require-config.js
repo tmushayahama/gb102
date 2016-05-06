@@ -1,7 +1,7 @@
 requirejs.config({
  waitSeconds: 0,
  paths: {
-  'jquery': '../../bower_components/jquery/dist/jquery.min',
+  'jquery': '../../bower_components/jquery/dist/jquery',
   'angular': '../../bower_components/angular/angular',
   'bootstrap': '../../bower_components/bootstrap/dist/js/bootstrap',
   'angular-bootstrap': '../../bower_components/angular-bootstrap/ui-bootstrap-tpls',
@@ -33,7 +33,8 @@ requirejs.config({
   'angular-messages': '../../bower_components/angular-messages/angular-messages',
   'infinite-scroll': '../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
   'truncate-filters': '../modules/common/filters/truncate',
-  'dnd-draggable': 'lib/dnd-draggable'
+  'dnd-draggable': 'lib/dnd-draggable',
+  'angular-grid': 'lib/angular-grid'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
@@ -54,23 +55,24 @@ requirejs.config({
   'hammerjs': {deps: ['angular']},
   'angular-gestures': {deps: ['angular', 'hammerjs']},
   'angular-swing': {deps: ['angular', 'hammerjs']},
-  'angular-loading-bar': {deps: ['angular', 'angular-animate']},
-  'angular-aside': {deps: ['angular', 'angular-animate']},
+  'angular-loading-bar': {deps: ['angular']},
+  'angular-aside': {deps: ['angular']},
   'angular-sanitize': {deps: ['angular']},
   //'angular-ui-select': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
   'angular-aria': {deps: ['angular']},
-  'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},
+  'angular-material': {deps: ['angular', 'angular-aria']},
   'angular-messages': {deps: ['angular']},
   'infinite-scroll': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
-  'dnd-draggable': {deps: ['angular']}
+  'dnd-draggable': {deps: ['angular']},
+  'angular-grid': {deps: ['angular']}
  },
  priority: [
-  'jquery',
-  'bootstrap',
-  'angular'
+  //'jquery',
+  //'bootstrap',
+  'angular',
  ]
 });
 requirejs([

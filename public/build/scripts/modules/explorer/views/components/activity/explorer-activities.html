@@ -96,10 +96,14 @@
     No activities to show
    </div>
    <div class="gb-activity-body row" ng-show="explorerActivitiesCtrl.explorerActivities.length" ng-cloak>
-    <div ng-repeat="explorerActivity in explorerActivitiesCtrl.explorerActivities track by $index">
-     <div gb-explorer-activity-box explorer-activity="explorerActivity"
-          open-explorer-activity="explorerActivitiesCtrl.openExplorerActivity(explorerActivity)"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
+    <div class="dynamic-grid" angular-grid="explorerActivitiesCtrl.explorerActivities" angular-grid-id="activities"
+         ag-options="{gridWidth : 210, gutterSize: 8} "refresh-on-img-load="false" >
+     <div ng-repeat="explorerActivity in explorerActivitiesCtrl.explorerActivities track by $index"
+          class="grid">
+      <div gb-explorer-activity-box explorer-activity="explorerActivity"
+           open-explorer-activity="explorerActivitiesCtrl.openExplorerActivity(explorerActivity)"
+           class="gb-padding-thin">
+      </div>
      </div>
     </div>
    </div>

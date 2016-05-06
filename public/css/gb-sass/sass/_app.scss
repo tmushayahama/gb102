@@ -24,7 +24,7 @@ and open the template in the editor.
 @import "components/gb-comments";
 @import "components/gb-todo";
 @import "components/gb-weblinks";
-//@import "components/gb-icon-images";
+@import "components/gb-grid";
 @import "components/custom-xeditable";
 
 //@import "components/gb-spinner";
@@ -1391,19 +1391,19 @@ input.gb-form-show{
   .gb-icon {
    display: block;
    margin: 0 auto 13px auto;
-   background-color: rgba($primary-color, 0.2);
+   //background-color: rgba($primary-color, 0.2);
    line-height: 40px;
    min-width: 0;
    width: 40px;
    height: 40px;
-   box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
-   border-radius: 50%;
+   //box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+   //border-radius: 50%;
    background-clip: padding-box;
    overflow: hidden;
    transition: all .3s cubic-bezier(.55,0,.55,.2);
    transition-property: background-color,box-shadow,-webkit-transform;
    transition-property: background-color,box-shadow,transform;
-   font-size: 20px;
+   font-size: 30px;
    color: darken($primary-color, 5%);
    @include respond-to (gb-sm) {
     font-size: 20px;
@@ -2558,44 +2558,37 @@ input.gb-form-show{
  .gb-box-body {
   position: relative;
   //@include position(absolute, 0 0 0 25px);
-  min-height: 128px;
+  min-height: 100px;
   width: 100%;
   background-color: #F9F9F9;
 
   .gb-box-content {
    //@include position(absolute, 0 0 0 0);
+   .gb-open {
+    @include position(absolute, 0 0 null null);
+    margin: 0;
+    height: 35px;
+    width: 35px;
+   }
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
     padding: 11px 10px 0px 10px;
     height: 35px;
-    background-color: rgba($primary-color, 0.2);
+    //background-color: rgba($primary-color, 0.2);
+    border-bottom: #DDD solid 1px;
     .gb-title {
      color: #444;
      font-size:12px;
      text-transform: uppercase;
     }
-    .gb-open {
-     @include position(absolute, 0 0 null null);
-     margin: 0;
-     height: 35px;
-     width: 35px;
-    }
+
    }
 
    .gb-description {
     //@include position(absolute, 36px 0 50px 0);
-    padding: 5px 10px 0px 10px;
-    min-height: 65px;
+    padding: 10px 10px 5px 10px;
     display: block;
-    /* Fallback for non-webkit */
-    display: -webkit-box;
-    /* Fallback for non-webkit */
     line-height: 1.2;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    overflow: hidden;
    }
    .gb-steps {
     .gb-step {
@@ -2603,22 +2596,21 @@ input.gb-form-show{
      padding-left: 10px;
      width: 100%;
      .gb-step-number {
-      @include position(absolute, 10px null null 0);
+      @include position(absolute, 8px null null 0);
       border-radius: 50%;
       border: rgba($primary-color, 0.2) solid 1px;
       background-color: #F2F2F2;
       color: #333;
-      padding-top: 5px;
+      padding-top: 3px;
       width: 20px;
       height: 20px;
       font-size: 10px;
       text-align: center;
      }
      .gb-step-content {
-      padding: 16px 5px 10px 20px;
+      padding: 12px 5px 5px 15px;
       border-left: rgba($primary-color, 0.2) solid 1px;
-      font-size: 10px;
-      font-style: italic;
+      font-size: 11px;
      }
     }
    }
@@ -2833,7 +2825,8 @@ input.gb-form-show{
     //@include position(absolute, 0 0 null 0);
     padding: 11px 10px 0px 10px;
     height: 35px;
-    background-color: rgba($primary-color, 0.2);
+    //background-color: rgba($primary-color, 0.2);
+    border-bottom: #DDD solid 1px;
     .gb-title {
      color: #444;
      font-size:12px;
@@ -2844,14 +2837,14 @@ input.gb-form-show{
 
    .gb-description {
     //@include position(absolute, 36px 0 50px 0);
-    padding: 5px 10px 0px 10px;
-    min-height: 65px;
+    padding: 10px 10px 5px 10px;
+    height: 150px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
     /* Fallback for non-webkit */
     line-height: 1.2;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2863,22 +2856,21 @@ input.gb-form-show{
      padding-left: 10px;
      width: 100%;
      .gb-step-number {
-      @include position(absolute, 10px null null 0);
+      @include position(absolute, 8px null null 0);
       border-radius: 50%;
       border: rgba($primary-color, 0.2) solid 1px;
       background-color: #F2F2F2;
       color: #333;
-      padding-top: 5px;
+      padding-top: 3px;
       width: 20px;
       height: 20px;
       font-size: 10px;
       text-align: center;
      }
      .gb-step-content {
-      padding: 16px 5px 10px 20px;
+      padding: 12px 5px 5px 15px;
       border-left: rgba($primary-color, 0.2) solid 1px;
-      font-size: 10px;
-      font-style: italic;
+      font-size: 11px;
      }
     }
    }
@@ -3067,16 +3059,19 @@ input.gb-form-show{
 .gb-note-box {
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 10px;
+ //padding: 10px;
 
  overflow: hidden;
 
  .gb-box-body {
+  text-decoration: none;
+  border-radius: 5px;
   display: block;
   position: relative;
   background-color: #FFF;
+  border: #CCC soild 1px;
   //@include position(absolute, 0 0 0 25px);
-  height: 100px;
+  min-height: 80px;
   width: 100%;
   color: #333;
   box-shadow: inset 0px 0px 64px -2px #BBBBBB;
@@ -3084,7 +3079,7 @@ input.gb-form-show{
   -moz-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
   -o-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
   .gb-box-content {
-   @include position(absolute, 0 0 0 0);
+   // @include position(absolute, 0 0 0 0);
    padding: 7px 10px 5px 10px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
@@ -3104,7 +3099,7 @@ input.gb-form-show{
     display: -webkit-box;
     /* Fallback for non-webkit */
     line-height: 20px;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -3112,7 +3107,7 @@ input.gb-form-show{
    }
 
    .gb-footer {
-    @include position(absolute, null 5px 0 5px);
+    //@include position(absolute, null 5px 0 5px);
     border-top: #DDD solid 1px;
     height: 28px;
     padding: 3px 3px 0 0;

@@ -15,6 +15,31 @@
      <strong>{{explorerActivity.activity.title}}</strong>
      {{explorerActivity.activity.description}}
     </a>
+
+    <div class="gb-steps">
+     <div class="row" ng-repeat="step in explorerActivity.steps| limitTo:stepsLimitTo track by $index">
+      <div class="gb-step">
+       <div class="gb-step-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-step-content">
+        <p class="gb-ellipsis">
+         {{step.title}}
+        </p>
+       </div>
+      </div>
+     </div>
+     <div ng-if="explorerActivity.steps.length > stepsLimitTo" class="gb-step row">
+      <div class="gb-step-number gb-primary" ng-click="open()">
+       <i class="fa fa-ellipsis-v"></i>
+      </div>
+      <div class="gb-step-content">
+       <a ng-click="open()">
+        more
+       </a>
+      </div>
+     </div>
+    </div>
    </div>
    <div class="gb-footer row gb-padding-none">
     <div class="gb-summary-bar col-lg-8 col-md-8 col-sm-8 col-xs-7">

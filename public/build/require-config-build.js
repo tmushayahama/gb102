@@ -18,21 +18,23 @@ requirejs.config({
   'angular-css': '../../../bower_components/angular-css/angular-css.min',
   'angular-wizard': '../../../bower_components/angular-wizard/dist/angular-wizard.min',
   // 'ionic.tdcards': '../../../bower_components/ionic-ion-tinder-cards/ionic.tdcards.min',
-  //'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min',
-  'hammerjs': '../../bower_components/hammerjs/hammer.min',
-  'angular-gestures': '../../bower_components/angular-gestures/gestures.min',
+  'angular-swing': '../../../bower_components/angular-swing/dist/angular-swing.min.min',
+  'hammerjs': '../../../bower_components/hammerjs/hammer.min',
+  'angular-gestures': '../../../bower_components/angular-gestures/gestures.min',
   'angular-loading-bar': '../../../bower_components/angular-loading-bar/build/loading-bar.min',
   'angular-aside': '../../../bower_components/angular-aside/dist/js/angular-aside.min',
   'angular-sanitize': '../../../bower_components/angular-sanitize/angular-sanitize.min',
+  //'angular-ui-select': '../../../bower_components/ui-select/dist/select.min',
+  //Local pugins--common
   'checklist-model': '../../../bower_components/checklist-model/checklist-model',
   'ng-tags-input': '../../../bower_components/ng-tags-input/ng-tags-input.min',
   'angular-aria': '../../../bower_components/angular-aria/angular-aria.min',
   'angular-material': '../../../bower_components/angular-material/angular-material.min',
-  'angular-messages': '../../bower_components/angular-messages/angular-messages.min',
+  'angular-messages': '../../../bower_components/angular-messages/angular-messages.min',
   'infinite-scroll': '../../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min',
-  'truncate-filters': 'scripts/modules/common/filters/truncate'
-
-
+  'truncate-filters': '../modules/common/filters/truncate',
+  'dnd-draggable': 'lib/dnd-draggable',
+  'angular-grid': 'lib/angular-grid'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
@@ -40,7 +42,7 @@ requirejs.config({
   'angular-bootstrap': {deps: ['angular']},
   'angular-ui-router': {deps: ['angular']},
   'angular-resource': {deps: ['angular']},
-  'angular-animate': {deps: ['angular']},
+  'angular-animate': {deps: ['angular', 'jquery']},
   'oc-lazy-load': {deps: ['angular']},
   'satellizer': {deps: ['angular']},
   'bootstrap': {'exports': 'bootstrap', deps: ['jquery']},
@@ -50,27 +52,29 @@ requirejs.config({
   'angular-css': {deps: ['angular', 'angular-ui-router']},
   'angular-wizard': {deps: ['angular']},
   //'ionic.tdcards': {deps: ['angular']},
-  // 'angular-swing': {deps: ['angular']},
   'hammerjs': {deps: ['angular']},
   'angular-gestures': {deps: ['angular', 'hammerjs']},
-  'angular-loading-bar': {deps: ['angular', 'angular-animate']},
-  'angular-aside': {deps: ['angular', 'angular-animate']},
+  'angular-swing': {deps: ['angular', 'hammerjs']},
+  'angular-loading-bar': {deps: ['angular']},
+  'angular-aside': {deps: ['angular']},
   'angular-sanitize': {deps: ['angular']},
+  //'angular-ui-select': {deps: ['angular']},
   'checklist-model': {deps: ['angular']},
   'ng-tags-input': {deps: ['angular']},
   'angular-aria': {deps: ['angular']},
-  'angular-material': {deps: ['angular', 'angular-aria', 'angular-animate']},
+  'angular-material': {deps: ['angular', 'angular-aria']},
   'angular-messages': {deps: ['angular']},
   'infinite-scroll': {deps: ['angular']},
   'truncate-filters': {deps: ['angular']},
+  'dnd-draggable': {deps: ['angular']},
+  'angular-grid': {deps: ['angular']}
  },
  priority: [
-  'jquery',
-  'bootstrap',
-  'angular'
+  //'jquery',
+  //'bootstrap',
+  'angular',
  ]
 });
-
 
 requirejs([
  'angular',

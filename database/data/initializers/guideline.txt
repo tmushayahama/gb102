@@ -34,3 +34,40 @@ id	parent_guideline_id	creator_id	title	description	created_at	updated_at	import
 701	700	7	Maintain the friendship afterwards by keeping in touch		14-09-20 08:51:01	14-09-20 08:51:59	1	0
 702	700	7	Don't measure your friendship by how frequently you meet up		14-09-20 08:51:01	14-09-20 08:51:59	1	0
 703	700	7	Catching up once in a while might be sufficient		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2000	NULL	3	Body Language: First Impressions	Your body language speaks before you do.	14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2100	2000	3	Slow down		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2101	2100	3	"Make slow, controlled gestures"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2102	2100	3	Keep your drink at the table		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2103	2100	3	"Don't make rushed movements, it will seem as if you are in a hurry"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2200	2000	3	Smile		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2201	2200	3	Smile when you are approaching to someone you want to talk to		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2202	2200	3	Smile when you first start talking to someone		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2203	2200	3	But don't fake a smile or oversmile		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2300	2000	3	Make eye contact		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2301	2300	3	Focus your eyes on a person to helps you concentrate thus improving your listening skills		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2302	2300	3	Communicate confidence		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2303	2300	3	Don't stare or have a fixed stare		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2400	2000	3	Body Mirroring		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2401	2400	3	"Have positive body mirroring, i.e. if someone smiles, smile back"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2500	2000	3	Nod		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2600	2000	3	"Touch, i.e. handshake is safe"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2601	2600	3	Initiate a handshake		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2602	2600	3	End with a handshake		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+2700	2000	3	Avoid movement during a sitting interaction		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4000	NULL	5	Initiating a conversation and taking the first step		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4100	4000	5	Be Confident 		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4101	4100	5	Think and act positive and have positive thoughts		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4102	4100	5	Dress nicely		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4103	4100	5	"Don't doubt your worth, or how interesting you are"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4104	4100	5	Use your strengths		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4200	4000	5	Approach		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4201	4200	5	Don't overthink it or plan every move		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4202	4200	5	You can have randomness rather than approach directly		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4203	4200	5	"Remember, Different situations will have different approaches"		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4300	4000	5	Make eye contact		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4400	4000	5	Allow personal space		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4500	4000	5	Have a conversation		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4501	4500	5	Smile and say hello		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4502	4500	5	Ask their name and remember it		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4503	4500	5	Share something about yourself		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+4504	4500	5	Let them share something about themselves		14-09-20 08:51:01	14-09-20 08:51:59	1	0

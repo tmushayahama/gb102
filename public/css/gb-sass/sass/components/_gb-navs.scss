@@ -166,7 +166,7 @@
  .gb-link {
   margin: 0;
   text-align: center;
-  padding:5px 2px 5px 2px;
+  padding:10px 2px 5px 2px;
   text-decoration: none;
   border-bottom: transparent solid 3px;
   /*
@@ -176,20 +176,20 @@
   */
   .gb-icon {
    display: block;
-   margin: 0 auto 15px auto;
-   background-color: rgba($primary-color, 0.2);
+   margin: 0 auto 5px auto;
+   //background-color: rgba($primary-color, 0.2);
    line-height: 35px;
    min-width: 0;
    width: 35px;
    height: 35px;
-   box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
-   border-radius: 50%;
+   // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+   //border-radius: 50%;
    background-clip: padding-box;
    overflow: hidden;
    transition: all .3s cubic-bezier(.55,0,.55,.2);
    transition-property: background-color,box-shadow,-webkit-transform;
    transition-property: background-color,box-shadow,transform;
-   font-size: 18px;
+   font-size: 30px;
    color: darken($primary-color, 5%);
    @include respond-to (gb-sm) {
     font-size: 18px;

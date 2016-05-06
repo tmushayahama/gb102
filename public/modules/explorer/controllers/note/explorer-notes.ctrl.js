@@ -8,7 +8,8 @@ var explorerNotesCtrl = function (
         $location,
         $uibModal,
         $log,
-        $filter) {
+        $filter,
+        angularGridInstance) {
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
@@ -135,7 +136,6 @@ var explorerNotesCtrl = function (
  };
 
 
-
  //--------init------
  vm.getExplorerNotes(vm.explorerId);
 };
@@ -151,6 +151,7 @@ explorerNotesCtrl.$inject = [
  '$location',
  '$uibModal',
  '$log',
- '$filter'];
+ '$filter',
+ 'angularGridInstance'];
 
 angular.module("app.explorer").controller('ExplorerNotesCtrl', explorerNotesCtrl);

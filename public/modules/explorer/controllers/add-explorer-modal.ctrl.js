@@ -35,6 +35,7 @@ var addExplorerCtrl = function (
     vm.requestTypes.push(
             {
              requestLevel: requestLevel,
+             checked: false,
              explorerRequest: {
               levelId: requestLevel.id,
               description: ''
