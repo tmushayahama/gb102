@@ -4485,13 +4485,13 @@ input.gb-form-show {
 
 .gb-top-nav-3 {
   margin-top: 41px;
-  height: 100px;
+  height: 80px;
   background-color: #EEE;
   border-bottom: #BBB solid 1px;
 }
 @media (max-width: 767px) {
   .gb-top-nav-3 {
-    height: 70px;
+    height: 60px;
   }
 }
 
@@ -4500,9 +4500,7 @@ input.gb-form-show {
 }
 .gb-menu-nav .gb-profile-pic img {
   width: 100%;
-  border-radius: 0;
   border: 6px solid #FFF;
-  outline: #555 solid 1px;
 }
 .gb-menu-nav .gb-profile-pic .gb-profile-name {
   position: absolute;
@@ -4570,36 +4568,10 @@ input.gb-form-show {
     left: -200px;
   }
 }
-.gb-top-nav-3 .gb-heading .gb-superscript, .gb-menu-nav .gb-heading .gb-superscript {
-  font-size: 0.8em;
-  vertical-align: super;
-}
-.gb-top-nav-3 .gb-sidenav-app-heading, .gb-menu-nav .gb-sidenav-app-heading {
-  padding: 10px 2px 5px 10px;
-  display: block;
-  width: 100%;
-}
-.gb-top-nav-3 .gb-sidenav-app-heading.gb-link:hover, .gb-menu-nav .gb-sidenav-app-heading.gb-link:hover {
-  background-color: #CCC9B7;
-}
-.gb-top-nav-3 .gb-nav-strip, .gb-menu-nav .gb-nav-strip {
-  padding: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-.gb-top-nav-3 .gb-nav-strip .gb-heading, .gb-menu-nav .gb-nav-strip .gb-heading {
-  text-align: center;
-  font-size: 14px;
-  padding: 7px 2px 7px 5px;
-  margin: 0;
-  color: #444;
-}
 .gb-top-nav-3 .gb-link, .gb-menu-nav .gb-link {
   margin: 0;
   text-align: center;
-  padding: 10px 2px 10px 2px;
+  padding: 10px 2px 2px 2px;
   text-decoration: none;
   border-bottom: transparent solid 3px;
   /*
@@ -4610,8 +4582,7 @@ input.gb-form-show {
 }
 .gb-top-nav-3 .gb-link .gb-icon, .gb-menu-nav .gb-link .gb-icon {
   display: block;
-  margin: 0 auto 13px auto;
-  line-height: 40px;
+  margin: 2px auto 0 auto;
   min-width: 0;
   width: 40px;
   height: 40px;
@@ -4623,14 +4594,21 @@ input.gb-form-show {
   font-size: 30px;
   color: #2f1515;
 }
+.gb-top-nav-3 .gb-link .gb-icon .gb-image-icon, .gb-menu-nav .gb-link .gb-icon .gb-image-icon {
+  margin-top: -4px;
+  width: 100%;
+  padding: 2px;
+}
 @media (max-width: 991px) {
   .gb-top-nav-3 .gb-link .gb-icon, .gb-menu-nav .gb-link .gb-icon {
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 @media (max-width: 767px) {
   .gb-top-nav-3 .gb-link .gb-icon, .gb-menu-nav .gb-link .gb-icon {
-    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
   }
 }
 .gb-top-nav-3 .gb-link .gb-icon .fa-outer, .gb-menu-nav .gb-link .gb-icon .fa-outer {
@@ -4677,11 +4655,6 @@ input.gb-form-show {
   margin-bottom: 0px;
   border: none;
   background-color: transparent;
-}
-.gb-top-nav-3 .gb-link .gb-image-icon, .gb-menu-nav .gb-link .gb-image-icon {
-  width: 100%;
-  padding: 0px;
-  margin-right: 7px;
 }
 
 #gb-profile-left-pane {
@@ -6013,7 +5986,7 @@ input.gb-form-show {
 }
 .gb-guideline-box .gb-box-body {
   position: relative;
-  min-height: 128px;
+  min-height: 100px;
   width: 100%;
   background-color: #F9F9F9;
 }
@@ -6037,16 +6010,7 @@ input.gb-form-show {
 }
 .gb-guideline-box .gb-box-body .gb-box-content .gb-description {
   padding: 10px 10px 5px 10px;
-  height: 150px;
   display: block;
-  /* Fallback for non-webkit */
-  display: -webkit-box;
-  /* Fallback for non-webkit */
-  line-height: 1.2;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
   overflow: hidden;
 }
 .gb-guideline-box .gb-box-body .gb-box-content .gb-steps .gb-step {
@@ -6261,6 +6225,7 @@ input.gb-form-show {
 
 .gb-note-box {
   position: relative;
+  border: #AAA solid 1px;
   overflow: hidden;
 }
 .gb-note-box .gb-box-body {
@@ -6269,7 +6234,6 @@ input.gb-form-show {
   display: block;
   position: relative;
   background-color: #FFF;
-  border: #CCC soild 1px;
   min-height: 80px;
   width: 100%;
   color: #333;

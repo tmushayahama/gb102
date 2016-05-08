@@ -19,7 +19,7 @@ angular.module('app.explorer').directive('gbExplorerGuidelineBox',
            controller: [
             '$scope',
             function ($scope) {
-             $scope.stepsLimitTo = 3;
+             $scope.stepsLimitTo = 8;
             }
            ],
            link: function (scope, element, attr, ctrl) {

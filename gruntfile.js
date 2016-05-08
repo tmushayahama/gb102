@@ -219,6 +219,13 @@ module.exports = function (grunt) {
      dest: 'public/build/scripts',
      cwd: 'public'
     },
+    {
+     expand: true,
+     //flatten: true,
+     src: ['internal-libs/**/*.js'],
+     dest: 'public/build/internal-libs',
+     cwd: 'public'
+    },
    ]
   }
  });

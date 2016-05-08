@@ -58,12 +58,6 @@
 </div>
 <div class="gb-landing-page">
  <header id="gb-intro-section" class="">
-  <div ng-repeat="iconIndex in authCtrl.skillIconsArray track by $index" class="pull-left">
-   <span class="fa-stack fa-lg">
-    <i class="fa fa-outer fa-circle fa-stack-2x"></i>
-    <i class="fa fa-inner {{authCtrl.skillIcons[iconIndex].name}} fa-stack-1x"></i>
-   </span>
-  </div>
   <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
    <div class="intro-heading">
     Discover, Apply & Organize skills
@@ -84,26 +78,57 @@
     </a>
    </div>
   </div>
+
  </header>
 
  <!-- Services Section -->
- <section ng-if="true" class="gb-services">
-  <div class="container">
-   <div class="row text-center">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-     <i class="gb-icon-service fa icon-gb-discover"></i>
-     <h4 class="service-heading">Discover</h4>
-     <p class="text-muted">using skill explorers</p>
+ <section id="gb-intro-section-2" class="gb-services">
+  <div class="row text-center">
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="gb-box-10 gb-box-discover">
+     <div class="gb-box-image row">
+     </div>
+     <div class="gb-number">
+      <div class="gb-number-inner">
+       1
+      </div>
+     </div>
+     <div class="gb-box-content row">
+      <h4 class="service-heading">DISCOVER</h4>
+      <p class="">
+       Explore skills from the list (skill bank) or from other users
+      </p>
+     </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-     <i class="gb-icon-service fa icon-gb-apply"></i>
-     <h4 class="service-heading">Apply</h4>
-     <p class="text-muted">using skill applications</p>
+   </div>
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="gb-box-10 gb-box-apply">
+     <div class="gb-box-image row">
+     </div>
+     <div class="gb-number">
+      <div class="gb-number-inner">
+       2
+      </div>
+     </div>
+     <div class="gb-box-content row">
+      <h4 class="service-heading">APPLY</h4>
+      <p class="">Using SkillSection's applications, apply your skills</p>
+     </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-     <i class="gb-icon-service fa icon-gb-organize"></i>
-     <h4 class="service-heading">Organize</h4>
-     <p class="text-muted">using skill organizers</p>
+   </div>
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="gb-box-10 gb-box-organize">
+     <div class="gb-box-image row">
+     </div>
+     <div class="gb-number">
+      <div class="gb-number-inner">
+       3
+      </div>
+     </div>
+     <div class="gb-box-content row">
+      <h4 class="service-heading">ORGANIZE</h4>
+      <p class="">Relax and our organizers will pre organize and make a profile</p>
+     </div>
     </div>
    </div>
   </div>

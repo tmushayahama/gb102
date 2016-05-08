@@ -33,8 +33,8 @@ requirejs.config({
   'angular-messages': '../../bower_components/angular-messages/angular-messages',
   'infinite-scroll': '../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
   'truncate-filters': '../modules/common/filters/truncate',
-  'dnd-draggable': 'lib/dnd-draggable',
-  'angular-grid': 'lib/angular-grid'
+  'dnd-draggable': '../internal-libs/dnd-draggable',
+  'angular-grid': '../internal-libs/angular-grid'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},

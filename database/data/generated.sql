@@ -922,7 +922,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/checkli
     (`id`,	`parent_checklist_id`,	`creator_id`,	`title`,	`description`,	`created_at`,	`updated_at`,	`importance`,	`status`);
 
 
--- ----------- CHECKLIST  ---------------
+-- ----------- CONTRIBUTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/contribution.txt'
     into table gb102.gb_contribution
     fields terminated by '\t'

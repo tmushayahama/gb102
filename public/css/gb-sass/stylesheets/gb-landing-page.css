@@ -27,6 +27,11 @@ and open the template in the editor.
   font-size: 12px;
 }
 .gb-landing-page #gb-intro-section {
+  background: url(../../../img/landing-page/background-1.png);
+  -webkit-background-size: 100% !important;
+  -moz-background-size: 100% !important;
+  -o-background-size: 100% !important;
+  background-size: 100% !important;
   position: relative;
   height: 550px;
   text-align: center;
@@ -144,6 +149,98 @@ and open the template in the editor.
     line-height: 30px;
   }
 }
+.gb-landing-page #gb-intro-section-2 {
+  padding: 0;
+  background-color: #EEE;
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10 {
+  -webkit-background-size: 100% !important;
+  -moz-background-size: 100% !important;
+  -o-background-size: 100% !important;
+  background-size: 100% !important;
+  height: 350px;
+  width: 100%;
+  height: 100%;
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover {
+  background: url(../../../img/landing-page/gb-discover-1.png);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-image {
+  background-color: rgba(2, 120, 135, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number .gb-number-inner {
+  background-color: rgba(2, 120, 135, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-content {
+  background-color: rgba(2, 120, 135, 0.5);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply {
+  background: url(../../../img/landing-page/gb-apply-1.png);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-image {
+  background-color: rgba(94, 45, 53, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number .gb-number-inner {
+  background-color: rgba(94, 45, 53, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-content {
+  background-color: rgba(94, 45, 53, 0.5);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize {
+  background: url(../../../img/landing-page/gb-organize-1.png);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-image {
+  background-color: rgba(0, 34, 119, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number .gb-number-inner {
+  background-color: rgba(0, 34, 119, 0.8);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-content {
+  background-color: rgba(0, 34, 119, 0.5);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-image {
+  padding: 0px 0px;
+  height: 150px;
+  overflow: hidden;
+  background-color: rgba(2, 120, 135, 0.6);
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content {
+  padding-top: 60px;
+  height: 200px;
+  color: #EEE;
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  font-size: 50px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  padding: 10px;
+  overflow: hidden;
+  text-align: center;
+  color: #CCC;
+  z-index: 1;
+}
+.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number .gb-number-inner {
+  padding: 4px 0 0 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
 .gb-landing-page .gb-icon-service {
   font-size: 70px;
   color: #027887;
@@ -225,9 +322,6 @@ and open the template in the editor.
 }
 .gb-landing-page section.gb-heading-row {
   background-color: #FFF;
-}
-.gb-landing-page section.gb-services {
-  background-color: rgba(2, 120, 135, 0.3);
 }
 .gb-landing-page section.gb-explorer-row {
   background-color: rgba(2, 120, 135, 0.1);

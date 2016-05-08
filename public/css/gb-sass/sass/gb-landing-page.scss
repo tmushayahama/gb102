@@ -22,12 +22,17 @@ $features-color:#EEE;
   .gb-action {
    padding-top: 3px;
    md-button {
-    font-size: 12px; 
+    font-size: 12px;
    }
   }
  }
 
  #gb-intro-section {
+  background: url(../../../img/landing-page/background-1.png);
+  -webkit-background-size: 100%!important;;
+  -moz-background-size: 100%!important;;
+  -o-background-size: 100%!important;;
+  background-size: 100%!important;;
   position: relative;
   height: 550px;
   text-align: center;
@@ -144,6 +149,102 @@ $features-color:#EEE;
   }
  }
 
+ #gb-intro-section-2 {
+
+  .gb-box-10 {
+   &.gb-box-discover {
+    background: url(../../../img/landing-page/gb-discover-1.png);
+    .gb-box-image {
+     background-color: rgba($explorer-color, 0.8);
+    }
+    .gb-number {
+     background-color: rgba(#000, 0.15);
+     .gb-number-inner {
+      background-color: rgba($explorer-color, 0.8);
+     }
+    }
+    .gb-box-content {
+     background-color: rgba($explorer-color, 0.5);
+    }
+   }
+   &.gb-box-apply {
+    background: url(../../../img/landing-page/gb-apply-1.png);
+    // border-left: #AAA solid 5px;
+    // border-right: #AAA solid 5px;
+    .gb-box-image {
+     background-color: rgba($swipe-color, 0.8);
+    }
+    .gb-number {
+     background-color: rgba(#000, 0.15);
+     .gb-number-inner {
+      background-color: rgba($swipe-color, 0.8);
+     }
+    }
+    .gb-box-content {
+     background-color: rgba($swipe-color, 0.5);
+    }
+   }
+   &.gb-box-organize {
+    background: url(../../../img/landing-page/gb-organize-1.png);
+    .gb-box-image {
+     background-color: rgba($matcher-color, 0.8);
+    }
+    .gb-number {
+     background-color: rgba(#000, 0.15);
+     .gb-number-inner {
+      background-color: rgba($matcher-color, 0.8);
+     }
+    }
+    .gb-box-content {
+     background-color: rgba($matcher-color, 0.5);
+    }
+   }
+   -webkit-background-size: 100%!important;;
+   -moz-background-size: 100%!important;;
+   -o-background-size: 100%!important;;
+   background-size: 100%!important;
+   height: 350px;
+   //border: #DDD solid 1px;
+   width: 100%;
+   height: 100%;
+   .gb-box-image {
+    padding: 0px 0px;
+    height: 150px;
+    overflow: hidden;
+    background-color: rgba($explorer-color, 0.6);
+   }
+   .gb-box-content {
+    padding-top : 60px;
+    height: 200px;
+    color: #EEE;
+   }
+   .gb-number {
+    @include position(absolute, 100px null null 50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    font-size: 50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    padding: 10px;
+    overflow: hidden;
+    text-align: center;
+    color: #CCC;
+    z-index: 1;
+    .gb-number-inner {
+     padding: 4px 0 0 0;
+     height: 100%;
+     width: 100%;
+     border-radius: 50%;
+    }
+   }
+  }
+
+  padding: 0;
+  background-color: #EEE;
+ }
+
  .gb-icon-service {
   font-size: 70px;
   color: $primary-color;
@@ -230,9 +331,6 @@ $features-color:#EEE;
   &.gb-heading-row {
    background-color: #FFF;
 
-  }
-  &.gb-services {
-   background-color: rgba($primary-color, 0.3);
   }
   &.gb-explorer-row {
    background-color: rgba($explorer-color, 0.1);
