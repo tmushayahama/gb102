@@ -1157,78 +1157,66 @@ Copyright (c) 2014 Daniel Eden
   color: #411d1d;
 }
 
-.gb-icon-top-nav-4 {
+.gb-icon-top-nav-2 {
+  height: 39px;
   padding: 0;
+  margin: 0;
   list-style: none;
   background-color: #FFF;
-  text-align: center;
 }
-.gb-icon-top-nav-4 a {
+.gb-icon-top-nav-2 .gb-more-btn {
+  margin: 3px 5px 0 0;
+  z-index: 0;
+}
+.gb-icon-top-nav-2 a {
+  text-align: center;
   display: block;
   height: 100%;
   width: 100%;
-  border-right: #DDD solid 1px;
+  border-radius: 0;
   text-decoration: none;
 }
-.gb-icon-top-nav-4 a .gb-icon {
-  color: rgba(65, 29, 29, 0.8);
+.gb-icon-top-nav-2 a .gb-icon {
+  padding: 8px 5px 7px 2px;
+  font-size: 20px;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
 }
-.gb-icon-top-nav-4 a .gb-title {
+.gb-icon-top-nav-2 a .gb-title {
+  font-size: 10px;
+  float: left;
   color: #777;
 }
-.gb-icon-top-nav-4:hover a {
-  color: rgba(65, 29, 29, 0.5);
+.gb-icon-top-nav-2:hover a {
+  color: #2f1515;
 }
-.gb-icon-top-nav-4.active a {
-  color: #411d1d;
+.gb-icon-top-nav-2.active a {
+  color: #1e0d0d;
 }
-.gb-icon-top-nav-4 > li {
-  border-bottom: transparent solid 5px;
+.gb-icon-top-nav-2 > li {
+  margin: 0 10px;
+  display: inline-block;
 }
-.gb-icon-top-nav-4 > li a {
-  padding: 10px 2px 10px 2px;
+.gb-icon-top-nav-2 > li a {
+  border-bottom: transparent solid 4px;
 }
-.gb-icon-top-nav-4 > li a .gb-icon {
-  font-size: 35px;
-  margin-bottom: 10px;
+.gb-icon-top-nav-2 > li:hover a {
+  border-bottom: rgba(65, 29, 29, 0.4) solid 4px;
 }
-.gb-icon-top-nav-4 > li a .gb-title {
-  font-size: 10px;
+.gb-icon-top-nav-2 > li.active a {
+  border-bottom: rgba(65, 29, 29, 0.8) solid 4px;
 }
-@media (max-width: 991px) {
-  .gb-icon-top-nav-4 > li a {
-    padding: 5px 2px 5px 2px;
-  }
-  .gb-icon-top-nav-4 > li a .gb-icon {
-    font-size: 25px;
-    margin-bottom: 10px;
-  }
-}
-.gb-icon-top-nav-4 > li:hover {
-  border-bottom: rgba(65, 29, 29, 0.4) solid 5px;
-}
-.gb-icon-top-nav-4 > li.active {
-  border-bottom: rgba(65, 29, 29, 0.8) solid 5px;
-}
-.gb-icon-top-nav-4 > li li a {
+.gb-icon-top-nav-2 > li li a {
   border-left: transparent solid 4px;
-  padding: 5px 2px 5px 2px;
 }
-.gb-icon-top-nav-4 > li li a .gb-icon {
-  float: left;
-  font-size: 24px;
-  margin-right: 5px;
+.gb-icon-top-nav-2 > li li a .gb-title {
+  padding-top: 8px;
 }
-.gb-icon-top-nav-4 > li li a .gb-title {
-  float: left;
-  padding-top: 5px;
-  font-size: 12px;
-}
-.gb-icon-top-nav-4 > li li:hover {
+.gb-icon-top-nav-2 > li li:hover {
   background-color: transparent;
   border-left: rgba(65, 29, 29, 0.4) solid 4px;
 }
-.gb-icon-top-nav-4 > li li.active {
+.gb-icon-top-nav-2 > li li.active {
   background-color: transparent;
   border-left: rgba(65, 29, 29, 0.8) solid 4px;
 }
@@ -3236,6 +3224,11 @@ md-input-container.md-input-focused .md-input {
   min-height: 20px;
   min-width: 22px;
 }
+.md-button.md-fab.md-mini.gb-xs {
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+}
 .md-button.gb-color-primary {
   color: #411D1D;
 }
@@ -3262,7 +3255,11 @@ md-radio-button.gb-primary .md-on {
 }
 
 .md-primary {
+  color: #EEE !important;
   background-color: #411D1D !important;
+}
+.md-primary:hover {
+  background-color: #2f1515 !important;
 }
 
 html {
@@ -3369,31 +3366,37 @@ input[type="checkbox"] {
   outline: none;
 }
 
+.gb-heading-container-1 {
+  background-color: #FFF;
+  padding: 10px 10px 0 10px !important;
+}
+.gb-heading-container-1 .gb-heading-row-1 {
+  margin-bottom: 20px;
+}
+
 .gb-heading-row-1 {
+  position: relative;
   height: 40px;
   margin: 10px 0;
-  padding: 0 0 5px 0;
-  background-color: #FFF;
 }
 .gb-heading-row-1 .gb-heading-icon {
   position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 15px;
-  padding: 10px 0;
-  width: 60px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
   display: block;
-  background-color: rgba(65, 29, 29, 0.8);
-  color: #F2F2F2;
-  font-size: 30px;
+  color: #AAA;
+  font-size: 20px;
+  line-height: 45px;
   text-align: center;
-  border-radius: 5px;
 }
 .gb-heading-row-1 .gb-title {
-  padding: 7px 0 0 80px;
+  padding: 6px 0 0 45px;
   margin-right: 5px;
-  font-size: 20px;
-  color: rgba(65, 29, 29, 0.8);
+  font-size: 18px;
+  font-weight: bold;
+  color: #777;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -3409,7 +3412,7 @@ input[type="checkbox"] {
   border-bottom: rgba(65, 29, 29, 0.4) solid 1px;
 }
 .gb-heading-row-1 .gb-action.md-button {
-  height: 40px;
+  height: 35px;
   min-width: 40px;
   max-width: 150px;
   margin: 0;
@@ -3560,12 +3563,7 @@ input[type="checkbox"] {
 
 .gb-app-list {
   -webkit-overflow-scrolling: touch;
-  padding-top: 20px;
-}
-@media (max-width: 991px) {
-  .gb-app-list {
-    padding-top: 0px;
-  }
+  padding-top: 135px;
 }
 @media (max-width: 767px) {
   .gb-app-list {
@@ -5339,7 +5337,7 @@ input.gb-form-show {
   text-transform: uppercase;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-description {
-  padding: 10px 10px 2px 0px;
+  padding: 0px 5px 2px 0px;
   max-height: 51px;
   display: block;
   /* Fallback for non-webkit */

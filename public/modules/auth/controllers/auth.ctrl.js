@@ -21,7 +21,7 @@ var authCtrl = function (
   'discover skills',
   'keep promises',
   'get mentorship',
-  'explorer hobby',
+  'explore hobby',
   'collaborate on skills',
  ];
  var headerWordIndex = 0;

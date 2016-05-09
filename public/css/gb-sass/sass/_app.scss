@@ -57,6 +57,11 @@ md-input-container.md-input-focused .md-input {
 .md-button {
  min-height: 20px;
  min-width: 22px;
+ &.md-fab.md-mini.gb-xs {
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+ }
  &.gb-color-primary {
   color: $primary-color;
  }
@@ -83,7 +88,11 @@ md-radio-button.gb-primary .md-on {
 }
 
 .md-primary {
+ color: #EEE!important;
  background-color: $primary-color!important;
+ &:hover {
+  background-color: darken($primary-color, 5%)!important;
+ }
 }
 
 html {
@@ -201,32 +210,42 @@ input[type="checkbox"] {
 }
 
 //-----------HEADINGS-------------//
+.gb-heading-container-1 {
+ background-color: #FFF;
+ padding: 10px 10px 0 10px!important;
+ .gb-heading-row-1 {
+  margin-bottom: 20px;
+ }
+}
 .gb-heading-row-1 {
+ position: relative;
  height: 40px;
  margin: 10px 0;
- padding: 0 0 5px 0;
- background-color: #FFF;
+ //padding: 0 0 5px 0;
+ //background-color: #FFF;
 
  .gb-heading-icon {
-  @include position(absolute, 5px null 5px 15px);
-  padding: 10px 0;
-  width: 60px;
+  @include position(absolute, 0 null 0 0);
+  //padding: 10px 0;
+  width: 50px;
   display: block;
-  background-color: rgba($primary-color, 0.8);
-  color: #F2F2F2;
-  font-size: 30px;
+  color: #AAA;
+  font-size: 20px;
+  line-height: 45px;
   text-align: center;
-  border-radius: 5px;
+  //border-radius: 5px;
  }
 
  .gb-title {
-  padding: 7px 0 0 80px;
+  padding: 6px 0 0 45px;
   margin-right: 5px;
-  font-size: 20px;
-  color: rgba($primary-color, 0.8);
+  font-size: 18px;
+  font-weight: bold;
+  color: #777;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
+
   &.gb-small {
    padding: 0 0 0 0;
    font-size: 15px;
@@ -239,7 +258,7 @@ input[type="checkbox"] {
   border-bottom: rgba($primary-color, 0.4) solid 1px;
  }
  .gb-action.md-button {
-  height: 40px;
+  height: 35px;
   min-width: 40px;
   max-width: 150px;
   margin: 0;
@@ -380,7 +399,7 @@ input[type="checkbox"] {
 
 .dropdown-menu.gb-full-width {
  left: 0!important;
- right: 0!important;
+ right: 0!important; 
 }
 .gb-home-menu {
  -webkit-overflow-scrolling: touch;
@@ -395,9 +414,9 @@ input[type="checkbox"] {
 .gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
- padding-top: 20px;
+ padding-top: 135px;
  @include respond-to (gb-sm) {
-  padding-top: 0px;
+  //padding-top: 0px;
  }
  @include respond-to (gb-xs) {
   padding-top: 0px;
@@ -1376,7 +1395,7 @@ input.gb-form-show{
    font-size: 30px;
    color: darken($primary-color, 5%);
    .gb-image-icon {
-    margin-top: -4px;  
+    margin-top: -4px;
     width: 100%;
     padding: 2px;
    }
@@ -2120,7 +2139,7 @@ input.gb-form-show{
    }
    .gb-description {
     //@include position(absolute, 23px 0 50px 0);
-    padding: 10px 10px 2px 0px;
+    padding: 0px 5px 2px 0px;
     max-height: 51px;
     display: block;
     /* Fallback for non-webkit */
