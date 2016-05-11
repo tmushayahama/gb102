@@ -347,6 +347,10 @@ input[type="checkbox"] {
 
 .gb-body-row-1 {
  margin: 20px 0;
+ @include respond-to (gb-sm) {
+  padding-left: 10px;
+  padding-right: 10px;
+ }
 }
 
 .gb-info-row-1 {
@@ -399,7 +403,7 @@ input[type="checkbox"] {
 
 .dropdown-menu.gb-full-width {
  left: 0!important;
- right: 0!important; 
+ right: 0!important;
 }
 .gb-home-menu {
  -webkit-overflow-scrolling: touch;

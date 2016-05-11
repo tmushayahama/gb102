@@ -2772,7 +2772,6 @@ tags-input .autocomplete .suggestion-item em {
 
 .dynamic-grid {
   position: relative;
-  display: none;
 }
 
 .dynamic-grid.angular-grid {
@@ -2788,46 +2787,42 @@ tags-input .autocomplete .suggestion-item em {
   overflow: hidden;
 }
 
+/*
 .grid.ng-leave {
-  -webkit-transition: all ease 400ms;
-  transition: all ease 400ms;
+ -webkit-transition: all ease 400ms;
+ transition: all ease 400ms;
 }
-
 .grid.ng-leave.ng-leave-active {
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  opacity: 0;
+ -webkit-transform: scale(0.5);
+ transform: scale(0.5);
+ opacity: 0;
 }
-
 .grid.ng-enter {
-  -webkit-transition: all ease 400ms;
-  transition: all ease 400ms;
-  -webkit-transition-delay: 500ms;
-  transition-delay: 500ms;
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  opacity: 0;
+ -webkit-transition: all ease 400ms;
+ transition: all ease 400ms;
+ -webkit-transition-delay: 500ms;
+ transition-delay: 500ms;
+ -webkit-transform: scale(0.5);
+ transform: scale(0.5);
+ opacity: 0;
 }
-
 .grid.ng-enter.ng-enter-active {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  opacity: 1;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+ opacity: 1;
 }
-
 .grid-img {
-  width: 100%;
-  vertical-align: middle;
-  background-color: #fff;
-  opacity: 0;
-  visibility: hidden;
+ width: 100%;
+ vertical-align: middle;
+ background-color: #fff;
+ opacity: 0;
+ visibility: hidden;
 }
-
 .grid-img.img-loaded {
-  visibility: visible;
-  opacity: 1;
+ visibility: visible;
+ opacity: 1;
 }
-
+*/
 /*!
 angular-xeditable - 0.1.9
 Edit-in-place for angular.js
@@ -3497,6 +3492,12 @@ input[type="checkbox"] {
 
 .gb-body-row-1 {
   margin: 20px 0;
+}
+@media (max-width: 991px) {
+  .gb-body-row-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .gb-info-row-1 {

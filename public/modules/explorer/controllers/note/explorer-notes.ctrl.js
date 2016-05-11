@@ -38,7 +38,8 @@ var explorerNotesCtrl = function (
   vm.explorerNotesSrv.createExplorerNote(data).then(function (response) {
    vm.noteFormDisplay = false;
    vm.newExplorerNoteData = angular.copy(vm.defaultExplorerNoteData);
-   vm.explorerNotesCopy = angular.copy(vm.explorerNotes);
+   //vm.explorerNotesCopy = angular.copy(vm.explorerNotes);
+   vm.explorerNotes.unshift(response);
   }, function (response) {
    console.log(response);
   });

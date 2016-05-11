@@ -42,7 +42,7 @@ var explorerActivitiesCtrl = function (
   vm.explorerActivitiesSrv.createExplorerActivity(data).then(function (response) {
    vm.activityFormDisplay = false;
    vm.newExplorerActivityData = angular.copy(vm.defaultExplorerActivityData);
-   vm.explorerActivitiesCopy = angular.copy(vm.explorerActivities);
+   vm.explorerActivities.unshift(response);
   }, function (response) {
    console.log(response);
   });

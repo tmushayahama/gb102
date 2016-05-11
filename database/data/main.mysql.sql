@@ -175,8 +175,6 @@ CREATE TABLE `gb_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
 --
 -- Table structure for table `gb_checklist`
 --
@@ -203,7 +201,6 @@ CREATE TABLE `gb_checklist` (
 --
 -- Table structure for table `gb_comment`
 --
-
 DROP TABLE IF EXISTS `gb_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -227,7 +224,6 @@ CREATE TABLE `gb_comment` (
 --
 -- Table structure for table `gb_contribution`
 --
-
 DROP TABLE IF EXISTS `gb_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -254,7 +250,6 @@ CREATE TABLE `gb_contribution` (
 --
 -- Table structure for table `gb_discussion`
 --
-
 DROP TABLE IF EXISTS `gb_discussion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -273,27 +268,6 @@ CREATE TABLE `gb_discussion` (
   KEY `discussion_parent_discussion_id` (`parent_discussion_id`),
   CONSTRAINT `discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `discussion_parent_discussion_id` FOREIGN KEY (`parent_discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-DROP TABLE IF EXISTS `gb_exercise`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_exercise` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_exercise_id` int(11),
-  `creator_id` int(11) NOT NULL,
-  `title` varchar(1000) NOT NULL DEFAULT "",
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `exercise_creator_id` (`creator_id`),
-  KEY `exercise_parent_exercise_id` (`parent_exercise_id`),
-  CONSTRAINT `exercise_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `exercise_parent_exercise_id` FOREIGN KEY (`parent_exercise_id`) REFERENCES `gb_exercise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -364,12 +338,10 @@ CREATE TABLE `gb_level` (
   `description` varchar(150),
   `icon` varchar(50) NOT NULL,
   `app_type_id` int(11) NOT NULL,
-
   PRIMARY KEY (`id`),
   KEY `level_app_type_id` (`app_type_id`),
   CONSTRAINT `level_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Table structure for table `gb_message`
@@ -392,8 +364,6 @@ CREATE TABLE `gb_message` (
   KEY `message_sender_id` (`sender_id`),
   CONSTRAINT `message_sender_id` FOREIGN KEY (`sender_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 
 --
 -- Table structure for table `gb_message_receipient`
@@ -427,7 +397,7 @@ CREATE TABLE `gb_note` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -522,7 +492,7 @@ CREATE TABLE `gb_plan_objective` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
- `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -535,7 +505,6 @@ CREATE TABLE `gb_plan_objective` (
 --
 -- Table structure for table `gb_notification`
 --
-
 DROP TABLE IF EXISTS `gb_notification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;

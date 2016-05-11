@@ -1,12 +1,12 @@
 .dynamic-grid {
  position: relative;
- display: none;
+ //display: none;
 }
 .dynamic-grid.angular-grid {
  display: block;
 }
 .grid {
- position: absolute; 
+ position: absolute;
  list-style: none;
  //background: #ffffff;
  box-sizing: border-box;
@@ -15,6 +15,7 @@
  overflow: hidden;
  //border-radius: 10px;
 }
+/*
 .grid.ng-leave {
  -webkit-transition: all ease 400ms;
  transition: all ease 400ms;
@@ -49,3 +50,4 @@
  visibility: visible;
  opacity: 1;
 }
+*/

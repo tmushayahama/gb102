@@ -42,7 +42,7 @@ var explorerGuidelinesCtrl = function (
   vm.explorerGuidelinesSrv.createExplorerGuideline(data).then(function (response) {
    vm.guidelineFormDisplay = false;
    vm.newExplorerGuidelineData = angular.copy(vm.defaultExplorerGuidelineData);
-   vm.explorerGuidelinesCopy = angular.copy(vm.explorerGuidelines);
+   vm.explorerGuidelines.unshift(response);
   }, function (response) {
    console.log(response);
   });

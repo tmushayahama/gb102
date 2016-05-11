@@ -30,7 +30,10 @@ var explorerObjectivesCtrl = function (
   vm.explorerObjectivesSrv.createExplorerObjective(data).then(function (response) {
    vm.objectiveFormDisplay = false;
    vm.newExplorerObjectiveData = angular.copy(vm.defaultExplorerObjectiveData);
-   vm.explorerObjectivesCopy = angular.copy(vm.explorerObjectivesSrv.explorerObjectives);
+   // vm.explorerObjectivesCopy = angular.copy(vm.explorerObjectivesSrv.explorerObjectives);
+   // vm.explorerObjectivesSrv.explorerObjectives
+
+
   }, function (response) {
    console.log(response);
   });
@@ -66,21 +69,7 @@ var explorerObjectivesCtrl = function (
 
  vm.revertExplorerObjective = function (explorerObjective, explorerObjectiveCopy) {
   explorerObjective = explorerObjectiveCopy;
-  /*
-   $filter('filter')
-   (vm.explorerObjectivesSrv.explorerObjectives, {id: explorerObjectiveId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.explorerObjectivesCopy, {id: explorerObjectiveId}, true)[0]);
-   if (explorerObjective.length && explorerObjectiveCopy.length) {
-   // vm.explorerObjectivesSrv.explorerObjectives angular.copy(vm.explorerObjectivesCopy);
-   }
-   */
  };
-
-
-
-
-
 
  vm.editedObjective = null;
 
@@ -92,18 +81,6 @@ var explorerObjectivesCtrl = function (
   vm.allChecked = !vm.remainingCount;
   //ExplorerObjectiveService.put(vm.explorerObjectives);
  }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
-
 
  vm.editObjective = function (explorerObjective) {
   vm.editedObjective = explorerObjective;
