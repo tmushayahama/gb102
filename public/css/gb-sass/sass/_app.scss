@@ -428,12 +428,12 @@ input[type="checkbox"] {
 }
 .gb-app-detail {
  margin-top: 50px;
- overflow-y: scroll;
+ //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
 }
 .gb-container.gb-app-detail-2 {
  margin-top: 50px;
- overflow-y: scroll;
+ //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
 }
 
@@ -442,8 +442,8 @@ input[type="checkbox"] {
  height: auto;
 
  //overflow-y: hidden;
- overflow-y: scroll;
- overflow-x: hidden;
+ //overflow-y: scroll;
+ //overflow-x: hidden;
  -webkit-overflow-scrolling: touch;
  //background-color: rgba($primary-color, 0.2);
 
