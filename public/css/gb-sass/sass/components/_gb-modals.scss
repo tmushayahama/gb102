@@ -5,7 +5,9 @@
 
 // Base styles
 // --------------------------------------------------
-
+.modal-body {
+ padding: 6px;
+}
 .gb-modal-footer-btn {
  text-transform: capitalize;
 }
@@ -14,6 +16,16 @@
  .modal-content {
   min-height: 260px;
   max-height: 320px;
+ }
+ @include respond-to (gb-xs) {
+  width: 250px;
+ }
+}
+
+.modal-registration {
+ width: 350px;
+ .modal-content {
+  height: 440px;
  }
  @include respond-to (gb-xs) {
   width: 250px;

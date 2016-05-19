@@ -381,6 +381,10 @@ btn:focus {
   font-size: 25px;
 }
 
+.modal-body {
+  padding: 6px;
+}
+
 .gb-modal-footer-btn {
   text-transform: capitalize;
 }
@@ -394,6 +398,18 @@ btn:focus {
 }
 @media (max-width: 767px) {
   .modal-login {
+    width: 250px;
+  }
+}
+
+.modal-registration {
+  width: 350px;
+}
+.modal-registration .modal-content {
+  height: 440px;
+}
+@media (max-width: 767px) {
+  .modal-registration {
     width: 250px;
   }
 }
