@@ -1,19 +1,155 @@
 <div class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
  <div class="container">
   <div class="row gb-navbar-container">
+   <div class="gb-header col-lg-5 col-md-4 col-sm-4 col-xs-4">
+    <div class="row">
+     <md-button ui-sref="apps.home" class="gb-link"
+                ng-class="{
+                   active: ('apps.home' | includedByState)
+                  }">
+      <div class="gb-icon">
+       <i class="fa icon-home"></i>
+      </div>
+     </md-button>
+     <md-button ui-sref="apps.explorer.all" class="gb-link"
+                ng-class="{
+                   active: ('apps.explorer' | includedByState)
+                  }">
+      <div class="gb-icon">
+       <i class="fa icon-gb-explorer"></i>
+      </div>
+     </md-button>
+     <md-button ui-sref="apps.swipes.swipe" class="gb-link"
+                ng-class="{
+                   active: ('apps.swipes' | includedByState)
+                  }">
+      <div class="gb-icon">
+       <i class="fa icon-gb-swipe"></i>
+      </div>
+     </md-button>
+     <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link"
+                ng-class="{
+                   active: ('apps.questionnaires' | includedByState)
+                  }">
+      <div class="gb-icon">
+       <i class="fa icon-gb-matcher"></i>
+      </div>
+     </md-button>
+     <div ng-if="false" class="btn-group">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa icon-gb-apply"></i>
+       </div>
+      </md-button>
+      <div class="dropdown-menu gb-dropdown-menu-right-1">
+       <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.mentorships' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-mentorships"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         MENTORSHIP
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.teachs.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.teachs' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-teach"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         TEACH
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.advices.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.advices' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-advices"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         ADVISE
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.collaborations.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.collaborations' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-collaborations"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         COLLABORATION
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.goals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.goals' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-goals"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         GOAL
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.journals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.journal' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-journals"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         JOURNAL
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.projects' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-project"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         PROJECTS
+        </div>
+       </md-button>
+       <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  ng-class="{
+                   active: ('apps.group' | includedByState)
+                  }">
+        <div class="gb-icon">
+         <i class="fa icon-gb-groups"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         GROUPS
+        </div>
+       </md-button>
+      </div>
+     </div>
+    </div>
+   </div>
    <div class="gb-header col-lg-2 col-md-3 col-sm-3 col-xs-2">
     <a ng-click="appsCtrl.openMenuModal('left')"
-       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm visible-xs">
+       class="gb-menu-bars btn btn-link hidden-lg hidden-md hidden-sm hidden-xs">
      <i class="fa fa-bars"></i>
     </a>
-    <a class="gb-logo" ui-sref="apps.home">
+    <a class="gb-logo text-center col-lg-12 col-md-12 col-sm-12 col-xs-12" ui-sref="apps.home">
      <i class="gb-logo-icon fa icon-gb-logo"></i>
-     <div class="pull-left visible-lg visible-md visible-sm hidden-xs">
-      <strong>SKILL</strong>SECTION<br>
+     <div class="gb-logo-name" >
+      <p class="visible-lg visible-md visible-sm hidden-xs">
+       <strong>SKILL</strong>SECTION
+      </p>
      </div>
     </a>
    </div>
-   <div class="gb-search col-lg-6 col-md-6 col-sm-7 col-xs-7">
+   <div ng-if="false" class="gb-search col-lg-6 col-md-6 col-sm-7 col-xs-7">
     <form ng-submit="appsCtrl.search()" class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
      <div class="form-group gb-input-form-group">
       <input class="form-control" type="text" ng-model="$root.searchKeyword"
@@ -41,7 +177,7 @@
      </div>
     </form>
    </div>
-   <div class="gb-action col-lg-4 col-md-3 col-sm-2 col-xs-3">
+   <div class="gb-action col-lg-5 col-md-3 col-sm-2 col-xs-3">
     <div class=" pull-right">
      <div class="btn-group">
       <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

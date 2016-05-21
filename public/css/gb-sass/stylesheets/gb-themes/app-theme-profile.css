@@ -1114,6 +1114,191 @@ Copyright (c) 2014 Daniel Eden
   top: 50px;
 }
 
+.gb-top-nav-4 {
+  padding: 50px 5px 50px 5px !important;
+  height: 200px;
+  list-style: none;
+  color: #EEE;
+  background-color: rgba(0, 85, 66, 0.6);
+  margin: 0;
+}
+.gb-top-nav-4 .container {
+  height: 100%;
+}
+.gb-top-nav-4 .gb-navbar-container {
+  position: relative;
+  height: 100%;
+}
+.gb-top-nav-4:hover {
+  opacity: 1;
+}
+.gb-top-nav-4 .gb-heading-row-1 {
+  height: 40px;
+  margin: 0;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-color: #FFF;
+  color: rgba(0, 85, 66, 0.6);
+  font-size: 40px;
+  line-height: 110px;
+  text-align: center;
+  border-radius: 50%;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  bottom: 0;
+  left: 100px;
+  padding: 30px 0 30px 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: normal;
+  color: #FFF;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-small {
+  padding: 0 0 0 0;
+  font-size: 15px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-filter-btn {
+  color: #656565;
+  margin-top: 5px;
+  border: none;
+  border-bottom: rgba(0, 85, 66, 0.4) solid 1px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button {
+  height: 35px;
+  min-width: 40px;
+  max-width: 150px;
+  margin: 0;
+}
+.gb-top-nav-4 .gb-link {
+  margin: 0 8px 0 0;
+  line-height: 40px;
+}
+.gb-top-nav-4 .gb-link .gb-icon {
+  color: #BBB;
+  font-size: 15px;
+}
+.gb-top-nav-4 .gb-link.active .gb-icon {
+  color: #FFF;
+}
+.gb-top-nav-4 .gb-title {
+  margin-right: 10px;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+  line-height: 40px;
+  color: white;
+}
+.gb-top-nav-4 .gb-action {
+  padding-top: 2px;
+}
+.gb-top-nav-4 .gb-action .btn {
+  color: #bbfff0;
+  margin-left: 5px;
+}
+@media (max-width: 767px) {
+  .gb-top-nav-4 .gb-action .btn {
+    margin-left: 0px;
+  }
+}
+.gb-top-nav-4 .gb-menu-icon {
+  font-size: 20px;
+}
+
+.gb-icon-nav-1 {
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+}
+.gb-icon-nav-1 .gb-body {
+  padding: 0px 0 0px 0;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+}
+.gb-icon-nav-1 .gb-link {
+  margin: 0;
+  text-align: center;
+  padding: 10px 2px 5px 2px;
+  text-decoration: none;
+  border-bottom: transparent solid 3px;
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+}
+.gb-icon-nav-1 .gb-link .gb-icon {
+  display: block;
+  margin: 0 auto 5px auto;
+  line-height: 35px;
+  min-width: 0;
+  width: 35px;
+  height: 35px;
+  background-clip: padding-box;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition-property: background-color,box-shadow,-webkit-transform;
+  transition-property: background-color,box-shadow,transform;
+  font-size: 30px;
+}
+@media (max-width: 991px) {
+  .gb-icon-nav-1 .gb-link .gb-icon {
+    font-size: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .gb-icon-nav-1 .gb-link .gb-icon {
+    font-size: 15px;
+  }
+}
+.gb-icon-nav-1 .gb-link .gb-title {
+  padding: 10px 0px 10px 0px;
+  font-size: 8px;
+  color: #333;
+  line-height: 12px;
+  overflow: hidden;
+}
+.gb-icon-nav-1 .gb-link .gb-description {
+  padding: 3px 5px;
+  font-size: 0.9em;
+  color: #777;
+  text-decoration: none;
+}
+.gb-icon-nav-1 .gb-link:hover {
+  border-bottom: rgba(0, 85, 66, 0.5) solid 3px;
+}
+.gb-icon-nav-1 .gb-link:hover .gb-title {
+  font-weight: bold;
+  font-size: 9px;
+}
+.gb-icon-nav-1 .gb-link:hover .gb-icon {
+  color: #003c2e;
+}
+.gb-icon-nav-1 .gb-link.active {
+  border-bottom: rgba(0, 85, 66, 0.7) solid 3px;
+}
+.gb-icon-nav-1 .gb-link.active .gb-title {
+  font-weight: bold;
+  font-size: 9px;
+}
+.gb-icon-nav-1 .gb-link .gb-image-icon {
+  width: 100%;
+  padding: 0px;
+  margin-right: 7px;
+}
+
 .gb-nav-1 {
   padding: 0;
   margin: 0;
@@ -3506,11 +3691,64 @@ input[type="checkbox"] {
   margin: 0;
 }
 
+.gb-heading-row-4 {
+  position: relative;
+  height: 40px;
+  margin: 5px 0;
+}
+.gb-heading-row-4 .gb-heading-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  display: block;
+  color: #AAA;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+}
+.gb-heading-row-4 .gb-title {
+  padding: 6px 0 0 45px;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #777;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+}
+.gb-heading-row-4 .gb-title.gb-small {
+  padding: 0 0 0 0;
+  font-size: 15px;
+}
+.gb-heading-row-4 .gb-filter-btn {
+  color: #656565;
+  margin-top: 5px;
+  border: none;
+  border-bottom: rgba(0, 85, 66, 0.4) solid 1px;
+}
+.gb-heading-row-4 .gb-action.md-button {
+  height: 35px;
+  min-width: 40px;
+  max-width: 150px;
+  margin: 0;
+}
+
 .gb-body-row-1 {
   margin: 20px 0;
 }
 @media (max-width: 991px) {
   .gb-body-row-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.gb-body-row-4 {
+  margin: 0 0 10px 0;
+}
+@media (max-width: 991px) {
+  .gb-body-row-4 {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -3580,7 +3818,7 @@ input[type="checkbox"] {
 
 .gb-app-list {
   -webkit-overflow-scrolling: touch;
-  padding-top: 135px;
+  padding-top: 41px;
 }
 @media (max-width: 767px) {
   .gb-app-list {
@@ -4458,22 +4696,15 @@ input.gb-form-show {
   font-size: 15px;
 }
 .gb-logo .gb-logo-icon {
-  float: left;
-  margin-right: 5px;
-  line-height: 38px;
+  font-size: 12px;
+  line-height: 30px;
   color: #bbfff0;
 }
-.gb-logo .fa-lg {
-  font-size: 14px;
-  text-align: center;
-}
-.gb-logo .fa-lg .fa-outer {
-  color: #bbfff0;
-}
-.gb-logo .fa-lg .fa-inner {
-  color: #bbfff0;
+.gb-logo .gb-logo-name {
+  display: inline-block;
 }
 .gb-logo strong {
+  font-weight: 850;
   color: #bbfff0;
 }
 .gb-logo .gb-beta {
@@ -5017,12 +5248,23 @@ input.gb-form-show {
   padding: 8px 20px;
   border-left: #CCC solid 1px;
   border-right: #CCC solid 1px;
-  color: #777;
+  color: rgba(0, 34, 26, 0.7);
 }
 .gb-top-nav-1 .gb-header .gb-app-name .btn {
   padding: 4px 10px 4px 10px;
   height: 100%;
   font-size: 10px;
+}
+.gb-top-nav-1 .gb-link {
+  margin: 0 8px 0 0;
+  line-height: 40px;
+}
+.gb-top-nav-1 .gb-link .gb-icon {
+  color: #BBB;
+  font-size: 15px;
+}
+.gb-top-nav-1 .gb-link.active .gb-icon {
+  color: #FFF;
 }
 .gb-top-nav-1 .gb-title {
   margin-right: 10px;
@@ -6774,4 +7016,44 @@ input.gb-form-show {
    must be set to 0 to avoid an accidental CSS inheritance */
   -webkit-transition-duration: 0s;
   transition-duration: 0s;
+}
+
+.gb-background-color-advice {
+  background-color: rgba(154, 109, 54, 0.3);
+  color: #87602f;
+}
+
+.gb-background-color-collaboration {
+  background-color: rgba(29, 63, 0, 0.3);
+  color: #112600;
+}
+
+.gb-background-color-goal {
+  background-color: rgba(0, 34, 119, 0.3);
+  color: #001b5e;
+}
+
+.gb-background-color-hobby {
+  background-color: rgba(65, 100, 42, 0.3);
+  color: #355222;
+}
+
+.gb-background-color-skill {
+  background-color: rgba(2, 120, 135, 0.3);
+  color: #02626e;
+}
+
+.gb-background-color-mentorship {
+  background-color: rgba(7, 117, 104, 0.3);
+  color: #065d53;
+}
+
+.gb-background-color-promise {
+  background-color: rgba(94, 45, 53, 0.3);
+  color: #4d252b;
+}
+
+.gb-background-color-teach {
+  background-color: rgba(65, 29, 29, 0.3);
+  color: #2f1515;
 }

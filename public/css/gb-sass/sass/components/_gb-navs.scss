@@ -3,6 +3,219 @@
  top: 50px;
 }
 
+.gb-top-nav-4 {
+ padding: 50px 5px 50px 5px!important;
+ height: 200px;
+ list-style: none;
+ color: #EEE;
+ background-color: rgba($primary-color, 0.6);
+ //border-bottom: rgba($primary-color, 0.8) solid 3px;
+ margin: 0;
+
+
+ .container {
+  height: 100%;
+ }
+ .gb-navbar-container {
+  position: relative;
+  height: 100%;
+ }
+
+ &:hover {
+  opacity: 1;
+ }
+ .gb-heading-row-1 {
+  height: 40px;
+  margin: 0;
+
+  .gb-heading-icon {
+   @include position(absolute, 0 null 0 0);
+   //padding: 10px 0;
+   width: 100px;
+   height: 100px;
+   display: block;
+   background-color: #FFF;
+   color: rgba($primary-color, 0.6);
+   font-size: 40px;
+   line-height: 110px;
+   text-align: center;
+   border-radius: 50%;
+  }
+
+  .gb-title {
+   @include position(absolute, 0 100px 0 100px);
+   padding: 30px 0 30px 10px;
+   font-size: 20px;
+   text-transform: capitalize;
+   font-weight: normal;
+   color: #FFF;
+
+   &.gb-small {
+    padding: 0 0 0 0;
+    font-size: 15px;
+   }
+  }
+  .gb-filter-btn {
+   color: #656565;
+   margin-top: 5px;
+   border: none;
+   border-bottom: rgba($primary-color, 0.4) solid 1px;
+  }
+  .gb-action.md-button {
+   height: 35px;
+   min-width: 40px;
+   max-width: 150px;
+   margin: 0;
+  }
+ }
+ .gb-link {
+
+  margin: 0 8px 0 0;
+  line-height: 40px;
+  .gb-icon {
+   color: #BBB;
+   font-size: 15px;
+  }
+  &.active {
+   .gb-icon {
+    color: #FFF;
+   }
+  }
+ }
+ .gb-search {
+  //@include position(absolute, 0 100px 0 150px);
+ }
+
+ .gb-title {
+  margin-right:10px;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+  line-height: 40px;
+  color: lighten($primary-color, 90%);
+ }
+
+ .gb-action {
+  //@include position(absolute, 0 3px 0 null);
+  //width: 100px;
+  padding-top: 2px;
+  .btn{
+   color: lighten($primary-color, 70%);
+   margin-left: 5px;
+   @include respond-to (gb-xs) {
+    margin-left: 0px;
+   }
+  }
+ }
+ .gb-menu-icon {
+  font-size: 20px;
+ }
+
+
+ @include respond-to (gb-sm) {
+
+ }
+ @include respond-to (gb-xs) {
+  .gb-header {
+  }
+  .gb-search {
+  }
+  .gb-action {
+  }
+ }
+}
+
+.gb-icon-nav-1{
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+ transition: all 0.5s ease;
+ -webkit-backface-visibility: hidden;
+ z-index: 1;
+ .gb-body {
+  padding: 0px 0 0px 0;
+  height: 100%;
+  width: 100%;
+  //@include position(absolute, -10px 0 0 0);
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+ }
+
+ .gb-link {
+  margin: 0;
+  text-align: center;
+  padding:10px 2px 5px 2px;
+  text-decoration: none;
+  border-bottom: transparent solid 3px;
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+  .gb-icon {
+   display: block;
+   margin: 0 auto 5px auto;
+   //background-color: rgba($primary-color, 0.2);
+   line-height: 35px;
+   min-width: 0;
+   width: 35px;
+   height: 35px;
+   // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+   //border-radius: 50%;
+   background-clip: padding-box;
+   overflow: hidden;
+   transition: all .3s cubic-bezier(.55,0,.55,.2);
+   transition-property: background-color,box-shadow,-webkit-transform;
+   transition-property: background-color,box-shadow,transform;
+   font-size: 30px;
+   //color: darken($primary-color, 5%);
+   //color: #
+   @include respond-to (gb-sm) {
+    font-size: 18px;
+   }
+   @include respond-to (gb-xs) {
+    font-size: 15px;
+   }
+  }
+
+  .gb-title {
+   padding:10px 0px 10px 0px;
+   font-size: 8px;
+   color: #333;
+   line-height: 12px;
+   overflow: hidden;
+  }
+  .gb-description{
+   padding: 3px 5px;
+   font-size: 0.9em;
+   color: #777;
+   text-decoration: none;
+  }
+
+  &:hover {
+   border-bottom: rgba($primary-color, 0.5) solid 3px;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+   .gb-icon {
+    color: darken($primary-color, 5%);
+   }
+  }
+  &.active {
+   border-bottom: rgba($primary-color, 0.7) solid 3px;
+   .gb-title {
+    font-weight: bold;
+    font-size: 9px;
+   }
+  }
+
+  .gb-image-icon {
+   width: 100%;
+   padding: 0px;
+   margin-right: 7px;
+  }
+ }
+}
+
 .gb-nav-1 {
  padding: 0;
  margin: 0;

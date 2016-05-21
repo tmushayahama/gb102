@@ -344,9 +344,63 @@ input[type="checkbox"] {
  }
 }
 
+.gb-heading-row-4 {
+ position: relative;
+ height: 40px;
+ margin: 5px 0;
+ //padding: 0 0 5px 0;
+ //background-color: #FFF;
+
+ .gb-heading-icon {
+  @include position(absolute, 0 null 0 0);
+  //padding: 10px 0;
+  width: 50px;
+  display: block;
+  color: #AAA;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  //border-radius: 5px;
+ }
+
+ .gb-title {
+  padding: 6px 0 0 45px;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #777;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+
+  &.gb-small {
+   padding: 0 0 0 0;
+   font-size: 15px;
+  }
+ }
+ .gb-filter-btn {
+  color: #656565;
+  margin-top: 5px;
+  border: none;
+  border-bottom: rgba($primary-color, 0.4) solid 1px;
+ }
+ .gb-action.md-button {
+  height: 35px;
+  min-width: 40px;
+  max-width: 150px;
+  margin: 0;
+ }
+}
 
 .gb-body-row-1 {
  margin: 20px 0;
+ @include respond-to (gb-sm) {
+  padding-left: 10px;
+  padding-right: 10px;
+ }
+}
+
+.gb-body-row-4 {
+ margin: 0 0 10px 0;
  @include respond-to (gb-sm) {
   padding-left: 10px;
   padding-right: 10px;
@@ -418,7 +472,7 @@ input[type="checkbox"] {
 .gb-app-list {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
- padding-top: 135px;
+ padding-top: 41px;
  @include respond-to (gb-sm) {
   //padding-top: 0px;
  }
@@ -1253,23 +1307,15 @@ input.gb-form-show{
  color: lighten($primary-color, 70%);
  font-size: 15px;
  .gb-logo-icon {
-  float: left;
-  margin-right: 5px;
-  line-height: 38px;
+  font-size: 12px;
+  line-height: 30px;
   color: lighten($primary-color, 70%);
  }
- .fa-lg {
-  font-size: 14px;
-  text-align: center;
-  .fa-outer {
-   color: lighten($primary-color, 70%);
-  }
-  .fa-inner{
-   //font-size: 1.3em;
-   color: lighten($primary-color, 70%);
-  }
+ .gb-logo-name {
+  display: inline-block;
  }
  strong {
+  font-weight: 850;
   color: lighten($primary-color, 70%);
  }
  .gb-beta {
@@ -1781,6 +1827,7 @@ input.gb-form-show{
  margin: 0;
  z-index: 900;
 
+
  .container {
   height: 100%;
  }
@@ -1807,11 +1854,26 @@ input.gb-form-show{
    padding: 8px 20px;
    border-left: #CCC solid 1px;
    border-right: #CCC solid 1px;
-   color: #777;
+   color: rgba(darken($primary-color, 10%), 0.7);
    .btn {
     padding: 4px 10px 4px 10px;
     height: 100%;
     font-size: 10px;
+   }
+  }
+ }
+
+ .gb-link {
+
+  margin: 0 8px 0 0;
+  line-height: 40px;
+  .gb-icon {
+   color: #BBB;
+   font-size: 15px;
+  }
+  &.active {
+   .gb-icon {
+    color: #FFF;
    }
   }
  }
@@ -2208,7 +2270,7 @@ input.gb-form-show{
   position: relative;
   padding: 10px 0 0 0;
   overflow: hidden;
-  .gb-icon { 
+  .gb-icon {
    font-size: 50px;
    text-align: center;
    color: rgba($primary-color, 0.8);
@@ -3552,3 +3614,40 @@ input.gb-form-show{
  -webkit-transition-duration: 0s;
  transition-duration: 0s;
 }
+
+.gb-background-color-advice {
+ background-color: rgba($color-advice, 0.3);
+ color: darken($color-advice, 5%);
+}
+.gb-background-color-collaboration {
+ background-color: rgba($color-collaboration, 0.3);
+ color: darken($color-collaboration, 5%);
+}
+.gb-background-color-goal {
+ background-color: rgba($color-goal, 0.3);
+ color: darken($color-goal, 5%);
+}
+.gb-background-color-hobby {
+ background-color: rgba($color-hobby, 0.3);
+ color: darken($color-hobby, 5%);
+}
+.gb-background-color-skill {
+ background-color: rgba($color-skill, 0.3);
+ color: darken($color-skill, 5%);
+}
+.gb-background-color-mentorship {
+ background-color: rgba($color-mentorship, 0.3);
+ color: darken($color-mentorship, 5%);
+}
+.gb-background-color-promise {
+ background-color: rgba($color-promise, 0.3);
+ color: darken($color-promise, 5%);
+}
+.gb-background-color-teach {
+ background-color: rgba($color-teach, 0.3);
+ color: darken($color-teach, 5%);
+}
+
+
+
+
