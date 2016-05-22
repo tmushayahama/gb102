@@ -39,6 +39,11 @@ class ExplorerController extends Controller {
   return \Response::json($explorers);
  }
 
+ public function getExplorersByMode($mode) {
+  $explorers = Explorer::getExplorersByMode($mode);
+  return \Response::json($explorers);
+ }
+
  public function getUserExplorersAll($userId) {
   $explorers = Explorer::getUserExplorersAll($userId);
   return \Response::json($explorers);
@@ -50,7 +55,12 @@ class ExplorerController extends Controller {
  }
 
  public function getExplorers($appName) {
-  $explorers = Explorer::getExplorers($appName);
+  $explorers = Explorer::getExplorers($appName, 40);
+  return \Response::json($explorers);
+ }
+
+ public function getExplorersFeatured($appName) {
+  $explorers = Explorer::getExplorers($appName, 5);
   return \Response::json($explorers);
  }
 

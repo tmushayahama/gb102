@@ -55,6 +55,18 @@ class Explorer extends Model {
   return $explorers;
  }
 
+ public static function getExplorersByMode($mode) {
+  $explorers = Explorer::orderBy('updated_at', 'desc')
+          ->where('list_type', $mode)
+          ->with('app_type')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->take(4)
+          ->get();
+  return $explorers;
+ }
+
  public static function getUserExplorersAll($userId) {
   $explorers = Explorer::orderBy('updated_at', 'desc')
           ->where('creator_id', $userId)
@@ -73,7 +85,7 @@ class Explorer extends Model {
   return array('totalCount' => $explorersCount);
  }
 
- public static function getExplorers($appName) {
+ public static function getExplorers($appName, $limit) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
    $explorers = Explorer::where('app_type_id', $appId->id)
@@ -82,7 +94,7 @@ class Explorer extends Model {
            ->with('creator')
            ->with('icon')
            ->with('level')
-           ->take(50)
+           ->take($limit)
            ->get();
   }
   return $explorers;

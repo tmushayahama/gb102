@@ -809,16 +809,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/discuss
     ignore 1 LINES
     (`id`, `parent_discussion_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
 
--- ----------- APP TYPE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/exercise.txt'
-    into table gb102.gb_exercise
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `parent_exercise_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
-
 -- ----------- LEVEL ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.txt'
     into table gb102.gb_level
@@ -951,16 +941,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/activit
     ignore 1 LINES
    (`id`, `activity_id`, `question_id`,	`privacy`,	`status`);
 
-
--- ----------- EXERCISE ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/exercise.txt'
-    into table gb102.gb_exercise
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `parent_exercise_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
 
 -- ----------- GUIDELINE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/guideline.txt'

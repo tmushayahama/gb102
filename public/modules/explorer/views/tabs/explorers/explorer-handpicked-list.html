@@ -1,0 +1,10 @@
+<div id="gb-explorers" class="gb-list row" finite-scroll="addMoreItems()">
+ <div class="gb-padding-thin">
+
+  <div ng-repeat="explorer in explorersCtrl.explorers.handpicked"
+       gb-explorer-box-2 box-number="$first?'1':'2'" explorer="explorer">
+  </div>
+ </div>
+ <div class="gb-dummy-height row"></div>
+</div>
+<!-- ------------------------------- MODALS --------------------------->

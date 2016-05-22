@@ -10,7 +10,7 @@
  color: #EEE;
  background-color: rgba($primary-color, 0.6);
  //border-bottom: rgba($primary-color, 0.8) solid 3px;
- margin: 0;
+ margin: 0 0 10px 0;
 
 
  .container {
@@ -62,10 +62,21 @@
    border-bottom: rgba($primary-color, 0.4) solid 1px;
   }
   .gb-action.md-button {
-   height: 35px;
+   padding: 10px 20px;
+   height: 50px;
    min-width: 40px;
-   max-width: 150px;
-   margin: 0;
+   //max-width: 150px;
+   line-height: 30px;
+   font-size: 20px;
+   margin: 20px 0 0 0;
+   background-color: #FFF;
+   color: rgba($primary-color, 0.9);
+   border: transparent solid 1px;
+   &:hover {
+    background-color: rgba($primary-color, 0.6);
+    color: #FFF;
+    border: #FFF solid 1px;
+   }
   }
  }
  .gb-link {
@@ -97,6 +108,7 @@
  .gb-action {
   //@include position(absolute, 0 3px 0 null);
   //width: 100px;
+  margin-top: 30px;
   padding-top: 2px;
   .btn{
    color: lighten($primary-color, 70%);
@@ -125,6 +137,7 @@
 }
 
 .gb-icon-nav-1{
+ padding-right: 20px!important;
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;

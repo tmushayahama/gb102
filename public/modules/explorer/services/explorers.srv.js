@@ -22,11 +22,24 @@ var explorersSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
+ ExplorersSrv.prototype.getExplorers = function (mode) {
+  var self = this;
+  var deferred = $q.defer();
+  //self.explorers = [];
+  $http.get('/api/explorers/all/mode/' + mode).success(function (data) {
+   //self.explorers = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorersSrv.prototype.getAllExplorers = function () {
   var self = this;
   var deferred = $q.defer();
   //self.explorers = [];
-  $http.get('/api/explorers/all').success(function (data) {
+  $http.get('/api/explorers/all/').success(function (data) {
    //self.explorers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {
@@ -66,6 +79,19 @@ var explorersSrv = function ($http, $q) {
   var deferred = $q.defer();
   // self.explorers = [];
   $http.get('/api/explorers/all/' + appName).success(function (data) {
+   //self.explorers = data;
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ExplorersSrv.prototype.getAppExplorersFeatured = function (appName) {
+  var self = this;
+  var deferred = $q.defer();
+  // self.explorers = [];
+  $http.get('/api/explorers/all/' + appName + '/featured').success(function (data) {
    //self.explorers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

@@ -30,6 +30,7 @@ define([
  'infinite-scroll',
  'truncate-filters',
  'angular-grid',
+ 'angular-gridster',
  //'dnd-draggable',
  '../auth/module',
  '../search/module',
@@ -72,6 +73,7 @@ define([
   //'gajus.swing',
   'gb-filters.truncate',
   'angularGrid',
+  'gridster',
   //'dndLists',
   'app.auth',
   'app.search',
@@ -158,6 +160,7 @@ define([
                  'public/modules/search/services/search.srv.js',
                  'public/modules/app/controllers/apps.ctrl.js',
                  'public/modules/explorer/directives/explorer-box.drv.js',
+                 'public/modules/explorer/directives/explorer-box-2.drv.js',
                  'public/modules/app/controllers/menu-modal.ctrl.js',
                 ]
                });
@@ -234,6 +237,9 @@ define([
           todo_later: 50001,
           todo_done: 50002,
           contribution_types: 60000,
+          list: {
+           handpicked: 1
+          }
          });
 
  return app;

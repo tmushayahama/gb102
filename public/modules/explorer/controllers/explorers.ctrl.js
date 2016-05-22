@@ -27,6 +27,37 @@ var explorersCtrl = function (
  vm.explorerLevels;
  //vm.appTypes;
 
+ vm.explorers = {
+  handpicked: [],
+  skills: [],
+  goals: [],
+  mentorships: [],
+  advices: [],
+  hobbies: [],
+  promises: [],
+  collaborations: [],
+ }
+ vm.appTypes;
+
+ $rootScope.subAppName = "ALL";
+
+ vm.explorersSrv.getExplorers(level_categories.list.handpicked).then(function (data) {
+  vm.explorers.handpicked = data;
+ });
+
+ vm.getExplorersFeatured = function (appName, populateList) {
+  vm.explorersSrv.getAppExplorersFeatured(appName).then(function (data) {
+   populateList[appName] = data;
+   // vm.explorers.skills = data;
+  });
+ };
+
+ vm.getExplorersFeatured('skills', vm.explorers);
+ vm.getExplorersFeatured('goals', vm.explorers);
+ vm.getExplorersFeatured('mentorships', vm.explorers);
+ vm.getExplorersFeatured('advices', vm.explorers);
+ vm.getExplorersFeatured('hobbies', vm.explorers);
+ vm.getExplorersFeatured('promises', vm.explorers);
 
  vm.createExplorer = function (data) {
   vm.explorersSrv.createExplorer(data).then(function (response) {

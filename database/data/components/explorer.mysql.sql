@@ -15,6 +15,11 @@ CREATE TABLE `gb_explorer` (
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
+  `list_type` int(11) DEFAULT '0',
+  `size_x` int(11) DEFAULT '0',
+	 `size_y` int(11) DEFAULT '0',
+	 `location_x` int(11) DEFAULT '0',
+  `location_y` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `explorer_app_type_id` (`app_type_id`),
   KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
@@ -147,24 +152,7 @@ CREATE TABLE `gb_explorer_discussion` (
   CONSTRAINT `explorer_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_explorer_exercise`
---
-DROP TABLE IF EXISTS `gb_explorer_exercise`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_explorer_exercise` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `exercise_id` int(11) NOT NULL,
-  `explorer_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `explorer_exercise_exercise_id` (`exercise_id`),
-  KEY `explorer_exercise_explorer_id` (`explorer_id`),
-  CONSTRAINT `explorer_exercise_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explorer_exercise_exercise_id` FOREIGN KEY (`exercise_id`) REFERENCES `gb_exercise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_explorer_guideline`
@@ -401,7 +389,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
+   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`,`size_x`, `size_y`,	`location_x`,	`location_y`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-request-option.txt'
     into table gb102.gb_explorer_request_option
@@ -449,15 +437,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `discussion_id`,	`explorer_id`,	`privacy`,	`status`);
-
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-exercise.txt'
-    into table gb102.gb_explorer_exercise
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `exercise_id`,	`explorer_id`,	`privacy`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-guideline.txt'
     into table gb102.gb_explorer_guideline
