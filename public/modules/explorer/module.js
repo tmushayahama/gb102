@@ -9,7 +9,6 @@ define(['angular'
   $stateProvider
           .state('apps.explorer', {
            url: '/explorer',
-           abstract: true,
            views: {
             "apps": {
              controller: 'ExplorersCtrl as explorersCtrl',
@@ -53,12 +52,12 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.app', {
-           url: '/all/{app_name}',
+          .state('apps.app', {
+           url: '/{app_name}',
            views: {
-            "app-tab": {
+            "apps": {
              controller: 'ExplorersAppCtrl as explorersTabCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
+             templateUrl: 'public/modules/explorer/views/explorers-app.html',
              resolve: {
               listType: function () {
                return 1;
@@ -68,6 +67,11 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
+                  'public/modules/app/services/constants.srv.js',
+                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/controllers/explorers.ctrl.js',
+                  'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/explorers-app.ctrl.js',
                  ]
                 });

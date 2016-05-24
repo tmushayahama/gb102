@@ -15,14 +15,14 @@ var mentorshipsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.mentorshipsSrv = new MentorshipsSrv();
 
 
  switch (listType) {
   case 1:
-   vm.mentorshipsSrv.getAppMentorships(vm.appName).then(function (data) {
+   vm.mentorshipsSrv.getAppMentorships($rootScope.appName).then(function (data) {
     vm.mentorships = data;
    });
    break;

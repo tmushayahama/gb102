@@ -10,8 +10,8 @@
  color: #EEE;
  background-color: rgba($primary-color, 0.6);
  //border-bottom: rgba($primary-color, 0.8) solid 3px;
- margin: 0 0 10px 0;
-
+ margin: 0;
+ z-index: 1;
 
  .container {
   height: 100%;
@@ -25,7 +25,7 @@
   opacity: 1;
  }
  .gb-heading-row-1 {
-  height: 40px;
+  height: 100%;
   margin: 0;
 
   .gb-heading-icon {
@@ -40,16 +40,36 @@
    line-height: 110px;
    text-align: center;
    border-radius: 50%;
+   &.gb-heading-image {
+    line-height: 40px;
+    img {
+     width: 100%;
+     border-radius: 50%;
+    }
+   }
   }
 
   .gb-title {
    @include position(absolute, 0 100px 0 100px);
-   padding: 30px 0 30px 10px;
+   padding: 40px 0 0 10px;
    font-size: 20px;
    text-transform: capitalize;
    font-weight: normal;
    color: #FFF;
-
+   &.gb-title-1 {
+    padding: 15px 0 0 10px;
+   }
+   h1 {
+    font-weight: normal;
+    font-size: 20px;
+   }
+   p {
+    line-height:25px;
+    font-size: 12px;
+    a {
+     color: #DDD;
+    }
+   }
    &.gb-small {
     padding: 0 0 0 0;
     font-size: 15px;

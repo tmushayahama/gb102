@@ -15,7 +15,7 @@ var goalsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.goalsSrv = new GoalsSrv();
 
@@ -28,7 +28,7 @@ var goalsAppCtrl = function (
    vm.goals = data;
   });
  } else {
-  vm.goalsSrv.getAppGoals(vm.appName).then(function (data) {
+  vm.goalsSrv.getAppGoals($rootScope.appName).then(function (data) {
    vm.goals = data;
   });
  }

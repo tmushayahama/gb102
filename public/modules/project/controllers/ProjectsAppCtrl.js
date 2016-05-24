@@ -15,7 +15,7 @@ var projectsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.projectsSrv = new ProjectsSrv();
 
@@ -28,7 +28,7 @@ var projectsAppCtrl = function (
    vm.projects = data;
   });
  } else {
-  vm.projectsSrv.getAppProjects(vm.appName).then(function (data) {
+  vm.projectsSrv.getAppProjects($rootScope.appName).then(function (data) {
    vm.projects = data;
   });
  }

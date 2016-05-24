@@ -1,7 +1,6 @@
 
 <div class="gb-app-list">
  <div ng-include="'public/modules/app/views/top-hero-bar.html'"></div>
-
  <div class="row">
   <div ng-if="false" class="gb-shadow-1 gb-heading-container-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class="container">
@@ -129,7 +128,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-skill gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'skills'})">
+       <md-button class="gb-link gb-background-color-skill gb-ellipsis" ui-sref="apps.app({'app_name': 'skills'})">
         <i class="gb-icon fa icon-gb-skills"></i>
         <div class="gb-title">
          SKILLS
@@ -137,7 +136,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-goal gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'goals'})">
+       <md-button class="gb-link gb-background-color-goal gb-ellipsis" ui-sref="apps.app({'app_name': 'goals'})">
         <i class="gb-icon fa icon-gb-goals"></i>
         <div class="gb-title">
          GOALS
@@ -145,7 +144,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-mentorship gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'mentorships'})">
+       <md-button class="gb-link gb-background-color-mentorship gb-ellipsis" ui-sref="apps.app({'app_name': 'mentorships'})">
         <i class="gb-icon fa icon-gb-mentorships"></i>
         <div class="gb-title">
          MENTORSHIPS
@@ -153,7 +152,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-advice gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'advices'})">
+       <md-button class="gb-link gb-background-color-advice gb-ellipsis" ui-sref="apps.app({'app_name': 'advices'})">
         <i class="gb-icon fa icon-gb-advices"></i>
         <div class="gb-title">
          ADVICES
@@ -161,7 +160,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-promise gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'promises'})">
+       <md-button class="gb-link gb-background-color-promise gb-ellipsis" ui-sref="apps.app({'app_name': 'promises'})">
         <i class="gb-icon fa icon-gb-promises"></i>
         <div class="gb-title">
          PROMISES
@@ -169,7 +168,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-hobby gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'hobbies'})">
+       <md-button class="gb-link gb-background-color-hobby gb-ellipsis" ui-sref="apps.app({'app_name': 'hobbies'})">
         <i class="gb-icon fa icon-gb-hobbies"></i>
         <div class="gb-title">
          HOBBIES
@@ -177,7 +176,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-teach gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'teach'})">
+       <md-button class="gb-link gb-background-color-teach gb-ellipsis" ui-sref="apps.app({'app_name': 'teach'})">
         <i class="gb-icon fa icon-gb-teach"></i>
         <div class="gb-title">
          TEACH
@@ -185,7 +184,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-collaboration gb-ellipsis" ui-sref="apps.explorer.app({'app_name': 'collaborations'})">
+       <md-button class="gb-link gb-background-color-collaboration gb-ellipsis" ui-sref="apps.app({'app_name': 'collaborations'})">
         <i class="gb-icon fa icon-gb-collaborations"></i>
         <div class="gb-title">
          COLLABORATION
@@ -229,6 +228,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.skills"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>
@@ -248,6 +248,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.goals"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>
@@ -267,6 +268,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.mentorships"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>
@@ -286,6 +288,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.advices"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>
@@ -305,6 +308,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.hobbies"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>
@@ -324,6 +328,7 @@
      </div>
      <div class='gb-body-row-4 row'>
       <div ng-repeat="explorer in explorersCtrl.explorers.promises"
+           class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
            gb-explorer-box explorer="explorer">
       </div>
      </div>

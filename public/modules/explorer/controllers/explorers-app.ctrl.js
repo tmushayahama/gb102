@@ -11,25 +11,31 @@ var explorersAppCtrl = function (
         $location,
         $uibModal,
         $log,
-        $filter) {
+        $filter,
+        $css) {
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
- $rootScope.subAppName = vm.appName.toUpperCase();
+ $rootScope.appName = $stateParams.app_name;
+
+ $css.bind({
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + $rootScope.appName + '.css'
+ }, $scope);
+
+ $rootScope.subAppName = $rootScope.appName.toUpperCase();
 
  vm.explorersSrv = new ExplorersSrv();
 
 
  switch (listType) {
   case 1:
-   vm.explorersSrv.getAppExplorers(vm.appName).then(function (data) {
+   vm.explorersSrv.getAppExplorers($rootScope.appName).then(function (data) {
     vm.explorers = data;
    });
    break;
   case 2:
    vm.userId = $stateParams.profileId;
-   vm.explorersSrv.getUserAppExplorers(vm.userId, vm.appName).then(function (data) {
+   vm.explorersSrv.getUserAppExplorers(vm.userId, $rootScope.appName).then(function (data) {
     vm.explorers = data;
    });
    break;
@@ -59,6 +65,7 @@ explorersAppCtrl.$inject = [
  '$location',
  '$uibModal',
  '$log',
- '$filter'];
+ '$filter',
+ '$css'];
 
 angular.module("app.explorer").controller('ExplorersAppCtrl', explorersAppCtrl);

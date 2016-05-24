@@ -23,7 +23,7 @@ var explorersCtrl = function (
 
  vm.explorersSrv = new ExplorersSrv();
  vm.constantsSrv = new ConstantsSrv();
- $rootScope.appName = 'EXPLORER';
+ $rootScope.appName = 'Explorer';
  vm.explorerLevels;
  //vm.appTypes;
 

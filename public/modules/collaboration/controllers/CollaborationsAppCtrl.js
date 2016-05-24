@@ -15,7 +15,7 @@ var collaborationsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.collaborationsSrv = new CollaborationsSrv();
 
@@ -28,7 +28,7 @@ var collaborationsAppCtrl = function (
    vm.collaborations = data;
   });
  } else {
-  vm.collaborationsSrv.getAppCollaborations(vm.appName).then(function (data) {
+  vm.collaborationsSrv.getAppCollaborations($rootScope.appName).then(function (data) {
    vm.collaborations = data;
   });
  }

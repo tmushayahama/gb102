@@ -15,7 +15,7 @@ var journalsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.journalsSrv = new JournalsSrv();
 
@@ -28,7 +28,7 @@ var journalsAppCtrl = function (
    vm.journals = data;
   });
  } else {
-  vm.journalsSrv.getAppJournals(vm.appName).then(function (data) {
+  vm.journalsSrv.getAppJournals($rootScope.appName).then(function (data) {
    vm.journals = data;
   });
  }

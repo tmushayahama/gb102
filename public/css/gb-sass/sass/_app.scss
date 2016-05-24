@@ -347,7 +347,7 @@ input[type="checkbox"] {
 .gb-heading-row-4 {
  position: relative;
  height: 40px;
- margin: 5px 0;
+ margin: 15px 0 5px 0;
  //padding: 0 0 5px 0;
  //background-color: #FFF;
 
@@ -480,7 +480,7 @@ input[type="checkbox"] {
  }
 }
 .gb-app-detail {
- margin-top: 50px;
+ margin-top: 41px;
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
 }
@@ -511,11 +511,15 @@ input[type="checkbox"] {
   padding: 0px;
  }
  .gb-cover {
-  position: relative;
-  padding: 10px;
-  background-color: rgba($primary-color, 0.5);
-  height: 200px;
+  @include position(absolute, 0 0 0 0);
+  background: url(../../../../img/explorer/cover-1.png);
+  -webkit-background-size: auto 100%!important;
+  -moz-background-size: auto 100%!important;
+  -o-background-size: auto 100%!important;
+  background-size: auto 100%!important;
+  padding: 5px;
   overflow: hidden;
+  z-index: -1;
   .gb-cover-img {
    width: 100%;
   }
@@ -536,6 +540,9 @@ input[type="checkbox"] {
    margin: 0;
    margin-bottom: 10px;
    .fa-lg {
+    float: left;
+    width: 50px;
+    height: 50px;
     font-size: 20px;
     text-align: center;
     @include respond-to (gb-sm) {
@@ -561,6 +568,12 @@ input[type="checkbox"] {
     }
    }
   }
+ }
+
+ .gb-cover-overlap {
+  @include position(absolute, 0 0 0 0);
+  background-color: rgba($primary-color, 0.9);
+  z-index: 0;
  }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
@@ -1891,7 +1904,7 @@ input.gb-form-show{
  .gb-action {
   //@include position(absolute, 0 3px 0 null);
   //width: 100px;
-  padding-top: 2px;
+  // padding-top: 2px;
   .btn{
    color: lighten($primary-color, 70%);
    margin-left: 5px;
@@ -1902,6 +1915,13 @@ input.gb-form-show{
  }
  .gb-menu-icon {
   font-size: 20px;
+ }
+ .gb-icon-image {
+  width: 30px;
+  img {
+   width: 100%;
+   border-radius: 50%;
+  }
  }
 
 
@@ -2133,7 +2153,7 @@ input.gb-form-show{
   }
  }
  .gb-icon-image {
-  @include position(absolute, 5px null null 100px);
+  @include position(absolute, 15px null null 100px);
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -2254,8 +2274,8 @@ input.gb-form-show{
 .gb-box-11 {
  position: relative;
  //height: 153px; /*For box shadow*/
- padding: 0;
- margin-bottom: 15px;
+ padding: 5px;
+ margin-bottom: 5px;
  overflow: hidden;
  &:hover {
   .gb-box-body {
@@ -2263,7 +2283,7 @@ input.gb-form-show{
   }
  }
  .gb-icon-image {
-  @include position(absolute, 5px null null 200px);
+  @include position(absolute, 15px null null 260px);
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -2381,7 +2401,7 @@ input.gb-form-show{
  }
 }
 .gb-box-12 {
- width: 33%;
+ width: 33.333%;
  float: left;
  position: relative;
  //height: 153px; /*For box shadow*/
@@ -2394,7 +2414,7 @@ input.gb-form-show{
   }
  }
  .gb-icon-image {
-  @include position(absolute, 5px null null 200px);
+  @include position(absolute, 15px null null 200px);
   height: 40px;
   width: 40px;
   border-radius: 50%;

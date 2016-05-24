@@ -1,31 +1,9 @@
-<div ng-include="'public/modules/app/views/navbar.html'"></div>
-
-<div id="gb-middle-nav" class="container gb-app-detail">
+<div id="gb-middle-nav" class="gb-app-detail">
  <div class="row">
-  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-   <div class="row">
-    <div class="gb-cover">
-     <div ng-include="'public/modules/explorer/views/components/explorer-cover.html'"></div>
-     <img ng-src="public/img/explorer/{{ ::explorerCtrl.explorerSrv.explorer.explorer_picture_url}}"
-          class="gb-heading-pic" alt="">
-     <div class="gb-profile-row-2">
-      <div class="gb-image">
-       <img src="public/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="" alt="">
-      </div>
-      <div class="gb-row-content">
-       <h1 class="gb-title gb-ellipsis">
-        <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong> {{explorerCtrl.explorerSrv.explorer.description}}
-       </h1>
-       <a class="gb-description gb-ellipsis"
-          ui-sref="apps.profile.overview({profileId: explorerCtrl.explorerSrv.explorer.creator.id})">
-        <h2 class="gb-heading">
-         <i>by: </i>{{explorerCtrl.explorerSrv.explorer.creator.firstname + " " + explorerCtrl.explorerSrv.explorer.creator.lastname}}
-        </h2>
-       </a>
-      </div>
-     </div>
-    </div>
-    <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorer" class="row gb-info-row-1">
+  <div ng-include="'public/modules/app/views/top-hero-bar-app-entry.html'"></div>
+  <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorer" class="row gb-info-row-1">
+   <div class="container">
+    <div class="row">
      <p class="gb-title gb-ellipsis">
       Sub Entry for
       <a data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerSrv.explorer.parent_explorer_id})">
@@ -33,8 +11,12 @@
       </a>
      </p>
     </div>
-    <div class="row">
-     <div class="nav gb-icon-top-nav-1 gb-shadow-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   </div>
+  </div>
+  <div class="row">
+   <div class="nav gb-icon-top-nav-1 gb-shadow-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="container">
+     <div class="row">
       <md-button data-ui-sref-active="active" data-ui-sref="apps.explorerItem.overview"
                  class="gb-link col-lg-2 col-md-2 col-sm-2 col-xs-2">
        <div class="gb-icon">
@@ -130,9 +112,11 @@
       </div>
      </div>
     </div>
-    <div ui-view="content" class="gb-mg-top-md row"></div>
-    <div class="gb-dummy-height row"></div>
    </div>
   </div>
+ </div>
+ <div class="container">
+  <div ui-view="content" class="gb-mg-top-md row"></div>
+  <div class="gb-dummy-height row"></div>
  </div>
 </div>

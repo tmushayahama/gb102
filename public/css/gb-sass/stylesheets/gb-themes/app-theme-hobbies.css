@@ -1120,7 +1120,8 @@ Copyright (c) 2014 Daniel Eden
   list-style: none;
   color: #EEE;
   background-color: rgba(65, 100, 42, 0.6);
-  margin: 0 0 10px 0;
+  margin: 0;
+  z-index: 1;
 }
 .gb-top-nav-4 .container {
   height: 100%;
@@ -1133,7 +1134,7 @@ Copyright (c) 2014 Daniel Eden
   opacity: 1;
 }
 .gb-top-nav-4 .gb-heading-row-1 {
-  height: 40px;
+  height: 100%;
   margin: 0;
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon {
@@ -1151,17 +1152,38 @@ Copyright (c) 2014 Daniel Eden
   text-align: center;
   border-radius: 50%;
 }
+.gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image {
+  line-height: 40px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image img {
+  width: 100%;
+  border-radius: 50%;
+}
 .gb-top-nav-4 .gb-heading-row-1 .gb-title {
   position: absolute;
   top: 0;
   right: 100px;
   bottom: 0;
   left: 100px;
-  padding: 30px 0 30px 10px;
+  padding: 40px 0 0 10px;
   font-size: 20px;
   text-transform: capitalize;
   font-weight: normal;
   color: #FFF;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-1 {
+  padding: 15px 0 0 10px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title h1 {
+  font-weight: normal;
+  font-size: 20px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title p {
+  line-height: 25px;
+  font-size: 12px;
+}
+.gb-top-nav-4 .gb-heading-row-1 .gb-title p a {
+  color: #DDD;
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-small {
   padding: 0 0 0 0;
@@ -3706,7 +3728,7 @@ input[type="checkbox"] {
 .gb-heading-row-4 {
   position: relative;
   height: 40px;
-  margin: 5px 0;
+  margin: 15px 0 5px 0;
 }
 .gb-heading-row-4 .gb-heading-icon {
   position: absolute;
@@ -3839,7 +3861,7 @@ input[type="checkbox"] {
 }
 
 .gb-app-detail {
-  margin-top: 50px;
+  margin-top: 41px;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -3865,11 +3887,19 @@ input[type="checkbox"] {
   padding: 0px;
 }
 #gb-middle-nav .gb-cover {
-  position: relative;
-  padding: 10px;
-  background-color: rgba(65, 100, 42, 0.5);
-  height: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../../../../img/explorer/cover-1.png);
+  -webkit-background-size: auto 100% !important;
+  -moz-background-size: auto 100% !important;
+  -o-background-size: auto 100% !important;
+  background-size: auto 100% !important;
+  padding: 5px;
   overflow: hidden;
+  z-index: -1;
 }
 #gb-middle-nav .gb-cover .gb-cover-img {
   width: 100%;
@@ -3894,6 +3924,9 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
+  float: left;
+  width: 50px;
+  height: 50px;
   font-size: 20px;
   text-align: center;
 }
@@ -3919,6 +3952,15 @@ input[type="checkbox"] {
 }
 #gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
   color: #41642A;
+}
+#gb-middle-nav .gb-cover-overlap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(65, 100, 42, 0.9);
+  z-index: 0;
 }
 #gb-middle-nav .gb-profile-row {
   margin-top: -40px;
@@ -5285,9 +5327,6 @@ input.gb-form-show {
   line-height: 40px;
   color: white;
 }
-.gb-top-nav-1 .gb-action {
-  padding-top: 2px;
-}
 .gb-top-nav-1 .gb-action .btn {
   color: #f9fcf7;
   margin-left: 5px;
@@ -5299,6 +5338,13 @@ input.gb-form-show {
 }
 .gb-top-nav-1 .gb-menu-icon {
   font-size: 20px;
+}
+.gb-top-nav-1 .gb-icon-image {
+  width: 30px;
+}
+.gb-top-nav-1 .gb-icon-image img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 .gb-top-nav-2 {
@@ -5527,7 +5573,7 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-icon-image {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 100px;
   height: 40px;
   width: 40px;
@@ -5652,8 +5698,8 @@ input.gb-form-show {
 
 .gb-box-11 {
   position: relative;
-  padding: 0;
-  margin-bottom: 15px;
+  padding: 5px;
+  margin-bottom: 5px;
   overflow: hidden;
 }
 .gb-box-11:hover .gb-box-body {
@@ -5661,8 +5707,8 @@ input.gb-form-show {
 }
 .gb-box-11 .gb-icon-image {
   position: absolute;
-  top: 5px;
-  left: 200px;
+  top: 15px;
+  left: 260px;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -5784,7 +5830,7 @@ input.gb-form-show {
 }
 
 .gb-box-12 {
-  width: 33%;
+  width: 33.333%;
   float: left;
   position: relative;
   padding: 5px;
@@ -5796,7 +5842,7 @@ input.gb-form-show {
 }
 .gb-box-12 .gb-icon-image {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 200px;
   height: 40px;
   width: 40px;
@@ -7320,8 +7366,8 @@ input.gb-form-show {
 }
 
 .gb-background-color-skill {
-  background-color: rgba(2, 120, 135, 0.3);
-  color: #02626e;
+  background-color: rgba(54, 88, 99, 0.3);
+  color: #2d4953;
 }
 
 .gb-background-color-mentorship {

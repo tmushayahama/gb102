@@ -15,7 +15,7 @@ var advicesAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.advicesSrv = new AdvicesSrv();
 
@@ -28,7 +28,7 @@ var advicesAppCtrl = function (
    vm.advices = data;
   });
  } else {
-  vm.advicesSrv.getAppAdvices(vm.appName).then(function (data) {
+  vm.advicesSrv.getAppAdvices($rootScope.appName).then(function (data) {
    vm.advices = data;
   });
  }

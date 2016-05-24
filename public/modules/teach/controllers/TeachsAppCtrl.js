@@ -15,7 +15,7 @@ var teachsAppCtrl = function (
 
  var vm = this;
 
- vm.appName = $stateParams.app_name;
+ $rootScope.appName = $stateParams.app_name;
 
  vm.teachsSrv = new TeachsSrv();
 
@@ -28,7 +28,7 @@ var teachsAppCtrl = function (
    vm.teachs = data;
   });
  } else {
-  vm.teachsSrv.getAppTeachs(vm.appName).then(function (data) {
+  vm.teachsSrv.getAppTeachs($rootScope.appName).then(function (data) {
    vm.teachs = data;
   });
  }
