@@ -1,0 +1,37 @@
+<div class="gb-top-nav-4 gb-shadow-1 col-lg-12 col-md-12 col-sm-12 col-xs-12" role="navigation">
+ <div class="gb-cover-overlap"></div>
+ <div class="gb-cover"></div>
+ <div class="container">
+  <div class="gb-heading-row-1 row">
+   <div class="gb-heading-icon gb-heading-image">
+    <img ng-src="public/build/img/explorer/{{ ::explorerCtrl.explorerSrv.explorer.explorer_picture_url}}"
+         class="" alt="">
+   </div>
+   <div class="gb-title gb-title-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div ng-if="false" class="gb-image">
+     <img src="public/build/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="" alt="">
+    </div>
+    <h1 class="gb-ellipsis">
+     {{explorerCtrl.explorerSrv.explorer.title}}
+    </h1>
+    <p>
+     <span class="gb-ellipsis">
+      {{explorerCtrl.explorerSrv.explorer.description}}
+     </span>
+     <span class="gb-ellipsis">
+      <a class="gb-description gb-ellipsis"
+         ui-sref="apps.profile.overview({profileId: explorerCtrl.explorerSrv.explorer.creator.id})">
+       <i>by: </i>{{explorerCtrl.explorerSrv.explorer.creator.firstname + " " + explorerCtrl.explorerSrv.explorer.creator.lastname}}
+      </a>
+     </span>
+    </p>
+   </div>
+   <div class="btn-group pull-right">
+    <md-button type="button" class="gb-action"
+               ng-click="$root.openAddExplorerModal()">
+     <i class="gb-menu-icon fa fa-plus"></i> Add
+    </md-button>
+   </div>
+  </div>
+ </div>
+</div>

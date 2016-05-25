@@ -90,6 +90,73 @@
  }
 }
 
+.modal-gb-search {
+ @include position(absolute, 0 0 null 0);
+ min-height: 50px;
+ .gb-search-back {
+  .md-button{
+   color: rgba($primary-color, 0.6);
+   font-size: 25px;
+   line-height: 40px;
+  }
+ }
+ .gb-search {
+  md-input-container {
+   margin: 0;
+  }
+  height: 100%;
+  padding: 5px 0;
+  .gb-clear-btn {
+   @include position(absolute, 4px 60px null null);
+   padding: 0 12px;
+   color: #AAA;
+   font-weight: normal;
+  }
+  .gb-search-icon-placeholder {
+   @include position(absolute, 8px null null 5px);
+   padding: 0 12px;
+   font-size: 25px;
+   color: #DDD;
+   font-weight: normal;
+  }
+  .ui-select-bootstrap .ui-select-toggle > .caret {
+   display: none;
+  }
+  .ui-select-placeholder {
+   font-size: 12px;
+   color: #777;
+   font-weight: 200;
+  }
+  .form-control {
+   border: none!important;
+   padding: 3px 30px 3px 10px;
+   height: 40px;
+   margin-bottom: 0;
+   &.btn-default {
+    background-color: #F9F9F9;
+   }
+  }
+
+  .gb-input-form-group {
+   padding-left: 30px;
+   padding-right: 20px;
+   margin-bottom: 0;
+  }
+  .gb-input-btn-group {
+   @include position(absolute, 0 0 null null);
+   .btn {
+    height: 30px;
+   }
+  }
+
+ }
+ .gb-search-close {
+  .md-button{
+   font-size: 30px;
+  }
+ }
+}
+
 .modal-menu {
  .gb-close {
   @include position(absolute, 0 0 null null);

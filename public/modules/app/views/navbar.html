@@ -45,8 +45,8 @@
       <div class="dropdown-menu gb-dropdown-menu-right-1">
        <md-button ui-sref="apps.mentorships.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.mentorships' | includedByState)
-                  }">
+                     active: ('apps.mentorships' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-mentorships"></i>
         </div>
@@ -56,8 +56,8 @@
        </md-button>
        <md-button ui-sref="apps.teachs.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.teachs' | includedByState)
-                  }">
+                     active: ('apps.teachs' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-teach"></i>
         </div>
@@ -67,8 +67,8 @@
        </md-button>
        <md-button ui-sref="apps.advices.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.advices' | includedByState)
-                  }">
+                     active: ('apps.advices' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-advices"></i>
         </div>
@@ -78,8 +78,8 @@
        </md-button>
        <md-button ui-sref="apps.collaborations.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.collaborations' | includedByState)
-                  }">
+                     active: ('apps.collaborations' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-collaborations"></i>
         </div>
@@ -89,8 +89,8 @@
        </md-button>
        <md-button ui-sref="apps.goals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.goals' | includedByState)
-                  }">
+                     active: ('apps.goals' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-goals"></i>
         </div>
@@ -100,8 +100,8 @@
        </md-button>
        <md-button ui-sref="apps.journals.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.journal' | includedByState)
-                  }">
+                     active: ('apps.journal' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-journals"></i>
         </div>
@@ -111,8 +111,8 @@
        </md-button>
        <md-button ui-sref="apps.projects.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.projects' | includedByState)
-                  }">
+                     active: ('apps.projects' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-project"></i>
         </div>
@@ -122,8 +122,8 @@
        </md-button>
        <md-button ui-sref="apps.groups.all" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   ng-class="{
-                   active: ('apps.group' | includedByState)
-                  }">
+                     active: ('apps.group' | includedByState)
+                    }">
         <div class="gb-icon">
          <i class="fa icon-gb-groups"></i>
         </div>
@@ -149,36 +149,12 @@
      </div>
     </a>
    </div>
-   <div ng-if="false" class="gb-search col-lg-6 col-md-6 col-sm-7 col-xs-7">
-    <form ng-submit="appsCtrl.search()" class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-     <div class="form-group gb-input-form-group">
-      <input class="form-control" type="text" ng-model="$root.searchKeyword"
-             placeholder="Search SkillSection"
-             uib-typeahead="state.title as state.title for state in appsCtrl.getSearchSuggestions($viewValue)"
-             typeahead-wait-ms=200 typeahead-show-hint="true" typeahead-min-length="0"
-             typeahead-popup-template-url="search-dropdown.tpl.html" >
-      <a ng-show="$root.searchKeyword" class="gb-clear-btn btn btn-link"
-         ng-click="$root.searchKeyword = ''">
-       <i class="fa fa-times"></i>
-      </a>
-     </div>
-     <div class="gb-input-btn-group btn-group">
-      <button type="submit" class="btn btn-default">
-       <i class="fa fa-search"></i>
-      </button>
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li>
-        <a href="#">Advanced Search</a>
-       </li>
-      </ul>
-     </div>
-    </form>
-   </div>
    <div class="gb-action col-lg-5 col-md-4 col-sm-4 col-xs-4">
-    <div class=" pull-right">
+    <div class="pull-right">
+     <a class="btn btn-link"
+        ng-click="$root.openSearchModal()">
+      <i class="gb-menu-icon fa fa-search"></i>
+     </a>
      <div class="btn-group">
       <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <i class="gb-menu-icon fa fa-bell"></i>

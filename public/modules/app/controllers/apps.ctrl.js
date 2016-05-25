@@ -26,7 +26,7 @@ var appsCtrl = function (
 
  vm.searchSrv = new SearchSrv();
 
- vm.getSearchSuggestions = function (val) {
+ $rootScope.getSearchSuggestions = function (val) {
   var searchData = {
    query: val
   };
@@ -49,14 +49,26 @@ var appsCtrl = function (
 
  }
 
- vm.search = function () {
+ $rootScope.search = function () {
   //$rootScope.searchParams = vm.searchParams;
   $state.go('apps.search.all', null, {reload: 'apps.search.all'});
   //vm.searchSrv.simpleSearch(vm.searchParams);
  }
 
+ $rootScope.openSearchModal = function () {
+  var modalInstance = $aside.open({
+   animation: true,
+   placement: 'top',
+   templateUrl: 'search-modal.html',
+   //controller: 'AddExplorerCtrl as addExplorerCtrl',
+   size: 'gb-search',
+  });
 
- vm.openMenuModal = function (position) {
+  modalInstance.result.then(function (explorer) {
+  });
+ };
+
+ $rootScope.openMenuModal = function (position) {
   var modalInstance = $aside.open({
    placement: position,
    templateUrl: 'menu-modal.html',

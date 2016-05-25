@@ -20,10 +20,11 @@
   </md-button>
  </div>
 </div>
-<br>
 <div id="gb-explorers" class="gb-list row" finite-scroll="addMoreItems()">
+ <br>
  <div class="gb-padding-thin">
   <div ng-repeat="explorer in explorersTabCtrl.explorers"
+       class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-thin"
        gb-explorer-box explorer="explorer">
   </div>
  </div>
