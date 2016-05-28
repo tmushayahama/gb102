@@ -35,10 +35,9 @@ var explorersCtrl = function (
   advices: [],
   hobbies: [],
   promises: [],
-  collaborations: [],
- }
+  collaborations: []
+ };
  vm.appTypes;
-
  $rootScope.subAppName = "ALL";
 
  vm.explorersSrv.getExplorers(level_categories.list.handpicked).then(function (data) {
@@ -58,6 +57,29 @@ var explorersCtrl = function (
  vm.getExplorersFeatured('advices', vm.explorers);
  vm.getExplorersFeatured('hobbies', vm.explorers);
  vm.getExplorersFeatured('promises', vm.explorers);
+
+ $rootScope.openAddExplorerModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'add-explorer-modal.html',
+   controller: 'AddExplorerCtrl as addExplorerCtrl',
+   backdrop: 'static',
+   size: 'xl',
+   resolve: {
+    appTypes: function () {
+     return vm.appTypes;
+    }
+   }
+  });
+
+  modalInstance.result.then(function (explorer) {
+   vm.explorersSrv.createExplorer(explorer).then(function (data) {
+    //vm.explorers.unshift(data);
+   });
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
 
  vm.createExplorer = function (data) {
   vm.explorersSrv.createExplorer(data).then(function (response) {
@@ -93,6 +115,10 @@ var explorersCtrl = function (
  //--------init------
  vm.constantsSrv.getLevel(level_categories.explorer).then(function (data) {
   vm.explorerLevels = data;
+ });
+
+ vm.constantsSrv.getAppTypes().then(function (data) {
+  vm.appTypes = data;
  });
 };
 

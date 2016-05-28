@@ -60,8 +60,12 @@ var appsCtrl = function (
    animation: true,
    placement: 'top',
    templateUrl: 'search-modal.html',
-   //controller: 'AddExplorerCtrl as addExplorerCtrl',
    size: 'gb-search',
+   controller: function ($scope, $uibModalInstance) {
+    $scope.close = function () {
+     $uibModalInstance.close();
+    };
+   }
   });
 
   modalInstance.result.then(function (explorer) {
@@ -72,9 +76,12 @@ var appsCtrl = function (
   var modalInstance = $aside.open({
    placement: position,
    templateUrl: 'menu-modal.html',
-   controller: 'MenuModalCtrl as menuModalCtrl',
-   // backdrop: 'static',
-   size: 'menu'
+   size: 'menu',
+   controller: function ($scope, $uibModalInstance) {
+    $scope.close = function () {
+     $uibModalInstance.close();
+    };
+   }
   });
 
   modalInstance.result.then(function () {

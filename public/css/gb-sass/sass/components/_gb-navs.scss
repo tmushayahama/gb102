@@ -88,7 +88,7 @@
    //max-width: 150px;
    line-height: 30px;
    font-size: 20px;
-   margin: 20px 0 0 0;
+   margin: 27px 0 0 0;
    background-color: #FFF;
    color: rgba($primary-color, 0.9);
    border: transparent solid 1px;
@@ -163,6 +163,12 @@
  transition: all 0.5s ease;
  -webkit-backface-visibility: hidden;
  z-index: 1;
+ @include respond-to (gb-sm) {
+  padding-right: 0px!important;
+ }
+ @include respond-to (gb-xs) {
+  padding-right: 0px!important;
+ }
  .gb-body {
   padding: 0px 0 0px 0;
   height: 100%;
@@ -175,7 +181,7 @@
  .gb-link {
   margin: 0;
   text-align: center;
-  padding:10px 2px 5px 2px;
+  padding:20px 2px 5px 2px;
   text-decoration: none;
   border-bottom: transparent solid 3px;
   /*
@@ -202,10 +208,10 @@
    //color: darken($primary-color, 5%);
    //color: #
    @include respond-to (gb-sm) {
-    font-size: 18px;
+    //font-size: 18px;
    }
    @include respond-to (gb-xs) {
-    font-size: 15px;
+    //font-size: 20px;
    }
   }
 

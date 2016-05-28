@@ -26,7 +26,7 @@ var registrationModalCtrl = function (
    $rootScope.authenticated = true;
    $rootScope.user = response.data.user;
    $uibModalInstance.close();
-   $state.go('apps.explorer.all');
+   $state.go('apps.explorer');
   });
  };
 

@@ -170,7 +170,7 @@ define([
            }
           })
           .state('apps.home', {
-           url: '/home',
+           url: '/',
            views: {
             "apps": {
              templateUrl: 'public/modules/app/views/apps-home.html',
@@ -200,7 +200,7 @@ define([
     $rootScope.user = user;
     if (toState.name === "auth") {
      event.preventDefault();
-     $state.go('apps.explorer.all');
+     $state.go('apps.explorer');
     }
    } else {
     if (toState.name !== "auth") {

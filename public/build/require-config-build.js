@@ -35,8 +35,8 @@ requirejs.config({
   'angular-resizer': '../../../bower_components/javascript-detect-element-resize/jquery.resize',
   'infinite-scroll': '../../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min',
   'truncate-filters': 'scripts/modules/common/filters/truncate',
-  'dnd-draggable': 'scripts/internal-libs/dnd-draggable',
-  'angular-grid': 'scripts/internal-libs/angular-grid'
+  'dnd-draggable': 'internal-libs/dnd-draggable',
+  'angular-grid': 'internal-libs/angular-grid'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},

@@ -18,7 +18,7 @@
   max-height: 320px;
  }
  @include respond-to (gb-xs) {
-  width: 250px;
+  //width: 250px;
  }
 }
 
@@ -28,7 +28,7 @@
   height: 440px;
  }
  @include respond-to (gb-xs) {
-  width: 250px;
+  //width: 250px;
  }
 }
 
@@ -158,6 +158,44 @@
 }
 
 .modal-menu {
+ .gb-logo {
+  padding: 0 0 0 10px!important;
+  float: left;
+  height: 100%;
+  line-height: 45px;
+  color: rgba($primary-color, 0.8);
+  font-size: 20px;
+  .gb-logo-icon {
+   font-size: 15px!important;
+   line-height: 43px;
+   color: rgba($primary-color, 0.6);
+  }
+  .gb-logo-name {
+   display: inline-block;
+  }
+  strong {
+   font-weight: 850;
+   color: #555;
+  }
+  .gb-beta {
+   font-size: 5px;
+   color: #FF1B1B;
+  }
+
+  @include respond-to (gb-sm) {
+   .gb-logo-icon {
+    font-size: 12px;
+   }
+  }
+
+  @include respond-to (gb-xs) {
+   padding: 0 2px 0 0;
+   .gb-logo-icon {
+    font-size: 12px;
+   }
+  }
+ }
+
  .gb-close {
   @include position(absolute, 0 0 null null);
   z-index: 1;
@@ -166,10 +204,10 @@
   font-size: 20px;
  }
  .modal-content {
-  width: 150px;
+  width: 250px;
   background-color: transparent;
   @include respond-to (gb-xs) {
-   width: 150px;
+   width: 250px;
   }
  }
  .modal-body {

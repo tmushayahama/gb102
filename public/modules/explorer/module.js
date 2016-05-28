@@ -30,30 +30,8 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.all', {
-           url: '/all',
-           views: {
-            "app-tab": {
-             controller: 'ExplorersAllCtrl as explorersTabCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
-             resolve: {
-              listType: function () {
-               return 1;
-              },
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.explorer',
-                 serie: true,
-                 files: [
-                  'public/modules/explorer/controllers/explorers-all.ctrl.js',
-                 ]
-                });
-               }]
-             }
-            }
-           }})
           .state('apps.app', {
-           url: '/{app_name}',
+           url: '/explorer/{app_name}',
            views: {
             "apps": {
              controller: 'ExplorersAppCtrl as explorersTabCtrl',
