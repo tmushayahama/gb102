@@ -162,7 +162,11 @@ $color-6: #077568;
   .gb-logo {
    line-height: 38px;
    .gb-logo-icon {
+    margin-right: 3px;
     color: $primary-color;
+    float: left;
+    font-size: 12px;
+    line-height: 37px;
    }
    strong {
     color: $primary-color;
@@ -299,7 +303,7 @@ $color-6: #077568;
   -o-background-size: 100%!important;
   background-size: 100%!important;
   h3 {
-   font-weight: bold; 
+   font-weight: bold;
    font-size: 25px;
    margin-bottom: 0;
    @include respond-to (gb-sm) {

@@ -1269,6 +1269,9 @@ Copyright (c) 2014 Daniel Eden
 .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-1 {
   padding: 15px 0 0 10px;
 }
+.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-2 {
+  padding: 30px 0 0 10px;
+}
 .gb-top-nav-4 .gb-heading-row-1 .gb-title h1 {
   font-weight: normal;
   font-size: 20px;
@@ -1297,12 +1300,12 @@ Copyright (c) 2014 Daniel Eden
   line-height: 30px;
   font-size: 20px;
   margin: 27px 0 0 0;
-  background-color: #FFF;
-  color: rgba(54, 38, 68, 0.9);
-  border: transparent solid 1px;
+  background-color: rgba(54, 38, 68, 0.6);
+  color: #F2F2F2;
+  border: #F2F2F2 solid 1px;
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button:hover {
-  background-color: rgba(54, 38, 68, 0.6);
+  background-color: #362644;
   color: #FFF;
   border: #FFF solid 1px;
 }
@@ -1338,7 +1341,58 @@ Copyright (c) 2014 Daniel Eden
   }
 }
 .gb-top-nav-4 .gb-menu-icon {
-  font-size: 20px;
+  font-size: 28px;
+}
+@media (max-width: 767px) {
+  .gb-top-nav-4 {
+    padding: 10px 5px 10px 5px !important;
+    height: 60px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 42px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image {
+    line-height: 20px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    bottom: 0;
+    left: 35px;
+    padding: 10px 0 0 10px;
+    font-size: 15px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-1 {
+    padding: 0 0 0 10px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-2 {
+    padding: 4px 0 0 10px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title h1 {
+    font-size: 12px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title p {
+    line-height: 12px;
+    font-size: 10px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-small {
+    font-size: 10px;
+  }
+  .gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button {
+    padding: 0;
+    height: 25px;
+    min-width: 25px;
+    line-height: 24px;
+    font-size: 15px;
+    margin: 5px 0 0 0;
+  }
+  .gb-top-nav-4 .gb-menu-icon {
+    font-size: 15px;
+  }
 }
 
 .gb-icon-nav-1 {
@@ -1596,14 +1650,9 @@ Copyright (c) 2014 Daniel Eden
   font-size: 30px;
   color: #291d34;
 }
-@media (max-width: 991px) {
-  .gb-icon-top-nav-1 .gb-link .gb-icon {
-    font-size: 18px;
-  }
-}
 @media (max-width: 767px) {
   .gb-icon-top-nav-1 .gb-link .gb-icon {
-    font-size: 15px;
+    font-size: 25px;
   }
 }
 .gb-icon-top-nav-1 .gb-link .gb-title {
@@ -3835,7 +3884,7 @@ input[type="checkbox"] {
   display: block;
   color: #AAA;
   font-size: 20px;
-  line-height: 45px;
+  line-height: 38px;
 }
 .gb-heading-row-4 .gb-title {
   padding: 6px 0 0 35px;
@@ -4841,7 +4890,7 @@ input.gb-form-show {
   padding: 0;
   float: left;
   height: 100%;
-  line-height: 40px;
+  line-height: 43px;
   color: #e8e1ee;
   font-size: 15px;
 }
@@ -5379,7 +5428,7 @@ input.gb-form-show {
   float: left;
   margin: 0;
   padding: 0;
-  line-height: 38px;
+  line-height: 40px;
   font-size: 30px;
 }
 .gb-top-nav-1 .container {
@@ -5413,12 +5462,12 @@ input.gb-form-show {
   font-size: 10px;
 }
 .gb-top-nav-1 .gb-link {
-  margin: 0 8px 0 0;
-  line-height: 40px;
+  margin: 0 5px 0 0;
+  line-height: 44px;
 }
 .gb-top-nav-1 .gb-link .gb-icon {
-  color: #BBB;
-  font-size: 15px;
+  color: #CCC;
+  font-size: 18px;
 }
 .gb-top-nav-1 .gb-link.active .gb-icon {
   color: #FFF;
@@ -5445,11 +5494,18 @@ input.gb-form-show {
   font-size: 20px;
 }
 .gb-top-nav-1 .gb-icon-image {
+  margin-top: -6px;
   width: 30px;
 }
 .gb-top-nav-1 .gb-icon-image img {
   width: 100%;
   border-radius: 50%;
+}
+@media (max-width: 767px) {
+  .gb-top-nav-1 .gb-link {
+    margin: 0;
+    padding: 0 4px;
+  }
 }
 
 .gb-top-nav-2 {

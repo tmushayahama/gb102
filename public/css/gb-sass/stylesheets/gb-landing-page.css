@@ -142,7 +142,11 @@ and open the template in the editor.
   line-height: 38px;
 }
 .gb-landing-page.gb-top-nav-1 .gb-logo .gb-logo-icon {
+  margin-right: 3px;
   color: #027887;
+  float: left;
+  font-size: 12px;
+  line-height: 37px;
 }
 .gb-landing-page.gb-top-nav-1 .gb-logo strong {
   color: #027887;

@@ -155,14 +155,14 @@
    </div>
    <div class="gb-action col-lg-5 col-md-4 col-sm-4 col-xs-5">
     <div class="pull-right">
-     <a class="btn btn-link"
-        ng-click="$root.openSearchModal()">
+     <md-button type="button" class="gb-link"
+                ng-click="$root.openSearchModal()">
       <i class="gb-menu-icon fa fa-search"></i>
-     </a>
+     </md-button>
      <div class="btn-group">
-      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <i class="gb-menu-icon fa fa-bell"></i>
-      </a>
+      </md-button>
       <div class="dropdown-menu dropdown-menu-right text-center">
        <div class="gb-body-row-1">
         <div class="gb-no-info">
@@ -172,13 +172,17 @@
       </div>
      </div>
      <div class="btn-group">
-      <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <div class="gb-icon-image">
         <img src="public/build/img/profile_pic/{{$root.user.avatar_url}}" class="gb-profile-img" alt="">
        </div>
-      </a>
+      </md-button>
       <ul class="dropdown-menu dropdown-menu-right text-left">
-       <li><a href="#">{{$root.user.firstname + " " + $root.user.lastname}}</a></li>
+       <li>
+        <a class="gb-ellipsis" ui-sref="apps.profile.overview({profileId: $root.user.id})">
+         {{$root.user.firstname + " " + $root.user.lastname}}
+        </a>
+       </li>
        <li role="separator" class="divider"></li>
        <li>
         <a ng-click="appsCtrl.logout()">
