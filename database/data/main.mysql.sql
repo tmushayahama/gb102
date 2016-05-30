@@ -689,7 +689,7 @@ CREATE TABLE `gb_user` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastname` varchar(100) NOT NULL DEFAULT '',
   `firstname` varchar(100) NOT NULL DEFAULT '',
-  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
+  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_avatar.png',
   `gender` varchar(1) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL DEFAULT '',

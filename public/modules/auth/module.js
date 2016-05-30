@@ -22,6 +22,7 @@ define(['angular',
                name: 'app.auth',
                serie: true,
                files: [
+                'public/modules/common/services/toast.srv.js',
                 'public/modules/auth/services/auth.srv.js',
                 'public/modules/app/services/constants.srv.js',
                 'public/modules/auth/controllers/auth.ctrl.js',

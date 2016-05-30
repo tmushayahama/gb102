@@ -95,6 +95,20 @@ md-radio-button.gb-primary .md-on {
  }
 }
 
+md-toast{
+ z-index: 1100;
+ &.md-success-toast-theme {
+  .md-toast-content {
+   background-color: #5cb85c;
+  }
+ }
+ &.md-error-toast-theme {
+  .md-toast-content {
+   background-color: #d9534f;
+  }
+ }
+}
+
 html {
  display: block;
  padding: 0;
@@ -1831,7 +1845,7 @@ input.gb-form-show{
  color: #5bc0de;
 }
 
-.gb-top-nav-1 { 
+.gb-top-nav-1 {
  @include position(fixed, 0 0 null null);
  -webkit-backface-visibility: hidden;
  padding: 0 5px 0 5px!important;

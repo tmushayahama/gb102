@@ -155,6 +155,7 @@ define([
                 name: 'app',
                 serie: true,
                 files: [
+                 'public/modules/common/services/toast.srv.js',
                  'public/modules/common/directives/show-tab.drv.js',
                  'public/modules/common/directives/sticky.drv.js',
                  'public/modules/search/services/search.srv.js',

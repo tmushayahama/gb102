@@ -3636,6 +3636,16 @@ md-radio-button.gb-primary .md-on {
   background-color: #065d53 !important;
 }
 
+md-toast {
+  z-index: 1100;
+}
+md-toast.md-success-toast-theme .md-toast-content {
+  background-color: #5cb85c;
+}
+md-toast.md-error-toast-theme .md-toast-content {
+  background-color: #d9534f;
+}
+
 html {
   display: block;
   padding: 0;

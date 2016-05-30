@@ -27,6 +27,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   * @var string
   */
  protected $table = 'gb_user';
+ public static $rules = array(
+     'firstname' => 'required',
+     'lastname' => 'required',
+     'email' => 'required|email|unique:gb_user'
+ );
+ public static $messages = array(
+     'required' => 'The :attribute is required.',
+     'unique' => 'The :email is already taken.'
+ );
 
  public function skill() {
   return $this->hasMany('App\Models\Skill\Skill', 'creator_id');
@@ -53,31 +62,30 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   $lastname = Request::get("lastname");
   $email = Request::get("email");
 
-
   $user = new User;
   $user->firstname = $firstname;
   $user->lastname = $lastname;
   $user->email = $email;
-  $user->password = Hash::make('apples');
+  // $user->avatar_url = 'gb_default_avatar.png';
+  $user->password = Hash::make($lastname . 'apples');
 
   DB::beginTransaction();
   try {
    $user->save();
-   $data = ['firstname' => $user->firstname, 'password' => 'apples'];
-   //$data['messageLines'] = "Welcome";
-
-   Mail::send('emails.betaregister', $data, function ($message) use ($user) {
-    $message->subject('Welcome: ' . $user->firstname)
-            ->to($user->email)
-            ->replyTo('skillsection@gmail.com');
-   });
+   $data = ['firstname' => $user->firstname, 'password' => $lastname . 'apples'];
+//$data['messageLines'] = "Welcome";
+   ///Mail::send('emails.betaregister', $data, function ($message) use ($user) {
+   // $message->subject('Welcome: ' . $user->firstname)
+   //          ->to($user->email)
+   //          ->replyTo('skillsection@gmail.com');
+   //  });
   } catch (\Exception $e) {
-   //failed logic here
+//failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return array("confirmaion" => "Please check your email, an invitation message has been sent");
+  return array("message" => "Please check your email, an invitation message has been sent");
  }
 
  /**

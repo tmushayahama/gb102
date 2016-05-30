@@ -24,6 +24,7 @@ var authSrv = function ($http, $q) {
 
  AuthSrv.prototype.register = function (user) {
   var self = this;
+  self.error = '';
   var deferred = $q.defer();
   $http.post('/api/register', user).success(function (data) {
    self.deferredHandler(data, deferred);
