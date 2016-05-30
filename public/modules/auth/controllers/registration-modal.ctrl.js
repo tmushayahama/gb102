@@ -1,6 +1,7 @@
 var registrationModalCtrl = function (
         $uibModalInstance,
         $auth,
+        AuthSrv,
         localStorageService,
         $scope,
         $state,
@@ -11,22 +12,13 @@ var registrationModalCtrl = function (
         $log) {
  var vm = this;
  vm.user;
+ vm.authSrv = new AuthSrv();
 
  vm.registration = function () {
 
-  $auth.registration(vm.user).then(function ()
+  vm.authSrv.register(vm.user).then(function (data)
   {
-   return $http.get('api/authenticate/user');
-  }, function (error) {
-   vm.registrationError = true;
-   vm.registrationErrorText = error.data.error;
-  }).then(function (response) {
-   var user = JSON.stringify(response.data.user);
-   localStorageService.set('user', user);
-   $rootScope.authenticated = true;
-   $rootScope.user = response.data.user;
-   $uibModalInstance.close();
-   $state.go('apps.explorer');
+   var d = data;
   });
  };
 
@@ -40,6 +32,7 @@ var registrationModalCtrl = function (
 registrationModalCtrl.$inject = [
  '$uibModalInstance',
  '$auth',
+ 'AuthSrv',
  'localStorageService',
  '$scope',
  '$state',

@@ -24,30 +24,11 @@ var authCtrl = function (
   'explore hobby',
   'collaborate on skills',
  ];
- var headerWordIndex = 0;
- vm.headerWord = headerWords[0];
- $interval(function () {
-  vm.headerWord = headerWords[headerWordIndex];
-  headerWordIndex = (headerWordIndex + 1) % headerWords.length;
- }, 3000);
 
  vm.constantsSrv = new ConstantsSrv();
- vm.skillIcons = [];
- vm.skillIconsArray = [];
-
- var getRand = function (min, max) {
-  return Math.floor((Math.random() * max) + min);
- };
- vm.getRandomSkillIcons = function () {
-  vm.skillIconsArray = [];
-  for (var i = 0; i < 200; i++) {
-   var rand = getRand(0, vm.skillIcons.length);
-   vm.skillIconsArray.push(rand);
-  }
- };
 
  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-skill.css'
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
  }, $scope);
 
  $scope.$on('ocLazyLoad.moduleLoaded', function (e, params) {
@@ -100,11 +81,6 @@ var authCtrl = function (
    console.log('Modal dismissed at: ' + new Date());
   });
  };
-
- vm.constantsSrv.getIcons(1).then(function (data) {
-  vm.skillIcons = data;
-  vm.getRandomSkillIcons();
- });
 };
 
 authCtrl.$inject = [

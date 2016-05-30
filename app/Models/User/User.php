@@ -3,6 +3,8 @@
 namespace App\Models\User;
 
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -44,6 +46,38 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   }
   $profile = User::find($id);
   return $profile;
+ }
+
+ public static function createUser() {
+  $firstname = Request::get("firstname");
+  $lastname = Request::get("lastname");
+  $email = Request::get("email");
+
+
+  $user = new User;
+  $user->firstname = $firstname;
+  $user->lastname = $lastname;
+  $user->email = $email;
+  $user->password = Hash::make('apples');
+
+  DB::beginTransaction();
+  try {
+   $user->save();
+   $data = ['firstname' => $user->firstname, 'password' => 'apples'];
+   //$data['messageLines'] = "Welcome";
+
+   Mail::send('emails.betaregister', $data, function ($message) use ($user) {
+    $message->subject('Welcome: ' . $user->firstname)
+            ->to($user->email)
+            ->replyTo('skillsection@gmail.com');
+   });
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return array("confirmaion" => "Please check your email, an invitation message has been sent");
  }
 
  /**
