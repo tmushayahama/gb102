@@ -27,7 +27,7 @@ define(['angular',
                 'public/modules/app/services/constants.srv.js',
                 'public/modules/auth/controllers/auth.ctrl.js',
                 'public/modules/auth/controllers/login-modal.ctrl.js',
-                'public/modules/auth/controllers/registration-modal.ctrl.js'
+                'public/modules/auth/controllers/registration-modal.ctrl.js',
                ]
               });
              }]

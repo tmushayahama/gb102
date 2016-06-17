@@ -3202,6 +3202,85 @@ tags-input .autocomplete .suggestion-item em {
  opacity: 1;
 }
 */
+.ng-joyride .pull-left {
+  float: left;
+}
+
+.ng-joyride .pull-right {
+  float: right;
+}
+
+.ng-curtain-class {
+  position: fixed;
+  background: black;
+  opacity: 0.5;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 9998;
+  display: none;
+}
+
+.ng-joyride-title {
+  z-index: 9999;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  background: white;
+  box-shadow: 0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+  width: 35em;
+}
+
+.ng-joyride .skip-class {
+  padding-top: 7px;
+}
+
+.ng-joyride-element-non-static {
+  z-index: 9999 !important;
+  box-shadow: 0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+}
+
+.ng-joyride-element-static {
+  position: relative;
+  z-index: 9999 !important;
+  background: #F3F3F3;
+  box-shadow: 0px 0px 28px 0px rgba(50, 50, 50, 0.75);
+}
+
+.ng-joyride.popover {
+  z-index: 9999;
+}
+
+.ng-joyride.popover .popover-content {
+  width: 17em;
+  padding-left: 10px;
+}
+
+.ng-joyride .popover-title {
+  color: white;
+  background: #428bca;
+}
+
+.sharp-borders {
+  border-radius: 0px !important;
+}
+
+.ng-joyride h3.popover-title {
+  line-height: 18px;
+  padding-bottom: 8px;
+}
+
+.ng-joyride-modal.modal {
+  z-index: 9999 !important;
+}
+
+.ng-joyride .btn {
+  border-radius: 0px !important;
+}
+
 /*!
 angular-xeditable - 0.1.9
 Edit-in-place for angular.js
@@ -3922,6 +4001,22 @@ input[type="checkbox"] {
   margin: 0;
 }
 
+.gb-body-row {
+  margin: 10px 0;
+}
+.gb-body-row .gb-more-btn {
+  height: 50px;
+  margin-left: 30%;
+  width: 40%;
+  padding: 13px 6px;
+}
+@media (max-width: 991px) {
+  .gb-body-row {
+    margin-left: 10%;
+    width: 80%;
+  }
+}
+
 .gb-body-row-1 {
   margin: 20px 0;
 }
@@ -4025,6 +4120,84 @@ input[type="checkbox"] {
   -webkit-overflow-scrolling: touch;
 }
 
+.gb-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(../../../../img/explorer/cover-1.png);
+  -webkit-background-size: auto 100% !important;
+  -moz-background-size: auto 100% !important;
+  -o-background-size: auto 100% !important;
+  background-size: auto 100% !important;
+  padding: 5px;
+  overflow: hidden;
+  z-index: -1;
+}
+.gb-cover .gb-cover-img {
+  width: 100%;
+}
+.gb-cover .gb-profile-pic {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 110px;
+  width: 110px;
+}
+.gb-cover .gb-heading-pic {
+  background-color: rgba(65, 100, 42, 0.4);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+  width: 100px;
+}
+.gb-cover .gb-icons-row {
+  margin: 0;
+  margin-bottom: 10px;
+}
+.gb-cover .gb-icons-row .fa-lg {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .gb-cover .gb-icons-row .fa-lg {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .gb-cover .gb-icons-row .fa-lg {
+    font-size: 12px;
+  }
+}
+.gb-cover .gb-icons-row .fa-lg .fa-circle {
+  color: rgba(65, 100, 42, 0.4);
+}
+.gb-cover .gb-icons-row .fa-lg .fa-inverse {
+  line-height: 2.0em;
+  color: rgba(65, 100, 42, 0.8);
+}
+.gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
+  color: rgba(65, 100, 42, 0.7);
+}
+.gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
+  color: #41642A;
+}
+
+.gb-cover-overlap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(65, 100, 42, 0.9);
+  z-index: 0;
+}
+
 #gb-middle-nav {
   height: auto;
   -webkit-overflow-scrolling: touch;
@@ -4040,82 +4213,6 @@ input[type="checkbox"] {
 }
 #gb-middle-nav .gb-list {
   padding: 0px;
-}
-#gb-middle-nav .gb-cover {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../../../../img/explorer/cover-1.png);
-  -webkit-background-size: auto 100% !important;
-  -moz-background-size: auto 100% !important;
-  -o-background-size: auto 100% !important;
-  background-size: auto 100% !important;
-  padding: 5px;
-  overflow: hidden;
-  z-index: -1;
-}
-#gb-middle-nav .gb-cover .gb-cover-img {
-  width: 100%;
-}
-#gb-middle-nav .gb-cover .gb-profile-pic {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  height: 110px;
-  width: 110px;
-}
-#gb-middle-nav .gb-cover .gb-heading-pic {
-  background-color: rgba(65, 100, 42, 0.4);
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  height: 100px;
-  width: 100px;
-}
-#gb-middle-nav .gb-cover .gb-icons-row {
-  margin: 0;
-  margin-bottom: 10px;
-}
-#gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-  float: left;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  text-align: center;
-}
-@media (max-width: 991px) {
-  #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-    font-size: 15px;
-  }
-}
-@media (max-width: 767px) {
-  #gb-middle-nav .gb-cover .gb-icons-row .fa-lg {
-    font-size: 12px;
-  }
-}
-#gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-circle {
-  color: rgba(65, 100, 42, 0.4);
-}
-#gb-middle-nav .gb-cover .gb-icons-row .fa-lg .fa-inverse {
-  line-height: 2.0em;
-  color: rgba(65, 100, 42, 0.8);
-}
-#gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-circle {
-  color: rgba(65, 100, 42, 0.7);
-}
-#gb-middle-nav .gb-cover .gb-icons-row .fa-lg:hover .fa-inverse {
-  color: #41642A;
-}
-#gb-middle-nav .gb-cover-overlap {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(65, 100, 42, 0.9);
-  z-index: 0;
 }
 #gb-middle-nav .gb-profile-row {
   margin-top: -40px;
@@ -4900,7 +4997,7 @@ input.gb-form-show {
   padding: 0;
   float: left;
   height: 100%;
-  line-height: 43px;
+  line-height: 41px;
   color: #f9fcf7;
   font-size: 15px;
 }
@@ -5489,15 +5586,20 @@ input.gb-form-show {
   line-height: 40px;
   color: white;
 }
-.gb-top-nav-1 .gb-action .btn {
+.gb-top-nav-1 .gb-action button {
   color: #f9fcf7;
   margin-left: 5px;
 }
 @media (max-width: 767px) {
-  .gb-top-nav-1 .gb-action .btn {
+  .gb-top-nav-1 .gb-action button {
     margin-left: 0px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 14px;
+  }
+  .gb-top-nav-1 .gb-action button i {
+    font-size: 15px;
+    margin: 6px 3px;
   }
 }
 .gb-top-nav-1 .gb-menu-icon {

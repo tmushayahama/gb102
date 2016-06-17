@@ -73,12 +73,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   try {
    $user->save();
    $data = ['firstname' => $user->firstname, 'password' => $lastname . 'apples'];
-//$data['messageLines'] = "Welcome";
-   ///Mail::send('emails.betaregister', $data, function ($message) use ($user) {
-   // $message->subject('Welcome: ' . $user->firstname)
-   //          ->to($user->email)
-   //          ->replyTo('skillsection@gmail.com');
-   //  });
+   $data['messageLines'] = "Welcome";
+   Mail::send('emails.betaregister', $data, function ($message) use ($user) {
+    $message->subject('Welcome: ' . $user->firstname)
+            ->to($user->email)
+            ->replyTo('skillsection@gmail.com');
+   });
   } catch (\Exception $e) {
 //failed logic here
    DB::rollback();

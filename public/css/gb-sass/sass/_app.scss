@@ -25,6 +25,7 @@ and open the template in the editor.
 @import "components/gb-todo";
 @import "components/gb-weblinks";
 @import "components/gb-grid";
+@import "components/gb-joyride";
 @import "components/custom-xeditable";
 
 //@import "components/gb-spinner";
@@ -403,6 +404,19 @@ input[type="checkbox"] {
   margin: 0;
  }
 }
+.gb-body-row {
+ margin: 10px 0;
+ .gb-more-btn {
+  height: 50px;
+  margin-left: 30%;
+  width: 40%;
+  padding: 13px 6px;
+ }
+ @include respond-to (gb-sm) {
+  margin-left: 10%;
+  width: 80%;
+ }
+}
 
 .gb-body-row-1 {
  margin: 20px 0;
@@ -507,7 +521,71 @@ input[type="checkbox"] {
  //overflow-y: scroll;
  -webkit-overflow-scrolling: touch;
 }
+.gb-cover {
+ @include position(absolute, 0 0 0 0);
+ background: url(../../../../img/explorer/cover-1.png);
+ -webkit-background-size: auto 100%!important;
+ -moz-background-size: auto 100%!important;
+ -o-background-size: auto 100%!important;
+ background-size: auto 100%!important;
+ padding: 5px;
+ overflow: hidden;
+ z-index: -1;
+ .gb-cover-img {
+  width: 100%;
+ }
 
+ .gb-profile-pic {
+  @include position(absolute, 10px null null 10px);
+  height: 110px;
+  width: 110px;
+ }
+
+ .gb-heading-pic {
+  background-color: rgba($primary-color, 0.4);
+  @include position(absolute, 10px null null 10px);
+  height: 100px;
+  width: 100px;
+ }
+ .gb-icons-row {
+  margin: 0;
+  margin-bottom: 10px;
+  .fa-lg {
+   float: left;
+   width: 50px;
+   height: 50px;
+   font-size: 20px;
+   text-align: center;
+   @include respond-to (gb-sm) {
+    font-size: 15px;
+   }
+   @include respond-to (gb-xs) {
+    font-size: 12px;
+   }
+   .fa-circle {
+    color: rgba($primary-color, 0.4);
+   }
+   .fa-inverse{
+    line-height:2.0em;
+    color: rgba($primary-color, 0.8);
+   }
+   &:hover {
+    .fa-circle {
+     color: rgba($primary-color, 0.7);
+    }
+    .fa-inverse{
+     color: $primary-color;
+    }
+   }
+  }
+ }
+}
+
+.gb-cover-overlap {
+ @include position(absolute, 0 0 0 0);
+ background-color: rgba($primary-color, 0.9);
+ z-index: 0;
+}
 #gb-middle-nav {
  //@include position(absolute, 80px 0 0 null);
  height: auto;
@@ -528,71 +606,7 @@ input[type="checkbox"] {
  .gb-list {
   padding: 0px;
  }
- .gb-cover {
-  @include position(absolute, 0 0 0 0);
-  background: url(../../../../img/explorer/cover-1.png);
-  -webkit-background-size: auto 100%!important;
-  -moz-background-size: auto 100%!important;
-  -o-background-size: auto 100%!important;
-  background-size: auto 100%!important;
-  padding: 5px;
-  overflow: hidden;
-  z-index: -1;
-  .gb-cover-img {
-   width: 100%;
-  }
 
-  .gb-profile-pic {
-   @include position(absolute, 10px null null 10px);
-   height: 110px;
-   width: 110px;
-  }
-
-  .gb-heading-pic {
-   background-color: rgba($primary-color, 0.4);
-   @include position(absolute, 10px null null 10px);
-   height: 100px;
-   width: 100px;
-  }
-  .gb-icons-row {
-   margin: 0;
-   margin-bottom: 10px;
-   .fa-lg {
-    float: left;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
-    @include respond-to (gb-sm) {
-     font-size: 15px;
-    }
-    @include respond-to (gb-xs) {
-     font-size: 12px;
-    }
-    .fa-circle {
-     color: rgba($primary-color, 0.4);
-    }
-    .fa-inverse{
-     line-height:2.0em;
-     color: rgba($primary-color, 0.8);
-    }
-    &:hover {
-     .fa-circle {
-      color: rgba($primary-color, 0.7);
-     }
-     .fa-inverse{
-      color: $primary-color;
-     }
-    }
-   }
-  }
- }
-
- .gb-cover-overlap {
-  @include position(absolute, 0 0 0 0);
-  background-color: rgba($primary-color, 0.9);
-  z-index: 0;
- }
  .gb-profile-row {
   //@include position(absolute, null 0 0 0);
   margin-top: -40px;
@@ -1333,7 +1347,7 @@ input.gb-form-show{
  padding: 0;
  float: left;
  height: 100%;
- line-height: 43px;
+ line-height: 41px;
  color: lighten($primary-color, 70%);
  font-size: 15px;
  .gb-logo-icon {
@@ -1928,13 +1942,18 @@ input.gb-form-show{
   //@include position(absolute, 0 3px 0 null);
   //width: 100px;
   // padding-top: 2px;
-  .btn{
+  button{
    color: lighten($primary-color, 70%);
    margin-left: 5px;
    @include respond-to (gb-xs) {
     margin-left: 0px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 14px;
+    i {
+     font-size: 15px;
+     margin: 6px 3px;
+    }
    }
   }
  }

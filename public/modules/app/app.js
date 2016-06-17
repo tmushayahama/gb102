@@ -31,7 +31,10 @@ define([
  'truncate-filters',
  'angular-grid',
  'angular-gridster',
+ //'introjs',
+ //'angular-introjs',
  //'dnd-draggable',
+ 'ng-joyride',
  '../auth/module',
  '../search/module',
  '../community/module',
@@ -74,6 +77,8 @@ define([
   'gb-filters.truncate',
   'angularGrid',
   'gridster',
+  'ngJoyRide',
+  //'angular-intro',
   //'dndLists',
   'app.auth',
   'app.search',
@@ -155,6 +160,7 @@ define([
                 name: 'app',
                 serie: true,
                 files: [
+                 'public/modules/app/services/constants.srv.js',
                  'public/modules/common/services/toast.srv.js',
                  'public/modules/common/directives/show-tab.drv.js',
                  'public/modules/common/directives/sticky.drv.js',
@@ -162,7 +168,7 @@ define([
                  'public/modules/app/controllers/apps.ctrl.js',
                  'public/modules/explorer/directives/explorer-box.drv.js',
                  'public/modules/explorer/directives/explorer-box-2.drv.js',
-                 'public/modules/app/controllers/menu-modal.ctrl.js',
+                 'public/modules/app/controllers/menu-modal.ctrl.js'
                 ]
                });
               }
@@ -182,6 +188,10 @@ define([
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
+                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/controllers/explorers.ctrl.js',
+                  'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                  ]
                 });
                }]
@@ -204,9 +214,13 @@ define([
      $state.go('apps.explorer');
     }
    } else {
-    if (toState.name !== "auth") {
-     event.preventDefault();
-     $state.go('auth');
+    $rootScope.authenticated = false;
+    //if (toState.name !== "auth") {
+    // event.preventDefault();
+    //  $state.go('auth');
+    if (toState.name === "apps.home") {
+     //event.preventDefault();
+     //$state.go('auth');
     }
    }
   });
