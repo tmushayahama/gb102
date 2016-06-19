@@ -34,6 +34,7 @@ requirejs.config({
   'angular-gridster': '../../../bower_components/angular-gridster/dist/angular-gridster.min',
   'angular-resizer': '../../../bower_components/javascript-detect-element-resize/jquery.resize',
   'infinite-scroll': '../../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min',
+  'ng-joyride': '../../../bower_components/ng-joyride/ng-joyride',
   'truncate-filters': 'scripts/modules/common/filters/truncate',
   'dnd-draggable': 'internal-libs/dnd-draggable',
   'angular-grid': 'internal-libs/angular-grid'
@@ -69,6 +70,7 @@ requirejs.config({
   'angular-resizer': {deps: ['angular', 'jquery']},
   'angular-gridster': {deps: ['angular', 'angular-resizer']},
   'infinite-scroll': {deps: ['angular']},
+  'ng-joyride': {deps: ['angular', 'jquery']},
   'truncate-filters': {deps: ['angular']},
   'dnd-draggable': {deps: ['angular']},
   'angular-grid': {deps: ['angular']}

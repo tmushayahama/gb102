@@ -165,6 +165,8 @@ define([
                  'public/modules/common/directives/show-tab.drv.js',
                  'public/modules/common/directives/sticky.drv.js',
                  'public/modules/search/services/search.srv.js',
+                 'public/modules/auth/controllers/login-modal.ctrl.js',
+                 'public/modules/auth/controllers/registration-modal.ctrl.js',
                  'public/modules/app/controllers/apps.ctrl.js',
                  'public/modules/explorer/directives/explorer-box.drv.js',
                  'public/modules/explorer/directives/explorer-box-2.drv.js',

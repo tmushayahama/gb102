@@ -88,6 +88,45 @@ var appsCtrl = function (
   }, function () {
   });
  };
+
+ vm.loginError = false;
+ vm.loginErrorText;
+
+ vm.openLoginModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'login-modal.html',
+   controller: 'LoginModalCtrl as loginModalCtrl',
+   backdrop: 'static',
+   size: 'login',
+   resolve: {
+   }
+  });
+
+  modalInstance.result.then(function (skill) {
+   //vm.skillsSrv.createSkill(skill);
+  }, function () {
+   console.log('Modal dismissed at: ' + new Date());
+  });
+ };
+
+ vm.openRegistrationModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'registration-modal.html',
+   controller: 'RegistrationModalCtrl as registrationModalCtrl',
+   backdrop: 'static',
+   size: 'registration',
+   resolve: {
+   }
+  });
+
+  modalInstance.result.then(function (skill) {
+   //vm.skillsSrv.createSkill(skill);
+  }, function () {
+   console.log('Modal dismissed at: ' + new Date());
+  });
+ };
 };
 
 appsCtrl.$inject = [

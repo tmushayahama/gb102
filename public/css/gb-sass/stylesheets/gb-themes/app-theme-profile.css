@@ -310,7 +310,7 @@ btn:focus {
 
 .gb-btn-md {
   border-radius: 15px;
-  padding: 8px 15px;
+  padding: 9px 15px;
   font-weight: bold;
 }
 
@@ -4011,7 +4011,7 @@ input[type="checkbox"] {
   padding: 13px 6px;
 }
 @media (max-width: 991px) {
-  .gb-body-row {
+  .gb-body-row .gb-more-btn {
     margin-left: 10%;
     width: 80%;
   }
@@ -4032,8 +4032,8 @@ input[type="checkbox"] {
 }
 @media (max-width: 991px) {
   .gb-body-row-4 {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media (max-width: 767px) {
@@ -5934,7 +5934,6 @@ input.gb-form-show {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow: hidden;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-footer {
   padding: 8px 3px 0 0;
@@ -7759,6 +7758,11 @@ input.gb-form-show {
   color: #87602f;
 }
 
+.gb-background-color-community {
+  background-color: rgba(77, 22, 22, 0.3);
+  color: #391010;
+}
+
 .gb-background-color-collaboration {
   background-color: rgba(29, 63, 0, 0.3);
   color: #112600;
@@ -7772,6 +7776,11 @@ input.gb-form-show {
 .gb-background-color-hobby {
   background-color: rgba(65, 100, 42, 0.3);
   color: #355222;
+}
+
+.gb-background-color-journal {
+  background-color: rgba(54, 38, 68, 0.3);
+  color: #291d34;
 }
 
 .gb-background-color-skill {

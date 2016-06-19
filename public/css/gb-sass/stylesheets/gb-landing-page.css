@@ -140,6 +140,96 @@ and open the template in the editor.
   font-size: 20px;
   margin: 10px 5px;
 }
+.gb-landing-page .gb-icon-nav-1 {
+  padding-right: 0px !important;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-body {
+  padding: 0px 0 0px 0;
+  height: 300px;
+  width: 100%;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link {
+  margin: 0;
+  height: 280px;
+  text-align: center;
+  padding: 30px 2px 5px 2px;
+  text-decoration: none;
+  border-bottom: transparent solid 3px;
+  /*
+  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+  */
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-icon {
+  display: block;
+  margin: 0 auto 5px auto;
+  line-height: 80px;
+  min-width: 0;
+  width: 150px;
+  height: 80px;
+  font-size: 80px;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-title {
+  padding: 10px 0px 5px 0px;
+  font-size: 15px;
+  color: #000;
+  font-weight: bold;
+  line-height: 15px;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-description {
+  padding: 3px 5px;
+  height: 51px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #111;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-learn-more-btn {
+  color: #555;
+  border-color: #555;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-learn-more-btn:hover {
+  border-color: #000;
+  color: #000;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link:hover {
+  border-bottom: rgba(2, 120, 135, 0.5) solid 3px;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link:hover .gb-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link:hover .gb-icon {
+  color: #02626e;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link.active {
+  border-bottom: rgba(2, 120, 135, 0.7) solid 3px;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link.active .gb-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+.gb-landing-page .gb-icon-nav-1 .gb-link .gb-image-icon {
+  width: 100%;
+  padding: 0px;
+  margin-right: 7px;
+}
 .gb-landing-page #gb-intro-section {
   background: url(../../../img/landing-page/background-1.png);
   -webkit-background-size: 100% !important;
@@ -147,6 +237,7 @@ and open the template in the editor.
   -o-background-size: 100% !important;
   background-size: 100% !important;
   position: relative;
+  margin-bottom: 30px;
   height: 300px;
   text-align: center;
   background-color: #027887;
@@ -209,16 +300,15 @@ and open the template in the editor.
   line-height: 50px;
 }
 @media (max-width: 991px) {
+  .gb-landing-page #gb-intro-section {
+    height: 200px;
+    margin-bottom: 15px;
+  }
   .gb-landing-page #gb-intro-section .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
+    padding-top: 50px;
   }
 }
 @media (max-width: 767px) {
-  .gb-landing-page #gb-intro-section {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
   .gb-landing-page #gb-intro-section .intro-text .btn-toolbar .btn {
     font-size: 12px;
     width: 110px;
@@ -229,12 +319,12 @@ and open the template in the editor.
   .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
     color: #EEE;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 20px;
   }
   .gb-landing-page #gb-intro-section .intro-text .intro-heading {
     margin-bottom: 10px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 30px;
   }
@@ -322,7 +412,7 @@ and open the template in the editor.
   background-color: rgba(2, 120, 135, 0.6);
 }
 .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content {
-  padding: 60px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   height: 200px;
   color: #000;
 }
@@ -494,13 +584,9 @@ and open the template in the editor.
   background-size: auto 100% !important;
 }
 .gb-landing-page section .gb-heading-row .gb-box-content {
-  padding: 30px 0;
+  padding: 10px 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.85);
-}
-.gb-landing-page section .gb-explorer-row .gb-heading-row {
-  background: url(../../../img/landing-page/gb-discover-1.png);
 }
 .gb-landing-page section .gb-explorer-row .gb-body-row {
   padding-top: 30px;
@@ -546,9 +632,6 @@ and open the template in the editor.
   }
 }
 @media (max-width: 767px) {
-  .gb-landing-page section {
-    text-align: center;
-  }
   .gb-landing-page section h1 {
     font-size: 25px;
   }
@@ -984,17 +1067,7 @@ and open the template in the editor.
   font-weight: 700;
   line-height: 50px;
 }
-@media (max-width: 991px) {
-  .gb-landing-page-2 #gb-intro-section .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
-}
 @media (max-width: 767px) {
-  .gb-landing-page-2 #gb-intro-section {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
   .gb-landing-page-2 #gb-intro-section .intro-text .btn-toolbar .btn {
     font-size: 12px;
     width: 110px;

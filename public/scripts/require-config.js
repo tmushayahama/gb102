@@ -35,7 +35,7 @@ requirejs.config({
   'angular-resizer': '../../bower_components/javascript-detect-element-resize/jquery.resize',
   'infinite-scroll': '../../bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
   'introjs': '../../bower_components/intro.js/minified/intro.min',
-  'angular-introjs': '../../bower_components/angular-intro.js/build/angular-intro.min',
+  //'angular-introjs': '../../bower_components/angular-intro.js/build/angular-intro.min',
   'ng-joyride': '../../bower_components/ng-joyride/ng-joyride',
   'truncate-filters': '../modules/common/filters/truncate',
   'dnd-draggable': '../internal-libs/dnd-draggable',

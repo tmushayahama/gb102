@@ -130,7 +130,7 @@ var explorersSrv = function ($http, $q) {
   var self = this;
   var deferred = $q.defer();
   self.explorer = [];
-  $http.get('/api/explorer/' + explorerId + '//' + Id).success(function (data) {
+  $http.get('/api/explorer/' + explorerId + '/' + Id).success(function (data) {
    self.explorer = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

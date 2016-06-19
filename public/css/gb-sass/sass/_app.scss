@@ -411,10 +411,11 @@ input[type="checkbox"] {
   margin-left: 30%;
   width: 40%;
   padding: 13px 6px;
- }
- @include respond-to (gb-sm) {
-  margin-left: 10%;
-  width: 80%;
+
+  @include respond-to (gb-sm) {
+   margin-left: 10%;
+   width: 80%;
+  }
  }
 }
 
@@ -429,8 +430,8 @@ input[type="checkbox"] {
 .gb-body-row-4 {
  margin: 0 0 10px 0;
  @include respond-to (gb-sm) {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
  }
  @include respond-to (gb-xs) {
   padding-left: 0px;
@@ -2278,7 +2279,6 @@ input.gb-form-show{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    overflow: hidden;
    }
    .gb-footer {
     //@include position(absolute, null 0 0 0);
@@ -4074,6 +4074,10 @@ input.gb-form-show{
  background-color: rgba($color-advice, 0.3);
  color: darken($color-advice, 5%);
 }
+.gb-background-color-community {
+ background-color: rgba($color-community, 0.3);
+ color: darken($color-community, 5%);
+}
 .gb-background-color-collaboration {
  background-color: rgba($color-collaboration, 0.3);
  color: darken($color-collaboration, 5%);
@@ -4085,6 +4089,10 @@ input.gb-form-show{
 .gb-background-color-hobby {
  background-color: rgba($color-hobby, 0.3);
  color: darken($color-hobby, 5%);
+}
+.gb-background-color-journal {
+ background-color: rgba($color-journal, 0.3);
+ color: darken($color-journal, 5%);
 }
 .gb-background-color-skill {
  background-color: rgba($color-skill, 0.3);

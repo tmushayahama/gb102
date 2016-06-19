@@ -115,10 +115,15 @@
          <p class="gb-ellipsis">
           COMPONENTS
          </p>
+         <a ng-if="false" ng-click="start()">
+          aaaa
+         </a>
         </div>
        </div>
       </div>
      </div>
+     <div class="hide" ng-joy-ride="startJoyRide" config="config" on-finish="onFinish()"  on-skip="onFinish()"></div>
+
      <div class='gb-body-row-4 row'>
       <div ng-if="false" ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
        <md-button class="gb-link gb-ellipsis" ui-sref="apps.explorer">
@@ -192,7 +197,7 @@
        </md-button>
       </div>
       <div ui-sref-active="active" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-       <md-button class="gb-link gb-background-color-collaboration gb-ellipsis" ui-sref="apps.app({'app_name': 'collaborations'})">
+       <md-button class="gb-link gb-background-color-journal gb-ellipsis" ui-sref="apps.app({'app_name': 'collaborations'})">
         <i class="gb-icon fa icon-gb-journals"></i>
         <div class="gb-title">
          JOURNALS
