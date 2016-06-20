@@ -211,7 +211,7 @@ define([
    if (user) {
     $rootScope.authenticated = true;
     $rootScope.user = user;
-    if (toState.name === "auth") {
+    if (toState.name === "apps.home") {
      event.preventDefault();
      $state.go('apps.explorer');
     }

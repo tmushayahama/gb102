@@ -15,7 +15,7 @@ var appsCtrl = function (
  vm.logout = function () {
   localStorageService.remove('user');
   $rootScope.authenticated = false;
-  $state.go('auth');
+  $state.go('apps.home');
  };
 
  vm.searchParams;

@@ -4008,9 +4008,15 @@ input[type="checkbox"] {
   height: 50px;
   margin-left: 30%;
   width: 40%;
-  padding: 13px 6px;
+  padding: 6px 6px;
 }
 @media (max-width: 991px) {
+  .gb-body-row .gb-more-btn {
+    margin-left: 20%;
+    width: 60%;
+  }
+}
+@media (max-width: 767px) {
   .gb-body-row .gb-more-btn {
     margin-left: 10%;
     width: 80%;
@@ -5907,8 +5913,12 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
-  font-size: 12px;
+  font-size: 10px;
   text-transform: uppercase;
+}
+.gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title p {
+  color: #888;
+  font-size: 12px;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-faded-icon {
   color: #999;

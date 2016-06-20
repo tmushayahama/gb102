@@ -285,14 +285,14 @@ and open the template in the editor.
   opacity: 0;
 }
 .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
-  color: #EEE;
+  color: #DDD;
   margin-bottom: 25px;
   font-size: 30px;
   font-weight: normal;
   line-height: 40px;
 }
 .gb-landing-page #gb-intro-section .intro-text .intro-heading {
-  color: #EEE;
+  color: #DDD;
   text-transform: uppercase;
   margin-bottom: 25px;
   font-size: 40px;
@@ -301,7 +301,6 @@ and open the template in the editor.
 }
 @media (max-width: 991px) {
   .gb-landing-page #gb-intro-section {
-    height: 200px;
     margin-bottom: 15px;
   }
   .gb-landing-page #gb-intro-section .intro-text {
@@ -565,8 +564,9 @@ and open the template in the editor.
 }
 .gb-landing-page section h2 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 10px;
+  color: #656565;
 }
 .gb-landing-page section h3 {
   font-weight: normal;
@@ -574,8 +574,9 @@ and open the template in the editor.
   margin-bottom: 20px;
 }
 .gb-landing-page section p {
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #656565;
 }
 .gb-landing-page section .gb-heading-row {
   -webkit-background-size: auto 100% !important;

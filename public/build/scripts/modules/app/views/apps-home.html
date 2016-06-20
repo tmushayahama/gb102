@@ -1,7 +1,6 @@
-
-<div ng-include="'public/build/scripts/modules/app/views/navbar-guest.html'"></div>
+<div ng-if="$root.authenticated" ng-include="'public/build/scripts/modules/app/views/navbar.html'"></div>
+<div ng-if="!$root.authenticated" ng-include="'public/build/scripts/modules/app/views/navbar-guest.html'"></div>
 <div class="hide" ng-joy-ride="startJoyRide" config="config" on-finish="onFinish()"  on-skip="onFinish()"></div>
-
 <div class="gb-landing-page">
  <header id="gb-intro-section" class="">
   <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
@@ -48,9 +47,7 @@
                    ng-class="{
                       active: ('apps.explorer' | includedByState)
                      }">
-         <p class=''>
-          Explore More Skills
-         </p>
+         Explore More Skills
         </md-button>
        </div>
       </div>

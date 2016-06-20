@@ -410,9 +410,13 @@ input[type="checkbox"] {
   height: 50px;
   margin-left: 30%;
   width: 40%;
-  padding: 13px 6px;
+  padding: 6px 6px;
 
   @include respond-to (gb-sm) {
+   margin-left: 20%;
+   width: 60%;
+  }
+  @include respond-to (gb-xs) {
    margin-left: 10%;
    width: 80%;
   }
@@ -2251,6 +2255,10 @@ input.gb-form-show{
      color: #888;
      font-size:12px;
      text-transform: uppercase;
+     p {
+      color: #888;
+      font-size:10px;
+     }
     }
    }
    .gb-faded-icon {
