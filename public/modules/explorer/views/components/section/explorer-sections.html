@@ -1,0 +1,115 @@
+<div class="gb-sections row" ng-controller='ExplorerSectionsCtrl as explorerSectionsCtrl'>
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-1 gb-shadow-1 row">
+    <div class="gb-heading-icon">
+     <i class="fa icon-gb-section"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      GUIDELINES
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button class="gb-action" ng-click="explorerSectionsCtrl.showSectionForm()"
+                ng-show="!explorerSectionsCtrl.sectionFormDisplay">
+      <i class="fa fa-plus"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class='gb-body-row-1 row'>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class='row'>
+    <form class="gb-shadow-1 gb-background-white" ng-show="explorerSectionsCtrl.sectionFormDisplay" name="form" novalidate>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Section Description" ng-model="explorerSectionsCtrl.newExplorerSectionData.title"
+                 name="title" required="" rows="2">
+       </textarea>
+       <div ng-show="form.$submitted || form.title.$touched">
+        <div ng-show="form.title.$error.required">description required.</div>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 placeholder="Explorer Section Description (optional)" ng-model="explorerSectionsCtrl.newExplorerSectionData.description"
+                 name="description" required="" rows="4">
+       </textarea>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <div class="radio gb-radio-row">
+        <label class="">
+         <input type="radio" ng-model="explorerSectionsCtrl.newExplorerSectionData.privacy" value="0" />
+         <strong>public</strong> All people can see this section
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerSectionsCtrl.newExplorerSectionData.privacy" value="1" />
+         <strong>private</strong> only you can see this section
+        </label>
+       </div>
+       <div class="radio gb-radio-row">
+        <label>
+         <input type="radio" ng-model="explorerSectionsCtrl.newExplorerSectionData.privacy" value="2" />
+         <strong>custom</strong> choose who to see this section
+        </label>
+       </div>
+      </div>
+     </div>
+     <div class="form-group row" ng-class="{'gb-disabled-2': explorerSectionsCtrl.newExplorerSectionData.privacy != 2}">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+       <input type="text" class="form-control" placeholder="Select members"/>
+      </div>
+     </div>
+     <div class="form-group row">
+      <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+       <a class="btn btn-link" ng-click="explorerSectionsCtrl.showAdvanced()">
+        Show Advanced
+       </a>
+      </label>
+     </div>
+     <div class="gb-form-footer row">
+      <div class="btn-group pull-right">
+       <md-button type="button" class="" ng-click="explorerSectionsCtrl.cancelExplorerSection(form)">
+        Cancel
+       </md-button>
+       <md-button type="button" class="gb-color-primary" ng-click="explorerSectionsCtrl.createExplorerSection(explorerSectionsCtrl.newExplorerSectionData)">
+        Add Section
+       </md-button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="gb-no-info row" ng-show="!explorerSectionsCtrl.explorerSections.length" ng-cloak>
+    No sections to show
+   </div>
+   <div class="gb-section-body row" ng-show="explorerSectionsCtrl.explorerSections.length" ng-cloak>
+    <div class="dynamic-grid" angular-grid="explorerSectionsCtrl.explorerSections" angular-grid-id="sections"
+         ag-options="{gridWidth : 300, gutterSize: 8} "refresh-on-img-load="false" >
+     <div ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index"
+          class="grid">
+      <div gb-explorer-section-box explorer-section="explorerSection"
+           open-explorer-section="explorerSectionsCtrl.openExplorerSection(explorerSection)"
+           class="gb-padding-thin">
+      </div>
+     </div>
+    </div>
+   </div>
+   <script type="text/ng-template" id="explorer-section-modal.html">
+    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+   </script>
+  </div>
+ </div>
+</div>

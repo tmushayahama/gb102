@@ -1,0 +1,51 @@
+
+<div class="gb-section-box row">
+ <div class="gb-box-body gb-shadow-1">
+  <div class="gb-box-content">
+   <md-button class="gb-open" ng-click="open()">
+    <i class="fa fa-arrows-alt"></i>
+   </md-button>
+   <div class="gb-heading row">
+    <p class="gb-title gb-ellipsis">
+     {{explorerSection.description}}
+    </p>
+   </div>
+   <div class="gb-description row">
+    <div class="gb-answers">
+     <div class="row" ng-repeat="answer in explorerSection.answers| limitTo:answersLimitTo track by $index">
+      <div class="gb-answer">
+       <div class="gb-answer-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-answer-content">
+        <a class="gb-ellipsis">
+         {{answer.description}}
+        </a>
+       </div>
+      </div>
+     </div>
+     <div ng-if="explorerSection.answers.length > answersLimitTo" class="gb-answer row">
+      <div class="gb-answer-number gb-primary" ng-click="open()">
+       <i class="fa fa-ellipsis-v"></i>
+      </div>
+      <div class="gb-answer-content">
+       <a ng-click="open()">
+        more
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="gb-footer row gb-padding-none">
+    <div class="gb-summary-bar col-lg-8 col-md-8 col-sm-8 col-xs-7">
+     <p ng-if="false" class="">
+      <i class="gb-icon fa fa-list-ol"></i> 0 answers
+     </p>
+    </div>
+    <div class="gb-name-badge-1 col-lg-4 col-md-4 col-sm-4 col-xs-5">
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

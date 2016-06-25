@@ -238,7 +238,7 @@ and open the template in the editor.
   background-size: 100% !important;
   position: relative;
   margin-bottom: 30px;
-  height: 300px;
+  height: 400px;
   text-align: center;
   background-color: #027887;
   overflow: hidden;
@@ -301,10 +301,23 @@ and open the template in the editor.
 }
 @media (max-width: 991px) {
   .gb-landing-page #gb-intro-section {
+    height: 300px;
     margin-bottom: 15px;
   }
   .gb-landing-page #gb-intro-section .intro-text {
     padding-top: 50px;
+  }
+  .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
+    color: #EEE;
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .gb-landing-page #gb-intro-section .intro-text .intro-heading {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -518,11 +531,13 @@ and open the template in the editor.
   color: #EEE;
 }
 .gb-landing-page .gb-get-started h2 {
+  color: #DDD;
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
 }
 .gb-landing-page .gb-get-started p {
+  color: #DDD;
   text-align: center;
   font-size: 20px;
 }

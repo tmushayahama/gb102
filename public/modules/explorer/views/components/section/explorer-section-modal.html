@@ -1,0 +1,89 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title">
+  <p class="gb-ellipsis">
+   <i class="fa icon-gb-section"></i>
+   {{explorerSectionCtrl.explorerSection.description}}
+  </p>
+ </div>
+ <md-button class="gb-close" ng-click="explorerSectionCtrl.close()">
+  x
+ </md-button>
+</div>
+<div class="modal-body gb-modal-body">
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon">
+     <i class="fa fa-file-text-o"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      DESCRIPTION
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerSectionCtrl.editDecriptionMode"
+                ng-click="explorerSectionCtrl.editDecriptionMode = true">
+      <i class="fa fa-pencil"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-hide="explorerSectionCtrl.editDecriptionMode" class="row">
+    <strong>{{explorerSectionCtrl.explorerSection.section.title}}</strong>
+    {{explorerSectionCtrl.explorerSection.section.description}}
+   </div>
+   <form ng-show="explorerSectionCtrl.editDecriptionMode"
+         ng-submit="explorerSectionCtrl.editExplorerSectionSections.details()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerSectionCtrl.explorerSection.section.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <input ng-model="explorerSectionCtrl.explorerSection.section.description" name="title"
+            placeholder="Description"
+            class="">
+    </md-input-container>
+    <div class="row"
+         ng-show="explorerSectionCtrl.editDecriptionMode">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerSectionCtrl.editDecriptionMode = false">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
+
+ <div ng-repeat="answer in explorerSectionCtrl.explorerSection.answers track by $index">
+  <div class="gb-section-box row">
+   <div class="gb-box-body row">
+    <div class="gb-number">
+     {{$index + 1}}
+    </div>
+    <div class="gb-box-content">
+     <div class="gb-description row">
+      <p class="">
+       {{answer.description}}
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+</div>
+<div class="modal-footer">
+ <md-button class="pull-right" aria-label="Close Todo Modal"
+            ng-click="explorerSectionCtrl.close()">
+  Close
+ </md-button>
+</div>

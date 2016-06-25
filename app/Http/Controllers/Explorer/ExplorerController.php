@@ -19,6 +19,7 @@ use App\Models\Explorer\ExplorerNote;
 use App\Models\Explorer\ExplorerObjective;
 use App\Models\Explorer\ExplorerPlan;
 use App\Models\Plan\PlanChecklist;
+use App\Models\Explorer\ExplorerQuestion;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
 use App\Models\Explorer\ExplorerWeblink;
@@ -27,6 +28,7 @@ use App\Models\Todo\TodoChecklist;
 use App\Models\Comment\Comment;
 use App\Models\Contribution\Contribution;
 use App\Models\Note\Note;
+use App\Models\Question\QuestionAnswer;
 use App\Models\Weblink\Weblink;
 use App\Models\Explorer\ExplorerSwipe;
 use Request;
@@ -102,6 +104,33 @@ class ExplorerController extends Controller {
  public function getExplorerRequestOptions($explorerId) {
   $explorerRequestOptions = ExplorerRequestOption::getExplorerRequestOptions($explorerId);
   return \Response::json($explorerRequestOptions);
+ }
+
+ /* QUESTIONS */
+
+ public function getExplorerQuestions($explorerId, $type) {
+  $explorerQuestions = ExplorerQuestion::getExplorerQuestions($explorerId, $type);
+  return \Response::json($explorerQuestions);
+ }
+
+ public function getExplorerQuestion($explorerId, $questionId) {
+  $explorerQuestion = ExplorerQuestion::getExplorerQuestion($explorerId, $questionId);
+  return \Response::json($explorerQuestion);
+ }
+
+ public function createExplorerQuestion() {
+  $explorerQuestion = ExplorerQuestion::createExplorerQuestion();
+  return \Response::json($explorerQuestion);
+ }
+
+ public function editExplorerQuestion() {
+  $explorerQuestion = ExplorerQuestion::editExplorerQuestion();
+  return \Response::json($explorerQuestion);
+ }
+
+ public function getExplorerSectionAnswers($questionId, $explorerId) {
+  $sectionAnswers = QuestionAnswer::getSectionAnswers($questionId, $explorerId);
+  return \Response::json($sectionAnswers);
  }
 
  /* TODOS */

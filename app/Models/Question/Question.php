@@ -24,6 +24,14 @@ class Question extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
+ public static function getQuestions($type) {
+  $explorerQuestions = Question::with('level')
+          ->orderBy('id', 'asc')
+          ->where('type', $type)
+          ->get();
+  return $explorerQuestions;
+ }
+
  public static function getQuestion($id) {
   $question = Question::with('creator')
           ->with('level')

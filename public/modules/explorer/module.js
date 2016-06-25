@@ -95,6 +95,7 @@ define(['angular'
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
+                  'public/modules/explorer/directives/section/explorer-section-box.drv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorer.srv.js',
@@ -123,6 +124,10 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
+                  //Section
+                  'public/modules/explorer/services/section/explorer-sections.srv.js',
+                  'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
+                  'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
                   //Objectives,
                   'public/modules/explorer/services/objective/explorer-objectives.srv.js',
                   'public/modules/explorer/controllers/objective/explorer-objectives.ctrl.js',

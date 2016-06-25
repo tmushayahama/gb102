@@ -298,7 +298,7 @@ $color-6: #077568;
   background-size: 100%!important;
   position: relative;
   margin-bottom: 30px;
-  height: 300px;
+  height: 400px;
   text-align: center;
   background-color: $primary-color;
   overflow: hidden;
@@ -359,11 +359,23 @@ $color-6: #077568;
 
   }
   @include respond-to (gb-sm) {
-   //height: 200px;
+   height: 300px;
    margin-bottom: 15px;
    .intro-text {
     padding-top: 50px;
     // padding-bottom: 200px;
+    .intro-lead-in {
+     color: #EEE;
+     margin-bottom: 15px;
+     font-size: 18px;
+     line-height: 20px;
+    }
+    .intro-heading {
+     margin-bottom: 10px;
+     font-size: 30px;
+     font-weight: 700;
+     line-height: 30px;
+    }
    }
   }
 
@@ -590,11 +602,13 @@ $color-6: #077568;
   background-color: $color-1;
   color: #EEE;
   h2 {
+   color: #DDD;
    text-align: center;
    font-size: 40px;
    margin-bottom: 20px;
   }
   p {
+   color: #DDD;
    text-align: center;
    font-size: 20px;
   }

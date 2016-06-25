@@ -51,6 +51,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
 DROP TABLE IF EXISTS `gb_action`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -577,19 +578,23 @@ CREATE TABLE `gb_question_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
   `answer_choice_id` int(11),
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` varchar (1000) NOT NULL DEFAULT '',
+  `order` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `question_answer_creator_id` (`creator_id`),
   KEY `question_answer_question_id` (`question_id`),
   KEY `question_answer_answer_choice_id` (`answer_choice_id`),
+  KEY `question_answer_explorer_id` (`explorer_id`),
   CONSTRAINT `question_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `question_answer_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_answer_answer_choice_id` FOREIGN KEY (`answer_choice_id`) REFERENCES `gb_answer_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `question_answer_answer_choice_id` FOREIGN KEY (`answer_choice_id`) REFERENCES `gb_answer_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `question_answer_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1023,6 +1028,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/answer-
     ignore 1 LINES
   (`id`,	`question_id`,	`answer`,	`description`,	`type`,	`status`);
 
+-- -----------QUESTION ANSWER ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/question-answer.txt'
+    into table gb102.gb_question_answer
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`,	`creator_id`, `question_id`,`explorer_id`,`answer_choice_id`,`created_at`, `updated_at`,`description`, `order`, `privacy`, `status`);
+
 DROP TABLE IF EXISTS `gb_explorer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1041,10 +1056,6 @@ CREATE TABLE `gb_explorer` (
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   `list_type` int(11) DEFAULT '0',
-  `size_x` int(11) DEFAULT '0',
-	 `size_y` int(11) DEFAULT '0',
-	 `location_x` int(11) DEFAULT '0',
-  `location_y` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `explorer_app_type_id` (`app_type_id`),
   KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
@@ -1054,6 +1065,28 @@ CREATE TABLE `gb_explorer` (
   CONSTRAINT `explorer_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_explorer_activity`
+--
+DROP TABLE IF EXISTS `gb_explorer_grid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_grid` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_explorer_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `size_x` int(11) DEFAULT '0',
+	 `size_y` int(11) DEFAULT '0',
+	 `location_x` int(11) DEFAULT '0',
+  `location_y` int(11) DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_explorer_grid_parent_explorer_id` (`parent_explorer_id`),
+  KEY `explorer_explorer_grid_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_explorer_grid_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_explorer_grid_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1111,6 +1144,7 @@ CREATE TABLE `gb_explorer_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
   `explorer_id` int(11) NOT NULL,
+  `order` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1414,7 +1448,18 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`,`size_x`, `size_y`,	`location_x`,	`location_y`);
+   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
+
+
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-grid.txt' 
+    into table gb102.gb_explorer_grid
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `parent_explorer_id`, `explorer_id`, `size_x`, `size_y`,	`location_x`,	`location_y`);
+
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-request-option.txt'
     into table gb102.gb_explorer_request_option

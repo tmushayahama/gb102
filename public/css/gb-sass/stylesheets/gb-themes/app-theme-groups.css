@@ -3151,6 +3151,7 @@ tags-input .autocomplete .suggestion-item em {
 
 .dynamic-grid {
   position: relative;
+  clear: both;
 }
 
 .dynamic-grid.angular-grid {
@@ -5913,12 +5914,12 @@ input.gb-form-show {
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title p {
   color: #888;
-  font-size: 12px;
+  font-size: 10px;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-faded-icon {
   color: #999;
@@ -7083,6 +7084,118 @@ input.gb-form-show {
   right: 0;
 }
 .gb-guideline-box .gb-box-body .gb-dropdown-action button {
+  margin: 0;
+}
+
+.gb-section-box {
+  position: relative;
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+.gb-section-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-section-box .gb-box-body {
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+  background-color: #F9F9F9;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-open {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 35px;
+  width: 35px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-heading {
+  padding: 11px 10px 0px 10px;
+  height: 35px;
+  border-bottom: #DDD solid 1px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #444;
+  font-weight: bold;
+  font-size: 14px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-description {
+  padding: 10px 10px 5px 10px;
+  display: block;
+  overflow: hidden;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-answers .gb-answer {
+  position: relative;
+  padding-left: 10px;
+  width: 100%;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-answers .gb-answer .gb-answer-number {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  border-radius: 50%;
+  border: rgba(0, 34, 119, 0.2) solid 1px;
+  background-color: #F2F2F2;
+  color: #333;
+  padding-top: 3px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-answers .gb-answer .gb-answer-content {
+  padding: 12px 5px 5px 15px;
+  border-left: rgba(0, 34, 119, 0.2) solid 1px;
+  font-size: 12px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer {
+  border-top: #DDD solid 1px;
+  height: 28px;
+  padding: 3px 3px 0 0;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 {
+  text-align: right;
+  height: 100%;
+  padding-right: 25px;
+  font-size: 11px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: 20px;
+  width: 20px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-section-box .gb-box-body .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-section-box .gb-box-body .gb-dropdown-action button {
   margin: 0;
 }
 

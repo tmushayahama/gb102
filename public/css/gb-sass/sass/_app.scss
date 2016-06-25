@@ -3437,6 +3437,128 @@ input.gb-form-show{
  }
 }
 
+.gb-section-box {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ padding: 0 0 0 0;
+ overflow: hidden;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  min-height: 100px;
+  width: 100%;
+  background-color: #F9F9F9;
+
+  .gb-box-content {
+   //@include position(absolute, 0 0 0 0);
+   .gb-open {
+    @include position(absolute, 0 0 null null);
+    margin: 0;
+    height: 35px;
+    width: 35px;
+   }
+   .gb-heading {
+    //@include position(absolute, 0 0 null 0);
+    padding: 11px 10px 0px 10px;
+    height: 35px;
+    //background-color: rgba($primary-color, 0.2);
+    border-bottom: #DDD solid 1px;
+    .gb-title {
+     color: #444;
+     font-weight: bold;
+     font-size:14px;
+    }
+
+   }
+
+   .gb-description {
+    //@include position(absolute, 36px 0 50px 0);
+    padding: 10px 10px 5px 10px;
+    display: block;
+    overflow: hidden;
+   }
+   .gb-answers {
+    .gb-answer {
+     position: relative;
+     padding-left: 10px;
+     width: 100%;
+     .gb-answer-number {
+      @include position(absolute, 8px null null 0);
+      border-radius: 50%;
+      border: rgba($primary-color, 0.2) solid 1px;
+      background-color: #F2F2F2;
+      color: #333;
+      padding-top: 3px;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      text-align: center;
+     }
+     .gb-answer-content {
+      padding: 12px 5px 5px 15px;
+      border-left: rgba($primary-color, 0.2) solid 1px;
+      font-size: 12px;
+     }
+    }
+   }
+
+   .gb-footer {
+    //@include position(absolute, 100px 5px 0 5px);
+    border-top: #DDD solid 1px;
+    height: 28px;
+    padding: 3px 3px 0 0;
+    .gb-name-badge-1 {
+     text-align: right;
+     height: 100%;
+     padding-right: 25px;
+     font-size: 11px;
+     .gb-name {
+      padding-top: 6px;
+     }
+     .gb-image {
+      @include position(absolute, 4px 4px null null);
+      height: 20px;
+      width: 20px;
+      img {
+       border-radius: 50%;
+       height: 100%;
+       width: 100%;
+      }
+     }
+    }
+    .gb-summary-bar {
+     margin-top: 5px;
+     background-color: transparent;
+     .btn {
+      min-width: 50px;
+      color: #999;
+      text-decoration: none;
+     }
+     .gb-icon {
+      color: #777;
+     }
+    }
+    .gb-footer-content {
+     padding: 10px 0 0 0;
+    }
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+}
+
+
 .gb-subguideline-box {
  position: relative;
  //height: 153px; /*For box shadow*/

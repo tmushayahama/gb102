@@ -26,6 +26,8 @@ Route::group(['prefix' => 'api'], function() {
 
  Route::post('user/request/create', 'Community\CommunityController@createRequest');
 
+ //Answers
+ Route::get('answers/{questionId}/explorer/{explorerId}', 'Explorer\ExplorerController@getExplorerSectionAnswers');
 
 //Community
  Route::get('community/users', 'Community\CommunityController@getUsers');
@@ -90,6 +92,11 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorer/{explorerId}/objective/{objectiveId}', 'Explorer\ExplorerController@getExplorerObjective');
  Route::get('explorer/{explorerId}/plans', 'Explorer\ExplorerController@getExplorerPlans');
  Route::get('explorer/{explorerId}/plan/{planId}', 'Explorer\ExplorerController@getExplorerPlan');
+ Route::get('explorer/{explorerId}/questions/{type}', 'Explorer\ExplorerController@getExplorerQuestions');
+ Route::get('explorer/{explorerId}/question/{questionId}', 'Explorer\ExplorerController@getExplorerQuestion');
+
+
+
  Route::get('explorer/{explorerId}/activities', 'Explorer\ExplorerController@getExplorerActivities');
  Route::get('explorer/{explorerId}/activity/{activityId}', 'Explorer\ExplorerController@getExplorerActivity');
  Route::get('explorer/{explorerId}/exercises', 'Explorer\ExplorerController@getExplorerExercises');
@@ -179,10 +186,16 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('questionnaire/weblink/create', 'Questionnaire\QuestionnaireController@createQuestionnaireWeblink');
  Route::post('questionnaire/weblink/edit', 'Questionnaire\QuestionnaireController@editQuestionnaireWeblink');
 
+
+
 //Question
+ Route::get('questions/{type}', 'Question\QuestionController@getQuestions');
+
+
  Route::get('questions/swipe', 'Question\QuestionController@getQuestionSwipe');
  Route::get('questions/swipes', 'Question\QuestionController@getQuestionSwipes');
  Route::post('questions/swipe/create', 'Question\QuestionController@createQuestionSwipe');
+
  Route::get('question/{questionId}/comments', 'Question\QuestionController@getQuestionComments');
  Route::get('question/{questionId}/comment/{commentId}', 'Question\QuestionController@getQuestionComment');
  Route::get('question/{questionId}/todos', 'Question\QuestionController@getQuestionTodos');

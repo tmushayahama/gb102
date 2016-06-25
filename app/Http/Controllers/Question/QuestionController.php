@@ -28,6 +28,11 @@ use DB;
 
 class QuestionController extends Controller {
 
+ public function getQuestions($type) {
+  $question = Question::getQuestions($type);
+  return \Response::json($question);
+ }
+
  public function getQuestion($id) {
   $question = Question::getQuestion($id);
   return \Response::json($question);
