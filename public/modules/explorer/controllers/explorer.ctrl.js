@@ -15,35 +15,36 @@ var explorerCtrl = function (
         $css) {
 
  var vm = this;
+
  $css.bind({
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
  }, $scope);
 
  vm.explorer = [];
- var explorerData = {
- };
 
- vm.range = function (min, max) {
-  return _.range(min, max);
- };
-
- vm.explorerIcons = [];
- vm.explorerIconsArray = [];
-
- var getRand = function (min, max) {
-  return Math.floor((Math.random() * max) + min);
- }
-
- vm.getRandomExplorerIcons = function () {
-  for (var i = 0; i < 5; i++) {
-   var rowArray = [];
-   for (var j = 0; j < vm.explorerIcons.length; j++) {
-    var rand = getRand(0, vm.explorerIcons.length);
-    rowArray.push(vm.explorerIcons[rand].name);
-   }
-   vm.explorerIconsArray.push(rowArray);
+ vm.editDescriptionMode = {
+  visible: false,
+  show: function () {
+   vm.editDescriptionMode.visible = true;
+   vm.editDescriptionMode.data = {
+    explorer_id: vm.explorerSrv.explorer.id,
+    title: vm.explorerSrv.explorer.title,
+    description: vm.explorerSrv.explorer.description
+   };
+  },
+  hide: function () {
+   vm.editDescriptionMode.visible = false;
+  },
+  edit: function () {
+   vm.explorerSrv.editExplorer(vm.editDescriptionMode.data).then(function (response) {
+    vm.editDescriptionMode.hide();
+    vm.explorerSrv.explorer = response;
+   }, function (response) {
+    console.log(response);
+   });
   }
  };
+ var explorerData = {};
 
 
  vm.explorerId = $stateParams.explorerId;
@@ -81,15 +82,7 @@ var explorerCtrl = function (
   });
  };
 
- vm.editExplorer = function (data) {
-  vm.explorerSrv.editExplorer(data).then(function (response) {
-   vm.FormDisplay = false;
-   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorerCopy = angular.copy(vm.explorerSrv.explorer);
-  }, function (response) {
-   console.log(response);
-  });
- };
+
 
  vm.editExplorerSections = {
   details: function (explorerId, detail) {

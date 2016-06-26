@@ -195,7 +195,7 @@ class Explorer extends Model {
  public static function editExplorer() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $explorerId = Request::get("explorerId");
+  $explorerId = Request::get("explorer_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $explorer = Explorer::find($explorerId);

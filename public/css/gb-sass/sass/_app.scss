@@ -232,7 +232,7 @@ input[type="checkbox"] {
   margin-bottom: 20px;
  }
 }
-.gb-heading-row-1 {
+.gb-heading-row-1 { 
  position: relative;
  height: 40px;
  margin: 10px 0;
@@ -242,20 +242,19 @@ input[type="checkbox"] {
  .gb-heading-icon {
   @include position(absolute, 0 null 0 0);
   //padding: 10px 0;
-  width: 50px;
+  width: 35px;
   display: block;
   color: #AAA;
   font-size: 20px;
-  line-height: 45px;
-  text-align: center;
+  line-height: 35px;
+  text-align: left;
   //border-radius: 5px;
  }
 
  .gb-title {
-  padding: 6px 0 0 45px;
+  padding: 6px 0 0 35px;
   margin-right: 5px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 15px;
   color: #777;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;

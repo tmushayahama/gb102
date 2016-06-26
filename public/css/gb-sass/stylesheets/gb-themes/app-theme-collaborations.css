@@ -1141,6 +1141,15 @@ Copyright (c) 2014 Daniel Eden
   }
 }
 
+.gb-section-row-3 {
+  background-color: #FFF;
+  padding: 0 10px 0 10px !important;
+  margin-top: 20px;
+}
+.gb-section-row-3 .gb-heading-row-1 {
+  border-bottom: #DDD solid 1px;
+}
+
 .gb-timeline {
   width: 100%;
   overflow-y: scroll;
@@ -3848,18 +3857,17 @@ input[type="checkbox"] {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 50px;
+  width: 35px;
   display: block;
   color: #AAA;
   font-size: 20px;
-  line-height: 45px;
-  text-align: center;
+  line-height: 35px;
+  text-align: left;
 }
 .gb-heading-row-1 .gb-title {
-  padding: 6px 0 0 45px;
+  padding: 6px 0 0 35px;
   margin-right: 5px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 15px;
   color: #777;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;

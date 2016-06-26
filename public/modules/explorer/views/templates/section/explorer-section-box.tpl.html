@@ -12,6 +12,9 @@
    </div>
    <div class="gb-description row">
     <div class="gb-answers">
+     <div class="gb-no-info row" ng-show="!explorerSection.answers.length">
+      No list to show
+     </div>
      <div class="row" ng-repeat="answer in explorerSection.answers| limitTo:answersLimitTo track by $index">
       <div class="gb-answer">
        <div class="gb-answer-number">
