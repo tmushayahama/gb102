@@ -15,11 +15,24 @@ angular.module('app.explorer').directive('gbExplorerSectionBox',
            scope: {
             explorerSection: '=',
             openExplorerSection: '&',
+            addToExplorerSection: '=',
            },
            controller: [
             '$scope',
             function ($scope) {
              $scope.stepsLimitTo = 8;
+             $scope.newAnswer = "";
+             $scope.add = function () {
+              var data = {
+               explorer_id: $scope.explorerSection.explorer_id,
+               question_id: $scope.explorerSection.id,
+               description: $scope.newAnswer
+              };
+              $scope.addToExplorerSection(data).then(function (response) {
+               $scope.explorerSection.answers.unshift(response);
+               $scope.newAnswer = "";
+              });
+             };
             }
            ],
            link: function (scope, element, attr, ctrl) {

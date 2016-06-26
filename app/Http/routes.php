@@ -28,6 +28,8 @@ Route::group(['prefix' => 'api'], function() {
 
  //Answers
  Route::get('answers/{questionId}/explorer/{explorerId}', 'Explorer\ExplorerController@getExplorerSectionAnswers');
+ Route::post('answers/create', 'Explorer\ExplorerController@createExplorerSectionAnswer');
+
 
 //Community
  Route::get('community/users', 'Community\CommunityController@getUsers');

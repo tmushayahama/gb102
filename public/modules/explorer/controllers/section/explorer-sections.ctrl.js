@@ -141,7 +141,10 @@ var explorerSectionsCtrl = function (
   });
  };
 
-
+ vm.addToExplorerSection = function (data) {
+  console.log("added", data);
+  return vm.explorerSectionsSrv.createAnswer(data);
+ };
 
  //--------init------
  vm.getExplorerSections(vm.explorerId);

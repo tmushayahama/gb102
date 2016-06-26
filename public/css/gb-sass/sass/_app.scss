@@ -161,6 +161,19 @@ textarea {
  }
 }
 
+.form-control.gb-md{
+ width: 100%;
+ border-radius: 0!important;
+ box-shadow:0 0 0;
+ border: none;
+ border-bottom: #BBB solid 2px;
+ &:focus {
+  border: none;
+  border-bottom: $primary-color solid 3px;
+  box-shadow: none;
+ }
+}
+
 form {
  .gb-heading {
   font-size: 18px;
@@ -232,7 +245,7 @@ input[type="checkbox"] {
   margin-bottom: 20px;
  }
 }
-.gb-heading-row-1 { 
+.gb-heading-row-1 {
  position: relative;
  height: 40px;
  margin: 10px 0;
@@ -1219,25 +1232,13 @@ ul,li{
  color: rgba(0,0,0,0.26);
  font-size: 12px;
 }
-.form-control{
- width: 100%;
- border-radius: 0!important;
- box-shadow:0 0 0;
- border: none;
- border-bottom: #BBB solid 2px;
- &:focus {
-  border: none;
-  border-bottom: $primary-color solid 3px;
-  box-shadow: none;
- }
-}
+
 .gb-bordered-btn {
  border: #BBB solid 1px;
 }
 .input-group .btn {
- margin-top: 0;
- border: #999 solid 1px;
- border-bottom: #777 solid 2px!important;
+ //height: 100%; 
+ border: #CCC solid 1px;
 }
 textarea.gb-form-show,
 input.gb-form-show{

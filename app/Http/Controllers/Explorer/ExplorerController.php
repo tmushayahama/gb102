@@ -133,6 +133,11 @@ class ExplorerController extends Controller {
   return \Response::json($sectionAnswers);
  }
 
+ public function createExplorerSectionAnswer() {
+  $sectionAnswers = QuestionAnswer::createQuestionAnswer();
+  return \Response::json($sectionAnswers);
+ }
+
  /* TODOS */
 
  public function getExplorerTodos($explorerId, $statusId) {

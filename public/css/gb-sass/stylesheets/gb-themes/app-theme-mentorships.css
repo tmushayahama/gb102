@@ -3786,6 +3786,19 @@ textarea {
   overflow: auto !important;
 }
 
+.form-control.gb-md {
+  width: 100%;
+  border-radius: 0 !important;
+  box-shadow: 0 0 0;
+  border: none;
+  border-bottom: #BBB solid 2px;
+}
+.form-control.gb-md:focus {
+  border: none;
+  border-bottom: #077568 solid 3px;
+  box-shadow: none;
+}
+
 form .gb-heading {
   font-size: 18px;
   margin-bottom: 10px;
@@ -4849,27 +4862,12 @@ ul, li {
   font-size: 12px;
 }
 
-.form-control {
-  width: 100%;
-  border-radius: 0 !important;
-  box-shadow: 0 0 0;
-  border: none;
-  border-bottom: #BBB solid 2px;
-}
-.form-control:focus {
-  border: none;
-  border-bottom: #077568 solid 3px;
-  box-shadow: none;
-}
-
 .gb-bordered-btn {
   border: #BBB solid 1px;
 }
 
 .input-group .btn {
-  margin-top: 0;
-  border: #999 solid 1px;
-  border-bottom: #777 solid 2px !important;
+  border: #CCC solid 1px;
 }
 
 textarea.gb-form-show,

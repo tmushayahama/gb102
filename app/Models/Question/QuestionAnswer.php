@@ -82,11 +82,13 @@ class QuestionAnswer extends Model {
  public static function createQuestionAnswer() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $questionId = Request::get("questionId");
+  $explorerId = Request::get("explorer_id");
+  $questionId = Request::get("question_id");
   $description = Request::get("description");
   $questionAnswer = new QuestionAnswer;
   $questionAnswer->creator_id = $userId;
   $questionAnswer->question_id = $questionId;
+  $questionAnswer->explorer_id = $explorerId;
   $questionAnswer->description = $description;
 
   DB::beginTransaction();

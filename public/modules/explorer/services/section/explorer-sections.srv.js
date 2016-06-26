@@ -54,6 +54,21 @@ var explorerSectionsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerSectionsSrv.prototype.createAnswer = function (answerData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/answers/create',
+   data: answerData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorerSectionsSrv.prototype.getSubSections = function (sectionId) {
   var self = this;
   var deferred = $q.defer();

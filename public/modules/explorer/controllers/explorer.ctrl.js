@@ -168,12 +168,7 @@ var explorerCtrl = function (
   vm.explorerSrv.getSubExplorersStats(explorerId).then(function (data) {
    vm.subExplorersStats = data;
   });
- }
-
- vm.constantsSrv.getIcons(1).then(function (data) {
-  vm.explorerIcons = data;
-  vm.getRandomExplorerIcons();
- });
+ };
 
  vm.getSubExplorersStats(vm.explorerId);
 };
