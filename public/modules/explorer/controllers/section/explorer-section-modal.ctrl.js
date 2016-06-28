@@ -13,6 +13,21 @@ var explorerSectionCtrl = function (
  vm.explorerSectionsSrv = new ExplorerSectionsSrv();
  vm.explorerSection = explorerSectionData;
  vm.answers;
+ vm.newAnswer = "";
+ vm.add = function () {
+  if (!vm.newAnswer.length) {
+   return;
+  }
+  var data = {
+   explorer_id: vm.explorerSection.explorer_id,
+   question_id: vm.explorerSection.id,
+   description: vm.newAnswer
+  };
+  vm.explorerSectionsSrv.createAnswer(data).then(function (response) {
+   vm.explorerSection.answers.unshift(response);
+   vm.newAnswer = "";
+  });
+ };
 
  vm.sectionFormDisplay = false;
  vm.ok = function () {

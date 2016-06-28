@@ -1,6 +1,6 @@
 {
   "name": "angular-gridster",
-  "version": "0.13.9",
+  "version": "0.13.10",
   "main": [
     "src/angular-gridster.js",
     "dist/angular-gridster.min.css"
@@ -29,11 +29,11 @@
     "package.json"
   ],
   "homepage": "https://github.com/ManifestWebDesign/angular-gridster",
-  "_release": "0.13.9",
+  "_release": "0.13.10",
   "_resolution": {
     "type": "version",
-    "tag": "v0.13.9",
-    "commit": "9e2d2738baed963930ec71aac05b1264fc1d24ff"
+    "tag": "v0.13.10",
+    "commit": "b6dd44cd440225d1c6356bc50166c4ee88f53d22"
   },
   "_source": "https://github.com/ManifestWebDesign/angular-gridster.git",
   "_target": "~0.13.9",

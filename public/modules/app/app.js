@@ -35,7 +35,7 @@ define([
  //'angular-introjs',
  //'dnd-draggable',
  'ng-joyride',
- '../auth/module',
+// '../auth/module',
  '../search/module',
  '../community/module',
  '../explorer/module',
@@ -80,7 +80,7 @@ define([
   'ngJoyRide',
   //'angular-intro',
   //'dndLists',
-  'app.auth',
+  // 'app.auth',
   'app.search',
   'app.community',
   'app.explorer',
@@ -100,7 +100,7 @@ define([
 
   $ocLazyLoadProvider.config({
    debug: true,
-   loadedModules: ['app', 'app.auth'],
+   loadedModules: ['app'],
    asyncLoader: require
   });
 
@@ -132,7 +132,7 @@ define([
      angular.forEach(rejectionReasons, function (value, key) {
       if (rejection.data.error === value) {
        localStorageService.remove('user');
-       $state.go('auth');
+       $state.go('apps.home');
       }
      });
      return $q.reject(rejection);
@@ -145,7 +145,7 @@ define([
   // Push the new factory onto the $http interceptor array
   //$httpProvider.interceptors.push('redirectWhenLoggedOut');
   $authProvider.loginUrl = '/api/authenticate';
-  $urlRouterProvider.otherwise('/auth');
+  $urlRouterProvider.otherwise('/');
   $stateProvider
           .state('apps', {
            url: '',

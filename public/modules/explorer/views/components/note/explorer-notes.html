@@ -96,7 +96,7 @@
     No notes to show
    </div>
    <div class="gb-note-body row" ng-show="explorerNotesCtrl.explorerNotes.length" ng-cloak>
-    <div class="dynamic-grid " angular-grid="explorerNotesCtrl.explorerNotes" angular-grid-id="notes"
+    <div class="dynamic-grid row" angular-grid="explorerNotesCtrl.explorerNotes" angular-grid-id="notes"
          ag-options="{gridWidth : 210, gutterSize: 12} "refresh-on-img-load="false" >
      <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotes track by $index"
           class="grid">

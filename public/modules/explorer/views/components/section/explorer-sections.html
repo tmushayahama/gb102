@@ -8,6 +8,7 @@
           class="grid">
       <div gb-explorer-section-box explorer-section="explorerSection"
            open-explorer-section="explorerSectionsCtrl.openExplorerSection(explorerSection)"
+           open-explorer-section-item="explorerSectionsCtrl.openExplorerSectionItem"
            add-to-explorer-section="explorerSectionsCtrl.addToExplorerSection"
            class="">
       </div>
@@ -16,6 +17,9 @@
    </div>
    <script type="text/ng-template" id="explorer-section-modal.html">
     <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+   </script>
+   <script type="text/ng-template" id="explorer-section-item-modal.html">
+    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
    </script>
   </div>
  </div>

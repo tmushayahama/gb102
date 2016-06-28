@@ -1,0 +1,26 @@
+<div class="gb-sections row" ng-controller='ExplorerSectionsCtrl as explorerSectionsCtrl'>
+ <div class='gb-body-row-1 row'>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-section-body row" ng-show="explorerSectionsCtrl.explorerSections.length" ng-cloak>
+    <div class="dynamic-grid" angular-grid="explorerSectionsCtrl.explorerSections" angular-grid-id="sections"
+         ag-options="{gridWidth : 300, gutterSize: 8} "refresh-on-img-load="false" >
+     <div ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index"
+          class="grid">
+      <div gb-explorer-section-box explorer-section="explorerSection"
+           open-explorer-section="explorerSectionsCtrl.openExplorerSection(explorerSection)"
+           open-explorer-section-item="explorerSectionsCtrl.openExplorerSectionItem"
+           add-to-explorer-section="explorerSectionsCtrl.addToExplorerSection"
+           class="">
+      </div>
+     </div>
+    </div>
+   </div>
+   <script type="text/ng-template" id="explorer-section-modal.html">
+    <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+   </script>
+   <script type="text/ng-template" id="explorer-section-item-modal.html">
+    <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
+   </script>
+  </div>
+ </div>
+</div>

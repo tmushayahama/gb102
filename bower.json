@@ -53,10 +53,7 @@
     "angular-gridster": "~0.13.9",
     "angular-intro.js": "2.0.2",
     "angular-gantt": "^1.2.13",
-    "ng-joyride": "^0.1.20"
-  },
-  "resolutions": {
-    "angular": "1.5.6",
-    "jquery": "2.x"
+    "ng-joyride": "^0.1.20",
+    "angular-deckgrid": "^0.5.0"
   }
 }

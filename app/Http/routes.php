@@ -19,6 +19,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
  Route::post('authenticate', 'AuthenticateController@authenticate');
  Route::post('register', 'AuthenticateController@register');
+ Route::get('logout', 'AuthenticateController@logout');
  Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 
  Route::post('search/simple', 'SearchController@simpleSearch');

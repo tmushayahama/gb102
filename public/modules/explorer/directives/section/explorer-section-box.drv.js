@@ -15,6 +15,7 @@ angular.module('app.explorer').directive('gbExplorerSectionBox',
            scope: {
             explorerSection: '=',
             openExplorerSection: '&',
+            openExplorerSectionItem: '=',
             addToExplorerSection: '=',
            },
            controller: [
@@ -23,6 +24,9 @@ angular.module('app.explorer').directive('gbExplorerSectionBox',
              $scope.stepsLimitTo = 8;
              $scope.newAnswer = "";
              $scope.add = function () {
+              if (!$scope.newAnswer.length) {
+               return;
+              }
               var data = {
                explorer_id: $scope.explorerSection.explorer_id,
                question_id: $scope.explorerSection.id,
@@ -32,6 +36,10 @@ angular.module('app.explorer').directive('gbExplorerSectionBox',
                $scope.explorerSection.answers.unshift(response);
                $scope.newAnswer = "";
               });
+             };
+
+             $scope.openItem = function (item) {
+              $scope.openExplorerSectionItem(item);
              };
             }
            ],

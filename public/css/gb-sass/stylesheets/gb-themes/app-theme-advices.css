@@ -4867,7 +4867,6 @@ ul, li {
 }
 
 .input-group .btn {
-  margin-top: 0;
   border: #CCC solid 1px;
 }
 
@@ -7094,6 +7093,10 @@ input.gb-form-show {
   margin: 0;
 }
 
+.gb-modal-body .gb-section-box input {
+  top: 0 !important;
+}
+
 .gb-section-box {
   position: relative;
   padding: 0 0 0 0;
@@ -7130,6 +7133,21 @@ input.gb-form-show {
   padding: 10px 10px 5px 10px;
   display: block;
   overflow: hidden;
+}
+.gb-section-box .gb-box-body .gb-box-content input {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background-color: #FFF;
+  border: none;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.gb-section-box .gb-box-body .gb-box-content .gb-answers {
+  padding-top: 25px;
 }
 .gb-section-box .gb-box-body .gb-box-content .gb-answers .gb-answer {
   position: relative;

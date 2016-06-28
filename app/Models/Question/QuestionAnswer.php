@@ -82,6 +82,9 @@ class QuestionAnswer extends Model {
  public static function createQuestionAnswer() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
+  if (!$userId) {
+   return;
+  }
   $explorerId = Request::get("explorer_id");
   $questionId = Request::get("question_id");
   $description = Request::get("description");

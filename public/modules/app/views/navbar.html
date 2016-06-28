@@ -196,19 +196,3 @@
   </div>
  </div>
 </div>
-
-<script type="text/ng-template" id="customTemplate.html">
- <a>
- <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
- <div ng-bind-html="match.label | uibTypeaheadHighlight:query"></div>
- {{match|json}}
- </a>
-</script>
-
-<script type="text/ng-template" id="search-dropdown.tpl.html">
- <div ng-include="'public/modules/app/views/templates/search-dropdown.tpl.html'"></div>
-</script>
-
-<script type="text/ng-template" id="menu-modal.html">
- <div ng-include="'public/modules/app/views/menu-modal.html'"></div>
-</script>

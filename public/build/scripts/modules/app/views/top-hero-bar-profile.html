@@ -1,0 +1,36 @@
+<div class="gb-top-nav-4 gb-shadow-1 col-lg-12 col-md-12 col-sm-12 col-xs-12" role="navigation">
+ <div class="gb-cover-overlap"></div>
+ <div class="gb-cover"></div>
+ <div class="container">
+  <div class="gb-heading-row-1 row">
+   <div class="gb-heading-icon gb-heading-image">
+    <img data-ui-sref="apps.profile.overview" src="public/build/img/profile_pic/{{::profileCtrl.profileSrv.profile.avatar_url}}"
+         class="" alt="">
+   </div>
+   <div class="gb-title gb-title-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div ng-if="false" class="gb-image">
+     <img src="public/build/img/profile_pic/{{explorerCtrl.explorerSrv.explorer.creator.avatar_url}}" class="" alt="">
+    </div>
+    <h1 class="gb-ellipsis">
+     {{profileCtrl.profileSrv.profile.firstname + ' ' + profileCtrl.profileSrv.profile.lastname}}
+    </h1>
+    <p>
+     <span class="gb-ellipsis">
+      {{explorerCtrl.explorerSrv.explorer.description}}
+     </span>
+     <span class="gb-ellipsis">
+      <a class="gb-description gb-ellipsis">
+       12<i class="fa icon-gb-wrenches"></i> wrenches
+      </a>
+     </span>
+    </p>
+   </div>
+   <div ng-if="false" class="btn-group pull-right">
+    <md-button type="button" class="gb-action"
+               ng-click="$root.openAddExplorerModal()">
+     <i class="gb-menu-icon fa fa-plus"></i> Add
+    </md-button>
+   </div>
+  </div>
+ </div>
+</div>

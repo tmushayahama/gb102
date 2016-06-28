@@ -82,4 +82,8 @@ class AuthenticateController extends Controller {
   return User::createUser();
  }
 
+ public function logout() {
+  JWTAuth::logout();
+ }
+
 }

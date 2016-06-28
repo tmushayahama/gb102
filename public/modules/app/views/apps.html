@@ -6,5 +6,26 @@
 <script type="text/ng-template" id="search-modal.html">
  <div ng-include="'public/modules/app/views/search-modal.html'"></div>
 </script>
+<script type="text/ng-template" id="login-modal.html">
+ <div ng-include="'public/modules/auth/views/login-modal.html'"></div>
+</script>
+<script type="text/ng-template" id="registration-modal.html">
+ <div ng-include="'public/modules/auth/views/registration-modal.html'"></div>
+</script>
+
+<script type="text/ng-template" id="customTemplate.html">
+ <a>
+ <div ng-bind-html="match.label | uibTypeaheadHighlight:query"></div>
+ {{match|json}}
+ </a>
+</script>
+
+<script type="text/ng-template" id="search-dropdown.tpl.html">
+ <div ng-include="'public/modules/app/views/templates/search-dropdown.tpl.html'"></div>
+</script>
+
+<script type="text/ng-template" id="menu-modal.html">
+ <div ng-include="'public/modules/app/views/menu-modal.html'"></div>
+</script>
 
 

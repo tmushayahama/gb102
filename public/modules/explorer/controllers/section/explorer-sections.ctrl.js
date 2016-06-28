@@ -141,6 +141,27 @@ var explorerSectionsCtrl = function (
   });
  };
 
+ vm.openExplorerSectionItem = function (explorerSectionItem) {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'explorer-section-item-modal.html',
+   controller: 'ExplorerSectionItemCtrl as explorerSectionItemCtrl',
+   backdrop: 'static',
+   size: 'xl',
+   resolve: {
+    explorerSectionData: function () {
+     return explorerSectionItem;
+    }
+   }
+  });
+
+  modalInstance.result.then(function (selectedItem) {
+   $scope.selected = selectedItem;
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
+
  vm.addToExplorerSection = function (data) {
   console.log("added", data);
   return vm.explorerSectionsSrv.createAnswer(data);
