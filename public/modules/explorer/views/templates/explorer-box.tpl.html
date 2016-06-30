@@ -39,18 +39,20 @@
      </md-fab-speed-dial>
     </div>
    </div>
-   <div class="gb-description row">
-    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
-     {{::explorer.title}}
-    </a>
-    {{::explorer.description}}
-   </div>
-   <div class="gb-footer row">
+   <div class="gb-body">
+    <div class="gb-description row">
+     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+      {{::explorer.title}}
+     </a>
+     {{::explorer.description}}
+    </div>
     <h5 class="gb-ellipsis">
      <a ui-sref="apps.profile.overview({profileId: explorer.creator.id})">
       {{::explorer.creator.firstname}} {{::explorer.creator.lastname}}
      </a>
     </h5>
+   </div>
+   <div class="gb-footer row">
     <div class="gb-summary-bar btn-group">
      <a class="btn btn-xs btn-link">
       <i class="gb-icon fa fa-check-square-o"></i> [0/0]

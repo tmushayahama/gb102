@@ -5939,9 +5939,12 @@ input.gb-form-show {
   font-size: 10px;
   text-transform: uppercase;
 }
+.gb-box-1 .gb-box-body .gb-box-content .gb-body {
+  height: 51px;
+}
 .gb-box-1 .gb-box-body .gb-box-content .gb-description {
-  padding: 0px 5px 2px 0px;
-  max-height: 51px;
+  padding: 0px 5px 4px 0px;
+  margin-bottom: 5px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
@@ -5953,7 +5956,7 @@ input.gb-form-show {
   text-overflow: ellipsis;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-footer {
-  padding: 8px 3px 0 0;
+  padding: 4px 3px 0 0;
 }
 .gb-box-1 .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
   margin-left: 5px;

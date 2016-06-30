@@ -1045,6 +1045,8 @@ CREATE TABLE `gb_explorer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_type_id` int(11) NOT NULL DEFAULT '1',
   `parent_explorer_id` int(11),
+  `template_id` int(11),
+  `template_type_id` int(11) NOT NULL DEFAULT '100000',
   `creator_id` int(11) NOT NULL,
   `explorer_picture_url` varchar(250) NOT NULL DEFAULT "explorer_default.png",
   `title` varchar(500) NOT NULL,
@@ -1060,9 +1062,13 @@ CREATE TABLE `gb_explorer` (
   KEY `explorer_app_type_id` (`app_type_id`),
   KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
   KEY `explorer_creator_id` (`creator_id`),
+  KEY `explorer_template_id` (`template_id`),
+  KEY `explorer_template_type_id` (`template_type_id`),
   KEY `explorer_level_id` (`level_id`),
   CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_template_id` FOREIGN KEY (`template_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1447,11 +1453,11 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `app_type_id`,	`parent_explorer_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
+    ignore 1 LINES 
+   (`id`, `app_type_id`,	`parent_explorer_id`,	`template_id`, `template_type_id`, `creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
 
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-grid.txt' 
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-grid.txt'
     into table gb102.gb_explorer_grid
     fields terminated by '\t'
     enclosed by '"'

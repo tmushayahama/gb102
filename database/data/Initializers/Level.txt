@@ -84,3 +84,5 @@ id	category	code	name	description	icon	app_type_id
 60003	60000	CTBT	Administrator		icon-gb-admin	
 70000	70000	STS	pending			
 70001	70000	STS	accepted			
+100000	100000	TPL	no			
+100001	100000	TPL	basic			
