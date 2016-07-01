@@ -13,6 +13,8 @@
    <div class="gb-heading row">
     <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
      <p class="gb-ellipsis">
+      <span ng-if="explorer.template_type_id === 100001">
+       Template For - </span>
       {{explorer.app_type.name}} - {{::explorer.level.name}}
      </p>
     </div>
@@ -39,21 +41,23 @@
      </md-fab-speed-dial>
     </div>
    </div>
-   <div class="gb-description row">
-    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
-     {{::explorer.title}}
-    </a>
-    {{::explorer.description}}
-   </div>
-   <div class="gb-footer row">
+   <div class="gb-body">
+    <div class="gb-description row">
+     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+      {{::explorer.title}}
+     </a>
+     {{::explorer.description}}
+    </div>
     <h5 class="gb-ellipsis">
      <a ui-sref="apps.profile.overview({profileId: explorer.creator.id})">
       {{::explorer.creator.firstname}} {{::explorer.creator.lastname}}
      </a>
     </h5>
+   </div>
+   <div class="gb-footer row">
     <div class="gb-summary-bar btn-group">
      <a class="btn btn-xs btn-link">
-      <i class="gb-icon fa fa-check-square-o"></i> [0/0]
+      <i class="gb-icon fa fa-list-ol"></i> 0
      </a>
      <a class="btn btn-xs btn-link">
       <i class="gb-icon fa icon-chat2"></i> 0
