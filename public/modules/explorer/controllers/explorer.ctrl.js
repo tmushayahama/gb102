@@ -16,10 +16,11 @@ var explorerCtrl = function (
 
  var vm = this;
 
- $css.bind({
+ /*
+  $css.bind({
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
- }, $scope);
-
+  }, $scope);
+  */
  vm.explorer = [];
 
  vm.editDescriptionMode = {
@@ -54,11 +55,9 @@ var explorerCtrl = function (
 
  vm.explorerFormDisplay = false;
 
- vm.getExplorer = function (id, data) {
-  vm.explorerSrv.getExplorer(id, data).success(function (response) {
-   vm.explorer = response;
-  }).error(function (response) {
-   console.log(response);
+ vm.getExplorer = function (id) {
+  vm.explorerSrv.getExplorer(id).then(function (response) {
+   //vm.explorer = response;
   });
  };
 
@@ -170,7 +169,7 @@ var explorerCtrl = function (
   });
  };
 
- vm.getSubExplorersStats(vm.explorerId);
+ //vm.getSubExplorersStats(vm.explorerId);
 };
 
 explorerCtrl.$inject = ['_',

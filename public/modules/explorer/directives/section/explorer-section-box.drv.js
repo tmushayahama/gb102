@@ -21,7 +21,7 @@ angular.module('app.explorer').directive('gbExplorerSectionBox',
            controller: [
             '$scope',
             function ($scope) {
-             $scope.stepsLimitTo = 8;
+             $scope.answersLimitTo = 8;
              $scope.newAnswer = "";
              $scope.add = function () {
               if (!$scope.newAnswer.length) {

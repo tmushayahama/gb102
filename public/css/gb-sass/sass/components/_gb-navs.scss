@@ -50,7 +50,7 @@
   }
 
   .gb-title {
-   @include position(absolute, 0 100px 0 100px);
+   @include position(absolute, 0 150px 0 100px);
    padding: 40px 0 0 10px;
    font-size: 20px;
    text-transform: capitalize;

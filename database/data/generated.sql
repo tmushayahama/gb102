@@ -1044,8 +1044,6 @@ DROP TABLE IF EXISTS `gb_explorer`;
 CREATE TABLE `gb_explorer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_type_id` int(11) NOT NULL DEFAULT '1',
-  `parent_explorer_id` int(11),
-  `template_id` int(11),
   `template_type_id` int(11) NOT NULL DEFAULT '100000',
   `creator_id` int(11) NOT NULL,
   `explorer_picture_url` varchar(250) NOT NULL DEFAULT "explorer_default.png",
@@ -1060,17 +1058,41 @@ CREATE TABLE `gb_explorer` (
   `list_type` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `explorer_app_type_id` (`app_type_id`),
-  KEY `explorer_parent_explorer_id` (`parent_explorer_id`),
-  KEY `explorer_creator_id` (`creator_id`),
-  KEY `explorer_template_id` (`template_id`),
   KEY `explorer_template_type_id` (`template_type_id`),
-  KEY `explorer_level_id` (`level_id`),
+  KEY `explorer_creator_id` (`creator_id`),
+  KEY `explorer_level_id` (`level_id`),  
   CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explorer_parent_explorer_id` FOREIGN KEY (`parent_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `explorer_template_id` FOREIGN KEY (`template_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_explorer_activity`
+--
+DROP TABLE IF EXISTS `gb_explorer_relationship`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_relationship` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_explorer_id` int(11),
+  `second_explorer_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
+  `level_id` int(11),
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_relationship_first_explorer_id` (`first_explorer_id`),
+  KEY `explorer_relationship_second_explorer_id` (`second_explorer_id`),
+  KEY `explorer_relationship_creator_id` (`creator_id`),
+  KEY `explorer_relationship_level_id` (`level_id`),
+  CONSTRAINT `explorer_relationship_first_explorer_id` FOREIGN KEY (`first_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_relationship_second_explorer_id` FOREIGN KEY (`second_explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_relationship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_relationship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1453,8 +1475,18 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
-    ignore 1 LINES 
-   (`id`, `app_type_id`,	`parent_explorer_id`,	`template_id`, `template_type_id`, `creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
+    ignore 1 LINES
+   (`id`, `app_type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
+
+-- ------------------ explorer relationship ----------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-relationship.txt'
+    into table gb102.gb_explorer_relationship
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `first_explorer_id`,	`second_explorer_id`,`creator_id`,`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-grid.txt'

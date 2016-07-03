@@ -20,6 +20,7 @@ use App\Models\Explorer\ExplorerObjective;
 use App\Models\Explorer\ExplorerPlan;
 use App\Models\Plan\PlanChecklist;
 use App\Models\Explorer\ExplorerQuestion;
+use App\Models\Explorer\ExplorerRelationship;
 use App\Models\Explorer\ExplorerRequestOption;
 use App\Models\Explorer\ExplorerTodo;
 use App\Models\Explorer\ExplorerWeblink;
@@ -67,7 +68,7 @@ class ExplorerController extends Controller {
  }
 
  public function getSubExplorers($explorerId) {
-  $explorers = Explorer::getSubExplorers($explorerId);
+  $explorers = ExplorerRelationship::getSubExplorers($explorerId);
   return \Response::json($explorers);
  }
 

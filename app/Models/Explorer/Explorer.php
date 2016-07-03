@@ -21,10 +21,6 @@ class Explorer extends Model {
   return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
  }
 
- public function parent_explorer() {
-  return $this->belongsTo('App\Models\Explorer\Explorer', 'parent_explorer_id');
- }
-
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
@@ -35,6 +31,10 @@ class Explorer extends Model {
 
  public function level() {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
+ }
+
+ public function template_type() {
+  return $this->belongsTo('App\Models\Level\Level', 'template_type_id');
  }
 
  /**
@@ -100,23 +100,6 @@ class Explorer extends Model {
   return $explorers;
  }
 
- public static function getSubExplorers($explorerId) {
-  $explorers = Explorer::orderBy('id', 'desc')
-          ->where('parent_explorer_id', $explorerId)
-          ->with('app_type')
-          ->with('creator')
-          ->with('level')
-          ->take(100)
-          ->get();
-  return $explorers;
- }
-
- public static function getSubExplorersStats($explorerId) {
-  $explorersCount = Explorer::where('parent_explorer_id', $explorerId)
-          ->count();
-  return array('totalCount' => $explorersCount);
- }
-
  public static function getUserExplorers($userId, $appName) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
@@ -149,7 +132,6 @@ class Explorer extends Model {
 
  public static function getExplorer($id) {
   $explorer = Explorer::with('creator')
-          ->with('parent_explorer')
           ->with('app_type')
           ->with('icon')
           ->with('level')
@@ -163,7 +145,7 @@ class Explorer extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $appTypeId = Request::get("app_type_id");
-  $parentExplorerId = Request::get("parent_explorer_id");
+  //$parentExplorerId = Request::get("parent_explorer_id");
   $title = Request::get("title");
   $explorerPictureUrl = Request::get("explorer_picture_url");
   $description = Request::get("description");
@@ -172,7 +154,7 @@ class Explorer extends Model {
 
   $explorer = new Explorer;
   $explorer->creator_id = $userId;
-  $explorer->parent_explorer_id = $parentExplorerId;
+  //$explorer->parent_explorer_id = $parentExplorerId;
   $explorer->app_type_id = $appTypeId;
   $explorer->title = $title;
   $explorer->description = $description;
