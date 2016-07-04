@@ -41,9 +41,10 @@ class ExplorerRelationship extends Model {
   */
  protected $fillable = [];
 
- public static function getSubExplorers($explorerId) {
+ public static function getSubExplorers($explorerId, $typeId) {
   $explorers = ExplorerRelationship::orderBy('id', 'desc')
           ->where('second_explorer_id', $explorerId)
+          ->where('level_id', $typeId)
           ->with('first_explorer')
           ->with('first_explorer.app_type')
           ->with('first_explorer.creator')

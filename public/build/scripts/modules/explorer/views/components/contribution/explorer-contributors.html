@@ -16,8 +16,8 @@
   </div>
  </div>
  <div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div class="gb-heading-row-1 gb-shadow-1 row">
+  <div class="gb-section-row-3 gb-shadow-1 row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-1 row">
     <div class="gb-heading-icon">
      <i class="fa icon-gb-community"></i>
     </div>
@@ -32,30 +32,34 @@
      </md-button>
     </div>
    </div>
-  </div>
- </div>
- <div class="gb-no-info row" ng-show="!explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
-  No contributors yet
- </div>
- <div class="gb-contribution-body row" ng-show="explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
-  <div id="contribution-list">
-   <div ng-repeat="explorerContribution in explorerContributionsCtrl.explorerContributions"
-        class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin">
-    <div class="gb-person-box">
-     <img src="public/build/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}" class="gb-profile-img" alt="">
-     <div class="gb-box-body">
-      <div class="gb-heading row">
-       <p class="gb-title">
-        {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
-       </p>
-      </div>
-      <div class="gb-description row">
-       <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution_id})" class="gb-ellipsis">
-        {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
-       </a>
-      </div>
+   <div class="gb-body-row-1 row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-no-info row" ng-show="!explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
+      No contributors yet
      </div>
-     <div class="gb-footer">
+     <div class="gb-contribution-body row" ng-show="explorerContributionsCtrl.explorerContributionsSrv.explorerContributions.length" ng-cloak>
+      <div id="contribution-list">
+       <div ng-repeat="explorerContribution in explorerContributionsCtrl.explorerContributions"
+            class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-thin">
+        <div class="gb-person-box gb-shadow-1">
+         <img src="public/build/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}" class="gb-profile-img" alt="">
+         <div class="gb-box-body">
+          <div class="gb-heading row">
+           <p class="gb-title">
+            {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
+           </p>
+          </div>
+          <div class="gb-description row">
+           <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution_id})" class="gb-ellipsis">
+            {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
+           </a>
+          </div>
+         </div>
+         <div class="gb-footer">
+         </div>
+        </div>
+       </div>
+      </div>
      </div>
     </div>
    </div>
@@ -66,5 +70,5 @@
  <div class="gb-contribution-page" ng-include="'public/build/scripts/modules/explorer/views/components/contribution/explorer-contribution-modal.html'"></div>
 </script>
 <script type="text/ng-template" id="create-explorer-contribution-modal.html">
- <div class="gb-contribution-page" ng-include="'public/build/scripts/modules/explorer/views/components/contribution/create-explorer-contribution-modal.html'"></div>
+   <div class="gb-contribution-page" ng-include="'public/build/scripts/modules/explorer/views/components/contribution/create-explorer-contribution-modal.html'"></div>
 </script>

@@ -254,6 +254,10 @@ define([
           todo_later: 50001,
           todo_done: 50002,
           contribution_types: 60000,
+          explorer_relationship: {
+           parent: 200000,
+           application: 200001
+          },
           list: {
            handpicked: 1
           }

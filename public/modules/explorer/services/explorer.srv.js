@@ -1,7 +1,11 @@
-var explorerSrv = function ($http, $q) {
+var explorerSrv = function (
+        level_categories,
+        $http, $q) {
 
  var ExplorerSrv = function () {
-  this.explorer = [];
+  this.explorer;
+  this.subExplorers = [];
+  this.applicationExplorers = [];
  };
  ExplorerSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
@@ -34,12 +38,20 @@ var explorerSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerSrv.prototype.getSubExplorers = function (parentExplorerId) {
+ ExplorerSrv.prototype.getSubExplorers = function (parentExplorerId, typeId) {
   var self = this;
   var deferred = $q.defer();
   //self.explorers = [];
-  $http.get('/api/explorers/subexplorers/' + parentExplorerId).success(function (data) {
-   //self.explorers = data;
+  $http.get('/api/explorers/subexplorers/' + parentExplorerId + '/type/' + typeId).success(function (data) {
+   switch (typeId) {
+    case level_categories.explorer_relationship.parent:
+     self.subExplorers = data;
+     break;
+    case level_categories.explorer_relationship.application:
+     self.applicationExplorers = data;
+     break
+   }
+
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -76,6 +88,7 @@ var explorerSrv = function ($http, $q) {
  return ExplorerSrv;
 };
 
-explorerSrv.$inject = ['$http', '$q'];
+explorerSrv.$inject = [
+ 'level_categories', '$http', '$q'];
 
 angular.module('app.explorer').service('ExplorerSrv', explorerSrv);

@@ -1,4 +1,5 @@
 var subExplorersCtrl = function (
+        level_categories,
         ExplorerSrv,
         $state,
         $stateParams,
@@ -7,20 +8,18 @@ var subExplorersCtrl = function (
         $rootScope) {
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.subExplorers;
  vm.explorerSrv = new ExplorerSrv();
 
- vm.getSubExplorers = function (explorerId) {
-  vm.explorerSrv.getSubExplorers(explorerId).then(function (data) {
-   vm.subExplorers = data;
-  });
+ vm.getSubExplorers = function (explorerId, typeId) {
+  vm.explorerSrv.getSubExplorers(explorerId, typeId);
  };
 
- vm.getSubExplorers(vm.explorerId);
+ vm.getSubExplorers(vm.explorerId, level_categories.explorer_relationship.parent);
 
 };
 
 subExplorersCtrl.$inject = [
+ 'level_categories',
  'ExplorerSrv',
  '$state',
  '$stateParams',

@@ -67,8 +67,8 @@ class ExplorerController extends Controller {
   return \Response::json($explorers);
  }
 
- public function getSubExplorers($explorerId) {
-  $explorers = ExplorerRelationship::getSubExplorers($explorerId);
+ public function getSubExplorers($explorerId, $type) {
+  $explorers = ExplorerRelationship::getSubExplorers($explorerId, $type);
   return \Response::json($explorers);
  }
 

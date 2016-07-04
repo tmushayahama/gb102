@@ -1,4 +1,4 @@
-<div class="gb-subexplorer-box row">
+<div class="gb-application-explorer-box row">
  <div class="gb-box-body gb-shadow-1">
   <div class="gb-image">
    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.first_explorer_id})"
@@ -16,6 +16,21 @@
      <p class="gb-ellipsis">
       {{explorer.first_explorer.app_type.name}} - {{::explorer.first_explorer.level.name}}
      </p>
+    </div>
+   </div>
+   <div class="gb-footer row gb-padding-none">
+    <div class="gb-name-badge-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <a class="gb-name gb-ellipsis"
+        data-ui-sref="apps.profile.overview({profileId: explorerGuideline.guideline.creator_id})">
+      <i>by:</i>
+      {{ ::explorer.first_explorer.creator.firstname}}
+      {{ ::explorer.first_explorer.creator.lastname}}
+     </a>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           ng-src="public/build/img/profile_pic/{{ ::explorer.first_explorer.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
     </div>
    </div>
   </div>

@@ -108,6 +108,34 @@
   </md-button>
  </div>
 </div>
+<div class="gb-section-row-3 gb-shadow-1 row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="gb-heading-row-1 row">
+  <div class="gb-heading-icon">
+   <i class="fa icon-gb-explorer"></i>
+  </div>
+  <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
+   <p class="gb-ellipsis">
+    APPLICATIONS
+   </p>
+  </div>
+  <div class="btn-group pull-right">
+   <md-button class="gb-action" ng-click="explorerCtrl.editDescriptionMode.show()">
+    Use
+   </md-button>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="gb-no-info row" ng-show="!explorerCtrl.explorerSrv.applicationExplorers.length">
+   No one is using this template yet
+  </div>
+  <div class="row" ng-show="explorerCtrl.explorerSrv.applicationExplorers.length">
+   <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.applicationExplorers track by $index"
+        gb-application-explorer-box explorer="applicationExplorer"
+        class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-thin">
+   </div>
+  </div>
+ </div>
+</div>
 <div class="" ng-include="'public/modules/explorer/views/components/sub-explorer/sub-explorers.html'"></div>
 <div class="" ng-include="'public/modules/explorer/views/components/section/explorer-sections.html'"></div>
 <!--

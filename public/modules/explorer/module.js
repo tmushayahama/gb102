@@ -123,6 +123,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
+                  'public/modules/explorer/directives/sub-explorer/application-explorer-box.drv.js',
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
                   //Section
                   'public/modules/explorer/services/section/explorer-sections.srv.js',
@@ -148,12 +149,12 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem.tools', {
-           url: '/tools',
+          .state('apps.explorerItem.explore', {
+           url: '/explore',
            views: {
             "content": {
              //controller: 'ExplorerTodosCtrl as explorerTodosCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorer/explorer-tools.html',
+             templateUrl: 'public/modules/explorer/views/tabs/explorer/explorer-explore.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({

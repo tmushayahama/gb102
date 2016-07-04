@@ -6570,6 +6570,144 @@ input.gb-form-show {
   padding: 10px 0 0 0;
 }
 
+.gb-application-explorer-box {
+  position: relative;
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+.gb-application-explorer-box:hover .gb-box-body {
+  background-color: #F7F7F7;
+}
+.gb-application-explorer-box .gb-box-body {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  background-color: #FFF;
+}
+.gb-application-explorer-box .gb-box-body .gb-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 75px;
+  width: 75px;
+}
+.gb-application-explorer-box .gb-box-body .gb-image .gb-heading-pic {
+  width: 100%;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 75px;
+  padding: 5px 5px 5px 15px;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-heading .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-faded-icon {
+  color: #999;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-relation {
+  padding: 8px 5px 0 10px;
+  height: 22px;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-relation .gb-title {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-description {
+  padding: 4px 10px 4px 0px;
+  max-height: 41px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer {
+  padding: 8px 3px 0 0;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer .gb-profile-pic {
+  margin-left: 5px;
+  height: 35px;
+  width: 35px;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-application-explorer-box .gb-box-body .gb-box-content .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-application-explorer-box .gb-box-body .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-application-explorer-box .gb-box-body .gb-dropdown-action button {
+  margin: 0;
+}
+.gb-application-explorer-box .gb-footer {
+  height: 28px;
+  padding: 3px 3px 0 0;
+}
+.gb-application-explorer-box .gb-footer .gb-name-badge-1 {
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-application-explorer-box .gb-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 5px;
+}
+.gb-application-explorer-box .gb-footer .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-application-explorer-box .gb-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-application-explorer-box .gb-footer .gb-summary-bar {
+  margin-top: 5px;
+  background-color: transparent;
+}
+.gb-application-explorer-box .gb-footer .gb-summary-bar .btn {
+  min-width: 50px;
+  color: #999;
+  text-decoration: none;
+}
+.gb-application-explorer-box .gb-footer .gb-summary-bar .gb-icon {
+  color: #777;
+}
+.gb-application-explorer-box .gb-footer .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
 .gb-subexplorer-box {
   position: relative;
   padding: 0 0 0 0;

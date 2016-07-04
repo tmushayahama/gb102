@@ -1,6 +1,7 @@
 
 var explorerCtrl = function (
         _,
+        level_categories,
         ConstantsSrv,
         ExplorerSrv,
         $scope,
@@ -163,6 +164,8 @@ var explorerCtrl = function (
   }, $scope);
  });
 
+ vm.explorerSrv.getSubExplorers(vm.explorerId, level_categories.explorer_relationship.application);
+
  vm.getSubExplorersStats = function (explorerId) {
   vm.explorerSrv.getSubExplorersStats(explorerId).then(function (data) {
    vm.subExplorersStats = data;
@@ -173,6 +176,7 @@ var explorerCtrl = function (
 };
 
 explorerCtrl.$inject = ['_',
+ 'level_categories',
  'ConstantsSrv',
  'ExplorerSrv',
  '$scope',

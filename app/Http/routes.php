@@ -67,8 +67,9 @@ Route::group(['prefix' => 'api'], function() {
  //Explorer
  Route::get('explorers/all', 'Explorer\ExplorerController@getExplorersAll');
  Route::get('explorers/all/mode/{mode}', 'Explorer\ExplorerController@getExplorersByMode');
- Route::get('explorers/subexplorers/{explorerId}', 'Explorer\ExplorerController@getSubExplorers');
+ Route::get('explorers/subexplorers/{explorerId}/type/{typeId}', 'Explorer\ExplorerController@getSubExplorers');
  Route::get('explorers/subexplorers/{explorerId}/all/stats', 'Explorer\ExplorerController@getSubExplorersStats');
+
 
  Route::get('explorers/all/{appName}', 'Explorer\ExplorerController@getExplorers');
  Route::get('explorers/all/{appName}/featured', 'Explorer\ExplorerController@getExplorersFeatured');
