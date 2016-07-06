@@ -1,13 +1,13 @@
 <div id="gb-middle-nav" class="gb-app-detail">
  <div class="row">
-  <div ng-include="'public/build/scripts/modules/app/views/top-hero-bar-app-entry.html'"></div>
-  <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorer" class="row gb-info-row-1">
+  <div ng-include="'public/build/scripts/modules/app/views/top-hero-bar-app-entry.html'" class="row"></div>
+  <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0" class="row gb-info-row-1">
    <div class="container">
     <div class="row">
      <p class="gb-title gb-ellipsis">
       Sub Entry for
-      <a data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerSrv.explorer.parent_explorer_id})">
-       {{::explorerCtrl.explorerSrv.explorer.parent_explorer.title}}
+      <a data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer_id})">
+       {{::explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer.title}}
       </a>
      </p>
     </div>

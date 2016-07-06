@@ -54,6 +54,19 @@ class ExplorerRelationship extends Model {
   return $explorers;
  }
 
+ public static function getParentExplorers($explorerId, $typeId) {
+  $explorers = ExplorerRelationship::orderBy('id', 'desc')
+          ->where('first_explorer_id', $explorerId)
+          ->where('level_id', $typeId)
+          ->with('second_explorer')
+          ->with('second_explorer.app_type')
+          ->with('second_explorer.creator')
+          ->with('second_explorer.level')
+          ->take(100)
+          ->get();
+  return $explorers;
+ }
+
  public static function getSubExplorersStats($explorerId) {
   $explorersCount = Explorer::where('parent_explorer_id', $explorerId)
           ->count();

@@ -40,6 +40,13 @@ class Level extends Model {
      'todo_status_later' => 50101,
      'todo_status_done' => 50102,
      'contribution_types' => 60000,
+     'explorer_relationship' => array(
+         'parent' => 200000,
+         'application' => 200001
+     ),
+     'list' => array(
+         'handpicked' => 1
+     )
  );
 
  /**

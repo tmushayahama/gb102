@@ -3,6 +3,8 @@
 namespace App\Models\Explorer;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Level\Level;
+//use App\Models\Explorer\ExplorerRelationship;
 use App\Models\AppType\AppType;
 use Request;
 use DB;
@@ -52,6 +54,7 @@ class Explorer extends Model {
           ->with('level')
           ->take(50)
           ->get();
+  self::getExplorerExtras($explorers);
   return $explorers;
  }
 
@@ -64,6 +67,7 @@ class Explorer extends Model {
           ->with('level')
           ->take(4)
           ->get();
+  self::getExplorerExtras($explorers);
   return $explorers;
  }
 
@@ -76,6 +80,7 @@ class Explorer extends Model {
           ->with('level')
           ->take(50)
           ->get();
+  self::getExplorerExtras($explorers);
   return $explorers;
  }
 
@@ -97,6 +102,7 @@ class Explorer extends Model {
            ->take($limit)
            ->get();
   }
+  self::getExplorerExtras($explorers);
   return $explorers;
  }
 
@@ -112,6 +118,7 @@ class Explorer extends Model {
            ->with('level')
            ->take(50)
            ->get();
+   self::getExplorerExtras($explorers);
    return $explorers;
   }
  }
@@ -138,6 +145,8 @@ class Explorer extends Model {
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
+  $explorer->parent_explorers = ExplorerRelationship::getParentExplorers($explorer->id, Level::$level_categories['explorer_relationship']['parent']);
+  $explorer->parent_applications = ExplorerRelationship::getParentExplorers($explorer->id, Level::$level_categories['explorer_relationship']['application']);
   return $explorer; //$explorer;
  }
 
@@ -204,6 +213,28 @@ class Explorer extends Model {
    });
   }
   return $query;
+ }
+
+ private static function getExplorerExtras($explorers) {
+  foreach ($explorers as $explorer) {
+   $explorer->stats = self::getExplorerStats($explorer->id);
+  }
+ }
+
+ private static function getExplorerStats($explorerId) {
+  return array(
+      "subexplorers_count" => ExplorerRelationship::
+              where('second_explorer_id', $explorerId)
+              ->where('level_id', Level::$level_categories['explorer_relationship']['parent'])
+              ->count(),
+      "applications_count" => ExplorerRelationship::
+              where('second_explorer_id', $explorerId)
+              ->where('level_id', Level::$level_categories['explorer_relationship']['application'])
+              ->count(),
+      "contributions_count" => ExplorerContribution::
+              where('explorer_id', $explorerId)
+              ->count(),
+  );
  }
 
 }
