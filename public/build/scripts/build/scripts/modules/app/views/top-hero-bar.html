@@ -1,0 +1,24 @@
+<div id="gb-hero-nav-1" class="gb-top-nav-4 gb-shadow-1 col-lg-12 col-md-12 col-sm-12 col-xs-12" role="navigation">
+ <div class="gb-cover-overlap"></div>
+ <div class="gb-cover"></div>
+ <div class="container">
+  <div class="gb-heading-row-1 row">
+   <div class="gb-heading-icon">
+    <i class="fa"
+       ng-class="'fa icon-gb-' + $root.appName.toLowerCase()"></i>
+   </div>
+   <div class="gb-title">
+    <h1 class="gb-ellipsis">
+     {{$root.appName}}
+    </h1>
+   </div>
+   <div class="btn-group pull-right">
+    <md-button id="gb-add-explorer-btn" type="button" class="gb-action"
+               ng-click="$root.openAddExplorerModal()">
+     <i class="gb-menu-icon fa fa-plus pull-left"></i>
+     <div class="pull-left visible-lg visible-md visible-sm hidden-xs">Add</div>
+    </md-button>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title">
+  <p class="gb-ellipsis">
+   <i class="fa icon-gb-guideline"></i>
+   {{explorerGuidelineCtrl.explorerGuideline.guideline.title}}
+  </p>
+ </div>
+ <md-button class="gb-close" ng-click="explorerGuidelineCtrl.close()">
+  x
+ </md-button>
+</div>
+<div class="modal-body gb-modal-body">
+ <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-row-3 gb-shadow-1 row">
+    <div class="gb-heading-icon">
+     <i class="fa fa-file-text-o"></i>
+    </div>
+    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+     <p class="gb-ellipsis">
+      DESCRIPTION
+     </p>
+    </div>
+    <div class="btn-group pull-right">
+     <md-button type="button" class="gb-action" ng-show="!explorerGuidelineCtrl.editDecriptionMode"
+                ng-click="explorerGuidelineCtrl.editDecriptionMode = true">
+      <i class="fa fa-pencil"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div ng-hide="explorerGuidelineCtrl.editDecriptionMode" class="row">
+    <strong>{{explorerGuidelineCtrl.explorerGuideline.guideline.title}}</strong>
+    {{explorerGuidelineCtrl.explorerGuideline.guideline.description}}
+   </div>
+   <form ng-show="explorerGuidelineCtrl.editDecriptionMode"
+         ng-submit="explorerGuidelineCtrl.editExplorerGuidelineSections.details()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerGuidelineCtrl.explorerGuideline.guideline.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <input ng-model="explorerGuidelineCtrl.explorerGuideline.guideline.description" name="title"
+            placeholder="Description"
+            class="">
+    </md-input-container>
+    <div class="row"
+         ng-show="explorerGuidelineCtrl.editDecriptionMode">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerGuidelineCtrl.editDecriptionMode = false">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
+
+ <div ng-repeat="guideline in explorerGuidelineCtrl.explorerSubGuidelines track by $index">
+  <div class="gb-subguideline-box row">
+   <div class="gb-box-body row">
+    <div class="gb-number">
+     {{$index + 1}}
+    </div>
+    <div class="gb-box-content">
+     <div class="gb-description row">
+      <p class="">
+       {{guideline.title}}
+       <i>{{guideline.description}}</i>
+      </p>
+     </div>
+     <div class="gb-steps" ng-repeat="step in guideline.steps track by $index">
+      <div class="gb-step">
+       <div class="gb-step-number">
+        {{$index + 1}}
+       </div>
+       <div class="gb-step-content">
+        {{step.title}}
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+</div>
+<div class="modal-footer">
+ <md-button class="pull-right" aria-label="Close Todo Modal"
+            ng-click="explorerGuidelineCtrl.close()">
+  Close
+ </md-button>
+</div>

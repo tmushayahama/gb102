@@ -71,3 +71,20 @@ id	parent_guideline_id	creator_id	title	description	created_at	updated_at	import
 4502	4500	5	Ask their name and remember it		14-09-20 08:51:01	14-09-20 08:51:59	1	0
 4503	4500	5	Share something about yourself		14-09-20 08:51:01	14-09-20 08:51:59	1	0
 4504	4500	5	Let them share something about themselves		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100000	NULL	2	My Vocabulary Practice Strategy 1		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100001	100000	2	Choose random words on the list		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100002	100000	2	Memorize the words		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100003	100000	2	Read the words out loud		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100004	100000	2	Verify on Google Speech thingy for quick pronunciation		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100005	100000	2	Add new words daily. (I am learning on DuoLingo)		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100006	100000	2	Write down practice sentences with your words.		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100007	100000	2	Read the words and sentences out loud		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100008	100000	2	Use them all in daily conversations		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100009	100000	2	Find synonyms or variations of each word and		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+100010	100000	2	Write them in parentheses next to the word.		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102000	NULL	2	Recordings Strategy 2		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102001	102000	2	Start with physical items in my apartment		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102002	102000	2	List/write the items down in Spanish		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102003	102000	2	"Make a recording of the words, sentences and phrases."		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102004	102000	2	Listen to my recordings in the morning on the train ride to work		14-09-20 08:51:01	14-09-20 08:51:59	1	0
+102005	102000	2	Use your new words in conversations		14-09-20 08:51:01	14-09-20 08:51:59	1	0

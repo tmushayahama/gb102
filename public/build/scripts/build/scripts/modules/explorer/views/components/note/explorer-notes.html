@@ -1,0 +1,113 @@
+<div class="gb-notes row" ng-controller='ExplorerNotesCtrl as explorerNotesCtrl'>
+ <div class="gb-section-row-3 gb-shadow-1 row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="gb-heading-row-1 row">
+   <div class="gb-heading-icon">
+    <i class="fa icon-gb-notes"></i>
+   </div>
+   <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+    <p class="gb-ellipsis">
+     NOTES
+    </p>
+   </div>
+   <div class="btn-group pull-right">
+    <md-button class="gb-action" ng-click="explorerNotesCtrl.showNoteForm()"
+               ng-show="!explorerNotesCtrl.noteFormDisplay">
+     <i class="fa fa-plus"></i>
+    </md-button>
+   </div>
+  </div>
+  <div class='gb-body-row-1 row'>
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class='row'>
+     <form class="gb-shadow-1 gb-background-white" ng-show="explorerNotesCtrl.noteFormDisplay" name="form" novalidate>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Explorer Note Description" ng-model="explorerNotesCtrl.newExplorerNoteData.title"
+                  name="title" required="" rows="2">
+        </textarea>
+        <div ng-show="form.$submitted || form.title.$touched">
+         <div ng-show="form.title.$error.required">description required.</div>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Explorer Note Description (optional)" ng-model="explorerNotesCtrl.newExplorerNoteData.description"
+                  name="description" required="" rows="4">
+        </textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="radio gb-radio-row">
+         <label class="">
+          <input type="radio" ng-model="explorerNotesCtrl.newExplorerNoteData.privacy" value="0" />
+          <strong>public</strong> All people can see this note
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="explorerNotesCtrl.newExplorerNoteData.privacy" value="1" />
+          <strong>private</strong> only you can see this note
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="explorerNotesCtrl.newExplorerNoteData.privacy" value="2" />
+          <strong>custom</strong> choose who to see this note
+         </label>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row" ng-class="{'gb-disabled-2': explorerNotesCtrl.newExplorerNoteData.privacy != 2}">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <input type="text" class="form-control" placeholder="Select members"/>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+        <a class="btn btn-link" ng-click="explorerNotesCtrl.showAdvanced()">
+         Show Advanced
+        </a>
+       </label>
+      </div>
+      <div class="gb-form-footer row">
+       <div class="btn-group pull-right">
+        <md-button type="button" class="" ng-click="explorerNotesCtrl.cancelExplorerNote(form)">
+         Cancel
+        </md-button>
+        <md-button type="button" class="gb-color-primary" ng-click="explorerNotesCtrl.createExplorerNote(explorerNotesCtrl.newExplorerNoteData)">
+         Add Note
+        </md-button>
+       </div>
+      </div>
+     </form>
+    </div>
+    <div class="gb-no-info row" ng-show="!explorerNotesCtrl.explorerNotes.length" ng-cloak>
+     No notes to show
+    </div>
+    <div class="gb-note-body row" ng-show="explorerNotesCtrl.explorerNotes.length" ng-cloak>
+     <div class="dynamic-grid row" angular-grid="explorerNotesCtrl.explorerNotes" angular-grid-id="notes"
+          ag-options="{gridWidth : 210, gutterSize: 12} "refresh-on-img-load="false" >
+      <div ng-repeat="explorerNote in explorerNotesCtrl.explorerNotes track by $index"
+           class="grid">
+       <div gb-explorer-note-box explorer-note="explorerNote"
+            open-explorer-note="explorerNotesCtrl.openExplorerNote(explorerNote)"
+            class="">
+       </div>
+      </div>
+     </div>
+    </div>
+    <script type="text/ng-template" id="explorer-note-modal.html">
+     <div class="gb-note-page" ng-include="'public/build/scripts/modules/explorer/views/components/note/explorer-note-modal.html'"></div>
+    </script>
+   </div>
+  </div>
+ </div>
+</div>

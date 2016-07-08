@@ -788,6 +788,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/app-typ
 
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/activity.txt'
     into table gb102.gb_activity
+    CHARACTER SET UTF8
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
