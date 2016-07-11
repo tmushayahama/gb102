@@ -458,7 +458,8 @@
  }
 }
 
-.gb-icon-top-nav-1{
+.gb-icon-top-nav-1 {
+ height: 75px;
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
@@ -480,8 +481,9 @@
 
  .gb-link {
   margin: 0;
+  border-radius: 0!important;
   text-align: center;
-  padding:10px 2px 5px 2px;
+  padding:10px 20px 5px 20px;
   text-decoration: none;
   border-bottom: transparent solid 3px;
   /*
@@ -506,12 +508,6 @@
    transition-property: background-color,box-shadow,transform;
    font-size: 30px;
    color: darken($primary-color, 5%);
-   @include respond-to (gb-sm) {
-    //font-size: 18px;
-   }
-   @include respond-to (gb-xs) {
-    font-size: 25px;
-   }
   }
 
   .gb-title {
@@ -530,19 +526,14 @@
 
   &:hover {
    border-bottom: rgba($primary-color, 0.5) solid 3px;
-   .gb-title {
-    font-weight: bold;
-    font-size: 9px;
-   }
    .gb-icon {
     color: darken($primary-color, 5%);
    }
   }
   &.active {
    border-bottom: rgba($primary-color, 0.7) solid 3px;
-   .gb-title {
-    font-weight: bold;
-    font-size: 9px;
+   .gb-icon {
+    color: darken($primary-color, 10%);
    }
   }
 
@@ -556,6 +547,23 @@
    width: 100%;
    padding: 0px;
    margin-right: 7px;
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 52px;
+  .gb-link {
+   padding:2px 5px 2px 5px;
+   .gb-icon {
+    font-size: 15px;
+    margin-bottom: 0;
+    height: 30px;
+   }
+   .gb-title {
+    font-size: 5px;
+    font-weight: 100;
+    color: #111;
+    line-height: 10px;
+   }
   }
  }
 }

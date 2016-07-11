@@ -2,6 +2,11 @@
  position: relative;
  clear: both;
  //display: none;
+ &:after {
+  content: "";
+  clear: both;
+  display: table;
+ }
 }
 .dynamic-grid.angular-grid {
  display: block;

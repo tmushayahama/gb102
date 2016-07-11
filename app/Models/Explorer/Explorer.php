@@ -46,6 +46,18 @@ class Explorer extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
+ public static function getExplorersTop() {
+  $explorers = Explorer::orderBy('updated_at', 'desc')
+          ->with('app_type')
+          ->with('creator')
+          ->with('icon')
+          ->with('level')
+          ->take(4)
+          ->get();
+  self::getExplorerExtras($explorers);
+  return $explorers;
+ }
+
  public static function getExplorersAll() {
   $explorers = Explorer::orderBy('updated_at', 'desc')
           ->with('app_type')

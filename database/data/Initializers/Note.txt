@@ -14,3 +14,11 @@ id	parent_note_id	creator_id	title	description	created_date	updated_date	importa
 3100	NULL	2	You are receiving one word answers	If you are receiving one word answers it might be that you are asking too many close-ended questions.	14-10-01 08:07:01	16-01-25 18:21:01	1	0
 3101	NULL	2	Weekend Plans	Asking people about their weekend plans or how their weekend went can lead to other subjects. You can ask follow up questions about their plans since you have a grasp of what they like/dislike. E.g. “I went to a Justin Bieber convert on Saturday”.	14-05-16 04:01:01	16-01-09 07:37:01	1	0
 3200	NULL	2	Is it a Cliché?	It is a cliché but it can lead to other subjects. It does not show how creative you are but the point is to show that you want to start the conversation. You can even talk about how cliché it is.	14-10-01 08:07:02	16-01-25 18:21:02	1	0
+10000	NULL	2	Be the host 	Be the host of the conversation in social situation	14-05-16 04:01:02	16-01-09 07:37:02	1	0
+10001	NULL	2	Keeps conversation going	"Don’t dismiss small talks as a waste of time, they make the conversation going"	14-10-01 08:07:03	16-01-25 18:21:03	1	0
+10002	NULL	2	Stalled Conversation	Small talks and repetitive questions are a good way to restart a stalled conversation	14-05-16 04:01:03	16-01-09 07:37:03	1	0
+10003	NULL	2	Initiative	"Most people are feeling just as shy as you are, so taking the initiative will be a great relief for them"	14-10-01 08:07:04	16-01-25 18:21:04	1	0
+10004	NULL	2	Unavoidable social situation	"You can hold a conversation with people you have to socialize with, but don't have a lot in common"	14-05-16 04:01:04	16-01-09 07:37:04	1	0
+10005	NULL	2	Paying Attention	People love to talk about themselves if someone is paying attention to them	14-10-01 08:07:05	16-01-25 18:21:05	1	0
+10006	NULL	2	Asking questions	Start with questions that be answered in few words then build upon those questions	14-05-16 04:01:05	16-01-09 07:37:05	1	0
+10007	NULL	2	Remameber people's names		14-10-01 08:07:06	16-01-25 18:21:06	1	0
