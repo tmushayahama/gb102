@@ -22,3 +22,11 @@ id	parent_note_id	creator_id	title	description	created_date	updated_date	importa
 10005	NULL	2	Paying Attention	People love to talk about themselves if someone is paying attention to them	14-10-01 08:07:05	16-01-25 18:21:05	1	0
 10006	NULL	2	Asking questions	Start with questions that be answered in few words then build upon those questions	14-05-16 04:01:05	16-01-09 07:37:05	1	0
 10007	NULL	2	Remameber people's names		14-10-01 08:07:06	16-01-25 18:21:06	1	0
+1000000	NULL	2	Diphthongs	A combination of two adjacent vowel sounds within the same syllable	14-10-01 08:07:06	16-01-25 18:21:06	1	0
+1000001	NULL	2	2 categories of Spanish vowels	"Strong vowels (a, e, o) and weak vowels (i, u)"	14-05-16 04:01:06	16-01-09 07:37:06	1	0
+1000002	NULL	2	Hiatus	2 vowels pronounced as two distinct syllables	14-10-01 08:07:07	16-01-25 18:21:07	1	0
+1000003	NULL	2	letter u	Sometimes u's purpose in a word is to make a consonant hard rather than soft e.g. Portugués and guisantes	14-10-01 08:07:07	16-01-25 18:21:07	1	0
+1000004	NULL	2	"Vowel, or n or s ending"	"Words ending in a vowel, or n or s, the next to last syllable is stressed."	14-05-16 04:01:07	16-01-09 07:37:07	1	0
+1000005	NULL	2	Consonant other than n or s ending	Words ending in a consonant other than n or s stress falls on the last syllable.	14-10-01 08:07:08	16-01-25 18:21:08	1	0
+1000006	NULL	2	Accent Mark	"If the word has an accent mark, then that syllable is stressed"	14-10-01 08:07:08	16-01-25 18:21:08	1	0
+								

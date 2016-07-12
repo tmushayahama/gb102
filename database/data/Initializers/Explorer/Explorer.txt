@@ -2083,6 +2083,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 10104	1	100001	1	10100.png	Spanish listening skills		14-02-17 21:13:14	15-02-24 15:37:26	3	0	1	0		0.479224207																										
 10105	1	100001	1	10100.png	Writing in Spanish		14-02-17 21:13:13	15-04-27 04:15:10	3	0	1	0		0.479224207																										
 10106	1	100001	1	10100.png	Spanish vocabulary		14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
+10107	1	100001	1	10100.png	Spanish verbs		14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
 10200	1	100001	1	default.png	Speaking in French		14-02-17 21:13:10	15-07-10 06:55:00	3	0	1	0		0.479224207																										
 10201	1	100001	1	default.png	French pronunciation		14-02-17 21:13:09	15-03-15 15:38:18	3	0	1	0		0.479224207																										
 10202	1	100001	1	default.png	Basic French conversational phrases		14-02-17 21:13:08	15-11-29 20:53:40	3	0	1	0		0.479224207																										
@@ -2100,8 +2101,8 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 12005	1	100001	1	2092.png	Choosing the right words		14-09-20 08:51:02	16-02-08 16:00:01	1	0	1	0		0.409188026																										
 12006	1	100001	1	2092.png	Pay attention to non-verbal communication		14-09-20 08:51:01	16-02-08 16:00:02	1	0	1	0		0.409188026																										
 12007	1	100001	1	2092.png	Conversation starter and make friends	"Starting a conversation with anyone, anywhere in dfferent environment and scenario. "	14-09-20 08:51:00	16-02-08 16:00:03	1	0	1	0		0.409188026																										
-12009	1	100001	1	2092.png	Small Talks	"Small talks with stangers, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-01-08 16:00:04	1	0	1	0		0.409188026																										
 12008	1	100001	1	2092.png	Communicate in a noisy area	"Starting a conversation with anyone, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-01-08 16:00:04	1	0	1	0		0.409188026																										
+12009	1	100001	1	2092.png	Small Talks	"Small talks with stangers, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-01-08 16:00:04	1	0	1	0		0.409188026																										
 12101	1	100001	1	default.png	Establish rapport with other people.		14-02-17 21:13:21	15-02-01 10:27:21	1	0	1	0		0.479224207																										
 12102	1	100001	1	default.png	See things from the other person's point of view		14-02-17 21:13:20	15-02-01 10:27:20	1	0	1	0		0.479224207																										
 12103	1	100001	1	default.png	"Reading people's facial expressions,"		14-02-17 21:13:19	15-02-01 10:27:19	1	0	1	0		0.479224207																										
@@ -2172,13 +2173,6 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 16102	1	100001	1	default.png	Making a household budget		14-03-24 22:43:00	15-12-06 09:53:00		0	1	0		0.821277771																										
 16103	1	100001	1	default.png	prepare budgets		14-05-26 06:55:00	15-02-10 22:54:00		0	1	0		0.237044627																										
 16104	1	100001	1	default.png	Stay on a strict budget		14-02-23 16:47:01	15-09-22 03:46:01		0	1	0		0.031663217																										
-																																								
-																																								
-																																								
-																																								
-																																								
-																																								
-																																								
 16105	1	100001	1	default.png	Save		14-02-23 16:47:00	15-09-22 03:46:00		0	1	0		0.031663217																										
 2000000	2	100001	1	default.png	Experience the Grand Canyon		14-02-17 21:13:00	15-02-01 10:27:00		0	1	0		0.479224207																										
 2000001	2	100001	1	default.png	Become a cyclist.		14-07-02 17:24:00	15-08-15 16:40:00		0	1	0		0.350198301																										
@@ -6635,6 +6629,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 100010104	1	100000	1	10100.png	Spanish listening skills		14-02-17 21:13:14	15-02-24 15:37:26	3	0	1	0		0.479224207																										
 100010105	1	100000	1	10100.png	Writing in Spanish		14-02-17 21:13:13	15-04-27 04:15:10	3	0	1	0		0.479224207																										
 100010106	1	100000	1	10100.png	Spanish vocabulary		14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
+100010107	1	100000	1	10100.png	Spanish verbs		14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
 100010200	1	100000	1	default.png	Speaking in French		14-02-17 21:13:10	15-07-10 06:55:00	3	0	1	0		0.479224207																										
 100010201	1	100000	1	default.png	French pronunciation		14-02-17 21:13:09	15-03-15 15:38:18	3	0	1	0		0.479224207																										
 100010202	1	100000	1	default.png	Basic French conversational phrases		14-02-17 21:13:08	15-11-29 20:53:40	3	0	1	0		0.479224207																										
@@ -6645,7 +6640,6 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 100011000	1	100000	2	2093.png	Organizing my apartment	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	14-12-07 03:43:00	16-02-03 15:15:00	2	0	1	0	1	0.319441808																										
 100011001	1	100000	2	2093.png	Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	14-12-07 03:43:00	16-04-03 15:15:00	2	0	1	0		0.319441808																										
 100012000	1	100000	2	2092.png	Communication Skills	Mastering communication skills	14-09-20 08:51:01	16-03-03 16:00:03	2	0	1	0		0.409188026																										
-100012009	1	100000	1	2092.png	Small Talks	"Small talks with stangers, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-03-08 16:00:04	1	0	1	0		0.409188026																										
 100012001	1	100000	1	2092.png	Connection with people		14-09-20 08:51:06	16-02-08 16:00:03	1	0	1	0		0.409188026																										
 100012002	1	100000	1	2092.png	Listen		14-09-20 08:51:05	16-02-08 16:00:02	1	0	1	0		0.409188026																										
 100012003	1	100000	1	2092.png	Communicate		14-09-20 08:51:04	16-02-08 16:00:01	1	0	1	0		0.409188026																										
@@ -6654,6 +6648,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 100012006	1	100000	1	2092.png	Pay attention to non-verbal communication		14-09-20 08:51:01	16-02-08 16:00:02	1	0	1	0		0.409188026																										
 100012007	1	100000	1	2092.png	Conversation starter and make friends	"Starting a conversation with anyone, anywhere in dfferent environment and scenario. "	14-09-20 08:51:00	16-02-08 16:00:03	1	0	1	0		0.409188026																										
 100012008	1	100000	1	2092.png	Communicate in a noisy area	"Starting a conversation with anyone, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-02-08 16:00:04	1	0	1	0		0.409188026																										
+100012009	1	100000	1	2092.png	Small Talks	"Small talks with stangers, anywhere in dfferent environment and scenario. "	14-09-20 08:51:01	16-03-08 16:00:04	1	0	1	0		0.409188026																										
 100012101	1	100000	1	default.png	Establish rapport with other people.		14-02-17 21:13:21	15-02-01 10:27:21		0	1	0		0.479224207																										
 100012102	1	100000	1	default.png	See things from the other person's point of view		14-02-17 21:13:20	15-02-01 10:27:20		0	1	0		0.479224207																										
 100012103	1	100000	1	default.png	"Reading people's facial expressions,"		14-02-17 21:13:19	15-02-01 10:27:19		0	1	0		0.479224207																										
@@ -6725,6 +6720,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 100016103	1	100000	1	default.png	prepare budgets		14-05-26 06:55:00	15-02-10 22:54:00		0	1	0		0.237044627																										
 100016104	1	100000	1	default.png	Stay on a strict budget		14-02-23 16:47:01	15-09-22 03:46:01		0	1	0		0.031663217																										
 100016105	1	100000	1	default.png	Save		14-02-23 16:47:00	15-09-22 03:46:00		0	1	0		0.031663217																										
+102010001	2	100000	2	10100.png	Order my lunch in Spanish at the local Food Truck	"Close to my work, there is this food truck with awesome people who I practise conversational Spanish while ordering my food."	14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
 105000000	5	100000	7	500000.png	Bread Making	What can you make with your new bread making machine	14-10-29 11:11:00	16-01-07 05:57:00	13	0	1	0		0.057252802																										
 105000001	5	100000	14	500001.png	Sushi Making	Beginners guide to making sushi from scratch	14-03-30 01:49:00	16-01-24 05:10:00	14	0	1	0		0.119117254																										
 105000002	5	100000	7	500002.png	Organizing the kitchen area	Have your kitchen in order. The kitchen gets used more often than most other areas.	14-06-07 00:50:00	16-01-06 12:03:00	14	0	1	1		0.744843989																										
@@ -6740,12 +6736,11 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 105000201	5	100000	7	default.png	Organizing your bedroom area		14-06-07 00:50:02	16-01-06 12:03:02	14	0	1	1		0.744843989																										
 105000202	5	100000	5	default.png	Organizing your living room area		14-06-07 00:50:03	16-01-06 12:03:03	14	0	1	1		0.744843989																										
 105000203	5	100000	7	default.png	Organizing your closet		14-06-07 00:50:04	16-02-06 12:03:04	14	0	1	1		0.744843989																										
-108000201	8	100000	4	800201.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	14-04-06 21:04:00	16-04-01 02:38:00	1	0	1	0	1	0.883046358																										
-111000000	11	100000	3	default.png	The Weather	A subject when starting a conversation	14-09-20 08:51:02	16-02-08 16:00:02	29	0	1	0		0.409188026																										
-111000001	11	100000	5	default.png	Remembering names	When starting a conversation	14-09-20 08:51:01	16-01-08 16:00:05	29	0	1	0		0.409188026																										
-111000002	11	100000	2	default.png	Body Language	A subject when starting a conversation	14-09-20 08:51:00	16-01-08 16:00:07	1	0	1	0		0.409188026																										
-102010001	2	100000	2	10100.png	Order my lunch in Spanish at the local Food Truck	"Close to my work, there is this food truck with awesome people who I practise conversational Spanish while ordering my food."	14-02-17 21:13:12	15-04-02 18:42:37	3	0	1	0		0.479224207																										
 105010001	5	100000	3	10100.png	Learning Spanish		14-09-20 08:51:01	16-01-08 16:00:08	14	0	1	0		0.479224207																										
 105010002	5	100000	14	10100.png	Learning Spanish		14-02-17 21:13:13	16-02-02 18:42:38	13	0	1	0		0.479224207																										
 105010003	5	100000	16	10100.png	Learning Spanish		14-09-20 08:51:02	16-01-02 18:42:39	13	0	1	0		0.479224207																										
 105010004	5	100000	18	10100.png	Learning Spanish		14-02-17 21:13:14	16-04-02 18:42:40	13	0	1	0		0.479224207																										
+108000201	8	100000	4	800201.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	14-04-06 21:04:00	16-04-01 02:38:00	1	0	1	0	1	0.883046358																										
+111000000	11	100000	3	default.png	The Weather	A subject when starting a conversation	14-09-20 08:51:02	16-02-08 16:00:02	29	0	1	0		0.409188026																										
+111000001	11	100000	5	default.png	Remembering names	When starting a conversation	14-09-20 08:51:01	16-01-08 16:00:05	29	0	1	0		0.409188026																										
+111000002	11	100000	2	default.png	Body Language	A subject when starting a conversation	14-09-20 08:51:00	16-01-08 16:00:07	1	0	1	0		0.409188026																										
