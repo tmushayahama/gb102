@@ -7,9 +7,14 @@
   </div>
   <div class="gb-box-content">
    <div class="gb-description row">
-    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="gb-ellipsis">
-     {{::explorer.title}} - {{::explorer.description}}
-    </a>
+    <p class="gb-ellipsis">
+     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+      {{::explorer.title}}
+     </a>
+     <span>
+      {{::explorer.description}}
+     </span>
+    </p>
    </div>
    <div class="gb-heading row">
     <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
@@ -23,7 +28,7 @@
    <div class="gb-footer row gb-padding-none">
     <div class="gb-name-badge-1 row">
      <a class="gb-name gb-ellipsis"
-        data-ui-sref="apps.profile.overview({profileId: explorerGuideline.guideline.creator_id})">
+        data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
       <i>by:</i>
       {{ ::explorer.creator.firstname}}
       {{ ::explorer.creator.lastname}}

@@ -16,6 +16,21 @@ var explorerSectionsCtrl = function (
  vm.explorerSectionsCopy;
  vm.explorerSectionsSrv = new ExplorerSectionsSrv();
  vm.sectionFormDisplay = false;
+ vm.gridsterOpts = {
+  defaultSizeX: 2,
+  defaultSizeY: 1,
+  mobileBreakPoint: 600,
+  rowHeight: 108,
+  draggable: {
+   enabled: true,
+   //handle: '.qf-grab-me',
+   start: function (event, $element, widget) {}, // optional callback fired when drag is started,
+   drag: function (event, $element, widget) {},
+   stop: function (event, $element, widget) {
+    //sortComponents();
+   }
+  }
+ };
 
  vm.defaultExplorerSectionData = {
   explorerId: $stateParams.explorerId,
@@ -32,9 +47,17 @@ var explorerSectionsCtrl = function (
    vm.explorerSections = response;
 
    angular.forEach(response, function (question, key) {
-    vm.explorerSectionsSrv.getSectionAnswers(question.id, explorerId).then(function (answerResponse) {
+    vm.explorerSectionsSrv.getSectionAnswersPreview(question.id, explorerId).then(function (answerResponse) {
      vm.explorerSections[key].answers = answerResponse;
      vm.explorerSections[key].explorer_id = explorerId;
+     var minSizeY = 1 + Math.floor(answerResponse.length / 5);
+     vm.explorerSections[key].gridMap = {
+      'minSizeY': minSizeY,
+      'maxSizeY': 4
+     };
+     //  sizeX: 3,
+     //  sizeY: 1
+     // }
     });
    });
   });

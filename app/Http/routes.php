@@ -28,6 +28,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('user/request/create', 'Community\CommunityController@createRequest');
 
  //Answers
+ Route::get('answers/{questionId}/explorer/{explorerId}/preview', 'Explorer\ExplorerController@getExplorerSectionAnswersPreview');
  Route::get('answers/{questionId}/explorer/{explorerId}', 'Explorer\ExplorerController@getExplorerSectionAnswers');
  Route::post('answers/create', 'Explorer\ExplorerController@createExplorerSectionAnswer');
 

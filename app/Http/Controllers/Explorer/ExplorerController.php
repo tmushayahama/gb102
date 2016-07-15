@@ -129,6 +129,11 @@ class ExplorerController extends Controller {
   return \Response::json($explorerQuestion);
  }
 
+ public function getExplorerSectionAnswersPreview($questionId, $explorerId) {
+  $sectionAnswers = QuestionAnswer::getSectionAnswers($questionId, $explorerId, 15);
+  return \Response::json($sectionAnswers);
+ }
+
  public function getExplorerSectionAnswers($questionId, $explorerId) {
   $sectionAnswers = QuestionAnswer::getSectionAnswers($questionId, $explorerId);
   return \Response::json($sectionAnswers);

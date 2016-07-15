@@ -31,12 +31,12 @@ class QuestionAnswer extends Model {
   */
  protected $fillable = ['title', 'description'];
 
- public static function getSectionAnswers($questionId, $explorerId) {
+ public static function getSectionAnswers($questionId, $explorerId, $limit = 100) {
   $questions = QuestionAnswer::orderBy('id', 'desc')
           ->with('creator')
           ->where('question_id', $questionId)
           ->where('explorer_id', $explorerId)
-          ->take(50)
+          ->take($limit)
           ->get();
   return $questions;
  }
