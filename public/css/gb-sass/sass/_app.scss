@@ -2306,7 +2306,7 @@ input.gb-form-show{
   .gb-image {
    @include position(absolute, 0 null 0 0);
    height: 110px;
-   width: 100px;
+   width: 110px;
    .gb-heading-pic {
     width: 100%;
    }
@@ -2545,7 +2545,7 @@ input.gb-form-show{
   }
   .gb-box-content {
    @include position(absolute, 0 0 0 150px);
-   padding: 10px 5px 10px 15px;
+   padding: 15px 5px 10px 15px;
    .gb-heading {
     //@include position(absolute, 0 0 null 0);
     margin: 10px 0 10px 0;
@@ -3341,6 +3341,132 @@ input.gb-form-show{
  }
 }
 
+.gb-person-box {
+ position: relative;
+ //height: 153px; /*For box shadow*/
+ border: #BBB soild 1px;
+ padding: 0 0 0 0;
+ overflow: hidden;
+ &:hover {
+  .gb-box-body {
+   background-color: #F7F7F7;
+  }
+ }
+ .gb-box-body {
+  position: relative;
+  //@include position(absolute, 0 0 0 25px);
+  height: 75px;
+  width: 100%;
+  background-color: #FFF;
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   height: 75px;
+   width: 75px;
+   .gb-heading-pic {
+    width: 100%;
+   }
+  }
+  .gb-box-content {
+   @include position(absolute, 0 0 0 75px);
+   box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+   -webkit-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+   -moz-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+   -o-box-shadow: inset 0px 0px 64px -2px #BBBBBB;
+   padding: 5px 5px 5px 10px;
+   .gb-heading {
+    //@include position(absolute, 0 0 null 0);
+    .gb-title {
+     color: #888;
+     font-size:10px;
+     text-transform: uppercase;
+     p {
+      font-size: 10px;
+      line-height: 15px;
+     }
+    }
+   }
+   .gb-faded-icon {
+    color: #999;
+   }
+
+   .gb-relation {
+    padding: 8px 5px 0 10px;
+    height: 22px;
+    .gb-title {
+     color: #888;
+     font-size:10px;
+     text-transform: uppercase;
+    }
+   }
+   .gb-description {
+    //@include position(absolute, 23px 0 50px 0);
+    padding: 4px 10px 4px 0px;
+    max-height: 41px;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    /* Fallback for non-webkit */
+    line-height: 1.2;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+   }
+  }
+  .gb-dropdown-action {
+   padding: 0px 8px 0 0;
+   @include position(absolute, 0 0 null null);
+   button {
+    margin: 0;
+   }
+  }
+ }
+ .gb-footer {
+  //@include position(absolute, 100px 5px 0 5px);
+  height: 28px;
+  padding: 3px 3px 0 0;
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+  .gb-summary-bar {
+   margin-top: 2px;
+   margin-left: -5px;
+   background-color: transparent;
+   .btn {
+    text-align: left;
+    min-width: 50px;
+    color: #999;
+    text-decoration: none;
+   }
+   .gb-icon {
+    color: #777;
+   }
+  }
+  .gb-footer-content {
+   padding: 10px 0 0 0;
+  }
+ }
+}
 
 .gb-subexplorer-box {
  position: relative;
@@ -4355,48 +4481,6 @@ input.gb-form-show{
      color: #444;
     }
    }
-  }
- }
-}
-
-.gb-person-box {
- position: relative;
- background-color: #FFF;
- padding:  5px 0 0 0;
- height: 80px;
- margin: 0;
- overflow: hidden;
-
- &:hover {
-  background-color: #F7F7F7;
- }
- .gb-profile-img {
-  @include position(absolute, 0 null null null);
-  width: 50px;
-  height: 50px;
- }
- .gb-box-body {
-  @include position(absolute, 0 0 null 51px);
-  height: 50px;
-  .gb-heading {
-   padding: 5px 5px 5px 5px;
-   .gb-title {
-    color: #888;
-    font-size:8px;
-    text-transform: uppercase;
-   }
-  }
-  .gb-description {
-   padding-left: 5px;
-   font-size: 12px;
-   overflow: hidden;
-  }
- }
- .gb-footer {
-  @include position(absolute, null 0 0 0);
-  height: 30px;
-  .btn {
-   height: 100%;
   }
  }
 }

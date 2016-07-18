@@ -41,21 +41,42 @@
       <div id="contribution-list">
        <div ng-repeat="explorerContribution in explorerContributionsCtrl.explorerContributions"
             class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-thin">
-        <div class="gb-person-box gb-shadow-1">
-         <img src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}" class="gb-profile-img" alt="">
-         <div class="gb-box-body">
-          <div class="gb-heading row">
-           <p class="gb-title">
-            {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
-           </p>
+        <div class="gb-person-box row">
+         <div class="gb-box-body gb-shadow-1">
+          <div class="gb-image">
+           <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+                src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}"
+                class="gb-heading-pic" alt="">
           </div>
-          <div class="gb-description row">
-           <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution_id})" class="gb-ellipsis">
-            {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
-           </a>
+          <div class="gb-box-content">
+           <div class="gb-description row">
+            <p class="gb-ellipsis">
+             <a class="gb-ellipsis">
+              {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
+             </a>
+            </p>
+           </div>
+           <div class="gb-heading row">
+            <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
+             <p class="gb-ellipsis">
+              {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
+             </p>
+            </div>
+           </div>
+           <div class="gb-footer row gb-padding-none">
+            <div class="gb-summary-bar row btn-group">
+             <a class="btn btn-xs btn-link">
+              <i class="gb-icon fa fa-list-ol"></i> 0
+             </a>
+             <a class="btn btn-xs btn-link">
+              <i class="gb-icon fa icon-gb-apply"></i> 0
+             </a>
+             <a class="btn btn-xs btn-link">
+              <i class="gb-icon fa icon-users"></i> 0
+             </a>
+            </div>
+           </div>
           </div>
-         </div>
-         <div class="gb-footer">
          </div>
         </div>
        </div>
@@ -70,5 +91,5 @@
  <div class="gb-contribution-page" ng-include="'public/modules/explorer/views/components/contribution/explorer-contribution-modal.html'"></div>
 </script>
 <script type="text/ng-template" id="create-explorer-contribution-modal.html">
-   <div class="gb-contribution-page" ng-include="'public/modules/explorer/views/components/contribution/create-explorer-contribution-modal.html'"></div>
+ <div class="gb-contribution-page" ng-include="'public/modules/explorer/views/components/contribution/create-explorer-contribution-modal.html'"></div>
 </script>

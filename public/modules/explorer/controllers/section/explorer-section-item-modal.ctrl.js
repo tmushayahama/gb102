@@ -41,7 +41,7 @@ var explorerSectionItemCtrl = function (
 
  vm.getSectionAnswers = function (sectionId, explorerId) {
   vm.explorerSectionsSrv.getSectionAnswers(sectionId, explorerId).then(function (answerResponse) {
-   vm.explorerSections.answers = answerResponse;
+   //vm.explorerSections.answers = answerResponse;
   });
  };
 

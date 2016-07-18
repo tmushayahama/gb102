@@ -2,7 +2,7 @@
  <div class='gb-body-row-1 row'>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class="gb-section-body row" ng-show="explorerSectionsCtrl.explorerSections.length" ng-cloak>
-    <div ng-if="false" class="dynamic-grid" angular-grid="explorerSectionsCtrl.explorerSections" angular-grid-id="sections"
+    <div ng-if="true" class="dynamic-grid" angular-grid="explorerSectionsCtrl.explorerSections" angular-grid-id="sections"
          ag-options="{gridWidth : 300, gutterSize: 8}" refresh-on-img-load="false" >
      <div ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index"
           class="grid">
@@ -14,7 +14,7 @@
       </div>
      </div>
     </div>
-    <div gridster="explorerSectionsCtrl.gridsterOpts">
+    <div ng-if="false" gridster="explorerSectionsCtrl.gridsterOpts">
      <ul class="">
       <li gridster-item="explorerSection.gridMap" ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index"
           class="">
@@ -32,7 +32,7 @@
     <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
    </script>
    <script type="text/ng-template" id="explorer-section-item-modal.html">
-    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-itemmodal.html'"></div>
+    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
    </script>
   </div>
  </div>
