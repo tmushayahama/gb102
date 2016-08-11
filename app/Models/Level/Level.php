@@ -46,6 +46,15 @@ class Level extends Model {
      ),
      'list' => array(
          'handpicked' => 1
+     ),
+     'share' => array(
+         'explorer' => 300000,
+         'notes' => 300001,
+     ),
+     'privacy' => array(
+         'private' => 500000,
+         'public' => 500001,
+         'customize' => 500002,
      )
  );
 

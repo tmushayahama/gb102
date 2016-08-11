@@ -12,7 +12,7 @@ CREATE TABLE `gb_explorer` (
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
   `level_id` int(11),
-  `privacy` int(11) NOT NULL DEFAULT '0',
+  `privacy_id` int(11) NOT NULL,
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
   `list_type` int(11) DEFAULT '0',
@@ -20,10 +20,12 @@ CREATE TABLE `gb_explorer` (
   KEY `explorer_app_type_id` (`app_type_id`),
   KEY `explorer_template_type_id` (`template_type_id`),
   KEY `explorer_creator_id` (`creator_id`),
-  KEY `explorer_level_id` (`level_id`),  
+  KEY `explorer_level_id` (`level_id`),
+  KEY `explorer_privacy_id` (`privacy_id`),
   CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -243,6 +245,26 @@ CREATE TABLE `gb_explorer_note` (
 --
 -- Table structure for table `gb_explorer_plan`
 --
+DROP TABLE IF EXISTS `gb_explorer_notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_notification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notification_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_notification_notification_id` (`notification_id`),
+  KEY `explorer_notification_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_notification_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_notification_notification_id` FOREIGN KEY (`notification_id`) REFERENCES `gb_notification` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_explorer_plan`
+--
 DROP TABLE IF EXISTS `gb_explorer_plan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -341,7 +363,6 @@ CREATE TABLE `gb_explorer_request_option` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
-
   PRIMARY KEY (`id`),
   KEY `explorer_request_option_creator_id` (`creator_id`),
   KEY `explorer_request_option_explorer_id` (`explorer_id`),
@@ -436,7 +457,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy`,	`order`,	`status`, `list_type`);
+   (`id`, `app_type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`, `list_type`);
 
 -- ------------------ explorer relationship ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-relationship.txt'

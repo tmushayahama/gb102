@@ -1,0 +1,7 @@
+id	creator_id	share_with_id	description	level_id	source_id	created_at	updated_at	type	status
+1	2	3		300000	12000				0
+2	2	3		300000	12001				0
+3	2	4		300000	12000				0
+4	2	4		300000	1				0
+5	2	4		300000	2				0
+6	2	4		300000	3				0

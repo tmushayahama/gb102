@@ -88,3 +88,10 @@ id	category	code	name	description	icon	app_type_id
 100001	100000	TPL	basic			
 200000	200000	EXTP	basic			
 200001	200000	EXTP	template			
+300000	300000	SHR	explorer			
+300001	300000	SHR	notes			
+400000	400000	TAG	explorer			
+400001	400000	TAG	notes			
+500000	500000	PRV	private			
+500001	500000	PRV	public			
+500002	500000	PRV	customize			

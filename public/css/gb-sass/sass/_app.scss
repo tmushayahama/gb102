@@ -3109,14 +3109,18 @@ input.gb-form-show{
   position: relative;
   padding: 5px 0 0 0;
   overflow: hidden;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
   color: #777;
  }
  .gb-title {
   color: #888;
-  font-size:15px;
+  font-size:10px;
   text-transform: uppercase;
+ }
+
+ .gb-icon {
+  font-size: 50px;
  }
 }
 
@@ -4063,7 +4067,7 @@ input.gb-form-show{
     margin: 0;
     background-color: #FFF;
     border: none;
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 10px;
    }
    .gb-answers {
@@ -4087,7 +4091,7 @@ input.gb-form-show{
      .gb-answer-content {
       padding: 12px 5px 5px 15px;
       border-left: rgba($primary-color, 0.2) solid 1px;
-      font-size: 12px;
+      font-size: 14px;
      }
     }
    }

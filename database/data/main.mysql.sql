@@ -515,7 +515,7 @@ CREATE TABLE `gb_notification` (
   `recipient_id` int(11) NOT NULL DEFAULT '1',
   `source_id` int(11) NOT NULL,
   `title` varchar(500) NOT NULL DEFAULT '',
-  `message` varchar(500) NOT NULL DEFAULT '',
+  `description` varchar(500) NOT NULL DEFAULT '',
   `type_id` INT NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -597,6 +597,34 @@ CREATE TABLE `gb_question_answer` (
   CONSTRAINT `question_answer_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_share`
+--
+DROP TABLE IF EXISTS `gb_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `share_with_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `level_id` int(11) NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `type` int not null DEFAULT "0",
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `share_level_id` (`level_id`),
+  KEY `share_creator_id` (`creator_id`),
+  KEY `share_share_with_id` (`share_with_id`),
+  CONSTRAINT `share_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `share_share_with_id` FOREIGN KEY (`share_with_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `share_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_tag`
 --
@@ -606,13 +634,21 @@ DROP TABLE IF EXISTS `gb_tag`;
 CREATE TABLE `gb_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
-  `tag` varchar(1000) NOT NULL,
-  `type` int(11),
-  `description` varchar(1000) NOT NULL,
+  `name` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `level_id` int(11) NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `type` int not null DEFAULT "0",
+  `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
+  KEY `tag_level_id` (`level_id`),
   KEY `tag_creator_id` (`creator_id`),
-  CONSTRAINT `tag_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `tag_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tag_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_todo`
@@ -998,6 +1034,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/plan.tx
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `parent_plan_id`, `creator_id`,	`objective_id`, `title`,	`description`, `start_point`, `plan_length`,	`color`, `created_at`, `importance`,	`status`);
+
+-- ----------- QUESTION ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.txt'
+    into table gb102.gb_share
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `creator_id`, `share_with_id`,	`description`,	`level_id`,	`source_id`,	`created_at`,	`updated_at`,	`type`,	`status`);
+
 
 -- ----------- IWEBLINK ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/weblink.txt'

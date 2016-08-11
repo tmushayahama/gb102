@@ -3,6 +3,7 @@
 namespace App\Models\Explorer;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User\User;
 use App\Models\Level\Level;
 //use App\Models\Explorer\ExplorerRelationship;
 use App\Models\AppType\AppType;
@@ -18,6 +19,9 @@ class Explorer extends Model {
   * @var string
   */
  protected $table = 'gb_explorer';
+ public static $STATUS = array(
+     "STATUS_REQUEST" => 1
+ );
 
  public function app_type() {
   return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
@@ -39,6 +43,14 @@ class Explorer extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'template_type_id');
  }
 
+ private static function initExplorerQuery() {
+  return Explorer::orderBy('gb_explorer.updated_at', 'desc')
+                  ->with('app_type')
+                  ->with('creator')
+                  ->with('icon')
+                  ->with('level');
+ }
+
  /**
   * The attributes that are mass assignable.
   *
@@ -47,11 +59,19 @@ class Explorer extends Model {
  protected $fillable = ['title', 'description', 'level_id'];
 
  public static function getExplorersTop() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
   $explorers = Explorer::orderBy('updated_at', 'desc')
           ->with('app_type')
           ->with('creator')
           ->with('icon')
           ->with('level')
+          ->join('share', function ($j) use ($userId) {
+           $j->on('source_id', '=', 'explorer.id')
+           ->where('share_with_id', '=', $userId);
+          })
+          // ->offset($offset)
+          //->get(['topics.*'])
           ->take(4)
           ->get();
   self::getExplorerExtras($explorers);
@@ -103,19 +123,36 @@ class Explorer extends Model {
  }
 
  public static function getExplorers($appName, $limit) {
+  $userId = User::getAuthenticatedUserId();
   $appId = AppType::where('name', $appName)->first();
+  $explorers = self::initExplorerQuery();
+
   if ($appId) {
-   $explorers = Explorer::where('app_type_id', $appId->id)
-           ->orderBy('updated_at', 'desc')
-           ->with('app_type')
-           ->with('creator')
-           ->with('icon')
-           ->with('level')
-           ->take($limit)
+   $explorers = $explorers->where('app_type_id', $appId->id);
+
+   if ($userId) {
+
+    $explorers = $explorers->join('gb_share', function ($j) use ($userId) {
+     $j->on('source_id', '=', 'gb_explorer.id');
+     // ->where('gb_share.level_id', '=', Level::$level_categories['share']['explorer'])
+     // ->where('share_with_id', '=', $userId);
+    });
+
+    $explorers = $explorers->where(function($query) use ($userId) {
+     $query->where('gb_explorer.creator_id', $userId)
+             ->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
+             ->orWhere('share_with_id', '=', $userId);
+    });
+    // $explorers = $explorers->where('gb_explorer.creator_id', $userId);
+   } else {
+    $explorers = $explorers->where('privacy_id', Level::$level_categories['privacy']['public']);
+   }
+   $explorers = $explorers->take($limit)
            ->get();
+   self::getExplorerExtras($explorers);
+   return $explorers;
   }
-  self::getExplorerExtras($explorers);
-  return $explorers;
+  return null;
  }
 
  public static function getUserExplorers($userId, $appName) {
