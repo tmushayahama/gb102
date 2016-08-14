@@ -260,6 +260,12 @@ define([
           },
           list: {
            handpicked: 1
+          },
+          privacy_type: 500000,
+          privacy: {
+           public: 500000,
+           private: 500001,
+           customize: 500002
           }
          });
 

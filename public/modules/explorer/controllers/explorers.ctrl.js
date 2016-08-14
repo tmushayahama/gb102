@@ -2,6 +2,7 @@
 var explorersCtrl = function (
         level_categories,
         ConstantsSrv,
+        CommunitySrv,
         SearchSrv,
         ExplorersSrv,
         $scope,
@@ -179,6 +180,7 @@ var explorersCtrl = function (
 
  vm.explorersSrv = new ExplorersSrv();
  vm.constantsSrv = new ConstantsSrv();
+ vm.communitySrv = new CommunitySrv();
  $rootScope.appName = 'Explorer';
  vm.explorerLevels;
  //vm.appTypes;
@@ -222,6 +224,12 @@ var explorersCtrl = function (
    backdrop: 'static',
    size: 'xl',
    resolve: {
+    communitySrv: function () {
+     return vm.communitySrv;
+    },
+    constantsSrv: function () {
+     return vm.constantsSrv;
+    },
     appTypes: function () {
      return vm.appTypes;
     }
@@ -281,6 +289,7 @@ var explorersCtrl = function (
 explorersCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
+ 'CommunitySrv',
  'SearchSrv',
  'ExplorersSrv',
  '$scope',

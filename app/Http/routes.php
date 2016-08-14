@@ -35,6 +35,7 @@ Route::group(['prefix' => 'api'], function() {
 
 //Community
  Route::get('community/users', 'Community\CommunityController@getUsers');
+ Route::get('community/users/other', 'Community\CommunityController@getOtherUsers');
  Route::get('community/mine', 'Community\CommunityController@getCommunitysMine');
  Route::get('community/swipe', 'Community\CommunityController@getCommunitySwipe');
  Route::get('community/swipes', 'Community\CommunityController@getCommunitySwipes');

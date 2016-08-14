@@ -43,6 +43,16 @@ class Community extends Model {
   return $users;
  }
 
+ public static function getOtherUsers() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $users = User::orderBy('id', 'desc')
+          ->where('id', $userId)
+          ->take(50)
+          ->get();
+  return $users;
+ }
+
  public static function createRequest() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;

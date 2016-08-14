@@ -132,15 +132,15 @@ class Explorer extends Model {
 
    if ($userId) {
 
-    $explorers = $explorers->join('gb_share', function ($j) use ($userId) {
-     $j->on('source_id', '=', 'gb_explorer.id');
-     // ->where('gb_share.level_id', '=', Level::$level_categories['share']['explorer'])
+    $explorers = $explorers->leftJoin('gb_share', function ($j) use ($userId) {
+     $j->on('source_id', '=', 'gb_explorer.id')
+             ->where('gb_share.level_id', '=', Level::$level_categories['share']['explorer']);
      // ->where('share_with_id', '=', $userId);
     });
 
     $explorers = $explorers->where(function($query) use ($userId) {
      $query->where('gb_explorer.creator_id', $userId)
-             ->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
+             //->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
              ->orWhere('share_with_id', '=', $userId);
     });
     // $explorers = $explorers->where('gb_explorer.creator_id', $userId);
@@ -208,7 +208,9 @@ class Explorer extends Model {
   $explorerPictureUrl = Request::get("explorer_picture_url");
   $description = Request::get("description");
   $levelId = Request::get("level");
+  $privacyId = Request::get("privacy_id");
   $explorerRequests = Request::get("explorer_requests");
+  $explorerShareWithIds = Request::get("explorer_share_with_ids");
 
   $explorer = new Explorer;
   $explorer->creator_id = $userId;
@@ -218,10 +220,12 @@ class Explorer extends Model {
   $explorer->description = $description;
   $explorer->explorer_picture_url = $explorerPictureUrl;
   $explorer->level_id = $levelId;
+  $explorer->privacy_id = $privacyId;
 
   DB::beginTransaction();
   try {
    $explorer->save();
+   Share::createRequestOption($userId, $explorer->id, $explorerRequests);
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

@@ -111,6 +111,42 @@
    </wz-step>
    <wz-step wz-title="Privacy">
     Privacy
+    <md-radio-group ng-model="addExplorerCtrl.explorer.privacy_id" class="gb-primary">
+     <md-radio-button ng-repeat="privacyType in addExplorerCtrl.privacyTypes"
+                      ng-value="privacyType.id">
+      {{ privacyType.name}}
+     </md-radio-button>
+    </md-radio-group>
+    <div ng-show="addExplorerCtrl.explorer.privacy_id === 500002" class="row">
+     <md-chips ng-model="addExplorerCtrl.asyncContacts" md-autocomplete-snap
+               md-require-match>
+      <md-autocomplete
+       md-autofocus="true"
+       md-no-cache="true"
+       md-min-length="1"
+       md-selected-item="addExplorerCtrl.filterSelected"
+       md-search-text="$query"
+       md-items="item in addExplorerCtrl.delayedQuerySearch($query)"
+       md-item-text="item.firstname"
+       placeholder="Pick something...">
+       <md-item-template>
+        <md-list-item class="md-2-line contact-item selected">
+         <img  ng-src="public/img/profile_pic/{{ item.avatar_url}}"
+               class="md-avatar" alt="{{item.firstname}}" />
+         <div class="md-list-item-text compact">
+          <h3> {{item.firstname + ' ' + item.lastname| chars:10:' ...'}}</h3>
+          <p>{{item.email}}</p>
+         </div>
+        </md-list-item>
+       </md-item-template>
+      </md-autocomplete>
+      <md-chip-template>
+       <span>
+        {{$chip.firstname + ' ' + $chip.lastname| chars:10:' ...'}}
+       </span>
+      </md-chip-template>
+     </md-chips>
+    </div>
    </wz-step>
   </wizard>
  </form>
@@ -123,19 +159,19 @@
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
+    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
              aria-label="Previous">
    Previous
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
+    : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
              aria-label="Next">
    Next
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
+    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
              aria-label="Add">
    Add
   </md-button>
