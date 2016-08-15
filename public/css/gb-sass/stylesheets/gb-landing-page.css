@@ -10,6 +10,9 @@ and open the template in the editor.
 .gb-landing-page {
   /* ================ The Timeline ================ */
 }
+.gb-landing-page .gb-background-color-3 {
+  background-color: #DDD;
+}
 .gb-landing-page .gb-lp-box-2 {
   text-align: center;
   position: relative;
@@ -29,7 +32,7 @@ and open the template in the editor.
 .gb-landing-page .gb-lp-box-2 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(2, 120, 135, 0.8);
+  color: rgba(0, 129, 137, 0.8);
 }
 .gb-landing-page .gb-lp-box-2 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -78,7 +81,7 @@ and open the template in the editor.
 .gb-landing-page .gb-lp-box-3 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(2, 120, 135, 0.8);
+  color: rgba(0, 129, 137, 0.8);
 }
 .gb-landing-page .gb-lp-box-3 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -126,6 +129,9 @@ and open the template in the editor.
 .gb-landing-page .gb-lp-box-3 .gb-box-body .gb-footer .gb-footer-content {
   padding: 10px 0 0 0;
 }
+.gb-landing-page.gb-top-nav-1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 .gb-landing-page.gb-top-nav-1 .gb-action {
   padding-top: 0px;
 }
@@ -139,6 +145,9 @@ and open the template in the editor.
   color: #EEE;
   font-size: 20px;
   margin: 10px 5px;
+}
+.gb-landing-page.gb-top-nav-1:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .gb-landing-page .gb-icon-nav-1 {
   padding-right: 0px !important;
@@ -209,17 +218,17 @@ and open the template in the editor.
   color: #000;
 }
 .gb-landing-page .gb-icon-nav-1 .gb-link:hover {
-  border-bottom: rgba(2, 120, 135, 0.5) solid 3px;
+  border-bottom: rgba(0, 129, 137, 0.5) solid 3px;
 }
 .gb-landing-page .gb-icon-nav-1 .gb-link:hover .gb-title {
   font-weight: bold;
   font-size: 15px;
 }
 .gb-landing-page .gb-icon-nav-1 .gb-link:hover .gb-icon {
-  color: #02626e;
+  color: #006970;
 }
 .gb-landing-page .gb-icon-nav-1 .gb-link.active {
-  border-bottom: rgba(2, 120, 135, 0.7) solid 3px;
+  border-bottom: rgba(0, 129, 137, 0.7) solid 3px;
 }
 .gb-landing-page .gb-icon-nav-1 .gb-link.active .gb-title {
   font-weight: bold;
@@ -238,9 +247,9 @@ and open the template in the editor.
   background-size: 100% !important;
   position: relative;
   margin-bottom: 30px;
-  height: 400px;
+  height: 550px;
   text-align: center;
-  background-color: #027887;
+  background-color: #777;
   overflow: hidden;
 }
 .gb-landing-page #gb-intro-section .intro-text {
@@ -250,6 +259,7 @@ and open the template in the editor.
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 .gb-landing-page #gb-intro-section .intro-text .gb-dynamic-word {
   padding: 3px 10px;
@@ -262,7 +272,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(1, 53, 60, 0.6);
+  background-color: rgba(0, 57, 61, 0.6);
   padding: 10px;
 }
 .gb-landing-page #gb-intro-section .intro-text .btn-toolbar .btn {
@@ -285,30 +295,42 @@ and open the template in the editor.
   opacity: 0;
 }
 .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
-  color: #DDD;
-  margin-bottom: 25px;
-  font-size: 30px;
-  font-weight: normal;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
   line-height: 40px;
 }
 .gb-landing-page #gb-intro-section .intro-text .intro-heading {
-  color: #DDD;
+  color: #F5F5F5;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   font-size: 40px;
   font-weight: 700;
   line-height: 50px;
 }
+.gb-landing-page #gb-intro-section .gb-heading-row {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px 10px;
+  color: #DDD;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.gb-landing-page #gb-intro-section .gb-heading-row p {
+  font-size: 12px;
+}
 @media (max-width: 991px) {
   .gb-landing-page #gb-intro-section {
-    height: 300px;
+    height: 500px;
     margin-bottom: 15px;
   }
   .gb-landing-page #gb-intro-section .intro-text {
+    top: 40%;
     padding-top: 50px;
   }
   .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
-    color: #EEE;
     margin-bottom: 15px;
     font-size: 18px;
     line-height: 20px;
@@ -329,7 +351,6 @@ and open the template in the editor.
     padding: 5px 5px 0 5px;
   }
   .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
-    color: #EEE;
     margin-bottom: 15px;
     font-size: 15px;
     line-height: 20px;
@@ -500,7 +521,7 @@ and open the template in the editor.
 }
 .gb-landing-page .gb-icon-service {
   font-size: 70px;
-  color: #027887;
+  color: #008189;
 }
 @media (max-width: 767px) {
   .gb-landing-page .gb-icon-service {
@@ -518,7 +539,7 @@ and open the template in the editor.
 }
 .gb-landing-page .gb-icon-service {
   font-size: 70px;
-  color: #027887;
+  color: #008189;
 }
 @media (max-width: 767px) {
   .gb-landing-page .gb-icon-service {
@@ -555,7 +576,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(1, 53, 60, 0.6);
+  background-color: rgba(0, 57, 61, 0.6);
   padding: 10px;
 }
 .gb-landing-page .gb-get-started .gb-btn-container .btn-toolbar .btn {
@@ -915,7 +936,7 @@ and open the template in the editor.
 .gb-landing-page-2 .gb-lp-box-2 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(2, 120, 135, 0.8);
+  color: rgba(0, 129, 137, 0.8);
 }
 .gb-landing-page-2 .gb-lp-box-2 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -964,7 +985,7 @@ and open the template in the editor.
 .gb-landing-page-2 .gb-lp-box-3 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(2, 120, 135, 0.8);
+  color: rgba(0, 129, 137, 0.8);
 }
 .gb-landing-page-2 .gb-lp-box-3 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -1024,7 +1045,7 @@ and open the template in the editor.
   position: relative;
   height: 550px;
   text-align: center;
-  background-color: #027887;
+  background-color: #008189;
   overflow: hidden;
 }
 .gb-landing-page-2 #gb-intro-section .intro-text {
@@ -1046,7 +1067,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(1, 53, 60, 0.6);
+  background-color: rgba(0, 57, 61, 0.6);
   padding: 10px;
 }
 .gb-landing-page-2 #gb-intro-section .intro-text .btn-toolbar .btn {
@@ -1263,7 +1284,7 @@ and open the template in the editor.
 }
 .gb-landing-page-2 .gb-icon-service {
   font-size: 70px;
-  color: #027887;
+  color: #008189;
 }
 @media (max-width: 767px) {
   .gb-landing-page-2 .gb-icon-service {
@@ -1284,7 +1305,7 @@ and open the template in the editor.
 }
 .gb-landing-page-2 .gb-icon-service {
   font-size: 70px;
-  color: #027887;
+  color: #008189;
 }
 @media (max-width: 767px) {
   .gb-landing-page-2 .gb-icon-service {
@@ -1319,7 +1340,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(1, 53, 60, 0.6);
+  background-color: rgba(0, 57, 61, 0.6);
   padding: 10px;
 }
 .gb-landing-page-2 .gb-get-started .gb-btn-container .btn-toolbar .btn {

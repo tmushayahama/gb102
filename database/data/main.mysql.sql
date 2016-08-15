@@ -614,7 +614,7 @@ CREATE TABLE `gb_share` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `type` int not null DEFAULT "0",
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',h
   PRIMARY KEY (`id`),
   KEY `share_level_id` (`level_id`),
   KEY `share_creator_id` (`creator_id`),

@@ -42,45 +42,43 @@
     </div>
     <br>
     <div class="form-group row">
-     <md-input-container class="md-block">
-      <label class="">Title:</label>
-      <input ng-model="addExplorerCtrl.explorer.title"
-             name="title"
-             required
-             type="text"
-             rows="2" placeholder="Title"
-             md-maxlength="150"
-             ng-maxlength="150"
-             maxlength ="150"
-             class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 "/>
-      <div class="help-block" ng-messages="addExplorerForm1.title.$error">
-       <p ng-message="required">Title is required.</p>
-      </div>
-     </md-input-container>
-    </div>
-    <div class="form-group row">
-     <md-input-container class="md-block">
-      <label class="">Description:</label>
-      <textarea textarea2 ng-model="addExplorerCtrl.explorer.description" name="description"
-                ng-required
-                rows="4" placeholder="Description"
-                md-maxlength="150"
-                ng-maxlength="150"
-                maxlength ="150"
-                class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      </textarea>
-     </md-input-container>
-    </div>
-    <div class="form-group row">
-     <div class="row">
-      <label class="gb-label control-label row">
-       {{addExplorerCtrl.explorer.appType.name}} Level:
-      </label>
-      <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-              ng-model="addExplorerCtrl.explorer.level">
-       <option ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
-      </select>
+     <label class="gb-label control-label row">
+      Title
+     </label>
+     <input ng-model="addExplorerCtrl.explorer.title"
+            name="title"
+            required
+            type="text"
+            rows="2" placeholder="Title"
+            ng-maxlength="150"
+            maxlength ="150"
+            class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 "/>
+     <div class="help-block" ng-messages="addExplorerForm1.title.$error">
+      <p ng-message="required">Title is required.</p>
      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+     <label class="gb-label control-label row">
+      Description
+     </label>
+     <textarea ng-model="addExplorerCtrl.explorer.description" name="description"
+               ng-required
+               rows="4" placeholder="Description"
+               ng-maxlength="150"
+               maxlength ="150"
+               class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+     </textarea>
+    </div>
+    <br>
+    <div class="form-group row">
+     <label class="gb-label control-label row">
+      {{addExplorerCtrl.explorer.appType.name}} Level:
+     </label>
+     <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+             ng-model="addExplorerCtrl.explorer.level">
+      <option ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
+     </select>
     </div>
     <br>
     <div class="form-group row">
@@ -110,7 +108,12 @@
     </div>
    </wz-step>
    <wz-step wz-title="Privacy">
-    Privacy
+    <div class="gb-heading-1">
+     <h5>
+      Privacy
+     </h5>
+    </div>
+    <br>
     <md-radio-group ng-model="addExplorerCtrl.explorer.privacy_id" class="gb-primary">
      <md-radio-button ng-repeat="privacyType in addExplorerCtrl.privacyTypes"
                       ng-value="privacyType.id">
@@ -118,7 +121,7 @@
      </md-radio-button>
     </md-radio-group>
     <div ng-show="addExplorerCtrl.explorer.privacy_id === 500002" class="row">
-     <md-chips ng-model="addExplorerCtrl.asyncContacts" md-autocomplete-snap
+     <md-chips ng-model="addExplorerCtrl.shareWithUsers" md-autocomplete-snap
                md-require-match>
       <md-autocomplete
        md-autofocus="true"
@@ -128,7 +131,7 @@
        md-search-text="$query"
        md-items="item in addExplorerCtrl.delayedQuerySearch($query)"
        md-item-text="item.firstname"
-       placeholder="Pick something...">
+       placeholder="Enter Names">
        <md-item-template>
         <md-list-item class="md-2-line contact-item selected">
          <img  ng-src="public/img/profile_pic/{{ item.avatar_url}}"
@@ -159,19 +162,19 @@
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
              aria-label="Previous">
    Previous
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-    : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
+            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
              aria-label="Next">
    Next
   </md-button>
   <md-button ng-class="{
     'gb-disabled'
-    : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
+            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
              aria-label="Add">
    Add
   </md-button>

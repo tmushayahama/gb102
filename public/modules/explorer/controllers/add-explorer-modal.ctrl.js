@@ -82,9 +82,15 @@ var addExplorerCtrl = function (
 
  vm.ok = function () {
   vm.explorer.explorer_requests = [];
+  vm.explorer.explorer_share_with_ids = [];
   vm.explorer.explorer_picture_url = 'default.png';
+
   angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
    vm.explorer.explorer_requests.push(selectedRequestType.explorerRequest);
+  });
+
+  angular.forEach(vm.shareWithUsers, function (shareWithUser) {
+   vm.explorer.explorer_share_with_ids.push(shareWithUser.id);
   });
 
   $uibModalInstance.close(vm.explorer);
@@ -116,7 +122,7 @@ var addExplorerCtrl = function (
  var pendingSearch, cancelSearch = angular.noop;
  var cachedQuery, lastSearch;
 
- vm.asyncContacts = [];
+ vm.shareWithUsers = [];
  vm.filterSelected = true;
  vm.querySearch = querySearch;
  vm.delayedQuerySearch = delayedQuerySearch;
@@ -159,6 +165,7 @@ var addExplorerCtrl = function (
   lastSearch = lastSearch || now;
   return ((now - lastSearch) < 300);
  }
+
  /**
   * Create filter function for a query string
   */
@@ -167,7 +174,6 @@ var addExplorerCtrl = function (
   return function filterFn(contact) {
    var lowerCaserFilterString = angular.lowercase(contact.firstname)
    return (lowerCaserFilterString.indexOf(lowercaseQuery) != -1);
-   ;
   };
  }
 };

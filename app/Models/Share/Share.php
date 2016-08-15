@@ -28,6 +28,27 @@ class Share extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'level_id');
  }
 
+ public static function createShare($userId, $levelId, $sourceId, $shareWithIds) {
+
+  DB::beginTransaction();
+  try {
+   foreach ($shareWithIds as $shareWithId) {
+    $share = new Share();
+    $share->creator_id = $userId;
+    $share->share_with_id = $shareWithId;
+    $share->level_id = $levelId;
+    $share->source_id = $sourceId;
+    $share->save();
+   }
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return true;
+ }
+
  /**
   * The attributes that are mass assignable.
   *

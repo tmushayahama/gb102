@@ -5,6 +5,7 @@ namespace App\Models\Explorer;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User\User;
 use App\Models\Level\Level;
+use App\Models\Share\Share;
 //use App\Models\Explorer\ExplorerRelationship;
 use App\Models\AppType\AppType;
 use Request;
@@ -135,12 +136,12 @@ class Explorer extends Model {
     $explorers = $explorers->leftJoin('gb_share', function ($j) use ($userId) {
      $j->on('source_id', '=', 'gb_explorer.id')
              ->where('gb_share.level_id', '=', Level::$level_categories['share']['explorer']);
-     // ->where('share_with_id', '=', $userId);
+     //->where('share_with_id', '=', $userId);
     });
 
     $explorers = $explorers->where(function($query) use ($userId) {
      $query->where('gb_explorer.creator_id', $userId)
-             //->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
+             ->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
              ->orWhere('share_with_id', '=', $userId);
     });
     // $explorers = $explorers->where('gb_explorer.creator_id', $userId);
@@ -225,7 +226,7 @@ class Explorer extends Model {
   DB::beginTransaction();
   try {
    $explorer->save();
-   Share::createRequestOption($userId, $explorer->id, $explorerRequests);
+   Share::createShare($userId, Level::$level_categories['share']['explorer'], $explorer->id, $explorerShareWithIds);
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();

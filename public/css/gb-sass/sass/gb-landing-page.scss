@@ -1,6 +1,6 @@
 
 
-$primary-color: #027887;
+$primary-color: #008189;
 $explorer-color: #027887;
 $swipe-color: #5E2D35;
 $matcher-color:#027;
@@ -20,6 +20,10 @@ $color-6: #077568;
 
 .gb-landing-page {
  //background-color: #FFF;
+
+ .gb-background-color-3 {
+  background-color: #DDD;
+ }
  .gb-lp-box-2 {
   text-align: center;
   position: relative;
@@ -157,7 +161,7 @@ $color-6: #077568;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
   //border-bottom: rgba($primary-color, 0.8) solid 3px;
-  // background-color: rgba(#FFF, 0.9);
+  background-color: rgba(#000, 0.2);
   // color: #555;
   .gb-action {
    padding-top: 0px;
@@ -172,6 +176,9 @@ $color-6: #077568;
      margin: 10px 5px;
     }
    }
+  }
+  &:hover {
+   background-color: rgba(#000, 0.5);
   }
  }
 
@@ -298,15 +305,16 @@ $color-6: #077568;
   background-size: 100%!important;
   position: relative;
   margin-bottom: 30px;
-  height: 400px;
+  height: 550px;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #777;
   overflow: hidden;
   .intro-text {
    @include position(absolute, 50% null null 50%);
    -ms-transform: translate(-50%,-50%);
    -webkit-transform: translate(-50%,-50%);
    transform: translate(-50%, -50%);
+   z-index: 2;
    .gb-dynamic-word {
     padding:3px 10px;
     color: #FFF;
@@ -342,30 +350,39 @@ $color-6: #077568;
     opacity: 0;
    }
    .intro-lead-in {
-    color: #DDD;
-    margin-bottom: 25px;
-    font-size: 30px;
-    font-weight: normal;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
     line-height: 40px;
    }
    .intro-heading {
-    color: #DDD;
+    color: #F5F5F5;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     font-size: 40px;
     font-weight: 700;
     line-height: 50px;
    }
 
   }
+  .gb-heading-row {
+   @include position(absolute, null 0 0 0);
+   padding: 20px 10px;
+   color: #DDD;
+   background-color: rgba(#000, 0.4);
+   p {
+    font-size: 12px;
+   }
+  }
   @include respond-to (gb-sm) {
-   height: 300px;
+   height: 500px;
    margin-bottom: 15px;
    .intro-text {
+    top: 40%;
     padding-top: 50px;
     // padding-bottom: 200px;
     .intro-lead-in {
-     color: #EEE;
      margin-bottom: 15px;
      font-size: 18px;
      line-height: 20px;
@@ -393,7 +410,6 @@ $color-6: #077568;
      }
     }
     .intro-lead-in {
-     color: #EEE;
      margin-bottom: 15px;
      font-size: 15px;
      line-height: 20px;
