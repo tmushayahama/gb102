@@ -7,10 +7,11 @@ angular.module('app.explorer').directive('gbExplorerBox',
           return {
            restrict: 'EA',
            replace: true,
-           templateUrl: 'public/modules/explorer/views/templates/explorer-box.tpl.html',
            scope: {
+            templateUrl: '@',
             explorer: '=',
            },
+           template: '<ng-include src="templateUrl"></ng-include>',
            controller: [
             '$scope',
             function ($scope) {

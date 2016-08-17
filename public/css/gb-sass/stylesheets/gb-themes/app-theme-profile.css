@@ -3838,6 +3838,22 @@ body > .ui-select-bootstrap.open {
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
 }
 
+html {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
 .gb-mg-top-md {
   margin-top: 10px;
 }
@@ -3923,20 +3939,9 @@ md-toast.md-error-toast-theme .md-toast-content {
   background-color: #d9534f;
 }
 
-html {
-  display: block;
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  background: none;
-  display: block;
-  padding: 0;
-  margin: 0;
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 100%;
 }
 
 .gb-background-white {
@@ -4215,10 +4220,9 @@ input[type="checkbox"] {
   margin: 10px 0;
 }
 .gb-body-row .gb-more-btn {
-  height: 50px;
+  line-height: 50px;
   margin-left: 30%;
   width: 40%;
-  padding: 6px 6px;
 }
 @media (max-width: 991px) {
   .gb-body-row .gb-more-btn {
@@ -4283,6 +4287,13 @@ input[type="checkbox"] {
 
 .gb-shadow-1 {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.gb-shadow-3 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.gb-shadow-3:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .gb-shadow-2 {
@@ -5728,7 +5739,7 @@ input.gb-form-show {
   height: 41px;
   list-style: none;
   color: #F7F7F7;
-  background-color: rgba(31, 68, 134, 0.8);
+  background-color: rgba(31, 68, 134, 0.5);
   margin: 0;
   z-index: 900;
 }
@@ -5819,6 +5830,9 @@ input.gb-form-show {
     margin: 0;
     padding: 0 4px;
   }
+}
+.gb-top-nav-1:hover {
+  background-color: rgba(31, 68, 134, 0.8);
 }
 
 .gb-top-nav-2 {
@@ -6134,20 +6148,139 @@ input.gb-form-show {
 }
 
 .gb-box-1 {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  height: 395px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+}
+.gb-box-1 .gb-image {
+  height: 200px;
+  border-bottom: transparent solid 5px;
+  overflow: hidden;
+}
+.gb-box-1 .gb-image .gb-heading-pic {
+  width: 100%;
+}
+.gb-box-1 .gb-image.gb-app-type-1 {
+  border-bottom: #365863 solid 5px;
+}
+.gb-box-1 .gb-image.gb-app-type-2 {
+  border-bottom: #027 solid 5px;
+}
+.gb-box-1 .gb-box-content {
+  height: 80px;
+  padding: 16px 14px 16px 14px;
+}
+.gb-box-1 .gb-box-content .gb-title h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.gb-box-1 .gb-box-content .gb-description {
+  font-size: 12px;
+}
+.gb-box-1 .gb-box-footer {
+  height: 36px;
+}
+.gb-box-1 .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 40px;
+  padding: 0px 14px;
+}
+.gb-box-1 .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-box-1 .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-box-1 .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-box-1 .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-box-1 .gb-box-footer .gb-dropdown-action {
+  padding: 0px 8px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.gb-box-1 .gb-box-footer .gb-dropdown-action button {
+  margin: 0;
+}
+.gb-box-1 .gb-box-subcontent {
+  height: 80px;
+  padding: 16px 14px;
+}
+.gb-box-1 .gb-box-subcontent .gb-description {
+  font-size: 14px;
+  height: 40px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-box-1 .gb-box-subcontent .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-box-1 .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-box-1 .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-box-1 .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-box-1 .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-box-1 .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-box-1 .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
+.gb-box-14 {
   position: relative;
   padding: 0 0 0 0;
   overflow: hidden;
 }
-.gb-box-1:hover .gb-box-body {
+.gb-box-14:hover .gb-box-body {
   background-color: #F7F7F7;
 }
-.gb-box-1 .gb-box-body {
+.gb-box-14 .gb-box-body {
   position: relative;
   height: 110px;
   width: 100%;
   background-color: #FFF;
 }
-.gb-box-1 .gb-box-body .gb-image {
+.gb-box-14 .gb-box-body .gb-image {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6155,10 +6288,10 @@ input.gb-form-show {
   height: 110px;
   width: 110px;
 }
-.gb-box-1 .gb-box-body .gb-image .gb-heading-pic {
+.gb-box-14 .gb-box-body .gb-image .gb-heading-pic {
   width: 100%;
 }
-.gb-box-1 .gb-box-body .gb-box-content {
+.gb-box-14 .gb-box-body .gb-box-content {
   position: absolute;
   top: 0;
   right: 0;
@@ -6166,28 +6299,28 @@ input.gb-form-show {
   left: 110px;
   padding: 5px 5px 5px 10px;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title {
+.gb-box-14 .gb-box-body .gb-box-content .gb-heading .gb-title {
   color: #888;
   font-size: 10px;
   text-transform: uppercase;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-heading .gb-title p {
+.gb-box-14 .gb-box-body .gb-box-content .gb-heading .gb-title p {
   font-size: 10px;
   line-height: 15px;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-faded-icon {
+.gb-box-14 .gb-box-body .gb-box-content .gb-faded-icon {
   color: #999;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-relation {
+.gb-box-14 .gb-box-body .gb-box-content .gb-relation {
   padding: 8px 5px 0 10px;
   height: 22px;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-relation .gb-title {
+.gb-box-14 .gb-box-body .gb-box-content .gb-relation .gb-title {
   color: #888;
   font-size: 10px;
   text-transform: uppercase;
 }
-.gb-box-1 .gb-box-body .gb-box-content .gb-description {
+.gb-box-14 .gb-box-body .gb-box-content .gb-description {
   padding: 4px 10px 4px 0px;
   max-height: 41px;
   display: block;
@@ -6201,30 +6334,30 @@ input.gb-form-show {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.gb-box-1 .gb-box-body .gb-dropdown-action {
+.gb-box-14 .gb-box-body .gb-dropdown-action {
   padding: 0px 8px 0 0;
   position: absolute;
   top: 0;
   right: 0;
 }
-.gb-box-1 .gb-box-body .gb-dropdown-action button {
+.gb-box-14 .gb-box-body .gb-dropdown-action button {
   margin: 0;
 }
-.gb-box-1 .gb-footer {
+.gb-box-14 .gb-footer {
   height: 28px;
   padding: 3px 3px 0 0;
 }
-.gb-box-1 .gb-footer .gb-name-badge-1 {
+.gb-box-14 .gb-footer .gb-name-badge-1 {
   position: relative;
   height: 100%;
   padding-left: 25px;
   font-size: 11px;
 }
-.gb-box-1 .gb-footer .gb-name-badge-1 .gb-name {
+.gb-box-14 .gb-footer .gb-name-badge-1 .gb-name {
   padding-top: 6px;
   padding-left: 0px;
 }
-.gb-box-1 .gb-footer .gb-name-badge-1 .gb-image {
+.gb-box-14 .gb-footer .gb-name-badge-1 .gb-image {
   position: absolute;
   top: 4px;
   bottom: 4px;
@@ -6232,26 +6365,26 @@ input.gb-form-show {
   height: 20px;
   width: 20px;
 }
-.gb-box-1 .gb-footer .gb-name-badge-1 .gb-image img {
+.gb-box-14 .gb-footer .gb-name-badge-1 .gb-image img {
   border-radius: 50%;
   height: 100%;
   width: 100%;
 }
-.gb-box-1 .gb-footer .gb-summary-bar {
+.gb-box-14 .gb-footer .gb-summary-bar {
   margin-top: 2px;
   margin-left: -5px;
   background-color: transparent;
 }
-.gb-box-1 .gb-footer .gb-summary-bar .btn {
+.gb-box-14 .gb-footer .gb-summary-bar .btn {
   text-align: left;
   min-width: 50px;
   color: #999;
   text-decoration: none;
 }
-.gb-box-1 .gb-footer .gb-summary-bar .gb-icon {
+.gb-box-14 .gb-footer .gb-summary-bar .gb-icon {
   color: #777;
 }
-.gb-box-1 .gb-footer .gb-footer-content {
+.gb-box-14 .gb-footer .gb-footer-content {
   padding: 10px 0 0 0;
 }
 

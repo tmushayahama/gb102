@@ -161,7 +161,7 @@ $color-6: #077568;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
   //border-bottom: rgba($primary-color, 0.8) solid 3px;
-  background-color: rgba(#000, 0.2);
+  //background-color: rgba(#000, 0.2);
   // color: #555;
   .gb-action {
    padding-top: 0px;
@@ -178,7 +178,7 @@ $color-6: #077568;
    }
   }
   &:hover {
-   background-color: rgba(#000, 0.5);
+   // background-color: rgba(#000, 0.5);
   }
  }
 
@@ -305,7 +305,7 @@ $color-6: #077568;
   background-size: 100%!important;
   position: relative;
   margin-bottom: 30px;
-  height: 550px;
+  height: 400px;
   text-align: center;
   background-color: #777;
   overflow: hidden;
@@ -352,7 +352,7 @@ $color-6: #077568;
    .intro-lead-in {
     color: #FFFFFF;
     margin-bottom: 15px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 40px;
    }
@@ -360,8 +360,8 @@ $color-6: #077568;
     color: #F5F5F5;
     text-transform: uppercase;
     margin-bottom: 0px;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 45px;
+    font-weight: 400;
     line-height: 50px;
    }
 
@@ -376,7 +376,7 @@ $color-6: #077568;
    }
   }
   @include respond-to (gb-sm) {
-   height: 500px;
+   height: 400px;
    margin-bottom: 15px;
    .intro-text {
     top: 40%;
@@ -424,6 +424,28 @@ $color-6: #077568;
   }
  }
 
+ .gb-explorer-row {
+  .gb-heading-row {
+   .gb-title {
+    padding: 16px 14px 0px 14px;
+    font-size: 24px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 8px;
+   }
+   .gb-description {
+    font-size: 12px;
+    margin-bottom: 16px;
+   }
+   .carousel-inner {
+    height: 120px!important;
+    overflow: hidden;
+    img {
+
+    }
+   }
+  }
+ }
  .gb-lp-timeline-row {
   padding: 0;
   background: url(../../../img/landing-page/background-2.png);
@@ -696,7 +718,12 @@ $color-6: #077568;
   }
   .gb-explorer-row {
    .gb-heading-row {
-    //background: url(../../../img/landing-page/gb-discover-1.png);
+    background: url(../../../img/landing-page/gb-discover-1.png);
+    uib-carousel {
+     img {
+      height: 120px;
+     }
+    }
    }
    .gb-body-row {
     padding-top: 30px;

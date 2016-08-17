@@ -161,6 +161,7 @@ define([
                 serie: true,
                 files: [
                  'public/modules/app/services/constants.srv.js',
+                 'public/modules/auth/services/auth.srv.js',
                  'public/modules/common/services/toast.srv.js',
                  'public/modules/common/directives/show-tab.drv.js',
                  'public/modules/common/directives/sticky.drv.js',
