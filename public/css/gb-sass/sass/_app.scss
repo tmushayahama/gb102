@@ -430,6 +430,7 @@ input[type="checkbox"] {
 .gb-body-row {
  margin: 10px 0;
  .gb-more-btn {
+  font-weight: bold;
   line-height: 50px;
   margin-left: 30%;
   width: 40%;
@@ -499,8 +500,15 @@ input[type="checkbox"] {
 .gb-shadow-3 {
  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
  &:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
  }
+}
+
+.gb-background-1 {
+ background: #bb68ae;
+ background: -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
+ background: linear-gradient(120deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(240deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(120deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173.20508px, linear-gradient(240deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
+ background-size: 20px 34px;
 }
 
 .gb-shadow-2 {
@@ -2383,13 +2391,6 @@ input.gb-form-show{
      height: 100%;
      width: 100%;
     }
-   }
-  }
-  .gb-dropdown-action {
-   padding: 0px 8px 0 0;
-   @include position(absolute, 0 0 null null);
-   button {
-    margin: 0;
    }
   }
  }

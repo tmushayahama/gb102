@@ -73,7 +73,7 @@ class Explorer extends Model {
           })
           // ->offset($offset)
           //->get(['topics.*'])
-          ->take(4)
+          ->take(6)
           ->get();
   self::getExplorerExtras($explorers);
   return $explorers;

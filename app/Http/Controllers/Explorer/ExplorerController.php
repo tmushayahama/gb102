@@ -63,7 +63,7 @@ class ExplorerController extends Controller {
  }
 
  public function getExplorersFeatured($appName) {
-  $explorers = Explorer::getExplorers($appName, 4);
+  $explorers = Explorer::getExplorers($appName, 6);
   return \Response::json($explorers);
  }
 

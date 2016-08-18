@@ -183,7 +183,7 @@ $color-6: #077568;
  }
 
  .gb-icon-nav-1{
-  padding-right: 0px!important;
+  //padding-right: 0px!important;
   @include respond-to (gb-sm) {
   }
   @include respond-to (gb-xs) {
@@ -197,7 +197,7 @@ $color-6: #077568;
    -webkit-overflow-scrolling: touch;
   }
 
-  .gb-link {
+  .gb-box {
    margin: 0;
    height: 280px;
    text-align: center;
@@ -231,19 +231,16 @@ $color-6: #077568;
    }
 
    .gb-title {
-    padding:10px 0px 5px 0px;
-    font-size: 15px;
-    color: #000;
-    font-weight: bold;
-    line-height: 15px;
-    overflow: hidden;
-    text-transform: capitalize;
+    padding:16px 14px 10px 14px;
+    font-size: 24px;
+    color: #222;
+    font-weight: 400;
+    //line-height: 15px;
    }
    .gb-description{
-    padding: 3px 5px;
-    height: 51px;
-    margin-bottom: 10px;
-    font-size: 12px;
+    height: 40px;
+    font-size: 14px;
+    margin-bottom: 14px;
     display: block;
     /* Fallback for non-webkit */
     display: -webkit-box;
@@ -259,34 +256,10 @@ $color-6: #077568;
     text-transform: lowercase;
    }
    .gb-learn-more-btn {
-    color: #555;
-    border-color: #555;
-    &:hover {
-     border-color: #000;
-     color: #000;
-    }
-    @include respond-to (gb-sm) {
-    }
+    font-weight: bold;
+    margin: 0;
+    line-height: 40px;
    }
-
-   &:hover {
-    border-bottom: rgba($primary-color, 0.5) solid 3px;
-    .gb-title {
-     font-weight: bold;
-     font-size: 15px;
-    }
-    .gb-icon {
-     color: darken($primary-color, 5%);
-    }
-   }
-   &.active {
-    border-bottom: rgba($primary-color, 0.7) solid 3px;
-    .gb-title {
-     font-weight: bold;
-     font-size: 15px;
-    }
-   }
-
    .gb-image-icon {
     width: 100%;
     padding: 0px;
@@ -304,7 +277,7 @@ $color-6: #077568;
   -o-background-size: 100%!important;
   background-size: 100%!important;
   position: relative;
-  margin-bottom: 30px;
+  //margin-bottom: 30px;
   height: 400px;
   text-align: center;
   background-color: #777;
@@ -432,13 +405,15 @@ $color-6: #077568;
     font-weight: 400;
     //line-height: 32px;
     margin-bottom: 8px;
+    color: #000;
    }
    .gb-description {
     font-size: 12px;
     margin-bottom: 16px;
+    color: #000;
    }
    .carousel-inner {
-    height: 120px!important;
+    height: 250px!important;
     overflow: hidden;
     img {
 

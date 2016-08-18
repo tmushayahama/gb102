@@ -132,32 +132,43 @@ var appsCtrl = function (
  vm.myInterval = 5000;
  vm.noWrapSlides = false;
  vm.active = 0;
- var slides = vm.slides = [];
+ vm.slides = [
+  {
+   image: 'public/img/landing-page/skills/music.jpg',
+   text: "music",
+   id: 0
+  },
+  {
+   image: 'public/img/landing-page/skills/cooking.jpg',
+   text: "cooking",
+   id: 1
+  },
+  {
+   image: 'public/img/landing-page/skills/chess.jpg',
+   text: "chess",
+   id: 2
+  },
+  {
+   image: 'public/img/landing-page/skills/football.jpg',
+   text: "football",
+   id: 3
+  }
+ ];
  var currIndex = 0;
 
- vm.addSlide = function () {
-  var newWidth = 600 + slides.length + 1;
-  slides.push({
-   image: '//unsplash.it/' + newWidth + '/300',
-   text: ['Nice image', 'Awesome photograph', 'That is so cool', 'I love that'][slides.length % 4],
-   id: currIndex++
-  });
- };
+
 
  vm.randomize = function () {
   var indexes = generateIndexesArray();
   assignNewIndexesToSlides(indexes);
  };
 
- for (var i = 0; i < 4; i++) {
-  vm.addSlide();
- }
 
  // Randomize logic below
 
  function assignNewIndexesToSlides(indexes) {
-  for (var i = 0, l = slides.length; i < l; i++) {
-   slides[i].id = indexes.pop();
+  for (var i = 0, l = vm.slides.length; i < l; i++) {
+   vm.slides[i].id = indexes.pop();
   }
  }
 

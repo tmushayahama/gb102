@@ -24,8 +24,9 @@
  <br>
  <div class="gb-padding-thin">
   <div ng-repeat="explorer in explorersTabCtrl.explorers"
-       class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-thin"
-       gb-explorer-box explorer="explorer">
+       class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+       gb-explorer-box explorer="explorer"
+       template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
   </div>
  </div>
  <div class="gb-dummy-height row"></div>
