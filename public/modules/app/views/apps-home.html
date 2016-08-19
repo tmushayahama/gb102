@@ -11,6 +11,12 @@
     Discover what a new kind of skill exploration and application can do for you
    </h2>
   </div>
+  <div class="gb-intro-carousel" uib-carousel active="active" interval="appsCtrl.myInterval"
+       template-url="public/modules/common/views/templates/gb-carousel.tpl.html">
+   <div uib-slide ng-repeat="slide in appsCtrl.slides track by slide.id" index="slide.id">
+    <img ng-src="{{slide.image}}" style="margin:auto;">
+   </div>
+  </div>
  </header>
  <section class="gb-explorer-row row" ng-controller='ExplorersCtrl as explorersCtrl'>
   <div class='gb-body-row row'>
@@ -34,8 +40,11 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class='gb-body-row-4 row'>
-      <div class="" ng-include="'public/modules/explorer/views/tabs/explorers/explorer-handpicked-list.html'"></div>
-     </div>
+      <div ng-repeat="explorer in explorersCtrl.explorers.handpicked"
+           class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium"
+           gb-explorer-box explorer="explorer"
+           template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+      </div> </div>
      <div class="row">
       <md-button ui-sref="apps.explorer"
                  class="gb-color-primary gb-more-btn">
@@ -270,7 +279,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.mentorships"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
     <div class="row">
@@ -291,7 +300,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.skills"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
     <div class="row">
@@ -312,7 +321,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.goals"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
     <div class="row">
@@ -333,7 +342,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.advices"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
     <div class="row">
@@ -354,7 +363,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.hobbies"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
     <div class="row">
@@ -375,7 +384,7 @@
      <div ng-repeat="explorer in explorersCtrl.explorers.promises"
           class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="public/modules/explorer/views/templates/explorer-box.tpl.html">
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
      </div>
     </div>
    </div>

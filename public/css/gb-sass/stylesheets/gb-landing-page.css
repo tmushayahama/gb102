@@ -32,7 +32,7 @@ and open the template in the editor.
 .gb-landing-page .gb-lp-box-2 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(0, 129, 137, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-landing-page .gb-lp-box-2 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -81,7 +81,7 @@ and open the template in the editor.
 .gb-landing-page .gb-lp-box-3 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(0, 129, 137, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-landing-page .gb-lp-box-3 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -207,16 +207,41 @@ and open the template in the editor.
   margin-right: 7px;
 }
 .gb-landing-page #gb-intro-section {
-  background: url(../../../img/landing-page/background-1.jpg);
+  background: -moz-radial-gradient(center, ellipse cover, #ceda2e 0%, #875a9d 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ceda2e), color-stop(100%, #875a9d));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #ceda2e 0%, #875a9d 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #ceda2e 0%, #875a9d 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #ceda2e 0%, #875a9d 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #ceda2e 0%, #875a9d 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  background: url(../../../img/landing-page/background-2.jpg);
   -webkit-background-size: 100% !important;
   -moz-background-size: 100% !important;
   -o-background-size: 100% !important;
   background-size: 100% !important;
   position: relative;
-  height: 400px;
+  height: 550px;
   text-align: center;
   background-color: #777;
   overflow: hidden;
+}
+.gb-landing-page #gb-intro-section .gb-intro-carousel {
+  position: absolute;
+  bottom: -350px;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  width: 60%;
+  z-index: 2;
+  background-color: transparent;
 }
 .gb-landing-page #gb-intro-section .intro-text {
   position: absolute;
@@ -225,7 +250,7 @@ and open the template in the editor.
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
 }
 .gb-landing-page #gb-intro-section .intro-text .gb-dynamic-word {
   padding: 3px 10px;
@@ -238,7 +263,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(0, 57, 61, 0.6);
+  background-color: rgba(1, 53, 60, 0.6);
   padding: 10px;
 }
 .gb-landing-page #gb-intro-section .intro-text .btn-toolbar .btn {
@@ -256,19 +281,15 @@ and open the template in the editor.
   float: left;
   color: #BBB;
 }
-.gb-landing-page #gb-intro-section .intro-text .gb-dynamic-word[class*="-remove"] {
-  transition: none;
-  opacity: 0;
-}
 .gb-landing-page #gb-intro-section .intro-text .intro-lead-in {
-  color: #FFFFFF;
+  color: #EEE;
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
   line-height: 40px;
 }
 .gb-landing-page #gb-intro-section .intro-text .intro-heading {
-  color: #F5F5F5;
+  color: #EEE;
   text-transform: uppercase;
   margin-bottom: 0px;
   font-size: 45px;
@@ -290,7 +311,10 @@ and open the template in the editor.
 @media (max-width: 991px) {
   .gb-landing-page #gb-intro-section {
     height: 400px;
-    margin-bottom: 15px;
+  }
+  .gb-landing-page #gb-intro-section .gb-intro-carousel {
+    bottom: -200px;
+    width: 80%;
   }
   .gb-landing-page #gb-intro-section .intro-text {
     top: 40%;
@@ -309,6 +333,13 @@ and open the template in the editor.
   }
 }
 @media (max-width: 767px) {
+  .gb-landing-page #gb-intro-section {
+    height: 250px;
+  }
+  .gb-landing-page #gb-intro-section .gb-intro-carousel {
+    bottom: -80px;
+    width: 80%;
+  }
   .gb-landing-page #gb-intro-section .intro-text .btn-toolbar .btn {
     font-size: 12px;
     width: 110px;
@@ -328,13 +359,14 @@ and open the template in the editor.
     line-height: 30px;
   }
 }
-.gb-landing-page #gb-intro-section .gb-intro-section-cover {
+.gb-landing-page #gb-intro-section:after {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 129, 137, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 1;
 }
 .gb-landing-page .gb-explorer-row .gb-heading-row .gb-title {
@@ -375,7 +407,7 @@ and open the template in the editor.
   padding: 0;
   background-color: #EEE;
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 {
   -webkit-background-size: 100% !important;
   -moz-background-size: 100% !important;
   -o-background-size: 100% !important;
@@ -384,63 +416,63 @@ and open the template in the editor.
   width: 100%;
   height: 100%;
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-discover {
   background: url(../../../img/landing-page/gb-discover-1.png);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-image {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-box-image {
   background-color: rgba(24, 79, 92, 0.5);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-number {
   background-color: rgba(255, 255, 255, 0.9);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number .gb-number-inner {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.7);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-content {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-box-content {
   background-color: rgba(255, 255, 255, 0.7);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-apply {
   background: url(../../../img/landing-page/gb-apply-1.png);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-image {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-box-image {
   background-color: rgba(24, 79, 92, 0.8);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-number {
   background-color: rgba(204, 204, 204, 0.8);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number .gb-number-inner {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.9);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-content {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-box-content {
   background-color: rgba(204, 204, 204, 0.8);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-organize {
   background: url(../../../img/landing-page/gb-organize-1.png);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-image {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-box-image {
   background-color: rgba(24, 79, 92, 0.5);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-number {
   background-color: rgba(255, 255, 255, 0.9);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number .gb-number-inner {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.8);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-content {
+.gb-landing-page #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-box-content {
   background-color: rgba(255, 255, 255, 0.8);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-image {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-image {
   padding: 0px 0px;
   height: 150px;
   overflow: hidden;
   background-color: rgba(2, 120, 135, 0.6);
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-content {
   padding: 10px 10px 10px 10px;
   height: 200px;
   color: #000;
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content .gb-description {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-content .gb-description {
   padding: 4px 10px 4px 0px;
   display: block;
   /* Fallback for non-webkit */
@@ -454,12 +486,12 @@ and open the template in the editor.
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content .gb-description {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-content .gb-description {
     font-size: 12px;
     -webkit-line-clamp: 4;
   }
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-number {
   position: absolute;
   top: 100px;
   left: 50%;
@@ -476,25 +508,25 @@ and open the template in the editor.
   color: #CCC;
   z-index: 1;
 }
-.gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number .gb-number-inner {
+.gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-number .gb-number-inner {
   padding: 4px 0 0 0;
   height: 100%;
   width: 100%;
   border-radius: 50%;
 }
 @media (max-width: 767px) {
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 {
     height: 250px;
   }
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-image {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-image {
     height: 100px;
   }
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-box-content {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-box-content {
     padding: 30px 3px 10px 3px;
     height: 150px;
     font-size: 8px;
   }
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-number {
     position: absolute;
     top: 80px;
     left: 50%;
@@ -506,13 +538,13 @@ and open the template in the editor.
     width: 40px;
     padding: 3px;
   }
-  .gb-landing-page #gb-intro-section-2 .gb-box-10 .gb-number .gb-number-inner {
+  .gb-landing-page #gb-intro-section-2 .gb-card-10 .gb-number .gb-number-inner {
     padding: 2px 0 0 0;
   }
 }
 .gb-landing-page .gb-icon-service {
   font-size: 70px;
-  color: #008189;
+  color: #027887;
 }
 @media (max-width: 767px) {
   .gb-landing-page .gb-icon-service {
@@ -530,7 +562,7 @@ and open the template in the editor.
 }
 .gb-landing-page .gb-icon-service {
   font-size: 70px;
-  color: #008189;
+  color: #027887;
 }
 @media (max-width: 767px) {
   .gb-landing-page .gb-icon-service {
@@ -567,7 +599,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(0, 57, 61, 0.6);
+  background-color: rgba(1, 53, 60, 0.6);
   padding: 10px;
 }
 .gb-landing-page .gb-get-started .gb-btn-container .btn-toolbar .btn {
@@ -927,7 +959,7 @@ and open the template in the editor.
 .gb-landing-page-2 .gb-lp-box-2 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(0, 129, 137, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-landing-page-2 .gb-lp-box-2 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -976,7 +1008,7 @@ and open the template in the editor.
 .gb-landing-page-2 .gb-lp-box-3 .gb-icon-image .gb-icon {
   font-size: 50px;
   text-align: center;
-  color: rgba(0, 129, 137, 0.8);
+  color: rgba(2, 120, 135, 0.8);
 }
 .gb-landing-page-2 .gb-lp-box-3 .gb-icon-image .gb-profile-img {
   margin: 0 auto;
@@ -1036,7 +1068,7 @@ and open the template in the editor.
   position: relative;
   height: 550px;
   text-align: center;
-  background-color: #008189;
+  background-color: #027887;
   overflow: hidden;
 }
 .gb-landing-page-2 #gb-intro-section .intro-text {
@@ -1058,7 +1090,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(0, 57, 61, 0.6);
+  background-color: rgba(1, 53, 60, 0.6);
   padding: 10px;
 }
 .gb-landing-page-2 #gb-intro-section .intro-text .btn-toolbar .btn {
@@ -1138,7 +1170,7 @@ and open the template in the editor.
   padding: 0;
   background-color: #EEE;
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 {
   -webkit-background-size: 100% !important;
   -moz-background-size: 100% !important;
   -o-background-size: 100% !important;
@@ -1147,63 +1179,63 @@ and open the template in the editor.
   width: 100%;
   height: 100%;
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-discover {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-discover {
   background: url(../../../img/landing-page/gb-discover-1.png);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-image {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-box-image {
   background-color: rgba(24, 79, 92, 0.5);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-number {
   background-color: rgba(255, 255, 255, 0.9);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-number .gb-number-inner {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.7);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-discover .gb-box-content {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-discover .gb-box-content {
   background-color: rgba(255, 255, 255, 0.7);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-apply {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-apply {
   background: url(../../../img/landing-page/gb-apply-1.png);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-image {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-box-image {
   background-color: rgba(24, 79, 92, 0.8);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-number {
   background-color: rgba(204, 204, 204, 0.8);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-number .gb-number-inner {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.9);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-apply .gb-box-content {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-apply .gb-box-content {
   background-color: rgba(204, 204, 204, 0.8);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-organize {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-organize {
   background: url(../../../img/landing-page/gb-organize-1.png);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-image {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-box-image {
   background-color: rgba(24, 79, 92, 0.5);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-number {
   background-color: rgba(255, 255, 255, 0.9);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-number .gb-number-inner {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-number .gb-number-inner {
   background-color: rgba(24, 79, 92, 0.8);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10.gb-box-organize .gb-box-content {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10.gb-box-organize .gb-box-content {
   background-color: rgba(255, 255, 255, 0.8);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-image {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-image {
   padding: 0px 0px;
   height: 150px;
   overflow: hidden;
   background-color: rgba(2, 120, 135, 0.6);
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-content {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-content {
   padding: 60px 10px 10px 10px;
   height: 200px;
   color: #000;
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-content .gb-description {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-content .gb-description {
   padding: 4px 10px 4px 0px;
   display: block;
   /* Fallback for non-webkit */
@@ -1217,12 +1249,12 @@ and open the template in the editor.
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-content .gb-description {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-content .gb-description {
     font-size: 12px;
     -webkit-line-clamp: 4;
   }
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-number {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-number {
   position: absolute;
   top: 100px;
   left: 50%;
@@ -1239,25 +1271,25 @@ and open the template in the editor.
   color: #CCC;
   z-index: 1;
 }
-.gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-number .gb-number-inner {
+.gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-number .gb-number-inner {
   padding: 4px 0 0 0;
   height: 100%;
   width: 100%;
   border-radius: 50%;
 }
 @media (max-width: 767px) {
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 {
     height: 250px;
   }
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-image {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-image {
     height: 100px;
   }
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-box-content {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-box-content {
     padding: 30px 3px 10px 3px;
     height: 150px;
     font-size: 8px;
   }
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-number {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-number {
     position: absolute;
     top: 80px;
     left: 50%;
@@ -1269,13 +1301,13 @@ and open the template in the editor.
     width: 40px;
     padding: 3px;
   }
-  .gb-landing-page-2 #gb-intro-section-2 .gb-box-10 .gb-number .gb-number-inner {
+  .gb-landing-page-2 #gb-intro-section-2 .gb-card-10 .gb-number .gb-number-inner {
     padding: 2px 0 0 0;
   }
 }
 .gb-landing-page-2 .gb-icon-service {
   font-size: 70px;
-  color: #008189;
+  color: #027887;
 }
 @media (max-width: 767px) {
   .gb-landing-page-2 .gb-icon-service {
@@ -1296,7 +1328,7 @@ and open the template in the editor.
 }
 .gb-landing-page-2 .gb-icon-service {
   font-size: 70px;
-  color: #008189;
+  color: #027887;
 }
 @media (max-width: 767px) {
   .gb-landing-page-2 .gb-icon-service {
@@ -1331,7 +1363,7 @@ and open the template in the editor.
   margin-top: 30px;
   display: inline-block;
   border: #888 solid 1px;
-  background-color: rgba(0, 57, 61, 0.6);
+  background-color: rgba(1, 53, 60, 0.6);
   padding: 10px;
 }
 .gb-landing-page-2 .gb-get-started .gb-btn-container .btn-toolbar .btn {

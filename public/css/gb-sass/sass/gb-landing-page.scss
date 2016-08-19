@@ -1,6 +1,6 @@
 
 
-$primary-color: #008189;
+$primary-color: #027887;
 $explorer-color: #027887;
 $swipe-color: #5E2D35;
 $matcher-color:#027;
@@ -271,23 +271,41 @@ $color-6: #077568;
 
 
  #gb-intro-section {
-  background: url(../../../img/landing-page/background-1.jpg);
+  background: -moz-radial-gradient(center, ellipse cover,  #ceda2e 0%, #875a9d 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ceda2e), color-stop(100%,#875a9d)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  #ceda2e 0%,#875a9d 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  background: url(../../../img/landing-page/background-2.jpg);
   -webkit-background-size: 100%!important;
   -moz-background-size: 100%!important;
   -o-background-size: 100%!important;
   background-size: 100%!important;
   position: relative;
   //margin-bottom: 30px;
-  height: 400px;
+  height: 550px;
   text-align: center;
   background-color: #777;
   overflow: hidden;
+
+  .gb-intro-carousel {
+   @include position(absolute, null null -350px 50%);
+   -ms-transform: translate(-50%);
+   -webkit-transform: translate(-50%);
+   transform: translate(-50%);
+   width: 60%;
+   z-index: 2;
+   background-color: transparent;
+  }
   .intro-text {
    @include position(absolute, 50% null null 50%);
    -ms-transform: translate(-50%,-50%);
    -webkit-transform: translate(-50%,-50%);
    transform: translate(-50%, -50%);
-   z-index: 2;
+   z-index: 3;
    .gb-dynamic-word {
     padding:3px 10px;
     color: #FFF;
@@ -317,20 +335,15 @@ $color-6: #077568;
      color: #BBB;
     }
    }
-
-   .gb-dynamic-word[class*="-remove"] {
-    transition: none;
-    opacity: 0;
-   }
    .intro-lead-in {
-    color: #FFFFFF;
+    color: #EEE;
     margin-bottom: 15px;
     font-size: 20px;
     font-weight: bold;
     line-height: 40px;
    }
    .intro-heading {
-    color: #F5F5F5;
+    color: #EEE;
     text-transform: uppercase;
     margin-bottom: 0px;
     font-size: 45px;
@@ -350,7 +363,10 @@ $color-6: #077568;
   }
   @include respond-to (gb-sm) {
    height: 400px;
-   margin-bottom: 15px;
+   .gb-intro-carousel {
+    bottom: -200px;
+    width: 80%;
+   }
    .intro-text {
     top: 40%;
     padding-top: 50px;
@@ -372,6 +388,11 @@ $color-6: #077568;
   @include respond-to (gb-xs) {
    // padding-top: 300px;
    //padding-bottom: 200px;
+   height: 250px;
+   .gb-intro-carousel {
+    bottom: -80px;
+    width: 80%;
+   }
    .intro-text {
     .btn-toolbar {
      .btn {
@@ -395,9 +416,10 @@ $color-6: #077568;
     }
    }
   }
-  .gb-intro-section-cover {
+  &:after {
+   content: "";
    @include position(absolute, 0 0 0 0);
-   background-color: rgba($primary-color, 0.6);
+   background-color: rgba(#000, 0.75);
    z-index: 1;
   }
  }
@@ -444,7 +466,7 @@ $color-6: #077568;
  }
  #gb-intro-section-2 {
 
-  .gb-box-10 {
+  .gb-card-10 {
    &.gb-box-discover {
     background: url(../../../img/landing-page/gb-discover-1.png);
     .gb-box-image {
@@ -1323,7 +1345,7 @@ $color-6: #077568;
  }
  #gb-intro-section-2 {
 
-  .gb-box-10 {
+  .gb-card-10 {
    &.gb-box-discover {
     background: url(../../../img/landing-page/gb-discover-1.png);
     .gb-box-image {

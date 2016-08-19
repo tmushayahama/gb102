@@ -24,7 +24,7 @@ and open the template in the editor.
 @import "components/gb-comments";
 @import "components/gb-todo";
 @import "components/gb-weblinks";
-@import "components/gb-grid"; 
+@import "components/gb-grid";
 @import "components/gb-joyride";
 @import "components/custom-xeditable";
 
@@ -2321,7 +2321,7 @@ input.gb-form-show{
  }
 }
 
-.gb-box-1 {
+.gb-card-1 {
  padding: 0 0 0 0;
  overflow: hidden;
  position: relative;
@@ -2339,11 +2339,33 @@ input.gb-form-show{
    width: 100%;
    min-height: 200px;
   }
+
   &.gb-app-type-1 {
    border-bottom: $color-skill solid 5px;
   }
   &.gb-app-type-2 {
    border-bottom: $color-goal solid 5px;
+  }
+  &.gb-app-type-3 {
+   border-bottom: $color-hobby solid 5px;
+  }
+  &.gb-app-type-4 {
+   border-bottom: $color-promise solid 5px;
+  }
+  &.gb-app-type-5 {
+   border-bottom: $color-mentorship solid 5px;
+  }
+  &.gb-app-type-6 {
+   border-bottom: $color-collaboration solid 5px;
+  }
+  &.gb-app-type-7 {
+   border-bottom: $color-teach solid 5px;
+  }
+  &.gb-app-type-8 {
+   border-bottom: $color-advice solid 5px;
+  }
+  &.gb-app-type-10 {
+   border-bottom: $color-journal solid 5px;
   }
  }
  .gb-box-content {
@@ -2409,7 +2431,171 @@ input.gb-form-show{
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    font-size: 14px;
-   height: 40px;
+   height: 33px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
+
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+}
+
+.gb-card-2 {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ //@include position(absolute, 0 0 0 25px);
+ height: 395px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ .gb-image {
+  //@include position(absolute, 0 0 null 0);
+  position: relative;
+  height: 200px;
+  border-bottom: transparent solid 5px;
+  overflow: hidden;
+  .gb-heading-pic {
+   width: 100%;
+   min-height: 200px;
+  }
+  &.gb-app-type-1 {
+   border-bottom: $color-skill solid 5px;
+  }
+  &.gb-app-type-2 {
+   border-bottom: $color-goal solid 5px;
+  }
+  &.gb-app-type-3 {
+   border-bottom: $color-hobby solid 5px;
+  }
+  &.gb-app-type-4 {
+   border-bottom: $color-promise solid 5px;
+  }
+  &.gb-app-type-5 {
+   border-bottom: $color-mentorship solid 5px;
+  }
+  &.gb-app-type-6 {
+   border-bottom: $color-collaboration solid 5px;
+  }
+  &.gb-app-type-7 {
+   border-bottom: $color-teach solid 5px;
+  }
+  &.gb-app-type-8 {
+   border-bottom: $color-advice solid 5px;
+  }
+  &.gb-app-type-10 {
+   border-bottom: $color-journal solid 5px;
+  }
+  &:after {
+   @include position(absolute, 0 0 0 0);
+   content: "";
+   background-color:rgba($primary-color, 0.4);
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: 1;
+  }
+ }
+ .gb-box-content {
+  // @include position(absolute, 200px 0 0 0);
+  height: 80px;
+  padding: 16px 14px 16px 14px;
+  z-index: 2;
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   h3 {
+    font-size: 24px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 8px;
+   }
+  }
+
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 12px;
+  }
+ }
+
+ .gb-box-footer {
+  //@include position(absolute, 280px 0 null 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 36px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 40px;
+   padding: 0px 14px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+ .gb-box-subcontent {
+  //@include position(absolute, 326px 0 0 0);
+  height: 80px;
+  padding: 16px 14px;
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   height: 33px;
    display: block;
    /* Fallback for non-webkit */
    display: -webkit-box;
@@ -2453,7 +2639,9 @@ input.gb-form-show{
 }
 
 
-.gb-box-14 {
+
+
+.gb-card-14 {
  position: relative;
  //height: 153px; /*For box shadow*/
  padding: 0 0 0 0;
@@ -2575,7 +2763,7 @@ input.gb-form-show{
  }
 }
 
-.gb-box-13 {
+.gb-card-13 {
  .gb-box-body {
   height: 300px;
   .gb-image {
@@ -2789,7 +2977,7 @@ input.gb-form-show{
   }
  }
 }
-.gb-box-11 {
+.gb-card-11 {
  position: relative;
  //height: 153px; /*For box shadow*/
  padding: 5px;
@@ -2918,7 +3106,7 @@ input.gb-form-show{
   }
  }
 }
-.gb-box-12 {
+.gb-card-12 {
  width: 33.333%;
  float: left;
  position: relative;
@@ -3051,7 +3239,7 @@ input.gb-form-show{
  }
 }
 
-.gb-box-11, gb-box-12 {
+.gb-card-11, gb-card-12 {
  @include respond-to (gb-xs) {
   position: relative;
   //height: 153px; /*For box shadow*/

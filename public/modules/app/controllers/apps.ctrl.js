@@ -129,6 +129,13 @@ var appsCtrl = function (
   });
  };
 
+ vm.getTemplateUrl = function (explorer) {
+  if (explorer.explorer_picture_url === "default.png") {
+   return "public/modules/explorer/views/templates/explorer-box-1.tpl.html";
+  }
+  return "public/modules/explorer/views/templates/explorer-box.tpl.html";
+ }
+
 
  vm.appsGridSettings = {
   columns: 12,
@@ -285,25 +292,30 @@ var appsCtrl = function (
  vm.active = 0;
  vm.slides = [
   {
-   image: 'public/img/landing-page/skills/music.jpg',
-   text: "music",
+   image: 'public/img/landing-page/background-surfing.png',
+   text: "surfing",
    id: 0
   },
   {
-   image: 'public/img/landing-page/skills/cooking.jpg',
-   text: "cooking",
+   image: 'public/img/landing-page/background-grilling.png',
+   text: "grilling",
    id: 1
   },
   {
-   image: 'public/img/landing-page/skills/chess.jpg',
+   image: 'public/img/landing-page/background-chess.png',
    text: "chess",
    id: 2
   },
   {
-   image: 'public/img/landing-page/skills/football.jpg',
-   text: "football",
+   image: 'public/img/landing-page/background-piano.png',
+   text: "piano",
    id: 3
-  }
+  },
+  {
+   image: 'public/img/landing-page/background-soccer.png',
+   text: "soccer",
+   id: 4
+  },
  ];
  var currIndex = 0;
 
