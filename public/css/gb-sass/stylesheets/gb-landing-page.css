@@ -207,7 +207,7 @@ and open the template in the editor.
   margin-right: 7px;
 }
 .gb-landing-page #gb-intro-section {
-  background: url(../../../img/landing-page/background-1.png);
+  background: url(../../../img/landing-page/background-1.jpg);
   -webkit-background-size: 100% !important;
   -moz-background-size: 100% !important;
   -o-background-size: 100% !important;
@@ -327,6 +327,15 @@ and open the template in the editor.
     font-weight: 700;
     line-height: 30px;
   }
+}
+.gb-landing-page #gb-intro-section .gb-intro-section-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 129, 137, 0.6);
+  z-index: 1;
 }
 .gb-landing-page .gb-explorer-row .gb-heading-row .gb-title {
   padding: 16px 14px 0px 14px;
@@ -595,12 +604,6 @@ and open the template in the editor.
   font-size: 15px;
   line-height: 20px;
   color: #656565;
-}
-.gb-landing-page section .gb-heading-row {
-  -webkit-background-size: auto 100% !important;
-  -moz-background-size: auto 100% !important;
-  -o-background-size: auto 100% !important;
-  background-size: auto 100% !important;
 }
 .gb-landing-page section .gb-heading-row .gb-box-content {
   padding: 10px 0;

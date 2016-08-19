@@ -24,7 +24,7 @@ and open the template in the editor.
 @import "components/gb-comments";
 @import "components/gb-todo";
 @import "components/gb-weblinks";
-@import "components/gb-grid";
+@import "components/gb-grid"; 
 @import "components/gb-joyride";
 @import "components/custom-xeditable";
 
@@ -496,21 +496,6 @@ input[type="checkbox"] {
 .gb-shadow-1 {
  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .08), 0 3px 1px -2px rgba(0, 0, 0, .2);
 }
-
-.gb-shadow-3 {
- box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
- &:hover {
-  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
- }
-}
-
-.gb-background-1 {
- background: #bb68ae;
- background: -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
- background: linear-gradient(120deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(240deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(120deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173.20508px, linear-gradient(240deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
- background-size: 20px 34px;
-}
-
 .gb-shadow-2 {
  position: relative;
  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -527,6 +512,28 @@ input[type="checkbox"] {
   border-radius:100px / 10px;
  }
 }
+.gb-shadow-3 {
+ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ &:hover {
+  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
+}
+.gb-shadow-4 {
+ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.gb-background-1 {
+ background: url(../../../../img/landing-page/background-2.jpg);
+ -webkit-background-size: 100%!important;
+ -moz-background-size: 100%!important;
+ -o-background-size: 100%!important;
+ background-size: 100%!important;
+ //background: #bb68ae;
+ // background: -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) 50% 0, -webkit-linear-gradient(330deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, -webkit-linear-gradient(210deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
+ // background: linear-gradient(120deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(240deg, transparent 75%, #a75997 75%) 50% 0, linear-gradient(120deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173.20508px, linear-gradient(240deg, transparent 75%, #a75997 75%) calc(50% - 200px/2) -173px, #bb68ae;
+ //background-size: 20px 34px;
+}
+
 
 .dropdown-menu.gb-full-width {
  left: 0!important;
@@ -2330,6 +2337,7 @@ input.gb-form-show{
   overflow: hidden;
   .gb-heading-pic {
    width: 100%;
+   min-height: 200px;
   }
   &.gb-app-type-1 {
    border-bottom: $color-skill solid 5px;
