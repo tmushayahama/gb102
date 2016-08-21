@@ -136,6 +136,13 @@ var appsCtrl = function (
   return "public/modules/explorer/views/templates/explorer-box.tpl.html";
  }
 
+ vm.getSubTemplateUrl = function (explorer) {
+  if (explorer.explorer_picture_url === "default.png") {
+   return "public/modules/explorer/views/templates/sub-explorer/sub-explorer-box-1.tpl.html";
+  }
+  return "public/modules/explorer/views/templates/sub-explorer/sub-explorer-box.tpl.html";
+ }
+
 
  vm.appsGridSettings = {
   columns: 12,

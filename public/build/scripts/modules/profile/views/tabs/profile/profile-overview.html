@@ -1,70 +1,78 @@
 <div class="row">
- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-  <md-button ui-sref="apps.community.users" class="gb-box-3 gb-shadow-1"
-             ng-class="{
+ <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="row">
+   <div class="col-lg-4 col-md-4 col-sm-3 col-xs-4 gb-padding-thin">
+    <md-button ui-sref="apps.community.users" class="gb-box-3 gb-shadow-1"
+               ng-class="{
                  active: ('apps.community'| includedByState)
                 }">
-   <div class="gb-stat-number">
-    {{profileOverviewCtrl.connections.length}}
+     <div class="gb-title gb-ellipsis">
+      CONNECTOR
+     </div>
+     <i class="gb-icon fa icon-gb-community"></i>
+     <div class="gb-stat-number">
+      {{profileOverviewCtrl.connections.length}} / 100
+     </div>
+    </md-button>
    </div>
-   <div class="gb-title gb-ellipsis hidden-xs">
-    <i class="gb-icon fa icon-gb-community"></i> CONNECTIONS
-   </div>
-  </md-button>
- </div>
- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
+   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
+    <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+               ng-class="{
                    active: ('apps.group' | includedByState)
                   }">
-   <div class="gb-stat-number">
-    0
+     <div class="gb-stat-number">
+      0
+     </div>
+     <div class="gb-title gb-ellipsis">
+      <i class="gb-icon fa icon-gb-groups"></i> GROUPS
+     </div>
+    </md-button>
    </div>
-   <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-groups"></i> GROUPS
-   </div>
-  </md-button>
- </div>
- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+    <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+               ng-class="{
                    active: ('apps.group' | includedByState)
                   }">
-   <div class="gb-stat-number">
-    {{profileOverviewCtrl.explorersStats.totalCount}}
+     <div class="gb-stat-number">
+      {{profileOverviewCtrl.explorersStats.totalCount}}
+     </div>
+     <div class="gb-title gb-ellipsis">
+      <i class="gb-icon fa icon-gb-explorer"></i> EXPLORATIONS
+     </div>
+    </md-button>
    </div>
-   <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-explorer"></i> EXPLORATIONS
-   </div>
-  </md-button>
- </div>
- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+    <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+               ng-class="{
                    active: ('apps.group' | includedByState)
                   }">
-   <div class="gb-stat-number">
-    0
+     <div class="gb-stat-number">
+      0
+     </div>
+     <div class="gb-title gb-ellipsis">
+      <i class="gb-icon fa icon-gb-apply"></i> APPLICATIONS
+     </div>
+    </md-button>
    </div>
-   <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-apply"></i> APPLICATIONS
-   </div>
-  </md-button>
- </div>
- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-  <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
-             ng-class="{
+   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+    <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
+               ng-class="{
                    active: ('apps.group' | includedByState)
                   }">
-   <div class="gb-stat-number">
-    0
+     <div class="gb-stat-number">
+      0
+     </div>
+     <div class="gb-title gb-ellipsis">
+      <i class="gb-icon fa icon-gb-collaborations"></i> CONTRIBUTIONS
+     </div>
+    </md-button>
    </div>
-   <div class="gb-title gb-ellipsis">
-    <i class="gb-icon fa icon-gb-collaborations"></i> CONTRIBUTIONS
-   </div>
-  </md-button>
+  </div>
+ </div>
+ <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="row">
+   <div ng-include="'public/build/scripts/modules/profile/views/tabs/profile/profile-about.html'"></div>
+  </div>
  </div>
 </div>
-<div ng-include="'public/build/scripts/modules/profile/views/tabs/profile/profile-about.html'"></div>
-
 <div class="gb-dummy-height row"></div>

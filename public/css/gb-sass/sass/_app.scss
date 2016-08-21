@@ -49,6 +49,20 @@ body {
  //@include position(fixed, 0 0 0 0);
 }
 
+.gb-flex-container-1 {
+ //background: -webkit-linear-gradient(315deg, #bd0043, #47bdb6);
+ // background: linear-gradient(135deg, #bd0043, #47bdb6);
+ //position: relative;
+
+ .gb-flex-item {
+  // position: relative;
+  //background-color: #458;
+  //min-height: 150px;
+  //margin-bottom: 20px;
+  //width: 50%;
+ }
+}
+
 
 .gb-mg-top-md {
  margin-top: 10px;
@@ -2638,7 +2652,319 @@ input.gb-form-show{
  }
 }
 
+.gb-card-3 {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ //@include position(absolute, 0 0 0 25px);
+ min-height: 100px;
+ max-height: 600px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ .gb-big-title {
+  padding: 16px 14px 16px 14px;
+  overflow: hidden;
+  .gb-title {
+   font-size: 28px;
+   font-weight: 400;
+   i{
+    color: #777;
+    margin-right: 5px;
+   }
+   //line-height: 32px;
+  }
+ }
+ .gb-form-content {
+  height: 200px;
+  padding: 16px 14px;
+ }
+ .gb-box-content {
+  //@include position(absolute, 326px 0 0 0);
+  // height: 200px;
+  padding: 0px 14px 16px 14px;
+  .gb-description {
+   font-size: 12px;
+   margin-bottom: 14px;
+  }
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   max-height: 150px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 5;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
 
+ .gb-listbox-content {
+  //@include position(absolute, 326px 0 0 0);
+  min-height: 200px;
+  max-height: 400px;
+  padding: 16px 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  .gb-one-liner { 
+   a {
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #555;
+    height: 100%;
+    width: 100%;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  //@include position(absolute, 280px 0 null 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 36px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 40px;
+   padding: 0px 14px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+}
+
+.gb-card-4 {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ //@include position(absolute, 0 0 0 25px);
+ height: 120px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ .gb-image {
+  @include position(absolute, 0 0 0 null);
+  //position: relative;
+  // height: 100%;
+  width: 90px;
+  overflow: hidden;
+  .gb-heading-pic {
+   height: 100%;
+   min-width: 100%;
+  }
+  &:after {
+   @include position(absolute, 0 0 0 0);
+   content: "";
+   background-color:rgba($primary-color, 0.4);
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: 1;
+  }
+ }
+ .gb-box-content {
+  @include position(absolute, 0 90px 40px 0 );
+  height: auto;
+  padding: 14px 14px 14px 14px;
+  border-left: transparent solid 5px;
+  z-index: 2;
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   h3 {
+    font-size: 20px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 5px;
+   }
+  }
+
+  .gb-subdescription {
+   margin-bottom: 3px;
+   font-size: 12px;
+   height: auto;
+   color: #888;
+  }
+
+  .gb-description {
+   height: auto;
+   font-size: 14px;
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  @include position(absolute, null 150px 0 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 40px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 36px;
+   padding: 0px 14px 0 19px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+ .gb-box-subcontent {
+  //@include position(absolute, 326px 0 0 0);
+  height: 80px;
+  padding: 16px 14px;
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   height: 33px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 2px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
+
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+
+ &.gb-app-type-1 {
+  border-left: $color-skill solid 5px;
+ }
+ &.gb-app-type-2 {
+  border-left: $color-goal solid 5px;
+ }
+ &.gb-app-type-3 {
+  border-left: $color-hobby solid 5px;
+ }
+ &.gb-app-type-4 {
+  border-left: $color-promise solid 5px;
+ }
+ &.gb-app-type-5 {
+  border-left: $color-mentorship solid 5px;
+ }
+ &.gb-app-type-6 {
+  border-left: $color-collaboration solid 5px;
+ }
+ &.gb-app-type-7 {
+  border-left: $color-teach solid 5px;
+ }
+ &.gb-app-type-8 {
+  border-left: $color-advice solid 5px;
+ }
+ &.gb-app-type-10 {
+  border-left: $color-journal solid 5px;
+ }
+}
 
 
 .gb-card-14 {

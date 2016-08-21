@@ -1261,6 +1261,7 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image img {
   width: 100%;
+  min-height: 100%;
   border-radius: 50%;
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-title {
@@ -6375,6 +6376,298 @@ input.gb-form-show {
 }
 .gb-card-2 .gb-footer-content {
   padding: 10px 0 0 0;
+}
+
+.gb-card-3 {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 100px;
+  max-height: 600px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+}
+.gb-card-3 .gb-big-title {
+  padding: 16px 14px 16px 14px;
+  overflow: hidden;
+}
+.gb-card-3 .gb-big-title .gb-title {
+  font-size: 28px;
+  font-weight: 400;
+}
+.gb-card-3 .gb-big-title .gb-title i {
+  color: #777;
+  margin-right: 5px;
+}
+.gb-card-3 .gb-form-content {
+  height: 200px;
+  padding: 16px 14px;
+}
+.gb-card-3 .gb-box-content {
+  padding: 0px 14px 16px 14px;
+}
+.gb-card-3 .gb-box-content .gb-description {
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.gb-card-3 .gb-box-content .gb-description {
+  font-size: 14px;
+  max-height: 150px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-card-3 .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-card-3 .gb-listbox-content {
+  min-height: 200px;
+  max-height: 400px;
+  padding: 16px 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.gb-card-3 .gb-listbox-content .gb-one-liner a {
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #555;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-3 .gb-box-footer {
+  height: 36px;
+}
+.gb-card-3 .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 40px;
+  padding: 0px 14px;
+}
+.gb-card-3 .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-3 .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-3 .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-3 .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-3 .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-3 .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-3 .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-3 .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-3 .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-card-3 .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
+.gb-card-4 {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  height: 120px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+}
+.gb-card-4 .gb-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  overflow: hidden;
+}
+.gb-card-4 .gb-image .gb-heading-pic {
+  height: 100%;
+  min-width: 100%;
+}
+.gb-card-4 .gb-image:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(0, 129, 137, 0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+.gb-card-4 .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 90px;
+  bottom: 40px;
+  left: 0;
+  height: auto;
+  padding: 14px 14px 14px 14px;
+  border-left: transparent solid 5px;
+  z-index: 2;
+}
+.gb-card-4 .gb-box-content .gb-title h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.gb-card-4 .gb-box-content .gb-subdescription {
+  margin-bottom: 3px;
+  font-size: 12px;
+  height: auto;
+  color: #888;
+}
+.gb-card-4 .gb-box-content .gb-description {
+  height: auto;
+  font-size: 14px;
+}
+.gb-card-4 .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+}
+.gb-card-4 .gb-box-footer {
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+}
+.gb-card-4 .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 36px;
+  padding: 0px 14px 0 19px;
+}
+.gb-card-4 .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-4 .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-4 .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-4 .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-4 .gb-box-subcontent {
+  height: 80px;
+  padding: 16px 14px;
+}
+.gb-card-4 .gb-box-subcontent .gb-description {
+  font-size: 14px;
+  height: 33px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-card-4 .gb-box-subcontent .gb-description .gb-no-info {
+  padding: 2px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-card-4 .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-4 .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-4 .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-4 .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-4 .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-card-4 .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-card-4.gb-app-type-1 {
+  border-left: #027887 solid 5px;
+}
+.gb-card-4.gb-app-type-2 {
+  border-left: #027 solid 5px;
+}
+.gb-card-4.gb-app-type-3 {
+  border-left: #41642A solid 5px;
+}
+.gb-card-4.gb-app-type-4 {
+  border-left: #bb68ae solid 5px;
+}
+.gb-card-4.gb-app-type-5 {
+  border-left: #077568 solid 5px;
+}
+.gb-card-4.gb-app-type-6 {
+  border-left: #1D3F00 solid 5px;
+}
+.gb-card-4.gb-app-type-7 {
+  border-left: #411D1D solid 5px;
+}
+.gb-card-4.gb-app-type-8 {
+  border-left: #9A6D36 solid 5px;
+}
+.gb-card-4.gb-app-type-10 {
+  border-left: #362644 solid 5px;
 }
 
 .gb-card-14 {

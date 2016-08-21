@@ -128,7 +128,7 @@ define(['angular'
                   'public/modules/explorer/controllers/explorer-overview.ctrl.js',
                   //Section
                   'public/modules/explorer/services/section/explorer-sections.srv.js',
-                  'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
+                  //'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
                   'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
                   'public/modules/explorer/controllers/section/explorer-section-item-modal.ctrl.js',
                   //Objectives,
