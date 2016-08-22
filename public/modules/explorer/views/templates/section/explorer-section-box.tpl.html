@@ -4,13 +4,13 @@
    {{explorerSection.description}}
   </h2>
  </div>
+ <form ng-submit="add()" class="gb-one-liner-form">
+  <md-input-container class="md-block" md-no-float>
+   <input ng-model="newAnswer" name="title" class=""
+          placeholder="Type and press enter to add more" >
+  </md-input-container>
+ </form>
  <div class="gb-listbox-content">
-  <form ng-submit="add()" class="row">
-   <md-input-container class="md-block" md-no-float>
-    <input ng-model="newAnswer" name="title" class=""
-           placeholder="Type and press enter to add more" >
-   </md-input-container>
-  </form>
   <div class="gb-no-info row" ng-show="!explorerSection.answers.length">
    No list to show
   </div>
@@ -18,16 +18,17 @@
    <a class="gb-ellipsis" ng-click="openItem(answer)">
     {{answer.description}}
    </a>
+   <md-button ng-click="openItem(answer)" class="gb-action-btn gb-color-primary">
+    <i class="fa fa-chevron-right"></i>
+   </md-button>
   </div>
-  <div ng-if="explorerSection.answers.length > answersLimitTo" class="gb-answer row">
-   <div class="gb-answer-number gb-primary" ng-click="open()">
-    <i class="fa fa-ellipsis-v"></i>
-   </div>
-   <div class="gb-answer-content">
-    <a ng-click="open()">
-     more
-    </a>
-   </div>
-  </div>
+ </div>
+ <div class="gb-box-footer row">
+  <md-button ng-click="open()" ng-if="explorerSection.answers.length > answersLimitTo" class="gb-color-primary">
+   MORE
+  </md-button>
+  <md-button ng-click="open()" class="pull-right gb-color-primary">
+   <i class="fa fa-arrows-alt"></i>
+  </md-button>
  </div>
 </div>

@@ -197,6 +197,7 @@ class Explorer extends Model {
   //$userId = $user->id;
   $explorer->parent_explorers = ExplorerRelationship::getParentExplorers($explorer->id, Level::$level_categories['explorer_relationship']['parent']);
   $explorer->parent_applications = ExplorerRelationship::getParentExplorers($explorer->id, Level::$level_categories['explorer_relationship']['application']);
+  $explorer->stats = self::getExplorerStats($explorer->id);
   return $explorer; //$explorer;
  }
 

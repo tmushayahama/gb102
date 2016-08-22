@@ -2666,7 +2666,7 @@ input.gb-form-show{
   padding: 16px 14px 16px 14px;
   overflow: hidden;
   .gb-title {
-   font-size: 28px;
+   font-size: 24px;
    font-weight: 400;
    i{
     color: #777;
@@ -2683,9 +2683,11 @@ input.gb-form-show{
   //@include position(absolute, 326px 0 0 0);
   // height: 200px;
   padding: 0px 14px 16px 14px;
-  .gb-description {
+  .gb-subdescription {
+   margin-bottom: 3px;
    font-size: 12px;
-   margin-bottom: 14px;
+   height: auto;
+   color: #888;
   }
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
@@ -2708,23 +2710,64 @@ input.gb-form-show{
    }
   }
  }
-
+ .gb-one-liner-form {
+  height: 30px;
+  md-input-container{
+   margin: 0;
+   padding: 0;
+  }
+  input {
+   margin: 0;
+   padding: 5px 14px;
+  }
+ }
  .gb-listbox-content {
   //@include position(absolute, 326px 0 0 0);
-  min-height: 200px;
-  max-height: 400px;
-  padding: 16px 5px;
+  min-height: 100px;
+  max-height: 500px;
+  padding: 16px 0;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 
-  .gb-one-liner { 
+  .gb-one-liner {
+   position: relative;
+   border-bottom: #CCC solid 1px;
    a {
-    padding: 10px 14px;
+    padding: 10px 35px 10px 14px;
     text-decoration: none;
-    color: #555;
+    color: #222;
     height: 100%;
     width: 100%;
+   }
+   &:hover {
+    background-color: #F2F2F2;
+   }
+
+   .gb-action-btn {
+    @include position(absolute, 0 0 0 null);
+    line-height: 30px;
+   }
+  }
+
+  .gb-two-liner {
+   position: relative;
+   height: 50pc;
+   border-bottom: #CCC solid 1px;
+   a {
+    padding: 10px 35px 10px 14px;
+    text-decoration: none;
+    color: #222;
+    height: 100%;
+    width: 100%;
+   }
+   &:hover {
+    background-color: #F2F2F2;
+   }
+
+   .gb-action-btn {
+    @include position(absolute, 0 0 0 null);
+    line-height: 30px;
    }
   }
  }
@@ -2779,7 +2822,7 @@ input.gb-form-show{
     margin-bottom: 10px;
    }
    .gb-number {
-    font-size: 10px;
+    font-size: 18px;
    }
   }
  }
@@ -2963,6 +3006,235 @@ input.gb-form-show{
  }
  &.gb-app-type-10 {
   border-left: $color-journal solid 5px;
+ }
+}
+
+.gb-card-5 {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ border-bottom: #BBB solid 1px;
+ height: 90px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ .gb-indicator {
+  @include position(absolute, 5px  null null 5px);
+  height: 5px;
+  width: 30px;
+ }
+
+ .gb-image {
+  @include position(absolute, 14px 0px 14px null);
+  //position: relative;
+  // height: 100%;
+  width: 60px;
+  overflow: hidden;
+  .gb-heading-pic {
+   height: 100%;
+   min-width: 100%;
+  }
+  &:after {
+   @include position(absolute, 0 0 0 0);
+   content: "";
+   background-color:rgba($primary-color, 0.4);
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: 1;
+  }
+ }
+ .gb-box-content {
+  @include position(absolute, 0 60px 40px 0 );
+  height: auto;
+  padding: 14px 0px 14px 0px;
+  border-left: transparent solid 5px;
+  z-index: 2;
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   //margin-top: 5px;
+   h3 {
+    font-size: 14px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 5px;
+    a {
+
+    }
+   }
+  }
+
+  .gb-subdescription {
+   margin-bottom: 0px;
+   font-size: 12px;
+   height: auto;
+   color: #888;
+  }
+
+  .gb-description {
+   height: auto;
+   font-size: 14px;
+   .gb-name-badge-1 {
+    position: relative;
+    //float: right;
+    height: 30px;
+    padding-left: 25px;
+    font-size: 11px;
+    .gb-name {
+     padding-top: 6px;
+     padding-left: 0px;
+    }
+    .gb-profile-image {
+     @include position(absolute, 4px null null 0px);
+     // right: auto;
+     height: 20px;
+     width: 20px;
+     img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+     }
+    }
+   }
+
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  @include position(absolute, null 150px 0 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 40px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 36px;
+   padding: 0px 14px 0 19px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+ .gb-box-subcontent {
+  //@include position(absolute, 326px 0 0 0);
+  height: 80px;
+  padding: 16px 14px;
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   height: 33px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 2px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+
+ &.gb-app-type-1 {
+  .gb-indicator {
+   background-color: $color-skill;
+  }
+ }
+ &.gb-app-type-2 {
+  .gb-indicator {
+   background-color: $color-goal;
+  }
+ }
+ &.gb-app-type-3 {
+  .gb-indicator {
+   background-color: $color-hobby;
+  }
+ }
+ &.gb-app-type-4 {
+  .gb-indicator {
+   background-color: $color-promise;
+  }
+ }
+ &.gb-app-type-5 {
+  .gb-indicator {
+   background-color: $color-mentorship;
+  }
+ }
+
+ &.gb-app-type-6 {
+  .gb-indicator {
+   background-color: $color-collaboration;
+  }
+ }
+ &.gb-app-type-7 {
+  .gb-indicator {
+   background-color: $color-teach;
+  }
+ }
+ &.gb-app-type-8 {
+  .gb-indicator {
+   background-color: $color-advice;
+  }
+ }
+ &.gb-app-type-10 {
+  .gb-indicator {
+   background-color: $color-journal;
+  }
  }
 }
 

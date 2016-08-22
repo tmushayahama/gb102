@@ -6393,7 +6393,7 @@ input.gb-form-show {
   overflow: hidden;
 }
 .gb-card-3 .gb-big-title .gb-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
 }
 .gb-card-3 .gb-big-title .gb-title i {
@@ -6407,9 +6407,11 @@ input.gb-form-show {
 .gb-card-3 .gb-box-content {
   padding: 0px 14px 16px 14px;
 }
-.gb-card-3 .gb-box-content .gb-description {
+.gb-card-3 .gb-box-content .gb-subdescription {
+  margin-bottom: 3px;
   font-size: 12px;
-  margin-bottom: 14px;
+  height: auto;
+  color: #888;
 }
 .gb-card-3 .gb-box-content .gb-description {
   font-size: 14px;
@@ -6430,20 +6432,67 @@ input.gb-form-show {
   color: #BBB;
   font-size: 18px;
 }
+.gb-card-3 .gb-one-liner-form {
+  height: 30px;
+}
+.gb-card-3 .gb-one-liner-form md-input-container {
+  margin: 0;
+  padding: 0;
+}
+.gb-card-3 .gb-one-liner-form input {
+  margin: 0;
+  padding: 5px 14px;
+}
 .gb-card-3 .gb-listbox-content {
-  min-height: 200px;
-  max-height: 400px;
-  padding: 16px 5px;
+  min-height: 100px;
+  max-height: 500px;
+  padding: 16px 0;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+.gb-card-3 .gb-listbox-content .gb-one-liner {
+  position: relative;
+  border-bottom: #CCC solid 1px;
+}
 .gb-card-3 .gb-listbox-content .gb-one-liner a {
-  padding: 10px 14px;
+  padding: 10px 35px 10px 14px;
   text-decoration: none;
-  color: #555;
+  color: #222;
   height: 100%;
   width: 100%;
+}
+.gb-card-3 .gb-listbox-content .gb-one-liner:hover {
+  background-color: #F2F2F2;
+}
+.gb-card-3 .gb-listbox-content .gb-one-liner .gb-action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 30px;
+}
+.gb-card-3 .gb-listbox-content .gb-two-liner {
+  position: relative;
+  height: 50pc;
+  border-bottom: #CCC solid 1px;
+}
+.gb-card-3 .gb-listbox-content .gb-two-liner a {
+  padding: 10px 35px 10px 14px;
+  text-decoration: none;
+  color: #222;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-3 .gb-listbox-content .gb-two-liner:hover {
+  background-color: #F2F2F2;
+}
+.gb-card-3 .gb-listbox-content .gb-two-liner .gb-action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 30px;
 }
 .gb-card-3 .gb-box-footer {
   height: 36px;
@@ -6491,7 +6540,7 @@ input.gb-form-show {
   margin-bottom: 10px;
 }
 .gb-card-3 .gb-summary-bar .gb-stat .gb-number {
-  font-size: 10px;
+  font-size: 18px;
 }
 .gb-card-3 .gb-footer-content {
   padding: 10px 0 0 0;
@@ -6668,6 +6717,209 @@ input.gb-form-show {
 }
 .gb-card-4.gb-app-type-10 {
   border-left: #362644 solid 5px;
+}
+
+.gb-card-5 {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: #BBB solid 1px;
+  height: 90px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+}
+.gb-card-5 .gb-indicator {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 5px;
+  width: 30px;
+}
+.gb-card-5 .gb-image {
+  position: absolute;
+  top: 14px;
+  right: 0px;
+  bottom: 14px;
+  width: 60px;
+  overflow: hidden;
+}
+.gb-card-5 .gb-image .gb-heading-pic {
+  height: 100%;
+  min-width: 100%;
+}
+.gb-card-5 .gb-image:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(109, 96, 60, 0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+.gb-card-5 .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 60px;
+  bottom: 40px;
+  left: 0;
+  height: auto;
+  padding: 14px 0px 14px 0px;
+  border-left: transparent solid 5px;
+  z-index: 2;
+}
+.gb-card-5 .gb-box-content .gb-title h3 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.gb-card-5 .gb-box-content .gb-subdescription {
+  margin-bottom: 0px;
+  font-size: 12px;
+  height: auto;
+  color: #888;
+}
+.gb-card-5 .gb-box-content .gb-description {
+  height: auto;
+  font-size: 14px;
+}
+.gb-card-5 .gb-box-content .gb-description .gb-name-badge-1 {
+  position: relative;
+  height: 30px;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-5 .gb-box-content .gb-description .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-5 .gb-box-content .gb-description .gb-name-badge-1 .gb-profile-image {
+  position: absolute;
+  top: 4px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-5 .gb-box-content .gb-description .gb-name-badge-1 .gb-profile-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-5 .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+}
+.gb-card-5 .gb-box-footer {
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+}
+.gb-card-5 .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 36px;
+  padding: 0px 14px 0 19px;
+}
+.gb-card-5 .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-5 .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-5 .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-5 .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-5 .gb-box-subcontent {
+  height: 80px;
+  padding: 16px 14px;
+}
+.gb-card-5 .gb-box-subcontent .gb-description {
+  font-size: 14px;
+  height: 33px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-card-5 .gb-box-subcontent .gb-description .gb-no-info {
+  padding: 2px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-card-5 .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-5 .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-5 .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-5 .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-5 .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-card-5 .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-card-5.gb-app-type-1 .gb-indicator {
+  background-color: #027887;
+}
+.gb-card-5.gb-app-type-2 .gb-indicator {
+  background-color: #027;
+}
+.gb-card-5.gb-app-type-3 .gb-indicator {
+  background-color: #41642A;
+}
+.gb-card-5.gb-app-type-4 .gb-indicator {
+  background-color: #bb68ae;
+}
+.gb-card-5.gb-app-type-5 .gb-indicator {
+  background-color: #077568;
+}
+.gb-card-5.gb-app-type-6 .gb-indicator {
+  background-color: #1D3F00;
+}
+.gb-card-5.gb-app-type-7 .gb-indicator {
+  background-color: #411D1D;
+}
+.gb-card-5.gb-app-type-8 .gb-indicator {
+  background-color: #9A6D36;
+}
+.gb-card-5.gb-app-type-10 .gb-indicator {
+  background-color: #362644;
 }
 
 .gb-card-14 {

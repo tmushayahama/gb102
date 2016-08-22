@@ -141,66 +141,8 @@
     </h2>
    </div>
    <div class="gb-box-content">
-    <div ng-if="true" class="row gb-mg-top-md">
-     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-      <md-button class="gb-box-3 gb-shadow-1">
-       <div class="gb-stat-number">
-        <i class="gb-icon fa icon-gb-community"></i> 0%
-       </div>
-       <div class="gb-title gb-ellipsis hidden-xs">
-        PROGRESS
-       </div>
-      </md-button>
-     </div>
-     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
-      <md-button class="gb-box-3 gb-shadow-1">
-       <div class="gb-stat-number">
-        <i class="gb-icon fa fa-comments"></i> 0
-       </div>
-       <div class="gb-title gb-ellipsis">
-        DISCUSSIONS
-       </div>
-      </md-button>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-      <md-button class="gb-box-3 gb-shadow-1">
-       <div class="gb-stat-number">
-        <i class="gb-icon fa icon-gb-explorer"></i> {{explorerCtrl.subExplorersStats.totalCount}}
-       </div>
-       <div class="gb-title gb-ellipsis">
-        SUB ENTRIES
-       </div>
-      </md-button>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-      <md-button class="gb-box-3 gb-shadow-1">
-       <div class="gb-stat-number">
-        <i class="gb-icon fa icon-gb-apply"></i> 0
-       </div>
-       <div class="gb-title gb-ellipsis">
-        APPLICATIONS
-       </div>
-      </md-button>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-      <md-button class="gb-box-3 gb-shadow-1">
-       <div class="gb-stat-number">
-        <i class="gb-icon fa icon-gb-collaborations"></i> 0
-       </div>
-       <div class="gb-title gb-ellipsis">
-        CONTRIBUTIONS
-       </div>
-      </md-button>
-     </div>
-    </div>
 
-    <div class="gb-title row">
-     <h3 class="gb-ellipsis">
-      {{::explorer.title}}
-     </h3>
-    </div>
-
-    <div ng-if="false" class="gb-summary-bar row">
+    <div ng-if="true" class="gb-summary-bar row">
      <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <i class="gb-icon fa fa-list-ol"></i>
       <p class="gb-number gb-ellipsis">
@@ -227,14 +169,6 @@
       {{explorer.app_type.name}} - {{::explorer.level.name}}
      </p>
     </div>
-   </div>
-   <div class="gb-box-footer row">
-    <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="gb-color-primary">
-     EXPLORE
-    </md-button>
-    <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="pull-right gb-color-primary">
-     <i class="fa fa-star-o"></i>
-    </md-button>
    </div>
   </div>
  </div>

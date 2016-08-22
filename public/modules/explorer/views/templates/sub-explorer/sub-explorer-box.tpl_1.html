@@ -1,32 +1,36 @@
-<div class="gb-card-5">
+<div class="gb-card-4 gb-shadow-3 gb-app-type-{{::explorer.first_explorer.app_type.id}}">
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
     {{::explorer.first_explorer.title}}
    </h3>
   </div>
-  <div class="gb-description row">
+  <div class="gb-subdescription row">
    <p class="gb-ellipsis">
     <span ng-if="explorer.first_explorer.template_type_id === 100001">
      Template For - </span>
     {{explorer.first_explorer.app_type.name}} - {{::explorer.first_explorer.level.name}}
    </p>
   </div>
-  <div class="gb-description row">
-   <p class="">
+  <div class="gb-description  row">
+   <p class="gb-ellipsis">
     <span>
      {{::explorer.first_explorer.description}}
     </span>
    </p>
-   <p ng-if="!explorer.first_explorer.description" class="gb-no-info">
+   <p ng-if="!explorer.first_explorer.description" class="gb-no-info gb-ellipsis">
     No description to show
    </p>
   </div>
+ </div>
+ <div class="gb-box-footer row">
   <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.first_explorer.id})" class="gb-color-primary">
    EXPLORE
   </md-button>
  </div>
- <div class="gb-image gb-app-type-{{::explorer.first_explorer.app_type.id}}"
-      ng-style="style">
+ <div class="gb-image">
+  <img data-ui-sref="apps.explorer.overview({explorerId: explorer.first_explorer.id})"
+       ng-src="public/img/explorer/{{ ::explorer.first_explorer.explorer_picture_url}}"
+       class="gb-heading-pic" alt="">
  </div>
 </div>

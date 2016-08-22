@@ -26,6 +26,7 @@ use App\Models\Explorer\ExplorerTodo;
 use App\Models\Explorer\ExplorerWeblink;
 use App\Models\Todo\Todo;
 use App\Models\Todo\TodoChecklist;
+use App\Models\Component\Component;
 use App\Models\Comment\Comment;
 use App\Models\Contribution\Contribution;
 use App\Models\Note\Note;
@@ -105,6 +106,28 @@ class ExplorerController extends Controller {
  public function getExplorerRequestOptions($explorerId) {
   $explorerRequestOptions = ExplorerRequestOption::getExplorerRequestOptions($explorerId);
   return \Response::json($explorerRequestOptions);
+ }
+
+ /* COMPONENT */
+
+ public function getExplorerComponents($explorerId) {
+  $explorerComponents = ExplorerComponent::getExplorerComponents($explorerId);
+  return \Response::json($explorerComponents);
+ }
+
+ public function getExplorerComponent($explorerId, $componentId) {
+  $explorerComponent = ExplorerComponent::getExplorerComponent($explorerId, $componentId);
+  return \Response::json($explorerComponent);
+ }
+
+ public function createExplorerComponent() {
+  $explorerComponent = ExplorerComponent::createExplorerComponent();
+  return \Response::json($explorerComponent);
+ }
+
+ public function editExplorerComponent() {
+  $explorerComponent = ExplorerComponent::editExplorerComponent();
+  return \Response::json($explorerComponent);
  }
 
  /* QUESTIONS */

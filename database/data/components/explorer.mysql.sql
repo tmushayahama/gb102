@@ -30,6 +30,25 @@ CREATE TABLE `gb_explorer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_explorer_component`
+--
+DROP TABLE IF EXISTS `gb_explorer_component`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_explorer_component` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `component_id` int(11) NOT NULL,
+  `explorer_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `explorer_component_component_id` (`component_id`),
+  KEY `explorer_component_explorer_id` (`explorer_id`),
+  CONSTRAINT `explorer_component_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_component_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_explorer_activity`
 --
 DROP TABLE IF EXISTS `gb_explorer_relationship`;
@@ -458,6 +477,16 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `app_type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`, `list_type`);
+
+-- ------------------ explorer_component----------------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-component.txt'
+    into table gb102.gb_explorer_component
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `component_id`,	`explorer_id`,	`privacy`,	`status`);
 
 -- ------------------ explorer relationship ----------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-relationship.txt'
