@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Level\Level;
 use App\Models\Explorer\Explorer;
+use App\Models\Explorer\ExplorerComponent;
 use App\Models\Explorer\ExplorerActivity;
 use App\Models\Explorer\ExplorerComment;
 use App\Models\Explorer\ExplorerContribution;

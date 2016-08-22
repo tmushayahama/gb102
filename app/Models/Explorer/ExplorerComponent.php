@@ -36,6 +36,7 @@ class ExplorerComponent extends Model {
  public static function getExplorerComponents($explorerId) {
   $explorerComponents = ExplorerComponent::with('component')
           ->with('component.creator')
+          ->with('component.type')
           ->whereHas('component', function($q) {
            $q->whereNull('parent_component_id');
           })
@@ -49,6 +50,7 @@ class ExplorerComponent extends Model {
   $explorerComponent = ExplorerComponent::with('component')
           ->orderBy('id', 'DESC')
           ->with('component.creator')
+          ->with('component.type')
           ->where('explorer_id', $explorerId)
           ->where('component_id', $componentId)
           ->first();

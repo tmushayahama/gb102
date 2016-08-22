@@ -95,7 +95,7 @@ id	category	code	name	description	icon	app_type_id
 500000	500000	PRV	private			
 500001	500000	PRV	public			
 500002	500000	PRV	customize			
-600000	600000	CTYP	note			
-600001	600000	CTYP	guideline			
-600002	600000	CTYP	activity			
-600003	600000	CTYP	weblink			
+600000	600000	CTYP	Note			
+600001	600000	CTYP	Guideline			
+600002	600000	CTYP	Activity			
+600003	600000	CTYP	Weblink			

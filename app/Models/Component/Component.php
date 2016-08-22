@@ -20,6 +20,10 @@ class Component extends Model {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ public function type() {
+  return $this->belongsTo('App\Models\Level\Level', 'type_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *

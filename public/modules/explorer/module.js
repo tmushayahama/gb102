@@ -92,11 +92,13 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
                   'public/modules/explorer/directives/activity/explorer-activity-box.drv.js',
+                  'public/modules/explorer/directives/component/explorer-component-box.drv.js',
                   'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
                   'public/modules/explorer/directives/section/explorer-section-box.drv.js',
+                  'public/modules/explorer/services/section/explorer-sections.srv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/explorer.srv.js',
@@ -162,6 +164,10 @@ define(['angular'
                  name: 'app.explorer',
                  serie: true,
                  files: [
+                  //Component
+                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
+                  'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
                   //Activity
                   'public/modules/explorer/services/activity/explorer-activities.srv.js',
                   'public/modules/explorer/controllers/activity/explorer-activities.ctrl.js',
