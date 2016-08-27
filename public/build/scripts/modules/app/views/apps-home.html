@@ -1,0 +1,424 @@
+<div ng-if="$root.authenticated" ng-include="'public/build/scripts/modules/app/views/navbar.html'"></div>
+<div ng-if="!$root.authenticated" ng-include="'public/build/scripts/modules/app/views/navbar-guest.html'"></div>
+<div class="hide" ng-joy-ride="startJoyRide" config="config" on-finish="onFinish()"  on-skip="onFinish()"></div>
+<div class="gb-landing-page">
+ <header id="gb-intro-section" class="">
+  <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
+   <h1 class="intro-heading">
+    APPLY & TRACK SKILLS
+   </h1>
+   <h2 class="intro-lead-in">
+    Discover what a new kind of skill exploration and application can do for you
+   </h2>
+  </div>
+  <div class="gb-intro-carousel" uib-carousel active="active" interval="appsCtrl.myInterval"
+       template-url="public/build/scripts/modules/common/views/templates/gb-carousel.tpl.html">
+   <div uib-slide ng-repeat="slide in appsCtrl.slides track by slide.id" index="slide.id">
+    <img ng-src="{{slide.image}}" style="margin:auto;">
+   </div>
+  </div>
+ </header>
+ <section class="gb-explorer-row row" ng-controller='ExplorersCtrl as explorersCtrl'>
+  <div class='gb-body-row row'>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+      <div class="gb-heading-row gb-background-white gb-shadow-4">
+       <div class="row">
+        <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+         <h2 class="gb-title">
+          Start by exploring skills
+         </h2>
+         <p class="gb-description">
+          <strong>Find inspiration. Cheer someone</strong><br>
+          Browse through the skill bank and see what others are doing with their skills
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class='gb-body-row-4 row'>
+      <div ng-repeat="explorer in explorersCtrl.explorers.handpicked"
+           class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium"
+           gb-explorer-box explorer="explorer"
+           template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+      </div> </div>
+     <div class="row">
+      <md-button ui-sref="apps.explorer"
+                 class="gb-color-primary gb-more-btn">
+       Explore More Skills
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+     <div class="gb-heading-row gb-background-white gb-shadow-4">
+      <div class="row">
+       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="gb-title">
+         Apply your skills
+        </h2>
+        <p class="gb-description">
+         Check out how others are applying their skill
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="gb-icon-nav-1 container">
+   <div gridster="appsCtrl.appsGridSettings">
+    <ul>
+     <li gridster-item="app.gridMap" ng-repeat="app in appsCtrl.apps track by $index"
+         class="gb-box gridster-item {{::app.class}} gb-shadow-3">
+      <i class="gb-icon fa {{::app.icon}}"></i>
+      <div class="gb-title">
+       {{::app.title}}
+      </div>
+      <p class="gb-description">
+       {{::app.description}}
+      </p>
+     <md-button class="gb-learn-more-btn"
+                ui-sref="{{::app.url}}">
+      Explore More
+     </md-button>
+     </li>
+    </ul>
+   </div>
+
+
+
+
+   <div class='gb-body-row row' ng-if="false">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-medium">
+     <div class="gb-box gb-background-color-mentorship gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-mentorships"></i>
+      <div class="gb-title">
+       Mentorship
+      </div>
+      <p class="gb-description">
+       Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory
+      </p>
+      <md-button class="gb-learn-more-btn"
+                 ui-sref="apps.app({'app_name': 'mentorships'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-skill gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-skills"></i>
+      <div class="gb-title">
+       Skill Practice
+      </div>
+      <p class="gb-description">
+       Do something with skills you have gained. Improve your current skills or just learn a new
+       skill
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'skills'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-goal gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-goals"></i>
+      <div class="gb-title">
+       Goal Setting
+      </div>
+      <p class="gb-description">
+       Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'goals'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="gb-box gb-background-color-advice gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-advices"></i>
+      <div class="gb-title">
+       Advice
+      </div>
+      <p class="gb-description">
+       Are you good at giving an advice? Are you seeking advice?
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'advices'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-promise gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-promises"></i>
+      <div class="gb-title">
+       Promises
+      </div>
+      <p class="gb-description">
+       Are you good at giving an advice? Are you seeking advice?
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'promises'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-hobby gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-hobbies"></i>
+      <div class="gb-title">
+       Hobbies
+      </div>
+      <p class="gb-description">
+       Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'hobbies'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="gb-box gb-background-color-teach gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-teach"></i>
+      <div class="gb-title">
+       Classes
+      </div>
+      <p class="gb-description">
+       Do something with skills you have gained. Improve your current skills or just learn a new
+       skill
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'teach'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-collaboration gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-collaborations"></i>
+      <div class="gb-title">
+       Collaborations
+      </div>
+      <p class="gb-description">
+       Do something with skills you have gained. Improve your current skills or just learn a new skill
+      </p>
+      <md-button ui-sref="apps.app({'app_name': 'collaborations'})" class="gb-learn-more-btn">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-medium">
+     <div class="gb-box gb-background-color-journal gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-journals"></i>
+      <div class="gb-title">
+       Journals
+      </div>
+      <p class="gb-description">
+       Do something with skills you have gained. Improve your current skills or just learn a new
+       skill
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.app({'app_name': 'collaborations'})">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-medium">
+     <div class="gb-box gb-background-color-community gb-ellipsis gb-shadow-3">
+      <i class="gb-icon fa icon-gb-community"></i>
+      <div class="gb-title">
+       Community
+      </div>
+      <p class="gb-description">
+       Join us now to get your own personalized profile and portfolio of work
+      </p>
+      <md-button class="gb-learn-more-btn" ui-sref="apps.community.users">
+       Explore More
+      </md-button>
+     </div>
+    </div>
+   </div>
+   <div ng-if="false" class="gb-heading-row">
+    <div class="row gb-box-content">
+     <div class="container">
+      <div class="row">
+       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="">
+         <i class="fa icon-gb-explorer"></i>
+         Apply your skills
+         <i class="fa fa-flip-horizontal icon-gb-explorer"></i>
+        </h2>
+        <p>
+         <strong>Check out how others are applying their skill</strong>
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-mentorships"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED MENTORSHIPS
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.mentorships"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-skills"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED SKILLS
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.skills"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-goals"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED GOALS
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.goals"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-advices"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED ADVICES
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.advices"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-hobbies"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED HOBBIES
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.hobbies"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-promises"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         FEATURED PROMISES
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class='gb-body-row-4 row'>
+     <div ng-repeat="explorer in explorersCtrl.explorers.promises"
+          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          gb-explorer-box explorer="explorer"
+          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class='gb-get-started'>
+  <div class="container">
+   <div class="row">
+    <h2>
+     Get started today
+    </h2>
+    <p>
+     Discover what a new kind of skill exploration and application can do for you.
+    </p>
+   </div>
+   <div class="row">
+    <div class="gb-btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="btn-toolbar row">
+      <button type="button" ng-click="appCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
+       <i class="fa fa-key"></i> Beta Access
+      </button>
+      <div class="gb-or">
+       or
+      </div>
+      <button type="button" ng-click="appCtrl.openLoginModal()" class="btn btn-default">
+       <i class="fa fa-sign-in"></i> Login
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+<div class="gb-lp-footer">
+ &copy;Copyright 2016 SkillSection.com. All rights reserved.
+</div>

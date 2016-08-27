@@ -1,0 +1,122 @@
+<div id="gb-middle-nav" class="gb-app-detail">
+ <div class="row">
+  <div ng-include="'public/build/scripts/modules/app/views/top-hero-bar-app-entry.html'" class="row"></div>
+  <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0" class="row gb-info-row-1">
+   <div class="container">
+    <div class="row">
+     <p class="gb-title gb-ellipsis">
+      Sub Entry for
+      <a data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer_id})">
+       {{::explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer.title}}
+      </a>
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="nav gb-icon-top-nav-1 gb-shadow-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="container">
+     <div class="row">
+      <md-button data-ui-sref-active="active" data-ui-sref="apps.explorerItem.overview"
+                 class="gb-link">
+       <div class="gb-icon">
+        <i class="fa fa-home"></i>
+       </div>
+       <div class="gb-title gb-ellipsis">
+        HOME
+       </div>
+      </md-button>
+      <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.explore"
+                 class="gb-link">
+       <div class="gb-icon">
+        <i class="fa icon-gb-discover"></i>
+       </div>
+       <div class="gb-title gb-ellipsis">
+        EXPLORE
+       </div>
+      </md-button>
+      <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.discussion"
+                 class="gb-link">
+       <div class="gb-icon">
+        <i class="fa icon-chat2"></i>
+       </div>
+       <div class="gb-title gb-ellipsis">
+        DISCUSSION
+       </div>
+      </md-button>
+      <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.contribution"
+                 class="gb-link">
+       <div class="gb-icon">
+        <i class="fa icon-gb-community"></i>
+       </div>
+       <div class="gb-title gb-ellipsis">
+        CONTRIBUTION
+       </div>
+      </md-button>
+
+      <div class="btn-group pull-right">
+       <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+        <div class="gb-icon">
+         <i class="fa icon-gb-discover"></i>
+        </div>
+        <div class="gb-title gb-ellipsis">
+         MORE
+        </div>
+       </md-button>
+       <div class="dropdown-menu dropdown-menu-right">
+        <md-button ui-sref="apps.explorer" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                   data-ripple-color="#DDD"
+                   ng-class="{
+                     active: ('apps.explorer' | includedByState)
+                    }">
+         <div class="gb-icon">
+          <i class="fa icon-gb-explorer"></i>
+         </div>
+         <div class="gb-title gb-ellipsis">
+          EXPLORE
+         </div>
+        </md-button>
+        <md-button ui-sref="apps.swipes.swipe" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                   ng-class="{
+                     active: ('apps.swipes' | includedByState)
+                    }">
+         <div class="gb-icon">
+          <i class="fa icon-gb-swipe"></i>
+         </div>
+         <div class="gb-title gb-ellipsis">
+          SWIPE
+         </div>
+        </md-button>
+        <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                   ng-class="{
+                     active: ('apps.questionnaires' | includedByState)
+                    }">
+         <div class="gb-icon">
+          <i class="fa icon-gb-matcher"></i>
+         </div>
+         <div class="gb-title gb-ellipsis">
+          MATCHER
+         </div>
+        </md-button>
+       </div>
+      </div>
+      <md-button data-ui-sref-active="active" ui-sref="apps.explorerItem.manage"
+                 class="gb-link pull-right">
+       <div class="gb-icon">
+        <i class="fa fa-cogs"></i>
+       </div>
+       <div class="gb-title gb-ellipsis">
+        MANAGE
+       </div>
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container">
+  <div ui-view="content" class="gb-mg-top-md row"></div>
+  <div class="gb-dummy-height row"></div>
+ </div>
+</div>

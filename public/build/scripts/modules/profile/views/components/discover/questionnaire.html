@@ -1,0 +1,64 @@
+
+<div class="gb-questionnaire-container gb-list row">
+ <ul class="stack col-lg-10 col-md-10 col-sm-10 col-xs-10">
+  <li hm-swipe-left="questionnaireCtrl.notNow($event)"
+      hm-swipe-right="questionnaireCtrl.prepareAnswer($event); answerFormm.$show()"
+      class="">
+   <a class="row gb-card-1">
+    <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+     <span class="fa-stack fa-lg">
+      <i class="fa fa-outer icon-gb-matcher fa-stack-2x"></i>
+      <i class="fa fa-inner {{questionnaireCtrl.currentQuestionnaireQuestion.icon.name}} fa-stack-1x fa-inverse"></i>
+     </span>
+    </div>
+    <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+     <div class="gb-heading row">
+      <p class="gb-title">
+       {{questionnaireCtrl.currentQuestionnaireQuestion.app_type.name + ' - ' + questionnaireCtrl.currentQuestionnaireQuestion.level.name}}
+      </p>
+     </div>
+     <div class="gb-description row">
+      <p class="">
+       {{questionnaireCtrl.currentQuestionnaireQuestion.question.description}}
+      </p>
+     </div>
+    </div>
+   </a>
+  </li>
+ </ul>
+ <div class="gb-footer row" ng-hide="answerFormm.$visible">
+  <div class="btn-toolbar">
+   <a ng-click="questionnaireCtrl.notNow()" class="btn btn-default">
+    Not Now
+   </a>
+   <a ng-click="answerFormm.$show()" class="btn btn-primary">
+    Answer
+   </a>
+  </div>
+ </div>
+ <form class="gb-answer-form col-lg-10 col-md-10 col-sm-10 col-xs-10" editable-form name="answerFormm" onbeforesave="questionnaireCtrl.answer(questionnaireCtrl.currentQuestionnaireQuestion, $data)" ng-show="answerFormm.$visible">
+  <div class="form-group row">
+   <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Your Answer:</label>
+   <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+    <div editable-textarea="description" e-name="description" e-required
+         e-rows="5" e-placeholder="{{questionnaireCtrl.currentQuestionnaireQuestion.question.description}}"
+         e-class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    </div>
+   </div>
+  </div>
+  <div class="row" ng-show="answerFormm.$visible">
+   <div class="btn-group pull-right">
+    <button type="button" class="btn gb-btn gb-btn-xs"
+            ng-disabled="answerFormm.$waiting" ng-click="answerFormm.$cancel()">
+     <i class="text-danger fa fa-times"></i>
+    </button>
+    <button type="submit" class="btn gb-btn gb-btn-xs"
+            ng-disabled="answerFormm.$waiting">
+     <i class="text-success fa fa-check"></i>
+    </button>
+   </div>
+  </div>
+ </form>
+</div>
+<div class="gb-dummy-height row"></div>
+<!-- ------------------------------- MODALS --------------------------->

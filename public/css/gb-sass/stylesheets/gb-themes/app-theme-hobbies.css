@@ -17,6 +17,7 @@ and open the template in the editor.
     Created on : Nov 3, 2015, 7:59:19 PM
     Author     : Tremmillicious
 */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 .gb-search-btn-grp {
   margin: 3px 0px 0px 0px;
 }
@@ -3785,6 +3786,7 @@ html {
 }
 
 body {
+  font-family: "Roboto",sans-serif;
   background: none;
   display: block;
   padding: 0;
@@ -4224,7 +4226,7 @@ input[type="checkbox"] {
 }
 
 .gb-shadow-1 {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 4px 0 rgba(0, 0, 0, 0.08), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .gb-shadow-2 {
@@ -6105,6 +6107,17 @@ input.gb-form-show {
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
+  display: block;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-1:hover, .gb-card-1:focus {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-1:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
 }
 .gb-card-1 .gb-image {
   height: 200px;
@@ -6237,6 +6250,16 @@ input.gb-form-show {
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-2:hover, .gb-card-2:focus {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-2:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
 }
 .gb-card-2 .gb-image {
   position: relative;
@@ -6387,6 +6410,16 @@ input.gb-form-show {
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-3:hover, .gb-card-3:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-3:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
 }
 .gb-card-3 .gb-big-title {
   padding: 16px 14px 16px 14px;
@@ -6445,7 +6478,7 @@ input.gb-form-show {
 }
 .gb-card-3 .gb-listbox-content {
   min-height: 100px;
-  max-height: 500px;
+  max-height: 800px;
   padding: 16px 0;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -6922,6 +6955,229 @@ input.gb-form-show {
   background-color: #362644;
 }
 
+.gb-card-activity {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-activity:hover, .gb-card-activity:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-activity:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+.gb-card-activity .gb-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  overflow: hidden;
+}
+.gb-card-activity .gb-image .gb-heading-pic {
+  height: 100%;
+  min-width: 100%;
+}
+.gb-card-activity .gb-image:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(65, 100, 42, 0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+.gb-card-activity .gb-box-content {
+  padding: 14px 14px 14px 14px;
+  z-index: 2;
+}
+.gb-card-activity .gb-box-content .gb-title h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.gb-card-activity .gb-box-content .gb-subdescription {
+  margin-bottom: 3px;
+  font-size: 12px;
+  height: auto;
+  color: #888;
+}
+.gb-card-activity .gb-box-content .gb-description {
+  height: auto;
+  font-size: 14px;
+}
+.gb-card-activity .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+}
+.gb-card-activity .gb-listbox-content {
+  min-height: 100px;
+  max-height: 800px;
+  padding: 16px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.gb-card-activity .gb-listbox-content .gb-one-liner {
+  position: relative;
+  border-bottom: #CCC solid 1px;
+}
+.gb-card-activity .gb-listbox-content .gb-one-liner a {
+  padding: 10px 35px 10px 14px;
+  text-decoration: none;
+  color: #222;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-activity .gb-listbox-content .gb-one-liner:hover {
+  background-color: #F2F2F2;
+}
+.gb-card-activity .gb-listbox-content .gb-one-liner .gb-action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 30px;
+}
+.gb-card-activity .gb-listbox-content .gb-two-liner {
+  position: relative;
+  height: 50pc;
+  border-bottom: #CCC solid 1px;
+}
+.gb-card-activity .gb-listbox-content .gb-two-liner a {
+  padding: 10px 35px 10px 14px;
+  text-decoration: none;
+  color: #222;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-activity .gb-listbox-content .gb-two-liner:hover {
+  background-color: #F2F2F2;
+}
+.gb-card-activity .gb-listbox-content .gb-two-liner .gb-action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 30px;
+}
+.gb-card-activity .gb-box-footer {
+  height: 40px;
+}
+.gb-card-activity .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 36px;
+  padding: 0px 14px 0 19px;
+}
+.gb-card-activity .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-activity .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-activity .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-activity .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-activity .gb-box-subcontent {
+  height: 80px;
+  padding: 16px 14px;
+}
+.gb-card-activity .gb-box-subcontent .gb-description {
+  font-size: 14px;
+  height: 33px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-card-activity .gb-box-subcontent .gb-description .gb-no-info {
+  padding: 2px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-card-activity .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-activity .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-activity .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-activity .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-activity .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-card-activity .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-card-activity.gb-app-type-1 {
+  border-left: #027887 solid 5px;
+}
+.gb-card-activity.gb-app-type-2 {
+  border-left: #027 solid 5px;
+}
+.gb-card-activity.gb-app-type-3 {
+  border-left: #41642A solid 5px;
+}
+.gb-card-activity.gb-app-type-4 {
+  border-left: #bb68ae solid 5px;
+}
+.gb-card-activity.gb-app-type-5 {
+  border-left: #077568 solid 5px;
+}
+.gb-card-activity.gb-app-type-6 {
+  border-left: #1D3F00 solid 5px;
+}
+.gb-card-activity.gb-app-type-7 {
+  border-left: #411D1D solid 5px;
+}
+.gb-card-activity.gb-app-type-8 {
+  border-left: #9A6D36 solid 5px;
+}
+.gb-card-activity.gb-app-type-10 {
+  border-left: #362644 solid 5px;
+}
+
 .gb-card-note {
   padding: 0 0 0 0;
   overflow: hidden;
@@ -6930,6 +7186,16 @@ input.gb-form-show {
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-note:hover, .gb-card-note:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-note:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
 }
 .gb-card-note .gb-image {
   position: absolute;

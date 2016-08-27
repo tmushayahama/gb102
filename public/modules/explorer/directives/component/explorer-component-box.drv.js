@@ -1,9 +1,9 @@
-angular.module('app.explorer').directive('gbExplorerGuidelineBox',
-        ['ExplorerGuidelinesSrv',
+angular.module('app.explorer').directive('gbExplorerComponentBox',
+        ['ExplorerComponentsSrv',
          'level_categories',
          '$q',
          function (
-                 ExplorerGuidelinesSrv,
+                 ExplorerComponentsSrv,
                  level_categories,
                  $q) {
           'use strict';
@@ -11,11 +11,12 @@ angular.module('app.explorer').directive('gbExplorerGuidelineBox',
           return {
            restrict: 'EA',
            replace: true,
-           templateUrl: 'public/modules/explorer/views/templates/guideline/explorer-guideline-box.tpl.html',
            scope: {
-            explorerGuideline: '=',
-            openExplorerGuideline: '&',
+            templateUrl: '@',
+            explorerComponent: '=',
+            openExplorerComponent: '&',
            },
+           template: '<ng-include src="templateUrl"></ng-include>',
            controller: [
             '$scope',
             function ($scope) {
@@ -25,7 +26,7 @@ angular.module('app.explorer').directive('gbExplorerGuidelineBox',
            link: function (scope, element, attr, ctrl) {
 
             scope.open = function () {
-             scope.openExplorerGuideline({explorerGuideline: scope.explorerGuideline});
+             scope.openExplorerComponent({explorerComponent: scope.explorerComponent});
             };
            }
           };

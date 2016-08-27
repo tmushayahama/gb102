@@ -1,0 +1,115 @@
+<div class="gb-components row" ng-controller='ExplorerComponentsCtrl as explorerComponentsCtrl'>
+ <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div ng-if="false"class="gb-heading-row-1 row">
+   <div class="gb-heading-icon">
+    <i class="fa icon-gb-component"></i>
+   </div>
+   <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
+    <p class="gb-ellipsis">
+     GUIDELINES
+    </p>
+   </div>
+   <div class="btn-group pull-right">
+    <md-button class="gb-action" ng-click="explorerComponentsCtrl.showComponentForm()"
+               ng-show="!explorerComponentsCtrl.componentFormDisplay">
+     <i class="fa fa-plus"></i>
+    </md-button>
+   </div>
+  </div>
+  <div class='row'>
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class='row'>
+     <form class="gb-shadow-1 gb-background-white" ng-show="explorerComponentsCtrl.componentFormDisplay" name="form" novalidate>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Explorer Component Description" ng-model="explorerComponentsCtrl.newExplorerComponentData.title"
+                  name="title" required="" rows="2">
+        </textarea>
+        <div ng-show="form.$submitted || form.title.$touched">
+         <div ng-show="form.title.$error.required">description required.</div>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  placeholder="Explorer Component Description (optional)" ng-model="explorerComponentsCtrl.newExplorerComponentData.description"
+                  name="description" required="" rows="4">
+        </textarea>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <div class="radio gb-radio-row">
+         <label class="">
+          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="0" />
+          <strong>public</strong> All people can see this component
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="1" />
+          <strong>private</strong> only you can see this component
+         </label>
+        </div>
+        <div class="radio gb-radio-row">
+         <label>
+          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="2" />
+          <strong>custom</strong> choose who to see this component
+         </label>
+        </div>
+       </div>
+      </div>
+      <div class="form-group row" ng-class="{'gb-disabled-2': explorerComponentsCtrl.newExplorerComponentData.privacy != 2}">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
+       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+        <input type="text" class="form-control" placeholder="Select members"/>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
+        <a class="btn btn-link" ng-click="explorerComponentsCtrl.showAdvanced()">
+         Show Advanced
+        </a>
+       </label>
+      </div>
+      <div class="gb-form-footer row">
+       <div class="btn-group pull-right">
+        <md-button type="button" class="" ng-click="explorerComponentsCtrl.cancelExplorerComponent(form)">
+         Cancel
+        </md-button>
+        <md-button type="button" class="gb-color-primary" ng-click="explorerComponentsCtrl.createExplorerComponent(explorerComponentsCtrl.newExplorerComponentData)">
+         Add Component
+        </md-button>
+       </div>
+      </div>
+     </form>
+    </div>
+    <div class="gb-no-info row" ng-show="!explorerComponentsCtrl.explorerComponents.length" ng-cloak>
+     No components to show
+    </div>
+    <div class="gb-component-body row" ng-show="explorerComponentsCtrl.explorerComponents.length" ng-cloak>
+     <div class="dynamic-grid" angular-grid="explorerComponentsCtrl.explorerComponents" angular-grid-id="components"
+          ag-options="{gridWidth : 300, gutterSize: 8} "refresh-on-img-load="false" >
+      <div ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index"
+           class="grid">
+       <div gb-explorer-component-box
+            explorer-component="explorerComponent"
+            template-url="{{appsCtrl.getComponentTemplateUrl(explorerComponent.component.type_id)}}"
+            open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)"
+            class="gb-padding-thin">
+       </div>
+      </div>
+     </div>
+    </div>
+    <script type="text/ng-template" id="explorer-component-modal.html">
+     <div class="gb-component-page" ng-include="'public/build/scripts/modules/explorer/views/components/component/explorer-component-modal.html'"></div>
+    </script>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="modal-header gb-modal-header row">
+ <div class="gb-title col-lg-11 col-md-10 col-sm-10 col-xs-10">
+  <p class="gb-ellipsis">
+   {{explorerDiscussionCtrl.explorerDiscussionSrv.explorerDiscussion.discussion.title}}
+  </p>
+ </div>
+ <a class="pull-right gb-ghost-btn-2" ng-click="explorerDiscussionCtrl.close()">
+  x
+ </a>
+</div>
+<div class="modal-body gb-modal-body">
+ <section class="gb-section-row-1 row">
+  <div class="gb-discussion-row row">
+   <div class='gb-discussion-content col-lg-11 col-md-11 col-sm-11 col-xs-11'>
+    <div class="gb-content-text">
+     <textarea autofocus ng-model="explorerDiscussionCtrl.explorerDiscussionSrv.explorerDiscussion.discussion.description"></textarea>
+    </div>
+   </div>
+   <div class="gb-discussion-action text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    <div class="row">
+     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerDiscussionsCtrl.editExplorerDiscussionSections.details(explorerDiscussion.id, explorerDiscussion.discussion)">
+      <i class="fa fa-save"></i>
+     </button>
+    </div>
+    <br>
+    <div class="row">
+     <button type="button" class="btn gb-btn gb-btn-xs" ng-click="explorerDiscussionsCtrl.revertExplorerDiscussion(explorerDiscussion.id)">
+      <i class="fa fa-refresh"></i>
+     </button>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+<div class="modal-footer">
+ <div class="btn-group pull-right col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  <a class="btn gb-btn gb-btn-sm col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="explorerDiscussionCtrl.close()">
+   Close
+  </a>
+ </div>
+</div>

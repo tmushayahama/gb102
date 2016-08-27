@@ -14,7 +14,7 @@ angular.module('app.explorer').directive('gbSubExplorerBox',
            controller: [
             '$scope',
             function ($scope) {
-
+             $scope.stepsLimitTo = 5;
             }
            ],
            link: function (scope, element, attr, ctrl) {

@@ -1,0 +1,23 @@
+
+<div class="gb-objective-box row">
+ <div class="gb-box-body">
+  <div class="gb-number">
+   <p class="gb-ellipsis">
+    {{number}}.
+   </p>
+  </div>
+  <div class="gb-box-content">
+   <md-input-container class="md-block">
+    <input ng-model="explorerObjective.objective.title"
+           ng-change="update()"
+           ng-model-options="{debounce: {default: 1500}}"
+           class="gb-input">
+   </md-input-container>
+  </div>
+  <div class="gb-action">
+   <md-button ng-click="open()">
+    <i class="fa fa-arrows-alt"></i>
+   </md-button>
+  </div>
+ </div>
+</div>

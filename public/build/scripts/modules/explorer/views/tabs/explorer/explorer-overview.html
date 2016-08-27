@@ -1,0 +1,228 @@
+<div ng-if="false" class="row">
+ <div class="gb-section-row-3 gb-shadow-1 row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="gb-heading-row-1 row">
+   <div class="gb-heading-icon">
+    <i class="fa fa-list"></i>
+   </div>
+   <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <p class="gb-ellipsis">
+     DESCRIPTION
+    </p>
+   </div>
+   <div class="btn-group pull-right" ng-hide="explorerCtrl.editDescriptionMode.visible">
+    <md-button class="gb-action" ng-click="explorerCtrl.editDescriptionMode.show()">
+     Edit
+    </md-button>
+   </div>
+   <div class="btn-group pull-right" ng-show="explorerCtrl.editDescriptionMode.visible">
+    <md-button class="gb-action" ng-click="explorerCtrl.editDescriptionMode.hide()">
+     <i class="text-danger fa fa-times"></i>
+    </md-button>
+    <md-button class="gb-action" ng-click="explorerCtrl.editDescriptionMode.edit()">
+     <i class="text-success fa fa-check"></i>
+    </md-button>
+   </div>
+  </div>
+  <div class="row gb-body-row-1">
+   <div ng-hide="explorerCtrl.editDescriptionMode.visible" id="gb-explorer-item-todo-panel" class="row">
+    <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong>
+    {{explorerCtrl.explorerSrv.explorer.description}}
+   </div>
+   <form ng-show="explorerCtrl.editDescriptionMode.visible"
+         ng-submit="explorerCtrl.editDescriptionMode.edit()">
+    <md-input-container class="md-block">
+     <input ng-model="explorerCtrl.editDescriptionMode.data.title" name="title" required
+            placeholder="Title"
+            class="">
+    </md-input-container>
+    <md-input-container class="md-block">
+     <textarea ng-model="explorerCtrl.editDescriptionMode.data.description" name="description"
+               placeholder="Description" rows="4"
+               class="form-control gb-md">
+     </textarea>
+    </md-input-container>
+    <div class="row"
+         ng-show="explorerCtrl.editDescriptionMode">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
+</div>
+<div class="gb-flex-container-1 dynamic-grid" angular-grid="explorerCtrl.explorerSections" angular-grid-id="sect"
+     ag-options="{gridWidth : 300, gutterSize: 0}" refresh-on-img-load="false" >
+ <div class="gb-flex-item grid gb-padding-medium">
+  <div class="gb-card-3 gb-shadow-3">
+   <div class="gb-big-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Description
+    </h2>
+   </div>
+   <div ng-hide="explorerCtrl.editDescriptionMode.visible" class="gb-box-content">
+    <div class="gb-subdescription row">
+     <p class="gb-ellipsis">
+      <span ng-if="explorerCtrl.explorerSrv.explorer.template_type_id === 100001">
+       Template For - </span>
+      {{explorerCtrl.explorerSrv.explorer.app_type.name}} - {{::explorerCtrl.explorerSrv.explorer.level.name}}
+     </p>
+    </div>
+    <div class="gb-description row">
+     <div class="row">
+      <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong>
+      {{explorerCtrl.explorerSrv.explorer.description}}
+     </div>
+    </div>
+   </div>
+   <div ng-show="explorerCtrl.editDescriptionMode.visible"
+        class="gb-form-content row">
+    <form ng-submit="explorerCtrl.editDescriptionMode.edit()">
+     <md-input-container class="md-block">
+      <input ng-model="explorerCtrl.editDescriptionMode.data.title" name="title" required
+             placeholder="Title"
+             class="">
+     </md-input-container>
+     <md-input-container class="md-block">
+      <textarea ng-model="explorerCtrl.editDescriptionMode.data.description" name="description"
+                placeholder="Description" rows="4"
+                class="form-control gb-md">
+      </textarea>
+     </md-input-container>
+    </form>
+   </div>
+   <div class="gb-box-footer row">
+    <div ng-if="false" class="gb-name-badge-1 row">
+     <a class="gb-name gb-ellipsis"
+        data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
+      <i>by:</i>
+      {{ ::explorer.creator.firstname}}
+      {{ ::explorer.creator.lastname}}
+     </a>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           ng-src="public/build/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
+    </div>
+    <div class="row" ng-show="explorerCtrl.editDescriptionMode.visible">
+     <div class="btn-group pull-right">
+      <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
+       Cancel
+      </md-button>
+      <md-button type="submit" class="gb-color-primary">
+       Done
+      </md-button>
+     </div>
+    </div>
+    <div class="row" ng-hide="explorerCtrl.editDescriptionMode.visible">
+     <md-button  ng-click="explorerCtrl.editDescriptionMode.show()" class="gb-color-primary">
+      EDIT
+     </md-button>
+     <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="pull-right gb-color-primary">
+      <i class="fa fa-star-o"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-flex-item grid gb-padding-medium">
+  <div class="gb-card-3 gb-shadow-3">
+   <div class="gb-big-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Activity
+    </h2>
+   </div>
+   <div class="gb-box-content">
+
+    <div ng-if="true" class="gb-summary-bar row">
+     <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <i class="gb-icon fa fa-list-ol"></i>
+      <p class="gb-number gb-ellipsis">
+       {{::explorerCtrl.explorerSrv.explorer.stats.subexplorers_count}}
+      </p>
+     </div>
+     <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+      <i class="gb-icon fa icon-gb-apply"></i>
+      <p class="gb-number gb-ellipsis">
+       {{::explorerCtrl.explorerSrv.explorer.stats.applications_count}}
+      </p>
+     </div>
+     <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <i class="gb-icon fa icon-users"></i>
+      <p class="gb-number gb-ellipsis">
+       {{::explorerCtrl.explorerSrv.explorer.stats.contributions_count}}
+      </p>
+     </div>
+    </div>
+    <div class="gb-description row">
+     <p class="gb-ellipsis">
+      <span ng-if="explorer.template_type_id === 100001">
+       Template For - </span>
+      {{explorer.app_type.name}} - {{::explorer.level.name}}
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-flex-item grid gb-padding-medium">
+  <div class="gb-card-3 gb-shadow-3">
+   <div class="gb-big-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa icon-gb-explorer"></i>
+     Applications
+    </h2>
+   </div>
+   <div class="gb-no-info row" ng-show="!explorerCtrl.explorerSrv.applicationExplorers.length">
+    No one is using this template yet
+   </div>
+   <div ng-show="explorerCtrl.explorerSrv.applicationExplorers.length" class="gb-box-content">
+    <div class="row" ng-show="explorerCtrl.explorerSrv.applicationExplorers.length">
+     <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.applicationExplorers| limitTo:explorerCtrl.subExplorerLimitTo track by $index"
+          gb-explorer-box explorer="applicationExplorer"
+          template-url="{{appsCtrl.getSubTemplateUrl(applicationExplorer)}}"
+          class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+     </div>
+    </div>
+   </div>
+   <div class="gb-box-footer row">
+    <md-button class="gb-color-primary">
+     ADD
+    </md-button>
+    <md-button class="pull-right gb-color-primary">
+     <i class="fa fa-arrows-alt"></i>
+    </md-button>
+   </div>
+  </div>
+ </div>
+ <div class="gb-flex-item grid gb-padding-medium"
+      ng-include="'public/build/scripts/modules/explorer/views/components/sub-explorer/sub-explorers.html'"></div>
+ <div ng-repeat="explorerSection in explorerCtrl.explorerSections track by $index"
+      class="gb-flex-item grid gb-padding-medium">
+  <div gb-explorer-section-box explorer-section="explorerSection"
+       open-explorer-section="explorerCtrl.openExplorerSection(explorerSection)"
+       open-explorer-section-item="explorerCtrl.openExplorerSectionItem"
+       add-to-explorer-section="explorerCtrl.addToExplorerSection"
+       class="">
+  </div>
+ </div>
+</div>
+<!--
+<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/objective/explorer-objectives.html'"></div>
+<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plans.html'"></div>
+<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/todo/explorer-todos.html'"></div>
+-->
+<div class="gb-dummy-height row"></div>
+<script type="text/ng-template" id="explorer-section-modal.html">
+ <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+</script>
+<script type="text/ng-template" id="explorer-section-item-modal.html">
+ <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
+</script>

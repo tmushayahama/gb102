@@ -51,7 +51,7 @@ var explorerCtrl = function (
 
 
  vm.explorerId = $stateParams.explorerId;
-
+ vm.subExplorerLimitTo = 5;
  vm.explorerSrv = new ExplorerSrv();
  vm.constantsSrv = new ConstantsSrv();
 

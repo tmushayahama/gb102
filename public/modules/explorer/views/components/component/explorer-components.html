@@ -97,7 +97,9 @@
           ag-options="{gridWidth : 300, gutterSize: 8} "refresh-on-img-load="false" >
       <div ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index"
            class="grid">
-       <div gb-explorer-component-box explorer-component="explorerComponent"
+       <div gb-explorer-component-box
+            explorer-component="explorerComponent"
+            template-url="{{appsCtrl.getComponentTemplateUrl(explorerComponent.component.type_id)}}"
             open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)"
             class="gb-padding-thin">
        </div>

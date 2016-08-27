@@ -590,6 +590,18 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('activity/checklist/create', 'Explorer\ExplorerController@createExplorerActivityChecklist');
  Route::post('activity/checklist/edit', 'Explorer\ExplorerController@editExplorerActivityChecklist');
 
+ //Component
+ Route::get('component/{componentId}/components', 'Component\ComponentController@getSubComponents');
+ Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
+
+ Route::post('component/editstatus', 'Component\ComponentController@editComponentStatus');
+ Route::get('component/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
+
+ Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
+ Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');
+ Route::post('component/checklist/edit', 'Explorer\ExplorerController@editExplorerComponentChecklist');
+
+
  //Guideline
  Route::get('guideline/{guidelineId}/guidelines', 'Guideline\GuidelineController@getSubGuidelines');
 

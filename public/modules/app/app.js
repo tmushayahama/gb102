@@ -268,6 +268,13 @@ define([
            public: 500000,
            private: 500001,
            customize: 500002
+          },
+          component_type: 600000,
+          component: {
+           note: 600000,
+           guideline: 600001,
+           activity: 600002,
+           weblink: 600003
           }
          });
 

@@ -1,6 +1,7 @@
 'use strict';
 var appsCtrl = function (
         SearchSrv,
+        level_categories,
         $scope,
         $auth,
         $state,
@@ -141,6 +142,17 @@ var appsCtrl = function (
    return "public/modules/explorer/views/templates/sub-explorer/sub-explorer-box-1.tpl.html";
   }
   return "public/modules/explorer/views/templates/sub-explorer/sub-explorer-box.tpl.html";
+ }
+
+ vm.getComponentTemplateUrl = function (conponentId) {
+  switch (conponentId) {
+   case level_categories.component.note:
+    return "public/modules/explorer/views/templates/note/component-note-box.tpl.html";
+   case level_categories.component.activity:
+    return "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html";
+   case level_categories.component.guideline:
+    return "public/modules/explorer/views/templates/guideline/component-guideline-box.tpl.html";
+  }
  }
 
 
@@ -368,6 +380,7 @@ var appsCtrl = function (
 
 appsCtrl.$inject = [
  'SearchSrv',
+ 'level_categories',
  '$scope',
  '$auth',
  '$state',
