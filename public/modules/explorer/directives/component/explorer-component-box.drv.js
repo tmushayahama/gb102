@@ -11,12 +11,13 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
           return {
            restrict: 'EA',
            replace: true,
+           templateUrl: "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html",
            scope: {
             templateUrl: '@',
             explorerComponent: '=',
             openExplorerComponent: '&',
            },
-           template: '<ng-include src="templateUrl"></ng-include>',
+           // template: "<div ng-include='templateUrl'></div>",
            controller: [
             '$scope',
             function ($scope) {
@@ -24,7 +25,6 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
             }
            ],
            link: function (scope, element, attr, ctrl) {
-
             scope.open = function () {
              scope.openExplorerComponent({explorerComponent: scope.explorerComponent});
             };

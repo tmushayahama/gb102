@@ -32,6 +32,111 @@ and open the template in the editor.
 
 @import "components/gb-ui-select";
 
+
+html {
+ background: #eeeeee;
+ width: 100%;
+ height: 100%;
+}
+
+body {
+ background: #eeeeee;
+ width: 100%;
+ height: 100%;
+}
+
+md-toolbar button.md-button.md-icon-button:first-child {
+ margin-left: 0px;
+ margin-right: 16px;
+}
+
+md-toolbar button.md-button.md-icon-button:first-child md-icon {
+ color: white;
+}
+
+md-content {
+ background: #eeeeee;
+ position: relative;
+}
+
+.fit {
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+}
+
+#summary {
+ margin: 32px 72px;
+}
+
+.card {
+ min-width: 100px;
+ min-height: 100px;
+ max-width: 400px;
+ -webkit-transition: .4s;
+ transition: .4s;
+ opacity: 0;
+ -webkit-transform: scale(0.75) translate3d(0, 200px, 0);
+ transform: scale(0.75) translate3d(0, 200px, 0);
+ box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+ overflow: hidden;
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+}
+
+.card.angular-grid-item {
+ opacity: 1;
+ -webkit-transform: scale(1) translate3d(0, 0, 0);
+ transform: scale(1) translate3d(0, 0, 0);
+}
+
+.cards-wrap {
+ position: relative;
+}
+
+.loading-more-indicator {
+ text-align: center;
+}
+
+.loading-more-indicator md-progress-circular {
+ -webkit-transform: scale(1);
+ transform: scale(1);
+ display: inline-block;
+}
+
+.grid {
+ //border: 1px solid #cccccc;
+ list-style: none;
+ //background: #ffffff;
+ box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -webkit-transition: all 0.6s ease-out;
+ transition: all 0.6s ease-out;
+}
+
+.grid-img {
+ width: 100%;
+ vertical-align: middle;
+ -webkit-transition: opacity 0.6s ease-out;
+ transition: opacity 0.6s ease-out;
+ background-color: #fff;
+ opacity: 0;
+ visibility: hidden;
+}
+
+.grid-img.img-loaded {
+ visibility: visible;
+ opacity: 1;
+}
+
+
+
+
+
+
+
 html {
  display: block;
  padding: 0;
@@ -60,21 +165,6 @@ body {
  @else if $level == 4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
  @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
 }
-
-.gb-flex-container-1 {
- //background: -webkit-linear-gradient(315deg, #bd0043, #47bdb6);
- // background: linear-gradient(135deg, #bd0043, #47bdb6);
- //position: relative;
-
- .gb-flex-item {
-  // position: relative;
-  //background-color: #458;
-  //min-height: 150px;
-  //margin-bottom: 20px;
-  //width: 50%;
- }
-}
-
 
 .gb-mg-top-md {
  margin-top: 10px;
@@ -3369,7 +3459,7 @@ input.gb-form-show{
    position: relative;
    border-bottom: #CCC solid 1px;
    a {
-    padding: 10px 35px 10px 14px;
+    padding: 10px 35px 10px 0px;
     text-decoration: none;
     color: #222;
     height: 100%;

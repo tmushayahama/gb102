@@ -234,7 +234,7 @@ and open the template in the editor.
 }
 .gb-landing-page #gb-intro-section .gb-intro-carousel {
   position: absolute;
-  bottom: -350px;
+  bottom: -400px;
   left: 50%;
   -ms-transform: translate(-50%);
   -webkit-transform: translate(-50%);
@@ -307,6 +307,12 @@ and open the template in the editor.
 }
 .gb-landing-page #gb-intro-section .gb-heading-row p {
   font-size: 12px;
+}
+@media (max-width: 1199px) {
+  .gb-landing-page #gb-intro-section .gb-intro-carousel {
+    bottom: -300px;
+    width: 80%;
+  }
 }
 @media (max-width: 991px) {
   .gb-landing-page #gb-intro-section {

@@ -1,15 +1,21 @@
 var explorerOverviewCtrl = function (
         ExplorerSrv,
+        angularGridInstance,
         $state,
         $stateParams,
         $http,
         $rootScope) {
  var vm = this;
 
+ vm.click = function () {
+  angularGridInstance.sections.refresh();
+ }
+
 };
 
 explorerOverviewCtrl.$inject = [
  'ExplorerSrv',
+ 'angularGridInstance',
  '$state',
  '$stateParams',
  '$http',

@@ -1,5 +1,6 @@
 var explorerComponentsCtrl = function (
         ExplorerComponentsSrv,
+        angularGridInstance,
         $scope,
         $state,
         $stateParams,
@@ -17,6 +18,8 @@ var explorerComponentsCtrl = function (
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.componentFormDisplay = false;
 
+
+
  vm.defaultExplorerComponentData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
@@ -33,9 +36,14 @@ var explorerComponentsCtrl = function (
    angular.forEach(response, function (step, key) {
     vm.explorerComponentsSrv.getSubComponents(step.component.id).then(function (stepResponse) {
      vm.explorerComponents[key].steps = stepResponse;
+     //angularGridInstance.components.refresh();
     });
    });
   });
+ }
+
+ vm.click = function () {
+  angularGridInstance.components.refresh();
  }
 
  vm.createExplorerComponent = function (data) {
@@ -148,6 +156,7 @@ var explorerComponentsCtrl = function (
 
 explorerComponentsCtrl.$inject = [
  'ExplorerComponentsSrv',
+ 'angularGridInstance',
  '$scope',
  '$state',
  '$stateParams',

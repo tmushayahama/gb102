@@ -292,7 +292,7 @@ $color-6: #077568;
   overflow: hidden;
 
   .gb-intro-carousel {
-   @include position(absolute, null null -350px 50%);
+   @include position(absolute, null null -400px 50%);
    -ms-transform: translate(-50%);
    -webkit-transform: translate(-50%);
    transform: translate(-50%);
@@ -359,6 +359,12 @@ $color-6: #077568;
    background-color: rgba(#000, 0.4);
    p {
     font-size: 12px;
+   }
+  }
+  @include respond-to (gb-md) {
+   .gb-intro-carousel {
+    bottom: -300px;
+    width: 80%;
    }
   }
   @include respond-to (gb-sm) {

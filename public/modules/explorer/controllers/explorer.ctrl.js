@@ -121,14 +121,7 @@ var explorerCtrl = function (
 
  vm.edited = null;
 
- $scope.$watch(angular.bind(this, function () {
-  return vm.explorer;
- }), function () {
-  //vm.remainingCount = filterFilter(explorer, {completed: false}).length;
-  vm.doneCount = vm.explorerSrv.explorer.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //ExplorerService.put(vm.explorer);
- }, true);
+
  /*
   $scope.$watch(angular.bind(this, function () {
   return vm.location.path();

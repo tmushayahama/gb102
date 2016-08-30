@@ -89,20 +89,24 @@
       </div>
      </form>
     </div>
+    <button ng-if="false" ng-click="explorerComponentsCtrl.click()">
+     Click
+    </button>
     <div class="gb-no-info row" ng-show="!explorerComponentsCtrl.explorerComponents.length" ng-cloak>
      No components to show
     </div>
     <div class="gb-component-body row" ng-show="explorerComponentsCtrl.explorerComponents.length" ng-cloak>
-     <div class="dynamic-grid" angular-grid="explorerComponentsCtrl.explorerComponents" angular-grid-id="components"
-          ag-options="{gridWidth : 300, gutterSize: 8} "refresh-on-img-load="false" >
+     <div class="cards-wrap"
+          angular-grid="explorerComponentsCtrl.explorerComponents"
+          ag-grid-id="components"
+          ag-options="{gridWidth : 300, gutterSize: 8}
+          "ag-refresh-on-img-load="true" >
       <div ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index"
-           class="grid">
-       <div gb-explorer-component-box
-            explorer-component="explorerComponent"
-            template-url="{{appsCtrl.getComponentTemplateUrl(explorerComponent.component.type_id)}}"
-            open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)"
-            class="gb-padding-thin">
-       </div>
+           gb-explorer-component-box
+           explorer-component="explorerComponent"
+           template-url="{{appsCtrl.getComponentTemplateUrl(explorerComponent.component.type_id)}}"
+           open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)"
+           class="gb-padding-thin">
       </div>
      </div>
     </div>
