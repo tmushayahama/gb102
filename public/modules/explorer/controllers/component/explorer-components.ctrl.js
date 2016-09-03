@@ -13,7 +13,7 @@ var explorerComponentsCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerComponents = [];
+ vm.explorerComponentBuckets = [];
  vm.explorerComponentsCopy;
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.componentFormDisplay = false;
@@ -32,10 +32,10 @@ var explorerComponentsCtrl = function (
 
  vm.getExplorerComponents = function (explorerId) {
   vm.explorerComponentsSrv.getExplorerComponents(explorerId).then(function (response) {
-   vm.explorerComponents = response;
+   vm.explorerComponentBuckets = response;
    angular.forEach(response, function (step, key) {
     vm.explorerComponentsSrv.getSubComponents(step.component.id).then(function (stepResponse) {
-     vm.explorerComponents[key].steps = stepResponse;
+     vm.explorerComponentBuckets[key].explorerComponents = stepResponse;
      //angularGridInstance.components.refresh();
     });
    });

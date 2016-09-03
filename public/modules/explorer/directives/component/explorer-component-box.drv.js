@@ -11,17 +11,29 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
           return {
            restrict: 'EA',
            replace: true,
-           templateUrl: "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html",
+           //templateUrl: "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html",
            scope: {
-            templateUrl: '@',
+            //templateUrl: '@',
             explorerComponent: '=',
             openExplorerComponent: '&',
            },
+           template: '<ng-include src="getTemplateUrl()"/>',
+           //template: '<div ng-include="\'/app/partials/HtmlPage.html\'"></div>',
            // template: "<div ng-include='templateUrl'></div>",
            controller: [
             '$scope',
             function ($scope) {
              $scope.stepsLimitTo = 8;
+             $scope.getTemplateUrl = function () {
+              switch ($scope.explorerComponent.component.type_id) {
+               case level_categories.component.note:
+                return "public/modules/explorer/views/templates/note/component-note-box.tpl.html";
+               case level_categories.component.activity:
+                return "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html";
+               case level_categories.component.guideline:
+                return "public/modules/explorer/views/templates/guideline/component-guideline-box.tpl.html";
+              }
+             }
             }
            ],
            link: function (scope, element, attr, ctrl) {

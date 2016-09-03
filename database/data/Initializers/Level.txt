@@ -99,3 +99,4 @@ id	category	code	name	description	icon	app_type_id
 600001	600000	CTYP	Guideline			
 600002	600000	CTYP	Activity			
 600003	600000	CTYP	Weblink			
+700000	700000	BCKT	Normal	Normal Bucket		

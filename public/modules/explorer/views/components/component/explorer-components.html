@@ -92,15 +92,33 @@
     <button ng-if="false" ng-click="explorerComponentsCtrl.click()">
      Click
     </button>
-    <div class="gb-no-info row" ng-show="!explorerComponentsCtrl.explorerComponents.length" ng-cloak>
+    <div class="gb-no-info row" ng-show="!explorerComponentsCtrl.explorerComponentBuckets.length" ng-cloak>
      No components to show
     </div>
-    <div class="gb-component-body row" ng-show="explorerComponentsCtrl.explorerComponents.length" ng-cloak>
-     <div class="cards-wrap"
+    <div class="drag-container gb-component-body" ng-show="explorerComponentsCtrl.explorerComponentBuckets.length" ng-cloak>
+     <ul class="drag-list">
+      <li class="drag-column drag-column-on-hold"
+          ng-repeat="explorerComponentBucket in explorerComponentsCtrl.explorerComponentBuckets track by $index">
+
+       <span class="drag-column-header">
+        <h2>
+         {{explorerComponentBucket.component.title}}
+        </h2>
+       </span>
+       <ul class="drag-inner-list">
+        <li class="drag-item"
+            ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
+         {{explorerComponent.title}}
+        </li>
+       </ul>
+      </li>
+     </ul>
+
+     <div ng-if="false" class="cards-wrap"
           angular-grid="explorerComponentsCtrl.explorerComponents"
           ag-grid-id="components"
-          ag-options="{gridWidth : 300, gutterSize: 8}
-          "ag-refresh-on-img-load="true" >
+          ag-options="{gridWidth : 300, gutterSize: 8}"
+          ag-refresh-on-img-load="true" >
       <div ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index"
            gb-explorer-component-box
            explorer-component="explorerComponent"
@@ -111,7 +129,7 @@
      </div>
     </div>
     <script type="text/ng-template" id="explorer-component-modal.html">
-     <div class="gb-component-page" ng-include="'public/modules/explorer/views/components/component/explorer-component-modal.html'"></div>
+       <div class="gb-component-page" ng-include="'public/modules/explorer/views/components/component/explorer-component-modal.html'"></div>
     </script>
    </div>
   </div>

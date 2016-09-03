@@ -205,6 +205,174 @@
  }
 }
 
+
+.gb-top-nav-5 {
+ padding: 5px 5px 5px 5px!important;
+ height: 50px;
+ list-style: none;
+ color: #EEE;
+ background-color: rgba($primary-color, 0.6);
+ //border-bottom: rgba($primary-color, 0.8) solid 3px;
+ margin: 0;
+ z-index: 1;
+
+ .container {
+  height: 100%;
+ }
+ .gb-navbar-container {
+  position: relative;
+  height: 100%;
+ }
+
+ &:hover {
+  opacity: 1;
+ }
+ .gb-heading-row-1 {
+  height: 100%;
+  margin: 0;
+
+
+
+  .gb-heading-icon {
+   @include position(absolute, 0 null 0 0);
+   //padding: 10px 0;
+   width:40px;
+   height: 40px;
+   display: block;
+   background-color: #FFF;
+   color: rgba($primary-color, 0.6);
+   font-size: 20px;
+   text-align: center;
+   border-radius: 50%;
+   &.gb-heading-image {
+    img {
+     width: 100%;
+     min-height: 100%;
+     border-radius: 50%;
+    }
+   }
+  }
+
+  .gb-title {
+   @include position(absolute, 0 150px 0 40px);
+   padding: 0 0 0 10px;
+   font-size: 20px;
+   text-transform: capitalize;
+   font-weight: normal;
+   color: #FFF;
+   h1 {
+    font-weight: 700;
+    font-size: 18px;
+    a {
+     color: #EEE;
+     &:hover {
+      text-decoration: none;
+     }
+    }
+    small {
+     font-weight: normal;
+     font-size: 18px;
+     color: #DDD;
+    }
+   }
+   p {
+    line-height:25px;
+    font-size: 12px;
+    a {
+     color: #DDD;
+    }
+   }
+   &.gb-small {
+    padding: 0 0 0 0;
+    font-size: 15px;
+   }
+  }
+  .gb-action.md-button {
+   padding: 10px 20px;
+   height: 50px;
+   min-width: 40px;
+   //max-width: 150px;
+   line-height: 30px;
+   font-size: 20px;
+   margin: 27px 0 0 0;
+   background-color: rgba($primary-color, 0.6);
+   color: #F2F2F2;
+   border: #F2F2F2 solid 1px;
+   &:hover {
+    background-color: rgba($primary-color, 1);
+    color: #FFF;
+    border: #FFF solid 1px;
+   }
+  }
+ }
+
+ .gb-action {
+  @include position(absolute, 0 3px 0 null);
+  width: 200px;
+  padding-top: 2px;
+ }
+ .gb-menu-icon {
+  font-size: 28px;
+ }
+
+
+ @include respond-to (gb-sm) {
+
+ }
+
+ @include respond-to (gb-xs) {
+  padding: 10px 5px 10px 5px!important;
+  height: 60px;
+
+  .gb-heading-row-1 {
+
+   .gb-heading-icon {
+    //padding: 10px 0;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 42px;
+    &.gb-heading-image {
+     line-height: 20px;
+    }
+   }
+
+   .gb-title {
+    @include position(absolute, 0 50px 0 35px);
+    padding: 10px 0 0 10px;
+    font-size: 15px;
+
+    &.gb-title-1 {
+     padding: 0 0 0 10px;
+    }
+    &.gb-title-2 {
+     padding: 4px 0 0 10px;
+    }
+    h1 {
+     font-size: 12px;
+    }
+    p {
+     line-height:12px;
+     font-size: 10px;
+    }
+    &.gb-small {
+     font-size: 10px;
+    }
+   }
+   .gb-action.md-button {
+    padding: 0;
+    height: 25px;
+    min-width: 25px;
+    line-height: 24px;
+    font-size: 15px;
+    margin: 5px 0 0 0;
+   }
+  }
+  .gb-menu-icon {
+   font-size: 15px;
+  }
+ }
+}
 .gb-icon-nav-1{
  padding-right: 20px!important;
  -moz-transition: all 0.5s ease;

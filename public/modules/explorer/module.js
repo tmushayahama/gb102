@@ -133,6 +133,16 @@ define(['angular'
                   //'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
                   'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
                   'public/modules/explorer/controllers/section/explorer-section-item-modal.ctrl.js',
+                  //Component
+                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
+                  'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
+                  //Contributions
+                  'public/modules/explorer/services/contribution/explorer-contribution.srv.js',
+                  'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contributions.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contribution.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/create-explorer-contribution-modal.ctrl.js',
                   //Objectives,
                   'public/modules/explorer/services/objective/explorer-objectives.srv.js',
                   'public/modules/explorer/controllers/objective/explorer-objectives.ctrl.js',
