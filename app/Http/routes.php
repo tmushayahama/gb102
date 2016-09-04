@@ -80,6 +80,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorers/user/{userId}/all/{appName}', 'Explorer\ExplorerController@getUserExplorers');
 
  Route::get('explorer/{explorerId}/components', 'Explorer\ExplorerController@getExplorerComponents');
+ Route::get('explorer/{explorerId}/components/{componentId}', 'Explorer\ExplorerController@getExplorerSubComponents');
  Route::get('explorer/{explorerId}/component/{componentId}', 'Explorer\ExplorerController@getExplorerComponent');
  Route::post('explorer/component/create', 'Explorer\ExplorerController@createExplorerComponent');
  Route::post('explorer/component/edit', 'Explorer\ExplorerController@editExplorerComponent');

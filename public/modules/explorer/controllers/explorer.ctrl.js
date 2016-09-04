@@ -323,14 +323,16 @@ var explorerCtrl = function (
  vm.getExplorerComponents = function (explorerId) {
   vm.explorerComponentsSrv.getExplorerComponents(explorerId).then(function (response) {
    vm.explorerComponentBuckets = response;
-   angular.forEach(response, function (step, key) {
-    vm.explorerComponentsSrv.getSubComponents(step.component.id).then(function (stepResponse) {
-     vm.explorerComponentBuckets[key].explorerComponents = stepResponse;
-     //angularGridInstance.components.refresh();
+   /*
+    angular.forEach(response, function (subComponent, key) {
+    vm.explorerComponentsSrv.getExplorerSubComponents(explorerId, subComponent.component_id).then(function (subComponentResponse) {
+    vm.explorerComponentBuckets[key].explorerComponents = subComponentResponse;
+    //angularGridInstance.components.refresh();
     });
-   });
+    });
+    */
   });
- }
+ };
 
 
  vm.createExplorerComponent = function (data) {

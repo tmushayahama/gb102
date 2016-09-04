@@ -1,17 +1,5 @@
 <div id="gb-explorer-header" class="row">
  <div ng-include="'public/modules/app/views/top-hero-bar-app-entry.html'" class="row"></div>
- <div ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0" class="row gb-info-row-1">
-  <div class="container">
-   <div class="row">
-    <p class="gb-title gb-ellipsis">
-     Sub Entry for
-     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer_id})">
-      {{::explorerCtrl.explorerSrv.explorer.parent_explorers[0].second_explorer.title}}
-     </a>
-    </p>
-   </div>
-  </div>
- </div>
  <div ng-if="false" class="row">
   <div class="nav gb-icon-top-nav-1 gb-shadow-1 gb-margin-none col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class="container">

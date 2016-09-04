@@ -40,9 +40,31 @@ class ExplorerComponent extends Model {
           ->whereHas('component', function($q) {
            $q->whereNull('parent_component_id');
           })
+          ->orderBy('id', 'ASC')
+          ->where('explorer_id', $explorerId)
+          ->get();
+
+  foreach ($explorerComponents as $explorerComponent) {
+   $explorerComponent["explorerComponents"] = self::getExplorerSubComponents($explorerId, $explorerComponent->component_id);
+  }
+  return $explorerComponents;
+ }
+
+ public static function getExplorerSubComponents($explorerId, $componentId) {
+  $explorerComponents = ExplorerComponent::with('component')
+          ->with('component.creator')
+          ->with('component.type')
+          ->whereHas('component', function($q) use ($componentId) {
+           $q->where('parent_component_id', $componentId);
+          })
           ->orderBy('id', 'DESC')
           ->where('explorer_id', $explorerId)
           ->get();
+
+  foreach ($explorerComponents as $explorerComponent) {
+   $explorerComponent["components"] = Component::getSubComponents($explorerComponent->component_id);
+  }
+
   return $explorerComponents;
  }
 

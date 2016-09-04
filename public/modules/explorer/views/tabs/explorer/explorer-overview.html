@@ -11,10 +11,10 @@
    <li class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
-      <h2 class="gb-title gb-ellipsis">
+      <h3 class="gb-title gb-ellipsis">
        <i class="fa fa-list"></i>
        Description
-      </h2>
+      </h3>
      </div>
      <div ng-hide="explorerCtrl.editDescriptionMode.visible" class="gb-box-content">
       <div class="gb-subdescription row">
@@ -85,10 +85,10 @@
    <li class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
-      <h2 class="gb-title gb-ellipsis">
+      <h3 class="gb-title gb-ellipsis">
        <i class="fa fa-list"></i>
        Activity
-      </h2>
+      </h3>
      </div>
      <div class="gb-box-content">
 
@@ -122,26 +122,54 @@
      </div>
     </div>
    </li>
+   <li ng-repeat="explorerSection in explorerCtrl.explorerSections track by $index"
+       class="drag-item">
+    <div gb-explorer-section-box explorer-section="explorerSection"
+         open-explorer-section="explorerCtrl.openExplorerSection(explorerSection)"
+         open-explorer-section-item="explorerCtrl.openExplorerSectionItem"
+         add-to-explorer-section="explorerCtrl.addToExplorerSection"
+         class="">
+    </div>
+   </li>
   </ul>
  </li>
  <li class="drag-column drag-column-on-hold">
   <span class="drag-column-header">
    <h2 class="gb-title gb-ellipsis">
     <i class="fa fa-list"></i>
-    Overview
+    Related Topics
    </h2>
   </span>
   <ul class="drag-inner-list">
+   <li class="drag-item" ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0">
+    <div class="gb-card-3 gb-shadow-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa icon-gb-explorer"></i>
+       Parent Entry
+      </h3>
+     </div>
+     <div class="gb-box-content">
+      <div class="row">
+       <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.explorer.parent_explorers track by $index"
+            gb-explorer-box explorer="applicationExplorer"
+            template-url="public/modules/explorer/views/templates/sub-explorer/parent-explorer-box.tpl.html"
+            class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+       </div>
+      </div>
+     </div>
+    </div>
+   </li>
    <li class="drag-item">
     <div ng-include="'public/modules/explorer/views/components/sub-explorer/sub-explorers.html'"></div>
    </li>
    <li class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
-      <h2 class="gb-title gb-ellipsis">
+      <h3 class="gb-title gb-ellipsis">
        <i class="fa icon-gb-explorer"></i>
        Applications
-      </h2>
+      </h3>
      </div>
      <div class="gb-no-info row" ng-show="!explorerCtrl.explorerSrv.applicationExplorers.length">
       No one is using this template yet
@@ -171,66 +199,33 @@
   <span class="drag-column-header">
    <h2 class="gb-title gb-ellipsis">
     <i class="fa fa-list"></i>
-    Overview
-   </h2>
-  </span>
-  <ul class="drag-inner-list">
-   <li ng-repeat="explorerSection in explorerCtrl.explorerSections track by $index"
-       class="drag-item">
-    <div gb-explorer-section-box explorer-section="explorerSection"
-         open-explorer-section="explorerCtrl.openExplorerSection(explorerSection)"
-         open-explorer-section-item="explorerCtrl.openExplorerSectionItem"
-         add-to-explorer-section="explorerCtrl.addToExplorerSection"
-         class="">
-    </div>
-   </li>
-  </ul>
- </li>
- <li class="drag-column drag-column-on-hold">
-  <span class="drag-column-header">
-   <h2 class="gb-title gb-ellipsis">
-    <i class="fa fa-list"></i>
-    Overview
+    Contribution
    </h2>
   </span>
   <ul class="drag-inner-list">
    <li class="drag-item" ng-repeat="explorerContribution in explorerCtrl.explorerContributions">
-    <div class="gb-person-box row">
-     <div class="gb-box-body gb-shadow-1">
-      <div class="gb-image">
-       <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-            src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}"
-            class="gb-heading-pic" alt="">
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title row">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.first_explorer.id})">
+         {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
+        </a>
+       </h3>
       </div>
-      <div class="gb-box-content">
-       <div class="gb-description row">
-        <p class="gb-ellipsis">
-         <a class="gb-ellipsis">
-          {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
-         </a>
-        </p>
-       </div>
-       <div class="gb-heading row">
-        <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
-         <p class="gb-ellipsis">
-          {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
-         </p>
-        </div>
-       </div>
-       <div class="gb-footer row gb-padding-none">
-        <div class="gb-summary-bar row btn-group">
-         <a class="btn btn-xs btn-link">
-          <i class="gb-icon fa fa-list-ol"></i> 0
-         </a>
-         <a class="btn btn-xs btn-link">
-          <i class="gb-icon fa icon-gb-apply"></i> 0
-         </a>
-         <a class="btn btn-xs btn-link">
-          <i class="gb-icon fa icon-users"></i> 0
-         </a>
-        </div>
-       </div>
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
+
+       </p>
       </div>
+      <div class="gb-description row">
+      </div>
+     </div>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}"
+           class="gb-heading-pic" alt="">
      </div>
     </div>
    </li>
@@ -244,9 +239,11 @@
    </h2>
   </span>
   <ul class="drag-inner-list">
-   <li class="drag-item"
-       ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
-    {{explorerComponent.title}}
+   <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
+    <div gb-explorer-component-box
+         explorer-component="explorerComponent"
+         open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)">
+    </div>
    </li>
   </ul>
  </li>
@@ -261,5 +258,5 @@
  <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
 </script>
 <script type="text/ng-template" id="explorer-section-item-modal.html">
-    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
+ <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
 </script>

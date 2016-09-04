@@ -91,7 +91,7 @@ ul {
 	align-items: flex-start;
 
 	@media (max-width: 690px) {
-		display: block;
+  //	display: block;
 	}
 }
 
@@ -104,7 +104,7 @@ ul {
 	overflow: hidden;
 
 	@media (max-width: 690px) {
-		margin-bottom: 30px;
+  //	margin-bottom: 30px;
 	}
 
 	h2 {
@@ -119,7 +119,7 @@ ul {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px;
+	padding: 10px 0;
  //background-color: $primary-color;
  border-bottom: #BBB solid 1px;
 }
@@ -2072,7 +2072,7 @@ input.gb-form-show{
     color: #FF1B1B;
    }
   }
-  a,
+  a, 
   a:hover{
    text-decoration: none;
    color:  #000;
@@ -2086,7 +2086,7 @@ input.gb-form-show{
 #main-container {
  @include position(absolute, 0 0 0 0);
  background-color: #ECEFF1;
- overflow-y: scroll;
+ overflow-y: auto;
  overflow-x: hidden;
  -webkit-overflow-scrolling: touch;
 }
@@ -2199,7 +2199,7 @@ input.gb-form-show{
  height: 41px;
  list-style: none;
  color: #F7F7F7;
- background-color: rgba($primary-color, 0.5);
+ background-color: $primary-color;
  //border-bottom: rgba($primary-color, 0.8) solid 3px;
  margin: 0;
  z-index: 900;
@@ -2979,7 +2979,7 @@ input.gb-form-show{
   padding: 16px 14px 16px 14px;
   overflow: hidden;
   .gb-title {
-   font-size: 24px;
+   font-size: 18px;
    font-weight: 400;
    i{
     color: #777;
@@ -3039,8 +3039,7 @@ input.gb-form-show{
   min-height: 100px;
   max-height: 800px;
   padding: 16px 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 
   .gb-one-liner {
@@ -3601,8 +3600,8 @@ input.gb-form-show{
    //color: #888;
    //font-size:18px;
    h3 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 400;
     //line-height: 32px;
     margin-bottom: 5px;
    }
@@ -3631,9 +3630,8 @@ input.gb-form-show{
   min-height: 100px;
   max-height: 800px;
   padding: 16px 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  // -webkit-overflow-scrolling: touch;
 
   .gb-one-liner {
    position: relative;
@@ -3839,8 +3837,8 @@ input.gb-form-show{
    //color: #888;
    //font-size:18px;
    h3 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 400;
     //line-height: 32px;
     margin-bottom: 5px;
    }
@@ -3975,6 +3973,251 @@ input.gb-form-show{
   border-left: $color-journal solid 5px;
  }
 }
+
+.gb-card-profile {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ height: 90px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ transition:all 250ms;
+ @include shadow(1);
+ &:hover,&:focus {
+  @include shadow(2);
+  transform:translateY(-5px);
+ }
+ &:active {
+  @include shadow(1);
+  transform:translateY(-2px);
+ }
+ .gb-indicator {
+  @include position(absolute, 5px  null null 5px);
+  height: 5px;
+  width: 30px;
+ }
+
+ .gb-image {
+  @include position(absolute, 14px null 14px 14px);
+  //position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  .gb-heading-pic {
+   height: 100%;
+   width: 100%;
+   border-radius: 50%;
+  }
+  &:after {
+   @include position(absolute, 0 0 0 0);
+   content: "";
+   background-color:rgba($primary-color, 0.4);
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: 1;
+   border-radius: 50%;
+  }
+ }
+ .gb-box-content {
+  @include position(absolute, 0 0 0 74px);
+  height: auto;
+  padding: 14px 14px 14px 14px;
+  z-index: 2;
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   //margin-top: 5px;
+   h3 {
+    font-size: 14px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 5px;
+    a {
+
+    }
+   }
+  }
+
+  .gb-subdescription {
+   margin-bottom: 0px;
+   font-size: 12px;
+   height: auto;
+   color: #888;
+  }
+
+  .gb-description {
+   height: auto;
+   font-size: 14px;
+   .gb-name-badge-1 {
+    position: relative;
+    //float: right;
+    height: 30px;
+    padding-left: 25px;
+    font-size: 11px;
+    .gb-name {
+     padding-top: 6px;
+     padding-left: 0px;
+    }
+    .gb-profile-image {
+     @include position(absolute, 4px null null 0px);
+     // right: auto;
+     height: 20px;
+     width: 20px;
+     img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+     }
+    }
+   }
+
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  @include position(absolute, null 150px 0 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 40px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 36px;
+   padding: 0px 14px 0 19px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+ .gb-box-subcontent {
+  //@include position(absolute, 326px 0 0 0);
+  height: 80px;
+  padding: 16px 14px;
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   height: 33px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 2px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+
+ &.gb-app-type-1 {
+  .gb-indicator {
+   background-color: $color-skill;
+  }
+ }
+ &.gb-app-type-2 {
+  .gb-indicator {
+   background-color: $color-goal;
+  }
+ }
+ &.gb-app-type-3 {
+  .gb-indicator {
+   background-color: $color-hobby;
+  }
+ }
+ &.gb-app-type-4 {
+  .gb-indicator {
+   background-color: $color-promise;
+  }
+ }
+ &.gb-app-type-5 {
+  .gb-indicator {
+   background-color: $color-mentorship;
+  }
+ }
+
+ &.gb-app-type-6 {
+  .gb-indicator {
+   background-color: $color-collaboration;
+  }
+ }
+ &.gb-app-type-7 {
+  .gb-indicator {
+   background-color: $color-teach;
+  }
+ }
+ &.gb-app-type-8 {
+  .gb-indicator {
+   background-color: $color-advice;
+  }
+ }
+ &.gb-app-type-10 {
+  .gb-indicator {
+   background-color: $color-journal;
+  }
+ }
+}
+
+
+
+
+
 
 
 .gb-card-14 {

@@ -116,6 +116,11 @@ class ExplorerController extends Controller {
   return \Response::json($explorerComponents);
  }
 
+ public function getExplorerSubComponents($explorerId, $componentId) {
+  $explorerComponents = ExplorerComponent::getExplorerSubComponents($explorerId, $componentId);
+  return \Response::json($explorerComponents);
+ }
+
  public function getExplorerComponent($explorerId, $componentId) {
   $explorerComponent = ExplorerComponent::getExplorerComponent($explorerId, $componentId);
   return \Response::json($explorerComponent);

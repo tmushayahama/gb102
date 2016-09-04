@@ -32,6 +32,17 @@ var explorerComponentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ExplorerComponentsSrv.prototype.getExplorerSubComponents = function (explorerId, componentId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/explorer/' + explorerId + '/components/' + componentId).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ExplorerComponentsSrv.prototype.getSubComponents = function (componentId) {
   var self = this;
   var deferred = $q.defer();

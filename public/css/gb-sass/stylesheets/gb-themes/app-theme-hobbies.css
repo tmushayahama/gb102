@@ -1451,7 +1451,7 @@ Copyright (c) 2014 Daniel Eden
 .gb-top-nav-5 .gb-heading-row-1 .gb-title {
   position: absolute;
   top: 0;
-  right: 150px;
+  right: 50px;
   bottom: 0;
   left: 40px;
   padding: 0 0 0 10px;
@@ -1512,57 +1512,6 @@ Copyright (c) 2014 Daniel Eden
 }
 .gb-top-nav-5 .gb-menu-icon {
   font-size: 28px;
-}
-@media (max-width: 767px) {
-  .gb-top-nav-5 {
-    padding: 10px 5px 10px 5px !important;
-    height: 60px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-heading-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 42px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-heading-icon.gb-heading-image {
-    line-height: 20px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title {
-    position: absolute;
-    top: 0;
-    right: 50px;
-    bottom: 0;
-    left: 35px;
-    padding: 10px 0 0 10px;
-    font-size: 15px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title.gb-title-1 {
-    padding: 0 0 0 10px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title.gb-title-2 {
-    padding: 4px 0 0 10px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title h1 {
-    font-size: 12px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title p {
-    line-height: 12px;
-    font-size: 10px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-title.gb-small {
-    font-size: 10px;
-  }
-  .gb-top-nav-5 .gb-heading-row-1 .gb-action.md-button {
-    padding: 0;
-    height: 25px;
-    min-width: 25px;
-    line-height: 24px;
-    font-size: 15px;
-    margin: 5px 0 0 0;
-  }
-  .gb-top-nav-5 .gb-menu-icon {
-    font-size: 15px;
-  }
 }
 
 .gb-icon-nav-1 {
@@ -3986,11 +3935,6 @@ ul {
   display: flex;
   align-items: flex-start;
 }
-@media (max-width: 690px) {
-  .drag-list {
-    display: block;
-  }
-}
 
 .drag-column {
   flex: 1;
@@ -3999,11 +3943,6 @@ ul {
   margin: 0 10px;
   position: relative;
   overflow: hidden;
-}
-@media (max-width: 690px) {
-  .drag-column {
-    margin-bottom: 30px;
-  }
 }
 .drag-column h2 {
   font-size: 14px;
@@ -4016,7 +3955,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 0;
   border-bottom: #BBB solid 1px;
 }
 
@@ -5971,7 +5910,7 @@ input.gb-form-show {
   bottom: 0;
   left: 0;
   background-color: #ECEFF1;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -6107,7 +6046,7 @@ input.gb-form-show {
   height: 41px;
   list-style: none;
   color: #F7F7F7;
-  background-color: rgba(65, 100, 42, 0.5);
+  background-color: #41642A;
   margin: 0;
   z-index: 900;
 }
@@ -6842,7 +6781,7 @@ input.gb-form-show {
   overflow: hidden;
 }
 .gb-card-3 .gb-big-title .gb-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
 }
 .gb-card-3 .gb-big-title .gb-title i {
@@ -6896,8 +6835,7 @@ input.gb-form-show {
   min-height: 100px;
   max-height: 800px;
   padding: 16px 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .gb-card-3 .gb-listbox-content .gb-one-liner {
@@ -7422,8 +7360,8 @@ input.gb-form-show {
   z-index: 2;
 }
 .gb-card-activity .gb-box-content .gb-title h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 .gb-card-activity .gb-box-content .gb-subdescription {
@@ -7445,9 +7383,7 @@ input.gb-form-show {
   min-height: 100px;
   max-height: 800px;
   padding: 16px 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 .gb-card-activity .gb-listbox-content .gb-one-liner {
   position: relative;
@@ -7645,8 +7581,8 @@ input.gb-form-show {
   z-index: 2;
 }
 .gb-card-note .gb-box-content .gb-title h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 .gb-card-note .gb-box-content .gb-subdescription {
@@ -7764,6 +7700,221 @@ input.gb-form-show {
 }
 .gb-card-note.gb-app-type-10 {
   border-left: #362644 solid 5px;
+}
+
+.gb-card-profile {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  height: 90px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-profile:hover, .gb-card-profile:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-profile:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+.gb-card-profile .gb-indicator {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 5px;
+  width: 30px;
+}
+.gb-card-profile .gb-image {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 14px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.gb-card-profile .gb-image .gb-heading-pic {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.gb-card-profile .gb-image:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(65, 100, 42, 0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+}
+.gb-card-profile .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 74px;
+  height: auto;
+  padding: 14px 14px 14px 14px;
+  z-index: 2;
+}
+.gb-card-profile .gb-box-content .gb-title h3 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.gb-card-profile .gb-box-content .gb-subdescription {
+  margin-bottom: 0px;
+  font-size: 12px;
+  height: auto;
+  color: #888;
+}
+.gb-card-profile .gb-box-content .gb-description {
+  height: auto;
+  font-size: 14px;
+}
+.gb-card-profile .gb-box-content .gb-description .gb-name-badge-1 {
+  position: relative;
+  height: 30px;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-profile .gb-box-content .gb-description .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-profile .gb-box-content .gb-description .gb-name-badge-1 .gb-profile-image {
+  position: absolute;
+  top: 4px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-profile .gb-box-content .gb-description .gb-name-badge-1 .gb-profile-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-profile .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+}
+.gb-card-profile .gb-box-footer {
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+}
+.gb-card-profile .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 36px;
+  padding: 0px 14px 0 19px;
+}
+.gb-card-profile .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-profile .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-profile .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-profile .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-profile .gb-box-subcontent {
+  height: 80px;
+  padding: 16px 14px;
+}
+.gb-card-profile .gb-box-subcontent .gb-description {
+  font-size: 14px;
+  height: 33px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gb-card-profile .gb-box-subcontent .gb-description .gb-no-info {
+  padding: 2px 5px;
+  color: #BBB;
+  font-size: 18px;
+}
+.gb-card-profile .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-profile .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-profile .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-profile .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-profile .gb-summary-bar .gb-stat .gb-number {
+  font-size: 10px;
+}
+.gb-card-profile .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+.gb-card-profile.gb-app-type-1 .gb-indicator {
+  background-color: #027887;
+}
+.gb-card-profile.gb-app-type-2 .gb-indicator {
+  background-color: #027;
+}
+.gb-card-profile.gb-app-type-3 .gb-indicator {
+  background-color: #41642A;
+}
+.gb-card-profile.gb-app-type-4 .gb-indicator {
+  background-color: #bb68ae;
+}
+.gb-card-profile.gb-app-type-5 .gb-indicator {
+  background-color: #077568;
+}
+.gb-card-profile.gb-app-type-6 .gb-indicator {
+  background-color: #1D3F00;
+}
+.gb-card-profile.gb-app-type-7 .gb-indicator {
+  background-color: #411D1D;
+}
+.gb-card-profile.gb-app-type-8 .gb-indicator {
+  background-color: #9A6D36;
+}
+.gb-card-profile.gb-app-type-10 .gb-indicator {
+  background-color: #362644;
 }
 
 .gb-card-14 {

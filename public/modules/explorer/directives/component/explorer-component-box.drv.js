@@ -23,7 +23,7 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
            controller: [
             '$scope',
             function ($scope) {
-             $scope.stepsLimitTo = 8;
+             $scope.componentsLimitTo = 8;
              $scope.getTemplateUrl = function () {
               switch ($scope.explorerComponent.component.type_id) {
                case level_categories.component.note:

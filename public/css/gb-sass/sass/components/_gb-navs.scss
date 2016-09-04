@@ -254,7 +254,7 @@
   }
 
   .gb-title {
-   @include position(absolute, 0 150px 0 40px);
+   @include position(absolute, 0 50px 0 40px);
    padding: 0 0 0 10px;
    font-size: 20px;
    text-transform: capitalize;
@@ -321,56 +321,6 @@
  }
 
  @include respond-to (gb-xs) {
-  padding: 10px 5px 10px 5px!important;
-  height: 60px;
-
-  .gb-heading-row-1 {
-
-   .gb-heading-icon {
-    //padding: 10px 0;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 42px;
-    &.gb-heading-image {
-     line-height: 20px;
-    }
-   }
-
-   .gb-title {
-    @include position(absolute, 0 50px 0 35px);
-    padding: 10px 0 0 10px;
-    font-size: 15px;
-
-    &.gb-title-1 {
-     padding: 0 0 0 10px;
-    }
-    &.gb-title-2 {
-     padding: 4px 0 0 10px;
-    }
-    h1 {
-     font-size: 12px;
-    }
-    p {
-     line-height:12px;
-     font-size: 10px;
-    }
-    &.gb-small {
-     font-size: 10px;
-    }
-   }
-   .gb-action.md-button {
-    padding: 0;
-    height: 25px;
-    min-width: 25px;
-    line-height: 24px;
-    font-size: 15px;
-    margin: 5px 0 0 0;
-   }
-  }
-  .gb-menu-icon {
-   font-size: 15px;
-  }
  }
 }
 .gb-icon-nav-1{
