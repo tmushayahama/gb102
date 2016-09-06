@@ -1410,8 +1410,8 @@ Copyright (c) 2014 Daniel Eden
   padding: 5px 5px 5px 5px !important;
   height: 50px;
   list-style: none;
-  color: #EEE;
-  background-color: rgba(7, 117, 104, 0.6);
+  color: #444;
+  border-bottom: rgba(7, 117, 104, 0.4) solid 1px;
   margin: 0;
   z-index: 1;
 }
@@ -1458,14 +1458,14 @@ Copyright (c) 2014 Daniel Eden
   font-size: 20px;
   text-transform: capitalize;
   font-weight: normal;
-  color: #FFF;
+  color: #333;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title h1 {
   font-weight: 700;
   font-size: 18px;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title h1 a {
-  color: #EEE;
+  color: #555;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title h1 a:hover {
   text-decoration: none;
@@ -1473,14 +1473,14 @@ Copyright (c) 2014 Daniel Eden
 .gb-top-nav-5 .gb-heading-row-1 .gb-title h1 small {
   font-weight: normal;
   font-size: 18px;
-  color: #DDD;
+  color: #777;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title p {
   line-height: 25px;
   font-size: 12px;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title p a {
-  color: #DDD;
+  color: #777;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-title.gb-small {
   padding: 0 0 0 0;
@@ -1494,12 +1494,12 @@ Copyright (c) 2014 Daniel Eden
   font-size: 20px;
   margin: 27px 0 0 0;
   background-color: rgba(7, 117, 104, 0.6);
-  color: #F2F2F2;
+  color: #444;
   border: #F2F2F2 solid 1px;
 }
 .gb-top-nav-5 .gb-heading-row-1 .gb-action.md-button:hover {
   background-color: #077568;
-  color: #FFF;
+  color: #222;
   border: #FFF solid 1px;
 }
 .gb-top-nav-5 .gb-action {
@@ -3885,15 +3885,30 @@ body > .ui-select-bootstrap.open {
 }
 
 html {
-  background: #eeeeee;
-  width: 100%;
-  height: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: #eeeeee;
   width: 100%;
   height: 100%;
+  font-family: "Roboto",sans-serif;
+  background: none;
+  background-color: #ECEFF1;
+  display: block;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+}
+
+#main-container {
+  background-color: #ECEFF1;
+  -webkit-overflow-scrolling: touch;
 }
 
 md-toolbar button.md-button.md-icon-button:first-child {
@@ -3910,14 +3925,6 @@ md-content {
   position: relative;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -3926,19 +3933,24 @@ ul {
 
 .drag-container {
   height: 100%;
-  display: flex;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .drag-list {
   height: 100%;
-  display: flex;
-  align-items: flex-start;
+  white-space: nowrap;
 }
 
 .drag-column {
-  flex: 1;
   width: 300px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+  zoom: 1;
+  *display: inline;
   height: 100%;
   margin: 0 10px;
   position: relative;
@@ -3952,11 +3964,55 @@ ul {
 }
 
 .drag-column-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
+  position: relative;
+  height: 35px;
   border-bottom: #BBB solid 1px;
+}
+.drag-column-header .gb-title {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+}
+.drag-column-header .gb-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+}
+.drag-column-header .gb-actions .dropdown-toggle {
+  padding: 0 4px;
+  line-height: 33px;
+}
+.drag-column-header .gb-actions .dropdown-menu {
+  width: 200px;
+}
+.drag-column-header .gb-actions .dropdown-menu a,
+.drag-column-header .gb-actions .dropdown-menu .gb-menu-item {
+  height: 35px !important;
+  margin: 0;
+  padding: 0;
+}
+.drag-column-header .gb-actions .dropdown-menu a .gb-icon,
+.drag-column-header .gb-actions .dropdown-menu .gb-menu-item .gb-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+}
+.drag-column-header .gb-actions .dropdown-menu a .gb-title,
+.drag-column-header .gb-actions .dropdown-menu .gb-menu-item .gb-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35px;
+  text-align: left;
+  padding: 0 5px;
 }
 
 .drag-inner-list {
@@ -3973,10 +4029,6 @@ ul {
 .drag-item.is-moving {
   transform: scale(1.5);
   background: rgba(0, 0, 0, 0.8);
-}
-
-.drag-header-more {
-  cursor: pointer;
 }
 
 .drag-options {
@@ -4117,23 +4169,6 @@ ul {
 .grid-img.img-loaded {
   visibility: visible;
   opacity: 1;
-}
-
-html {
-  display: block;
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: "Roboto",sans-serif;
-  background: none;
-  display: block;
-  padding: 0;
-  margin: 0;
 }
 
 .gb-mg-top-md {
@@ -5903,18 +5938,6 @@ input.gb-form-show {
   color: #000;
 }
 
-#main-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #ECEFF1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
 /* ----------PEOPLE ------------*/
 .gb-people-heading-row img {
   height: 100%;
@@ -7318,6 +7341,7 @@ input.gb-form-show {
   background-color: #FFF;
   border-radius: 2px;
   transition: all 250ms;
+  white-space: normal;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .gb-card-activity:hover, .gb-card-activity:focus {
@@ -7539,6 +7563,7 @@ input.gb-form-show {
   background-color: #FFF;
   border-radius: 2px;
   transition: all 250ms;
+  white-space: normal;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .gb-card-note:hover, .gb-card-note:focus {
@@ -7711,6 +7736,7 @@ input.gb-form-show {
   background-color: #FFF;
   border-radius: 2px;
   transition: all 250ms;
+  white-space: normal;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .gb-card-profile:hover, .gb-card-profile:focus {

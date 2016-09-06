@@ -210,9 +210,9 @@
  padding: 5px 5px 5px 5px!important;
  height: 50px;
  list-style: none;
- color: #EEE;
- background-color: rgba($primary-color, 0.6);
- //border-bottom: rgba($primary-color, 0.8) solid 3px;
+ color: #444;
+ //background-color: rgba($primary-color, 0.6);
+ border-bottom: rgba($primary-color, 0.4) solid 1px;
  margin: 0;
  z-index: 1;
 
@@ -259,12 +259,12 @@
    font-size: 20px;
    text-transform: capitalize;
    font-weight: normal;
-   color: #FFF;
+   color: #333;
    h1 {
     font-weight: 700;
     font-size: 18px;
     a {
-     color: #EEE;
+     color: #555;
      &:hover {
       text-decoration: none;
      }
@@ -272,14 +272,14 @@
     small {
      font-weight: normal;
      font-size: 18px;
-     color: #DDD;
+     color: #777;
     }
    }
    p {
     line-height:25px;
     font-size: 12px;
     a {
-     color: #DDD;
+     color: #777;
     }
    }
    &.gb-small {
@@ -296,11 +296,11 @@
    font-size: 20px;
    margin: 27px 0 0 0;
    background-color: rgba($primary-color, 0.6);
-   color: #F2F2F2;
+   color: #444;
    border: #F2F2F2 solid 1px;
    &:hover {
     background-color: rgba($primary-color, 1);
-    color: #FFF;
+    color: #222;
     border: #FFF solid 1px;
    }
   }

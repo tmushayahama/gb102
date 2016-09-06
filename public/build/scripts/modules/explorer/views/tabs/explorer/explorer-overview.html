@@ -1,12 +1,37 @@
 
 <ul class="drag-list">
  <li class="drag-column drag-column-on-hold">
-  <span class="drag-column-header">
-   <h2 class="gb-title gb-ellipsis">
-    <i class="fa fa-list"></i>
-    Overview
-   </h2>
-  </span>
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Overview
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                ng-click="">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
   <ul class="drag-inner-list">
    <li class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
@@ -134,12 +159,37 @@
   </ul>
  </li>
  <li class="drag-column drag-column-on-hold">
-  <span class="drag-column-header">
-   <h2 class="gb-title gb-ellipsis">
-    <i class="fa fa-list"></i>
-    Related Topics
-   </h2>
-  </span>
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Related Topics
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                ng-click="">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
   <ul class="drag-inner-list">
    <li class="drag-item" ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0">
     <div class="gb-card-3 gb-shadow-3">
@@ -196,12 +246,36 @@
   </ul>
  </li>
  <li class="drag-column drag-column-on-hold">
-  <span class="drag-column-header">
-   <h2 class="gb-title gb-ellipsis">
-    <i class="fa fa-list"></i>
-    Contribution
-   </h2>
-  </span>
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Contribution
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button ui-sref="apps.explorerItem.contribution" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
   <ul class="drag-inner-list">
    <li class="drag-item" ng-repeat="explorerContribution in explorerCtrl.explorerContributions">
     <div class="gb-card-profile">
@@ -216,7 +290,6 @@
       <div class="gb-subdescription row">
        <p class="gb-ellipsis">
         {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
-
        </p>
       </div>
       <div class="gb-description row">
@@ -233,11 +306,37 @@
  </li>
  <li class="drag-column drag-column-on-hold"
      ng-repeat="explorerComponentBucket in explorerCtrl.explorerComponentBuckets track by $index">
-  <span class="drag-column-header">
-   <h2>
-    {{explorerComponentBucket.component.title}}
-   </h2>
-  </span>
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     {{explorerComponentBucket.component.title}}
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                ng-click="">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
   <ul class="drag-inner-list">
    <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
     <div gb-explorer-component-box
@@ -253,7 +352,6 @@
 <div class="" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plans.html'"></div>
 <div class="" ng-include="'public/build/scripts/modules/explorer/views/components/todo/explorer-todos.html'"></div>
 -->
-<div class="gb-dummy-height row"></div>
 <script type="text/ng-template" id="explorer-section-modal.html">
  <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
 </script>

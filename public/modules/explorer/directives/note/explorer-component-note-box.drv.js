@@ -10,9 +10,8 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
 
           return {
            restrict: 'EA',
-           // template: '<ng-include src="componentTemplateUrl"/>',
-           //replace: true,
-           templateUrl: "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html",
+           replace: true,
+           templateUrl: "public/modules/explorer/views/templates/note/component-note-box.tpl.html",
            scope: {
             //templateUrl: '@',
             explorerComponent: '=',
@@ -25,22 +24,21 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
             function ($scope) {
              $scope.componentsLimitTo = 8;
              //$scope.getTemplateUrl = function () {
-             /*
-              $scope.$watch('explorerComponent.component.type_id', function (typeId)
-              {
+             $scope.$watch('explorerComponent.component.type_id', function (typeId)
+             {
               //var typeId = $scope.explorerComponent.component.type_id;
               if (typeId === level_categories.component.note) {
-              $scope.componentTemplateUrl = "public/modules/explorer/views/templates/note/component-note-box.tpl.html";
+               $scope.componentTemplateUrl = "public/modules/explorer/views/templates/note/component-note-box.tpl.html";
               } else if (typeId === level_categories.component.activity) {
-              $scope.componentTemplateUrl = "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html";
+               $scope.componentTemplateUrl = "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html";
               } else if (typeId === level_categories.component.guideline) {
-              $scope.componentTemplateUrl = "public/modules/explorer/views/templates/guideline/component-guideline-box.tpl.html";
+               $scope.componentTemplateUrl = "public/modules/explorer/views/templates/guideline/component-guideline-box.tpl.html";
               }
-
-              });    */
+             });
              //};
             }
            ],
+           template: '<ng-include src="componentTemplateUrl"/>',
            link: function (scope, element, attr, ctrl) {
             scope.open = function () {
              scope.openExplorerComponent({explorerComponent: scope.explorerComponent});

@@ -32,18 +32,47 @@ and open the template in the editor.
 
 @import "components/gb-ui-select";
 
-
 html {
- background: #eeeeee;
+ display: block;
+ padding: 0;
+ margin: 0;
+ font-family: sans-serif;
+ -ms-text-size-adjust: 100%;
+ -webkit-text-size-adjust: 100%;
+ //@include position(fixed, 0 0 0 0);
+}
+body {
  width: 100%;
  height: 100%;
+ font-family:"Roboto",sans-serif;
+ background: none;
+ background-color: #ECEFF1;
+ display: block;
+ padding: 0;
+ margin: 0;
+ -webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+ //@include position(fixed, 0 0 0 0);
 }
 
-body {
- background: #eeeeee;
- width: 100%;
- height: 100%;
+#main-container {
+ //@include position(absolute, 0 0 0 0);
+ background-color: #ECEFF1;
+ //overflow-y: auto;
+ //overflow-x: hidden;
+ -webkit-overflow-scrolling: touch;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+@mixin shadow($level: 1) {
+ @if $level == 1 {box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+ @else if $level == 2 {box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+ @else if $level == 3 {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+ @else if $level == 4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+ @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+}
+
 
 md-toolbar button.md-button.md-icon-button:first-child {
  margin-left: 0px;
@@ -66,11 +95,7 @@ $needs-review: #F4CE46;
 $approved: #00B961;
 
 * {
-	box-sizing: border-box;
-}
-
-body {
-	-webkit-font-smoothing: antialiased;
+	//box-sizing: border-box;
 }
 
 ul {
@@ -81,30 +106,33 @@ ul {
 
 .drag-container {
  height: 100%;
- display: flex;
- overflow: auto;
+ overflow-x: auto;
+ overflow-y: hidden;
+ -webkit-overflow-scrolling: touch;
 }
 
 .drag-list {
  height: 100%;
-	display: flex;
-	align-items: flex-start;
+ white-space: nowrap;
 
 	@media (max-width: 690px) {
-  //	display: block;
 	}
 }
 
 .drag-column {
-	flex: 1;
  width:300px;
+ display: -moz-inline-stack;
+ display: inline-block;
+ vertical-align: top;
+ margin: 5px;
+ zoom: 1;
+ *display: inline;
  height: 100%;
 	margin: 0 10px;
 	position: relative;
 	overflow: hidden;
 
 	@media (max-width: 690px) {
-  //	margin-bottom: 30px;
 	}
 
 	h2 {
@@ -116,12 +144,39 @@ ul {
 }
 
 .drag-column-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 10px 0;
- //background-color: $primary-color;
+ position: relative;
+ height: 35px;
  border-bottom: #BBB solid 1px;
+ .gb-title {
+  @include position(absolute, 0 40px 0 0);
+  padding: 10px 0;
+ }
+ .gb-actions {
+  @include position(absolute, 0 0 0 null);
+  width: 35px;
+  .dropdown-toggle {
+   padding: 0 4px;
+   line-height: 33px;
+  }
+  .dropdown-menu {
+   width: 200px;
+   a,
+   .gb-menu-item {
+    height: 35px!important;
+    margin: 0;
+    padding: 0;
+    .gb-icon {
+     @include position(absolute, 0 null 0 0);
+     width: 35px;
+    }
+    .gb-title {
+     @include position(absolute, 0 0 0 35px);
+     text-align: left;
+     padding: 0 5px;
+    }
+   }
+  }
+ }
 }
 
 .drag-inner-list {
@@ -142,9 +197,6 @@ ul {
 
 }
 
-.drag-header-more {
-	cursor: pointer;
-}
 
 .drag-options {
 	position: absolute;
@@ -305,34 +357,7 @@ ul {
 
 
 
-html {
- display: block;
- padding: 0;
- margin: 0;
- font-family: sans-serif;
- -ms-text-size-adjust: 100%;
- -webkit-text-size-adjust: 100%;
- //@include position(fixed, 0 0 0 0);
-}
-body {
- font-family:"Roboto",sans-serif;
- background: none;
- display: block;
- padding: 0;
- margin: 0;
- //@include position(fixed, 0 0 0 0);
-}
 
-
-@import url(http://fonts.googleapis.com/css?family=Roboto);
-
-@mixin shadow($level: 1) {
- @if $level == 1 {box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
- @else if $level == 2 {box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
- @else if $level == 3 {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
- @else if $level == 4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
- @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
-}
 
 .gb-mg-top-md {
  margin-top: 10px;
@@ -2072,7 +2097,7 @@ input.gb-form-show{
     color: #FF1B1B;
    }
   }
-  a, 
+  a,
   a:hover{
    text-decoration: none;
    color:  #000;
@@ -2083,13 +2108,6 @@ input.gb-form-show{
 
 
 
-#main-container {
- @include position(absolute, 0 0 0 0);
- background-color: #ECEFF1;
- overflow-y: auto;
- overflow-x: hidden;
- -webkit-overflow-scrolling: touch;
-}
 
 
 /* ----------PEOPLE ------------*/
@@ -3560,6 +3578,7 @@ input.gb-form-show{
  background-color: #FFF;
  border-radius: 2px;
  transition:all 250ms;
+ white-space: normal;
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(2);
@@ -3797,6 +3816,7 @@ input.gb-form-show{
  background-color: #FFF;
  border-radius: 2px;
  transition:all 250ms;
+ white-space: normal;
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(2);
@@ -3983,6 +4003,7 @@ input.gb-form-show{
  background-color: #FFF;
  border-radius: 2px;
  transition:all 250ms;
+ white-space: normal;
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(2);
