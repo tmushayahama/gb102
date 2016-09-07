@@ -163,6 +163,7 @@ ul {
    a,
    .gb-menu-item {
     height: 35px!important;
+    line-height: 35px!important;
     margin: 0;
     padding: 0;
     .gb-icon {
@@ -2984,6 +2985,7 @@ input.gb-form-show{
  background-color: #FFF;
  border-radius: 2px;
  transition:all 250ms;
+ white-space: normal;
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(2);

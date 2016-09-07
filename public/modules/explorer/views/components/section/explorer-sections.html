@@ -1,26 +1,127 @@
-<div class="gb-sections row" ng-controller='ExplorerSectionsCtrl as explorerSectionsCtrl'>
- <div class='gb-body-row-1 row'>
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div class="gb-section-body row" ng-show="explorerSectionsCtrl.explorerSections.length" ng-cloak>
-    <div ng-if="true" class="dynamic-grid" angular-grid="explorerSectionsCtrl.explorerSections" angular-grid-id="sections"
-         ag-options="{gridWidth : 300, gutterSize: 8}" refresh-on-img-load="false" >
-     <div ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index"
-          class="grid">
-      <div gb-explorer-section-box explorer-section="explorerSection"
-           open-explorer-section="explorerSectionsCtrl.openExplorerSection(explorerSection)"
-           open-explorer-section-item="explorerSectionsCtrl.openExplorerSectionItem"
-           add-to-explorer-section="explorerSectionsCtrl.addToExplorerSection"
-           class="">
+<ul class="drag-list" ng-controller='ExplorerSectionsCtrl as explorerSectionsCtrl'>
+ <li class="drag-column" ng-repeat="explorerSection in explorerSectionsCtrl.explorerSections track by $index">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     {{explorerSection.description}}
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.sections({explorerId: explorerSectionsCtrl.explorerId})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <li class="drag-item">
+    <div class="gb-card-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Description
+      </h3>
+     </div>
+     <div ng-hide="explorerComponent.editDescriptionMode.visible" class="gb-box-content">
+      <div class="gb-subdescription row">
+       <div class="row">
+        {{explorerSection.description}}
+       </div>
+      </div>
+     </div>
+     <div ng-show="explorerComponent.editDescriptionMode.visible"
+          class="gb-form-content row">
+      <form ng-submit="explorerComponent.editDescriptionMode.edit()">
+       <md-input-container class="md-block">
+        <input ng-model="explorerComponent.editDescriptionMode.data.title" name="title" required
+               placeholder="Title"
+               class="">
+       </md-input-container>
+       <md-input-container class="md-block">
+        <textarea ng-model="explorerComponent.editDescriptionMode.data.description" name="description"
+                  placeholder="Description" rows="4"
+                  class="form-control gb-md">
+        </textarea>
+       </md-input-container>
+      </form>
+     </div>
+     <div class="gb-box-footer row">
+      <div ng-if="false" class="gb-name-badge-1 row">
+       <a class="gb-name gb-ellipsis"
+          data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
+        <i>by:</i>
+        {{ ::explorerSection.creator.firstname}}
+        {{ ::explorerSection.creator.lastname}}
+       </a>
+       <div class="gb-image">
+        <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+             ng-src="public/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+       </div>
+      </div>
+      <div class="row" ng-show="explorerSection.editDescriptionMode.visible">
+       <div class="btn-group pull-right">
+        <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
+         Cancel
+        </md-button>
+        <md-button type="submit" class="gb-color-primary">
+         Done
+        </md-button>
+       </div>
+      </div>
+      <div class="row" ng-hide="explorerSection.editDescriptionMode.visible">
+       <md-button  ng-click="explorerSection.editDescriptionMode.show()" class="gb-color-primary">
+        EDIT
+       </md-button>
+       <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="pull-right gb-color-primary">
+        <i class="fa fa-star-o"></i>
+       </md-button>
       </div>
      </div>
     </div>
-   </div>
-   <script type="text/ng-template" id="explorer-section-modal.html">
-    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
-   </script>
-   <script type="text/ng-template" id="explorer-section-item-modal.html">
-    <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
-   </script>
-  </div>
- </div>
-</div>
+
+   </li>
+   <li class="drag-item" ng-repeat="answer in explorerSection.answers track by $index">
+    <div class="gb-card-note">
+     <div class="gb-box-content">
+      <div class="gb-description row">
+       <p class="">
+        {{answer.description}}
+       </p>
+      </div>
+     </div>
+     <div class="gb-box-footer row">
+      <md-button ng-click="open(answer)" class="gb-color-primary">
+       VIEW
+      </md-button>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+<script type="text/ng-template" id="explorer-section-modal.html">
+ <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+</script>
+<script type="text/ng-template" id="explorer-section-item-modal.html">
+ <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
+</script>

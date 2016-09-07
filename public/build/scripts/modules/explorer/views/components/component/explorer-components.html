@@ -1,137 +1,131 @@
-<div class="gb-components row" ng-controller='ExplorerComponentsCtrl as explorerComponentsCtrl'>
- <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div ng-if="false"class="gb-heading-row-1 row">
-   <div class="gb-heading-icon">
-    <i class="fa icon-gb-component"></i>
+<ul class="drag-list" ng-controller='ExplorerComponentsCtrl as explorerComponentsCtrl'>
+ <li class="drag-column"
+     ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     {{explorerComponent.component.title}}
+    </h2>
    </div>
-   <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
-    <p class="gb-ellipsis">
-     GUIDELINES
-    </p>
-   </div>
-   <div class="btn-group pull-right">
-    <md-button class="gb-action" ng-click="explorerComponentsCtrl.showComponentForm()"
-               ng-show="!explorerComponentsCtrl.componentFormDisplay">
-     <i class="fa fa-plus"></i>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
     </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.component({explorerId: explorer.id, componentId: explorerComponent.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
    </div>
   </div>
-  <div class='row'>
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class='row'>
-     <form class="gb-shadow-1 gb-background-white" ng-show="explorerComponentsCtrl.componentFormDisplay" name="form" novalidate>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Title:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                  placeholder="Explorer Component Description" ng-model="explorerComponentsCtrl.newExplorerComponentData.title"
-                  name="title" required="" rows="2">
+  <ul class="drag-inner-list">
+   <li class="drag-item">
+    <div class="gb-card-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Description
+      </h3>
+     </div>
+     <div ng-hide="explorerComponent.editDescriptionMode.visible" class="gb-box-content">
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        {{explorerComponent.component.type.name}}  </p>
+      </div>
+      <div class="gb-description row">
+       <div class="row">
+        <strong>{{explorerComponent.component.title}}</strong>
+        {{explorerComponent.component.description}}
+       </div>
+      </div>
+     </div>
+     <div ng-show="explorerComponent.editDescriptionMode.visible"
+          class="gb-form-content row">
+      <form ng-submit="explorerComponent.editDescriptionMode.edit()">
+       <md-input-container class="md-block">
+        <input ng-model="explorerComponent.editDescriptionMode.data.title" name="title" required
+               placeholder="Title"
+               class="">
+       </md-input-container>
+       <md-input-container class="md-block">
+        <textarea ng-model="explorerComponent.editDescriptionMode.data.description" name="description"
+                  placeholder="Description" rows="4"
+                  class="form-control gb-md">
         </textarea>
-        <div ng-show="form.$submitted || form.title.$touched">
-         <div ng-show="form.title.$error.required">description required.</div>
-        </div>
+       </md-input-container>
+      </form>
+     </div>
+     <div class="gb-box-footer row">
+      <div ng-if="false" class="gb-name-badge-1 row">
+       <a class="gb-name gb-ellipsis"
+          data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
+        <i>by:</i>
+        {{ ::explorerComponent.component.creator.firstname}}
+        {{ ::explorerComponent.component.creator.lastname}}
+       </a>
+       <div class="gb-image">
+        <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+             ng-src="public/build/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
        </div>
       </div>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Description:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                  placeholder="Explorer Component Description (optional)" ng-model="explorerComponentsCtrl.newExplorerComponentData.description"
-                  name="description" required="" rows="4">
-        </textarea>
-       </div>
-      </div>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Privacy:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div class="radio gb-radio-row">
-         <label class="">
-          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="0" />
-          <strong>public</strong> All people can see this component
-         </label>
-        </div>
-        <div class="radio gb-radio-row">
-         <label>
-          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="1" />
-          <strong>private</strong> only you can see this component
-         </label>
-        </div>
-        <div class="radio gb-radio-row">
-         <label>
-          <input type="radio" ng-model="explorerComponentsCtrl.newExplorerComponentData.privacy" value="2" />
-          <strong>custom</strong> choose who to see this component
-         </label>
-        </div>
-       </div>
-      </div>
-      <div class="form-group row" ng-class="{'gb-disabled-2': explorerComponentsCtrl.newExplorerComponentData.privacy != 2}">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">Choose Members:</label>
-       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <input type="text" class="form-control" placeholder="Select members"/>
-       </div>
-      </div>
-      <div class="form-group row">
-       <label class="text-right col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">
-        <a class="btn btn-link" ng-click="explorerComponentsCtrl.showAdvanced()">
-         Show Advanced
-        </a>
-       </label>
-      </div>
-      <div class="gb-form-footer row">
+      <div class="row" ng-show="explorerComponent.component.editDescriptionMode.visible">
        <div class="btn-group pull-right">
-        <md-button type="button" class="" ng-click="explorerComponentsCtrl.cancelExplorerComponent(form)">
+        <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
          Cancel
         </md-button>
-        <md-button type="button" class="gb-color-primary" ng-click="explorerComponentsCtrl.createExplorerComponent(explorerComponentsCtrl.newExplorerComponentData)">
-         Add Component
+        <md-button type="submit" class="gb-color-primary">
+         Done
         </md-button>
        </div>
       </div>
-     </form>
-    </div>
-    <button ng-if="false" ng-click="explorerComponentsCtrl.click()">
-     Click
-    </button>
-    <div class="gb-no-info row" ng-show="!explorerComponentsCtrl.explorerComponentBuckets.length" ng-cloak>
-     No components to show
-    </div>
-    <div class="drag-container gb-component-body" ng-show="explorerComponentsCtrl.explorerComponentBuckets.length" ng-cloak>
-     <ul class="drag-list">
-      <li class="drag-column drag-column-on-hold"
-          ng-repeat="explorerComponentBucket in explorerComponentsCtrl.explorerComponentBuckets track by $index">
-
-       <span class="drag-column-header">
-        <h2>
-         {{explorerComponentBucket.component.title}}
-        </h2>
-       </span>
-       <ul class="drag-inner-list">
-        <li class="drag-item"
-            ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
-         {{explorerComponent.title}}
-        </li>
-       </ul>
-      </li>
-     </ul>
-
-     <div ng-if="false" class="cards-wrap"
-          angular-grid="explorerComponentsCtrl.explorerComponents"
-          ag-grid-id="components"
-          ag-options="{gridWidth : 300, gutterSize: 8}"
-          ag-refresh-on-img-load="true" >
-      <div ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index"
-           gb-explorer-component-box
-           explorer-component="explorerComponent"
-           template-url="{{appsCtrl.getComponentTemplateUrl(explorerComponent.component.type_id)}}"
-           open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)"
-           class="gb-padding-thin">
+      <div class="row" ng-hide="explorerComponent.component.editDescriptionMode.visible">
+       <md-button  ng-click="explorerComponent.component.editDescriptionMode.show()" class="gb-color-primary">
+        EDIT
+       </md-button>
+       <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="pull-right gb-color-primary">
+        <i class="fa fa-star-o"></i>
+       </md-button>
       </div>
      </div>
     </div>
-    <script type="text/ng-template" id="explorer-component-modal.html">
-       <div class="gb-component-page" ng-include="'public/build/scripts/modules/explorer/views/components/component/explorer-component-modal.html'"></div>
-    </script>
-   </div>
-  </div>
- </div>
-</div>
+   </li>
+
+   <li class="drag-item" ng-repeat="component in explorerComponent.components track by $index">
+    <div class="gb-card-note">
+     <div class="gb-box-content">
+      <div class="gb-description row">
+       <p class="">
+        {{component.title}}
+       </p>
+      </div>
+      <div class="gb-subdescription row">
+       <p class="">
+        {{component.description}}
+       </p>
+      </div>
+     </div>
+     <div class="gb-box-footer row">
+      <md-button ng-click="open()" class="gb-color-primary">
+       VIEW
+      </md-button>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+</ul>

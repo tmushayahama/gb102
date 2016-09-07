@@ -3993,6 +3993,7 @@ ul {
 .drag-column-header .gb-actions .dropdown-menu a,
 .drag-column-header .gb-actions .dropdown-menu .gb-menu-item {
   height: 35px !important;
+  line-height: 35px !important;
   margin: 0;
   padding: 0;
 }
@@ -6789,6 +6790,7 @@ input.gb-form-show {
   background-color: #FFF;
   border-radius: 2px;
   transition: all 250ms;
+  white-space: normal;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .gb-card-3:hover, .gb-card-3:focus {

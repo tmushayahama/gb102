@@ -1,6 +1,6 @@
 
 <ul class="drag-list">
- <li class="drag-column drag-column-on-hold">
+ <li class="drag-column">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
@@ -17,8 +17,8 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                ng-click="">
+     <md-button data-ui-sref="apps.explorerItem.sections({explorerId: explorerCtrl.explorerId})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
       </div>
@@ -158,7 +158,7 @@
    </li>
   </ul>
  </li>
- <li class="drag-column drag-column-on-hold">
+ <li class="drag-column">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
@@ -245,7 +245,7 @@
    </li>
   </ul>
  </li>
- <li class="drag-column drag-column-on-hold">
+ <li class="drag-column">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
@@ -304,7 +304,7 @@
    </li>
   </ul>
  </li>
- <li class="drag-column drag-column-on-hold"
+ <li class="drag-column"
      ng-repeat="explorerComponentBucket in explorerCtrl.explorerComponentBuckets track by $index">
   <div class="drag-column-header">
    <div class="gb-title">
@@ -322,8 +322,8 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                ng-click="">
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: explorerComponentBucket.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
       </div>

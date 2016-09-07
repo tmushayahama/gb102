@@ -98,6 +98,8 @@ define(['angular'
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
                   'public/modules/explorer/directives/section/explorer-section-box.drv.js',
+                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
                   'public/modules/explorer/services/section/explorer-sections.srv.js',
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
@@ -194,6 +196,51 @@ define(['angular'
                   'public/modules/explorer/services/weblink/explorer-weblinks.srv.js',
                   'public/modules/explorer/controllers/weblink/explorer-weblinks.ctrl.js',
                   'public/modules/explorer/controllers/weblink/explorer-weblink-modal.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.explorerItem.components', {
+           url: '/explore/{componentId}',
+           views: {
+            "content": {
+             //controller: 'ExplorerTodosCtrl as explorerTodosCtrl',
+             templateUrl: 'public/modules/explorer/views/components/component/explorer-components.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explorer',
+                 serie: true,
+                 files: [
+                  //Component
+                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
+                  'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+          .state('apps.explorerItem.sections', {
+           url: '/sections',
+           views: {
+            "content": {
+             //controller: 'ExplorerTodosCtrl as explorerTodosCtrl',
+             templateUrl: 'public/modules/explorer/views/components/section/explorer-sections.html',
+             resolve: {
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explorer',
+                 serie: true,
+                 files: [
+                  //Section
+                  'public/modules/explorer/services/section/explorer-sections.srv.js',
+                  'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
+                  'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
+                  'public/modules/explorer/controllers/section/explorer-section-item-modal.ctrl.js',
                  ]
                 });
                }]

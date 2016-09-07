@@ -13,7 +13,8 @@ var explorerComponentsCtrl = function (
 
  var vm = this;
  vm.explorerId = $stateParams.explorerId;
- vm.explorerComponentBuckets = [];
+ vm.componentId = $stateParams.componentId;
+ vm.explorerComponents = [];
  vm.explorerComponentsCopy;
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.componentFormDisplay = false;
@@ -30,17 +31,11 @@ var explorerComponentsCtrl = function (
   vm.componentFormDisplay = true;
  };
 
- vm.getExplorerComponents = function (explorerId) {
-  vm.explorerComponentsSrv.getExplorerComponents(explorerId).then(function (response) {
-   vm.explorerComponentBuckets = response;
-   angular.forEach(response, function (step, key) {
-    vm.explorerComponentsSrv.getSubComponents(step.component.id).then(function (stepResponse) {
-     vm.explorerComponentBuckets[key].explorerComponents = stepResponse;
-     //angularGridInstance.components.refresh();
-    });
-   });
+ vm.getExplorerComponents = function (explorerId, componentId) {
+  vm.explorerComponentsSrv.getExplorerSubComponents(explorerId, componentId).then(function (response) {
+   vm.explorerComponents = response;
   });
- }
+ };
 
  vm.click = function () {
   angularGridInstance.components.refresh();
@@ -87,27 +82,6 @@ var explorerComponentsCtrl = function (
  };
 
 
- vm.editedComponent = null;
-
- $scope.$watch(angular.bind(this, function () {
-  return vm.explorerComponents;
- }), function () {
-  //vm.remainingCount = filterFilter(explorerComponents, {completed: false}).length;
-  vm.doneCount = vm.explorerComponents.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //ExplorerComponentService.put(vm.explorerComponents);
- }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
 
 
  vm.editComponent = function (explorerComponent) {
@@ -150,7 +124,7 @@ var explorerComponentsCtrl = function (
 
 
  //--------init------
- vm.getExplorerComponents(vm.explorerId);
+ vm.getExplorerComponents(vm.explorerId, vm.componentId);
 };
 
 
