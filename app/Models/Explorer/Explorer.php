@@ -105,16 +105,23 @@ class Explorer extends Model {
  }
 
  public static function getUserExplorersAll($userId) {
-  $explorers = Explorer::orderBy('updated_at', 'desc')
-          ->where('creator_id', $userId)
-          ->with('app_type')
-          ->with('creator')
-          ->with('icon')
-          ->with('level')
-          ->take(50)
-          ->get();
-  self::getExplorerExtras($explorers);
-  return $explorers;
+  /*
+    $explorers = Explorer::orderBy('updated_at', 'desc')
+    ->where('creator_id', $userId)
+    ->with('app_type')
+    ->with('creator')
+    ->with('icon')
+    ->with('level')
+    ->take(50)
+    ->get();
+    self::getExplorerExtras($explorers);
+   * *
+   */
+  $appTypesExplorers = AppType::getAppTypes();
+  foreach ($appTypesExplorers as $appTypesExplorer) {
+   $appTypesExplorer["explorers"] = self::getUserExplorersByAppId($userId, $appTypesExplorer->id);
+  }
+  return $appTypesExplorers;
  }
 
  public static function getUserExplorersAllStats($userId) {
@@ -160,6 +167,22 @@ class Explorer extends Model {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
    $explorers = Explorer::where('app_type_id', $appId->id)
+           ->where('creator_id', $userId)
+           ->orderBy('updated_at', 'desc')
+           ->with('app_type')
+           ->with('creator')
+           ->with('icon')
+           ->with('level')
+           ->take(50)
+           ->get();
+   self::getExplorerExtras($explorers);
+   return $explorers;
+  }
+ }
+
+ public static function getUserExplorersByAppId($userId, $appId) {
+  if ($appId) {
+   $explorers = Explorer::where('app_type_id', $appId)
            ->where('creator_id', $userId)
            ->orderBy('updated_at', 'desc')
            ->with('app_type')

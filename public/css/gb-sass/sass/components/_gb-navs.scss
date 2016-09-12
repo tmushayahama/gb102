@@ -231,8 +231,6 @@
   height: 100%;
   margin: 0;
 
-
-
   .gb-heading-icon {
    @include position(absolute, 0 null 0 0);
    //padding: 10px 0;
@@ -255,14 +253,14 @@
 
   .gb-title {
    @include position(absolute, 0 50px 0 40px);
-   padding: 0 0 0 10px;
+   padding: 3px 0 0 10px;
    font-size: 20px;
    text-transform: capitalize;
    font-weight: normal;
    color: #333;
    h1 {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 16px;
     a {
      color: #555;
      &:hover {
@@ -276,7 +274,7 @@
     }
    }
    p {
-    line-height:25px;
+    line-height:15px;
     font-size: 12px;
     a {
      color: #777;

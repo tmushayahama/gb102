@@ -1,4 +1,236 @@
-<div class="row">
+
+<ul class="drag-list">
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Overview & About
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.sections({explorerId: profileOverviewCtrl.explorerId})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <li class="drag-item" ng-repeat="userProfileSection in profileCtrl.userProfileSectionSrv.userProfileSections">
+    <div class="gb-card-3 gb-shadow-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       {{userProfileSection.profile_section.title}}
+      </h3>
+     </div>
+     <div class="gb-box-content">
+      <div class="gb-description row">
+       <div class="row">
+        {{userProfileSection.description}}
+       </div>
+      </div>
+     </div>
+    </div>
+   </li>
+   <li class="drag-item">
+    <div class="gb-card-3 gb-shadow-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Activity
+      </h3>
+     </div>
+     <div class="gb-box-content">
+
+      <div ng-if="true" class="gb-summary-bar row">
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <i class="gb-icon fa fa-list-ol"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::profileOverviewCtrl.explorerSrv.explorer.stats.subexplorers_count}}
+        </p>
+       </div>
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+        <i class="gb-icon fa icon-gb-apply"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::profileOverviewCtrl.explorerSrv.explorer.stats.applications_count}}
+        </p>
+       </div>
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <i class="gb-icon fa icon-users"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::profileOverviewCtrl.explorerSrv.explorer.stats.contributions_count}}
+        </p>
+       </div>
+      </div>
+      <div class="gb-description row">
+       <p class="gb-ellipsis">
+        <span ng-if="explorer.template_type_id === 100001">
+         Template For - </span>
+        {{explorer.app_type.name}} - {{::explorer.level.name}}
+       </p>
+      </div>
+     </div>
+    </div>
+   </li>
+   <li ng-repeat="explorerSection in profileOverviewCtrl.explorerSections track by $index"
+       class="drag-item">
+    <div gb-explorer-section-box explorer-section="explorerSection"
+         open-explorer-section="profileOverviewCtrl.openExplorerSection(explorerSection)"
+         open-explorer-section-item="profileOverviewCtrl.openExplorerSectionItem"
+         add-to-explorer-section="profileOverviewCtrl.addToExplorerSection"
+         class="">
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Contribution
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button ui-sref="apps.explorerItem.contribution" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <li class="drag-item" ng-repeat="explorerContribution in profileOverviewCtrl.explorerContributions">
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title row">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.first_explorer.id})">
+         {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
+        </a>
+       </h3>
+      </div>
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
+       </p>
+      </div>
+      <div class="gb-description row">
+      </div>
+     </div>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li class="drag-column"
+     ng-repeat="appTypesExplorer in profileCtrl.appTypesExplorers track by $index">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="gb-icon fa icon-gb-{{::appTypesExplorer.name.toLowerCase()}}"></i>
+     {{appTypesExplorer.name}}
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                ng-click="">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <li class="drag-item"
+       ng-repeat="explorer in appTypesExplorer.explorers track by $index">
+    <div gb-explorer-box explorer="explorer"
+         template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li class="drag-column">
+ <md-button class="gb-add-bucket-btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
+            ng-click="">
+  <div class="gb-icon">
+   <i class="fa fa-plus"></i>
+  </div>
+  <div class="gb-title">
+   <p class="gb-ellipsis">
+    ADD A NEW COLUMN
+   </p>
+  </div>
+ </md-button>
+</li>
+</ul>
+<!--
+<div class="" ng-include="'public/modules/explorer/views/components/objective/explorer-objectives.html'"></div>
+<div class="" ng-include="'public/modules/explorer/views/components/plan/explorer-plans.html'"></div>
+<div class="" ng-include="'public/modules/explorer/views/components/todo/explorer-todos.html'"></div>
+-->
+<script type="text/ng-template" id="explorer-section-modal.html">
+ <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
+</script>
+<script type="text/ng-template" id="explorer-section-item-modal.html">
+ <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
+</script>
+
+
+
+<div ng-if="false" class="row">
  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
   <div class="row">
    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-4 gb-padding-thin">
@@ -75,4 +307,3 @@
   </div>
  </div>
 </div>
-<div class="gb-dummy-height row"></div>

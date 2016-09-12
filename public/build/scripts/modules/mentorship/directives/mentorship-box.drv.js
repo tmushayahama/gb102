@@ -1,1 +1,0 @@
-angular.module("app.mentorship").directive("gbMentorshipBox",["$q",function($q){"use strict";return{restrict:"EA",replace:!0,templateUrl:"public/build/scripts/modules/mentorship/views/templates/mentorship-box.tpl.html",scope:{mentorship:"="},controller:["$scope",function($scope){}],link:function(scope,element,attr,ctrl){}}}]);

@@ -132,15 +132,34 @@ ul {
 	position: relative;
 	overflow: hidden;
 
-	@media (max-width: 690px) {
-	}
-
 	h2 {
 		font-size: 14px;
 		margin: 0;
 		text-transform: uppercase;
 		font-weight: 600;
 	}
+
+ .gb-add-bucket-btn {
+  height: 300px;
+  position: relative;
+  background-color: #F9F9F9;
+  border-radius: 2px;
+  transition:all 250ms;
+  @include shadow(2);
+  &:hover,&:focus {
+   @include shadow(4);
+   transform:translateY(-5px);
+  }
+  &:active {
+   @include shadow(2);
+   transform:translateY(-2px);
+  }
+  //border: rgba($primary-color, 0.4) dashed 1px;
+  .gb-icon {
+   font-size: 100px;
+   color: #AAA;
+  }
+ }
 }
 
 .drag-column-header {
