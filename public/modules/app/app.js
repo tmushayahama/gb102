@@ -184,7 +184,13 @@ define([
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                  ]
                 });
-               }]
+               }],
+              /*
+               leve_categories: function (ConstantsSrv) {
+               var constantsSrv = new ConstantsSrv();
+               return constantsSrv.getConstants();
+               }
+               */
              }
             }
            }});
@@ -222,47 +228,51 @@ define([
  appRun.$inject = ['$stateParams', '$animate', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
  app.run(appRun);
  app.constant('_', window._);
+
+
  app.constant('level_categories',
          {
-          request_type_offset: 1000,
-          skills: 1,
-          goals: 2,
-          hobbies: 3,
-          promises: 4,
-          mentorships: 5,
-          collaborations: 6,
-          teach: 7,
-          advices: 8,
-          groups: 9,
-          journals: 10,
-          request_type_skill: 1001,
-          request_type_goal: 1002,
-          todo_status: 50000,
-          todo_in_progress: 50000,
-          todo_later: 50001,
-          todo_done: 50002,
-          contribution_types: 60000,
-          explorer_relationship: {
-           parent: 200000,
-           application: 200001
+          "apps": 1,
+          "skills": 2,
+          "goals": 3,
+          "hobbies": 4,
+          "promises": 5,
+          "mentorships": 6,
+          "collaborations": 7,
+          "teach": 8,
+          "advices": 9,
+          "groups": 10,
+          "journals": 11,
+          "request_type_skill": 1001,
+          "request_type_goal": 1002,
+          "todo_level_normal": 50000,
+          "todo_level_progress": 50001,
+          "todo_status_in_progress": 50100,
+          "todo_status_later": 50101,
+          "todo_status_done": 50102,
+          "contribution_types": 4000,
+          "explorer_relationship": {
+           "parent": 6001,
+           "application": 6002
           },
-          list: {
-           handpicked: 1
+          "list": {
+           "handpicked": 1
           },
-          privacy_type: 500000,
-          privacy: {
-           public: 500000,
-           private: 500001,
-           customize: 500002
+          "share": {
+           "explorer": 300000,
+           "notes": 300001
           },
-          component_type: 600000,
-          component: {
-           note: 600000,
-           guideline: 600001,
-           activity: 600002,
-           weblink: 600003
+          "privacy": {
+           "private": 10001,
+           "public": 10002,
+           "customize": 10003
+          },
+          "component": {
+           "note": 11001,
+           "guideline": 11002,
+           "activity": 11003,
+           "weblink": 11004
           }
          });
-
  return app;
 });

@@ -17,21 +17,21 @@ class Level extends Model {
  protected $table = 'gb_level';
 
  public function level() {
-  return $this->belongsTo('App\Models\Level', 'level_id');
+  return $this->belongsTo('App\Models\Level', 'parent_level_id');
  }
 
  public static $level_categories = array(
-     'request_type_offset' => 1000,
-     'skills' => 1,
-     'goals' => 2,
-     'hobbies' => 3,
-     'promises' => 4,
-     'mentorships' => 5,
-     'collaborations' => 6,
-     'teach' => 7,
-     'advices' => 8,
-     'groups' => 9,
-     'journals' => 10,
+     'apps' => 1,
+     'skills' => 2,
+     'goals' => 3,
+     'hobbies' => 4,
+     'promises' => 5,
+     'mentorships' => 6,
+     'collaborations' => 7,
+     'teach' => 8,
+     'advices' => 9,
+     'groups' => 10,
+     'journals' => 11,
      'request_type_skill' => 1001,
      'request_type_goal' => 1002,
      'todo_level_normal' => 50000,
@@ -39,10 +39,10 @@ class Level extends Model {
      'todo_status_in_progress' => 50100,
      'todo_status_later' => 50101,
      'todo_status_done' => 50102,
-     'contribution_types' => 60000,
+     'contribution_types' => 4000,
      'explorer_relationship' => array(
-         'parent' => 200000,
-         'application' => 200001
+         'parent' => 6001,
+         'application' => 6002
      ),
      'list' => array(
          'handpicked' => 1
@@ -52,9 +52,9 @@ class Level extends Model {
          'notes' => 300001,
      ),
      'privacy' => array(
-         'private' => 500000,
-         'public' => 500001,
-         'customize' => 500002,
+         'private' => 10001,
+         'public' => 10002,
+         'customize' => 10003,
      )
  );
 
@@ -65,16 +65,19 @@ class Level extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
- public static function getLevel($category) {
+ public static function getLevels() {
   $levels = Level::orderBy('id', 'asc')
-          ->where('category', $category)
           ->get();
-  return $levels;
+  $levelsArray = array();
+  foreach ($levels as $level) {
+   $levelsArray[$level->title] = $level->id;
+  }
+  return $levelsArray;
  }
 
- public static function getLevelByCode($code) {
+ public static function getLevel($parentId) {
   $levels = Level::orderBy('id', 'asc')
-          ->where('code', $code)
+          ->where('parent_level_id', $parentId)
           ->get();
   return $levels;
  }

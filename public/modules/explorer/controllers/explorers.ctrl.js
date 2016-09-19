@@ -281,7 +281,7 @@ var explorersCtrl = function (
   vm.explorerLevels = data;
  });
 
- vm.constantsSrv.getAppTypes().then(function (data) {
+ vm.constantsSrv.getLevel(level_categories.apps).then(function (data) {
   vm.appTypes = data;
  });
 };

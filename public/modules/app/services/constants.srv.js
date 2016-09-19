@@ -23,21 +23,10 @@ angular.module('app').service('ConstantsSrv',
            return deferred.resolve(data);
           };
 
-          ConstantsSrv.prototype.getAppTypes = function () {
+          ConstantsSrv.prototype.getConstants = function () {
            var self = this;
            var deferred = $q.defer();
-           $http.get('/api/constants/apptypes').success(function (data) {
-            self.deferredHandler(data, deferred);
-           }).error(function (data) {
-            self.deferredHandler(data, deferred, 'Unknown error');
-           });
-           return deferred.promise;
-          };
-
-          ConstantsSrv.prototype.getIcons = function (type) {
-           var self = this;
-           var deferred = $q.defer();
-           $http.get('/api/constants/icons/' + type).success(function (data) {
+           $http.get('/api/constants/all').success(function (data) {
             self.deferredHandler(data, deferred);
            }).error(function (data) {
             self.deferredHandler(data, deferred, 'Unknown error');

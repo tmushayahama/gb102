@@ -15,24 +15,13 @@ use DB;
 
 class ConstantsController extends Controller {
 
- public function getAppTypes() {
-  $appType = AppType::getAppTypes();
-  return \Response::json($appType);
+ public function getConstants() {
+  return \Response::json(Level::$level_categories);
  }
 
  public function getLevel($category) {
   $level = Level::getLevel($category);
   return \Response::json($level);
- }
-
- public function getLevelByCode($code) {
-  $level = Level::getLevelByCode($code);
-  return \Response::json($level);
- }
-
- public function getIcons($type) {
-  $icons = Icon::getIcons($type);
-  return \Response::json($icons);
  }
 
 }

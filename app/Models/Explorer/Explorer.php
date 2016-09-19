@@ -7,7 +7,6 @@ use App\Models\User\User;
 use App\Models\Level\Level;
 use App\Models\Share\Share;
 //use App\Models\Explorer\ExplorerRelationship;
-use App\Models\AppType\AppType;
 use Request;
 use DB;
 use JWTAuth;
@@ -25,15 +24,11 @@ class Explorer extends Model {
  );
 
  public function app_type() {
-  return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
+  return $this->belongsTo('App\Models\Level\Level', 'app_type_id');
  }
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
- }
-
- public function icon() {
-  return $this->belongsTo('App\Models\Icon\Icon', 'icon_id');
  }
 
  public function level() {
@@ -48,7 +43,6 @@ class Explorer extends Model {
   return Explorer::orderBy('gb_explorer.updated_at', 'desc')
                   ->with('app_type')
                   ->with('creator')
-                  ->with('icon')
                   ->with('level');
  }
 
@@ -65,7 +59,6 @@ class Explorer extends Model {
   $explorers = Explorer::orderBy('updated_at', 'desc')
           ->with('app_type')
           ->with('creator')
-          ->with('icon')
           ->with('level')
           ->join('share', function ($j) use ($userId) {
            $j->on('source_id', '=', 'explorer.id')
@@ -83,7 +76,6 @@ class Explorer extends Model {
   $explorers = Explorer::orderBy('updated_at', 'desc')
           ->with('app_type')
           ->with('creator')
-          ->with('icon')
           ->with('level')
           ->take(50)
           ->get();
@@ -96,7 +88,6 @@ class Explorer extends Model {
           ->where('list_type', $mode)
           ->with('app_type')
           ->with('creator')
-          ->with('icon')
           ->with('level')
           ->take(4)
           ->get();
@@ -110,14 +101,13 @@ class Explorer extends Model {
     ->where('creator_id', $userId)
     ->with('app_type')
     ->with('creator')
-    ->with('icon')
     ->with('level')
     ->take(50)
     ->get();
     self::getExplorerExtras($explorers);
    * *
    */
-  $appTypesExplorers = AppType::getAppTypes();
+  $appTypesExplorers = Level::getLevel(Level::$level_categories->app);
   foreach ($appTypesExplorers as $appTypesExplorer) {
    $appTypesExplorer["explorers"] = self::getUserExplorersByAppId($userId, $appTypesExplorer->id);
   }
@@ -132,11 +122,11 @@ class Explorer extends Model {
 
  public static function getExplorers($appName, $limit) {
   $userId = User::getAuthenticatedUserId();
-  $appId = AppType::where('name', $appName)->first();
+  $appId = Level::$level_categories[$appName];
   $explorers = self::initExplorerQuery();
 
   if ($appId) {
-   $explorers = $explorers->where('app_type_id', $appId->id);
+   $explorers = $explorers->where('app_type_id', $appId);
 
    if ($userId) {
 
@@ -164,14 +154,13 @@ class Explorer extends Model {
  }
 
  public static function getUserExplorers($userId, $appName) {
-  $appId = AppType::where('name', $appName)->first();
+  $appId = Level::$level_categories[$appName];
   if ($appId) {
    $explorers = Explorer::where('app_type_id', $appId->id)
            ->where('creator_id', $userId)
            ->orderBy('updated_at', 'desc')
            ->with('app_type')
            ->with('creator')
-           ->with('icon')
            ->with('level')
            ->take(50)
            ->get();
@@ -187,7 +176,6 @@ class Explorer extends Model {
            ->orderBy('updated_at', 'desc')
            ->with('app_type')
            ->with('creator')
-           ->with('icon')
            ->with('level')
            ->take(50)
            ->get();
@@ -202,7 +190,6 @@ class Explorer extends Model {
   $explorers = Explorer::orderBy('id', 'desc')
           ->where('updated_at', $userId)
           ->with('app_type')
-          ->with('icon')
           ->with('creator')
           ->with('level')
           ->take(50)
@@ -213,7 +200,6 @@ class Explorer extends Model {
  public static function getExplorer($id) {
   $explorer = Explorer::with('creator')
           ->with('app_type')
-          ->with('icon')
           ->with('level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();

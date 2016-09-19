@@ -576,9 +576,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('profile/weblink/create', 'Profile\ProfileController@createProfileWeblink');
  Route::post('profile/weblink/edit', 'Profile\ProfileController@editProfileWeblink');
 
- Route::get('constants/apptypes', 'ConstantsController@getAppTypes');
- Route::get('constants/level/{code}', 'ConstantsController@getLevel');
- Route::get('constants/icons/{type}', 'ConstantsController@getIcons');
+ Route::get('constants/all', 'ConstantsController@getConstants');
+ Route::get('constants/level/{parent}', 'ConstantsController@getLevel');
 
  //Activity
  Route::get('activity/{activityId}/activities', 'Activity\ActivityController@getSubActivities');
