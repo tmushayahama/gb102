@@ -12,7 +12,7 @@
    <p class="gb-ellipsis">
     <span ng-if="explorer.template_type_id === 100001">
      Template For - </span>
-    {{explorer.app_type.name}} - {{::explorer.level.name}}
+    {{explorer.app_type.title}} - {{::explorer.level.title}}
    </p>
   </div>
  </div>
@@ -30,10 +30,10 @@
          class="gb-heading-pic" alt="">
    </div>
   </div>
-  <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="gb-color-primary">
+  <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="gb-color-primary">
    EXPLORE
   </md-button>
-  <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="pull-right gb-color-primary">
+  <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="pull-right gb-color-primary">
    <i class="fa fa-star-o"></i>
   </md-button>
  </div>

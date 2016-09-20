@@ -2,7 +2,7 @@
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.second_explorer.id})">
+    <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.second_explorer.id})">
      <strong>
       {{::explorer.second_explorer.title}}
      </strong>
@@ -16,7 +16,7 @@
    <p class="gb-ellipsis">
     <span ng-if="explorer.second_explorer.template_type_id === 100001">
      Template For - </span>
-    {{explorer.second_explorer.app_type.name}} - {{::explorer.second_explorer.level.name}}
+    {{explorer.second_explorer.app_type.title}} - {{::explorer.second_explorer.level.title}}
    </p>
   </div>
   <div class="gb-description row">

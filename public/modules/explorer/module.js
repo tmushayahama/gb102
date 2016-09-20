@@ -112,6 +112,58 @@ define(['angular'
              }
             }
            }})
+          .state('apps.explorerItem.explore', {
+           url: '/explore',
+           views: {
+            "content": {
+             controller: 'ExplorerExploreCtrl as explorerExploreCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorer/explorer-explore.html',
+             resolve: {
+              todoLevelId: function (level_categories) {
+               return  level_categories.todo_level_progress;
+              },
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explorer',
+                 serie: true,
+                 files: [
+                  'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
+                  'public/modules/explorer/directives/sub-explorer/application-explorer-box.drv.js',
+                  'public/modules/explorer/controllers/explorer-explore.ctrl.js',
+                  //Section
+                  'public/modules/explorer/services/section/explorer-sections.srv.js',
+                  //'public/modules/explorer/controllers/section/explorer-sections.ctrl.js',
+                  'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
+                  'public/modules/explorer/controllers/section/explorer-section-item-modal.ctrl.js',
+                  //Component
+                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
+                  'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
+                  //Contributions
+                  'public/modules/explorer/services/contribution/explorer-contribution.srv.js',
+                  'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contributions.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/explorer-contribution.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/create-explorer-contribution-modal.ctrl.js',
+                  //Objectives,
+                  'public/modules/explorer/services/objective/explorer-objectives.srv.js',
+                  'public/modules/explorer/controllers/objective/explorer-objectives.ctrl.js',
+                  'public/modules/explorer/controllers/objective/explorer-objective-modal.ctrl.js',
+                  //Plans
+                  'public/modules/explorer/services/plan/explorer-plans.srv.js',
+                  'public/modules/explorer/controllers/plan/explorer-plans.ctrl.js',
+                  'public/modules/explorer/controllers/plan/explorer-plan-modal.ctrl.js',
+                  //Progress
+                  'public/modules/explorer/services/todo/explorer-todos.srv.js',
+                  'public/modules/explorer/services/todo/explorer-todo-checklist.srv.js',
+                  'public/modules/explorer/controllers/sub-explorer/sub-explorers.ctrl.js',
+                  'public/modules/explorer/controllers/todo/explorer-todos.ctrl.js',
+                  'public/modules/explorer/controllers/todo/explorer-todo-modal.ctrl.js', ]
+                });
+               }]
+             }
+            }
+           }})
           .state('apps.explorerItem.overview', {
            url: '/overview',
            views: {
@@ -164,44 +216,6 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem.explore', {
-           url: '/explore',
-           views: {
-            "content": {
-             //controller: 'ExplorerTodosCtrl as explorerTodosCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorer/explorer-explore.html',
-             resolve: {
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.explorer',
-                 serie: true,
-                 files: [
-                  //Component
-                  'public/modules/explorer/services/component/explorer-components.srv.js',
-                  'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
-                  'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
-                  //Activity
-                  'public/modules/explorer/services/activity/explorer-activities.srv.js',
-                  'public/modules/explorer/controllers/activity/explorer-activities.ctrl.js',
-                  'public/modules/explorer/controllers/activity/explorer-activity-modal.ctrl.js',
-                  //Guideline
-                  'public/modules/explorer/services/guideline/explorer-guidelines.srv.js',
-                  'public/modules/explorer/controllers/guideline/explorer-guidelines.ctrl.js',
-                  'public/modules/explorer/controllers/guideline/explorer-guideline-modal.ctrl.js',
-                  //Notes,
-                  'public/modules/explorer/services/note/explorer-notes.srv.js',
-                  'public/modules/explorer/controllers/note/explorer-notes.ctrl.js',
-                  'public/modules/explorer/controllers/note/explorer-note-modal.ctrl.js',
-                  //Weblink
-                  'public/modules/explorer/services/weblink/explorer-weblinks.srv.js',
-                  'public/modules/explorer/controllers/weblink/explorer-weblinks.ctrl.js',
-                  'public/modules/explorer/controllers/weblink/explorer-weblink-modal.ctrl.js',
-                 ]
-                });
-               }]
-             }
-            }
-           }})
           .state('apps.explorerItem.components', {
            url: '/explore/{componentId}',
            views: {
@@ -224,12 +238,12 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem.sections', {
-           url: '/sections',
+          .state('apps.explorerItem.background', {
+           url: '/background',
            views: {
             "content": {
              //controller: 'ExplorerTodosCtrl as explorerTodosCtrl',
-             templateUrl: 'public/modules/explorer/views/components/section/explorer-sections.html',
+             templateUrl: 'public/modules/explorer/views/tabs/explorer/explorer-background.html',
              resolve: {
               load: ['$ocLazyLoad', function ($ocLazyLoad) {
                 return $ocLazyLoad.load({

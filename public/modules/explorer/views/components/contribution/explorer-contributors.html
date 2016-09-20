@@ -58,14 +58,14 @@
          <div class="gb-box-content">
           <div class="gb-title row">
            <h3 class="gb-ellipsis">
-            <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.first_explorer.id})">
+            <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.first_explorer.id})">
              {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
             </a>
            </h3>
           </div>
           <div class="gb-subdescription row">
            <p class="gb-ellipsis">
-            {{explorerContribution.contribution.level.name}} - {{explorerContribution.contribution.status.name}}
+            {{explorerContribution.contribution.level.title}} - {{explorerContribution.contribution.status.name}}
            </p>
           </div>
           <div class="gb-description row">

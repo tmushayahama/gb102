@@ -1,7 +1,7 @@
 
 <div class="gb-card-1 row" ng-click="">
  <div class="gb-icon-image">
-  <i class="fa gb-icon icon-gb-{{explorer.app_type.name.toLowerCase()}}"></i>
+  <i class="fa gb-icon icon-gb-{{explorer.app_type.title.toLowerCase()}}"></i>
  </div>
  <div class="gb-box-body gb-shadow-1">
   <div class="gb-image">
@@ -15,7 +15,7 @@
      <p class="gb-ellipsis">
       <span ng-if="explorer.template_type_id === 100001">
        Template For - </span>
-      {{explorer.app_type.name}} - {{::explorer.level.name}}
+      {{explorer.app_type.title}} - {{::explorer.level.title}}
      </p>
     </div>
     <div class="gb-action">
@@ -33,7 +33,7 @@
         <i class="fa fa-send-o"></i>
        </md-button>
        <md-button class="md-fab md-raised md-mini"
-                  data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})"
+                  data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})"
                   aria-label="Open Explorer">
         <i class="fa fa-arrows-alt"></i>
        </md-button>
@@ -43,7 +43,7 @@
    </div>
    <div class="gb-body">
     <div class="gb-description row">
-     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+     <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="">
       {{::explorer.title}}
      </a>
      {{::explorer.description}}

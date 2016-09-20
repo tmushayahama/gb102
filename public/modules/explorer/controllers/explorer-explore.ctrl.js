@@ -1,4 +1,4 @@
-var explorerOverviewCtrl = function (
+var explorerExploreCtrl = function (
         ExplorerSrv,
         angularGridInstance,
         $state,
@@ -7,11 +7,9 @@ var explorerOverviewCtrl = function (
         $rootScope) {
  var vm = this;
 
-
-
 };
 
-explorerOverviewCtrl.$inject = [
+explorerExploreCtrl.$inject = [
  'ExplorerSrv',
  'angularGridInstance',
  '$state',
@@ -19,4 +17,4 @@ explorerOverviewCtrl.$inject = [
  '$http',
  '$rootScope'];
 
-angular.module("app.explorer").controller('ExplorerOverviewCtrl', explorerOverviewCtrl);
+angular.module("app.explorer").controller('ExplorerExploreCtrl', explorerExploreCtrl);

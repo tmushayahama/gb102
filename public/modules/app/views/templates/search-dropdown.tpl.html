@@ -15,14 +15,14 @@
     </div>
     <div class="gb-box-content">
      <div class="gb-description row">
-      <a data-ui-sref="apps.explorerItem.overview({explorerId: match.model.id})" class="gb-ellipsis">
+      <a data-ui-sref="apps.explorerItem.explore({explorerId: match.model.id})" class="gb-ellipsis">
        {{::match.model.title}} - {{::match.model.description}}
       </a>
      </div>
      <div class="gb-heading row">
       <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
        <p class="gb-ellipsis">
-        {{match.model.app_type.name}} - {{::match.model.level.name}}
+        {{match.model.app_type.title}} - {{::match.model.level.title}}
        </p>
       </div>
      </div>

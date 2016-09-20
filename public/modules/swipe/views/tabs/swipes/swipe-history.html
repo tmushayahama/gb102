@@ -11,14 +11,14 @@
   </div>
   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="gb-heading row">
-    <p class="gb-title">{{swipe.explorer.app_type.name + " - " + swipe.explorer.level.name}}</p>
+    <p class="gb-title">{{swipe.explorer.app_type.title + " - " + swipe.explorer.level.title}}</p>
     <div class="gb-dropdown-action">
      <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa fa-chevron-down"></i>
      </a>
      <ul class="dropdown-menu dropdown-menu-right">
       <li>
-       <a href ui-sref="apps.explorerItem.overview({explorerId: explorer.id})">
+       <a href ui-sref="apps.explorerItem.explore({explorerId: explorer.id})">
         Open
        </a>
       </li>
@@ -26,7 +26,7 @@
     </div>
    </div>
    <div class="gb-description row">
-    <a href ui-sref="apps.explorerItem.overview({explorerId: swipe.explorer.id})" class="">
+    <a href ui-sref="apps.explorerItem.explore({explorerId: swipe.explorer.id})" class="">
      {{swipe.explorer.title}}
     </a>
     {{swipe.explorer.description}}

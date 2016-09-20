@@ -8,7 +8,7 @@
   <div class="gb-box-content">
    <div class="gb-description row">
     <p class="gb-ellipsis">
-     <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.first_explorer_id})" class="">
+     <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.first_explorer_id})" class="">
       {{::explorer.first_explorer.title}}
      </a>
      <span>
@@ -19,7 +19,7 @@
    <div class="gb-heading row">
     <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
      <p class="gb-ellipsis">
-      {{explorer.first_explorer.app_type.name}} - {{::explorer.first_explorer.level.name}}
+      {{explorer.first_explorer.app_type.title}} - {{::explorer.first_explorer.level.title}}
      </p>
     </div>
    </div>

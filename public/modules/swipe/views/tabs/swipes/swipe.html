@@ -5,7 +5,7 @@
        hm-swipe-left="swipeCtrl.swipeLeft($event, swipeCtrl.currentExplorer.id)"
        hm-swipe-right="swipeCtrl.swipeRight($event, swipeCtrl.currentExplorer.id)">
    <div class="gb-icon-image">
-    <i class="fa gb-icon icon-gb-{{swipeCtrl.currentExplorer.app_type.name.toLowerCase()}}"></i>
+    <i class="fa gb-icon icon-gb-{{swipeCtrl.currentExplorer.app_type.title.toLowerCase()}}"></i>
    </div>
    <div class="gb-box-body gb-shadow-1">
     <div class="gb-image">
@@ -17,7 +17,7 @@
     <div class="gb-box-content">
      <div class="gb-heading row">
       <p class="gb-title">
-       {{swipeCtrl.currentExplorer.app_type.name + ' - ' + swipeCtrl.currentExplorer.level.name}}
+       {{swipeCtrl.currentExplorer.app_type.title + ' - ' + swipeCtrl.currentExplorer.level.title}}
       </p>
      </div>
      <div class="gb-description row">

@@ -20,47 +20,39 @@ var explorerCtrl = function (
 
  var vm = this;
 
- /*
-  $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
-  }, $scope);
-  */
- vm.explorer = [];
- var explorerData = {};
- vm.explorerId = $stateParams.explorerId;
- vm.subExplorerLimitTo = 5;
+ //Explorer General
  vm.explorerSrv = new ExplorerSrv();
  vm.constantsSrv = new ConstantsSrv();
+ vm.explorer = [];
+ vm.explorerId = $stateParams.explorerId;
+ vm.subExplorerLimitTo = 5;
  vm.explorerFormDisplay = false;
 
+//Explorer Section
  vm.explorerSections = [];
  vm.explorerSectionsCopy;
  vm.explorerSectionsSrv = new ExplorerSectionsSrv();
  vm.sectionFormDisplay = false;
-
  vm.defaultExplorerSectionData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
- }
+ };
  vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData);
 
-
+//Explorer Component
  vm.explorerComponentBuckets = [];
  vm.explorerComponentsCopy;
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.componentFormDisplay = false;
-
-
-
  vm.defaultExplorerComponentData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
- }
+ };
  vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
 
+//Explorer Contribution
  vm.explorerContributions;
  vm.explorerContributionTypes;
-
  vm.explorerContributionsCopy;
  vm.constantsSrv = new ConstantsSrv();
  vm.explorerContributionsSrv = new ExplorerContributionsSrv();
@@ -68,7 +60,7 @@ var explorerCtrl = function (
  vm.defaultExplorerContributionData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
- }
+ };
  vm.newExplorerContributionData = angular.copy(vm.defaultExplorerContributionData);
  vm.showContributionForm = function () {
   vm.contributionFormDisplay = true;
@@ -98,24 +90,17 @@ var explorerCtrl = function (
  };
 
 
-
-
-
  vm.getExplorer = function (id) {
   vm.explorerSrv.getExplorer(id).then(function (response) {
-   //vm.explorer = response;
   });
  };
 
  vm.defaultExplorerData = {
   explorerId: $stateParams.explorerId,
   privacy: 0
- }
+ };
  vm.newExplorerData = angular.copy(vm.defaultExplorerData);
 
- vm.showForm = function () {
-  vm.FormDisplay = true;
- };
 
  vm.createExplorer = function (data) {
   vm.explorerSrv.createExplorer(data).then(function (response) {
@@ -298,12 +283,7 @@ var explorerCtrl = function (
  //--------init------
  vm.getExplorerSections(vm.explorerId);
 
- //--------init------
- vm.explorerSrv.getExplorer(vm.explorerId).then(function (data) {
-  $css.bind({
-   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.name.toLowerCase() + '.css'
-  }, $scope);
- });
+
 
  vm.explorerSrv.getSubExplorers(vm.explorerId, level_categories.explorer_relationship.application);
 
@@ -546,6 +526,12 @@ var explorerCtrl = function (
   });
  };
  //--------init------
+ vm.explorerSrv.getExplorer(vm.explorerId).then(function (data) {
+  $css.bind({
+   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.title + '.css'
+  }, $scope);
+ });
+
  vm.constantsSrv.getLevel(level_categories.contribution_types).then(function (data) {
   vm.explorerContributionTypes = data;
  });

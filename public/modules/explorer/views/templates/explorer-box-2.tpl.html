@@ -1,7 +1,7 @@
 
 <div class="gb-card-32">
  <div class="gb-icon-image">
-  <i class="fa gb-icon icon-gb-{{explorer.app_type.name.toLowerCase()}}"></i>
+  <i class="fa gb-icon icon-gb-{{explorer.app_type.title.toLowerCase()}}"></i>
  </div>
  <div class="gb-box-body gb-shadow-1">
   <div class="gb-image">
@@ -13,7 +13,7 @@
    <div class="gb-heading row">
     <div class="gb-title col-lg-9 col-md-9 col-sm-8 col-xs-8">
      <p class="gb-ellipsis">
-      {{explorer.app_type.name}} - {{::explorer.level.name}}
+      {{explorer.app_type.title}} - {{::explorer.level.title}}
      </p>
     </div>
     <div class="gb-action">
@@ -31,7 +31,7 @@
         <i class="fa fa-send-o"></i>
        </md-button>
        <md-button class="md-fab md-raised md-mini"
-                  data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})"
+                  data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})"
                   aria-label="Open Explorer">
         <i class="fa fa-arrows-alt"></i>
        </md-button>
@@ -40,7 +40,7 @@
     </div>
    </div>
    <div class="gb-description row">
-    <a data-ui-sref="apps.explorerItem.overview({explorerId: explorer.id})" class="">
+    <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="">
      {{::explorer.title}}
     </a>
     {{::explorer.description}}
