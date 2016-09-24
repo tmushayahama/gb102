@@ -1,6 +1,6 @@
 id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	description	created_date	updated_date	level_id	privacy	order	status	list_type	rand																										
 12000	2	7002	2	communication.jpg	Communication Skills	Mastering communication skills	14-09-20 08:51:01	16-04-03 16:00:03	2	10001	1	0	1	0.409188026																										
-100011001	2	7001	2	apartment-1.jpg	Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	14-12-07 03:43:00	16-04-03 15:15:00	2	10001	1	0		0.319441808																										
+100011001	2	7001	2	apartment-1.jpg	Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	14-12-07 03:43:00	16-04-03 15:15:00	2	10001	1	0	1	0.319441808																										
 105010004	6	7001	18	spanish.jpg	Learning Spanish		14-02-17 21:13:14	16-04-02 18:42:40	13	10001	1	0		0.479224207																										
 108000201	9	7001	4	800201.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	14-04-06 21:04:00	16-04-01 02:38:00	1	10001	1	0	1	0.883046358																										
 100010001	2	7001	2	spanish.jpg	Learn Spanish		14-02-17 21:13:19	16-04-01 02:37:00	3	10001	1	0	1	0.479224207																										
@@ -72,7 +72,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 13000	2	7002	1	default.png	business		14-11-22 19:28:00	16-02-02 22:38:00	1	10002	1	0		0.011676828																										
 100013000	2	7001	1	default.png	business		14-11-22 19:28:00	16-02-02 22:38:00		10002	1	0		0.011676828																										
 105010002	6	7001	14	spanish.jpg	Learning Spanish		14-02-17 21:13:13	16-02-02 18:42:38	13	10001	1	0		0.479224207																										
-2065	2	7002	1	2081.png	Drawing	I used to like drawing with pencil and paper but somehow stopped.	14-11-23 15:29:00	16-02-01 02:45:00	2	10002	1	0		0.272543318																										
+2065	2	7002	1	2081.png	Drawing	I used to like drawing with pencil and paper but somehow stopped.	14-11-23 15:29:00	16-02-01 02:45:00	2	10002	1	0	1	0.272543318																										
 105000004	6	7001	14	500004.png	Sushi Making	Beginners guide to making sushi from scratch	14-09-26 10:33:00	16-01-30 18:33:00	14	10001	1	0		0.807788336																										
 5000004	6	7002	1	500004.png	Sushi Making	Beginners guide to making sushi from scratch	14-09-26 10:33:00	16-01-30 18:33:00	14	10002	1	0		0.807788336																										
 100002074	2	7001	3	swimming.jpg	Swimming	I can\'t imagine that I don\'t know how to swim. I am in California. Need help to start	14-06-01 00:45:00	16-01-29 02:56:00	3	10001	1	0		0.68882798																										
@@ -232,7 +232,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 3000411	4	7002	1	default.png	Hunting deer		14-10-01 16:35:00	15-12-26 07:11:00		10002	1	0		0.387411677																										
 2002927	3	7002	1	chess.jpg	Relax in a Sensory Deprivation Tank		14-12-08 19:58:00	15-12-26 06:20:00		10002	1	0		0.77617664																										
 2001481	3	7002	1	chess.jpg	Drink a Glass of Red Wine in Chile		14-07-08 01:09:00	15-12-26 05:10:00		10002	1	0		0.181387497																										
-2000870	3	7002	1	default.png	Create My Own Drink		14-07-09 06:28:00	15-12-26 00:45:00		10002	1	0		0.471276924																										
+2000870	3	7002	1	default.png	Create My Own Drink		14-07-09 06:28:00	15-12-26 00:45:00		10002	1	0	1	0.471276924																										
 2002851	3	7002	1	chess-2.jpg	Go Volcano Boarding		14-10-20 11:53:00	15-12-25 22:28:00		10002	1	0		0.333633685																										
 2001228	3	7002	1	default.png	Have a Completely Natural Labor and Childbirth		14-09-21 09:46:00	15-12-25 21:44:00		10002	1	0		0.622283292																										
 8000067	9	7002	1	default.png	Show up.		14-02-17 07:40:00	15-12-25 20:12:00		10002	1	0		0.243875111																										
@@ -269,7 +269,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 2002097	3	7002	1	chess-1.jpg	Attend a Harlem Globetrotters Game		14-11-15 00:03:00	15-12-23 23:16:00		10002	1	0		0.296946462																										
 175	2	7002	1	default.png	resourceful		14-02-19 08:03:00	15-12-23 21:39:00		10002	1	0		0.458010152																										
 2000879	3	7002	1	default.png	Ask Someone You Have Only Just Met Out on a Date		14-11-22 15:28:00	15-12-23 19:44:00		10002	1	0		0.398681097																										
-3000170	4	7002	1	chess-1.jpg	Salsa dancing		14-04-15 07:59:00	15-12-23 17:41:00		10002	1	0		0.423608635																										
+3000170	4	7002	1	chess-1.jpg	Salsa dancing		14-04-15 07:59:00	15-12-23 17:41:00		10002	1	0	1	0.423608635																										
 1254	2	7002	1	default.png	wise		14-12-27 09:50:00	15-12-23 16:36:00		10002	1	0		0.269838477																										
 1199	2	7002	1	default.png	home maintenance		14-04-12 05:21:00	15-12-23 14:14:00		10002	1	0		0.351743624																										
 3000344	4	7002	1	default.png	Vintage car		14-12-13 16:39:00	15-12-23 12:44:00		10002	1	0		0.877864649																										
@@ -308,7 +308,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 3000942	4	7002	1	default.png	Making dioramas		14-01-04 15:36:00	15-12-21 18:21:00		10002	1	0		0.297980104																										
 2001108	3	7002	1	default.png	Become Fluent in Italian		14-10-15 20:10:00	15-12-21 17:47:00		10002	1	0		0.477400502																										
 3000571	4	7002	1	default.png	Oil painting		14-04-08 19:13:00	15-12-21 17:15:00		10002	1	0		0.522734573																										
-2000127	3	7002	1	default.png	Date My Wife Weekly for the Rest of Our Lives		14-05-21 12:58:00	15-12-21 14:59:00		10002	1	0		0.302752611																										
+2000127	3	7002	1	default.png	Date My Wife Weekly for the Rest of Our Lives		14-05-21 12:58:00	15-12-21 14:59:00		10002	1	0	1	0.302752611																										
 1159	2	7002	1	default.png	base jumping		14-10-15 06:36:00	15-12-21 08:53:00		10002	1	0		0.595822166																										
 3000378	4	7002	1	default.png	Surf fishing		14-09-05 16:17:00	15-12-21 07:13:00		10002	1	0		0.818899952																										
 121	2	7002	1	default.png	physicist		14-11-11 04:54:00	15-12-20 23:36:00		10002	1	0		0.161763919																										
@@ -380,7 +380,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 2000667	3	7002	1	default.png	"Earn 1,000,000 Travel Miles"		14-09-12 17:00:00	15-12-17 02:35:00		10002	1	0		0.859960448																										
 2001398	3	7002	1	default.png	Collect Autographs From All My Favorite People		14-04-06 08:42:00	15-12-17 02:06:00		10002	1	0		0.407908533																										
 3000032	4	7002	1	chess-1.jpg	Swimming		14-12-06 00:44:00	15-12-17 00:46:00		10002	1	0		0.869075531																										
-3001047	4	7002	1	default.png	Learn how to program		14-04-29 14:53:00	15-12-17 00:05:00		10002	1	0		0.651769287																										
+3001047	4	7002	1	default.png	Learn how to program		14-04-29 14:53:00	15-12-17 00:05:00		10002	1	0	1	0.651769287																										
 2002600	3	7002	1	chess.jpg	Parenting Goals		14-08-26 21:28:00	15-12-16 23:34:00		10002	1	0		0.296617154																										
 2000819	3	7002	1	default.png	Drink Moonshine		14-07-20 13:12:00	15-12-16 23:09:00		10002	1	0		0.551898534																										
 2001666	3	7002	1	chess-2.jpg	Actually Read the Required Texts		14-03-03 22:34:00	15-12-16 23:06:00		10002	1	0		0.230521797																										
@@ -6698,7 +6698,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 2001031	3	7002	1	default.png	Go camping for a month with friends		14-07-18 07:31:00	15-01-02 23:21:00		10002	1	0		0.281758889																										
 728	2	7002	1	default.png	coin collecting		14-05-11 04:40:00	15-01-02 20:59:00		10002	1	0		0.284712571																										
 2002668	3	7002	1	chess-2.jpg	Family and Friend Goals		14-08-12 04:34:00	15-01-02 20:20:00		10002	1	0		0.526257011																										
-8000153	9	7002	1	default.png	Do what you say you will do.		14-09-25 19:00:00	15-01-02 20:12:00		10002	1	0		0.243875111																										
+8000153	9	7002	1	default.png	Do what you say you will do		14-09-25 19:00:00	15-01-02 20:12:00		10002	1	0	1	0.243875111																										
 2000869	3	7002	1	default.png	Ride on a Train		14-10-03 20:03:00	15-01-02 19:32:00		10002	1	0		0.917614443																										
 3000063	4	7002	1	chess-2.jpg	Pyrotechnics		14-10-03 10:48:00	15-01-02 18:31:00		10002	1	0		0.264104247																										
 2000252	3	7002	1	default.png	Wake up by 6am everyday for the rest of my life		14-06-07 10:37:00	15-01-02 17:53:00		10002	1	0		0.091986934																										
@@ -6712,7 +6712,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 2001005	3	7002	1	default.png	Read Ten Books on Marketing and Try to Apply the Lessons to My Persuasive Writing		14-09-07 00:59:00	15-01-02 11:01:00		10002	1	0		0.947203235																										
 1144	2	7002	1	default.png	book collecting		14-04-08 11:47:00	15-01-02 09:58:00		10002	1	0		0.40765666																										
 1746	2	7002	1	default.png	pastrycook		14-08-04 12:52:00	15-01-02 09:18:00		10002	1	0		0.060009372																										
-1097	2	7002	1	default.png	generous		14-04-03 19:21:00	15-01-02 08:46:00		10002	1	0		0.41040387																										
+1097	2	7002	1	default.png	Generous		14-04-03 19:21:00	15-01-02 08:46:00		10002	1	0	1	0.41040387																										
 2001866	3	7002	1	chess-1.jpg	Climb a Rock Wall		14-01-08 11:49:00	15-01-02 08:25:00		10002	1	0		0.538246782																										
 3000767	4	7002	1	default.png	Hiking		14-03-30 17:31:00	15-01-02 05:55:00		10002	1	0		0.664932152																										
 2002996	3	7002	1	chess.jpg	Climb to the Top of Sigiriya Rock in Sri Lanka		14-09-20 13:38:00	15-01-02 05:51:00		10002	1	0		0.595842826																										
@@ -6721,7 +6721,7 @@ id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	descriptio
 3000115	4	7002	1	chess.jpg	Hot rods		14-06-20 12:48:00	15-01-02 01:38:00		10002	1	0		0.443702052																										
 2002347	3	7002	1	chess-2.jpg	Sleep Under the Stars on the Beach		14-01-16 12:19:00	15-01-02 00:32:00		10002	1	0		0.384812801																										
 1687	2	7002	1	default.png	auctioneer		14-11-08 07:26:00	15-01-01 23:54:00		10002	1	0		0.905953108																										
-967	2	7002	1	default.png	trainspotting		14-05-23 20:01:00	15-01-01 23:14:00		10002	1	0		0.485808325																										
+967	2	7002	1	default.png	Train Spotting		14-05-23 20:01:00	15-01-01 23:14:00		10002	1	0		0.485808325																										
 3000290	4	7002	1	default.png	Rock sports		14-08-23 21:27:00	15-01-01 23:13:00		10002	1	0		0.392538817																										
 100015101	2	7001	1	default.png	Facilitation		14-02-17 21:13:20	15-01-01 23:07:00	3	10002	1	0		0.479224207																										
 2002249	3	7002	1	chess.jpg	Vegetarian - No meat or chicken		14-05-07 00:07:00	15-01-01 21:21:00		10002	1	0		0.497813682																										

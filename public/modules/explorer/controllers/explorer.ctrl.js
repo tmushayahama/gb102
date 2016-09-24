@@ -27,6 +27,9 @@ var explorerCtrl = function (
  vm.explorerId = $stateParams.explorerId;
  vm.subExplorerLimitTo = 5;
  vm.explorerFormDisplay = false;
+ vm.newColumnData = {
+  title: ""
+ };
 
 //Explorer Section
  vm.explorerSections = [];
@@ -45,7 +48,10 @@ var explorerCtrl = function (
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.componentFormDisplay = false;
  vm.defaultExplorerComponentData = {
-  explorerId: $stateParams.explorerId,
+  explorerId: vm.explorerId,
+  typeId: level_categories.component.none,
+  title: "",
+  description: "",
   privacy: 0
  };
  vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
@@ -152,10 +158,6 @@ var explorerCtrl = function (
  };
 
 
- vm.showSectionForm = function () {
-  vm.sectionFormDisplay = true;
- };
-
  vm.getExplorerSections = function (explorerId) {
   vm.explorerSectionsSrv.getExplorerSections(explorerId).then(function (response) {
    vm.explorerSections = response;
@@ -206,7 +208,7 @@ var explorerCtrl = function (
    };
    vm.editExplorerSection(explorerSectionData);
   }
- }
+ };
 
  vm.cancelExplorerSection = function (form) {
   vm.sectionFormDisplay = false;
@@ -296,9 +298,7 @@ var explorerCtrl = function (
 
  //Components
 
- vm.showComponentForm = function () {
-  vm.componentFormDisplay = true;
- };
+
 
  vm.getExplorerComponents = function (explorerId) {
   vm.explorerComponentsSrv.getExplorerComponents(explorerId).then(function (response) {
@@ -315,15 +315,15 @@ var explorerCtrl = function (
  };
 
 
- vm.createExplorerComponent = function (data) {
-  vm.explorerComponentsSrv.createExplorerComponent(data).then(function (response) {
-   vm.componentFormDisplay = false;
+ vm.createExplorerComponent = function () {
+  vm.explorerComponentsSrv.createExplorerComponent(vm.newExplorerComponentData).then(function (response) {
    vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
-   vm.explorerComponents.unshift(response);
+   vm.explorerComponentBuckets.push(response);
   }, function (response) {
    console.log(response);
   });
  };
+
 
  vm.editExplorerComponent = function (data) {
   vm.explorerComponentsSrv.editExplorerComponent(data).then(function (response) {

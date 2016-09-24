@@ -24,6 +24,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getExplorers = function (mode) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/all/mode/' + mode).success(function (data) {
@@ -37,6 +38,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getAllExplorers = function () {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/all/').success(function (data) {
@@ -50,6 +52,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getUserExplorers = function (userId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/user/' + userId + '/all').success(function (data) {
@@ -63,6 +66,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getUserExplorersStats = function (userId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/user/' + userId + '/all/stats').success(function (data) {
@@ -76,6 +80,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getAppExplorers = function (appName) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   // self.explorers = [];
   $http.get('/api/explorers/all/' + appName).success(function (data) {
@@ -89,6 +94,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getAppExplorersFeatured = function (appName) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   // self.explorers = [];
   $http.get('/api/explorers/all/' + appName + '/featured').success(function (data) {
@@ -102,6 +108,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getUserAppExplorers = function (userId, appName) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   // self.explorers = [];
   $http.get('/api/explorers/user/' + userId + '/all/' + appName).success(function (data) {
@@ -115,6 +122,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getMyExplorers = function () {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/mine').success(function (data) {
@@ -128,6 +136,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getExplorer = function (explorerId, Id) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   self.explorer = [];
   $http.get('/api/explorer/' + explorerId + '/' + Id).success(function (data) {
@@ -141,6 +150,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.createExplorer = function (explorerData) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http({
    method: 'POST',
@@ -157,6 +167,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.editExplorer = function (explorerData) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http({
    method: 'POST',
@@ -172,6 +183,7 @@ var explorersSrv = function ($http, $q) {
 
  ExplorersSrv.prototype.getExplorerRequestOptions = function (explorerId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http.get('/api/explorer/' + explorerId + '/requestoptions').success(function (data) {
    self.deferredHandler(data, deferred);

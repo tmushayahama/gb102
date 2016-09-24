@@ -28,6 +28,7 @@ var explorerSrv = function (
 
  ExplorerSrv.prototype.getExplorer = function (explorerId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http.get('/api/explorer/' + explorerId).success(function (data) {
    self.explorer = data;
@@ -40,6 +41,7 @@ var explorerSrv = function (
 
  ExplorerSrv.prototype.getSubExplorers = function (parentExplorerId, typeId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   //self.explorers = [];
   $http.get('/api/explorers/subexplorers/' + parentExplorerId + '/type/' + typeId).success(function (data) {
@@ -61,6 +63,7 @@ var explorerSrv = function (
 
  ExplorerSrv.prototype.getSubExplorersStats = function (parentExplorerId) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http.get('/api/explorers/subexplorers/' + parentExplorerId + "/all/stats").success(function (data) {
    self.deferredHandler(data, deferred);
@@ -72,6 +75,7 @@ var explorerSrv = function (
 
  ExplorerSrv.prototype.editExplorer = function (explorerData) {
   var self = this;
+  self.error = "";
   var deferred = $q.defer();
   $http({
    method: 'POST',

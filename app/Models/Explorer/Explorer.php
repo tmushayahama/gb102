@@ -89,7 +89,7 @@ class Explorer extends Model {
           ->with('app_type')
           ->with('creator')
           ->with('level')
-          ->take(4)
+          ->take(12)
           ->get();
   self::getExplorerExtras($explorers);
   return $explorers;

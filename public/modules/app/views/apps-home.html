@@ -39,12 +39,13 @@
      </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <div class='gb-body-row-4 row'>
+     <div class='gb-body-row-4 gb-inline'>
       <div ng-repeat="explorer in explorersCtrl.explorers.handpicked"
-           class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-medium"
+           class="gb-card-holder gb-padding-medium"
            gb-explorer-box explorer="explorer"
-           template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
-      </div> </div>
+           template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
+      </div>
+     </div>
      <div class="row">
       <md-button ui-sref="apps.explorer"
                  class="gb-color-primary gb-more-btn">
@@ -54,7 +55,6 @@
     </div>
    </div>
   </div>
-
   <div class="row">
    <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
@@ -74,10 +74,10 @@
    </div>
   </div>
   <div class="gb-icon-nav-1 container">
-   <div gridster="appsCtrl.appsGridSettings">
-    <ul>
-     <li gridster-item="app.gridMap" ng-repeat="app in appsCtrl.apps track by $index"
-         class="gb-box gridster-item {{::app.class}} gb-shadow-1">
+   <ul class="gb-body-row-4 gb-inline">
+    <li ng-repeat="app in appsCtrl.apps track by $index"
+        class="gb-card-holder-2 gb-padding-medium">
+     <div class="gb-card-apps {{::app.class}}">
       <i class="gb-icon fa {{::app.icon}}"></i>
       <div class="gb-title">
        {{::app.title}}
@@ -85,17 +85,13 @@
       <p class="gb-description">
        {{::app.description}}
       </p>
-     <md-button class="gb-learn-more-btn"
-                ui-sref="{{::app.url}}">
-      Explore More
-     </md-button>
-     </li>
-    </ul>
-   </div>
-
-
-
-
+      <md-button class="gb-learn-more-btn"
+                 ui-sref="{{::app.url}}">
+       Explore More
+      </md-button>
+     </div>
+    </li>
+   </ul>
    <div class='gb-body-row row' ng-if="false">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-medium">
      <div class="gb-box gb-background-color-mentorship gb-ellipsis gb-shadow-1">
@@ -275,11 +271,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.mentorships"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
     <div class="row">
@@ -296,11 +292,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.skills"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
     <div class="row">
@@ -317,11 +313,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.goals"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
     <div class="row">
@@ -338,11 +334,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.advices"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
     <div class="row">
@@ -359,11 +355,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.hobbies"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
     <div class="row">
@@ -380,11 +376,11 @@
       </div>
      </div>
     </div>
-    <div class='gb-body-row-4 row'>
+    <div class='gb-body-row-4 gb-inline'>
      <div ng-repeat="explorer in explorersCtrl.explorers.promises"
-          class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+          class="gb-card-holder gb-padding-medium"
           gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
      </div>
     </div>
    </div>

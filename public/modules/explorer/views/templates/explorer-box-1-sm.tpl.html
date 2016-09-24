@@ -1,0 +1,44 @@
+<div class="gb-card-1">
+ <div class="gb-image gb-app-type-{{::explorer.app_type.id}}"
+      ng-style="style">
+ </div>
+ <div class="gb-box-content">
+  <div class="gb-title row">
+   <h3 class="gb-ellipsis">
+    <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})">
+     {{::explorer.title}}
+    </a>
+   </h3>
+  </div>
+  <div class="gb-description row">
+   <p class="gb-ellipsis">
+    <span ng-if="explorer.template_type_id === 100001">
+     Template For - </span>
+    {{explorer.app_type.title}} - {{::explorer.level.title}}
+   </p>
+  </div>
+  <div class="gb-name-badge-1 row">
+   <div class="gb-image">
+    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+         ng-src="public/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
+         class="gb-heading-pic" alt="">
+   </div>
+   <a class="gb-name gb-ellipsis"
+      data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
+    {{ ::explorer.creator.firstname}}
+    {{ ::explorer.creator.lastname}}
+   </a>
+
+  </div>
+  <div class="gb-subdescription row">
+   <p class="">
+    <span>
+     {{::explorer.description}}
+    </span>
+   </p>
+   <p ng-if="!explorer.description" class="gb-no-info">
+    No description to show
+   </p>
+  </div>
+ </div>
+</div>

@@ -268,10 +268,11 @@ define([
            "customize": 10003
           },
           "component": {
-           "note": 11001,
-           "guideline": 11002,
-           "activity": 11003,
-           "weblink": 11004
+           "none": 11001,
+           "note": 11002,
+           "guideline": 11003,
+           "activity": 11004,
+           "weblink": 11005
           }
          });
  return app;

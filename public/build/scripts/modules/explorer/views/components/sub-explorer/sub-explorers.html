@@ -1,0 +1,28 @@
+<div class="gb-card-3 gb-shadow-4" ng-controller='SubExplorersCtrl as subExplorersCtrl'>
+ <div class="gb-big-title">
+  <h3 class="gb-title gb-ellipsis">
+   <i class="fa icon-gb-explorer"></i>
+   Sub Entries
+  </h3>
+ </div>
+ <div class="gb-no-info row" ng-show="!subExplorersCtrl.explorerSrv.subExplorers.length">
+  No sub entries to show
+ </div>
+ <div ng-show="subExplorersCtrl.explorerSrv.subExplorers.length" class="gb-listbox-content">
+  <div class="row" ng-show="subExplorersCtrl.explorerSrv.subExplorers.length">
+   <div ng-repeat="subExplorer in subExplorersCtrl.explorerSrv.subExplorers| limitTo:explorerCtrl.subExplorerLimitTo track by $index"
+        gb-explorer-box explorer="subExplorer"
+        template-url="{{appsCtrl.getSubTemplateUrl(subExplorer)}}"
+        class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   </div>
+  </div>
+ </div>
+ <div class="gb-box-footer row">
+  <md-button class="gb-color-primary">
+   ADD
+  </md-button>
+  <md-button class="pull-right gb-color-primary">
+   <i class="fa fa-arrows-alt"></i>
+  </md-button>
+ </div>
+</div>

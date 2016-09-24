@@ -1,0 +1,32 @@
+<div class="gb-card-5">
+ <div class="gb-box-content">
+  <div class="gb-title row">
+   <h3 class="gb-ellipsis">
+    {{::explorer.first_explorer.title}}
+   </h3>
+  </div>
+  <div class="gb-description row">
+   <p class="gb-ellipsis">
+    <span ng-if="explorer.first_explorer.template_type_id === 100001">
+     Template For - </span>
+    {{explorer.first_explorer.app_type.title}} - {{::explorer.first_explorer.level.title}}
+   </p>
+  </div>
+  <div class="gb-description row">
+   <p class="">
+    <span>
+     {{::explorer.first_explorer.description}}
+    </span>
+   </p>
+   <p ng-if="!explorer.first_explorer.description" class="gb-no-info">
+    No description to show
+   </p>
+  </div>
+  <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.first_explorer.id})" class="gb-color-primary">
+   EXPLORE
+  </md-button>
+ </div>
+ <div class="gb-image gb-app-type-{{::explorer.first_explorer.app_type.id}}"
+      ng-style="style">
+ </div>
+</div>

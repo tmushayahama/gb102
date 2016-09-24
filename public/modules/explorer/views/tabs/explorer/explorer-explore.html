@@ -33,6 +33,11 @@
    </div>
   </div>
   <ul class="drag-inner-list">
+   <form ng-submit="explorerCtrl.createExplorerComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Related Topics">
+    </md-input-container>
+   </form>
    <li class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
@@ -185,7 +190,7 @@
      </div>
      <div ng-show="explorerCtrl.explorerSrv.applicationExplorers.length" class="gb-box-content">
       <div class="row" ng-show="explorerCtrl.explorerSrv.applicationExplorers.length">
-       <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.applicationExplorers | limitTo:explorerCtrl.subExplorerLimitTo track by $index"
+       <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.applicationExplorers| limitTo:explorerCtrl.subExplorerLimitTo track by $index"
             gb-explorer-box explorer="applicationExplorer"
             template-url="{{appsCtrl.getSubTemplateUrl(applicationExplorer)}}"
             class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
@@ -237,6 +242,11 @@
    </div>
   </div>
   <ul class="drag-inner-list">
+   <form ng-submit="explorerCtrl.createExplorerComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Section">
+    </md-input-container>
+   </form>
    <li ng-repeat="explorerSection in explorerCtrl.explorerSections track by $index"
        class="drag-item">
     <div gb-explorer-section-box explorer-section="explorerSection"
@@ -280,6 +290,11 @@
    </div>
   </div>
   <ul class="drag-inner-list">
+   <form ng-submit="explorerCtrl.createExplorerComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Request Contributors">
+    </md-input-container>
+   </form>
    <li class="drag-item" ng-repeat="explorerContribution in explorerCtrl.explorerContributions">
     <div class="gb-card-profile">
      <div class="gb-box-content">
@@ -336,11 +351,26 @@
        </p>
       </div>
      </md-button>
+     <md-button ng-click="explorerCtrl.openAddComponentModal()" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        ADD
+       </p>
+      </div>
+     </md-button>
      </li>
     </ul>
    </div>
   </div>
   <ul class="drag-inner-list">
+   <form ng-submit="explorerCtrl.createExplorerComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add to {{explorerComponentBucket.component.title}}">
+    </md-input-container>
+   </form>
    <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
     <div gb-explorer-component-box
          explorer-component="explorerComponent"
@@ -350,19 +380,13 @@
   </ul>
  </li>
 
- <li class="drag-column">
- <md-button class="gb-add-bucket-btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
-            ng-click="">
-  <div class="gb-icon">
-   <i class="fa fa-plus"></i>
-  </div>
-  <div class="gb-title">
-   <p class="gb-ellipsis">
-    ADD A NEW COLUMN
-   </p>
-  </div>
- </md-button>
-</li>
+ <li class="drag-column gb-column-placeholder">
+  <form ng-submit="explorerCtrl.createExplorerComponent()">
+   <md-input-container class="md-block" md-no-float>
+    <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add a New Column">
+   </md-input-container>
+  </form>
+ </li>
 </ul>
 <!--
 <div class="" ng-include="'public/modules/explorer/views/components/objective/explorer-objectives.html'"></div>

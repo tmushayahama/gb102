@@ -1,0 +1,43 @@
+<div class="gb-card-5 gb-app-type-{{::explorer.second_explorer.app_type.id}}">
+ <div class="gb-box-content">
+  <div class="gb-title row">
+   <h3 class="gb-ellipsis">
+    <a data-ui-sref="apps.explorerItem.explore({explorerId: explorer.second_explorer.id})">
+     <strong>
+      {{::explorer.second_explorer.title}}
+     </strong>
+     <span>
+      {{::explorer.second_explorer.description}}
+     </span>
+    </a>
+   </h3>
+  </div>
+  <div class="gb-subdescription row">
+   <p class="gb-ellipsis">
+    <span ng-if="explorer.second_explorer.template_type_id === 100001">
+     Template For - </span>
+    {{explorer.second_explorer.app_type.title}} - {{::explorer.second_explorer.level.title}}
+   </p>
+  </div>
+  <div class="gb-description row">
+   <div class="gb-name-badge-1 row">
+    <div class="gb-profile-image">
+     <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+          ng-src="public/build/img/profile_pic/{{ ::explorer.second_explorer.creator.avatar_url}}"
+          class="gb-heading-pic" alt="">
+    </div>
+    <a class="gb-name gb-ellipsis"
+       data-ui-sref="apps.profile.overview({profileId: explorer.second_explorer.creator_id})">
+     <i>by:</i>
+     {{ ::explorer.second_explorer.creator.secondname}}
+     {{ ::explorer.second_explorer.creator.lastname}}
+    </a>
+   </div>
+  </div>
+ </div>
+ <div class="gb-image">
+  <img data-ui-sref="apps.explorer.overview({explorerId: explorer.second_explorer.id})"
+       ng-src="public/build/img/explorer/{{ ::explorer.second_explorer.explorer_picture_url}}"
+       class="gb-heading-pic" alt="">
+ </div>
+</div>

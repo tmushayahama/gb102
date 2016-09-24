@@ -94,10 +94,6 @@ $in-progress: #2A92BF;
 $needs-review: #F4CE46;
 $approved: #00B961;
 
-* {
-	//box-sizing: border-box;
-}
-
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -158,6 +154,15 @@ ul {
   .gb-icon {
    font-size: 100px;
    color: #AAA;
+  }
+ }
+}
+
+.gb-column-placeholder {
+ md-input-container {
+  margin: 3px 0;
+  input {
+   border-bottom-width: 3px;
   }
  }
 }
@@ -309,6 +314,27 @@ ul {
 
 #summary {
  margin: 32px 72px;
+}
+
+.gb-card-holder,
+.gb-card-holder-2{
+ display: -moz-inline-stack;
+ display: inline-block;
+ vertical-align: top;
+ //margin: 5px;
+ zoom: 1;
+ *display: inline;
+ height: 100%;
+	//margin: 0 10px;
+	position: relative;
+	overflow: hidden;
+}
+.gb-card-holder{
+ width:220px;
+}
+
+.gb-card-holder-2{
+ width:250px;
 }
 
 .card {
@@ -785,6 +811,12 @@ input[type="checkbox"] {
 
 .gb-body-row-4 {
  margin: 0 0 10px 0;
+ &.gb-inline {
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  overflow-y: hidden;
+ }
  @include respond-to (gb-sm) {
   padding-left: 0px;
   padding-right: 0px;
@@ -2660,6 +2692,182 @@ input.gb-form-show{
  overflow: hidden;
  position: relative;
  //@include position(absolute, 0 0 0 25px);
+ height: 210px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ display:block;
+ transition:all 250ms;
+ white-space: normal;
+ @include shadow(1);
+ &:hover, &:focus {
+  @include shadow(3);
+  transform:translateY(-4px);
+ }
+ &:active {
+  @include shadow(1);
+  transform:translateY(-2px);
+ }
+ .gb-image {
+  //@include position(absolute, 0 0 null 0);
+  height: 110px;
+  border-bottom: transparent solid 2px;
+  overflow: hidden;
+  .gb-heading-pic {
+   width: 100%;
+   min-height: 110px;
+  }
+
+  &.gb-app-type-2 {
+   border-bottom: $color-skill solid 2px;
+  }
+  &.gb-app-type-3 {
+   border-bottom: $color-goal solid 2px;
+  }
+  &.gb-app-type-4 {
+   border-bottom: $color-hobby solid 2px;
+  }
+  &.gb-app-type-5 {
+   border-bottom: $color-promise solid 2px;
+  }
+  &.gb-app-type-6 {
+   border-bottom: $color-mentorship solid 2px;
+  }
+  &.gb-app-type-7 {
+   border-bottom: $color-collaboration solid 2px;
+  }
+  &.gb-app-type-8 {
+   border-bottom: $color-teach solid 2px;
+  }
+  &.gb-app-type-9 {
+   border-bottom: $color-advice solid 2px;
+  }
+  &.gb-app-type-10 {
+   border-bottom: $color-journal solid 2px;
+  }
+ }
+ .gb-box-content {
+  // @include position(absolute, 200px 0 0 0);
+  height: 80px;
+  padding: 8px 6px 5px 6px;
+
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   h3 {
+    font-size: 12px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 2px;
+   }
+  }
+
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   //margin-bottom: 0px;
+   font-size: 11px;
+   p {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 8px;
+   }
+  }
+
+  .gb-subdescription {
+   //@include position(absolute, 23px 0 50px 0);  p {
+   font-size: 10px;
+   height: 25px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   p {
+    font-size: 10px;
+    line-height: 12px;
+   }
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+
+ }
+
+ .gb-name-badge-1 {
+  margin-bottom: 2px;
+  position: relative;
+  //float: right;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 9px;
+  .gb-name {
+   padding-top: 1px;
+   padding-left: 0px;
+  }
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   right: auto;
+   height: 16px;
+   width: 16px;
+   img {
+    border-radius: 50%;
+    min-height: 16px;
+    height: 16px;
+    width: 16px;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  //@include position(absolute, 280px 0 null 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 36px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 40px;
+   padding: 0px 14px;
+  }
+
+ }
+
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+}
+
+.gb-card-2a {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ //@include position(absolute, 0 0 0 25px);
  height: 395px;
  width: 100%;
  background-color: #FFF;
@@ -2819,7 +3027,7 @@ input.gb-form-show{
  }
 }
 
-.gb-card-2 {
+.gb-card-2b {
  padding: 0 0 0 0;
  overflow: hidden;
  position: relative;
@@ -3588,6 +3796,106 @@ input.gb-form-show{
   }
  }
 }
+
+
+.gb-card-apps {
+ margin: 0;
+ height: 210px;
+ text-align: center;
+ padding:20px 2px 5px 2px;
+ text-decoration: none;
+ border-bottom: transparent solid 3px;
+ /*
+ -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ */
+
+ &.gb-app-type-2 {
+  border-bottom: $color-skill solid 2px;
+ }
+ &.gb-app-type-3 {
+  border-bottom: $color-goal solid 2px;
+ }
+ &.gb-app-type-4 {
+  border-bottom: $color-hobby solid 2px;
+ }
+ &.gb-app-type-5 {
+  border-bottom: $color-promise solid 2px;
+ }
+ &.gb-app-type-6 {
+  border-bottom: $color-mentorship solid 2px;
+ }
+ &.gb-app-type-7 {
+  border-bottom: $color-collaboration solid 2px;
+ }
+ &.gb-app-type-8 {
+  border-bottom: $color-teach solid 2px;
+ }
+ &.gb-app-type-9 {
+  border-bottom: $color-advice solid 2px;
+ }
+ &.gb-app-type-10 {
+  border-bottom: $color-journal solid 2px;
+ }
+ .gb-icon {
+  display: block;
+  margin: 0 auto 5px auto;
+  //background-color: rgba($primary-color, 0.2);
+  line-height: 60px;
+  min-width: 0;
+  width: 150px;
+  height: 60px;
+  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  //border-radius: 50%;
+  font-size: 60px;
+  //color: darken($primary-color, 5%);
+  //color: #
+  @include respond-to (gb-sm) {
+   //font-size: 18px;
+  }
+  @include respond-to (gb-xs) {
+   //font-size: 20px;
+  }
+ }
+
+ .gb-title {
+  padding:10px 10px 10px 10px;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+  //line-height: 15px;
+ }
+ .gb-description{
+  height: 30px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #111;
+  text-decoration: none;
+  text-transform: lowercase;
+ }
+ .gb-learn-more-btn {
+  font-weight: bold;
+  margin: 0;
+  line-height: 40px;
+ }
+ .gb-image-icon {
+  width: 100%;
+  padding: 0px;
+  margin-right: 7px;
+ }
+}
+
 
 .gb-card-activity {
  padding: 0 0 0 0;
@@ -6724,46 +7032,42 @@ input.gb-form-show{
 }
 
 .gb-background-color-advice {
- background-color: rgba($color-advice, 0.3);
+ background-color: rgba($color-advice, 0.1);
  color: darken($color-advice, 5%);
 }
 .gb-background-color-community {
- background-color: rgba($color-community, 0.3);
+ background-color: rgba($color-community, 0.1);
  color: darken($color-community, 5%);
 }
 .gb-background-color-collaboration {
- background-color: rgba($color-collaboration, 0.3);
+ background-color: rgba($color-collaboration, 0.1);
  color: darken($color-collaboration, 5%);
 }
 .gb-background-color-goal {
- background-color: rgba($color-goal, 0.3);
+ background-color: rgba($color-goal, 0.1);
  color: darken($color-goal, 5%);
 }
 .gb-background-color-hobby {
- background-color: rgba($color-hobby, 0.3);
+ background-color: rgba($color-hobby, 0.1);
  color: darken($color-hobby, 5%);
 }
 .gb-background-color-journal {
- background-color: rgba($color-journal, 0.3);
+ background-color: rgba($color-journal, 0.1);
  color: darken($color-journal, 5%);
 }
 .gb-background-color-skill {
- background-color: rgba($color-skill, 0.3);
+ background-color: rgba($color-skill, 0.1);
  color: darken($color-skill, 5%);
 }
 .gb-background-color-mentorship {
- background-color: rgba($color-mentorship, 0.3);
+ background-color: rgba($color-mentorship, 0.1);
  color: darken($color-mentorship, 5%);
 }
 .gb-background-color-promise {
- background-color: rgba($color-promise, 0.3);
+ background-color: rgba($color-promise, 0.1);
  color: darken($color-promise, 5%);
 }
 .gb-background-color-teach {
- background-color: rgba($color-teach, 0.3);
+ background-color: rgba($color-teach, 0.1);
  color: darken($color-teach, 5%);
 }
-
-
-
-

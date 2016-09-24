@@ -130,11 +130,11 @@ var appsCtrl = function (
   });
  };
 
- vm.getTemplateUrl = function (explorer) {
+ vm.getTemplateUrl = function (explorer, size) {
   if (explorer.explorer_picture_url === "default.png") {
-   return "public/modules/explorer/views/templates/explorer-box-1.tpl.html";
+   return "public/modules/explorer/views/templates/explorer-box-1" + size + ".tpl.html";
   }
-  return "public/modules/explorer/views/templates/explorer-box.tpl.html";
+  return "public/modules/explorer/views/templates/explorer-box" + size + ".tpl.html";
  }
 
  vm.getSubTemplateUrl = function (explorer) {

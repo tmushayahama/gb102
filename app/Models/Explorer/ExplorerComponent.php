@@ -83,11 +83,14 @@ class ExplorerComponent extends Model {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $explorerId = Request::get("explorerId");
+  $typeId = Request::get("typeId");
   $title = Request::get("title");
   $description = Request::get("description");
+
   $component = new Component;
   $explorerComponent = new ExplorerComponent;
   $component->creator_id = $userId;
+  $component->type_id = $typeId;
   $component->title = $title;
   $component->description = $description;
   $explorerComponent->explorer_id = $explorerId;
