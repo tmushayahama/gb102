@@ -179,6 +179,7 @@ CREATE TABLE `gb_level` (
   `parent_level_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(150),
+   `long_description` varchar(500),
   `icon` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `level_parent_level_id` (`parent_level_id`),
@@ -535,7 +536,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `parent_level_id`,`title`, `description`, `icon`);
+    (`id`, `parent_level_id`,`title`, `description`, `long_description`, `icon`);
 
 -- ----------- COMPONENT ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/component.txt'
@@ -704,7 +705,7 @@ CREATE TABLE `gb_explorer` (
   KEY `explorer_creator_id` (`creator_id`),
   KEY `explorer_level_id` (`level_id`),
   KEY `explorer_privacy_id` (`privacy_id`),
-  CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_app_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

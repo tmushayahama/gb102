@@ -25,23 +25,23 @@ $BREAKPOINTS: (
 'gb-lg': (min-width: 1200px),
 );
 
-$color-advice: #9A6D36;
-$color-collaboration: #1D3F00;
-$color-community: #4D1616;
-$color-explorer: #027887;
-$color-goal: #027;
-$color-group: #027;
-$color-hobby: #41642A;
-$color-journal: #362644;
-$color-matcher: #bb68ae;
-$color-mentorship: #077568;
-$color-profile: #1F4486;
-$color-project: #6D603C;
-$color-promise: #bb68ae;
-$color-search: #445043;
-$color-skill: #027887;
-$color-swipe: #5E2D35;
-$color-teach: #411D1D;
+$apps-colors:
+#027887 //default
+#027887 //skill
+#027 //goal
+#41642A //hobby
+#BB68AE //promise
+#077568 //mentorship
+#1D3F00 //collaboration
+#411D1D //teach
+#9A6D36 //advice
+#027 //groups
+#362644 //project
+#411D1D //teach
+#411D1D; //teach
+
+
+
 
 
 

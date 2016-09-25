@@ -4049,6 +4049,19 @@ ul {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+.drag-inner-list .gb-new-item-form {
+  height: 33px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.drag-inner-list .gb-new-item-form md-input-container {
+  margin: 0;
+}
+.drag-inner-list .gb-new-item-form input {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #FFF;
+}
 
 .drag-item {
   margin: 10px 0px;
@@ -4141,8 +4154,7 @@ ul {
   margin: 32px 72px;
 }
 
-.gb-card-holder,
-.gb-card-holder-2 {
+.gb-card-holder {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: top;
@@ -4152,12 +4164,13 @@ ul {
   position: relative;
   overflow: hidden;
 }
-
-.gb-card-holder {
+.gb-card-holder.gb-card-xs {
+  width: 170px;
+}
+.gb-card-holder.gb-card-sm {
   width: 220px;
 }
-
-.gb-card-holder-2 {
+.gb-card-holder.gb-card-md {
   width: 250px;
 }
 
@@ -6561,33 +6574,6 @@ input.gb-form-show {
   width: 100%;
   min-height: 110px;
 }
-.gb-card-1 .gb-image.gb-app-type-2 {
-  border-bottom: #027887 solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-3 {
-  border-bottom: #027 solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-4 {
-  border-bottom: #41642A solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-5 {
-  border-bottom: #bb68ae solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-6 {
-  border-bottom: #077568 solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-7 {
-  border-bottom: #1D3F00 solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-8 {
-  border-bottom: #411D1D solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-9 {
-  border-bottom: #9A6D36 solid 2px;
-}
-.gb-card-1 .gb-image.gb-app-type-10 {
-  border-bottom: #362644 solid 2px;
-}
 .gb-card-1 .gb-box-content {
   height: 80px;
   padding: 8px 6px 5px 6px;
@@ -6715,33 +6701,6 @@ input.gb-form-show {
   width: 100%;
   min-height: 200px;
 }
-.gb-card-2a .gb-image.gb-app-type-1 {
-  border-bottom: #027887 solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-2 {
-  border-bottom: #027 solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-3 {
-  border-bottom: #41642A solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-4 {
-  border-bottom: #bb68ae solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-5 {
-  border-bottom: #077568 solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-6 {
-  border-bottom: #1D3F00 solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-7 {
-  border-bottom: #411D1D solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-8 {
-  border-bottom: #9A6D36 solid 5px;
-}
-.gb-card-2a .gb-image.gb-app-type-10 {
-  border-bottom: #362644 solid 5px;
-}
 .gb-card-2a .gb-box-content {
   height: 80px;
   padding: 16px 14px 16px 14px;
@@ -6857,33 +6816,6 @@ input.gb-form-show {
 .gb-card-2b .gb-image .gb-heading-pic {
   width: 100%;
   min-height: 200px;
-}
-.gb-card-2b .gb-image.gb-app-type-1 {
-  border-bottom: #027887 solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-2 {
-  border-bottom: #027 solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-3 {
-  border-bottom: #41642A solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-4 {
-  border-bottom: #bb68ae solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-5 {
-  border-bottom: #077568 solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-6 {
-  border-bottom: #1D3F00 solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-7 {
-  border-bottom: #411D1D solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-8 {
-  border-bottom: #9A6D36 solid 5px;
-}
-.gb-card-2b .gb-image.gb-app-type-10 {
-  border-bottom: #362644 solid 5px;
 }
 .gb-card-2b .gb-image:after {
   position: absolute;
@@ -7311,33 +7243,6 @@ input.gb-form-show {
 .gb-card-4 .gb-footer-content {
   padding: 10px 0 0 0;
 }
-.gb-card-4.gb-app-type-1 {
-  border-left: #027887 solid 5px;
-}
-.gb-card-4.gb-app-type-2 {
-  border-left: #027 solid 5px;
-}
-.gb-card-4.gb-app-type-3 {
-  border-left: #41642A solid 5px;
-}
-.gb-card-4.gb-app-type-4 {
-  border-left: #bb68ae solid 5px;
-}
-.gb-card-4.gb-app-type-5 {
-  border-left: #077568 solid 5px;
-}
-.gb-card-4.gb-app-type-6 {
-  border-left: #1D3F00 solid 5px;
-}
-.gb-card-4.gb-app-type-7 {
-  border-left: #411D1D solid 5px;
-}
-.gb-card-4.gb-app-type-8 {
-  border-left: #9A6D36 solid 5px;
-}
-.gb-card-4.gb-app-type-10 {
-  border-left: #362644 solid 5px;
-}
 
 .gb-card-5 {
   padding: 0 0 0 0;
@@ -7514,33 +7419,6 @@ input.gb-form-show {
 .gb-card-5 .gb-footer-content {
   padding: 10px 0 0 0;
 }
-.gb-card-5.gb-app-type-1 .gb-indicator {
-  background-color: #027887;
-}
-.gb-card-5.gb-app-type-2 .gb-indicator {
-  background-color: #027;
-}
-.gb-card-5.gb-app-type-3 .gb-indicator {
-  background-color: #41642A;
-}
-.gb-card-5.gb-app-type-4 .gb-indicator {
-  background-color: #bb68ae;
-}
-.gb-card-5.gb-app-type-5 .gb-indicator {
-  background-color: #077568;
-}
-.gb-card-5.gb-app-type-6 .gb-indicator {
-  background-color: #1D3F00;
-}
-.gb-card-5.gb-app-type-7 .gb-indicator {
-  background-color: #411D1D;
-}
-.gb-card-5.gb-app-type-8 .gb-indicator {
-  background-color: #9A6D36;
-}
-.gb-card-5.gb-app-type-10 .gb-indicator {
-  background-color: #362644;
-}
 
 .gb-card-apps {
   margin: 0;
@@ -7555,32 +7433,57 @@ input.gb-form-show {
   box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
   */
 }
+.gb-card-apps.gb-app-type-1 {
+  background-color: rgba(2, 120, 135, 0.1);
+  color: #02626e;
+}
 .gb-card-apps.gb-app-type-2 {
-  border-bottom: #027887 solid 2px;
+  background-color: rgba(2, 120, 135, 0.1);
+  color: #02626e;
 }
 .gb-card-apps.gb-app-type-3 {
-  border-bottom: #027 solid 2px;
+  background-color: rgba(0, 34, 119, 0.1);
+  color: #001b5e;
 }
 .gb-card-apps.gb-app-type-4 {
-  border-bottom: #41642A solid 2px;
+  background-color: rgba(65, 100, 42, 0.1);
+  color: #355222;
 }
 .gb-card-apps.gb-app-type-5 {
-  border-bottom: #bb68ae solid 2px;
+  background-color: rgba(187, 104, 174, 0.1);
+  color: #b356a5;
 }
 .gb-card-apps.gb-app-type-6 {
-  border-bottom: #077568 solid 2px;
+  background-color: rgba(7, 117, 104, 0.1);
+  color: #065d53;
 }
 .gb-card-apps.gb-app-type-7 {
-  border-bottom: #1D3F00 solid 2px;
+  background-color: rgba(29, 63, 0, 0.1);
+  color: #112600;
 }
 .gb-card-apps.gb-app-type-8 {
-  border-bottom: #411D1D solid 2px;
+  background-color: rgba(65, 29, 29, 0.1);
+  color: #2f1515;
 }
 .gb-card-apps.gb-app-type-9 {
-  border-bottom: #9A6D36 solid 2px;
+  background-color: rgba(154, 109, 54, 0.1);
+  color: #87602f;
 }
 .gb-card-apps.gb-app-type-10 {
-  border-bottom: #362644 solid 2px;
+  background-color: rgba(0, 34, 119, 0.1);
+  color: #001b5e;
+}
+.gb-card-apps.gb-app-type-11 {
+  background-color: rgba(54, 38, 68, 0.1);
+  color: #291d34;
+}
+.gb-card-apps.gb-app-type-12 {
+  background-color: rgba(65, 29, 29, 0.1);
+  color: #2f1515;
+}
+.gb-card-apps.gb-app-type-13 {
+  background-color: rgba(65, 29, 29, 0.1);
+  color: #2f1515;
 }
 .gb-card-apps .gb-icon {
   display: block;
@@ -7624,6 +7527,157 @@ input.gb-form-show {
   width: 100%;
   padding: 0px;
   margin-right: 7px;
+}
+
+.gb-card-apps-mini {
+  margin: 5px 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+.gb-card-apps-mini.gb-app-type-1 {
+  background-color: rgba(2, 120, 135, 0.2);
+  color: #02626e;
+}
+.gb-card-apps-mini.gb-app-type-1.active {
+  outline: rgba(2, 120, 135, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-1:hover {
+  outline: rgba(2, 120, 135, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-2 {
+  background-color: rgba(2, 120, 135, 0.2);
+  color: #02626e;
+}
+.gb-card-apps-mini.gb-app-type-2.active {
+  outline: rgba(2, 120, 135, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-2:hover {
+  outline: rgba(2, 120, 135, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-3 {
+  background-color: rgba(0, 34, 119, 0.2);
+  color: #001b5e;
+}
+.gb-card-apps-mini.gb-app-type-3.active {
+  outline: rgba(0, 34, 119, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-3:hover {
+  outline: rgba(0, 34, 119, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-4 {
+  background-color: rgba(65, 100, 42, 0.2);
+  color: #355222;
+}
+.gb-card-apps-mini.gb-app-type-4.active {
+  outline: rgba(65, 100, 42, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-4:hover {
+  outline: rgba(65, 100, 42, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-5 {
+  background-color: rgba(187, 104, 174, 0.2);
+  color: #b356a5;
+}
+.gb-card-apps-mini.gb-app-type-5.active {
+  outline: rgba(187, 104, 174, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-5:hover {
+  outline: rgba(187, 104, 174, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-6 {
+  background-color: rgba(7, 117, 104, 0.2);
+  color: #065d53;
+}
+.gb-card-apps-mini.gb-app-type-6.active {
+  outline: rgba(7, 117, 104, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-6:hover {
+  outline: rgba(7, 117, 104, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-7 {
+  background-color: rgba(29, 63, 0, 0.2);
+  color: #112600;
+}
+.gb-card-apps-mini.gb-app-type-7.active {
+  outline: rgba(29, 63, 0, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-7:hover {
+  outline: rgba(29, 63, 0, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-8 {
+  background-color: rgba(65, 29, 29, 0.2);
+  color: #2f1515;
+}
+.gb-card-apps-mini.gb-app-type-8.active {
+  outline: rgba(65, 29, 29, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-8:hover {
+  outline: rgba(65, 29, 29, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-9 {
+  background-color: rgba(154, 109, 54, 0.2);
+  color: #87602f;
+}
+.gb-card-apps-mini.gb-app-type-9.active {
+  outline: rgba(154, 109, 54, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-9:hover {
+  outline: rgba(154, 109, 54, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-10 {
+  background-color: rgba(0, 34, 119, 0.2);
+  color: #001b5e;
+}
+.gb-card-apps-mini.gb-app-type-10.active {
+  outline: rgba(0, 34, 119, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-10:hover {
+  outline: rgba(0, 34, 119, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-11 {
+  background-color: rgba(54, 38, 68, 0.2);
+  color: #291d34;
+}
+.gb-card-apps-mini.gb-app-type-11.active {
+  outline: rgba(54, 38, 68, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-11:hover {
+  outline: rgba(54, 38, 68, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-12 {
+  background-color: rgba(65, 29, 29, 0.2);
+  color: #2f1515;
+}
+.gb-card-apps-mini.gb-app-type-12.active {
+  outline: rgba(65, 29, 29, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-12:hover {
+  outline: rgba(65, 29, 29, 0.1) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-13 {
+  background-color: rgba(65, 29, 29, 0.2);
+  color: #2f1515;
+}
+.gb-card-apps-mini.gb-app-type-13.active {
+  outline: rgba(65, 29, 29, 0.4) solid 10px;
+}
+.gb-card-apps-mini.gb-app-type-13:hover {
+  outline: rgba(65, 29, 29, 0.1) solid 10px;
+}
+.gb-card-apps-mini .gb-icon {
+  display: block;
+  margin: 10px auto 5px auto;
+  line-height: 40px;
+  min-width: 0;
+  font-size: 40px;
+}
+.gb-card-apps-mini .gb-title {
+  padding: 0px 5px 0px 5px;
+  font-size: 10px;
+  color: #222;
+  word-wrap: normal;
 }
 
 .gb-card-activity {
@@ -7820,33 +7874,6 @@ input.gb-form-show {
 .gb-card-activity .gb-footer-content {
   padding: 10px 0 0 0;
 }
-.gb-card-activity.gb-app-type-1 {
-  border-left: #027887 solid 5px;
-}
-.gb-card-activity.gb-app-type-2 {
-  border-left: #027 solid 5px;
-}
-.gb-card-activity.gb-app-type-3 {
-  border-left: #41642A solid 5px;
-}
-.gb-card-activity.gb-app-type-4 {
-  border-left: #bb68ae solid 5px;
-}
-.gb-card-activity.gb-app-type-5 {
-  border-left: #077568 solid 5px;
-}
-.gb-card-activity.gb-app-type-6 {
-  border-left: #1D3F00 solid 5px;
-}
-.gb-card-activity.gb-app-type-7 {
-  border-left: #411D1D solid 5px;
-}
-.gb-card-activity.gb-app-type-8 {
-  border-left: #9A6D36 solid 5px;
-}
-.gb-card-activity.gb-app-type-10 {
-  border-left: #362644 solid 5px;
-}
 
 .gb-card-note {
   padding: 0 0 0 0;
@@ -7992,33 +8019,6 @@ input.gb-form-show {
 }
 .gb-card-note .gb-footer-content {
   padding: 10px 0 0 0;
-}
-.gb-card-note.gb-app-type-1 {
-  border-left: #027887 solid 5px;
-}
-.gb-card-note.gb-app-type-2 {
-  border-left: #027 solid 5px;
-}
-.gb-card-note.gb-app-type-3 {
-  border-left: #41642A solid 5px;
-}
-.gb-card-note.gb-app-type-4 {
-  border-left: #bb68ae solid 5px;
-}
-.gb-card-note.gb-app-type-5 {
-  border-left: #077568 solid 5px;
-}
-.gb-card-note.gb-app-type-6 {
-  border-left: #1D3F00 solid 5px;
-}
-.gb-card-note.gb-app-type-7 {
-  border-left: #411D1D solid 5px;
-}
-.gb-card-note.gb-app-type-8 {
-  border-left: #9A6D36 solid 5px;
-}
-.gb-card-note.gb-app-type-10 {
-  border-left: #362644 solid 5px;
 }
 
 .gb-card-profile {
@@ -8208,33 +8208,6 @@ input.gb-form-show {
 }
 .gb-card-profile .gb-footer-content {
   padding: 10px 0 0 0;
-}
-.gb-card-profile.gb-app-type-1 .gb-indicator {
-  background-color: #027887;
-}
-.gb-card-profile.gb-app-type-2 .gb-indicator {
-  background-color: #027;
-}
-.gb-card-profile.gb-app-type-3 .gb-indicator {
-  background-color: #41642A;
-}
-.gb-card-profile.gb-app-type-4 .gb-indicator {
-  background-color: #bb68ae;
-}
-.gb-card-profile.gb-app-type-5 .gb-indicator {
-  background-color: #077568;
-}
-.gb-card-profile.gb-app-type-6 .gb-indicator {
-  background-color: #1D3F00;
-}
-.gb-card-profile.gb-app-type-7 .gb-indicator {
-  background-color: #411D1D;
-}
-.gb-card-profile.gb-app-type-8 .gb-indicator {
-  background-color: #9A6D36;
-}
-.gb-card-profile.gb-app-type-10 .gb-indicator {
-  background-color: #362644;
 }
 
 .gb-card-14 {
@@ -10708,54 +10681,4 @@ input.gb-form-show {
    must be set to 0 to avoid an accidental CSS inheritance */
   -webkit-transition-duration: 0s;
   transition-duration: 0s;
-}
-
-.gb-background-color-advice {
-  background-color: rgba(154, 109, 54, 0.1);
-  color: #87602f;
-}
-
-.gb-background-color-community {
-  background-color: rgba(77, 22, 22, 0.1);
-  color: #391010;
-}
-
-.gb-background-color-collaboration {
-  background-color: rgba(29, 63, 0, 0.1);
-  color: #112600;
-}
-
-.gb-background-color-goal {
-  background-color: rgba(0, 34, 119, 0.1);
-  color: #001b5e;
-}
-
-.gb-background-color-hobby {
-  background-color: rgba(65, 100, 42, 0.1);
-  color: #355222;
-}
-
-.gb-background-color-journal {
-  background-color: rgba(54, 38, 68, 0.1);
-  color: #291d34;
-}
-
-.gb-background-color-skill {
-  background-color: rgba(2, 120, 135, 0.1);
-  color: #02626e;
-}
-
-.gb-background-color-mentorship {
-  background-color: rgba(7, 117, 104, 0.1);
-  color: #065d53;
-}
-
-.gb-background-color-promise {
-  background-color: rgba(187, 104, 174, 0.1);
-  color: #b356a5;
-}
-
-.gb-background-color-teach {
-  background-color: rgba(65, 29, 29, 0.1);
-  color: #2f1515;
 }

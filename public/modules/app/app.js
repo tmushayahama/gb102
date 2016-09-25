@@ -262,6 +262,7 @@ define([
            "explorer": 300000,
            "notes": 300001
           },
+          "privacy_type": 10000,
           "privacy": {
            "private": 10001,
            "public": 10002,

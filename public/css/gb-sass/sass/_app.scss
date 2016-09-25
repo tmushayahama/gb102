@@ -73,6 +73,14 @@ body {
  @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
 }
 
+@mixin shadow2($level: 1) {
+ @if $level == 1 {box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+ @else if $level == 2 {box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+ @else if $level == 3 {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+ @else if $level == 4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+ @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+}
+
 
 md-toolbar button.md-button.md-icon-button:first-child {
  margin-left: 0px;
@@ -209,6 +217,19 @@ ul {
  max-height: 100%;
  overflow-y: auto;
  -webkit-overflow-scrolling: touch;
+ .gb-new-item-form {
+  height: 33px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  md-input-container {
+   margin: 0;
+  }
+  input {
+   padding-left: 5px;
+   padding-right: 5px;
+   background-color: #FFF;
+  }
+ }
 }
 
 .drag-item {
@@ -316,8 +337,7 @@ ul {
  margin: 32px 72px;
 }
 
-.gb-card-holder,
-.gb-card-holder-2{
+.gb-card-holder{
  display: -moz-inline-stack;
  display: inline-block;
  vertical-align: top;
@@ -328,13 +348,16 @@ ul {
 	//margin: 0 10px;
 	position: relative;
 	overflow: hidden;
-}
-.gb-card-holder{
- width:220px;
-}
+ &.gb-card-xs{
+  width:170px;
+ }
+ &.gb-card-sm{
+  width:220px;
+ }
 
-.gb-card-holder-2{
- width:250px;
+ &.gb-card-md{
+  width:250px;
+ }
 }
 
 .card {
@@ -2718,33 +2741,6 @@ input.gb-form-show{
    min-height: 110px;
   }
 
-  &.gb-app-type-2 {
-   border-bottom: $color-skill solid 2px;
-  }
-  &.gb-app-type-3 {
-   border-bottom: $color-goal solid 2px;
-  }
-  &.gb-app-type-4 {
-   border-bottom: $color-hobby solid 2px;
-  }
-  &.gb-app-type-5 {
-   border-bottom: $color-promise solid 2px;
-  }
-  &.gb-app-type-6 {
-   border-bottom: $color-mentorship solid 2px;
-  }
-  &.gb-app-type-7 {
-   border-bottom: $color-collaboration solid 2px;
-  }
-  &.gb-app-type-8 {
-   border-bottom: $color-teach solid 2px;
-  }
-  &.gb-app-type-9 {
-   border-bottom: $color-advice solid 2px;
-  }
-  &.gb-app-type-10 {
-   border-bottom: $color-journal solid 2px;
-  }
  }
  .gb-box-content {
   // @include position(absolute, 200px 0 0 0);
@@ -2893,33 +2889,6 @@ input.gb-form-show{
    min-height: 200px;
   }
 
-  &.gb-app-type-1 {
-   border-bottom: $color-skill solid 5px;
-  }
-  &.gb-app-type-2 {
-   border-bottom: $color-goal solid 5px;
-  }
-  &.gb-app-type-3 {
-   border-bottom: $color-hobby solid 5px;
-  }
-  &.gb-app-type-4 {
-   border-bottom: $color-promise solid 5px;
-  }
-  &.gb-app-type-5 {
-   border-bottom: $color-mentorship solid 5px;
-  }
-  &.gb-app-type-6 {
-   border-bottom: $color-collaboration solid 5px;
-  }
-  &.gb-app-type-7 {
-   border-bottom: $color-teach solid 5px;
-  }
-  &.gb-app-type-8 {
-   border-bottom: $color-advice solid 5px;
-  }
-  &.gb-app-type-10 {
-   border-bottom: $color-journal solid 5px;
-  }
  }
  .gb-box-content {
   // @include position(absolute, 200px 0 0 0);
@@ -3055,33 +3024,6 @@ input.gb-form-show{
   .gb-heading-pic {
    width: 100%;
    min-height: 200px;
-  }
-  &.gb-app-type-1 {
-   border-bottom: $color-skill solid 5px;
-  }
-  &.gb-app-type-2 {
-   border-bottom: $color-goal solid 5px;
-  }
-  &.gb-app-type-3 {
-   border-bottom: $color-hobby solid 5px;
-  }
-  &.gb-app-type-4 {
-   border-bottom: $color-promise solid 5px;
-  }
-  &.gb-app-type-5 {
-   border-bottom: $color-mentorship solid 5px;
-  }
-  &.gb-app-type-6 {
-   border-bottom: $color-collaboration solid 5px;
-  }
-  &.gb-app-type-7 {
-   border-bottom: $color-teach solid 5px;
-  }
-  &.gb-app-type-8 {
-   border-bottom: $color-advice solid 5px;
-  }
-  &.gb-app-type-10 {
-   border-bottom: $color-journal solid 5px;
   }
   &:after {
    @include position(absolute, 0 0 0 0);
@@ -3539,33 +3481,6 @@ input.gb-form-show{
   padding: 10px 0 0 0;
  }
 
- &.gb-app-type-1 {
-  border-left: $color-skill solid 5px;
- }
- &.gb-app-type-2 {
-  border-left: $color-goal solid 5px;
- }
- &.gb-app-type-3 {
-  border-left: $color-hobby solid 5px;
- }
- &.gb-app-type-4 {
-  border-left: $color-promise solid 5px;
- }
- &.gb-app-type-5 {
-  border-left: $color-mentorship solid 5px;
- }
- &.gb-app-type-6 {
-  border-left: $color-collaboration solid 5px;
- }
- &.gb-app-type-7 {
-  border-left: $color-teach solid 5px;
- }
- &.gb-app-type-8 {
-  border-left: $color-advice solid 5px;
- }
- &.gb-app-type-10 {
-  border-left: $color-journal solid 5px;
- }
 }
 
 .gb-card-5 {
@@ -3751,48 +3666,7 @@ input.gb-form-show{
 
  &.gb-app-type-1 {
   .gb-indicator {
-   background-color: $color-skill;
-  }
- }
- &.gb-app-type-2 {
-  .gb-indicator {
-   background-color: $color-goal;
-  }
- }
- &.gb-app-type-3 {
-  .gb-indicator {
-   background-color: $color-hobby;
-  }
- }
- &.gb-app-type-4 {
-  .gb-indicator {
-   background-color: $color-promise;
-  }
- }
- &.gb-app-type-5 {
-  .gb-indicator {
-   background-color: $color-mentorship;
-  }
- }
-
- &.gb-app-type-6 {
-  .gb-indicator {
-   background-color: $color-collaboration;
-  }
- }
- &.gb-app-type-7 {
-  .gb-indicator {
-   background-color: $color-teach;
-  }
- }
- &.gb-app-type-8 {
-  .gb-indicator {
-   background-color: $color-advice;
-  }
- }
- &.gb-app-type-10 {
-  .gb-indicator {
-   background-color: $color-journal;
+   //background-color: $color-skill;
   }
  }
 }
@@ -3811,33 +3685,18 @@ input.gb-form-show{
  box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
  */
 
- &.gb-app-type-2 {
-  border-bottom: $color-skill solid 2px;
+ @mixin card-apps-background {
+  @for $i from 1 through length($apps-colors){
+   &.gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.1);
+    color: darken(nth($apps-colors, $i), 5%);
+   }
+  }
  }
- &.gb-app-type-3 {
-  border-bottom: $color-goal solid 2px;
- }
- &.gb-app-type-4 {
-  border-bottom: $color-hobby solid 2px;
- }
- &.gb-app-type-5 {
-  border-bottom: $color-promise solid 2px;
- }
- &.gb-app-type-6 {
-  border-bottom: $color-mentorship solid 2px;
- }
- &.gb-app-type-7 {
-  border-bottom: $color-collaboration solid 2px;
- }
- &.gb-app-type-8 {
-  border-bottom: $color-teach solid 2px;
- }
- &.gb-app-type-9 {
-  border-bottom: $color-advice solid 2px;
- }
- &.gb-app-type-10 {
-  border-bottom: $color-journal solid 2px;
- }
+
+ @include card-apps-background;
+
  .gb-icon {
   display: block;
   margin: 0 auto 5px auto;
@@ -3893,6 +3752,59 @@ input.gb-form-show{
   width: 100%;
   padding: 0px;
   margin-right: 7px;
+ }
+}
+
+.gb-card-apps-mini {
+ margin: 5px 0;
+ height: 100%;;
+ width: 100%;
+ text-align: center;
+ text-decoration: none;
+
+ @mixin card-apps-background {
+  @for $i from 1 through length($apps-colors){
+   &.gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.2);
+    color: darken(nth($apps-colors, $i), 5%);
+    &.active {
+     outline: rgba(nth($apps-colors, $i), 0.4) solid 10px;
+    }
+    &:hover {
+     outline: rgba(nth($apps-colors, $i), 0.1) solid 10px;;
+    }
+   }
+  }
+ }
+
+ @include card-apps-background;
+
+ .gb-icon {
+  display: block;
+  margin: 10px auto 5px auto;
+  //background-color: rgba($primary-color, 0.2);
+  line-height: 40px;
+  min-width: 0;
+  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  //border-radius: 50%;
+  font-size: 40px;
+  //color: darken($primary-color, 5%);
+  //color: #
+  @include respond-to (gb-sm) {
+   //font-size: 18px;
+  }
+  @include respond-to (gb-xs) {
+   //font-size: 20px;
+  }
+ }
+
+ .gb-title {
+  padding:0px 5px 0px 5px;
+  font-size: 10px;
+  color: #222;
+  word-wrap: normal;
+  //line-height: 15px;
  }
 }
 
@@ -4106,33 +4018,6 @@ input.gb-form-show{
   padding: 10px 0 0 0;
  }
 
- &.gb-app-type-1 {
-  border-left: $color-skill solid 5px;
- }
- &.gb-app-type-2 {
-  border-left: $color-goal solid 5px;
- }
- &.gb-app-type-3 {
-  border-left: $color-hobby solid 5px;
- }
- &.gb-app-type-4 {
-  border-left: $color-promise solid 5px;
- }
- &.gb-app-type-5 {
-  border-left: $color-mentorship solid 5px;
- }
- &.gb-app-type-6 {
-  border-left: $color-collaboration solid 5px;
- }
- &.gb-app-type-7 {
-  border-left: $color-teach solid 5px;
- }
- &.gb-app-type-8 {
-  border-left: $color-advice solid 5px;
- }
- &.gb-app-type-10 {
-  border-left: $color-journal solid 5px;
- }
 }
 
 .gb-card-note {
@@ -4294,33 +4179,6 @@ input.gb-form-show{
   padding: 10px 0 0 0;
  }
 
- &.gb-app-type-1 {
-  border-left: $color-skill solid 5px;
- }
- &.gb-app-type-2 {
-  border-left: $color-goal solid 5px;
- }
- &.gb-app-type-3 {
-  border-left: $color-hobby solid 5px;
- }
- &.gb-app-type-4 {
-  border-left: $color-promise solid 5px;
- }
- &.gb-app-type-5 {
-  border-left: $color-mentorship solid 5px;
- }
- &.gb-app-type-6 {
-  border-left: $color-collaboration solid 5px;
- }
- &.gb-app-type-7 {
-  border-left: $color-teach solid 5px;
- }
- &.gb-app-type-8 {
-  border-left: $color-advice solid 5px;
- }
- &.gb-app-type-10 {
-  border-left: $color-journal solid 5px;
- }
 }
 
 .gb-card-profile {
@@ -4515,51 +4373,9 @@ input.gb-form-show{
  .gb-footer-content {
   padding: 10px 0 0 0;
  }
-
- &.gb-app-type-1 {
-  .gb-indicator {
-   background-color: $color-skill;
-  }
- }
- &.gb-app-type-2 {
-  .gb-indicator {
-   background-color: $color-goal;
-  }
- }
- &.gb-app-type-3 {
-  .gb-indicator {
-   background-color: $color-hobby;
-  }
- }
- &.gb-app-type-4 {
-  .gb-indicator {
-   background-color: $color-promise;
-  }
- }
- &.gb-app-type-5 {
-  .gb-indicator {
-   background-color: $color-mentorship;
-  }
- }
-
- &.gb-app-type-6 {
-  .gb-indicator {
-   background-color: $color-collaboration;
-  }
- }
- &.gb-app-type-7 {
-  .gb-indicator {
-   background-color: $color-teach;
-  }
- }
- &.gb-app-type-8 {
-  .gb-indicator {
-   background-color: $color-advice;
-  }
- }
  &.gb-app-type-10 {
   .gb-indicator {
-   background-color: $color-journal;
+   //background-color: $color-journal;
   }
  }
 }
@@ -7029,45 +6845,4 @@ input.gb-form-show{
   must be set to 0 to avoid an accidental CSS inheritance */
  -webkit-transition-duration: 0s;
  transition-duration: 0s;
-}
-
-.gb-background-color-advice {
- background-color: rgba($color-advice, 0.1);
- color: darken($color-advice, 5%);
-}
-.gb-background-color-community {
- background-color: rgba($color-community, 0.1);
- color: darken($color-community, 5%);
-}
-.gb-background-color-collaboration {
- background-color: rgba($color-collaboration, 0.1);
- color: darken($color-collaboration, 5%);
-}
-.gb-background-color-goal {
- background-color: rgba($color-goal, 0.1);
- color: darken($color-goal, 5%);
-}
-.gb-background-color-hobby {
- background-color: rgba($color-hobby, 0.1);
- color: darken($color-hobby, 5%);
-}
-.gb-background-color-journal {
- background-color: rgba($color-journal, 0.1);
- color: darken($color-journal, 5%);
-}
-.gb-background-color-skill {
- background-color: rgba($color-skill, 0.1);
- color: darken($color-skill, 5%);
-}
-.gb-background-color-mentorship {
- background-color: rgba($color-mentorship, 0.1);
- color: darken($color-mentorship, 5%);
-}
-.gb-background-color-promise {
- background-color: rgba($color-promise, 0.1);
- color: darken($color-promise, 5%);
-}
-.gb-background-color-teach {
- background-color: rgba($color-teach, 0.1);
- color: darken($color-teach, 5%);
 }

@@ -238,7 +238,7 @@ var explorersCtrl = function (
 
   modalInstance.result.then(function (explorer) {
    vm.explorersSrv.createExplorer(explorer).then(function (data) {
-    //vm.explorers.unshift(data);
+    $state.go("apps.explorerItem.explore", {"explorerId": data.id});
    });
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());

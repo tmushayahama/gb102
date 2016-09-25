@@ -1,5 +1,6 @@
 'use strict';
 var appsCtrl = function (
+        ConstantsSrv,
         SearchSrv,
         level_categories,
         $scope,
@@ -12,6 +13,7 @@ var appsCtrl = function (
         localStorageService) {
 
  var vm = this;
+ vm.constantsSrv = new ConstantsSrv();
 
  vm.logout = function () {
   $auth.logout();
@@ -172,139 +174,7 @@ var appsCtrl = function (
   }
  };
 
- vm.apps = [
-  {
-   "title": "Mentorship",
-   "description": "Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory",
-   "icon": "icon-gb-mentorships",
-   "url": "apps.app({'app_name': 'mentorships'})",
-   "class": "gb-background-color-mentorship",
-   "gridMap": {
-    "sizeX": 8,
-    "sizeY": 8,
-    "row": 0,
-    "col": 0
-   }
-  },
-  {
-   "title": "Promise",
-   "description": "Are you good at giving an advice? Are you seeking advice?",
-   "icon": "icon-gb-promises",
-   "url": "apps.app({'app_name': 'promises'})",
-   "class": "gb-background-color-promise",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 6,
-    "col": 8,
-    "row": 0
-   }
-  },
-  {
-   "title": "Hobbies",
-   "description": "Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies",
-   "icon": "icon-gb-hobbies",
-   "url": "apps.app({'app_name': 'hobbies'})",
-   "class": "gb-background-color-hobby",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 8,
-    "row": 6,
-    "col": 8
-   }
-  },
-  {
-   "title": "Skill Practice",
-   "description": "Do something with skills you have gained. Improve your current skills or just learn a new skill",
-   "icon": "icon-gb-skills",
-   "url": "apps.app({'app_name': 'skills'})",
-   "class": "gb-background-color-skill",
-   "gridMap": {
-    "sizeX": 5,
-    "sizeY": 6,
-    "row": 8,
-    "col": 0
-   }
-  },
-  {
-   "title": "Goal Setting",
-   "description": "Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals",
-   "icon": "icon-gb-goals",
-   "url": "apps.app({'app_name': 'goals'})",
-   "class": "gb-background-color-goal",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 7,
-    "row": 14,
-    "col": 0
-   }
-  },
-  {
-   "title": "Advice",
-   "description": "",
-   "icon": "icon-gb-advices",
-   "url": "apps.app({'app_name': 'advices'})",
-   "class": "gb-background-color-advice",
-   "gridMap": {
-    "sizeX": 8,
-    "sizeY": 6,
-    "row": 14,
-    "col": 4
-   }
-  },
-  {
-   "title": "Classes",
-   "description": "",
-   "icon": "icon-gb-teach",
-   "url": "apps.app({'app_name': 'teach'})",
-   "class": "gb-background-color-teach",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 7,
-    "row": 21,
-    "col": 0
-   }
-  },
-  {
-   "title": "Collaborations",
-   "description": "",
-   "icon": "icon-gb-collaborations",
-   "url": "apps.app({'app_name': 'collaborations'})",
-   "class": "gb-background-color-collaboration",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 8,
-    "row": 20,
-    "col": 4
-   }
-  },
-  {
-   "title": "Journals",
-   "description": "",
-   "icon": "icon-gb-journals",
-   "url": "apps.app({'app_name': 'journalss'})",
-   "class": "gb-background-color-journal",
-   "gridMap": {
-    "sizeX": 4,
-    "sizeY": 8,
-    "row": 20,
-    "col": 8
-   }
-  },
-  {
-   "title": "Community",
-   "description": "Join us now to get your own personalized profile and portfolio of work",
-   "icon": "icon-gb-community",
-   "url": "apps.community.users",
-   "class": "gb-background-color-community",
-   "gridMap": {
-    "sizeX": 3,
-    "sizeY": 6,
-    "row": 8,
-    "col": 5
-   }
-  }
- ]
-
+ vm.apps = [];
 
  vm.myInterval = 5000;
  vm.noWrapSlides = false;
@@ -376,9 +246,15 @@ var appsCtrl = function (
 
   return array;
  }
+
+ //Init
+ vm.constantsSrv.getLevel(level_categories.apps).then(function (data) {
+  vm.apps = data;
+ });
 };
 
 appsCtrl.$inject = [
+ 'ConstantsSrv',
  'SearchSrv',
  'level_categories',
  '$scope',

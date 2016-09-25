@@ -3,7 +3,6 @@ var addExplorerCtrl = function (
         communitySrv,
         level_categories,
         $uibModalInstance,
-        WizardHandler,
         $q,
         $timeout,
         $scope,
@@ -15,14 +14,12 @@ var addExplorerCtrl = function (
         $log,
         appTypes) {
  var vm = this;
- vm.wizardHandler = WizardHandler;
  vm.explorer = {};
  vm.explorerLevels;
  vm.requestTypes;
  vm.appTypes = appTypes;
  vm.requestTypes = [];
  vm.selectedAppType;
- vm.wizardCurrentStep = "Choose App";
 
  vm.constantsSrv = constantsSrv;
  vm.communitySrv = communitySrv;
@@ -61,6 +58,7 @@ var addExplorerCtrl = function (
  vm.getPrivacyTypes = function () {
   vm.constantsSrv.getLevel(level_categories.privacy_type).then(function (data) {
    vm.privacyTypes = data;
+   vm.explorer.privacy_id = level_categories.privacy.private;
   }
   );
  };
@@ -72,13 +70,6 @@ var addExplorerCtrl = function (
   vm.getRequestTypes(appType.id);
  };
 
- vm.next = function () {
-  vm.wizardHandler.wizard('explorer-form').next();
- };
-
- vm.previous = function (appType) {
-  vm.wizardHandler.wizard('explorer-form').previous();
- };
 
  vm.ok = function () {
   vm.explorer.explorer_requests = [];
@@ -100,21 +91,6 @@ var addExplorerCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
- vm.getPrivacyTypes();
- vm.communitySrv.getUsers().then(function () {
-  vm.allContacts = vm.communitySrv.users;//loadContacts();
-  vm.contacts = [vm.allContacts[0]];
-
-  return vm.contacts.map(function (c, index) {
-   var contact = {
-    name: c.firstname + ' ' + c.lastname,
-    email: c.email,
-    image: c.avatar_url
-   };
-   contact._lowername = contact.name.toLowerCase();
-   return contact;
-  });
- });
 
 
 
@@ -176,6 +152,24 @@ var addExplorerCtrl = function (
    return (lowerCaserFilterString.indexOf(lowercaseQuery) != -1);
   };
  }
+
+ //Init
+ vm.chooseAppType(vm.appTypes[0]);
+ vm.getPrivacyTypes();
+ vm.communitySrv.getUsers().then(function () {
+  vm.allContacts = vm.communitySrv.users;//loadContacts();
+  vm.contacts = [vm.allContacts[0]];
+
+  return vm.contacts.map(function (c, index) {
+   var contact = {
+    name: c.firstname + ' ' + c.lastname,
+    email: c.email,
+    image: c.avatar_url
+   };
+   contact._lowername = contact.name.toLowerCase();
+   return contact;
+  });
+ });
 };
 
 addExplorerCtrl.$inject = [
@@ -183,7 +177,6 @@ addExplorerCtrl.$inject = [
  'communitySrv',
  'level_categories',
  '$uibModalInstance',
- 'WizardHandler',
  '$q',
  '$timeout',
  '$scope',

@@ -33,9 +33,9 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form ng-submit="explorerCtrl.createExplorerComponent()">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.prepareAddOverview()">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Related Topics">
+     <input class="form-control" ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Related Topics">
     </md-input-container>
    </form>
    <li class="drag-item">
@@ -242,7 +242,7 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form ng-submit="explorerCtrl.createExplorerComponent()">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
     <md-input-container class="md-block" md-no-float>
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Section">
     </md-input-container>
@@ -290,7 +290,7 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form ng-submit="explorerCtrl.createExplorerComponent()">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
     <md-input-container class="md-block" md-no-float>
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Request Contributors">
     </md-input-container>
@@ -366,7 +366,7 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form ng-submit="explorerCtrl.createExplorerComponent()">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
     <md-input-container class="md-block" md-no-float>
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add to {{explorerComponentBucket.component.title}}">
     </md-input-container>
@@ -381,7 +381,7 @@
  </li>
 
  <li class="drag-column gb-column-placeholder">
-  <form ng-submit="explorerCtrl.createExplorerComponent()">
+  <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
    <md-input-container class="md-block" md-no-float>
     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add a New Column">
    </md-input-container>
