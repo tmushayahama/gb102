@@ -40,7 +40,8 @@ requirejs.config({
   'ng-joyride': '../../bower_components/ng-joyride/ng-joyride',
   'truncate-filters': '../modules/common/filters/truncate',
   'dnd-draggable': '../internal-libs/dnd-draggable',
-  'angular-grid': '../internal-libs/angular-grid'
+  'angular-grid': '../internal-libs/angular-grid',
+  //'ui-tab-scroll': '../internal-libs/horizontal-scroll'
  },
  shim: {
   'angular': {'exports': 'angular', deps: ['jquery']},
@@ -79,7 +80,8 @@ requirejs.config({
   'ng-joyride': {deps: ['angular', 'jquery']},
   'truncate-filters': {deps: ['angular']},
   'dnd-draggable': {deps: ['angular']},
-  'angular-grid': {deps: ['angular']}
+  'angular-grid': {deps: ['angular']},
+  //'ui-tab-scroll': {deps: ['angular']}
  },
  priority: [
   //'jquery',

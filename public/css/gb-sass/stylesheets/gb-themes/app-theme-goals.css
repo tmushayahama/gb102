@@ -3611,6 +3611,59 @@ a.editable-empty:focus {
   text-decoration: none;
 }
 
+.scrollable {
+  overflow-x: auto;
+  clear: both;
+}
+
+.scrollable > p {
+  position: absolute;
+  left: 0;
+}
+
+@media only screen and (max-width: 55em) {
+  .scrollable.scroll-table .table-blocks tr th {
+    line-height: 3.92857em;
+  }
+
+  .scrollable.scroll-table .table-lined tbody th {
+    line-height: 1.42857em;
+  }
+}
+@media all and (min-width: 55em) {
+  .scrollable {
+    overflow: visible;
+  }
+}
+.scroll-btns {
+  height: 1em;
+  position: relative;
+  font-size: 1.71429em;
+  cursor: pointer;
+  color: #007ac3;
+  top: 0;
+}
+
+.scroll-btns .scroll-left {
+  position: absolute;
+  left: 0;
+}
+
+.scroll-btns .scroll-right {
+  position: absolute;
+  right: 0;
+}
+
+@media all and (min-width: 55em) {
+  .scroll-btns {
+    display: none;
+  }
+}
+.icon-arrow-left .icon-arrow-right {
+  width: 10px;
+  height: 10px;
+}
+
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
@@ -4573,6 +4626,7 @@ input[type="checkbox"] {
   margin-right: 5px;
   font-size: 18px;
   color: #777;
+  text-transform: uppercase;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -4626,13 +4680,66 @@ input[type="checkbox"] {
   }
 }
 
+.gb-horizontal-scroll {
+  position: relative;
+}
+.gb-horizontal-scroll .gb-left-scroll,
+.gb-horizontal-scroll .gb-right-scroll {
+  width: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 3;
+}
+@media (max-width: 991px) {
+  .gb-horizontal-scroll .gb-left-scroll,
+  .gb-horizontal-scroll .gb-right-scroll {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .gb-horizontal-scroll .gb-left-scroll,
+  .gb-horizontal-scroll .gb-right-scroll {
+    display: none;
+  }
+}
+.gb-horizontal-scroll .gb-left-scroll button,
+.gb-horizontal-scroll .gb-right-scroll button {
+  min-width: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.gb-horizontal-scroll .gb-left-scroll button i,
+.gb-horizontal-scroll .gb-right-scroll button i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.gb-horizontal-scroll .gb-left-scroll:hover,
+.gb-horizontal-scroll .gb-right-scroll:hover {
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.gb-horizontal-scroll .gb-left-scroll {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+}
+.gb-horizontal-scroll .gb-right-scroll {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  bottom: 8px;
+}
+
 .gb-body-row-4 {
-  margin: 0 0 10px 0;
+  position: relative;
 }
 .gb-body-row-4.gb-inline {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 @media (max-width: 991px) {
@@ -4640,11 +4747,19 @@ input[type="checkbox"] {
     padding-left: 0px;
     padding-right: 0px;
   }
+  .gb-body-row-4.gb-inline {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
 @media (max-width: 767px) {
   .gb-body-row-4 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+  .gb-body-row-4.gb-inline {
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 }
 

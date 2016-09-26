@@ -27,6 +27,7 @@ and open the template in the editor.
 @import "components/gb-grid";
 @import "components/gb-joyride";
 @import "components/custom-xeditable";
+@import "components/gb-horizontal-scroll";
 
 //@import "components/gb-spinner";
 
@@ -783,6 +784,7 @@ input[type="checkbox"] {
   margin-right: 5px;
   font-size: 18px;
   color: #777;
+  text-transform: uppercase;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
@@ -832,21 +834,66 @@ input[type="checkbox"] {
  }
 }
 
+.gb-horizontal-scroll {
+ position:relative;
+ .gb-left-scroll,
+ .gb-right-scroll {
+  width: 15px;
+  background-color: rgba(#FFF, 0.5);
+  z-index: 3;
+  @include respond-to (gb-sm) {
+   display: none;
+  }
+  @include respond-to (gb-xs) {
+   display: none;
+  }
+  button {
+   min-width: 0;
+   margin: 0;
+   height: 100%;
+   width: 100%;
+   i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+   }
+  }
+  &:hover {
+   width: 30px;
+   background-color: rgba(#FFF, 0.5);
+  }
+ }
+ .gb-left-scroll {
+  @include position(absolute, 8px null 8px 0);
+ }
+ .gb-right-scroll {
+  @include position(absolute, 8px 0 8px null);
+ }
+}
 .gb-body-row-4 {
- margin: 0 0 10px 0;
+ position:relative;
  &.gb-inline {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
  }
  @include respond-to (gb-sm) {
   padding-left: 0px;
   padding-right: 0px;
+  &.gb-inline {
+   overflow-x: auto;
+   overflow-y: hidden;
+  }
  }
  @include respond-to (gb-xs) {
   padding-left: 0px;
   padding-right: 0px;
+  &.gb-inline {
+   overflow-x: auto;
+   overflow-y: hidden;
+  }
  }
 }
 

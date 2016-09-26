@@ -92,12 +92,12 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getAppExplorersFeatured = function (appName) {
+ ExplorersSrv.prototype.getAppExplorersFeatured = function () {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
   // self.explorers = [];
-  $http.get('/api/explorers/all/' + appName + '/featured').success(function (data) {
+  $http.get('/api/explorers/featured').success(function (data) {
    //self.explorers = data;
    self.deferredHandler(data, deferred);
   }).error(function (data) {

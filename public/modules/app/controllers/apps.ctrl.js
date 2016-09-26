@@ -13,6 +13,26 @@ var appsCtrl = function (
         localStorageService) {
 
  var vm = this;
+
+ function moveBy(scrollId, delta) {
+
+  var selector = scrollId;
+  var $scrollable = $(selector);//.find('.gb-horizontal-scrollable');
+  var curScroll = $scrollable.scrollLeft();
+  var scrollTo = curScroll + delta;
+
+  scrollTo = (delta > 0)
+          ? Math.min(scrollTo, $(window).width())
+          : Math.max(scrollTo, 0);
+
+  $scrollable.scrollLeft(scrollTo);
+
+ }
+
+ $rootScope.scrollHorizontal = function (sectionId, delta) {
+  moveBy(sectionId, delta);
+ };
+
  vm.constantsSrv = new ConstantsSrv();
 
  vm.logout = function () {

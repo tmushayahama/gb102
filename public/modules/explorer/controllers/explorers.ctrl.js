@@ -178,6 +178,41 @@ var explorersCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
  }, $scope);
 
+ vm.tabs = [];
+ vm.scrlTabsApi = {};
+
+ vm.reCalcScroll = function () {
+  if (vm.scrlTabsApi.doRecalculate) {
+   vm.scrlTabsApi.doRecalculate();
+  }
+ };
+
+ vm.scrollIntoView = function (arg) {
+  if (vm.scrlTabsApi.scrollTabIntoView) {
+   vm.scrlTabsApi.scrollTabIntoView(arg);
+  }
+  ;
+ };
+
+ vm.addTab = function () {
+  vm.tabs.push({
+   heading: 'New Tab ' + vm.tabs.length,
+   content: 'This is the content for a NEW tab ' + vm.tabs.length
+  });
+ };
+
+ vm.removeTab = function () {
+  vm.tabs.splice(vm.tabs.length - 1, 1);
+ };
+
+ for (var i = 0; i < 15; i++) {
+  vm.tabs.push({
+   heading: 'Tab ' + i,
+   content: 'This is the content for tab ' + i
+  });
+ }
+
+
  vm.explorersSrv = new ExplorersSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.communitySrv = new CommunitySrv();
@@ -185,36 +220,17 @@ var explorersCtrl = function (
  vm.explorerLevels;
  //vm.appTypes;
 
- vm.explorers = {
-  handpicked: [],
-  skills: [],
-  goals: [],
-  mentorships: [],
-  advices: [],
-  hobbies: [],
-  promises: [],
-  collaborations: []
- };
+ vm.featured = [];
  vm.appTypes;
  $rootScope.subAppName = "ALL";
 
- vm.explorersSrv.getExplorers(level_categories.list.handpicked).then(function (data) {
-  vm.explorers.handpicked = data;
- });
-
- vm.getExplorersFeatured = function (appName, populateList) {
-  vm.explorersSrv.getAppExplorersFeatured(appName).then(function (data) {
-   populateList[appName] = data;
-   // vm.explorers.skills = data;
+ vm.getExplorersFeatured = function () {
+  vm.explorersSrv.getAppExplorersFeatured().then(function (data) {
+   vm.featured = data;
   });
  };
 
- vm.getExplorersFeatured('skills', vm.explorers);
- vm.getExplorersFeatured('goals', vm.explorers);
- vm.getExplorersFeatured('mentorships', vm.explorers);
- vm.getExplorersFeatured('advices', vm.explorers);
- vm.getExplorersFeatured('hobbies', vm.explorers);
- vm.getExplorersFeatured('promises', vm.explorers);
+ vm.getExplorersFeatured();
 
  $rootScope.openAddExplorerModal = function () {
   var modalInstance = $uibModal.open({

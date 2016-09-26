@@ -153,6 +153,38 @@ class Explorer extends Model {
   return null;
  }
 
+ public static function getFeaturedExplorers($limit) {
+  $userId = User::getAuthenticatedUserId();
+  $featured = array();
+
+  $featured["skills"]["heading"] = "featured skills";
+  $featured["skills"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["skills"], $userId, $limit);
+
+  $featured["mentorships"]["heading"] = "featured mentorships";
+  $featured["mentorships"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["mentorships"], $userId, $limit);
+
+  $featured["goals"]["heading"] = "featured goals";
+  $featured["goals"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["goals"], $userId, $limit);
+
+  $featured["advices"]["heading"] = "featured advices";
+  $featured["advices"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["advices"], $userId, $limit);
+
+  $featured["promises"]["heading"] = "featured promises";
+  $featured["promises"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["promises"], $userId, $limit);
+
+  $featured["hobbies"]["heading"] = "featured hobbies";
+  $featured["hobbies"]["explorers"] = self::getFeaturedExplorer(
+                  Level::$level_categories["hobbies"], $userId, $limit);
+
+
+  return $featured;
+ }
+
  public static function getUserExplorers($userId, $appName) {
   $appId = Level::$level_categories[$appName];
   if ($appId) {
@@ -299,6 +331,37 @@ class Explorer extends Model {
               where('explorer_id', $explorerId)
               ->count(),
   );
+ }
+
+ private static function getFeaturedExplorer($appId, $userId, $limit) {
+  $explorers = self::initExplorerQuery();
+
+  if ($appId) {
+   $explorers = $explorers->where('app_type_id', $appId);
+
+   if ($userId) {
+
+    $explorers = $explorers->leftJoin('gb_share', function ($j) use ($userId) {
+     $j->on('source_id', '=', 'gb_explorer.id')
+             ->where('gb_share.level_id', '=', Level::$level_categories['share']['explorer']);
+     //->where('share_with_id', '=', $userId);
+    });
+
+    $explorers = $explorers->where(function($query) use ($userId) {
+     $query->where('gb_explorer.creator_id', $userId)
+             ->orWhere('privacy_id', Level::$level_categories['privacy']['public'])
+             ->orWhere('share_with_id', '=', $userId);
+    });
+    // $explorers = $explorers->where('gb_explorer.creator_id', $userId);
+   } else {
+    $explorers = $explorers->where('privacy_id', Level::$level_categories['privacy']['public']);
+   }
+   $explorers = $explorers->take($limit)
+           ->get();
+   self::getExplorerExtras($explorers);
+   return $explorers;
+  }
+  return null;
  }
 
 }
