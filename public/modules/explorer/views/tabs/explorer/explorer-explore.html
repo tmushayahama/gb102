@@ -366,9 +366,9 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent(explorerComponentBucket)">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add to {{explorerComponentBucket.component.title}}">
+     <input ng-model="explorerComponentBucket.newExplorerComponentData.title" type="text" placeholder='+ Add to "{{explorerComponentBucket.component.title}}"'>
     </md-input-container>
    </form>
    <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">

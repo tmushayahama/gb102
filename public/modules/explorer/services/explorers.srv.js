@@ -22,7 +22,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExplorersSrv.prototype.getExplorers = function (mode) {
+ ExplorersSrv.prototype.getExplorersByMode = function (mode) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();

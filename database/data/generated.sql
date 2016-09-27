@@ -179,7 +179,7 @@ CREATE TABLE `gb_level` (
   `parent_level_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(150),
-   `long_description` varchar(500),
+  `long_description` varchar(500),
   `icon` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `level_parent_level_id` (`parent_level_id`),

@@ -10,148 +10,132 @@
 </div>
 <div class="modal-body gb-modal-body">
  <form name="addExplorerForm1">
-  <wizard template="public/build/scripts/modules/app/views/templates/wizard.html"
-          on-finish="finishedWizard()"
-          name="explorer-form"
-          current-step="addExplorerCtrl.wizardCurrentStep">
-   <wz-step wz-title="Choose App">
-    <div class="row">
-     <div ng-repeat="appType in addExplorerCtrl.appTypes"
-          class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
-          ng-click="addExplorerCtrl.chooseAppType(appType)"
-          wz-next value="Fill">
-      <md-button class="md-raised gb-shadow-1 gb-apptype-btn">
-       <div class="gb-icon col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <i class=" fa icon-gb-{{appType.title.toLowerCase()}}"></i>
-       </div>
-       <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
-        <div class="gb-ellipsis">
-         {{appType.add_description}}
-        </div>
-       </div>
-      </md-button>
+  <div class="gb-horizontal-scroll row">
+   <div class="gb-left-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-select-featured-apps', - 150)" aria-label="scroll left">
+     <i class="fa fa-chevron-left"></i>
+    </md-button>
+   </div>
+   <ul id="gb-select-featured-apps" class="gb-body-row-4 gb-inline">
+    <li ng-repeat="app in addExplorerCtrl.appTypes track by $index"
+        class="gb-card-holder gb-card-xs gb-padding-medium">
+    <md-button ng-click="addExplorerCtrl.chooseAppType(app)" class="gb-card-apps-mini gb-app-type-{{::app.id}}"
+               ng-class="{'active': (addExplorerCtrl.selectedAppType.id === $index + 2)}">
+     <i class="gb-icon fa {{::app.icon}}"></i>
+     <div class="gb-title">
+      {{::app.description}}
      </div>
-    </div>
-   </wz-step>
-   <wz-step wz-title="Fill">
-    <br>
-    <div class="gb-heading-1">
-     <h5>
-      {{addExplorerCtrl.selectedAppType.add_description}}
-     </h5>
-    </div>
-    <br>
-    <div class="form-group row">
-     <label class="gb-label control-label row">
-      Title
-     </label>
-     <input ng-model="addExplorerCtrl.explorer.title"
-            name="title"
-            required
-            type="text"
-            rows="2" placeholder="Title"
-            ng-maxlength="150"
-            maxlength ="150"
-            class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 "/>
-     <div class="help-block" ng-messages="addExplorerForm1.title.$error">
-      <p ng-message="required">Title is required.</p>
+    </md-button>
+    </li>
+   </ul>
+   <div class="gb-right-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-select-featured-apps', 200)" aria-label="scroll right">
+     <i class="fa fa-chevron-right"></i>
+    </md-button>
+   </div>
+  </div>
+  <div class="gb-heading-1">
+   <h5>
+    {{addExplorerCtrl.selectedAppType.title}}
+   </h5>
+  </div>
+  <md-input-container class="md-block">
+   <textarea ng-model="addExplorerCtrl.explorer.title"
+             name="title"
+             required
+             rows="2" placeholder="Title"
+             ng-maxlength="150"
+             maxlength ="150">
+   </textarea>
+   <div class="help-block" ng-messages="addExplorerForm1.title.$error">
+    <p ng-message="required">Title is required.</p>
+   </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+   <textarea ng-model="addExplorerCtrl.explorer.description" name="description"
+             ng-required
+             rows="4" placeholder="Description"
+             ng-maxlength="150"
+             maxlength="150">
+   </textarea>
+  </md-input-container>
+  <div class="form-group row">
+   <label class="gb-label control-label row">
+    {{addExplorerCtrl.explorer.appType.title}} Level:
+   </label>
+   <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
+           ng-model="addExplorerCtrl.explorer.level">
+    <option ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.title}}</option>
+   </select>
+  </div>
+  <br>
+  <div ng-if="false" class="form-group row">
+   <label class="gb-label control-label row">
+    Choose request types
+   </label>
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="form-group row">
+     <div class="checkbox">
+      <label>
+       <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType"
+              ng-change="requestType.checked = !requestType.checked">
+       {{requestType.requestLevel.name}}
+      </label>
      </div>
+     <md-input-container ng-show="requestType.checked" class="md-block">
+      <input type="text"
+             ng-model="requestType.explorerRequest.description"
+             placeholder="Display Message"
+             md-maxlength="150"
+             ng-maxlength="150"
+             maxlength ="150"
+             class=""/>
+     </md-input-container>
     </div>
-    <br>
-    <div class="form-group row">
-     <label class="gb-label control-label row">
-      Description
-     </label>
-     <textarea ng-model="addExplorerCtrl.explorer.description" name="description"
-               ng-required
-               rows="4" placeholder="Description"
-               ng-maxlength="150"
-               maxlength ="150"
-               class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-     </textarea>
-    </div>
-    <br>
-    <div class="form-group row">
-     <label class="gb-label control-label row">
-      {{addExplorerCtrl.explorer.appType.title}} Level:
-     </label>
-     <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
-             ng-model="addExplorerCtrl.explorer.level">
-      <option ng-repeat="option in addExplorerCtrl.explorerLevels" value="{{option.id}}">{{option.name}}</option>
-     </select>
-    </div>
-    <br>
-    <div class="form-group row">
-     <label class="gb-label control-label row">
-      Choose request types
-     </label>
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div ng-repeat="requestType in addExplorerCtrl.requestTypes" class="form-group row">
-       <div class="checkbox">
-        <label>
-         <input type="checkbox" data-checklist-model="addExplorerCtrl.selectedRequestTypes" data-checklist-value="requestType"
-                ng-change="requestType.checked = !requestType.checked">
-         {{requestType.requestLevel.name}}
-        </label>
+   </div>
+  </div>
+  <div class="gb-heading-1">
+   <h5>
+    Privacy
+   </h5>
+  </div>
+  <br>
+  <md-radio-group ng-model="addExplorerCtrl.explorer.privacy_id" class="gb-primary">
+   <md-radio-button ng-repeat="privacyType in addExplorerCtrl.privacyTypes"
+                    ng-value="privacyType.id">
+    {{ privacyType.title}}
+   </md-radio-button>
+  </md-radio-group>
+  <div ng-show="addExplorerCtrl.explorer.privacy_id === 10003" class="row">
+   <md-chips ng-model="addExplorerCtrl.shareWithUsers" md-autocomplete-snap
+             md-require-match>
+    <md-autocomplete
+     md-autofocus="true"
+     md-no-cache="true"
+     md-min-length="1"
+     md-selected-item="addExplorerCtrl.filterSelected"
+     md-search-text="$query"
+     md-items="item in addExplorerCtrl.delayedQuerySearch($query)"
+     md-item-text="item.firstname"
+     placeholder="Enter Names">
+     <md-item-template>
+      <md-list-item class="md-2-line contact-item selected">
+       <img  ng-src="public/build/img/profile_pic/{{ item.avatar_url}}"
+             class="md-avatar" alt="{{item.firstname}}" />
+       <div class="md-list-item-text compact">
+        <h3> {{item.firstname + ' ' + item.lastname| chars:10:' ...'}}</h3>
+        <p>{{item.email}}</p>
        </div>
-       <md-input-container ng-show="requestType.checked" class="md-block">
-        <input type="text"
-               ng-model="requestType.explorerRequest.description"
-               placeholder="Display Message"
-               md-maxlength="150"
-               ng-maxlength="150"
-               maxlength ="150"
-               class=""/>
-       </md-input-container>
-      </div>
-     </div>
-    </div>
-   </wz-step>
-   <wz-step wz-title="Privacy">
-    <div class="gb-heading-1">
-     <h5>
-      Privacy
-     </h5>
-    </div>
-    <br>
-    <md-radio-group ng-model="addExplorerCtrl.explorer.privacy_id" class="gb-primary">
-     <md-radio-button ng-repeat="privacyType in addExplorerCtrl.privacyTypes"
-                      ng-value="privacyType.id">
-      {{ privacyType.name}}
-     </md-radio-button>
-    </md-radio-group>
-    <div ng-show="addExplorerCtrl.explorer.privacy_id === 500002" class="row">
-     <md-chips ng-model="addExplorerCtrl.shareWithUsers" md-autocomplete-snap
-               md-require-match>
-      <md-autocomplete
-       md-autofocus="true"
-       md-no-cache="true"
-       md-min-length="1"
-       md-selected-item="addExplorerCtrl.filterSelected"
-       md-search-text="$query"
-       md-items="item in addExplorerCtrl.delayedQuerySearch($query)"
-       md-item-text="item.firstname"
-       placeholder="Enter Names">
-       <md-item-template>
-        <md-list-item class="md-2-line contact-item selected">
-         <img  ng-src="public/build/img/profile_pic/{{ item.avatar_url}}"
-               class="md-avatar" alt="{{item.firstname}}" />
-         <div class="md-list-item-text compact">
-          <h3> {{item.firstname + ' ' + item.lastname| chars:10:' ...'}}</h3>
-          <p>{{item.email}}</p>
-         </div>
-        </md-list-item>
-       </md-item-template>
-      </md-autocomplete>
-      <md-chip-template>
-       <span>
-        {{$chip.firstname + ' ' + $chip.lastname| chars:10:' ...'}}
-       </span>
-      </md-chip-template>
-     </md-chips>
-    </div>
-   </wz-step>
-  </wizard>
+      </md-list-item>
+     </md-item-template>
+    </md-autocomplete>
+    <md-chip-template>
+     <span>
+      {{$chip.firstname + ' ' + $chip.lastname| chars:10:' ...'}}
+     </span>
+    </md-chip-template>
+   </md-chips>
+  </div>
  </form>
 </div>
 <div class="modal-footer">
@@ -161,20 +145,7 @@
    Close
   </md-button>
   <md-button ng-class="{
-    'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.previous()"
-             aria-label="Previous">
-   Previous
-  </md-button>
-  <md-button ng-class="{
-    'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Privacy' && addExplorerCtrl.selectedAppType}" class="" ng-click="addExplorerCtrl.next()"
-             aria-label="Next">
-   Next
-  </md-button>
-  <md-button ng-class="{
-    'gb-disabled'
-            : addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
+    'gb-disabled': addExplorerCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addExplorerCtrl.ok()"
              aria-label="Add">
    Add
   </md-button>

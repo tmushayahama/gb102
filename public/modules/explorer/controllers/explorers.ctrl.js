@@ -218,11 +218,16 @@ var explorersCtrl = function (
  vm.communitySrv = new CommunitySrv();
  $rootScope.appName = 'Explorer';
  vm.explorerLevels;
+ vm.handpickedExplorers = [];
  //vm.appTypes;
 
  vm.featured = [];
  vm.appTypes;
  $rootScope.subAppName = "ALL";
+
+ vm.explorersSrv.getExplorersByMode(level_categories.list.handpicked).then(function (data) {
+  vm.handpickedExplorers = data;
+ });
 
  vm.getExplorersFeatured = function () {
   vm.explorersSrv.getAppExplorersFeatured().then(function (data) {

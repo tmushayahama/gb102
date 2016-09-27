@@ -10,18 +10,30 @@
 </div>
 <div class="modal-body gb-modal-body">
  <form name="addExplorerForm1">
-  <ul class="gb-body-row-4 gb-inline">
-   <li ng-repeat="app in addExplorerCtrl.appTypes track by $index"
-       class="gb-card-holder gb-card-xs gb-padding-medium">
-   <md-button ng-click="addExplorerCtrl.chooseAppType(app)" class="gb-card-apps-mini gb-app-type-{{::app.id}}"
-              ng-class="{'active': (addExplorerCtrl.selectedAppType.id === $index + 2)}">
-    <i class="gb-icon fa {{::app.icon}}"></i>
-    <div class="gb-title">
-     {{::app.description}}
-    </div>
-   </md-button>
-   </li>
-  </ul>
+  <div class="gb-horizontal-scroll row">
+   <div class="gb-left-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-select-featured-apps', - 150)" aria-label="scroll left">
+     <i class="fa fa-chevron-left"></i>
+    </md-button>
+   </div>
+   <ul id="gb-select-featured-apps" class="gb-body-row-4 gb-inline">
+    <li ng-repeat="app in addExplorerCtrl.appTypes track by $index"
+        class="gb-card-holder gb-card-xs gb-padding-medium">
+    <md-button ng-click="addExplorerCtrl.chooseAppType(app)" class="gb-card-apps-mini gb-app-type-{{::app.id}}"
+               ng-class="{'active': (addExplorerCtrl.selectedAppType.id === $index + 2)}">
+     <i class="gb-icon fa {{::app.icon}}"></i>
+     <div class="gb-title">
+      {{::app.description}}
+     </div>
+    </md-button>
+    </li>
+   </ul>
+   <div class="gb-right-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-select-featured-apps', 200)" aria-label="scroll right">
+     <i class="fa fa-chevron-right"></i>
+    </md-button>
+   </div>
+  </div>
   <div class="gb-heading-1">
    <h5>
     {{addExplorerCtrl.selectedAppType.title}}
