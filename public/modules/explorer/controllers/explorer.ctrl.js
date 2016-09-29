@@ -54,7 +54,6 @@ var explorerCtrl = function (
   description: "",
   privacy: 0
  };
- vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
 
 //Explorer Contribution
  vm.explorerContributions;
@@ -93,6 +92,15 @@ var explorerCtrl = function (
     console.log(response);
    });
   }
+ };
+
+
+ vm.getDefaultExplorerComponentData = function (parentComponentId) {
+  var result = angular.copy(vm.defaultExplorerComponentData);
+  if (parentComponentId) {
+   result.parentComponentId = parentComponentId;
+  }
+  return result;
  };
 
 
@@ -303,6 +311,7 @@ var explorerCtrl = function (
  vm.getExplorerComponents = function (explorerId) {
   vm.explorerComponentsSrv.getExplorerComponents(explorerId).then(function (response) {
    vm.explorerComponentBuckets = response;
+   vm.explorerComponentBuckets.newExplorerComponentData = vm.getDefaultExplorerComponentData();
    /*
     angular.forEach(response, function (subComponent, key) {
     vm.explorerComponentsSrv.getExplorerSubComponents(explorerId, subComponent.component_id).then(function (subComponentResponse) {
@@ -314,11 +323,17 @@ var explorerCtrl = function (
   });
  };
 
+ vm.createExplorerComponent = function (explorerComponentBucket) {
+  vm.explorerComponentsSrv.createExplorerComponent(explorerComponentBucket.newExplorerComponentData).then(function (response) {
 
- vm.createExplorerComponent = function () {
-  vm.explorerComponentsSrv.createExplorerComponent(vm.newExplorerComponentData).then(function (response) {
-   vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
-   vm.explorerComponentBuckets.push(response);
+   if (explorerComponentBucket.newExplorerComponentData.parentComponentId) {
+    explorerComponentBucket.explorerComponents.push(response);
+    explorerComponentBucket.newExplorerComponentData = vm.getDefaultExplorerComponentData(explorerComponentBucket.newExplorerComponentData.parentComponentId);
+   } else {
+    explorerComponentBucket.explorerComponents.push(response);
+    explorerComponentBucket.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+   }
+
   }, function (response) {
    console.log(response);
   });

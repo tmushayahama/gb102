@@ -323,7 +323,8 @@
   </ul>
  </li>
  <li class="drag-column"
-     ng-repeat="explorerComponentBucket in explorerCtrl.explorerComponentBuckets track by $index">
+     ng-repeat="explorerComponentBucket in explorerCtrl.explorerComponentBuckets.explorerComponents track by $index"
+     ng-init="explorerComponentBucket.newExplorerComponentData = explorerCtrl.getDefaultExplorerComponentData(explorerComponentBucket.component_id)">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
@@ -370,20 +371,36 @@
     <md-input-container class="md-block" md-no-float>
      <input ng-model="explorerComponentBucket.newExplorerComponentData.title" type="text" placeholder='+ Add to "{{explorerComponentBucket.component.title}}"'>
     </md-input-container>
+    <div class="gb-footer row">
+     <div class="btn-group">
+      <md-button aria-label="">
+       <i class="fa fa-user"></i>
+      </md-button>
+     </div>
+     <div class="pull-right btn-group">
+      <md-button class="text-danger" aria-label="cancel">
+       <i class="fa fa-times"></i>
+      </md-button>
+      <md-button ng-click="explorerCtrl.createExplorerComponent(explorerComponentBucket)"
+                 class="text-success" aria-label="submit">
+       <i class="fa fa-check"></i>
+      </md-button>
+     </div>
+    </div>
    </form>
    <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
     <div gb-explorer-component-box
          explorer-component="explorerComponent"
-         open-explorer-component="explorerComponentsCtrl.openExplorerComponent(explorerComponent)">
+         open-explorer-component="explorerCtrl.openExplorerComponent(explorerComponent)">
     </div>
    </li>
   </ul>
  </li>
 
  <li class="drag-column gb-column-placeholder">
-  <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent()">
+  <form class="gb-new-item-form" ng-submit="explorerCtrl.createExplorerComponent(explorerCtrl.explorerComponentBuckets)">
    <md-input-container class="md-block" md-no-float>
-    <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add a New Column">
+    <input ng-model="explorerCtrl.explorerComponentBuckets.newExplorerComponentData.title" type="text" placeholder="+ Add a New Column">
    </md-input-container>
   </form>
  </li>
@@ -393,9 +410,3 @@
 <div class="" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plans.html'"></div>
 <div class="" ng-include="'public/build/scripts/modules/explorer/views/components/todo/explorer-todos.html'"></div>
 -->
-<script type="text/ng-template" id="explorer-section-modal.html">
- <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-modal.html'"></div>
-</script>
-<script type="text/ng-template" id="explorer-section-item-modal.html">
- <div class="gb-section-page" ng-include="'public/build/scripts/modules/explorer/views/components/section/explorer-section-item-modal.html'"></div>
-</script>

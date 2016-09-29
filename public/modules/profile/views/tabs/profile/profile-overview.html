@@ -161,12 +161,12 @@
   </ul>
  </li>
  <li class="drag-column"
-     ng-repeat="appTypesExplorer in profileCtrl.appTypesExplorers track by $index">
+     ng-repeat="appsExplorer in profileCtrl.appsExplorers track by $index">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
-     <i class="gb-icon fa icon-gb-{{::appTypesExplorer.name.toLowerCase()}}"></i>
-     {{appTypesExplorer.name}}
+     <i class="gb-icon fa icon-gb-{{::appsExplorer.title}}"></i>
+     {{appsExplorer.title}}
     </h2>
    </div>
    <div class="gb-actions btn-group pull-right">
@@ -195,9 +195,9 @@
   </div>
   <ul class="drag-inner-list">
    <li class="drag-item"
-       ng-repeat="explorer in appTypesExplorer.explorers track by $index">
+       ng-repeat="explorer in appsExplorer.explorers track by $index">
     <div gb-explorer-box explorer="explorer"
-         template-url="{{appsCtrl.getTemplateUrl(explorer)}}">
+         template-url="{{appsCtrl.getTemplateUrl(explorer, '')}}">
     </div>
    </li>
   </ul>
@@ -236,7 +236,7 @@
    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-4 gb-padding-thin">
     <md-button ui-sref="apps.community.users" class="gb-box-3 gb-shadow-1"
                ng-class="{
-                active: ('apps.community' | includedByState)
+                active: ('apps.community' |  includedByState)
                 }">
      <div class="gb-title gb-ellipsis">
       CONNECTOR
@@ -250,7 +250,7 @@
    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin">
     <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
                ng-class="{
-                active: ('apps.group' | includedByState)
+                active: ('apps.group' |  includedByState)
                 }">
      <div class="gb-stat-number">
       0
@@ -263,7 +263,7 @@
    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
     <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
                ng-class="{
-                active: ('apps.group' | includedByState)
+                active: ('apps.group' |  includedByState)
                 }">
      <div class="gb-stat-number">
       {{profileOverviewCtrl.explorersStats.totalCount}}
@@ -276,7 +276,7 @@
    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
     <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
                ng-class="{
-                active: ('apps.group' | includedByState)
+                active: ('apps.group' |  includedByState)
                 }">
      <div class="gb-stat-number">
       0
@@ -289,7 +289,7 @@
    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
     <md-button ui-sref="apps.groups.all" class="gb-box-3 gb-shadow-1"
                ng-class="{
-                active: ('apps.group' | includedByState)
+                active: ('apps.group' |  includedByState)
                 }">
      <div class="gb-stat-number">
       0

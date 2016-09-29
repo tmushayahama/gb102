@@ -107,7 +107,7 @@ class Explorer extends Model {
     self::getExplorerExtras($explorers);
    * *
    */
-  $appTypesExplorers = Level::getLevel(Level::$level_categories->app);
+  $appTypesExplorers = Level::getLevel(Level::$level_categories["apps"]);
   foreach ($appTypesExplorers as $appTypesExplorer) {
    $appTypesExplorer["explorers"] = self::getUserExplorersByAppId($userId, $appTypesExplorer->id);
   }

@@ -12,7 +12,7 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
            restrict: 'EA',
            // template: '<ng-include src="componentTemplateUrl"/>',
            //replace: true,
-           templateUrl: "public/modules/explorer/views/templates/activity/component-activity-box.tpl.html",
+           templateUrl: "public/modules/explorer/views/templates/component/explorer-component-box.tpl.html",
            scope: {
             //templateUrl: '@',
             explorerComponent: '=',

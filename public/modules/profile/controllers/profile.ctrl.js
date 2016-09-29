@@ -41,7 +41,7 @@ var profileCtrl = function (
  vm.constantsSrv = new ConstantsSrv();
  vm.explorersSrv = new ExplorersSrv();
  vm.searchSrv = new SearchSrv();
- vm.appTypesExplorers = [];
+ vm.appsExplorers = [];
 
  vm.getSearchSuggestions = function (val) {
   var searchData = {
@@ -87,12 +87,9 @@ var profileCtrl = function (
  });
 
  vm.explorersSrv.getUserExplorers(vm.profileId).then(function (data) {
-  vm.appTypesExplorers = data;
+  vm.appsExplorers = data;
  });
 
- vm.constantsSrv.getIcons(1).then(function (data) {
-  vm.profileIcons = data;
- });
 };
 
 profileCtrl.$inject = ['_',

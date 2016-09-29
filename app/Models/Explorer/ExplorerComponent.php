@@ -47,7 +47,9 @@ class ExplorerComponent extends Model {
   foreach ($explorerComponents as $explorerComponent) {
    $explorerComponent["explorerComponents"] = self::getExplorerSubComponents($explorerId, $explorerComponent->component_id);
   }
-  return $explorerComponents;
+  $result["explorerComponents"] = $explorerComponents;
+
+  return $result;
  }
 
  public static function getExplorerSubComponents($explorerId, $componentId) {
@@ -82,6 +84,7 @@ class ExplorerComponent extends Model {
  public static function createExplorerComponent() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
+  $parentComponentId = Request::get("parentComponentId");
   $explorerId = Request::get("explorerId");
   $typeId = Request::get("typeId");
   $title = Request::get("title");
@@ -89,6 +92,7 @@ class ExplorerComponent extends Model {
 
   $component = new Component;
   $explorerComponent = new ExplorerComponent;
+  $component->parent_component_id = $parentComponentId;
   $component->creator_id = $userId;
   $component->type_id = $typeId;
   $component->title = $title;
