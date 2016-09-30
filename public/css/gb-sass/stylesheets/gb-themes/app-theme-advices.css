@@ -4559,49 +4559,61 @@ input[type="checkbox"] {
 }
 
 .gb-heading-row-3 {
-  height: 28px;
-  margin: 10px 0;
-  padding: 0 0 5px 0;
-  background-color: #FFF;
-}
-.gb-heading-row-3 .gb-heading-icon {
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 15px;
-  padding: 10px 0;
-  width: 40px;
-  display: block;
-  background-color: rgba(154, 109, 54, 0.8);
-  color: #F2F2F2;
-  font-size: 15px;
-  text-align: center;
-  border-radius: 5px;
+  position: relative;
+  height: 35px;
+  border-bottom: #BBB solid 1px;
 }
 .gb-heading-row-3 .gb-title {
-  padding: 5px 0 0 60px;
-  margin-right: 5px;
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  color: #999999;
+  text-transform: uppercase;
+}
+.gb-heading-row-3 .gb-title h2 {
   font-size: 14px;
-  color: rgba(154, 109, 54, 0.8);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
 }
-.gb-heading-row-3 .gb-title.gb-small {
-  padding: 0 0 0 0;
-  font-size: 15px;
+.gb-heading-row-3 .gb-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
 }
-.gb-heading-row-3 .gb-filter-btn {
-  color: #656565;
-  margin-top: 5px;
-  border: none;
-  border-bottom: rgba(154, 109, 54, 0.4) solid 1px;
+.gb-heading-row-3 .gb-actions .dropdown-toggle {
+  padding: 0 4px;
+  line-height: 33px;
 }
-.gb-heading-row-3 .gb-action.md-button {
-  height: 28px;
-  width: 28px;
-  max-width: 150px;
+.gb-heading-row-3 .gb-actions .dropdown-menu {
+  width: 200px;
+}
+.gb-heading-row-3 .gb-actions .dropdown-menu a,
+.gb-heading-row-3 .gb-actions .dropdown-menu .gb-menu-item {
+  height: 35px !important;
+  line-height: 35px !important;
   margin: 0;
+  padding: 0;
+}
+.gb-heading-row-3 .gb-actions .dropdown-menu a .gb-icon,
+.gb-heading-row-3 .gb-actions .dropdown-menu .gb-menu-item .gb-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+}
+.gb-heading-row-3 .gb-actions .dropdown-menu a .gb-title,
+.gb-heading-row-3 .gb-actions .dropdown-menu .gb-menu-item .gb-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 35px;
+  text-align: left;
+  padding: 0 5px;
 }
 
 .gb-heading-row-4 {

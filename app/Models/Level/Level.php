@@ -55,7 +55,9 @@ class Level extends Model {
          'private' => 10001,
          'public' => 10002,
          'customize' => 10003,
-     )
+     ),
+     'component_background_colors' => 13000,
+     'default_component_background_color' => 13001
  );
 
  /**

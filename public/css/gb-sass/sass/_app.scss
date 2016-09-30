@@ -716,48 +716,45 @@ input[type="checkbox"] {
  }
 }
 
-.gb-heading-row-3 {
- height: 28px;
- margin: 10px 0;
- padding: 0 0 5px 0;
- background-color: #FFF;
-
- .gb-heading-icon {
-  @include position(absolute, 5px null 5px 15px);
-  padding: 10px 0;
-  width: 40px;
-  display: block;
-  background-color: rgba($primary-color, 0.8);
-  color: #F2F2F2;
-  font-size: 15px;
-  text-align: center;
-  border-radius: 5px;
- }
-
+.gb-heading-row-3 { 
+ position: relative;
+ height: 35px;
+ border-bottom: #BBB solid 1px;
  .gb-title {
-  padding: 5px 0 0 60px;
-  margin-right: 5px;
-  font-size: 14px;
-  color: rgba($primary-color, 0.8);
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-  &.gb-small {
-   padding: 0 0 0 0;
-   font-size: 15px;
+  @include position(absolute, 0 40px 0 0);
+  padding: 10px 0;
+  color: #999999;
+  text-transform: uppercase;
+  h2 {
+   font-size: 14px;
   }
  }
- .gb-filter-btn {
-  color: #656565;
-  margin-top: 5px;
-  border: none;
-  border-bottom: rgba($primary-color, 0.4) solid 1px;
- }
- .gb-action.md-button {
-  height: 28px;
-  width: 28px;
-  max-width: 150px;
-  margin: 0;
+ .gb-actions {
+  @include position(absolute, 0 0 0 null);
+  width: 35px;
+  .dropdown-toggle {
+   padding: 0 4px;
+   line-height: 33px;
+  }
+  .dropdown-menu {
+   width: 200px;
+   a,
+   .gb-menu-item {
+    height: 35px!important;
+    line-height: 35px!important;
+    margin: 0;
+    padding: 0;
+    .gb-icon {
+     @include position(absolute, 0 null 0 0);
+     width: 35px;
+    }
+    .gb-title {
+     @include position(absolute, 0 0 0 35px);
+     text-align: left;
+     padding: 0 5px;
+    }
+   }
+  }
  }
 }
 

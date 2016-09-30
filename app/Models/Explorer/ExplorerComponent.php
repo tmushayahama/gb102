@@ -56,6 +56,7 @@ class ExplorerComponent extends Model {
   $explorerComponents = ExplorerComponent::with('component')
           ->with('component.creator')
           ->with('component.type')
+          ->with('component.backgroundColor')
           ->whereHas('component', function($q) use ($componentId) {
            $q->where('parent_component_id', $componentId);
           })
@@ -75,6 +76,7 @@ class ExplorerComponent extends Model {
           ->orderBy('id', 'DESC')
           ->with('component.creator')
           ->with('component.type')
+          ->with('component.backgroundColor')
           ->where('explorer_id', $explorerId)
           ->where('component_id', $componentId)
           ->first();
@@ -97,6 +99,7 @@ class ExplorerComponent extends Model {
   $component->type_id = $typeId;
   $component->title = $title;
   $component->description = $description;
+  $component->background_color = Level::$level_categories["default_component_background_color"];
   $explorerComponent->explorer_id = $explorerId;
 
   DB::beginTransaction();

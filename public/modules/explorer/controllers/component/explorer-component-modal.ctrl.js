@@ -8,15 +8,23 @@ var explorerComponentCtrl = function (
         $rootScope,
         $location,
         $log,
-        explorerComponentData) {
+        explorerComponentData,
+        componentBackgroundColors) {
  var vm = this;
  vm.explorerId = explorerComponentData.explorer_id;
  vm.explorerComponentId = explorerComponentData.id;
+ vm.componentBackgroundColors = componentBackgroundColors;
  vm.explorerComponentsSrv = new ExplorerComponentsSrv();
  vm.explorerComponent = explorerComponentData;
  vm.explorerSubComponents;
  vm.componentId = explorerComponentData.component_id;
  vm.componentFormDisplay = false;
+ vm.componentSettingsDisplay = false;
+
+ vm.toggleComponentSettingsDisplay = function () {
+  vm.componentSettingsDisplay = !vm.componentSettingsDisplay;
+ }
+
  vm.ok = function () {
   $uibModalInstance.close();
  };
@@ -80,5 +88,6 @@ explorerComponentCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'explorerComponentData'];
+ 'explorerComponentData',
+ 'componentBackgroundColors'];
 angular.module("app.explorer").controller('ExplorerComponentCtrl', explorerComponentCtrl);

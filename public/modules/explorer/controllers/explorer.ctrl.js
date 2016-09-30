@@ -398,6 +398,9 @@ var explorerCtrl = function (
    resolve: {
     explorerComponentData: function () {
      return explorerComponent;
+    },
+    componentBackgroundColors: function () {
+     return vm.componentBackgroundColors;
     }
    }
   });
@@ -553,6 +556,10 @@ var explorerCtrl = function (
 
  vm.explorerContributionsSrv.getExplorerContributions(vm.explorerId).then(function (data) {
   vm.explorerContributions = data;
+ });
+
+ vm.constantsSrv.getLevel(level_categories.component_background_colors).then(function (data) {
+  vm.componentBackgroundColors = data;
  });
 
 

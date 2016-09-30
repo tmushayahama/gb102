@@ -24,6 +24,10 @@ class Component extends Model {
   return $this->belongsTo('App\Models\Level\Level', 'type_id');
  }
 
+ public function backgroundColor() {
+  return $this->belongsTo('App\Models\Level\Level', 'background_color_id');
+ }
+
  /**
   * The attributes that are mass assignable.
   *
@@ -35,6 +39,7 @@ class Component extends Model {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
           ->with('creator')
+          ->with('backgroundColor')
           ->take(100)
           ->get();
   return $components;

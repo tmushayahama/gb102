@@ -9,85 +9,199 @@
   x
  </md-button>
 </div>
-<div class="modal-body gb-modal-body">
- <div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div class="gb-heading-row-3 gb-shadow-1 row">
-    <div class="gb-heading-icon">
-     <i class="fa fa-file-text-o"></i>
-    </div>
-    <div class="gb-title col-lg-5 col-md-6 col-sm-6 col-xs-6">
-     <p class="gb-ellipsis">
-      DESCRIPTION
-     </p>
-    </div>
-    <div class="btn-group pull-right">
-     <md-button type="button" class="gb-action" ng-show="!explorerComponentCtrl.editDecriptionMode"
-                ng-click="explorerComponentCtrl.editDecriptionMode = true">
-      <i class="fa fa-pencil"></i>
-     </md-button>
-    </div>
-   </div>
-  </div>
- </div>
- <div class="gb-body-row-1 row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div ng-hide="explorerComponentCtrl.editDecriptionMode" class="row">
-    <strong>{{explorerComponentCtrl.explorerComponent.component.title}}</strong>
-    {{explorerComponentCtrl.explorerComponent.component.description}}
-   </div>
-   <form ng-show="explorerComponentCtrl.editDecriptionMode"
-         ng-submit="explorerComponentCtrl.editExplorerComponentSections.details()">
-    <md-input-container class="md-block">
-     <input ng-model="explorerComponentCtrl.explorerComponent.component.title" name="title" required
-            placeholder="Title"
-            class="">
-    </md-input-container>
-    <md-input-container class="md-block">
-     <input ng-model="explorerComponentCtrl.explorerComponent.component.description" name="title"
-            placeholder="Description"
-            class="">
-    </md-input-container>
-    <div class="row"
-         ng-show="explorerComponentCtrl.editDecriptionMode">
-     <div class="btn-group pull-right">
-      <md-button type="button" class="" ng-click="explorerComponentCtrl.editDecriptionMode = false">
-       Cancel
-      </md-button>
-      <md-button type="submit" class="gb-color-primary">
-       Done
-      </md-button>
-     </div>
-    </div>
-   </form>
-  </div>
- </div>
+<div class="modal-body gb-modal-body"
+     ng-style="{'background-color':explorerComponentCtrl.explorerComponent.component.background_color.title}">
 
- <div ng-repeat="component in explorerComponentCtrl.explorerSubComponents track by $index">
-  <div class="gb-subcomponent-box row">
-   <div class="gb-box-body row">
-    <div class="gb-number">
-     {{$index + 1}}
+ <ul class="row nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+   <a href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
+    Overview
+   </a>
+  </li>
+  <li role="presentation" class="pull-right">
+   <a href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
+    <i class="fa fa-cog"></i>
+   </a>
+  </li>
+ </ul>
+ <div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
+
+   <div class="gb-heading-row-3">
+    <div class="gb-title">
+     <h2 class="gb-ellipsis">
+      <i class="fa fa-list"></i>
+      Description
+     </h2>
     </div>
-    <div class="gb-box-content">
-     <div class="gb-description row">
-      <p class="">
-       {{component.title}}
-       <i>{{component.description}}</i>
-      </p>
-     </div>
-     <div class="gb-steps" ng-repeat="step in component.steps track by $index">
-      <div class="gb-step">
-       <div class="gb-step-number">
-        {{$index + 1}}
+    <div class="gb-actions btn-group pull-right">
+     <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+      <div class="gb-icon">
+       <i class="fa fa-chevron-down"></i>
+      </div>
+     </md-button>
+     <ul class="dropdown-menu dropdown-menu-right">
+      <li class="row">
+      <md-button ng-show="!explorerComponentCtrl.editDecriptionMode"
+                 ng-click="explorerComponentCtrl.editDecriptionMode = true"
+                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="gb-icon">
+        <i class="fa fa-folder-open-o"></i>
        </div>
-       <div class="gb-step-content">
-        {{step.title}}
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         EDIT
+        </p>
+       </div>
+      </md-button>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="gb-body-row-1 row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div ng-hide="explorerComponentCtrl.editDecriptionMode" class="row">
+      <strong>{{explorerComponentCtrl.explorerComponent.component.title}}</strong>
+      {{explorerComponentCtrl.explorerComponent.component.description}}
+     </div>
+     <form ng-show="explorerComponentCtrl.editDecriptionMode"
+           ng-submit="explorerComponentCtrl.editExplorerComponentSections.details()">
+      <md-input-container class="md-block">
+       <input ng-model="explorerComponentCtrl.explorerComponent.component.title" name="title" required
+              placeholder="Title"
+              class="">
+      </md-input-container>
+      <md-input-container class="md-block">
+       <input ng-model="explorerComponentCtrl.explorerComponent.component.description" name="title"
+              placeholder="Description"
+              class="">
+      </md-input-container>
+      <div class="row"
+           ng-show="explorerComponentCtrl.editDecriptionMode">
+       <div class="btn-group pull-right">
+        <md-button type="button" class="" ng-click="explorerComponentCtrl.editDecriptionMode = false">
+         Cancel
+        </md-button>
+        <md-button type="submit" class="gb-color-primary">
+         Done
+        </md-button>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+   <section class="row">
+    <div class="gb-heading-row-3">
+     <div class="gb-title">
+      <h2 class="gb-ellipsis">
+       <i class="fa fa-check-square-o"></i>
+       Checklist
+      </h2>
+     </div>
+     <div class="gb-actions btn-group pull-right">
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa fa-chevron-down"></i>
+       </div>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="row">
+       <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                  class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gb-icon">
+         <i class="fa fa-folder-open-o"></i>
+        </div>
+        <div class="gb-title">
+         <p class="gb-ellipsis">
+          VIEW
+         </p>
+        </div>
+       </md-button>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="gb-body-row-1 row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+     </div>
+    </div>
+   </section>
+   <section class="row">
+    <div class="gb-heading-row-3">
+     <div class="gb-title">
+      <h2 class="gb-title gb-ellipsis">
+       <i class="fa fa-check-square-o"></i>
+       Checklist
+      </h2>
+     </div>
+     <div class="gb-actions btn-group pull-right">
+      <md-button type="button" class="gb-action" ng-show="!explorerComponentCtrl.editDecriptionMode"
+                 ng-click="explorerComponentCtrl.editDecriptionMode = true">
+       <i class="fa fa-pencil"></i>
+      </md-button>
+      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <div class="gb-icon">
+        <i class="fa fa-chevron-down"></i>
+       </div>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="row">
+       <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                  class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gb-icon">
+         <i class="fa fa-folder-open-o"></i>
+        </div>
+        <div class="gb-title">
+         <p class="gb-ellipsis">
+          VIEW
+         </p>
+        </div>
+       </md-button>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="gb-body-row-1 row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+     </div>
+    </div>
+   </section>
+
+   <div ng-repeat="component in explorerComponentCtrl.explorerSubComponents track by $index">
+    <div class="gb-subcomponent-box row">
+     <div class="gb-box-body row">
+      <div class="gb-number">
+       {{$index + 1}}
+      </div>
+      <div class="gb-box-content">
+       <div class="gb-description row">
+        <p class="">
+         {{component.title}}
+         <i>{{component.description}}</i>
+        </p>
+       </div>
+       <div class="gb-steps" ng-repeat="step in component.steps track by $index">
+        <div class="gb-step">
+         <div class="gb-step-number">
+          {{$index + 1}}
+         </div>
+         <div class="gb-step-content">
+          {{step.title}}
+         </div>
+        </div>
        </div>
       </div>
      </div>
     </div>
    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="gb-component-settings">
+   <div ng-include="'public/modules/explorer/views/components/component/component-settings.html'"></div>
   </div>
  </div>
 

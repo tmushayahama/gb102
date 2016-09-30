@@ -106,6 +106,7 @@ CREATE TABLE `gb_component` (
   `creator_id` int(11) NOT NULL,
   `title` varchar(150) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
+  `background_color_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `importance` int(11) NOT NULL DEFAULT '1',
@@ -114,8 +115,10 @@ CREATE TABLE `gb_component` (
   KEY `component_creator_id` (`creator_id`),
   KEY `component_type_id` (`type_id`),
   KEY `component_parent_component_id` (`parent_component_id`),
+  KEY `component_background_color_id` (`background_color_id`),
   CONSTRAINT `component_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_background_color_id` FOREIGN KEY (`background_color_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_parent_component_id` FOREIGN KEY (`parent_component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -546,7 +549,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_component_id`, `type_id`,	`creator_id`,	`title`,	`description`,	`created_at`, `importance`,	`status`);
+   (`id`, `parent_component_id`, `type_id`,	`creator_id`,	`title`,	`description`, `background_color_id`,	`created_at`, `importance`,	`status`);
 
 
 -- ------------------ USER ------------------

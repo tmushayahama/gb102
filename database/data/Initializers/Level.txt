@@ -113,3 +113,9 @@ id	parent_level_id	title	description	long_description	icon
 12000	NULL	Bucket Type			
 12001	12000	Normal	Normal Bucket		
 100000	NULL	Community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
+13000	NULL	Component Background Colors			
+13001	13000	#FFFFFF			
+13002	13000	#FFCC99			
+13003	13000	#C6EFCE			
+13004	13000	#FFFFCC			
+13005	13000	#FFC7CE			

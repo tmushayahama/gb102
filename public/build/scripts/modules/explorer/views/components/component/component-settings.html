@@ -1,0 +1,44 @@
+<div class="row">
+ <div class="gb-heading-row-3">
+  <div class="gb-title">
+   <h2 class="gb-ellipsis">
+    <i class="fa fa-list"></i>
+    Background Color
+   </h2>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <ul class="gb-color-section">
+    <li ng-repeat="backgroundColor in explorerComponentCtrl.componentBackgroundColors" class="">
+    <md-button ng-click="explorerComponentCtrl.addBackground(backgroundColor)"
+               ng-style="{'background-color':backgroundColor}"
+               class="gb-background-color-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-icon">
+      <i class="fa fa-folder-open-o"></i>
+     </div>
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+      </p>
+     </div>
+    </md-button>
+    </li>
+   </ul>
+  </div>
+ </div>
+ <ul class="gb-color-section">
+  <li ng-repeat="labelColor in explorerComponentCtrl.labelColors" class="">
+  <md-button ng-click="explorerComponentCtrl.addLabelBackground(backgroundColor)"
+             ng-style="{'background-color':labelColor}"
+             class="gb-background-color-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-icon">
+    <i class="fa fa-folder-open-o"></i>
+   </div>
+   <div class="gb-title">
+    <p class="gb-ellipsis">
+    </p>
+   </div>
+  </md-button>
+  </li>
+ </ul>
+</div>
