@@ -15,7 +15,7 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
            templateUrl: "public/modules/explorer/views/templates/component/explorer-component-box.tpl.html",
            scope: {
             //templateUrl: '@',
-            explorerComponent: '=',
+            component: '=',
             openExplorerComponent: '&',
            },
            //template: '<div ng-include="\'/app/partials/HtmlPage.html\'"></div>',

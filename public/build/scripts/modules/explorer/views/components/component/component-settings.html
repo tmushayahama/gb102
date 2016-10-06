@@ -8,14 +8,20 @@
   </div>
  </div>
  <div class="gb-body-row-1 row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <ul class="gb-color-section">
-    <li ng-repeat="backgroundColor in explorerComponentCtrl.componentBackgroundColors" class="">
-    <md-button ng-click="explorerComponentCtrl.addBackground(backgroundColor)"
-               ng-style="{'background-color':backgroundColor}"
-               class="gb-background-color-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="gb-horizontal-scroll row">
+   <div class="gb-left-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-background-colors', -150)" aria-label="scroll left">
+     <i class="fa fa-chevron-left"></i>
+    </md-button>
+   </div>
+   <ul id="gb-background-colors" class="gb-body-row-4 gb-inline">
+    <li ng-repeat="backgroundColor in explorerComponentCtrl.componentBackgroundColors"
+        class="gb-card-holder gb-card-xs gb-padding-medium">
+    <md-button ng-click="explorerComponentCtrl.editExplorerComponentSections.backgroundColor(backgroundColor.id)"
+               ng-style="{'background-color':backgroundColor.title}"
+               class="gb-card-apps-mini">
      <div class="gb-icon">
-      <i class="fa fa-folder-open-o"></i>
+      <i class=""></i>
      </div>
      <div class="gb-title">
       <p class="gb-ellipsis">
@@ -24,21 +30,51 @@
     </md-button>
     </li>
    </ul>
+   <div class="gb-right-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-background-colors', 200)" aria-label="scroll right">
+     <i class="fa fa-chevron-right"></i>
+    </md-button>
+   </div>
   </div>
  </div>
- <ul class="gb-color-section">
-  <li ng-repeat="labelColor in explorerComponentCtrl.labelColors" class="">
-  <md-button ng-click="explorerComponentCtrl.addLabelBackground(backgroundColor)"
-             ng-style="{'background-color':labelColor}"
-             class="gb-background-color-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <div class="gb-icon">
-    <i class="fa fa-folder-open-o"></i>
+</div>
+<div class="row">
+ <div class="gb-heading-row-3">
+  <div class="gb-title">
+   <h2 class="gb-ellipsis">
+    <i class="fa fa-list"></i>
+    Labels
+   </h2>
+  </div>
+ </div>
+ <div class="gb-body-row-1 row">
+  <div class="gb-horizontal-scroll row">
+   <div class="gb-left-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-background-colors', -150)" aria-label="scroll left">
+     <i class="fa fa-chevron-left"></i>
+    </md-button>
    </div>
-   <div class="gb-title">
-    <p class="gb-ellipsis">
-    </p>
+   <ul id="gb-background-colors" class="gb-body-row-4 gb-inline">
+    <li ng-repeat="labelColor in explorerComponentCtrl.componentBackgroundColors"
+        class="gb-card-holder gb-card-xs gb-padding-medium">
+    <md-button ng-click="explorerComponentCtrl.editExplorerComponentSections.backgroundColor(backgroundColor.id)"
+               ng-style="{'background-color':labelColor.title}"
+               class="gb-card-apps-mini">
+     <div class="gb-icon">
+      <i class=""></i>
+     </div>
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+      </p>
+     </div>
+    </md-button>
+    </li>
+   </ul>
+   <div class="gb-right-scroll">
+    <md-button ng-click="$root.scrollHorizontal('#gb-background-colors', 200)" aria-label="scroll right">
+     <i class="fa fa-chevron-right"></i>
+    </md-button>
    </div>
-  </md-button>
-  </li>
- </ul>
+  </div>
+ </div>
 </div>

@@ -1,121 +1,126 @@
-id	parent_level_id	title	description	long_description	icon
-1	NULL	Apps			
-2	1	skills	Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills
-3	1	goals	Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals
-4	1	hobbies	Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies
-5	1	promises	Add a Promise	Add a Promise	icon-gb-promises
-6	1	mentorships	Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorships
-7	1	collaborations	Create A Collaboration	Create A Collaboration	icon-gb-collaborations
-8	1	teach	Create A Lesson	Create A Lesson	icon-gb-teach
-9	1	advices	Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices
-10	1	groups	Create A Group	Create A Group	icon-gb-groups
-11	1	journals	Write a Journal	Write a Journal	icon-gb-journals
-12	1	topic	Create A Topic	Create A Topic	icon-gb-topic
-1001	2	Skill Gained	\N		
-1002	2	Skill to Improve	\N		
-1003	2	Skill to Learn	\N		
-1004	3	Goal Achieved	\N		
-1005	3	Goal to Accomplish	\N		
-1006	3	Goal of Interest	\N		
-1007	4	Hobby Developed	\N		
-1008	4	Hobby to Learn	\N		
-1009	4	Hobby of Interest	\N		
-1010	5	Promise Kept	\N		
-1011	5	Promise to Develop	\N		
-1012	5	Promise of Interest	\N		
-1013	6	Peer/Friendly	\N		
-1014	6	"Natural, senior mentoring junior"	\N		
-1015	6	Formal i.e. trainer trainee	\N		
-1016	6	Supervisory	\N		
-1017	7	Peer/Friendly	\N		
-1018	7	Team Collaboration	Goal		
-1019	7	Community Collaboration	sharing and build knowledge		
-1020	8	Formal	\N		
-1021	8	Expert/Coach	\N		
-1022	8	Coordinator/Facilitator	\N		
-1023	8	Peer/Friendly	\N		
-1024	9	Decision Support	\N		
-1025	9	Information	\N		
-1026	9	Recommendation	\N		
-1027	9	"Natural, senior advising junior"	\N		
-1028	9	Similar Experiences	\N		
-1029	NULL	General	\N		
-1030	NULL	Not Now	\N		
-1031	NULL	Ehh!!	\N		
-1032	NULL	Explore	\N		
-1033	NULL	Super Explore	\N		
-2001	NULL	I can provide mentorship	Request Mentorship		icon-gb-mentorships
-2002	NULL	I want mentorship	Be a mentor		icon-gb-mentorships
-2003	NULL	I need advice	Advise		icon-gb-advices
-2004	NULL	I can give advise	Get Advice		icon-gb-advices
-2005	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2006	NULL	I want to make it a hobby	Make a hobby		icon-gb-journals
-2007	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-2008	NULL	I can provide mentorship	Request Mentorship		icon-gb-mentorships
-2009	NULL	I want mentorship	Be a mentor		icon-gb-mentorships
-2010	NULL	I need advice	Advise		icon-gb-advices
-2011	NULL	I can give advise	Get Advice		icon-gb-advices
-2012	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2013	NULL	I want to make it a hobby	Make a hobby		icon-gb-hobby
-2014	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-2015	NULL	I can provide mentorship	Request Mentorship		icon-gb-mentorships
-2016	NULL	I want mentorship	Be a mentor		icon-gb-mentorships
-2017	NULL	I need advice	Advise		icon-gb-advices
-2018	NULL	I can give advise	Get Advice		icon-gb-advices
-2019	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2020	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-2021	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-2022	NULL	I can provide mentorship	Request Mentorship		icon-gb-mentorships
-2023	NULL	I want mentorship	Be a mentor		icon-gb-mentorships
-2024	NULL	I need advice	Advise		icon-gb-advices
-2025	NULL	I can give advise	Get Advice		icon-gb-advices
-2026	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2027	NULL	I can provide more mentorship	Request Mentorship		icon-gb-mentorships
-2028	NULL	I want more mentorship	Be a mentor		icon-gb-mentorships
-2029	NULL	I need advice	Advise		icon-gb-advices
-2030	NULL	I can give advise	Get Advice		icon-gb-advices
-2031	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2032	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-2033	NULL	I can provide mentorship	Request Mentorship		icon-gb-mentorships
-2034	NULL	I want mentorship	Be a mentor		icon-gb-mentorships
-2035	NULL	I need more advice	Advise		icon-gb-advices
-2036	NULL	I can give more advise	Get Advice		icon-gb-advices
-2037	NULL	I want to collaborate	Start Collaboration		icon-gb-collaborations
-2038	NULL	Write it in journal	Put it in Journal		icon-gb-journals
-3000	NULL	in progress			
-3001	NULL	later			
-3002	NULL	done			
-4000	NULL	Contribution Type			
-4001	4000	Follower			icon-gb-follower
-4002	4000	Observer			icon-gb-observer
-4003	4000	Judge			icon-gb-judge
-4004	4000	Administrator			icon-gb-admin
-5000	NULL	Request			
-5001	5000	pending			
-5002	5000	accepted			
-6000	NULL	Explorer Relationship			
-6001	6000	parent			
-6002	6000	application			
-7000	NULL	Template			
-7001	7000	basic			
-7002	7000	template			
-8000	NULL	Share Types			
-10000	NULL	Privacy			
-10001	10000	private			
-10002	10000	public			
-10003	10000	customize			
-11000	NULL	Component Type			
-11001	11000	None			
-11002	11000	Note			
-11003	11000	Guideline			
-11004	11000	Activity			
-11005	11000	Weblink			
-12000	NULL	Bucket Type			
-12001	12000	Normal	Normal Bucket		
-100000	NULL	Community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
-13000	NULL	Component Background Colors			
-13001	13000	#FFFFFF			
-13002	13000	#FFCC99			
-13003	13000	#C6EFCE			
-13004	13000	#FFFFCC			
-13005	13000	#FFC7CE			
+id	parent_level_id	title	code	description	long_description	icon
+2	1	skills		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills
+3	1	goals		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals
+4	1	hobbies		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies
+5	1	promises		Add a Promise	Add a Promise	icon-gb-promises
+6	1	mentorships		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorships
+7	1	collaborations		Create A Collaboration	Create A Collaboration	icon-gb-collaborations
+8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach
+9	1	advices		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices
+10	1	groups		Create A Group	Create A Group	icon-gb-groups
+11	1	journals		Write a Journal	Write a Journal	icon-gb-journals
+12	1	topic		Create A Topic	Create A Topic	icon-gb-topic
+1001	2	Skill Gained		\N		
+1002	2	Skill to Improve		\N		
+1003	2	Skill to Learn		\N		
+1004	3	Goal Achieved		\N		
+1005	3	Goal to Accomplish		\N		
+1006	3	Goal of Interest		\N		
+1007	4	Hobby Developed		\N		
+1008	4	Hobby to Learn		\N		
+1009	4	Hobby of Interest		\N		
+1010	5	Promise Kept		\N		
+1011	5	Promise to Develop		\N		
+1012	5	Promise of Interest		\N		
+1013	6	Peer/Friendly		\N		
+1014	6	"Natural, senior mentoring junior"		\N		
+1015	6	Formal i.e. trainer trainee		\N		
+1016	6	Supervisory		\N		
+1017	7	Peer/Friendly		\N		
+1018	7	Team Collaboration		Goal		
+1019	7	Community Collaboration		sharing and build knowledge		
+1020	8	Formal		\N		
+1021	8	Expert/Coach		\N		
+1022	8	Coordinator/Facilitator		\N		
+1023	8	Peer/Friendly		\N		
+1024	9	Decision Support		\N		
+1025	9	Information		\N		
+1026	9	Recommendation		\N		
+1027	9	"Natural, senior advising junior"		\N		
+1028	9	Similar Experiences		\N		
+4001	4000	Follower				icon-gb-follower
+4002	4000	Observer				icon-gb-observer
+4003	4000	Judge				icon-gb-judge
+4004	4000	Administrator				icon-gb-admin
+5001	5000	pending				
+5002	5000	accepted				
+6001	6000	parent				
+6002	6000	application				
+7001	7000	basic				
+7002	7000	template				
+10001	10000	private				
+10002	10000	public				
+10003	10000	customize				
+11001	11000	None				
+11002	11000	Note				
+11003	11000	Guideline				
+11004	11000	Activity				
+11005	11000	Weblink				
+11006	11000	Question				
+12001	12000	Normal		Normal Bucket		
+13001	13000	#FFFFFF				
+13002	13000	#FFF5EB				
+13003	13000	#FFFFEB				
+13004	13000	#EBFFFF				
+13005	13000	#EBEBFF				
+13006	13000	#FFEBEB				
+13007	13000	#E8E8C0				
+13008	13000	#EBD6C7				
+13009	13000	#E0EBE0				
+1	\N	Apps	apps			
+4000	\N	Contribution Type	contribution_type			
+5000	\N	Request	request			
+6000	\N	Explorer Relationship	explorer_relationship			
+7000	\N	Template	template			
+8000	\N	Share Type	share_type			
+10000	\N	Privacy	privacy			
+11000	\N	Component Type	component_type			
+12000	\N	Bucket Type	bucket_type			
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
+13000	\N	Component Background Colors	component_background_colors			
+1029		General		\N		
+1030		Not Now		\N		
+1031		Ehh!!		\N		
+1032		Explore		\N		
+1033		Super Explore		\N		
+2001		I can provide mentorship		Request Mentorship		icon-gb-mentorships
+2002		I want mentorship		Be a mentor		icon-gb-mentorships
+2003		I need advice		Advise		icon-gb-advices
+2004		I can give advise		Get Advice		icon-gb-advices
+2005		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2006		I want to make it a hobby		Make a hobby		icon-gb-journals
+2007		Write it in journal		Put it in Journal		icon-gb-journals
+2008		I can provide mentorship		Request Mentorship		icon-gb-mentorships
+2009		I want mentorship		Be a mentor		icon-gb-mentorships
+2010		I need advice		Advise		icon-gb-advices
+2011		I can give advise		Get Advice		icon-gb-advices
+2012		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2013		I want to make it a hobby		Make a hobby		icon-gb-hobby
+2014		Write it in journal		Put it in Journal		icon-gb-journals
+2015		I can provide mentorship		Request Mentorship		icon-gb-mentorships
+2016		I want mentorship		Be a mentor		icon-gb-mentorships
+2017		I need advice		Advise		icon-gb-advices
+2018		I can give advise		Get Advice		icon-gb-advices
+2019		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2020		Write it in journal		Put it in Journal		icon-gb-journals
+2021		Write it in journal		Put it in Journal		icon-gb-journals
+2022		I can provide mentorship		Request Mentorship		icon-gb-mentorships
+2023		I want mentorship		Be a mentor		icon-gb-mentorships
+2024		I need advice		Advise		icon-gb-advices
+2025		I can give advise		Get Advice		icon-gb-advices
+2026		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2027		I can provide more mentorship		Request Mentorship		icon-gb-mentorships
+2028		I want more mentorship		Be a mentor		icon-gb-mentorships
+2029		I need advice		Advise		icon-gb-advices
+2030		I can give advise		Get Advice		icon-gb-advices
+2031		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2032		Write it in journal		Put it in Journal		icon-gb-journals
+2033		I can provide mentorship		Request Mentorship		icon-gb-mentorships
+2034		I want mentorship		Be a mentor		icon-gb-mentorships
+2035		I need more advice		Advise		icon-gb-advices
+2036		I can give more advise		Get Advice		icon-gb-advices
+2037		I want to collaborate		Start Collaboration		icon-gb-collaborations
+2038		Write it in journal		Put it in Journal		icon-gb-journals
+3000		in progress				
+3001		later				
+3002		done				

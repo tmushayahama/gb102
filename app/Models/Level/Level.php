@@ -56,8 +56,13 @@ class Level extends Model {
          'public' => 10002,
          'customize' => 10003,
      ),
+     "component_type" => 11000,
      'component_background_colors' => 13000,
      'default_component_background_color' => 13001
+ );
+ public static $componentJsonFormat = array(
+     "subcomponents" => 1,
+     "types" => 2
  );
 
  /**
@@ -82,6 +87,20 @@ class Level extends Model {
           ->where('parent_level_id', $parentId)
           ->get();
   return $levels;
+ }
+
+ public static function getConstants() {
+  $levels = Level::orderBy('id', 'asc')
+          ->whereNull('parent_level_id')
+          ->get();
+  $config = array();
+  foreach ($levels as $level) {
+   $config[$level->id] = Level::orderBy('id', 'asc')
+           ->where('parent_level_id', $level->id)
+           ->get();
+  }
+
+  return $config;
  }
 
 }

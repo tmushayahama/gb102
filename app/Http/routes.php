@@ -82,8 +82,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('explorers/user/{userId}/all/{appName}', 'Explorer\ExplorerController@getUserExplorers');
 
  Route::post('explorer/{explorerId}/components/create', 'Explorer\ExplorerController@createExplorerComponent');
- Route::get('explorer/{explorerId}/components', 'Explorer\ExplorerController@getExplorerComponents');
- Route::get('explorer/{explorerId}/components/{componentId}', 'Explorer\ExplorerController@getExplorerSubComponents');
+ //Route::get('explorer/{explorerId}/components', 'Explorer\ExplorerController@getExplorerComponents');
+ Route::get('explorer/{explorerId}/components/{componentId}/gbformat/{resultFormat}', 'Explorer\ExplorerController@getExplorerComponents');
  Route::get('explorer/{explorerId}/component/{componentId}', 'Explorer\ExplorerController@getExplorerComponent');
 
 
@@ -593,10 +593,11 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('activity/checklist/edit', 'Explorer\ExplorerController@editExplorerActivityChecklist');
 
  //Component
- Route::get('component/{componentId}/components', 'Component\ComponentController@getSubComponents');
+ Route::get('component/{componentId}/components/gbformat/{resultFormat}', 'Component\ComponentController@getComponents');
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
 
  Route::post('component/editstatus', 'Component\ComponentController@editComponentStatus');
+ Route::post('component/{componentId}/edit/background', 'Component\ComponentController@editComponentBackground');
  Route::get('component/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
 
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');

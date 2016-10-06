@@ -2,27 +2,17 @@
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    {{component.title}}
+    {{::explorerComponent.component.title}}
    </h3>
   </div>
   <div class="gb-subdescription row">
    <p class="gb-ellipsis">
-    {{component.type.name}}</p>
+    {{::explorerComponent.component.type.name}}</p>
   </div>
-  <div class="gb-description row"
-       ng-repeat="component in component.components track by $index">
-   <uib-accordion close-others="false">
-    <div uib-accordion-group class="panel-default" >
-     <uib-accordion-heading>
-      I can have markup, too! <i class="pull-right fa" ng-class="{'fa-chevron-down': status.open, 'fa-chevron-right': !status.open}"></i>
-     </uib-accordion-heading>
-     {{component.title}} {{component}}
-
-    </div>
-   </uib-accordion>
+  <div class="gb-description row">
    <p class="">
     <span>
-     {{component.description}}
+     {{::explorerComponent.component.description}}
     </span>
    </p>
    <p ng-if="!explorerComponent.component.description" class="gb-no-info gb-ellipsis">

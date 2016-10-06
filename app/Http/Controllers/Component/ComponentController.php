@@ -15,14 +15,19 @@ use DB;
 
 class ComponentController extends Controller {
 
- public function getSubComponents($componentId) {
-  $subComponents = Component::getSubComponents($componentId);
-  return \Response::json($subComponents);
+ public function getComponents($componentId, $resultFormat = 1) {
+  $components = Component::getComponents($componentId, $resultFormat);
+  return \Response::json($components);
  }
 
  public function editComponentStatus() {
   $component = Component::editComponentStatus();
   return \Response::json($component);
+ }
+
+ public function editComponentBackground($componentId) {
+  $backgroundColor = Component::editComponentBackground($componentId);
+  return \Response::json($backgroundColor);
  }
 
  public function editChecklistStatus() {

@@ -179,8 +179,9 @@ DROP TABLE IF EXISTS `gb_level`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_level_id` int(11) NOT NULL,
+  `parent_level_id` int(11),
   `title` varchar(50) NOT NULL,
+  `code` varchar(150),
   `description` varchar(150),
   `long_description` varchar(500),
   `icon` varchar(50) NOT NULL,
@@ -539,7 +540,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `parent_level_id`,`title`, `description`, `long_description`, `icon`);
+    (`id`, `parent_level_id`,`title`, `code`, `description`, `long_description`, `icon`);
 
 -- ----------- COMPONENT ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/component.txt'

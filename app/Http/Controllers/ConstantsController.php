@@ -16,12 +16,11 @@ use DB;
 class ConstantsController extends Controller {
 
  public function getConstants() {
-  return \Response::json(Level::$level_categories);
+  return \Response::json(Level::getConstants());
  }
 
  public function getLevel($category) {
-  $level = Level::getLevel($category);
-  return \Response::json($level);
+  return \Response::json(Level::getLevel($category));
  }
 
 }

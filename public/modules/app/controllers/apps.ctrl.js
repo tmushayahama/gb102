@@ -33,6 +33,7 @@ var appsCtrl = function (
   moveBy(sectionId, delta);
  };
 
+
  vm.constantsSrv = new ConstantsSrv();
 
  vm.logout = function () {
@@ -77,7 +78,7 @@ var appsCtrl = function (
   //$rootScope.searchParams = vm.searchParams;
   $state.go('apps.search.all', null, {reload: 'apps.search.all'});
   //vm.searchSrv.simpleSearch(vm.searchParams);
- }
+ };
 
  $rootScope.openSearchModal = function () {
   var modalInstance = $aside.open({

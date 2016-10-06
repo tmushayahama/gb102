@@ -21,10 +21,10 @@ var explorerComponentsSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExplorerComponentsSrv.prototype.getExplorerComponents = function (explorerId) {
+ ExplorerComponentsSrv.prototype.getExplorerComponents = function (explorerId, componentId, gbFormat) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/components').success(function (data) {
+  $http.get('/api/explorer/' + explorerId + '/components/' + componentId + "/gbformat/" + gbFormat).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -32,21 +32,23 @@ var explorerComponentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerComponentsSrv.prototype.getExplorerSubComponents = function (explorerId, componentId) {
+ /*
+  ExplorerComponentsSrv.prototype.getExplorerSubComponents = function (explorerId, componentId) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/explorer/' + explorerId + '/components/' + componentId).success(function (data) {
-   self.deferredHandler(data, deferred);
+  self.deferredHandler(data, deferred);
   }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
+  self.deferredHandler(data, deferred, 'Unknown error');
   });
   return deferred.promise;
- };
+  };
+  */
 
- ExplorerComponentsSrv.prototype.getSubComponents = function (componentId) {
+ ExplorerComponentsSrv.prototype.getComponents = function (componentId, gbFormat) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/component/' + componentId + '/components').success(function (data) {
+  $http.get('/api/component/' + componentId + '/components/gbformat/' + gbFormat).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -95,13 +97,13 @@ var explorerComponentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorerComponentsSrv.prototype.editExplorerComponent = function (explorerComponentData) {
+ ExplorerComponentsSrv.prototype.editComponentBackground = function (componentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/component/edit',
-   data: explorerComponentData
+   url: '/api/component/' + componentData.componentId + '/edit/background',
+   data: componentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {

@@ -92,6 +92,7 @@ define(['angular'
                  files: [
                   'public/modules/explorer/directives/todo/explorer-todo-box.drv.js',
                   'public/modules/explorer/directives/activity/explorer-activity-box.drv.js',
+                  'public/modules/explorer/directives/activity/component-activity-box.drv.js',
                   'public/modules/explorer/directives/component/explorer-component-box.drv.js',
                   'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',

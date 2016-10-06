@@ -388,10 +388,10 @@
      </div>
     </div>
    </form>
-   <li class="drag-item" ng-repeat="explorerComponent in explorerComponentBucket.explorerComponents track by $index">
+   <li class="drag-item" ng-repeat="component in explorerComponentBucket.components track by $index">
     <div gb-explorer-component-box
-         explorer-component="explorerComponent"
-         open-explorer-component="explorerCtrl.openExplorerComponent(explorerComponent)">
+         component="component"
+         open-explorer-component="explorerCtrl.openExplorerComponent(component)">
     </div>
    </li>
   </ul>

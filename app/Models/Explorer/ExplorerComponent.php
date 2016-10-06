@@ -4,6 +4,7 @@ namespace App\Models\Explorer;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Component\Component;
+use App\Models\Level\Level;
 use Request;
 use DB;
 use JWTAuth;
@@ -33,42 +34,98 @@ class ExplorerComponent extends Model {
   */
  protected $fillable = [];
 
- public static function getExplorerComponents($explorerId) {
+ public static function getExplorerComponents($explorerId, $parentComponentId, $resultFormat) {
   $explorerComponents = ExplorerComponent::with('component')
           ->with('component.creator')
           ->with('component.type')
-          ->whereHas('component', function($q) {
-           $q->whereNull('parent_component_id');
+          ->whereHas('component', function($q) use($parentComponentId) {
+           if ($parentComponentId == 0) {
+            $q->whereNull('parent_component_id');
+           } else {
+            $q->where('parent_component_id', $parentComponentId);
+           }
           })
           ->orderBy('id', 'ASC')
           ->where('explorer_id', $explorerId)
           ->get();
 
   foreach ($explorerComponents as $explorerComponent) {
-   $explorerComponent["explorerComponents"] = self::getExplorerSubComponents($explorerId, $explorerComponent->component_id);
+   $explorerComponent["components"] = Component::getComponents($explorerComponent->component_id, $resultFormat);
   }
+
+  if ($parentComponentId != 0) {
+   $result = self::getExplorerComponent($explorerId, $parentComponentId);
+  }
+
   $result["explorerComponents"] = $explorerComponents;
 
   return $result;
  }
 
- public static function getExplorerSubComponents($explorerId, $componentId) {
+ public static function getExplorerComponentsByType($explorerId, $parentComponentId) {
+  $result = array();
+  $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+
   $explorerComponents = ExplorerComponent::with('component')
           ->with('component.creator')
           ->with('component.type')
-          ->with('component.backgroundColor')
-          ->whereHas('component', function($q) use ($componentId) {
-           $q->where('parent_component_id', $componentId);
+          ->whereHas('component', function($q) use($parentComponentId) {
+           if ($parentComponentId == 0) {
+            $q->whereNull('parent_component_id');
+           } else {
+            $q->where('parent_component_id', $parentComponentId);
+           }
           })
-          ->orderBy('id', 'DESC')
+          ->orderBy('id', 'ASC')
           ->where('explorer_id', $explorerId)
           ->get();
 
-  foreach ($explorerComponents as $explorerComponent) {
-   $explorerComponent["components"] = Component::getSubComponents($explorerComponent->component_id);
+  foreach ($componentTypes as $componentType) {
+   $components = Component::with('creator')
+           ->with('type')
+           ->with('backgroundColor')
+           ->where('parent_component_id', $componentId)
+           ->where('type_id', $componentType->id)
+           ->orderBy('id', 'DESC')
+           ->get();
+
+   $result[$componentType->id] = $components;
+   foreach ($components as $component) {
+    $component["components"] = Component::getComponentsByTypes($component->id);
+   }
   }
 
-  return $explorerComponents;
+  foreach ($explorerComponents as $explorerComponent) {
+   $explorerComponent["components"] = Component::getComponents($explorerComponent->component_id, $resultFormat);
+  }
+
+  if ($parentComponentId != 0) {
+   $result = self::getExplorerComponent($explorerId, $parentComponentId);
+  }
+
+  $result["explorerComponents"] = $explorerComponents;
+
+  return $result;
+ }
+
+ public static function getExplorerSubComponentsByTye($componentId) {
+  $result = array();
+  $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+
+  foreach ($componentTypes as $componentType) {
+   $components = Component::with('creator')
+           ->with('type')
+           ->with('backgroundColor')
+           ->where('parent_component_id', $componentId)
+           ->where('type_id', $componentType->id)
+           ->orderBy('id', 'DESC')
+           ->get();
+   $result[$componentType->id] = $components;
+   foreach ($components as $component) {
+    $component["components"] = Component::getSubComponents($component->id);
+   }
+  }
+  return $result;
  }
 
  public static function getExplorerComponent($explorerId, $componentId) {
