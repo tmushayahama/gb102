@@ -1,6 +1,6 @@
 var explorerComponentCtrl = function (
         level_categories,
-        ExplorerComponentsSrv,
+        ComponentsSrv,
         $uibModalInstance,
         $scope,
         $state,
@@ -15,7 +15,7 @@ var explorerComponentCtrl = function (
  vm.explorerId = explorerComponentData.explorer_id;
  vm.explorerComponentId = explorerComponentData.id;
  vm.componentBackgroundColors = appsConstants[level_categories.component_background_colors];
- vm.explorerComponentsSrv = new ExplorerComponentsSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.explorerComponent = explorerComponentData;
  vm.explorerSubComponents;
  vm.componentId = explorerComponentData.id;
@@ -28,8 +28,6 @@ var explorerComponentCtrl = function (
   description: "",
   privacy: 0
  };
-
-
  vm.getDefaultExplorerComponentData = function (parentComponentId) {
   var result = angular.copy(vm.defaultExplorerComponentData);
   if (parentComponentId) {
@@ -37,51 +35,46 @@ var explorerComponentCtrl = function (
   }
   return result;
  };
-
  vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData(vm.explorerComponent.id);
-
  vm.ok = function () {
   $uibModalInstance.close();
  };
  vm.close = function () {
   $uibModalInstance.dismiss('cancel');
  };
-
  vm.createComponent = function (parentExplorerComponent) {
-  vm.explorerComponentsSrv.createExplorerComponent(parentExplorerComponent.newExplorerComponentData).then(function (response) {
+  vm.componentsSrv.createExplorerComponent(parentExplorerComponent.newExplorerComponentData).then(function (response) {
 
    parentExplorerComponent.explorerComponents.push(response);
    parentExplorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData(parentExplorerComponent.newExplorerComponentData.parentComponentId);
-
   }, function (response) {
    console.log(response);
   });
  };
- vm.getComponents = function (componentId, resultFormat) {
-  vm.explorerComponentsSrv.getComponents(componentId, resultFormat).then(function (response) {
+ vm.getComponents = function (component, resultFormat) {
+  vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
+   vm.explorerComponent = component;
    vm.explorerComponent.components = response;
    vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
   }, function (error) {
    console.log(error);
   });
  };
-
  vm.editExplorerComponent = function (data) {
-  vm.explorerComponentsSrv.editExplorerComponent(data).then(function (response) {
+  vm.componentsSrv.editExplorerComponent(data).then(function (response) {
    vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
   });
  };
  vm.editComponentBackground = function (data) {
-  vm.explorerComponentsSrv.editComponentBackground(data).then(function (response) {
+  vm.componentsSrv.editComponentBackground(data).then(function (response) {
    vm.explorerComponent.background_color = response;
    vm.explorerComponent.background_color_id = response.id;
   }, function (response) {
    console.log(response);
   });
  };
-
  vm.editExplorerComponentSections = {
   details: function () {
    var explorerComponentData = {
@@ -102,13 +95,24 @@ var explorerComponentCtrl = function (
  vm.showComponentForm = function () {
   vm.componentFormDisplay = true;
  };
- //--------init------
- vm.getComponents(vm.explorerComponent.id, 2);
+ vm.upGotoComponent = function (component, resultFormat) {
 
+  vm.componentsSrv.getComponents(component.parent_component_id, resultFormat).then(function (componentResponse) {
+   vm.componentsSrv.getComponent(component.parent_component_id, resultFormat).then(function (parentComponentResponse) {
+    vm.explorerComponent = parentComponentResponse;
+    vm.explorerComponent.components = componentResponse;
+    vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+   }, function (error) {
+    console.log(error);
+   });
+  });
+ };
+ //--------init------
+ vm.getComponents(vm.explorerComponent, 2);
 };
 explorerComponentCtrl.$inject = [
  'level_categories',
- 'ExplorerComponentsSrv',
+ 'ComponentsSrv',
  '$uibModalInstance',
  '$scope',
  '$state',

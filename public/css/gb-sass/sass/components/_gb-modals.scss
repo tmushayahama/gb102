@@ -90,6 +90,59 @@
  }
 }
 
+.modal-explorer-view {
+ @include position(absolute, 20px 20px 20px 20px);
+ .modal-content {
+  @include position(absolute, 0 0 0 0);
+ }
+ .modal-header {
+  @include position(absolute, 0 0 null 0);
+  @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+
+  border-bottom: rgba($primary-color, 0.6) solid 3px;
+  font-weight: normal;
+  height: 50px;
+  .gb-back {
+   @include position(absolute, 0 null 0 0);
+   width: 40px;
+   margin: 0;
+   padding: 2px;
+   font-size: 22px;
+   color: #777;
+  }
+  .gb-title {
+   @include position(absolute, 0 80px 0 40px);
+   padding: 12px 8px;
+   font-size: 18px;
+  }
+  .gb-settings {
+   @include position(absolute, 0 40px 0 null);
+   width: 40px;
+   margin: 0;
+   padding: 2px;
+   font-size: 22px;
+   color: #777;
+  }
+  .gb-close {
+   @include position(absolute, 0 0 0 null);
+   width: 40px;
+   margin: 0;
+   padding: 2px;
+   font-size: 22px;
+   color: #777;
+  }
+ }
+ .modal-body {
+  @include position(absolute, 41px 0 46px 0);
+ }
+ .modal-footer {
+  @include position(absolute, null 0 0 0);
+  height: 45px;
+  padding: 5px;
+ }
+}
+
+
 .modal-gb-search {
  @include position(absolute, 0 0 null 0);
  min-height: 50px;

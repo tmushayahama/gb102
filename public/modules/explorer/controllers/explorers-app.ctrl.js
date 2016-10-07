@@ -1,6 +1,6 @@
 var explorersAppCtrl = function (
         ConstantsSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         SearchSrv,
         listType,
         $scope,
@@ -24,18 +24,18 @@ var explorersAppCtrl = function (
 
  $rootScope.subAppName = $rootScope.appName.toUpperCase();
 
- vm.explorersSrv = new ExplorersSrv();
+ vm.ComponentsSrv = new ComponentsSrv();
 
 
  switch (listType) {
   case 1:
-   vm.explorersSrv.getAppExplorers($rootScope.appName).then(function (data) {
+   vm.ComponentsSrv.getAppExplorers($rootScope.appName).then(function (data) {
     vm.explorers = data;
    });
    break;
   case 2:
    vm.userId = $stateParams.profileId;
-   vm.explorersSrv.getUserAppExplorers(vm.userId, $rootScope.appName).then(function (data) {
+   vm.ComponentsSrv.getUserAppExplorers(vm.userId, $rootScope.appName).then(function (data) {
     vm.explorers = data;
    });
    break;
@@ -54,7 +54,7 @@ var explorersAppCtrl = function (
 
 explorersAppCtrl.$inject = [
  'ConstantsSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  'SearchSrv',
  'listType',
  '$scope',

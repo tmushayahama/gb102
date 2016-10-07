@@ -1,6 +1,6 @@
 var explorersMineCtrl = function (
         ConstantsSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -12,14 +12,14 @@ var explorersMineCtrl = function (
         $filter) {
 
  var vm = this;
- vm.explorersSrv = new ExplorersSrv();
- vm.explorersSrv.getMyExplorers();
+ vm.ComponentsSrv = new ComponentsSrv();
+ vm.ComponentsSrv.getMyExplorers();
 };
 
 
 explorersMineCtrl.$inject = [
  'ConstantsSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -1,18 +1,18 @@
 var profileOverviewCtrl = function (
         ProfileSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         $state,
         $stateParams,
         $http,
         $rootScope) {
  var vm = this;
- vm.explorersSrv = new ExplorersSrv();
+ vm.ComponentsSrv = new ComponentsSrv();
  vm.profileSrv = new ProfileSrv();
  vm.connections;
 
  vm.userId = $stateParams.profileId;
 
- vm.explorersSrv.getUserExplorersStats(vm.userId).then(function (data) {
+ vm.ComponentsSrv.getUserExplorersStats(vm.userId).then(function (data) {
   vm.explorersStats = data;
  });
 
@@ -24,7 +24,7 @@ var profileOverviewCtrl = function (
 
 profileOverviewCtrl.$inject = [
  'ProfileSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  '$state',
  '$stateParams',
  '$http',

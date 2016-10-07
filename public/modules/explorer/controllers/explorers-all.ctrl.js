@@ -1,6 +1,6 @@
 var explorersAllCtrl = function (
         ConstantsSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         SearchSrv,
         listType,
         $scope,
@@ -19,18 +19,18 @@ var explorersAllCtrl = function (
 
  $rootScope.subAppName = "ALL";
 
- vm.explorersSrv = new ExplorersSrv();
+ vm.ComponentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
 
  switch (listType) {
   case 1:
-   vm.explorersSrv.getAllExplorers().then(function (data) {
+   vm.ComponentsSrv.getAllExplorers().then(function (data) {
     vm.explorers = data;
    });
    break;
   case 2:
    vm.userId = $stateParams.profileId;
-   vm.explorersSrv.getUserExplorers(vm.userId).then(function (data) {
+   vm.ComponentsSrv.getUserExplorers(vm.userId).then(function (data) {
     vm.explorers = data;
    });
    break;
@@ -60,7 +60,7 @@ var explorersAllCtrl = function (
   });
 
   modalInstance.result.then(function (explorer) {
-   vm.explorersSrv.createExplorer(explorer).then(function (data) {
+   vm.ComponentsSrv.createExplorer(explorer).then(function (data) {
     vm.explorers.unshift(data);
    });
   }, function () {
@@ -77,13 +77,13 @@ var explorersAllCtrl = function (
    size: 'xl',
    resolve: {
     requestOptions: function () {
-     return vm.explorersSrv.getExplorerRequestOptions(explorerId);
+     return vm.ComponentsSrv.getExplorerRequestOptions(explorerId);
     }
    }
   });
 
   modalInstance.result.then(function (explorer) {
-   vm.explorersSrv.createExplorer(explorer);
+   vm.ComponentsSrv.createExplorer(explorer);
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
   });
@@ -97,7 +97,7 @@ var explorersAllCtrl = function (
 
 explorersAllCtrl.$inject = [
  'ConstantsSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  'SearchSrv',
  'listType',
  '$scope',

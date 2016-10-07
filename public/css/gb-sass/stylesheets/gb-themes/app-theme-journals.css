@@ -495,6 +495,90 @@ btn:focus {
   padding: 5px;
 }
 
+.modal-explorer-view {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+}
+.modal-explorer-view .modal-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.modal-explorer-view .modal-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #EEE;
+  background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+  background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
+  border-bottom: rgba(54, 38, 68, 0.6) solid 3px;
+  font-weight: normal;
+  height: 50px;
+}
+.modal-explorer-view .modal-header .gb-back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  margin: 0;
+  padding: 2px;
+  font-size: 22px;
+  color: #777;
+}
+.modal-explorer-view .modal-header .gb-title {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  bottom: 0;
+  left: 40px;
+  padding: 12px 8px;
+  font-size: 18px;
+}
+.modal-explorer-view .modal-header .gb-settings {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  width: 40px;
+  margin: 0;
+  padding: 2px;
+  font-size: 22px;
+  color: #777;
+}
+.modal-explorer-view .modal-header .gb-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  margin: 0;
+  padding: 2px;
+  font-size: 22px;
+  color: #777;
+}
+.modal-explorer-view .modal-body {
+  position: absolute;
+  top: 41px;
+  right: 0;
+  bottom: 46px;
+  left: 0;
+}
+.modal-explorer-view .modal-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 45px;
+  padding: 5px;
+}
+
 .modal-gb-search {
   position: absolute;
   top: 0;

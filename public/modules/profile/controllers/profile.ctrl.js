@@ -5,7 +5,7 @@ var profileCtrl = function (
         ProfileSrv,
         SearchSrv,
         UserProfileSectionSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         localStorageService,
         $uibModal,
         $aside,
@@ -39,7 +39,7 @@ var profileCtrl = function (
  vm.profileSrv = new ProfileSrv();
  vm.userProfileSectionSrv = new UserProfileSectionSrv();
  vm.constantsSrv = new ConstantsSrv();
- vm.explorersSrv = new ExplorersSrv();
+ vm.ComponentsSrv = new ComponentsSrv();
  vm.searchSrv = new SearchSrv();
  vm.appsExplorers = [];
 
@@ -86,7 +86,7 @@ var profileCtrl = function (
   vm.userProfileSectionSrv.getUserProfileSection(vm.profileId);
  });
 
- vm.explorersSrv.getUserExplorers(vm.profileId).then(function (data) {
+ vm.ComponentsSrv.getUserExplorers(vm.profileId).then(function (data) {
   vm.appsExplorers = data;
  });
 
@@ -97,7 +97,7 @@ profileCtrl.$inject = ['_',
  'ProfileSrv',
  'SearchSrv',
  'UserProfileSectionSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  'localStorageService',
  '$uibModal',
  '$aside',

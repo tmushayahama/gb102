@@ -4,7 +4,7 @@ var explorersCtrl = function (
         ConstantsSrv,
         CommunitySrv,
         SearchSrv,
-        ExplorersSrv,
+        ComponentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -213,7 +213,7 @@ var explorersCtrl = function (
  }
 
 
- vm.explorersSrv = new ExplorersSrv();
+ vm.ComponentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.communitySrv = new CommunitySrv();
  $rootScope.appName = 'Explorer';
@@ -225,12 +225,22 @@ var explorersCtrl = function (
  vm.appTypes;
  $rootScope.subAppName = "ALL";
 
- vm.explorersSrv.getExplorersByMode(level_categories.list.handpicked).then(function (data) {
+ vm.ComponentsSrv.getExplorersByMode(level_categories.list.handpicked).then(function (data) {
   vm.handpickedExplorers = data;
  });
 
+ vm.getComponents = function (component, resultFormat) {
+  vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
+   vm.explorerComponent = component;
+   vm.explorerComponent.components = response;
+   vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+  }, function (error) {
+   console.log(error);
+  });
+ };
+
  vm.getExplorersFeatured = function () {
-  vm.explorersSrv.getAppExplorersFeatured().then(function (data) {
+  vm.ComponentsSrv.getAppExplorersFeatured().then(function (data) {
    vm.featured = data;
   });
  };
@@ -258,7 +268,7 @@ var explorersCtrl = function (
   });
 
   modalInstance.result.then(function (explorer) {
-   vm.explorersSrv.createExplorer(explorer).then(function (data) {
+   vm.ComponentsSrv.createExplorer(explorer).then(function (data) {
     $state.go("apps.explorerItem.explore", {"explorerId": data.id});
    });
   }, function () {
@@ -267,20 +277,20 @@ var explorersCtrl = function (
  };
 
  vm.createExplorer = function (data) {
-  vm.explorersSrv.createExplorer(data).then(function (response) {
+  vm.ComponentsSrv.createExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.explorersSrv.explorers);
+   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorer = function (data) {
-  vm.explorersSrv.editExplorer(data).then(function (response) {
+  vm.ComponentsSrv.editExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.explorersSrv.explorers);
+   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
   }, function (response) {
    console.log(response);
   });
@@ -312,7 +322,7 @@ explorersCtrl.$inject = [
  'ConstantsSrv',
  'CommunitySrv',
  'SearchSrv',
- 'ExplorersSrv',
+ 'ComponentsSrv',
  '$scope',
  '$state',
  '$stateParams',

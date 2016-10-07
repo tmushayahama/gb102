@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Tremmillicious
 */
 
-@import "app-variables";
+@import "app-variables";  
 @import "../../compass-breakpoint/breakpoint.scss";
 @import "../../bourbon/bourbon";
 @import "components/gb-search";
@@ -716,7 +716,7 @@ input[type="checkbox"] {
  }
 }
 
-.gb-heading-row-3 { 
+.gb-heading-row-3 {
  position: relative;
  height: 35px;
  border-bottom: #BBB solid 1px;

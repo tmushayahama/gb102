@@ -1,5 +1,5 @@
 var explorerComponentsCtrl = function (
-        ExplorerComponentsSrv,
+        ComponentsSrv,
         angularGridInstance,
         $scope,
         $state,
@@ -16,7 +16,7 @@ var explorerComponentsCtrl = function (
  vm.componentId = $stateParams.componentId;
  vm.explorerComponents = [];
  vm.explorerComponentsCopy;
- vm.explorerComponentsSrv = new ExplorerComponentsSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.componentFormDisplay = false;
 
 
@@ -32,7 +32,7 @@ var explorerComponentsCtrl = function (
  };
 
  vm.getExplorerComponents = function (explorerId, componentId) {
-  vm.explorerComponentsSrv.getExplorerSubComponents(explorerId, componentId).then(function (response) {
+  vm.componentsSrv.getExplorerSubComponents(explorerId, componentId).then(function (response) {
    vm.explorerComponents = response;
   });
  };
@@ -42,7 +42,7 @@ var explorerComponentsCtrl = function (
  }
 
  vm.createExplorerComponent = function (data) {
-  vm.explorerComponentsSrv.createExplorerComponent(data).then(function (response) {
+  vm.componentsSrv.createExplorerComponent(data).then(function (response) {
    vm.componentFormDisplay = false;
    vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
    vm.explorerComponents.unshift(response);
@@ -52,7 +52,7 @@ var explorerComponentsCtrl = function (
  };
 
  vm.editExplorerComponent = function (data) {
-  vm.explorerComponentsSrv.editExplorerComponent(data).then(function (response) {
+  vm.componentsSrv.editExplorerComponent(data).then(function (response) {
    vm.componentFormDisplay = false;
    vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
    vm.explorerComponentsCopy = angular.copy(vm.explorerComponents);
@@ -129,7 +129,7 @@ var explorerComponentsCtrl = function (
 
 
 explorerComponentsCtrl.$inject = [
- 'ExplorerComponentsSrv',
+ 'ComponentsSrv',
  'angularGridInstance',
  '$scope',
  '$state',

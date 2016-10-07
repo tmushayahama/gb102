@@ -1,28 +1,25 @@
 <div class="modal-header gb-modal-header row">
+ <md-button class="gb-back" ng-click="explorerComponentCtrl.close()">
+  <i class="fa fa-chevron-left"></i>
+ </md-button>
  <div class="gb-title">
   <p class="gb-ellipsis">
    <i class="fa icon-gb-component"></i>
-   {{explorerComponentCtrl.explorerComponent.title}}
+   <a href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
+    {{explorerComponentCtrl.explorerComponent.title}}
+   </a>
   </p>
  </div>
+ <md-button class="gb-settings"
+            href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
+  <i class="fa fa-cog"></i>
+ </md-button>
  <md-button class="gb-close" ng-click="explorerComponentCtrl.close()">
   x
  </md-button>
 </div>
 <div class="modal-body gb-modal-body"
      ng-style="{'background-color':explorerComponentCtrl.explorerComponent.background_color.title}">
- <ul class="row nav nav-tabs" role="tablist">
-  <li role="presentation" class="active">
-   <a href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
-    Overview
-   </a>
-  </li>
-  <li role="presentation" class="pull-right">
-   <a href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
-    <i class="fa fa-cog"></i>
-   </a>
-  </li>
- </ul>
  <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
    <div class="gb-heading-row-3">
@@ -90,43 +87,42 @@
     </div>
    </div>
    <section class="row"
-            ng-repeat="component in explorerComponentCtrl.explorerComponent.components track by $index"
-            ng-init="component.newExplorerComponentData = explorerComponentCtrl.getDefaultExplorerComponentData(component.id)">
+            ng-repeat="(type, components) in explorerComponentCtrl.explorerComponent.components track by $index">
     <div class="gb-heading-row-3">
      <div class="gb-title">
       <h2 class="gb-ellipsis">
        <i class="fa fa-check-square-o"></i>
-       {{component.title}}
+       {{type}}
       </h2>
      </div>
      <div class="gb-actions btn-group pull-right">
-      <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
+      <md-button class="gb-ellipsis gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                 ng-click="explorerComponentCtrl.addComponents(type)">
        <div class="gb-icon">
-        <i class="fa fa-chevron-down"></i>
+        <i class="fa fa-plus"></i>
        </div>
       </md-button>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li class="row">
-       <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
-                  class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="gb-icon">
-         <i class="fa fa-folder-open-o"></i>
-        </div>
-        <div class="gb-title">
-         <p class="gb-ellipsis">
-          VIEW
-         </p>
-        </div>
-       </md-button>
-       </li>
-      </ul>
      </div>
     </div>
-    <div class="gb-body-row-1 row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+    <section ng-repeat="component in components track by $index">
+     <div class="gb-heading-row-3">
+      <div class="gb-title">
+       <h2 class="gb-ellipsis">
+        <i class="fa fa-check-square-o"></i>
+        {{component.title}}
+       </h2>
+      </div>
+      <div class="gb-actions btn-group pull-right">
+       <md-button class="gb-ellipsis gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  ng-click="explorerComponentCtrl.getComponents(component, 2)">
+        <div class="gb-icon">
+         <i class="fa fa-chevron-right"></i>
+        </div>
+       </md-button>
+      </div>
      </div>
+    </section>
+    <div class="gb-body-row-1 row">
     </div>
    </section>
   </div>

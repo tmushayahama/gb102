@@ -1,9 +1,9 @@
 angular.module('app.explorer').directive('gbExplorerNoteBox',
-        ['ExplorerComponentsSrv',
+        ['ComponentsSrv',
          'level_categories',
          '$q',
          function (
-                 ExplorerComponentsSrv,
+                 ComponentsSrv,
                  level_categories,
                  $q) {
           'use strict';

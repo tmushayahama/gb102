@@ -62,6 +62,14 @@ class Component extends Model {
   return $components;
  }
 
+ public static function getComponent($componentId) {
+  $component = Component::orderBy('id', 'asc')
+          ->with('creator')
+          ->with('backgroundColor')
+          ->find($componentId);
+  return $component;
+ }
+
  public static function getComponentsByType($componentId, $typeId) {
   $result = array();
   //$componentTypes = Level::getLevel(Level::$level_categories['component_type']);

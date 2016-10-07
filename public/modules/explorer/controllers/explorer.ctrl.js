@@ -5,7 +5,7 @@ var explorerCtrl = function (
         ConstantsSrv,
         ExplorerSrv,
         ExplorerSectionsSrv,
-        ExplorerComponentsSrv,
+        ComponentsSrv,
         ExplorerContributionsSrv,
         $scope,
         $state,
@@ -46,7 +46,7 @@ var explorerCtrl = function (
 //Explorer Component
  vm.explorerComponentBuckets = [];
  vm.explorerComponentsCopy;
- vm.explorerComponentsSrv = new ExplorerComponentsSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.componentFormDisplay = false;
  vm.defaultExplorerComponentData = {
   explorerId: vm.explorerId,
@@ -305,14 +305,14 @@ var explorerCtrl = function (
 
  //Components
  vm.getExplorerComponents = function (explorerId, componentId) {
-  vm.explorerComponentsSrv.getExplorerComponents(explorerId, componentId, 1).then(function (response) {
+  vm.componentsSrv.getExplorerComponents(explorerId, componentId, 1).then(function (response) {
    vm.explorerComponentBuckets = response;
    vm.explorerComponentBuckets.newExplorerComponentData = vm.getDefaultExplorerComponentData();
   });
  };
 
  vm.createExplorerComponent = function (explorerComponentBucket) {
-  vm.explorerComponentsSrv.createExplorerComponent(explorerComponentBucket.newExplorerComponentData).then(function (response) {
+  vm.componentsSrv.createExplorerComponent(explorerComponentBucket.newExplorerComponentData).then(function (response) {
 
    if (explorerComponentBucket.newExplorerComponentData.parentComponentId) {
     explorerComponentBucket.explorerComponents.push(response);
@@ -329,7 +329,7 @@ var explorerCtrl = function (
 
 
  vm.editExplorerComponent = function (data) {
-  vm.explorerComponentsSrv.editExplorerComponent(data).then(function (response) {
+  vm.componentsSrv.editExplorerComponent(data).then(function (response) {
    vm.componentFormDisplay = false;
    vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
    vm.explorerComponentsCopy = angular.copy(vm.explorerComponents);
@@ -382,7 +382,7 @@ var explorerCtrl = function (
    templateUrl: 'explorer-component-modal.html',
    controller: 'ExplorerComponentCtrl as explorerComponentCtrl',
    backdrop: 'static',
-   size: 'xl',
+   size: 'explorer-view',
    resolve: {
     explorerComponentData: function () {
      return angular.copy(explorerComponent);
@@ -518,7 +518,7 @@ explorerCtrl.$inject = ['_',
  'ConstantsSrv',
  'ExplorerSrv',
  'ExplorerSectionsSrv',
- 'ExplorerComponentsSrv',
+ 'ComponentsSrv',
  'ExplorerContributionsSrv',
  '$scope',
  '$state',

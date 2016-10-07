@@ -70,28 +70,6 @@ CREATE TABLE `gb_answer_choice` (
   CONSTRAINT `question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_checklist`
---
-DROP TABLE IF EXISTS `gb_checklist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_checklist` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_checklist_id` int(11),
-  `creator_id` int(11) NOT NULL,
-  `title` varchar(1000) NOT NULL DEFAULT "",
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `checklist_creator_id` (`creator_id`),
-  KEY `checklist_parent_checklist_id` (`parent_checklist_id`),
-  CONSTRAINT `checklist_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `checklist_parent_checklist_id` FOREIGN KEY (`parent_checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_component`
@@ -99,27 +77,40 @@ CREATE TABLE `gb_checklist` (
 DROP TABLE IF EXISTS `gb_component`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `gb_component` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_component_id` int(11),
   `type_id` int(11) NOT NULL,
-  `creator_id` int(11) NOT NULL,
   `title` varchar(150) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
+	 `template_type_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `component_picture_url` varchar(1000) NOT NULL DEFAULT "",
   `background_color_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
+  `level_id` int(11),
+  `privacy_id` int(11) NOT NULL,
+  `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
+  `list_type`  int(11),
+
   PRIMARY KEY (`id`),
+  KEY `component_parent_component_id` (`parent_component_id`),
   KEY `component_creator_id` (`creator_id`),
   KEY `component_type_id` (`type_id`),
-  KEY `component_parent_component_id` (`parent_component_id`),
+  KEY `component_template_type_id` (`template_type_id`),
+  KEY `component_level_id` (`level_id`),
+  KEY `component_privacy_id` (`privacy_id`),
   KEY `component_background_color_id` (`background_color_id`),
+  CONSTRAINT `component_parent_component_id` FOREIGN KEY (`parent_component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_background_color_id` FOREIGN KEY (`background_color_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_parent_component_id` FOREIGN KEY (`parent_component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `component_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_background_color_id` FOREIGN KEY (`background_color_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -146,29 +137,6 @@ CREATE TABLE `gb_contribution` (
   CONSTRAINT `contribution_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_discussion`
---
-DROP TABLE IF EXISTS `gb_discussion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_discussion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_discussion_id` int(11),
-  `creator_id` int(11) NOT NULL,
-  `title` varchar(1000) NOT NULL DEFAULT "",
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `discussion_creator_id` (`creator_id`),
-  KEY `discussion_parent_discussion_id` (`parent_discussion_id`),
-  CONSTRAINT `discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `discussion_parent_discussion_id` FOREIGN KEY (`parent_discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -231,35 +199,6 @@ CREATE TABLE `gb_message_receipient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_plan`
---
-DROP TABLE IF EXISTS `gb_plan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_plan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_plan_id` int(11),
-  `creator_id` int(11) NOT NULL,
-  `objective_id` int(11) NOT NULL,
-  `title` varchar(150) NOT NULL DEFAULT "",
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `start_point` int(11) NOT NULL DEFAULT '0',
-  `plan_length` int(11) NOT NULL DEFAULT '10',
-  `color` varchar(7) NOT NULL DEFAULT "EEEEEE",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `plan_creator_id` (`creator_id`),
-  KEY `plan_parent_plan_id` (`parent_plan_id`),
-  KEY `plan_objective_id` (`objective_id`),
-  CONSTRAINT `plan_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_parent_plan_id` FOREIGN KEY (`parent_plan_id`) REFERENCES `gb_plan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `plan_objective_id` FOREIGN KEY (`objective_id`) REFERENCES `gb_objective` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
 -- Table structure for table `gb_notification`
 --
 DROP TABLE IF EXISTS `gb_notification`;
@@ -301,58 +240,6 @@ CREATE TABLE `gb_profile_section` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `gb_profile_section` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_question`
---
-DROP TABLE IF EXISTS `gb_question`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_question` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creator_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `level_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `type` int not null DEFAULT "0",
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `question_level_id` (`level_id`),
-  KEY `question_creator_id` (`creator_id`),
-  CONSTRAINT `question_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_question_answer`
---
-DROP TABLE IF EXISTS `gb_question_answer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_question_answer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `creator_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
-  `explorer_id` int(11) NOT NULL,
-  `answer_choice_id` int(11),
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `description` varchar (1000) NOT NULL DEFAULT '',
-  `order` int(11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `question_answer_creator_id` (`creator_id`),
-  KEY `question_answer_question_id` (`question_id`),
-  KEY `question_answer_answer_choice_id` (`answer_choice_id`),
-  KEY `question_answer_explorer_id` (`explorer_id`),
-  CONSTRAINT `question_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_answer_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_answer_answer_choice_id` FOREIGN KEY (`answer_choice_id`) REFERENCES `gb_answer_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_answer_explorer_id` FOREIGN KEY (`explorer_id`) REFERENCES `gb_explorer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Table structure for table `gb_share`
@@ -404,51 +291,6 @@ CREATE TABLE `gb_tag` (
   CONSTRAINT `tag_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tag_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_todo`
---
-DROP TABLE IF EXISTS `gb_todo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_todo_id` int(11),
-  `status_id` int(11) NOT NULL,
-  `creator_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `due_date` datetime,
-  `title` varchar(1000) NOT NULL DEFAULT "",
-  `description` varchar(500) NOT NULL DEFAULT "",
-
-  PRIMARY KEY (`id`),
-  KEY `todo_parent_todo_id` (`parent_todo_id`),
-  KEY `todo_creator_id` (`creator_id`),
-  KEY `todo_status_id` (`status_id`),
-  CONSTRAINT `todo_parent_todo_id` FOREIGN KEY (`parent_todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_todo_checklist`
---
-DROP TABLE IF EXISTS `gb_todo_checklist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_checklist` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `checklist_id` int(11) NOT NULL,
-  `todo_id` int(11) NOT NULL,
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `todo_checklist_checklist_id` (`checklist_id`),
-  KEY `todo_checklist_todo_id` (`todo_id`),
-  CONSTRAINT `todo_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_checklist_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -523,14 +365,6 @@ CREATE TABLE `gb_user_profile_section` (
   CONSTRAINT `user_profile_section_profile_section_id` FOREIGN KEY (`profile_section_id`) REFERENCES `gb_profile_section` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/discussion.txt'
-    into table gb102.gb_discussion
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `parent_discussion_id`, `creator_id`, `title`, `description`, `created_at`, `updated_at`, `importance`, `status`);
 
 -- ----------- LEVEL ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.txt'
@@ -550,7 +384,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `parent_component_id`, `type_id`,	`creator_id`,	`title`,	`description`, `background_color_id`,	`created_at`, `importance`,	`status`);
+   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`,	`list_type`);
 
 
 -- ------------------ USER ------------------
@@ -594,15 +428,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user-pr
     ignore 1 LINES
     (`id`,	`creator_id`,	`profile_section_id`,	`description`,	`created_at`,	`updated_at`,	`type`, `order`,	`status`);
 
--- ----------- CHECKLIST  ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/checklist.txt'
-    into table gb102.gb_checklist
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`,	`parent_checklist_id`,	`creator_id`,	`title`,	`description`,	`created_at`,	`updated_at`,	`importance`,	`status`);
 
 -- ----------- CONTRIBUTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/contribution.txt'
@@ -614,37 +439,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/contrib
     ignore 1 LINES
     (`id`,	`level_id`,	`creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`);
 
-
--- ----------- TODO ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/todo.txt'
-    into table gb102.gb_todo
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `parent_todo_id`,	`status_id`,	`creator_id`,	`created_at`,	`updated_at`,	`due_date`,	`title`,	`description`);
-
--- ----------- TODO CHECKLIST ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/todo-checklist.txt'
-    into table gb102.gb_todo_checklist
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `checklist_id`,	`todo_id`,	`privacy`,	`status`);
-
--- ----------- PLAN ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/plan.txt'
-    into table gb102.gb_plan
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `parent_plan_id`, `creator_id`,	`objective_id`, `title`,	`description`, `start_point`, `plan_length`,	`color`, `created_at`, `importance`,	`status`);
-
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.txt'
     into table gb102.gb_share
@@ -655,16 +449,6 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.t
     ignore 1 LINES
   (`id`, `creator_id`, `share_with_id`,	`description`,	`level_id`,	`source_id`,	`created_at`,	`updated_at`,	`type`,	`status`);
 
--- ----------- QUESTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/question.txt'
-    into table gb102.gb_question
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `creator_id`, `description`, `level_id`,	`created_at`,	`updated_at`,	`type`, `status`);
-
 -- ----------- ANSWER CHOIICE ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/answer-choice.txt'
     into table gb102.gb_answer_choice
@@ -674,13 +458,3 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/answer-
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`,	`question_id`,	`answer`,	`description`,	`type`,	`status`);
-
--- -----------QUESTION ANSWER ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/question-answer.txt'
-    into table gb102.gb_question_answer
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`,	`creator_id`, `question_id`,`explorer_id`,`answer_choice_id`,`created_at`, `updated_at`,`description`, `order`, `privacy`, `status`);

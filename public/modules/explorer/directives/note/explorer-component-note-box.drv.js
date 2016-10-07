@@ -1,9 +1,9 @@
 angular.module('app.explorer').directive('gbExplorerComponentBox',
-        ['ExplorerComponentsSrv',
+        ['ComponentsSrv',
          'level_categories',
          '$q',
          function (
-                 ExplorerComponentsSrv,
+                 ComponentsSrv,
                  level_categories,
                  $q) {
           'use strict';

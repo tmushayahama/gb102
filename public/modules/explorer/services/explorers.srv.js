@@ -1,9 +1,9 @@
-var explorersSrv = function ($http, $q) {
+var ComponentsSrv = function ($http, $q) {
 
- var ExplorersSrv = function () {
+ var ComponentsSrv = function () {
   this.explorers = [];
  };
- ExplorersSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
+ ComponentsSrv.prototype.deferredHandler = function (data, deferred, defaultMsg) {
   if (!data || typeof data !== 'object') {
    this.error = 'Error';
   }
@@ -22,7 +22,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ExplorersSrv.prototype.getExplorersByMode = function (mode) {
+ ComponentsSrv.prototype.getExplorersByMode = function (mode) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -36,7 +36,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getAllExplorers = function () {
+ ComponentsSrv.prototype.getAllExplorers = function () {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -50,7 +50,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getUserExplorers = function (userId) {
+ ComponentsSrv.prototype.getUserExplorers = function (userId) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -64,7 +64,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getUserExplorersStats = function (userId) {
+ ComponentsSrv.prototype.getUserExplorersStats = function (userId) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -78,7 +78,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getAppExplorers = function (appName) {
+ ComponentsSrv.prototype.getAppExplorers = function (appName) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -92,7 +92,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getAppExplorersFeatured = function () {
+ ComponentsSrv.prototype.getAppExplorersFeatured = function () {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -106,7 +106,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getUserAppExplorers = function (userId, appName) {
+ ComponentsSrv.prototype.getUserAppExplorers = function (userId, appName) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -120,7 +120,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getMyExplorers = function () {
+ ComponentsSrv.prototype.getMyExplorers = function () {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -134,7 +134,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getExplorer = function (explorerId, Id) {
+ ComponentsSrv.prototype.getExplorer = function (explorerId, Id) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -148,7 +148,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.createExplorer = function (explorerData) {
+ ComponentsSrv.prototype.createExplorer = function (explorerData) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -165,7 +165,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.editExplorer = function (explorerData) {
+ ComponentsSrv.prototype.editExplorer = function (explorerData) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -181,7 +181,7 @@ var explorersSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ExplorersSrv.prototype.getExplorerRequestOptions = function (explorerId) {
+ ComponentsSrv.prototype.getExplorerRequestOptions = function (explorerId) {
   var self = this;
   self.error = "";
   var deferred = $q.defer();
@@ -192,10 +192,10 @@ var explorersSrv = function ($http, $q) {
   });
   return deferred.promise;
  };
- return ExplorersSrv;
+ return ComponentsSrv;
 };
 
-explorersSrv.$inject = ['$http', '$q'];
+ComponentsSrv.$inject = ['$http', '$q'];
 
-angular.module('app.explorer').service('ExplorersSrv', explorersSrv);
+angular.module('app.explorer').service('ComponentsSrv', ComponentsSrv);
 

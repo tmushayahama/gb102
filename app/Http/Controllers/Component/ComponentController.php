@@ -20,6 +20,11 @@ class ComponentController extends Controller {
   return \Response::json($components);
  }
 
+ public function getComponent($componentId, $resultFormat = 1) {
+  $components = Component::getComponent($componentId, $resultFormat);
+  return \Response::json($components);
+ }
+
  public function editComponentStatus() {
   $component = Component::editComponentStatus();
   return \Response::json($component);
