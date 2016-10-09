@@ -23,7 +23,7 @@ define(['angular'
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/profile/services/profile.srv.js',
                   'public/modules/search/services/search.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/profile/services/user-profile-section.srv.js',
                   'public/modules/profile/controllers/profile-menu-modal.ctrl.js',
                   'public/modules/profile/controllers/profile.ctrl.js',
@@ -46,7 +46,7 @@ define(['angular'
                  name: 'app.profile',
                  serie: true,
                  files: [
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/profile/controllers/profile-overview.ctrl.js',
                  ]
                 });
@@ -109,7 +109,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',

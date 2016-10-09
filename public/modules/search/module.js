@@ -21,7 +21,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/search/services/search.srv.js',
                   'public/modules/search/controllers/search.ctrl.js',

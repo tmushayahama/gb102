@@ -21,10 +21,10 @@ var componentsSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ComponentsSrv.prototype.getExplorerComponents = function (explorerId, componentId, gbFormat) {
+ ComponentsSrv.prototype.getAllComponents = function (listFormat) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/components/' + componentId + "/gbformat/" + gbFormat).success(function (data) {
+  $http.get('/api/components/all/listformat/' + listFormat).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -32,18 +32,16 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- /*
-  ComponentsSrv.prototype.getExplorerSubComponents = function (explorerId, componentId) {
+ ComponentsSrv.prototype.getComponent = function (componentId, listFormat) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/components/' + componentId).success(function (data) {
-  self.deferredHandler(data, deferred);
+  $http.get('/api/components/' + componentId + '/listformat/' + listFormat).success(function (data) {
+   self.deferredHandler(data, deferred);
   }).error(function (data) {
-  self.deferredHandler(data, deferred, 'Unknown error');
+   self.deferredHandler(data, deferred, 'Unknown error');
   });
   return deferred.promise;
-  };
-  */
+ };
 
  ComponentsSrv.prototype.getComponents = function (componentId, gbFormat) {
   var self = this;
@@ -56,16 +54,7 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ComponentsSrv.prototype.getExplorerComponent = function (explorerId, componentId) {
-  var self = this;
-  var deferred = $q.defer();
-  $http.get('/api/explorer/' + explorerId + '/component/' + componentId).success(function (data) {
-   self.deferredHandler(data, deferred);
-  }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
-  });
-  return deferred.promise;
- };
+
 
  ComponentsSrv.prototype.createExplorerComponent = function (explorerComponentData) {
   var self = this;

@@ -3,7 +3,6 @@ var explorerCtrl = function (
         _,
         level_categories,
         ConstantsSrv,
-        ExplorerSrv,
         ExplorerSectionsSrv,
         ComponentsSrv,
         ExplorerContributionsSrv,
@@ -21,12 +20,23 @@ var explorerCtrl = function (
  var vm = this;
 
  //Explorer General
- vm.explorerSrv = new ExplorerSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
- vm.explorer = [];
  vm.appsConstants = [];
- vm.explorerId = $stateParams.explorerId;
- vm.subExplorerLimitTo = 5;
+ vm.componentId = $stateParams.componentId;
+
+ //Explorer Component
+ vm.component = [];
+ vm.componentsCopy;
+ vm.componentFormDisplay = false;
+ vm.defaultExplorerComponentData = {
+  explorerId: vm.explorerId,
+  typeId: level_categories.component.none,
+  title: "",
+  description: "",
+  privacy: 0
+ };
+
  vm.explorerFormDisplay = false;
  vm.newColumnData = {
   title: ""
@@ -43,18 +53,7 @@ var explorerCtrl = function (
  };
  vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData);
 
-//Explorer Component
- vm.explorerComponentBuckets = [];
- vm.explorerComponentsCopy;
- vm.componentsSrv = new ComponentsSrv();
- vm.componentFormDisplay = false;
- vm.defaultExplorerComponentData = {
-  explorerId: vm.explorerId,
-  typeId: level_categories.component.none,
-  title: "",
-  description: "",
-  privacy: 0
- };
+
 
 //Explorer Contribution
  vm.explorerContributions;
@@ -77,18 +76,18 @@ var explorerCtrl = function (
   show: function () {
    vm.editDescriptionMode.visible = true;
    vm.editDescriptionMode.data = {
-    explorer_id: vm.explorerSrv.explorer.id,
-    title: vm.explorerSrv.explorer.title,
-    description: vm.explorerSrv.explorer.description
+    explorer_id: vm.componentSrv.explorer.id,
+    title: vm.componentSrv.explorer.title,
+    description: vm.componentSrv.explorer.description
    };
   },
   hide: function () {
    vm.editDescriptionMode.visible = false;
   },
   edit: function () {
-   vm.explorerSrv.editExplorer(vm.editDescriptionMode.data).then(function (response) {
+   vm.componentSrv.editExplorer(vm.editDescriptionMode.data).then(function (response) {
     vm.editDescriptionMode.hide();
-    vm.explorerSrv.explorer = response;
+    vm.componentSrv.explorer = response;
    }, function (response) {
     console.log(response);
    });
@@ -106,7 +105,7 @@ var explorerCtrl = function (
 
 
  vm.getExplorer = function (id) {
-  vm.explorerSrv.getExplorer(id).then(function (response) {
+  vm.componentSrv.getExplorer(id).then(function (response) {
   });
  };
 
@@ -118,10 +117,10 @@ var explorerCtrl = function (
 
 
  vm.createExplorer = function (data) {
-  vm.explorerSrv.createExplorer(data).then(function (response) {
+  vm.componentSrv.createExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorerCopy = angular.copy(vm.explorerSrv.explorer);
+   vm.explorerCopy = angular.copy(vm.componentSrv.explorer);
   }, function (response) {
    console.log(response);
   });
@@ -294,10 +293,9 @@ var explorerCtrl = function (
 
 
 
- vm.explorerSrv.getSubExplorers(vm.explorerId, level_categories.explorer_relationship.application);
 
  vm.getSubExplorersStats = function (explorerId) {
-  vm.explorerSrv.getSubExplorersStats(explorerId).then(function (data) {
+  vm.componentSrv.getSubExplorersStats(explorerId).then(function (data) {
    vm.subExplorersStats = data;
   });
  };
@@ -492,7 +490,6 @@ var explorerCtrl = function (
 
 
  //--------init------
- vm.getExplorerComponents(vm.explorerId, 0);
 
  vm.constantsSrv.getConstants().then(function (data) {
   vm.appsConstants = data;
@@ -502,11 +499,17 @@ var explorerCtrl = function (
   vm.explorerContributions = data;
  });
 
- vm.explorerSrv.getExplorer(vm.explorerId).then(function (data) {
-  $css.bind({
-   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + data.app_type.title + '.css'
-  }, $scope);
- });
+ vm.getComponent = function (componentId, listFormat) {
+  vm.componentsSrv.getComponent(componentId, listFormat).then(function (response) {
+   vm.component = response;
+   $css.bind({
+    href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + response.type.title + '.css'
+   }, $scope);
+  });
+ }
+
+ vm.getComponent(vm.componentId, 3);
+
 
 
 
@@ -516,7 +519,6 @@ var explorerCtrl = function (
 explorerCtrl.$inject = ['_',
  'level_categories',
  'ConstantsSrv',
- 'ExplorerSrv',
  'ExplorerSectionsSrv',
  'ComponentsSrv',
  'ExplorerContributionsSrv',

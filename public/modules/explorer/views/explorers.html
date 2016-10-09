@@ -65,7 +65,7 @@
     </md-button>
    </div>
   </div>
-  <div class="row" ng-repeat="featuredItem in explorersCtrl.featured track by $index">
+  <div class="row" ng-repeat="(id, component) in explorersCtrl.components track by $index">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="gb-heading-row-4 row">
@@ -74,7 +74,7 @@
       </div>
       <div class="gb-title">
        <p class="gb-ellipsis">
-        {{featuredItem.heading}}
+        {{component.title}}
        </p>
       </div>
      </div>
@@ -87,10 +87,10 @@
      </md-button>
     </div>
     <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
-     <div ng-repeat="explorer in featuredItem.explorers"
+     <div ng-repeat="component in component.components"
           class="gb-card-holder gb-card-sm gb-padding-medium"
-          gb-explorer-box explorer="explorer"
-          template-url="{{appsCtrl.getTemplateUrl(explorer, '-sm')}}">
+          gb-explorer-box component="component"
+          template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
      </div>
     </div>
     <div class="gb-right-scroll">
@@ -108,5 +108,5 @@
  <div ng-include="'public/modules/explorer/views/add-explorer-modal.html'"></div>
 </script>
 <script type="text/ng-template" id="add-request-explorer-modal.html">
-  <div ng-include="'public/modules/explorer/views/create-request-explorer-modal.html'"></div>
+ <div ng-include="'public/modules/explorer/views/create-request-explorer-modal.html'"></div>
 </script>

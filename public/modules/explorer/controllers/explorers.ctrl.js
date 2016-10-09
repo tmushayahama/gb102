@@ -23,20 +23,107 @@ var explorersCtrl = function (
   'AngularJS',
   'Karma'
  ];
- var count = 0;
- $scope.startJoyRide = false;
- $scope.start = function () {
-  if (count > 0) {
-   generateAlternateConfig();
-  }
-  count++;
-  $scope.startJoyRide = true;
 
+
+
+ vm.componentsSrv = new ComponentsSrv();
+ vm.constantsSrv = new ConstantsSrv();
+ vm.communitySrv = new CommunitySrv();
+
+ $rootScope.appName = 'Explorer';
+ vm.explorerLevels;
+ vm.components = [];
+ vm.handpickedExplorers = [];
+ //vm.appTypes;
+
+ vm.featured = [];
+ vm.appTypes;
+ $rootScope.subAppName = "ALL";
+
+ /*
+  vm.getComponents = function (component, resultFormat) {
+  vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
+  vm.explorerComponent = component;
+  vm.explorerComponent.components = response;
+  vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+  }, function (error) {
+  console.log(error);
+  });
+  };
+  */
+
+ vm.getAllComponents = function (resultFormat) {
+  vm.componentsSrv.getAllComponents(resultFormat).then(function (response) {
+   vm.components = response;
+  }, function (error) {
+   console.log(error);
+  });
+ };
+
+ $rootScope.openAddExplorerModal = function () {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'add-explorer-modal.html',
+   controller: 'AddExplorerCtrl as addExplorerCtrl',
+   backdrop: 'static',
+   size: 'xl',
+   resolve: {
+    communitySrv: function () {
+     return vm.communitySrv;
+    },
+    constantsSrv: function () {
+     return vm.constantsSrv;
+    },
+    appTypes: function () {
+     return vm.appTypes;
+    }
+   }
+  });
+
+  modalInstance.result.then(function (explorer) {
+   vm.ComponentsSrv.createExplorer(explorer).then(function (data) {
+    $state.go("apps.explorerItem.explore", {"explorerId": data.id});
+   });
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
+
+ vm.createExplorer = function (data) {
+  vm.ComponentsSrv.createExplorer(data).then(function (response) {
+   vm.FormDisplay = false;
+   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
+   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
+  }, function (response) {
+   console.log(response);
+  });
+ };
+
+ vm.editExplorer = function (data) {
+  vm.ComponentsSrv.editExplorer(data).then(function (response) {
+   vm.FormDisplay = false;
+   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
+   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
+  }, function (response) {
+   console.log(response);
+  });
+ };
+
+ vm.editExplorerSections = {
+  details: function (explorerId, detail) {
+   var explorerData = {
+    explorerId: explorerId,
+    title: detail.title,
+    description: detail.description
+   };
+   vm.editExplorer(explorerData);
+  }
  }
- function generateAlternateConfig() {
-  //This is to show that it can have dynamic configs which can change . The joyride would not need to be initialized again.
-  $scope.config[3].text = "I can have dynamic text that can change in between joyrides"
- }
+
+ //--------init------
+ vm.getAllComponents(2);
+
+
 
  $scope.config = [
   {
@@ -171,12 +258,21 @@ var explorersCtrl = function (
   }
  ];
 
+ var count = 0;
+ $scope.startJoyRide = false;
+ $scope.start = function () {
+  if (count > 0) {
+   generateAlternateConfig();
+  }
+  count++;
+  $scope.startJoyRide = true;
 
+ }
+ function generateAlternateConfig() {
+  //This is to show that it can have dynamic configs which can change . The joyride would not need to be initialized again.
+  $scope.config[3].text = "I can have dynamic text that can change in between joyrides"
+ }
 
-
- $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
- }, $scope);
 
  vm.tabs = [];
  vm.scrlTabsApi = {};
@@ -213,108 +309,11 @@ var explorersCtrl = function (
  }
 
 
- vm.ComponentsSrv = new ComponentsSrv();
- vm.constantsSrv = new ConstantsSrv();
- vm.communitySrv = new CommunitySrv();
- $rootScope.appName = 'Explorer';
- vm.explorerLevels;
- vm.handpickedExplorers = [];
- //vm.appTypes;
+ $css.bind({
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-explorer.css'
+ }, $scope);
 
- vm.featured = [];
- vm.appTypes;
- $rootScope.subAppName = "ALL";
 
- vm.ComponentsSrv.getExplorersByMode(level_categories.list.handpicked).then(function (data) {
-  vm.handpickedExplorers = data;
- });
-
- vm.getComponents = function (component, resultFormat) {
-  vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
-   vm.explorerComponent = component;
-   vm.explorerComponent.components = response;
-   vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
-  }, function (error) {
-   console.log(error);
-  });
- };
-
- vm.getExplorersFeatured = function () {
-  vm.ComponentsSrv.getAppExplorersFeatured().then(function (data) {
-   vm.featured = data;
-  });
- };
-
- vm.getExplorersFeatured();
-
- $rootScope.openAddExplorerModal = function () {
-  var modalInstance = $uibModal.open({
-   animation: true,
-   templateUrl: 'add-explorer-modal.html',
-   controller: 'AddExplorerCtrl as addExplorerCtrl',
-   backdrop: 'static',
-   size: 'xl',
-   resolve: {
-    communitySrv: function () {
-     return vm.communitySrv;
-    },
-    constantsSrv: function () {
-     return vm.constantsSrv;
-    },
-    appTypes: function () {
-     return vm.appTypes;
-    }
-   }
-  });
-
-  modalInstance.result.then(function (explorer) {
-   vm.ComponentsSrv.createExplorer(explorer).then(function (data) {
-    $state.go("apps.explorerItem.explore", {"explorerId": data.id});
-   });
-  }, function () {
-   $log.info('Modal dismissed at: ' + new Date());
-  });
- };
-
- vm.createExplorer = function (data) {
-  vm.ComponentsSrv.createExplorer(data).then(function (response) {
-   vm.FormDisplay = false;
-   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
-  }, function (response) {
-   console.log(response);
-  });
- };
-
- vm.editExplorer = function (data) {
-  vm.ComponentsSrv.editExplorer(data).then(function (response) {
-   vm.FormDisplay = false;
-   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
-  }, function (response) {
-   console.log(response);
-  });
- };
-
- vm.editExplorerSections = {
-  details: function (explorerId, detail) {
-   var explorerData = {
-    explorerId: explorerId,
-    title: detail.title,
-    description: detail.description
-   };
-   vm.editExplorer(explorerData);
-  }
- }
-
- //--------init------
- vm.constantsSrv.getLevel(level_categories.explorer).then(function (data) {
-  vm.explorerLevels = data;
- });
-
- vm.constantsSrv.getLevel(level_categories.apps).then(function (data) {
-  vm.appTypes = data;
- });
 };
 
 explorersCtrl.$inject = [

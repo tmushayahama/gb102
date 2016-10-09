@@ -36,9 +36,29 @@ class Component extends Model {
   */
  protected $fillable = ['description'];
 
- public static function getComponents($componentId, $resultFormat) {
+ public static function getAllComponents($listFormat) {
+  $components = array();
+  switch ($listFormat) {
+   case Level::$componentJsonFormat["types"]:
+    $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+    foreach ($componentTypes as $componentType) {
+     $components[$componentType->id] = $componentType;
+     $components[$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
+    }
+    break;
+   default:
+    foreach ($components as $component) {
+     // $component["components"] = Component::getComponents($component->id, $resultFormat);
+    }
+    break;
+  }
+  return $components;
+ }
+
+ public static function getComponents1($componentId, $resultFormat) {
   $components = Component::orderBy('id', 'asc')
-          ->where('parent_component_id', $componentId)
+          //->where('parent_component_id', $componentId)
+          ->with('type')
           ->with('creator')
           ->with('backgroundColor')
           ->take(100)
@@ -49,28 +69,87 @@ class Component extends Model {
     $components = $components->groupBy('type_id');
     foreach ($components as $component) {
      for ($i = 0; $i < count($component); $i++) {
-      $component[$i]["components"] = Component::getComponents($component[$i]->id, $resultFormat);
+      // $component[$i]["components"] = Component::getComponents($component[$i]->id, $resultFormat);
      }
     }
     break;
    default:
     foreach ($components as $component) {
-     $component["components"] = Component::getComponents($component->id, $resultFormat);
+     // $component["components"] = Component::getComponents($component->id, $resultFormat);
     }
     break;
   }
   return $components;
  }
 
- public static function getComponent($componentId) {
+ public static function getComponentsByType($typeId) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('type_id', $typeId)
+          ->with('creator')
+          ->with('backgroundColor')
+          ->take(20)
+          ->get();
+  return $components;
+ }
+
+ public static function getSubComponentsByType($componentId, $typeId) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('parent_component_id', $componentId)
+          ->where('type_id', $typeId)
+          ->with('creator')
+          ->with('backgroundColor')
+          ->take(20)
+          ->get();
+  return $components;
+ }
+
+ public static function getSubComponents($componentId, $appType) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('parent_component_id', $componentId)
+          ->whereHas('type', function($q) use($appType) {
+           if ($appType == 1) {
+            $q->where('parent_level_id', 1);
+           } else {
+            $q->where('parent_level_id', '!=', 1);
+           }
+          })
+          ->with('type')
+          ->with('creator')
+          ->with('backgroundColor')
+          ->take(20)
+          ->get();
+  return $components;
+ }
+
+ public static function getComponent($componentId, $listFormat) {
   $component = Component::orderBy('id', 'asc')
           ->with('creator')
           ->with('backgroundColor')
           ->find($componentId);
+  $components = array();
+  switch ($listFormat) {
+   case Level::$componentJsonFormat["types"]:
+    $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+    foreach ($componentTypes as $componentType) {
+     $components[$componentType->id] = $componentType;
+     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
+    }
+    $component["components"] = $components;
+    break;
+   case Level::$componentJsonFormat["columns"]:
+    $component["apps"] = Component::getSubComponents($component->id, 1);
+    $component["components"] = Component::getSubComponents($component->id, 2);
+    break;
+   default:
+    foreach ($components as $component) {
+     // $component["components"] = Component::getComponents($component->id, $resultFormat);
+    }
+    break;
+  }
   return $component;
  }
 
- public static function getComponentsByType($componentId, $typeId) {
+ public static function getComponentsByType2($componentId, $typeId) {
   $result = array();
   //$componentTypes = Level::getLevel(Level::$level_categories['component_type']);
 

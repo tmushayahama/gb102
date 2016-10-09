@@ -21,7 +21,7 @@ define(['angular'
                  files: [
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
@@ -47,7 +47,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
@@ -77,9 +77,9 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem', {
+          .state('apps.component', {
            abstract: true,
-           url: '/explorer/{explorerId}',
+           url: '/component/{componentId}',
            views: {
             "apps": {
              controller: 'ExplorerCtrl as explorerCtrl',
@@ -99,7 +99,7 @@ define(['angular'
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
                   'public/modules/explorer/directives/section/explorer-section-box.drv.js',
-                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
                   'public/modules/explorer/services/section/explorer-sections.srv.js',
                   'public/modules/community/services/community.srv.js',
@@ -113,7 +113,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem.explore', {
+          .state('apps.component.explore', {
            url: '/explore',
            views: {
             "content": {
@@ -137,7 +137,7 @@ define(['angular'
                   'public/modules/explorer/controllers/section/explorer-section-modal.ctrl.js',
                   'public/modules/explorer/controllers/section/explorer-section-item-modal.ctrl.js',
                   //Component
-                  'public/modules/explorer/services/component/explorer-components.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/component/explorer-components.ctrl.js',
                   'public/modules/explorer/controllers/component/explorer-component-modal.ctrl.js',
                   //Contributions
@@ -165,7 +165,7 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorerItem.overview', {
+          .state('apps.componentItem.overview', {
            url: '/overview',
            views: {
             "content": {

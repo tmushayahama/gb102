@@ -153,8 +153,8 @@ var appsCtrl = function (
   });
  };
 
- vm.getTemplateUrl = function (explorer, size) {
-  if (explorer.explorer_picture_url === "default.png") {
+ vm.getTemplateUrl = function (component, size) {
+  if (component.component_picture_url === "default.png") {
    return "public/modules/explorer/views/templates/explorer-box-1" + size + ".tpl.html";
   }
   return "public/modules/explorer/views/templates/explorer-box" + size + ".tpl.html";

@@ -181,7 +181,7 @@ define([
                  files: [
                   'public/modules/community/services/community.srv.js',
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/explorer/services/explorers.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
                   'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',

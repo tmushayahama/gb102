@@ -15,14 +15,14 @@ use DB;
 
 class ComponentController extends Controller {
 
- public function getComponents($componentId, $resultFormat = 1) {
-  $components = Component::getComponents($componentId, $resultFormat);
+ public function getAllComponents($listFormat = 1) {
+  $components = Component::getAllComponents($listFormat);
   return \Response::json($components);
  }
 
- public function getComponent($componentId, $resultFormat = 1) {
-  $components = Component::getComponent($componentId, $resultFormat);
-  return \Response::json($components);
+ public function getComponent($componentId, $listFormat = 1) {
+  $component = Component::getComponent($componentId, $listFormat);
+  return \Response::json($component);
  }
 
  public function editComponentStatus() {
@@ -33,26 +33,6 @@ class ComponentController extends Controller {
  public function editComponentBackground($componentId) {
   $backgroundColor = Component::editComponentBackground($componentId);
   return \Response::json($backgroundColor);
- }
-
- public function editChecklistStatus() {
-  $checklist = Checklist::editChecklistStatus();
-  return \Response::json($checklist);
- }
-
- public function getComponentChecklist($componentId) {
-  $componentComponents = ComponentChecklist::getComponentChecklist($componentId);
-  return \Response::json($componentComponents);
- }
-
- public function createComponentChecklist() {
-  $componentComponents = ComponentChecklist::createComponentChecklist();
-  return \Response::json($componentComponents);
- }
-
- public function componentChecklistStatusData($componentId) {
-  $componentChecklistStatusData = ComponentChecklist::componentChecklistStatusData($componentId);
-  return \Response::json($componentChecklistStatusData);
  }
 
 }

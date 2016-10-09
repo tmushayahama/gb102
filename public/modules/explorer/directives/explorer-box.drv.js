@@ -9,7 +9,7 @@ angular.module('app.explorer').directive('gbExplorerBox',
            replace: true,
            scope: {
             templateUrl: '@',
-            explorer: '=',
+            component: '=',
            },
            template: '<ng-include src="templateUrl"></ng-include>',
            controller: [
