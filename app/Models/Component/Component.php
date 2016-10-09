@@ -103,13 +103,13 @@ class Component extends Model {
   return $components;
  }
 
- public static function getSubComponents($componentId, $appType) {
+ public static function getSubComponents($componentId, $appType, $depth = 0) {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
           ->whereHas('type', function($q) use($appType) {
            if ($appType == 1) {
             $q->where('parent_level_id', 1);
-           } else {
+           } else if ($appType == 2) {
             $q->where('parent_level_id', '!=', 1);
            }
           })
@@ -118,6 +118,11 @@ class Component extends Model {
           ->with('backgroundColor')
           ->take(20)
           ->get();
+  if ($depth > 0) {
+   foreach ($components as $component) {
+    $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
+   }
+  }
   return $components;
  }
 
@@ -138,7 +143,7 @@ class Component extends Model {
     break;
    case Level::$componentJsonFormat["columns"]:
     $component["apps"] = Component::getSubComponents($component->id, 1);
-    $component["components"] = Component::getSubComponents($component->id, 2);
+    $component["components"] = Component::getSubComponents($component->id, 2, 2);
     break;
    default:
     foreach ($components as $component) {

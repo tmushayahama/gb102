@@ -324,9 +324,9 @@
    </form>
    <li class="drag-item"
        ng-repeat="(key, component) in explorerCtrl.component.apps track by $index">
-    <div gb-explorer-component-box
+    <div gb-component-box
          component="component"
-         open-explorer-component="explorerCtrl.openExplorerComponent(component)">
+         open-component="explorerCtrl.openComponent(component.id)">
     </div>
    </li>
   </ul>
@@ -463,10 +463,10 @@
      </div>
     </div>
    </form>
-   <li class="drag-item" ng-repeat="component in explorerComponentBucket.components track by $index">
-    <div gb-explorer-component-box
+   <li class="drag-item" ng-repeat="component in component.components track by $index">
+    <div gb-component-box
          component="component"
-         open-explorer-component="explorerCtrl.openExplorerComponent(component)">
+         open-component="explorerCtrl.openComponent(component.id)">
     </div>
    </li>
   </ul>

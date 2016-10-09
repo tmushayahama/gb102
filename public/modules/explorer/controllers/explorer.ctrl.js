@@ -374,7 +374,7 @@ var explorerCtrl = function (
   }
  };
 
- vm.openExplorerComponent = function (explorerComponent) {
+ vm.openComponent = function (componentId) {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'explorer-component-modal.html',
@@ -382,8 +382,8 @@ var explorerCtrl = function (
    backdrop: 'static',
    size: 'explorer-view',
    resolve: {
-    explorerComponentData: function () {
-     return angular.copy(explorerComponent);
+    componentId: function () {
+     return componentId;
     },
     appsConstants: function () {
      return vm.appsConstants;

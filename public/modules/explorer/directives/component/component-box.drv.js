@@ -1,4 +1,4 @@
-angular.module('app.explorer').directive('gbExplorerComponentBox',
+angular.module('app.explorer').directive('gbComponentBox',
         ['ComponentsSrv',
          'level_categories',
          '$q',
@@ -12,11 +12,11 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
            restrict: 'EA',
            // template: '<ng-include src="componentTemplateUrl"/>',
            //replace: true,
-           templateUrl: "public/modules/explorer/views/templates/component/explorer-component-box.tpl.html",
+           templateUrl: "public/modules/explorer/views/templates/component/component-box.tpl.html",
            scope: {
             //templateUrl: '@',
             component: '=',
-            openExplorerComponent: '&',
+            openComponent: '&',
            },
            //template: '<div ng-include="\'/app/partials/HtmlPage.html\'"></div>',
            //template: "<ng-include src='templateUrl'></ng-include>",
@@ -43,7 +43,7 @@ angular.module('app.explorer').directive('gbExplorerComponentBox',
            ],
            link: function (scope, element, attr, ctrl) {
             scope.open = function () {
-             scope.openExplorerComponent({explorerComponent: scope.explorerComponent});
+             scope.openComponent({omponentId: scope.component.id});
             };
            }
           };

@@ -9,16 +9,12 @@ var explorerComponentCtrl = function (
         $rootScope,
         $location,
         $log,
-        explorerComponentData,
+        componentId,
         appsConstants) {
  var vm = this;
- vm.explorerId = explorerComponentData.explorer_id;
- vm.explorerComponentId = explorerComponentData.id;
+ vm.componentId = componentId;
  vm.componentBackgroundColors = appsConstants[level_categories.component_background_colors];
  vm.componentsSrv = new ComponentsSrv();
- vm.explorerComponent = explorerComponentData;
- vm.explorerSubComponents;
- vm.componentId = explorerComponentData.id;
  vm.componentFormDisplay = false;
  vm.componentSettingsDisplay = false;
  vm.defaultExplorerComponentData = {
@@ -28,6 +24,7 @@ var explorerComponentCtrl = function (
   description: "",
   privacy: 0
  };
+
  vm.getDefaultExplorerComponentData = function (parentComponentId) {
   var result = angular.copy(vm.defaultExplorerComponentData);
   if (parentComponentId) {
@@ -35,13 +32,15 @@ var explorerComponentCtrl = function (
   }
   return result;
  };
- vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData(vm.explorerComponent.id);
+
  vm.ok = function () {
   $uibModalInstance.close();
  };
+
  vm.close = function () {
   $uibModalInstance.dismiss('cancel');
  };
+
  vm.createComponent = function (parentExplorerComponent) {
   vm.componentsSrv.createExplorerComponent(parentExplorerComponent.newExplorerComponentData).then(function (response) {
 
@@ -51,15 +50,16 @@ var explorerComponentCtrl = function (
    console.log(response);
   });
  };
- vm.getComponents = function (component, resultFormat) {
-  vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
-   vm.explorerComponent = component;
-   vm.explorerComponent.components = response;
-   vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+
+ vm.getComponent = function (componentId, listFormat) {
+  vm.componentsSrv.getComponent(componentId, listFormat).then(function (response) {
+   vm.component = response;
+   vm.component.newComponentData = vm.getDefaultExplorerComponentData();
   }, function (error) {
    console.log(error);
   });
  };
+
  vm.editExplorerComponent = function (data) {
   vm.componentsSrv.editExplorerComponent(data).then(function (response) {
    vm.editDecriptionMode = false;
@@ -67,6 +67,7 @@ var explorerComponentCtrl = function (
    console.log(response);
   });
  };
+
  vm.editComponentBackground = function (data) {
   vm.componentsSrv.editComponentBackground(data).then(function (response) {
    vm.explorerComponent.background_color = response;
@@ -75,6 +76,7 @@ var explorerComponentCtrl = function (
    console.log(response);
   });
  };
+
  vm.editExplorerComponentSections = {
   details: function () {
    var explorerComponentData = {
@@ -107,8 +109,9 @@ var explorerComponentCtrl = function (
    });
   });
  };
+
  //--------init------
- vm.getComponents(vm.explorerComponent, 2);
+ vm.getComponent(vm.componentId, 2);
 };
 explorerComponentCtrl.$inject = [
  'level_categories',
@@ -121,6 +124,6 @@ explorerComponentCtrl.$inject = [
  '$rootScope',
  '$location',
  '$log',
- 'explorerComponentData',
+ 'componentId',
  'appsConstants'];
 angular.module("app.explorer").controller('ExplorerComponentCtrl', explorerComponentCtrl);
