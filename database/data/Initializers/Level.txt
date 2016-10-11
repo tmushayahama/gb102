@@ -1,4 +1,5 @@
 id	parent_level_id	title	code	description	long_description	icon
+1	\N	Apps	apps			
 2	1	skills		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills
 3	1	goals		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals
 4	1	hobbies		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies
@@ -38,46 +39,6 @@ id	parent_level_id	title	code	description	long_description	icon
 1026	9	Recommendation		\N		
 1027	9	"Natural, senior advising junior"		\N		
 1028	9	Similar Experiences		\N		
-4001	4000	Follower				icon-gb-follower
-4002	4000	Observer				icon-gb-observer
-4003	4000	Judge				icon-gb-judge
-4004	4000	Administrator				icon-gb-admin
-5001	5000	pending				
-5002	5000	accepted				
-6001	6000	parent				
-6002	6000	application				
-7001	7000	basic				
-7002	7000	template				
-10001	10000	private				
-10002	10000	public				
-10003	10000	customize				
-11001	11000	None				
-11002	11000	Note				
-11003	11000	Guideline				
-11004	11000	Activity				
-11005	11000	Weblink				
-11006	11000	Question				
-12001	12000	Normal		Normal Bucket		
-13001	13000	#FFFFFF				
-13002	13000	#FFF5EB				
-13003	13000	#FFFFEB				
-13004	13000	#EBFFFF				
-13005	13000	#EBEBFF				
-13006	13000	#FFEBEB				
-13007	13000	#E8E8C0				
-13008	13000	#EBD6C7				
-13009	13000	#E0EBE0				
-1	\N	Apps	apps			
-4000	\N	Contribution Type	contribution_type			
-5000	\N	Request	request			
-6000	\N	Explorer Relationship	explorer_relationship			
-7000	\N	Template	template			
-8000	\N	Share Type	share_type			
-10000	\N	Privacy	privacy			
-11000	\N	Component Type	component_type			
-12000	\N	Bucket Type	bucket_type			
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
-13000	\N	Component Background Colors	component_background_colors			
 1029		General		\N		
 1030		Not Now		\N		
 1031		Ehh!!		\N		
@@ -124,3 +85,44 @@ id	parent_level_id	title	code	description	long_description	icon
 3000		in progress				
 3001		later				
 3002		done				
+4000	\N	Contribution Type	contribution_type			
+4001	4000	Follower				icon-gb-follower
+4002	4000	Observer				icon-gb-observer
+4003	4000	Judge				icon-gb-judge
+4004	4000	Administrator				icon-gb-admin
+5000	\N	Request	request			
+5001	5000	pending				
+5002	5000	accepted				
+6000	\N	Explorer Relationship	explorer_relationship			
+6001	6000	parent				
+6002	6000	application				
+7000	\N	Template	template			
+7001	7000	basic				
+7002	7000	template				
+8000	\N	Share Type	share_type			
+10000	\N	Privacy	privacy			
+10001	10000	private				
+10002	10000	public				
+10003	10000	customize				
+11000	\N	Component Type	component_type			
+11001	11000	None				
+11002	11000	Note				
+11003	11000	Guideline				
+11004	11000	Activity				
+11005	11000	Weblink				
+11006	11000	Question				
+11007	11000	Step				
+12000	\N	Bucket Type	bucket_type			
+12001	12000	Normal		Normal Bucket		
+13000	\N	Component Background Colors	component_background_colors			
+13001	13000	#FFFFFF				
+13002	13000	#FFF5EB				
+13003	13000	#FFFFEB				
+13004	13000	#EBFFFF				
+13005	13000	#EBEBFF				
+13006	13000	#FFEBEB				
+13007	13000	#E8E8C0				
+13008	13000	#EBD6C7				
+13009	13000	#E0EBE0				
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
+20000	\N					

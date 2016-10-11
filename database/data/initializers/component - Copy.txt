@@ -1,7 +1,4 @@
 ﻿id	parent_id	type_id	title	description	template_type_id	creator_id	explorer_picture_url	background_color_id	created_date	updated_date	level_id	privacy	order	status	list_type	rand
-6407	6406	11007	Spot a conversation across a room or on the television with volume turned down or in a crowded area		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6408	6406	11007	"Note how facial expressions, gestures, body movements, posture, and eye contact or lack of it reveal."		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6409	6406	11007	Guess what the speakers may be saying or talking about		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7447	\N	11006	What would you want to say to yourself 2 years in the future?		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7448	\N	11006	What makes some not enjoy helping people?		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7449	\N	11006	What interests do you have outside work that positively affect your job performance?		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
@@ -387,9 +384,9 @@
 7829	\N	11006	Identify your weaknesses		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7830	\N	11006	Any obstacles		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7835	7	11006	Day 1		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6410	6406	11006	Which nonverbal cues suggest the nature of a conversation?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6411	6406	11006	What language are the participants speaking?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6412	6406	11006	How do you tell what language the participants are speaking?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6410	\N	11005	Which nonverbal cues suggest the nature of a conversation?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6411	\N	11005	What language are the participants speaking?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6412	\N	11005	How do you tell what language the participants are speaking?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6413	\N	11005	What was the person's voice pitch?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6414	\N	11005	What was the person's voice tone?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6415	\N	11005	What was the person's volume?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
@@ -401,8 +398,11 @@
 6421	\N	11005	Were you daydreaming?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6422	\N	11005	Were you distracted by an unfamiliar word or a physical interference?		7002	2	default.png		14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 7832	7	11004	Activities		7002	1	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
-6406	7832	11004	Exercise 1	Analysing & Spotting Conversations	7002	3	default.png	13002	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6405	\N	11003	Body Language Observation		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6406	7832	11003	Exercise 1	Analysing & Spotting Conversations	7002	3	default.png	13002	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6407	6406	11003	Spot a conversation across a room or on the television with volume turned down or in a crowded area		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6408	6406	11003	"Note how facial expressions, gestures, body movements, posture, and eye contact or lack of it reveal."		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
+6409	6406	11003	Guess what the speakers may be saying or talking about		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6423	\N	11003	Listening Observation		7002	5	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6424	\N	11003	Listen closely to someone you cannot see. i.e. on the radio or a telephone caller		7002	5	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
 6425	\N	11003	Analyze the person's manner of speaking		7002	5	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0		
