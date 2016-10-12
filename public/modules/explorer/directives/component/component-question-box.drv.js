@@ -12,7 +12,7 @@ angular.module('app.explorer').directive('gbComponentQuestionBox',
            restrict: 'EA',
            // template: '<ng-include src="componentTemplateUrl"/>',
            //replace: true,
-           templateUrl: "public/modules/explorer/views/templates/component/component-step-box.tpl.html",
+           templateUrl: "public/modules/explorer/views/templates/component/component-question-box.tpl.html",
            scope: {
             //templateUrl: '@',
             stepNumber: '=',

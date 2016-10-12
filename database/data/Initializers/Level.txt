@@ -105,13 +105,14 @@ id	parent_level_id	title	code	description	long_description	icon
 10002	10000	public				
 10003	10000	customize				
 11000	\N	Component Type	component_type			
-11001	11000	None				
-11002	11000	Note				
-11003	11000	Guideline				
-11004	11000	Activity				
-11005	11000	Weblink				
-11006	11000	Question				
-11007	11000	Step				
+11001	11000	Note				
+11002	11000	Step				
+11003	11000	Checklist				
+11004	11000	Todo				
+11005	11000	Activity				
+11006	11000	Guideline				
+11007	11000	Weblink				
+11100	11000	Question				
 12000	\N	Bucket Type	bucket_type			
 12001	12000	Normal		Normal Bucket		
 13000	\N	Component Background Colors	component_background_colors			
@@ -124,5 +125,5 @@ id	parent_level_id	title	code	description	long_description	icon
 13007	13000	#E8E8C0				
 13008	13000	#EBD6C7				
 13009	13000	#E0EBE0				
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
 20000	\N					
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
