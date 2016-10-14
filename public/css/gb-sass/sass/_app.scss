@@ -4064,6 +4064,205 @@ input.gb-form-show{
 
 }
 
+.gb-card-component {
+ padding: 0 0 0 0;
+ overflow: hidden;
+ position: relative;
+ //@include position(absolute, 0 0 0 25px);
+ min-height: 100px;
+ width: 100%;
+ background-color: #FFF;
+ border-radius: 2px;
+ transition:all 250ms;
+ white-space: normal;
+ @include shadow(1);
+ &:hover,&:focus {
+  @include shadow(2);
+  transform:translateY(-5px);
+ }
+ &:active {
+  @include shadow(1);
+  transform:translateY(-2px);
+ }
+ .gb-image {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  .gb-heading-pic {
+   height: 100%;
+   min-width: 100%;
+  }
+ }
+ .gb-box-content {
+  //height: auto;
+  padding: 14px 14px 14px 14px;
+  // border-left: transparent solid 5px;
+  z-index: 2;
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   h3 {
+    font-size: 18px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 5px;
+   }
+  }
+
+  .gb-subdescription {
+   margin-bottom: 3px;
+   font-size: 12px;
+   height: auto;
+   color: #888;
+  }
+
+  .gb-description {
+   height: auto;
+   font-size: 14px;
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+ }
+
+ .gb-listbox-content {
+  //@include position(absolute, 326px 0 0 0);
+  min-height: 100px;
+  max-height: 800px;
+  padding: 16px 0;
+  overflow: hidden;
+  // -webkit-overflow-scrolling: touch;
+
+  .gb-one-liner {
+   position: relative;
+   border-bottom: #CCC solid 1px;
+   a {
+    padding: 10px 35px 10px 0px;
+    text-decoration: none;
+    color: #222;
+    height: 100%;
+    width: 100%;
+   }
+   &:hover {
+    background-color: #F2F2F2;
+   }
+
+   .gb-action-btn {
+    @include position(absolute, 0 0 0 null);
+    line-height: 30px;
+   }
+  }
+
+  .gb-two-liner {
+   position: relative;
+   height: 50pc;
+   border-bottom: #CCC solid 1px;
+   a {
+    padding: 10px 35px 10px 14px;
+    text-decoration: none;
+    color: #222;
+    height: 100%;
+    width: 100%;
+   }
+   &:hover {
+    background-color: #F2F2F2;
+   }
+
+   .gb-action-btn {
+    @include position(absolute, 0 0 0 null);
+    line-height: 30px;
+   }
+  }
+ }
+
+ .gb-box-footer {
+  //@include position(absolute, null 150px 0 0);
+  //border-top: #CCC solid 1px;
+  //border-bottom: #CCC solid 1px;
+  height: 40px;
+  .md-button {
+   font-weight: bold;
+   margin: 0;
+   line-height: 36px;
+   padding: 0px 14px 0 19px;
+  }
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   height: 100%;
+   padding-left: 25px;
+   font-size: 11px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    // @include position(absolute, 4px null 4px null);
+    right: auto;
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
+  }
+ }
+ .gb-box-subcontent {
+  //@include position(absolute, 326px 0 0 0);
+  height: 80px;
+  padding: 16px 14px;
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 14px;
+   height: 33px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   .gb-no-info {
+    padding: 2px 5px;
+    color: #BBB;
+    font-size: 18px;
+   }
+  }
+ }
+
+ .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+  .gb-stat:not(:first-child) {
+   border-left: #DDD solid 1px;
+  }
+  .gb-stat {
+   text-align: center;
+   color: #999;
+   .gb-icon {
+    font-size: 30px;
+    color: #AAA;
+    margin-bottom: 10px;
+   }
+   .gb-number {
+    font-size: 10px;
+   }
+  }
+ }
+ .gb-footer-content {
+  padding: 10px 0 0 0;
+ }
+
+}
+
 .gb-card-note {
  padding: 0 0 0 0;
  overflow: hidden;
@@ -4260,18 +4459,6 @@ input.gb-form-show{
   .gb-heading-pic {
    height: 100%;
    width: 100%;
-   border-radius: 50%;
-  }
-  &:after {
-   @include position(absolute, 0 0 0 0);
-   content: "";
-   background-color:rgba($primary-color, 0.4);
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   position: absolute;
-   z-index: 1;
    border-radius: 50%;
   }
  }
