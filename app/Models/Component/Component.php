@@ -3,6 +3,7 @@
 namespace App\Models\Component;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Component\ComponentContribution;
 use App\Models\Level\Level;
 use Request;
 use DB;
@@ -40,10 +41,15 @@ class Component extends Model {
   $components = array();
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
+    $componentTypes = Level::getLevel(Level::$level_categories['apps']);
+    foreach ($componentTypes as $componentType) {
+     $components["apps"][$componentType->id] = $componentType;
+     $components["apps"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
+    }
     $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
     foreach ($componentTypes as $componentType) {
-     $components[$componentType->id] = $componentType;
-     $components[$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
+     $components["activities"][$componentType->id] = $componentType;
+     $components["activities"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
     }
     break;
    default:
@@ -83,7 +89,7 @@ class Component extends Model {
  }
 
  public static function getComponentsByType($typeId) {
-  $components = Component::orderBy('id', 'asc')
+  $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')
           ->with('backgroundColor')
@@ -111,6 +117,8 @@ class Component extends Model {
             $q->where('parent_level_id', 1);
            } else if ($appType == 2) {
             $q->where('parent_level_id', '!=', 1);
+           } else if ($appType == 3) {
+            $q->where('parent_level_id', Level::$level_categories['component_motive']);
            }
           })
           ->with('type')
@@ -131,6 +139,7 @@ class Component extends Model {
           ->with('creator')
           ->with('backgroundColor')
           ->find($componentId);
+  $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
   $components = array();
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
@@ -144,6 +153,13 @@ class Component extends Model {
    case Level::$componentJsonFormat["columns"]:
     $component["apps"] = Component::getSubComponents($component->id, 1);
     $component["components"] = Component::getSubComponents($component->id, 2, 2);
+
+    $componentTypes = Level::getLevel(Level::$level_categories['component_motive']);
+    foreach ($componentTypes as $componentType) {
+     $components[$componentType->id] = $componentType;
+     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
+    }
+    $component["motive"] = $components;
     break;
    default:
     foreach ($components as $component) {
@@ -172,6 +188,19 @@ class Component extends Model {
    }
   }
   return $result;
+ }
+
+ public static function getComponentsByType3($componentId, $typeId) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('parent_component_id', $componentId)
+          ->whereHas('type', function($q) {
+           $q->where('parent_level_id', Level::$level_categories['component_motive']);
+          })
+          ->with('type')
+          ->with('creator')
+          ->with('backgroundColor')
+          ->take(20)
+          ->get();
  }
 
  public static function editComponentBackground($componentId) {

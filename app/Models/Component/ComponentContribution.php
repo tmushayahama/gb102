@@ -1,20 +1,24 @@
 <?php
 
-namespace App\Models\Contribution;
+namespace App\Models\Component;
 
 use Illuminate\Database\Eloquent\Model;
 use Request;
 use DB;
 use JWTAuth;
 
-class Contribution extends Model {
+class ComponentContribution extends Model {
 
  /**
   * The database table used by the model.
   *
   * @var string
   */
- protected $table = 'gb_contribution';
+ protected $table = 'gb_component_contribution';
+
+ public function component() {
+  return $this->belongsTo('App\Models\Component\Component', 'component_id');
+ }
 
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
@@ -39,8 +43,19 @@ class Contribution extends Model {
   */
  protected $fillable = ['description'];
 
+ public static function getComponentContribution($componentId) {
+  $componentContributions = ComponentContribution::with('creator')
+          ->with('contributor')
+          ->with('level')
+          ->with('status')
+          ->orderBy('id', 'DESC')
+          ->where('component_id', $componentId)
+          ->get();
+  return $componentContributions;
+ }
+
  public static function getContributionStats($userId) {
-  $contributionsCount = Contribution::where('contributor_id', $userId)
+  $contributionsCount = ComponentContribution::where('contributor_id', $userId)
           ->count();
   return array('totalCount' => $contributionsCount);
  }

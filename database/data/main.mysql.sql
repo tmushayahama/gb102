@@ -94,8 +94,6 @@ CREATE TABLE `gb_component` (
   `privacy_id` int(11) NOT NULL,
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
-  `list_type`  int(11),
-
   PRIMARY KEY (`id`),
   KEY `component_parent_component_id` (`parent_component_id`),
   KEY `component_creator_id` (`creator_id`),
@@ -116,11 +114,12 @@ CREATE TABLE `gb_component` (
 --
 -- Table structure for table `gb_contribution`
 --
-DROP TABLE IF EXISTS `gb_contribution`;
+DROP TABLE IF EXISTS `gb_component_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_contribution` (
+CREATE TABLE `gb_component_contribution` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `component_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `contributor_id` int(11) NOT NULL,
@@ -129,10 +128,12 @@ CREATE TABLE `gb_contribution` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status_id` int(11) NOT NULL DEFAULT '70000',
   PRIMARY KEY (`id`),
+  KEY `contribution_component_id` (`component_id`),
   KEY `contribution_creator_id` (`creator_id`),
   KEY `contribution_level_id` (`level_id`),
   KEY `contribution_status_id` (`status_id`),
   KEY `contribution_contributor_id` (`contributor_id`),
+  CONSTRAINT `contribution_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -384,7 +385,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`,	`list_type`);
+   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
 
 
 -- ------------------ USER ------------------
@@ -430,14 +431,14 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user-pr
 
 
 -- ----------- CONTRIBUTION ---------------
-load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/contribution.txt'
-    into table gb102.gb_contribution
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/component-contribution.txt'
+    into table gb102.gb_component_contribution
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`,	`level_id`,	`creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`);
+    (`id`,	`level_id`, `component_id`, `creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`);
 
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.txt'

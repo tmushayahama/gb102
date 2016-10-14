@@ -1,13 +1,13 @@
 <div class="gb-card-1">
  <div class="gb-image gb-app-type-{{::component.app_type.id}}">
   <img data-ui-sref="apps.component.overview({explorerId: component.id})"
-       ng-src="public/img/explorer/{{ ::component.explorer_picture_url}}"
+       ng-src="public/img/explorer/{{ ::component.component_picture_url}}"
        class="gb-heading-pic" alt="">
  </div>
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    <a data-ui-sref="apps.explorerItem.explore({explorerId: component.id})">
+    <a data-ui-sref="apps.component.explore({componentId: component.id})">
      {{::component.title}}
     </a>
    </h3>

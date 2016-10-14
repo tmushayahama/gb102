@@ -100,7 +100,7 @@ define(['angular'
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
                   'public/modules/explorer/directives/objective/explorer-objective-box.drv.js',
                   'public/modules/explorer/directives/plan/explorer-plan-box.drv.js',
-                  'public/modules/explorer/directives/section/explorer-section-box.drv.js',
+                  'public/modules/explorer/directives/component/component-motive-box.drv.js',
                   'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/services/contribution/explorer-contributions.srv.js',
                   'public/modules/explorer/services/section/explorer-sections.srv.js',

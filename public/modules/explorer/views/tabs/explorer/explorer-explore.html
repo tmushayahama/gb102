@@ -49,15 +49,15 @@
      <div ng-hide="explorerCtrl.editDescriptionMode.visible" class="gb-box-content">
       <div class="gb-subdescription row">
        <p class="gb-ellipsis">
-        <span ng-if="explorerCtrl.explorerSrv.explorer.template_type_id === 100001">
+        <span ng-if="explorerCtrl.component.template_type_id === 100001">
          Template For - </span>
-        {{explorerCtrl.explorerSrv.explorer.app_type.title}} - {{::explorerCtrl.explorerSrv.explorer.level.title}}
+        {{explorerCtrl.component.app_type.title}} - {{::explorerCtrl.component.level.title}}
        </p>
       </div>
       <div class="gb-description row">
        <div class="row">
-        <strong>{{explorerCtrl.explorerSrv.explorer.title}}</strong>
-        {{explorerCtrl.explorerSrv.explorer.description}}
+        <strong>{{explorerCtrl.component.title}}</strong>
+        {{explorerCtrl.component.description}}
        </div>
       </div>
      </div>
@@ -127,19 +127,19 @@
        <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <i class="gb-icon fa fa-list-ol"></i>
         <p class="gb-number gb-ellipsis">
-         {{::explorerCtrl.explorerSrv.explorer.stats.subexplorers_count}}
+         {{::explorerCtrl.component.stats.subexplorers_count}}
         </p>
        </div>
        <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
         <i class="gb-icon fa icon-gb-apply"></i>
         <p class="gb-number gb-ellipsis">
-         {{::explorerCtrl.explorerSrv.explorer.stats.applications_count}}
+         {{::explorerCtrl.component.stats.applications_count}}
         </p>
        </div>
        <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <i class="gb-icon fa icon-users"></i>
         <p class="gb-number gb-ellipsis">
-         {{::explorerCtrl.explorerSrv.explorer.stats.contributions_count}}
+         {{::explorerCtrl.component.stats.contributions_count}}
         </p>
        </div>
       </div>
@@ -153,9 +153,7 @@
      </div>
     </div>
    </li>
-
-
-   <li class="drag-item" ng-if="explorerCtrl.explorerSrv.explorer.parent_explorers.length > 0">
+   <li class="drag-item" ng-if="explorerCtrl.component.parent_explorers.length > 0">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
       <h3 class="gb-title gb-ellipsis">
@@ -165,45 +163,12 @@
      </div>
      <div class="gb-box-content">
       <div class="row">
-       <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.explorer.parent_explorers track by $index"
+       <div ng-repeat="applicationExplorer in explorerCtrl.component.parent_explorers track by $index"
             gb-explorer-box explorer="applicationExplorer"
             template-url="public/modules/explorer/views/templates/sub-explorer/parent-explorer-box.tpl.html"
             class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
        </div>
       </div>
-     </div>
-    </div>
-   </li>
-   <li class="drag-item">
-    <div ng-include="'public/modules/explorer/views/components/sub-explorer/sub-explorers.html'"></div>
-   </li>
-   <li class="drag-item">
-    <div class="gb-card-3 gb-shadow-3">
-     <div class="gb-big-title">
-      <h3 class="gb-title gb-ellipsis">
-       <i class="fa icon-gb-explorer"></i>
-       Applications
-      </h3>
-     </div>
-     <div class="gb-no-info row" ng-show="!explorerCtrl.explorerSrv.applicationExplorers.length">
-      No one is using this template yet
-     </div>
-     <div ng-show="explorerCtrl.explorerSrv.applicationExplorers.length" class="gb-box-content">
-      <div class="row" ng-show="explorerCtrl.explorerSrv.applicationExplorers.length">
-       <div ng-repeat="applicationExplorer in explorerCtrl.explorerSrv.applicationExplorers| limitTo:explorerCtrl.subExplorerLimitTo track by $index"
-            gb-explorer-box explorer="applicationExplorer"
-            template-url="{{appsCtrl.getSubTemplateUrl(applicationExplorer)}}"
-            class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
-       </div>
-      </div>
-     </div>
-     <div class="gb-box-footer row">
-      <md-button class="gb-color-primary">
-       ADD
-      </md-button>
-      <md-button class="pull-right gb-color-primary">
-       <i class="fa fa-arrows-alt"></i>
-      </md-button>
      </div>
     </div>
    </li>
@@ -247,9 +212,9 @@
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Section">
     </md-input-container>
    </form>
-   <li ng-repeat="explorerSection in explorerCtrl.explorerSections track by $index"
-       class="drag-item">
-    <div gb-explorer-section-box explorer-section="explorerSection"
+   <li  ng-repeat="(key, component) in explorerCtrl.component.motive track by $index"
+        class="drag-item">
+    <div gb-component-motive-box component="component"
          open-explorer-section="explorerCtrl.openExplorerSection(explorerSection)"
          open-explorer-section-item="explorerCtrl.openExplorerSectionItem"
          add-to-explorer-section="explorerCtrl.addToExplorerSection"
@@ -263,7 +228,7 @@
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
      <i class="fa fa-list"></i>
-     SUB TOPICS
+     RELATED TOPICS
     </h2>
    </div>
    <div class="gb-actions btn-group pull-right">
@@ -337,7 +302,7 @@
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
      <i class="fa fa-list"></i>
-     Contribution
+     CONTRIBUTION
     </h2>
    </div>
    <div class="gb-actions btn-group pull-right">
@@ -369,19 +334,19 @@
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Request Contributors">
     </md-input-container>
    </form>
-   <li class="drag-item" ng-repeat="explorerContribution in explorerCtrl.explorerContributions">
+   <li class="drag-item" ng-repeat="contribution in explorerCtrl.component.contributions">
     <div class="gb-card-profile">
      <div class="gb-box-content">
       <div class="gb-title row">
        <h3 class="gb-ellipsis">
         <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-         {{explorerContribution.contribution.contributor.firstname + ' ' + explorerContribution.contribution.contributor.lastname}}
+         {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
         </a>
        </h3>
       </div>
       <div class="gb-subdescription row">
        <p class="gb-ellipsis">
-        {{explorerContribution.contribution.level.title}} - {{explorerContribution.contribution.status.name}}
+        {{contribution.level.title}} - {{contribution.status.title}}
        </p>
       </div>
       <div class="gb-description row">
@@ -389,7 +354,7 @@
      </div>
      <div class="gb-image">
       <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           src="public/img/profile_pic/{{explorerContribution.contribution.contributor.avatar_url}}"
+           src="public/img/profile_pic/{{contribution.contributor.avatar_url}}"
            class="gb-heading-pic" alt="">
      </div>
     </div>
