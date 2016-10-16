@@ -138,3 +138,8 @@ id	parent_level_id	title	code	description	long_description	icon
 14008	14000	Acknowledge your strengths				
 14009	14000	Identify your weaknesses				
 14010	14000	Any obstacles				
+15000	\N	check Status				
+15001	15000	not started				
+15002	15000	in progress				
+15003	15000	later				
+15004	15000	done				

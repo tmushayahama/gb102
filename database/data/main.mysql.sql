@@ -111,6 +111,30 @@ CREATE TABLE `gb_component` (
   CONSTRAINT `component_background_color_id` FOREIGN KEY (`background_color_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_contribution`
+--
+DROP TABLE IF EXISTS `gb_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `component_id` int(11) NOT NULL,
+  `check_status_id` int(11) NOT NULL DEFAULT '15001',
+  `notes` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status_id` int(11) NOT NULL DEFAULT '70000',
+  PRIMARY KEY (`id`),
+  KEY `checklist_component_id` (`component_id`),
+  KEY `checklist_check_status_id` (`check_status_id`),
+  KEY `checklist_status_id` (`status_id`),
+  CONSTRAINT `checklist_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_check_status_id` FOREIGN KEY (`check_status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_contribution`
 --
@@ -386,6 +410,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
+
+
+-- ----------- COMPONENT ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/checklist.txt'
+    into table gb102.gb_checklist
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `component_id`, `check_status_id`,	`notes`,	`created_at`,	`updated_at`,	`status_id`);
 
 
 -- ------------------ USER ------------------

@@ -71,13 +71,13 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ComponentsSrv.prototype.editExplorerComponent = function (explorerComponentData) {
+ ComponentsSrv.prototype.editComponentDescription = function (componentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/component/edit',
-   data: explorerComponentData
+   url: '/api/component/' + componentData.componentId + '/edit/description',
+   data: componentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {

@@ -7,14 +7,11 @@
  <div class="gb-title">
   <p class="gb-ellipsis">
    <i class="fa icon-gb-component"></i>
-   <a href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
-    {{explorerComponentCtrl.component.title}}
-   </a>
+   {{explorerComponentCtrl.component.title}}
   </p>
  </div>
- <md-button class="gb-settings"
-            href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
-  <i class="fa fa-cog"></i>
+ <md-button class="gb-search">
+  <i class="fa fa-search"></i>
  </md-button>
  <md-button class="gb-close" ng-click="explorerComponentCtrl.close()">
   x
@@ -22,72 +19,85 @@
 </div>
 <div class="modal-body gb-modal-body"
      ng-style="{'background-color':explorerComponentCtrl.component.background_color.title}">
- <div class="tab-content">
+ <div class="gb-nav-3 row">
+  <ul class="nav nav-tabs row" role="tablist">
+   <li role="presentation" class="active">
+   <md-button href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
+    Home
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+   <md-button href="#gb-component-overview" aria-controls="favorites" role="tab" data-toggle="tab">
+    Favorites
+   </md-button>
+   </li>
+   <li role="presentation" class="pull-right">
+   <md-button class=""
+              href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
+    <i class="fa fa-cog"></i>
+   </md-button>
+   </li>
+  </ul>
+ </div>
+ <div class="tab-content gb-tab-content-3">
   <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
-   <div class="gb-heading-row-3">
-    <div class="gb-title">
-     <h2 class="gb-ellipsis">
-      <i class="fa fa-list"></i>
-      Description
-     </h2>
-    </div>
-    <div class="gb-actions btn-group pull-right">
-     <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-      <div class="gb-icon">
-       <i class="fa fa-chevron-down"></i>
-      </div>
-     </md-button>
-     <ul class="dropdown-menu dropdown-menu-right">
-      <li class="row">
-      <md-button ng-show="!explorerComponentCtrl.editDecriptionMode"
-                 ng-click="explorerComponentCtrl.editDecriptionMode = true"
-                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <section class="row">
+    <div class="gb-heading-row-3">
+     <div class="gb-title">
+      <h2 class="gb-ellipsis">
+       <i class="fa fa-list"></i>
+       DESCRIPTION
+      </h2>
+     </div>
+     <div class="gb-actions">
+      <md-button class=""
+                 ng-show="!explorerComponentCtrl.editDecriptionMode"
+                 ng-click="explorerComponentCtrl.editDecriptionMode = true">
        <div class="gb-icon">
-        <i class="fa fa-folder-open-o"></i>
-       </div>
-       <div class="gb-title">
-        <p class="gb-ellipsis">
-         EDIT
-        </p>
+        <i class="fa fa-pencil"></i>
        </div>
       </md-button>
-      </li>
-     </ul>
-    </div>
-   </div>
-   <div class="gb-body-row-1 row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-     <div ng-hide="explorerComponentCtrl.editDecriptionMode" class="row">
-      <strong>{{explorerComponentCtrl.component.title}}</strong>
-      {{explorerComponentCtrl.component.description}}
      </div>
-     <form ng-show="explorerComponentCtrl.editDecriptionMode"
-           ng-submit="explorerComponentCtrl.editExplorerComponentSections.details()">
-      <md-input-container class="md-block">
-       <input ng-model="explorerComponentCtrl.component.title" name="title" required
-              placeholder="Title"
-              class="">
-      </md-input-container>
-      <md-input-container class="md-block">
-       <input ng-model="explorerComponentCtrl.component.description" name="title"
-              placeholder="Description"
-              class="">
-      </md-input-container>
-      <div class="row"
-           ng-show="explorerComponentCtrl.editDecriptionMode">
-       <div class="btn-group pull-right">
-        <md-button type="button" class="" ng-click="explorerComponentCtrl.editDecriptionMode = false">
-         Cancel
-        </md-button>
-        <md-button type="submit" class="gb-color-primary">
-         Done
-        </md-button>
-       </div>
-      </div>
-     </form>
     </div>
-   </div>
+    <div class="gb-body-row-1 row">
+     <div class="gb-card-description-sm">
+      <div class="gb-box-content"
+           ng-hide="explorerComponentCtrl.editDecriptionMode">
+       <h4 class="gb-title">
+        {{explorerComponentCtrl.component.title}}
+       </h4>
+       <p class="gb-description">
+        {{explorerComponentCtrl.component.description}}
+       </p>
+      </div>
+      <form ng-show="explorerComponentCtrl.editDecriptionMode"
+            ng-submit="explorerComponentCtrl.editComponentSections.details()">
+       <md-input-container class="md-block">
+        <input ng-model="explorerComponentCtrl.component.title" name="title" required
+               placeholder="Title"
+               class="">
+       </md-input-container>
+       <md-input-container class="md-block">
+        <input ng-model="explorerComponentCtrl.component.description" name="title"
+               placeholder="Description"
+               class="">
+       </md-input-container>
+       <div class="row"
+            ng-show="explorerComponentCtrl.editDecriptionMode">
+        <div class="btn-group pull-right">
+         <md-button type="button" class="" ng-click="explorerComponentCtrl.editDecriptionMode = false">
+          Cancel
+         </md-button>
+         <md-button type="submit" class="gb-color-primary">
+          Done
+         </md-button>
+        </div>
+       </div>
+      </form>
+     </div>
+
+    </div>
+   </section>
    <section class="row"
             ng-repeat="(type, component) in explorerComponentCtrl.component.components track by $index">
     <ng-include ng-if="component.components.length > 1" src="'public/modules/explorer/views/components/component/component-'+type+'.html'">

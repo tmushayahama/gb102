@@ -1,5 +1,5 @@
-<div class="gb-card-step-sm gb-app-type-{{::explorer.first_explorer.app_type.id}}">
- <div class="gb-step">
+<div class="gb-card-step-sm row gb-app-type-{{::explorer.first_explorer.app_type.id}}">
+ <div class="gb-menu">
   <div class="gb-action-dropdown btn-group">
    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -28,10 +28,12 @@
  </div>
  <div class="gb-box-content">
   <h4 class="gb-title">
-   {{component.title}}
-   <small>
-    {{component.description}}
-   </small>
+   <div class="gb-ellipsis">
+    {{component.title}}
+    <small>
+     {{component.description}}
+    </small>
+   </div>
   </h4>
  </div>
  <md-button class="gb-goto-btn"

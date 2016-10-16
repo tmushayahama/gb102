@@ -85,7 +85,7 @@ var explorerCtrl = function (
    vm.editDescriptionMode.visible = false;
   },
   edit: function () {
-   vm.componentSrv.editExplorer(vm.editDescriptionMode.data).then(function (response) {
+   vm.componentSrv.editComponentDescription(vm.editDescriptionMode.data).then(function (response) {
     vm.editDescriptionMode.hide();
     vm.componentSrv.explorer = response;
    }, function (response) {

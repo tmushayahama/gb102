@@ -25,6 +25,11 @@ class ComponentController extends Controller {
   return \Response::json($component);
  }
 
+ public function editComponentDescription($componentId) {
+  $description = Component::editComponentDescription($componentId);
+  return \Response::json($description);
+ }
+
  public function editComponentStatus() {
   $component = Component::editComponentStatus();
   return \Response::json($component);

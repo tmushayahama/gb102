@@ -60,8 +60,10 @@ var explorerComponentCtrl = function (
   });
  };
 
- vm.editExplorerComponent = function (data) {
-  vm.componentsSrv.editExplorerComponent(data).then(function (response) {
+ vm.editComponentDescription = function (data) {
+  vm.componentsSrv.editComponentDescription(data).then(function (response) {
+   vm.component.title = response.title;
+   vm.component.description = response.description;
    vm.editDecriptionMode = false;
   }, function (response) {
    console.log(response);
@@ -70,25 +72,25 @@ var explorerComponentCtrl = function (
 
  vm.editComponentBackground = function (data) {
   vm.componentsSrv.editComponentBackground(data).then(function (response) {
-   vm.explorerComponent.background_color = response;
-   vm.explorerComponent.background_color_id = response.id;
+   vm.component.background_color = response;
+   vm.component.background_color_id = response.id;
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerComponentSections = {
+ vm.editComponentSections = {
   details: function () {
-   var explorerComponentData = {
-    explorerComponentId: vm.explorerComponent.id,
-    title: vm.explorerComponent.title,
-    description: vm.explorerComponent.description
+   var componentData = {
+    componentId: vm.component.id,
+    title: vm.component.title,
+    description: vm.component.description
    };
-   vm.editExplorerComponent(explorerComponentData);
+   vm.editComponentDescription(componentData);
   },
   backgroundColor: function (backgroundColorId) {
    var componentData = {
-    componentId: vm.explorerComponent.id,
+    componentId: vm.component.id,
     backgroundColorId: backgroundColorId
    };
    vm.editComponentBackground(componentData);
@@ -101,9 +103,9 @@ var explorerComponentCtrl = function (
 
   vm.componentsSrv.getComponents(component.parent_component_id, resultFormat).then(function (componentResponse) {
    vm.componentsSrv.getComponent(component.parent_component_id, resultFormat).then(function (parentComponentResponse) {
-    vm.explorerComponent = parentComponentResponse;
-    vm.explorerComponent.components = componentResponse;
-    vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+    vm.component = parentComponentResponse;
+    vm.component.components = componentResponse;
+    vm.component.newExplorerComponentData = vm.getDefaultExplorerComponentData();
    }, function (error) {
     console.log(error);
    });

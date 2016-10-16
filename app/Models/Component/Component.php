@@ -116,7 +116,7 @@ class Component extends Model {
            if ($appType == 1) {
             $q->where('parent_level_id', 1);
            } else if ($appType == 2) {
-            $q->where('parent_level_id', '!=', 1);
+            $q->where('parent_level_id', Level::$level_categories['component_type']);
            } else if ($appType == 3) {
             $q->where('parent_level_id', Level::$level_categories['component_motive']);
            }
@@ -140,9 +140,10 @@ class Component extends Model {
           ->with('backgroundColor')
           ->find($componentId);
   $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
-  $components = array();
+
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
+    $components = array();
     $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
     foreach ($componentTypes as $componentType) {
      $components[$componentType->id] = $componentType;
@@ -151,6 +152,7 @@ class Component extends Model {
     $component["components"] = $components;
     break;
    case Level::$componentJsonFormat["columns"]:
+    $components = array();
     $component["apps"] = Component::getSubComponents($component->id, 1);
     $component["components"] = Component::getSubComponents($component->id, 2, 2);
 
@@ -201,6 +203,31 @@ class Component extends Model {
           ->with('backgroundColor')
           ->take(20)
           ->get();
+ }
+
+ public static function editComponentDescription($componentId) {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $title = Request::get("title");
+  $description = Request::get("description");
+  $component = Component::find($componentId);
+  $component->title = $title;
+  $component->description = $description;
+
+  DB::beginTransaction();
+  try {
+   $component->push();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+
+  $result = array();
+  $result["title"] = $component->title;
+  $result["description"] = $component->description;
+  return $result;
  }
 
  public static function editComponentBackground($componentId) {

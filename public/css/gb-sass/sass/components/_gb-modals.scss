@@ -99,11 +99,12 @@
   @include position(absolute, 0 0 null 0);
   @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
 
-  border-bottom: rgba($primary-color, 0.6) solid 3px;
+  border-bottom: #CCC solid 1px;
   font-weight: normal;
-  height: 50px;
+  height: 40px;
   .gb-back {
    @include position(absolute, 0 null 0 0);
+   line-height: 36px;
    width: 40px;
    margin: 0;
    padding: 2px;
@@ -112,11 +113,12 @@
   }
   .gb-title {
    @include position(absolute, 0 80px 0 40px);
-   padding: 12px 8px;
-   font-size: 18px;
+   padding: 8px 8px 8px 0;
+   font-size: 16px;
   }
-  .gb-settings {
+  .gb-search {
    @include position(absolute, 0 40px 0 null);
+   line-height: 36px;
    width: 40px;
    margin: 0;
    padding: 2px;
@@ -125,6 +127,7 @@
   }
   .gb-close {
    @include position(absolute, 0 0 0 null);
+   line-height: 36px;
    width: 40px;
    margin: 0;
    padding: 2px;
@@ -132,8 +135,44 @@
    color: #777;
   }
  }
+
  .modal-body {
   @include position(absolute, 41px 0 46px 0);
+  padding-top: 30px;
+
+  .gb-nav-3 {
+   @include position(absolute, 0 0 null 0);
+   font-weight: normal;
+   height: 30px;
+
+   .nav-tabs {
+    height: 30px;
+    border: none;
+    li {
+     height: 100%;
+     border-bottom: transparent solid 3px;
+     &:hover {
+      border-bottom: rgba($primary-color, 0.4) solid 3px;
+     }
+     &.active {
+      border-bottom: rgba($primary-color, 0.6) solid 3px;
+      .md-button {
+       background-color: transparent;
+      }
+     }
+     .md-button {
+      background-color: transparent;
+      padding: 6px 12px;
+      margin: 0;
+      height: 100%;
+      line-height: 20px;
+      font-size: 10px;
+      border-radius: 0;
+      border: none;
+     }
+    }
+   }
+  }
  }
  .modal-footer {
   @include position(absolute, null 0 0 0);

@@ -14,9 +14,9 @@
   </md-button>
  </div>
 </div>
-<div class="gb-body-row-1 row" ng-repeat="component in component.components track by $index"
-     gb-component-step-box
-     component="component"
-     step-number="$index"
-     get-component="explorerComponentCtrl.getComponent(component.id, 2)">
+<div class="gb-body-row-1 row" ng-repeat="component in component.components track by $index">
+ <div gb-component-checklist-box
+      component="component"
+      get-component="explorerComponentCtrl.getComponent(component.id, 2)">
+ </div>
 </div>

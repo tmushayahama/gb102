@@ -95,6 +95,7 @@ define(['angular'
                   'public/modules/explorer/directives/activity/component-activity-box.drv.js',
                   'public/modules/explorer/directives/component/component-box.drv.js',
                   'public/modules/explorer/directives/component/component-question-box.drv.js',
+                  'public/modules/explorer/directives/component/component-checklist-box.drv.js',
                   'public/modules/explorer/directives/component/component-step-box.drv.js',
                   'public/modules/explorer/directives/guideline/explorer-guideline-box.drv.js',
                   'public/modules/explorer/directives/note/explorer-note-box.drv.js',
