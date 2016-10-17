@@ -136,6 +136,7 @@ class Component extends Model {
 
  public static function getComponent($componentId, $listFormat) {
   $component = Component::orderBy('id', 'asc')
+          ->with('type')
           ->with('creator')
           ->with('backgroundColor')
           ->find($componentId);

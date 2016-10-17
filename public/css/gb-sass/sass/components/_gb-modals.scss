@@ -112,23 +112,32 @@
    color: #777;
   }
   .gb-title {
-   @include position(absolute, 0 80px 0 40px);
+   @include position(absolute, 0 90px 0 40px);
    padding: 8px 8px 8px 0;
    font-size: 16px;
   }
-  .gb-search {
-   @include position(absolute, 0 40px 0 null);
+  .gb-new-window {
+   @include position(absolute, 0 60px 0 null);
    line-height: 36px;
-   width: 40px;
+   width: 30px;
    margin: 0;
    padding: 2px;
-   font-size: 22px;
+   font-size: 18px;
+   color: #777;
+  }
+  .gb-search {
+   @include position(absolute, 0 30px 0 null);
+   line-height: 36px;
+   width: 30px;
+   margin: 0;
+   padding: 2px;
+   font-size: 18px;
    color: #777;
   }
   .gb-close {
    @include position(absolute, 0 0 0 null);
    line-height: 36px;
-   width: 40px;
+   width: 30px;
    margin: 0;
    padding: 2px;
    font-size: 22px;

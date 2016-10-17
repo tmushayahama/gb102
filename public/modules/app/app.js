@@ -201,9 +201,10 @@ define([
  appConfig.$inject = ['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'localStorageServiceProvider', 'hammerDefaultOptsProvider', '$provide'];
  app.config(appConfig);
 
- var appRun = function ($stateParams, $animate, $rootScope, $state, editableOptions, localStorageService) {
+ var appRun = function ($stateParams, $animate, $rootScope, $state, editableOptions, localStorageService, $uibModalStack) {
   $animate.enabled(false);
   $rootScope.$on('$stateChangeStart', function (event, toState) {
+   $uibModalStack.dismissAll();
    var user = JSON.parse(localStorageService.get('user'));
    if (user) {
     $rootScope.authenticated = true;
@@ -228,7 +229,7 @@ define([
   $animate.enabled(true);
 
  }
- appRun.$inject = ['$stateParams', '$animate', '$rootScope', '$state', 'editableOptions', 'localStorageService'];
+ appRun.$inject = ['$stateParams', '$animate', '$rootScope', '$state', 'editableOptions', 'localStorageService', '$uibModalStack'];
  app.run(appRun);
  app.constant('_', window._);
 

@@ -536,22 +536,34 @@ btn:focus {
 .modal-explorer-view .modal-header .gb-title {
   position: absolute;
   top: 0;
-  right: 80px;
+  right: 90px;
   bottom: 0;
   left: 40px;
   padding: 8px 8px 8px 0;
   font-size: 16px;
 }
+.modal-explorer-view .modal-header .gb-new-window {
+  position: absolute;
+  top: 0;
+  right: 60px;
+  bottom: 0;
+  line-height: 36px;
+  width: 30px;
+  margin: 0;
+  padding: 2px;
+  font-size: 18px;
+  color: #777;
+}
 .modal-explorer-view .modal-header .gb-search {
   position: absolute;
   top: 0;
-  right: 40px;
+  right: 30px;
   bottom: 0;
   line-height: 36px;
-  width: 40px;
+  width: 30px;
   margin: 0;
   padding: 2px;
-  font-size: 22px;
+  font-size: 18px;
   color: #777;
 }
 .modal-explorer-view .modal-header .gb-close {
@@ -560,7 +572,7 @@ btn:focus {
   right: 0;
   bottom: 0;
   line-height: 36px;
-  width: 40px;
+  width: 30px;
   margin: 0;
   padding: 2px;
   font-size: 22px;
@@ -8246,7 +8258,7 @@ input.gb-form-show {
   padding: 0 0 0 0;
   overflow: hidden;
   position: relative;
-  min-height: 100px;
+  display: block;
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
@@ -8256,11 +8268,13 @@ input.gb-form-show {
 }
 .gb-card-component:hover, .gb-card-component:focus {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  border: rgba(77, 22, 22, 0.5) solid 1px;
 }
 .gb-card-component:active {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transform: translateY(-2px);
+  border: rgba(77, 22, 22, 0.3) solid 1px;
 }
 .gb-card-component .gb-image {
   position: relative;
@@ -8297,31 +8311,19 @@ input.gb-form-show {
   font-size: 10px;
 }
 .gb-card-component .gb-listbox-content {
-  min-height: 100px;
   max-height: 800px;
-  padding: 16px 0;
   overflow: hidden;
 }
 .gb-card-component .gb-listbox-content .gb-one-liner {
   position: relative;
   border-bottom: #CCC solid 1px;
 }
-.gb-card-component .gb-listbox-content .gb-one-liner a {
-  padding: 10px 35px 10px 0px;
+.gb-card-component .gb-listbox-content .gb-one-liner p {
+  padding: 10px 14px 10px 14px;
   text-decoration: none;
   color: #222;
   height: 100%;
   width: 100%;
-}
-.gb-card-component .gb-listbox-content .gb-one-liner:hover {
-  background-color: #F2F2F2;
-}
-.gb-card-component .gb-listbox-content .gb-one-liner .gb-action-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  line-height: 30px;
 }
 .gb-card-component .gb-listbox-content .gb-two-liner {
   position: relative;
@@ -8736,6 +8738,113 @@ input.gb-form-show {
   font-size: 10px;
 }
 .gb-card-profile .gb-footer-content {
+  padding: 10px 0 0 0;
+}
+
+.gb-card-description {
+  padding: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 100px;
+  max-height: 600px;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 2px;
+  transition: all 250ms;
+  white-space: normal;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-description:hover, .gb-card-description:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.gb-card-description:active {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+.gb-card-description .gb-big-title {
+  padding: 16px 14px 16px 14px;
+  overflow: hidden;
+}
+.gb-card-description .gb-big-title .gb-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+.gb-card-description .gb-big-title .gb-title i {
+  color: #777;
+  margin-right: 5px;
+}
+.gb-card-description .gb-form-content {
+  height: 200px;
+  padding: 16px 14px;
+}
+.gb-card-description .gb-box-content {
+  padding: 0px 14px 16px 14px;
+}
+.gb-card-description .gb-box-content .gb-title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.gb-card-description .gb-box-content .gb-description {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.gb-card-description .gb-box-content .gb-subdescription {
+  margin-bottom: 3px;
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+}
+.gb-card-description .gb-box-footer {
+  height: 36px;
+}
+.gb-card-description .gb-box-footer .md-button {
+  font-weight: bold;
+  margin: 0;
+  line-height: 40px;
+  padding: 0px 14px;
+}
+.gb-card-description .gb-box-footer .gb-name-badge-1 {
+  position: relative;
+  height: 100%;
+  padding-left: 25px;
+  font-size: 11px;
+}
+.gb-card-description .gb-box-footer .gb-name-badge-1 .gb-name {
+  padding-top: 6px;
+  padding-left: 0px;
+}
+.gb-card-description .gb-box-footer .gb-name-badge-1 .gb-image {
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-description .gb-box-footer .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.gb-card-description .gb-summary-bar {
+  padding-top: 16px;
+  height: 50px;
+}
+.gb-card-description .gb-summary-bar .gb-stat:not(:first-child) {
+  border-left: #DDD solid 1px;
+}
+.gb-card-description .gb-summary-bar .gb-stat {
+  text-align: center;
+  color: #999;
+}
+.gb-card-description .gb-summary-bar .gb-stat .gb-icon {
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 10px;
+}
+.gb-card-description .gb-summary-bar .gb-stat .gb-number {
+  font-size: 18px;
+}
+.gb-card-description .gb-footer-content {
   padding: 10px 0 0 0;
 }
 

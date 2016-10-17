@@ -76,18 +76,19 @@ var explorerCtrl = function (
   show: function () {
    vm.editDescriptionMode.visible = true;
    vm.editDescriptionMode.data = {
-    explorer_id: vm.componentSrv.explorer.id,
-    title: vm.componentSrv.explorer.title,
-    description: vm.componentSrv.explorer.description
+    componentId: vm.component.id,
+    title: vm.component.title,
+    description: vm.component.description
    };
   },
   hide: function () {
    vm.editDescriptionMode.visible = false;
   },
   edit: function () {
-   vm.componentSrv.editComponentDescription(vm.editDescriptionMode.data).then(function (response) {
+   vm.componentsSrv.editComponentDescription(vm.editDescriptionMode.data).then(function (response) {
+    vm.component.title = response.title;
+    vm.component.description = response.description;
     vm.editDescriptionMode.hide();
-    vm.componentSrv.explorer = response;
    }, function (response) {
     console.log(response);
    });
@@ -105,7 +106,7 @@ var explorerCtrl = function (
 
 
  vm.getExplorer = function (id) {
-  vm.componentSrv.getExplorer(id).then(function (response) {
+  vm.componentsSrv.getExplorer(id).then(function (response) {
   });
  };
 
@@ -117,10 +118,10 @@ var explorerCtrl = function (
 
 
  vm.createExplorer = function (data) {
-  vm.componentSrv.createExplorer(data).then(function (response) {
+  vm.componentsSrv.createExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorerCopy = angular.copy(vm.componentSrv.explorer);
+   vm.explorerCopy = angular.copy(vm.componentsSrv.explorer);
   }, function (response) {
    console.log(response);
   });
@@ -143,23 +144,6 @@ var explorerCtrl = function (
   if (form) {
    form.$setPristine();
    form.$setUntouched();
-  }
- };
-
-
- vm.edit = function (explorer) {
-  vm.edited = explorer;
-  // Clone the original explorer to restore it on demand.
-  vm.original = angular.copy(explorer);
- };
-
-
- vm.doneEditing = function (explorer) {
-  vm.edited = null;
-  explorer.title = explorer.title.trim();
-
-  if (!explorer.title) {
-   vm.remove(explorer);
   }
  };
 
@@ -225,22 +209,6 @@ var explorerCtrl = function (
   }
  };
 
- vm.editSection = function (explorerSection) {
-  vm.editedSection = explorerSection;
-  // Clone the original explorerSection to restore it on demand.
-  vm.originalSection = angular.copy(explorerSection);
- };
-
-
- vm.doneEditing = function (explorerSection) {
-  vm.editedSection = null;
-  explorerSection.title = explorerSection.title.trim();
-
-  if (!explorerSection.title) {
-   vm.removeSection(explorerSection);
-  }
- };
-
  vm.openExplorerSection = function (explorerSection) {
   var modalInstance = $uibModal.open({
    animation: true,
@@ -295,7 +263,7 @@ var explorerCtrl = function (
 
 
  vm.getSubExplorersStats = function (explorerId) {
-  vm.componentSrv.getSubExplorersStats(explorerId).then(function (data) {
+  vm.componentsSrv.getSubExplorersStats(explorerId).then(function (data) {
    vm.subExplorersStats = data;
   });
  };
@@ -347,32 +315,7 @@ var explorerCtrl = function (
   }
  }
 
- vm.cancelExplorerComponent = function (form) {
-  vm.componentFormDisplay = false;
-  vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData)
-  if (form) {
-   form.$setPristine();
-   form.$setUntouched();
-  }
- };
 
-
-
- vm.editComponent = function (explorerComponent) {
-  vm.editedComponent = explorerComponent;
-  // Clone the original explorerComponent to restore it on demand.
-  vm.originalComponent = angular.copy(explorerComponent);
- };
-
-
- vm.doneEditing = function (explorerComponent) {
-  vm.editedComponent = null;
-  explorerComponent.title = explorerComponent.title.trim();
-
-  if (!explorerComponent.title) {
-   vm.removeComponent(explorerComponent);
-  }
- };
 
  vm.openComponent = function (componentId) {
   var modalInstance = $uibModal.open({
@@ -429,24 +372,6 @@ var explorerCtrl = function (
   }
  }
 
-
- vm.revertExplorerContribution = function (explorerContribution, explorerContributionCopy) {
-  explorerContribution = explorerContributionCopy;
- };
-
- vm.editContribution = function (explorerContribution) {
-  vm.editedContribution = explorerContribution;
-  // Clone the original explorerContribution to restore it on demand.
-  vm.originalContribution = angular.copy(explorerContribution);
- };
-
- vm.doneEditing = function (explorerContribution) {
-  vm.editedContribution = null;
-  explorerContribution.title = explorerContribution.title.trim();
-  if (!explorerContribution.title) {
-   vm.removeContribution(explorerContribution);
-  }
- };
 
  vm.prepareSelectUsers = function (contributionType) {
   var modalInstance = $uibModal.open({

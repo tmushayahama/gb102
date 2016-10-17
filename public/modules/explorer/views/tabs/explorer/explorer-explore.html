@@ -34,19 +34,36 @@
   </div>
   <ul class="drag-inner-list">
    <li class="drag-item">
-    <div class="gb-card-3 gb-shadow-3">
+    <div class="gb-card-description">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Description
+      </h3>
+     </div>
      <div ng-hide="explorerCtrl.editDescriptionMode.visible" class="gb-box-content">
+      <h4 class="gb-title">
+       {{explorerCtrl.component.title}}
+      </h4>
+      <p class="gb-description">
+       {{explorerCtrl.component.description}}
+      </p>
       <div class="gb-subdescription row">
        <p class="gb-ellipsis">
-        <span ng-if="explorerCtrl.component.template_type_id === 100001">
-         Template For - </span>
-        {{explorerCtrl.component.app_type.title}} - {{::explorerCtrl.component.level.title}}
+        {{explorerCtrl.component.type.title}}
        </p>
       </div>
-      <div class="gb-description row">
-       <div class="row">
-        <strong>{{explorerCtrl.component.title}}</strong>
-        {{explorerCtrl.component.description}}
+      <div ng-if="false" class="gb-name-badge-1 row">
+       <a class="gb-name gb-ellipsis"
+          data-ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator_id})">
+        <i>by:</i>
+        {{ ::explorerCtrl.component.creator.firstname}}
+        {{ ::explorerCtrl.component.creator.lastname}}
+       </a>
+       <div class="gb-image">
+        <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+             ng-src="public/img/profile_pic/{{ ::explorerCtrl.component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
        </div>
       </div>
      </div>
@@ -67,19 +84,6 @@
       </form>
      </div>
      <div class="gb-box-footer row">
-      <div ng-if="false" class="gb-name-badge-1 row">
-       <a class="gb-name gb-ellipsis"
-          data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
-        <i>by:</i>
-        {{ ::explorer.creator.firstname}}
-        {{ ::explorer.creator.lastname}}
-       </a>
-       <div class="gb-image">
-        <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-             ng-src="public/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
-             class="gb-heading-pic" alt="">
-       </div>
-      </div>
       <div class="row" ng-show="explorerCtrl.editDescriptionMode.visible">
        <div class="btn-group pull-right">
         <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
@@ -102,7 +106,7 @@
      </div>
     </div>
    </li>
-   <li class="drag-item">
+   <li ng-if="false" class="drag-item">
     <div class="gb-card-3 gb-shadow-3">
      <div class="gb-big-title">
       <h3 class="gb-title gb-ellipsis">
@@ -201,12 +205,10 @@
      <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="+ Add Section">
     </md-input-container>
    </form>
-   <li  ng-repeat="(key, component) in explorerCtrl.component.motive track by $index"
-        class="drag-item">
-    <div gb-component-motive-box component="component"
-         open-explorer-section="explorerCtrl.openExplorerSection(explorerSection)"
-         open-explorer-section-item="explorerCtrl.openExplorerSectionItem"
-         add-to-explorer-section="explorerCtrl.addToExplorerSection"
+   <li ng-repeat="(key, component) in explorerCtrl.component.motive track by $index"
+       class="drag-item">
+    <div gb-component-box component="component"
+         open-component="explorerCtrl.openComponent(component.id)"
          class="">
     </div>
    </li>
