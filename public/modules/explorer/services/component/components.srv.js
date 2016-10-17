@@ -21,10 +21,21 @@ var componentsSrv = function ($http, $q) {
   return deferred.resolve(data);
  };
 
- ComponentsSrv.prototype.getAllComponents = function (listFormat) {
+ ComponentsSrv.prototype.getComponents = function (listFormat) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/components/all/listformat/' + listFormat).success(function (data) {
+  $http.get('/api/components/listformat/' + listFormat).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ComponentsSrv.prototype.getComponentsByType = function (type, listFormat) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/components/listformat/' + listFormat + '/type/' + type).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -43,17 +54,18 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ComponentsSrv.prototype.getComponents = function (componentId, gbFormat) {
+ /*
+  ComponentsSrv.prototype.getComponents = function (componentId, gbFormat) {
   var self = this;
   var deferred = $q.defer();
   $http.get('/api/component/' + componentId + '/components/gbformat/' + gbFormat).success(function (data) {
-   self.deferredHandler(data, deferred);
+  self.deferredHandler(data, deferred);
   }).error(function (data) {
-   self.deferredHandler(data, deferred, 'Unknown error');
+  self.deferredHandler(data, deferred, 'Unknown error');
   });
   return deferred.promise;
- };
-
+  };
+  */
 
 
  ComponentsSrv.prototype.createExplorerComponent = function (explorerComponentData) {

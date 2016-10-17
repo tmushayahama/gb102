@@ -1,0 +1,34 @@
+<div class="gb-card-component gb-app-type-{{::component.app_type_id}}"
+     ng-click="open()"
+     ng-style="{'background-color':component.background_color.title}">
+ <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'" class="gb-image gb-app-type-{{::component.app_type.id}}">
+  <img data-ui-sref="apps.component.overview({explorerId: component.id})"
+       ng-src="public/build/img/explorer/{{ ::component.component_picture_url}}"
+       class="gb-heading-pic" alt="">
+ </div>
+ <div class="gb-box-content">
+  <div class="gb-title row">
+   <h3 class="gb-ellipsis">
+    {{::component.title}}
+   </h3>
+  </div>
+  <div class="gb-subdescription row">
+   <p class="gb-ellipsis">
+    {{::component.type.title}}</p>
+  </div>
+  <div ng-if="component.description" class="gb-description row">
+   <p class="">
+    <span>
+     {{::component.description}}
+    </span>
+   </p>
+  </div>
+ </div>
+ <div class="gb-listbox-content">
+  <div class="gb-one-liner" ng-repeat="subComponent in component.components| limitTo:componentsLimitTo track by $index">
+   <p class="gb-ellipsis">
+    {{subComponent.title}}
+   </p>
+  </div>
+ </div>
+</div>

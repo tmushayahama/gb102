@@ -8,8 +8,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Component\Component;
-use App\Models\Checklist\Checklist;
-use App\Models\Component\ComponentChecklist;
+use App\Models\Level\Level;
 use Request;
 use DB;
 
@@ -23,6 +22,15 @@ class ComponentController extends Controller {
  public function getComponent($componentId, $listFormat = 1) {
   $component = Component::getComponent($componentId, $listFormat);
   return \Response::json($component);
+ }
+
+ public function getComponentsByType($listFormat, $type) {
+  $typeId = Level::$level_categories[$type];
+  if ($typeId) {
+   $components = Component::getComponentsByType($typeId, $listFormat);
+   return \Response::json($components);
+  }
+  return '';
  }
 
  public function editComponentDescription($componentId) {

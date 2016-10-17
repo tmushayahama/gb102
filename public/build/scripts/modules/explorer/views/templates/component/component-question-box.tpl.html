@@ -1,0 +1,47 @@
+<div class="gb-card-question-sm gb-app-type-{{::explorer.first_explorer.app_type.id}}">
+ <div class="gb-menu">
+  <div class="gb-action-dropdown btn-group">
+   <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+    <div class="gb-icon">
+     <i class="fa fa-bars"></i>
+    </div>
+   </md-button>
+   <ul class="dropdown-menu dropdown-menu-left">
+    <li class="row">
+    <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-icon">
+      <i class="fa fa-folder-open-o"></i>
+     </div>
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+       EDIT
+      </p>
+     </div>
+    </md-button>
+    </li>
+   </ul>
+  </div>
+ </div>
+ <div class="gb-box-content">
+  <h4 class="gb-title">
+   <div class="gb-ellipsis">
+    {{component.title}}
+    <small>
+     {{component.description}}
+    </small>
+   </div>
+  </h4>
+  <form class="gb-answer-form" ng-submit="explorerCtrl.createExplorerComponent()">
+   <md-input-container class="md-block" md-no-float>
+    <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="Your Answer">
+   </md-input-container>
+  </form>
+ </div>
+ <md-button class="gb-goto-btn"
+            ng-click="open(component.id, 2)">
+  <div class="gb-icon">
+   <i class="fa fa-chevron-right"></i>
+  </div>
+ </md-button>
+</div>

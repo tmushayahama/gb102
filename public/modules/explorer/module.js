@@ -35,7 +35,7 @@ define(['angular'
            url: '/explorer/{app_name}',
            views: {
             "apps": {
-             controller: 'ExplorersAppCtrl as explorersTabCtrl',
+             controller: 'ExplorersAppCtrl as explorersAppCtrl',
              templateUrl: 'public/modules/explorer/views/explorers-app.html',
              resolve: {
               listType: function () {

@@ -287,7 +287,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('activity/checklist/edit', 'Explorer\ExplorerController@editExplorerActivityChecklist');
 
  //Component
- Route::get('components/all/listformat/{listFormat}', 'Component\ComponentController@getAllComponents');
+ Route::get('components/listformat/{listFormat}', 'Component\ComponentController@getAllComponents');
+ Route::get('components/listformat/{listFormat}/type/{type}', 'Component\ComponentController@getComponentsByType');
+
  Route::get('components/{componentId}/listformat/{listFormat}', 'Component\ComponentController@getComponent');
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
 

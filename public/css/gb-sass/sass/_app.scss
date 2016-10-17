@@ -2910,12 +2910,12 @@ input.gb-form-show{
  }
 }
 
-.gb-card-2a {
+.gb-card-2 {
  padding: 0 0 0 0;
  overflow: hidden;
  position: relative;
  //@include position(absolute, 0 0 0 25px);
- height: 395px;
+ height: 365px;
  width: 100%;
  background-color: #FFF;
  border-radius: 2px;
@@ -2924,11 +2924,7 @@ input.gb-form-show{
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(3);
-  transform:translateY(-5px);
- }
- &:active {
-  @include shadow(1);
-  transform:translateY(-2px);
+  transform:translateY(-3px);
  }
  .gb-image {
   //@include position(absolute, 0 0 null 0);
@@ -2943,14 +2939,13 @@ input.gb-form-show{
  }
  .gb-box-content {
   // @include position(absolute, 200px 0 0 0);
-  height: 80px;
-  padding: 16px 14px 16px 14px;
+  padding: 14px 14px 0px 14px;
 
   .gb-title {
    //color: #888;
    //font-size:18px;
    h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     //line-height: 32px;
     margin-bottom: 8px;
@@ -2960,6 +2955,31 @@ input.gb-form-show{
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    font-size: 12px;
+  }
+ }
+ .gb-name-badge-1 {
+  margin-bottom: 2px;
+  position: relative;
+  //float: right;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 12px;
+  .gb-name {
+   padding-top: 2px;
+   padding-left: 5px;
+  }
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   border: none;
+   right: auto;
+   height: 20px;
+   width: 20px;
+   img {
+    border-radius: 50%;
+    min-height: 20px;
+    height: 20px;
+    width: 20px;
+   }
   }
  }
 
@@ -2974,37 +2994,14 @@ input.gb-form-show{
    line-height: 40px;
    padding: 0px 14px;
   }
-  .gb-name-badge-1 {
-   position: relative;
-   //float: right;
-   height: 100%;
-   padding-left: 25px;
-   font-size: 11px;
-   .gb-name {
-    padding-top: 6px;
-    padding-left: 0px;
-   }
-   .gb-image {
-    // @include position(absolute, 4px null 4px null);
-    right: auto;
-    height: 20px;
-    width: 20px;
-    img {
-     border-radius: 50%;
-     height: 100%;
-     width: 100%;
-    }
-   }
-  }
  }
  .gb-box-subcontent {
   //@include position(absolute, 326px 0 0 0);
-  height: 80px;
-  padding: 16px 14px;
+  padding: 5px 14px;
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    font-size: 14px;
-   height: 41px;
+   height: 35px;
    display: block;
    /* Fallback for non-webkit */
    display: -webkit-box;
@@ -3110,6 +3107,31 @@ input.gb-form-show{
   }
  }
 
+ .gb-name-badge-1 {
+  margin-bottom: 2px;
+  position: relative;
+  //float: right;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 9px;
+  .gb-name {
+   padding-top: 1px;
+   padding-left: 0px;
+  }
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   right: auto;
+   height: 16px;
+   width: 16px;
+   img {
+    border-radius: 50%;
+    min-height: 16px;
+    height: 16px;
+    width: 16px;
+   }
+  }
+ }
+
  .gb-box-footer {
   //@include position(absolute, 280px 0 null 0);
   //border-top: #CCC solid 1px;
@@ -3120,28 +3142,6 @@ input.gb-form-show{
    margin: 0;
    line-height: 40px;
    padding: 0px 14px;
-  }
-  .gb-name-badge-1 {
-   position: relative;
-   //float: right;
-   height: 100%;
-   padding-left: 25px;
-   font-size: 11px;
-   .gb-name {
-    padding-top: 6px;
-    padding-left: 0px;
-   }
-   .gb-image {
-    // @include position(absolute, 4px null 4px null);
-    right: auto;
-    height: 20px;
-    width: 20px;
-    img {
-     border-radius: 50%;
-     height: 100%;
-     width: 100%;
-    }
-   }
   }
  }
  .gb-box-subcontent {
@@ -4200,7 +4200,7 @@ input.gb-form-show{
 }
 
 
-.gb-card-component { 
+.gb-card-component {
  padding: 0 0 0 0;
  overflow: hidden;
  position: relative;

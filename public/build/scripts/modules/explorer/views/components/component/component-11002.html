@@ -1,0 +1,22 @@
+<div class="gb-heading-row-3">
+ <div class="gb-title">
+  <h2 class="gb-ellipsis">
+   <i class="fa fa-check-square-o"></i>
+   {{component.title}}
+  </h2>
+ </div>
+ <div class="gb-actions btn-group pull-right">
+  <md-button class="gb-ellipsis gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12"
+             ng-click="explorerComponentCtrl.addComponents(type)">
+   <div class="gb-icon">
+    <i class="fa fa-plus"></i>
+   </div>
+  </md-button>
+ </div>
+</div>
+<div class="gb-body-row-1 row" ng-repeat="component in component.components track by $index"
+     gb-component-step-box
+     component="component"
+     step-number="$index"
+     get-component="explorerComponentCtrl.getComponent(component.id, 2)">
+</div>

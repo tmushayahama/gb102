@@ -1,39 +1,31 @@
-<div class="gb-card-2b gb-shadow-3">
- <div class="gb-image gb-app-type-{{::explorer.app_type.id}}"
+<div class="gb-card-2 gb-shadow-3">
+ <div class="gb-image gb-app-type-{{::component.app_type.id}}"
       ng-style="style">
  </div>
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    {{::explorer.title}}
+    {{::component.title}}
    </h3>
   </div>
-  <div class="gb-description row">
-   <p class="gb-ellipsis">
-    <span ng-if="explorer.template_type_id === 100001">
-     Template For - </span>
-    {{explorer.app_type.title}} - {{::explorer.level.title}}
-   </p>
+  <div class="gb-name-badge-1 row">
+   <div class="gb-image">
+    <img data-ui-sref="apps.explorer.overview({explorerId: component.id})"
+         ng-src="public/build/img/profile_pic/{{ ::component.creator.avatar_url}}"
+         class="gb-heading-pic" alt="">
+   </div>
+   <a class="gb-name gb-ellipsis"
+      data-ui-sref="apps.profile.overview({profileId: component.creator_id})">
+    {{ ::component.creator.firstname}}
+    {{ ::component.creator.lastname}}
+   </a>
   </div>
  </div>
  <div class="gb-box-footer row">
-  <div ng-if="false" class="gb-name-badge-1 row">
-   <a class="gb-name gb-ellipsis"
-      data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
-    <i>by:</i>
-    {{ ::explorer.creator.firstname}}
-    {{ ::explorer.creator.lastname}}
-   </a>
-   <div class="gb-image">
-    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-         ng-src="public/build/img/profile_pic/{{ ::explorer.creator.avatar_url}}"
-         class="gb-heading-pic" alt="">
-   </div>
-  </div>
-  <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="gb-color-primary">
+  <md-button data-ui-sref="apps.component.explore({componentId: component.id})" class="gb-color-primary">
    EXPLORE
   </md-button>
-  <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="pull-right gb-color-primary">
+  <md-button data-ui-sref="apps.component.explore({componentId: component.id})" class="pull-right gb-color-primary">
    <i class="fa fa-star-o"></i>
   </md-button>
  </div>
@@ -41,10 +33,10 @@
   <div class="gb-description row">
    <p class="">
     <span>
-     {{::explorer.description}}
+     {{::component.description}}
     </span>
    </p>
-   <p ng-if="!explorer.description" class="gb-no-info">
+   <p ng-if="!component.description" class="gb-no-info">
     No description to show
    </p>
   </div>
@@ -52,19 +44,19 @@
    <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
     <i class="gb-icon fa fa-list-ol"></i>
     <p class="gb-number gb-ellipsis">
-     {{::explorer.stats.subexplorers_count}}
+     {{::component.stats.subcomponents_count}}
     </p>
    </div>
    <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
     <i class="gb-icon fa icon-gb-apply"></i>
     <p class="gb-number gb-ellipsis">
-     {{::explorer.stats.applications_count}}
+     {{::component.stats.applications_count}}
     </p>
    </div>
    <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
     <i class="gb-icon fa icon-users"></i>
     <p class="gb-number gb-ellipsis">
-     {{::explorer.stats.contributions_count}}
+     {{::component.stats.contributions_count}}
     </p>
    </div>
   </div>

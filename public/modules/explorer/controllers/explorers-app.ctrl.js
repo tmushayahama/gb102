@@ -24,18 +24,20 @@ var explorersAppCtrl = function (
 
  $rootScope.subAppName = $rootScope.appName.toUpperCase();
 
- vm.ComponentsSrv = new ComponentsSrv();
+ vm.componentsSrv = new ComponentsSrv();
 
 
  switch (listType) {
   case 1:
-   vm.ComponentsSrv.getAppExplorers($rootScope.appName).then(function (data) {
-    vm.explorers = data;
+   vm.componentsSrv.getComponentsByType($rootScope.appName, 1).then(function (response) {
+    vm.components = response;
+   }, function (error) {
+    console.log(error);
    });
    break;
   case 2:
    vm.userId = $stateParams.profileId;
-   vm.ComponentsSrv.getUserAppExplorers(vm.userId, $rootScope.appName).then(function (data) {
+   vm.componentsSrv.getUserAppExplorers(vm.userId, $rootScope.appName).then(function (data) {
     vm.explorers = data;
    });
    break;

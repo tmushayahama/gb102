@@ -88,7 +88,7 @@ class Component extends Model {
   return $components;
  }
 
- public static function getComponentsByType($typeId) {
+ public static function getComponentsByType($typeId, $listFormat = 1) {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')

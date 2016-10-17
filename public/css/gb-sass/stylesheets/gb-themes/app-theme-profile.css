@@ -6940,11 +6940,11 @@ input.gb-form-show {
   padding: 10px 0 0 0;
 }
 
-.gb-card-2a {
+.gb-card-2 {
   padding: 0 0 0 0;
   overflow: hidden;
   position: relative;
-  height: 395px;
+  height: 365px;
   width: 100%;
   background-color: #FFF;
   border-radius: 2px;
@@ -6952,71 +6952,72 @@ input.gb-form-show {
   transition: all 250ms;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-.gb-card-2a:hover, .gb-card-2a:focus {
+.gb-card-2:hover, .gb-card-2:focus {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
-.gb-card-2a:active {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transform: translateY(-2px);
-}
-.gb-card-2a .gb-image {
+.gb-card-2 .gb-image {
   height: 200px;
   border-bottom: transparent solid 5px;
   overflow: hidden;
 }
-.gb-card-2a .gb-image .gb-heading-pic {
+.gb-card-2 .gb-image .gb-heading-pic {
   width: 100%;
   min-height: 200px;
 }
-.gb-card-2a .gb-box-content {
-  height: 80px;
-  padding: 16px 14px 16px 14px;
+.gb-card-2 .gb-box-content {
+  padding: 14px 14px 0px 14px;
 }
-.gb-card-2a .gb-box-content .gb-title h3 {
-  font-size: 24px;
+.gb-card-2 .gb-box-content .gb-title h3 {
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 8px;
 }
-.gb-card-2a .gb-box-content .gb-description {
+.gb-card-2 .gb-box-content .gb-description {
   font-size: 12px;
 }
-.gb-card-2a .gb-box-footer {
+.gb-card-2 .gb-name-badge-1 {
+  margin-bottom: 2px;
+  position: relative;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 12px;
+}
+.gb-card-2 .gb-name-badge-1 .gb-name {
+  padding-top: 2px;
+  padding-left: 5px;
+}
+.gb-card-2 .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: none;
+  right: auto;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-2 .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  min-height: 20px;
+  height: 20px;
+  width: 20px;
+}
+.gb-card-2 .gb-box-footer {
   height: 36px;
 }
-.gb-card-2a .gb-box-footer .md-button {
+.gb-card-2 .gb-box-footer .md-button {
   font-weight: bold;
   margin: 0;
   line-height: 40px;
   padding: 0px 14px;
 }
-.gb-card-2a .gb-box-footer .gb-name-badge-1 {
-  position: relative;
-  height: 100%;
-  padding-left: 25px;
-  font-size: 11px;
+.gb-card-2 .gb-box-subcontent {
+  padding: 5px 14px;
 }
-.gb-card-2a .gb-box-footer .gb-name-badge-1 .gb-name {
-  padding-top: 6px;
-  padding-left: 0px;
-}
-.gb-card-2a .gb-box-footer .gb-name-badge-1 .gb-image {
-  right: auto;
-  height: 20px;
-  width: 20px;
-}
-.gb-card-2a .gb-box-footer .gb-name-badge-1 .gb-image img {
-  border-radius: 50%;
-  height: 100%;
-  width: 100%;
-}
-.gb-card-2a .gb-box-subcontent {
-  height: 80px;
-  padding: 16px 14px;
-}
-.gb-card-2a .gb-box-subcontent .gb-description {
+.gb-card-2 .gb-box-subcontent .gb-description {
   font-size: 14px;
-  height: 41px;
+  height: 35px;
   display: block;
   /* Fallback for non-webkit */
   display: -webkit-box;
@@ -7028,31 +7029,31 @@ input.gb-form-show {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.gb-card-2a .gb-box-subcontent .gb-description .gb-no-info {
+.gb-card-2 .gb-box-subcontent .gb-description .gb-no-info {
   padding: 12px 5px;
   color: #BBB;
   font-size: 18px;
 }
-.gb-card-2a .gb-summary-bar {
+.gb-card-2 .gb-summary-bar {
   padding-top: 16px;
   height: 50px;
 }
-.gb-card-2a .gb-summary-bar .gb-stat:not(:first-child) {
+.gb-card-2 .gb-summary-bar .gb-stat:not(:first-child) {
   border-left: #DDD solid 1px;
 }
-.gb-card-2a .gb-summary-bar .gb-stat {
+.gb-card-2 .gb-summary-bar .gb-stat {
   text-align: center;
   color: #999;
 }
-.gb-card-2a .gb-summary-bar .gb-stat .gb-icon {
+.gb-card-2 .gb-summary-bar .gb-stat .gb-icon {
   font-size: 30px;
   color: #AAA;
   margin-bottom: 10px;
 }
-.gb-card-2a .gb-summary-bar .gb-stat .gb-number {
+.gb-card-2 .gb-summary-bar .gb-stat .gb-number {
   font-size: 10px;
 }
-.gb-card-2a .gb-footer-content {
+.gb-card-2 .gb-footer-content {
   padding: 10px 0 0 0;
 }
 
@@ -7113,6 +7114,32 @@ input.gb-form-show {
 .gb-card-2b .gb-box-content .gb-description {
   font-size: 12px;
 }
+.gb-card-2b .gb-name-badge-1 {
+  margin-bottom: 2px;
+  position: relative;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 9px;
+}
+.gb-card-2b .gb-name-badge-1 .gb-name {
+  padding-top: 1px;
+  padding-left: 0px;
+}
+.gb-card-2b .gb-name-badge-1 .gb-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  height: 16px;
+  width: 16px;
+}
+.gb-card-2b .gb-name-badge-1 .gb-image img {
+  border-radius: 50%;
+  min-height: 16px;
+  height: 16px;
+  width: 16px;
+}
 .gb-card-2b .gb-box-footer {
   height: 36px;
 }
@@ -7121,26 +7148,6 @@ input.gb-form-show {
   margin: 0;
   line-height: 40px;
   padding: 0px 14px;
-}
-.gb-card-2b .gb-box-footer .gb-name-badge-1 {
-  position: relative;
-  height: 100%;
-  padding-left: 25px;
-  font-size: 11px;
-}
-.gb-card-2b .gb-box-footer .gb-name-badge-1 .gb-name {
-  padding-top: 6px;
-  padding-left: 0px;
-}
-.gb-card-2b .gb-box-footer .gb-name-badge-1 .gb-image {
-  right: auto;
-  height: 20px;
-  width: 20px;
-}
-.gb-card-2b .gb-box-footer .gb-name-badge-1 .gb-image img {
-  border-radius: 50%;
-  height: 100%;
-  width: 100%;
 }
 .gb-card-2b .gb-box-subcontent {
   height: 80px;

@@ -52,8 +52,8 @@ var explorersCtrl = function (
   };
   */
 
- vm.getAllComponents = function (resultFormat) {
-  vm.componentsSrv.getAllComponents(resultFormat).then(function (response) {
+ vm.getComponents = function (resultFormat) {
+  vm.componentsSrv.getComponents(resultFormat).then(function (response) {
    vm.components = response;
   }, function (error) {
    console.log(error);
@@ -121,7 +121,7 @@ var explorersCtrl = function (
  }
 
  //--------init------
- vm.getAllComponents(2);
+ vm.getComponents(2);
 
 
 
