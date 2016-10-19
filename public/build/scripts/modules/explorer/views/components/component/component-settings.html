@@ -15,9 +15,9 @@
     </md-button>
    </div>
    <ul id="gb-background-colors" class="gb-body-row-4 gb-inline">
-    <li ng-repeat="backgroundColor in explorerComponentCtrl.componentBackgroundColors"
+    <li ng-repeat="backgroundColor in componentCtrl.componentBackgroundColors"
         class="gb-card-holder gb-card-xs gb-padding-medium">
-    <md-button ng-click="explorerComponentCtrl.editComponentSections.backgroundColor(backgroundColor.id)"
+    <md-button ng-click="componentCtrl.editComponentSections.backgroundColor(backgroundColor.id)"
                ng-style="{'background-color':backgroundColor.title}"
                class="gb-card-color-selection">
      <div class="gb-icon">
@@ -55,9 +55,9 @@
     </md-button>
    </div>
    <ul id="gb-background-colors" class="gb-body-row-4 gb-inline">
-    <li ng-repeat="labelColor in explorerComponentCtrl.componentBackgroundColors"
+    <li ng-repeat="labelColor in componentCtrl.componentBackgroundColors"
         class="gb-card-holder gb-card-xs gb-padding-medium">
-    <md-button ng-click="explorerComponentCtrl.editComponentSections.backgroundColor(backgroundColor.id)"
+    <md-button ng-click="componentCtrl.editComponentSections.backgroundColor(backgroundColor.id)"
                ng-style="{'background-color':labelColor.title}"
                class="gb-card-label-selection">
      <div class="gb-icon">

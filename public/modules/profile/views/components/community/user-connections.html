@@ -15,7 +15,7 @@
 <div class="row">
  <div class="gb-list row">
   <div ng-repeat="user in profileCommunityCtrl.connections" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin"
-       ng-init="ss = usersTabCtrl.explorerContributionsSrv.getExplorerContributionLevel(createExplorerContributionCtrl.explorerId, user.id)">
+       ng-init="ss = usersTabCtrl.contributionsSrv.getContributionLevel(createContributionCtrl.explorerId, user.id)">
    <div class="gb-person-box gb-shadow-1">
     <img src="public/img/profile_pic/{{user.friend.avatar_url}}" class="gb-profile-img" alt="">
     <div class="gb-box-body">

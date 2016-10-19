@@ -1,11 +1,11 @@
-<ul class="drag-list" ng-controller='ExplorerComponentsCtrl as explorerComponentsCtrl'>
+<ul class="drag-list" ng-controller='ComponentsCtrl as componentsCtrl'>
  <li class="drag-column"
-     ng-repeat="explorerComponent in explorerComponentsCtrl.explorerComponents track by $index">
+     ng-repeat="component in componentsCtrl.components track by $index">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
      <i class="fa fa-list"></i>
-     {{explorerComponent.component.title}}
+     {{component.component.title}}
     </h2>
    </div>
    <div class="gb-actions btn-group pull-right">
@@ -17,7 +17,7 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button data-ui-sref="apps.explorerItem.component({explorerId: explorer.id, componentId: explorerComponent.component_id})"
+     <md-button data-ui-sref="apps.explorerItem.component({explorerId: explorer.id, componentId: component.component_id})"
                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
@@ -41,28 +41,28 @@
        Description
       </h3>
      </div>
-     <div ng-hide="explorerComponent.editDescriptionMode.visible" class="gb-box-content">
+     <div ng-hide="component.editDescriptionMode.visible" class="gb-box-content">
       <div class="gb-subdescription row">
        <p class="gb-ellipsis">
-        {{explorerComponent.component.type.name}}  </p>
+        {{component.component.type.name}}  </p>
       </div>
       <div class="gb-description row">
        <div class="row">
-        <strong>{{explorerComponent.component.title}}</strong>
-        {{explorerComponent.component.description}}
+        <strong>{{component.component.title}}</strong>
+        {{component.component.description}}
        </div>
       </div>
      </div>
-     <div ng-show="explorerComponent.editDescriptionMode.visible"
+     <div ng-show="component.editDescriptionMode.visible"
           class="gb-form-content row">
-      <form ng-submit="explorerComponent.editDescriptionMode.edit()">
+      <form ng-submit="component.editDescriptionMode.edit()">
        <md-input-container class="md-block">
-        <input ng-model="explorerComponent.editDescriptionMode.data.title" name="title" required
+        <input ng-model="component.editDescriptionMode.data.title" name="title" required
                placeholder="Title"
                class="">
        </md-input-container>
        <md-input-container class="md-block">
-        <textarea ng-model="explorerComponent.editDescriptionMode.data.description" name="description"
+        <textarea ng-model="component.editDescriptionMode.data.description" name="description"
                   placeholder="Description" rows="4"
                   class="form-control gb-md">
         </textarea>
@@ -74,8 +74,8 @@
        <a class="gb-name gb-ellipsis"
           data-ui-sref="apps.profile.overview({profileId: explorer.creator_id})">
         <i>by:</i>
-        {{ ::explorerComponent.component.creator.firstname}}
-        {{ ::explorerComponent.component.creator.lastname}}
+        {{ ::component.component.creator.firstname}}
+        {{ ::component.component.creator.lastname}}
        </a>
        <div class="gb-image">
         <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
@@ -83,7 +83,7 @@
              class="gb-heading-pic" alt="">
        </div>
       </div>
-      <div class="row" ng-show="explorerComponent.component.editDescriptionMode.visible">
+      <div class="row" ng-show="component.component.editDescriptionMode.visible">
        <div class="btn-group pull-right">
         <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
          Cancel
@@ -93,8 +93,8 @@
         </md-button>
        </div>
       </div>
-      <div class="row" ng-hide="explorerComponent.component.editDescriptionMode.visible">
-       <md-button  ng-click="explorerComponent.component.editDescriptionMode.show()" class="gb-color-primary">
+      <div class="row" ng-hide="component.component.editDescriptionMode.visible">
+       <md-button  ng-click="component.component.editDescriptionMode.show()" class="gb-color-primary">
         EDIT
        </md-button>
        <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="pull-right gb-color-primary">
@@ -105,7 +105,7 @@
     </div>
    </li>
 
-   <li class="drag-item" ng-repeat="component in explorerComponent.components track by $index">
+   <li class="drag-item" ng-repeat="component in component.components track by $index">
     <div class="gb-card-note">
      <div class="gb-box-content">
       <div class="gb-description row">

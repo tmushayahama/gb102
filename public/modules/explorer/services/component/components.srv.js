@@ -68,13 +68,13 @@ var componentsSrv = function ($http, $q) {
   */
 
 
- ComponentsSrv.prototype.createExplorerComponent = function (explorerComponentData) {
+ ComponentsSrv.prototype.createComponent = function (componentData) {
   var self = this;
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/' + explorerComponentData.explorerId + '/components/create',
-   data: explorerComponentData
+   url: '/api/explorer/' + componentData.explorerId + '/components/create',
+   data: componentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {

@@ -3,9 +3,8 @@ var explorerCtrl = function (
         _,
         level_categories,
         ConstantsSrv,
-        ExplorerSectionsSrv,
         ComponentsSrv,
-        ExplorerContributionsSrv,
+        ContributionsSrv,
         $scope,
         $state,
         $stateParams,
@@ -19,54 +18,38 @@ var explorerCtrl = function (
 
  var vm = this;
 
- //Explorer General
+ //Component General
  vm.componentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.appsConstants = [];
  vm.componentId = $stateParams.componentId;
 
- //Explorer Component
+ //Component
  vm.component = [];
- vm.componentsCopy;
- vm.componentFormDisplay = false;
- vm.defaultExplorerComponentData = {
-  explorerId: vm.explorerId,
+ vm.defaultComponentData = {
+  componentId: vm.componentId,
   typeId: level_categories.component.none,
   title: "",
   description: "",
   privacy: 0
  };
 
- vm.explorerFormDisplay = false;
+ vm.componentFormDisplay = false;
  vm.newColumnData = {
   title: ""
  };
 
-//Explorer Section
- vm.explorerSections = [];
- vm.explorerSectionsCopy;
- vm.explorerSectionsSrv = new ExplorerSectionsSrv();
- vm.sectionFormDisplay = false;
- vm.defaultExplorerSectionData = {
-  explorerId: $stateParams.explorerId,
-  privacy: 0
- };
- vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData);
 
-
-
-//Explorer Contribution
- vm.explorerContributions;
- vm.explorerContributionTypes;
- vm.explorerContributionsCopy;
- vm.constantsSrv = new ConstantsSrv();
- vm.explorerContributionsSrv = new ExplorerContributionsSrv();
+//Component Contribution
+ vm.contributions;
+ vm.componentContributionTypes;
+ vm.contributionsSrv = new ContributionsSrv();
  vm.contributionFormDisplay = false;
- vm.defaultExplorerContributionData = {
-  explorerId: $stateParams.explorerId,
+ vm.defaultComponentContributionData = {
+  componentId: $stateParams.componentId,
   privacy: 0
  };
- vm.newExplorerContributionData = angular.copy(vm.defaultExplorerContributionData);
+ vm.newComponentContributionData = angular.copy(vm.defaultComponentContributionData);
  vm.showContributionForm = function () {
   vm.contributionFormDisplay = true;
  };
@@ -96,8 +79,8 @@ var explorerCtrl = function (
  };
 
 
- vm.getDefaultExplorerComponentData = function (parentComponentId) {
-  var result = angular.copy(vm.defaultExplorerComponentData);
+ vm.getDefaultComponentData = function (parentComponentId) {
+  var result = angular.copy(vm.defaultComponentData);
   if (parentComponentId) {
    result.parentComponentId = parentComponentId;
   }
@@ -105,187 +88,48 @@ var explorerCtrl = function (
  };
 
 
- vm.getExplorer = function (id) {
-  vm.componentsSrv.getExplorer(id).then(function (response) {
-  });
- };
-
- vm.defaultExplorerData = {
-  explorerId: $stateParams.explorerId,
-  privacy: 0
- };
- vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-
-
- vm.createExplorer = function (data) {
-  vm.componentsSrv.createExplorer(data).then(function (response) {
+ vm.createComponent = function (data) {
+  vm.componentsSrv.createComponent(data).then(function (response) {
    vm.FormDisplay = false;
-   vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorerCopy = angular.copy(vm.componentsSrv.explorer);
+   vm.newComponentData = angular.copy(vm.defaultComponentData);
+   vm.componentCopy = angular.copy(vm.componentsSrv.component);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerSections = {
-  details: function (explorerId, detail) {
-   var explorerData = {
-    explorerId: explorerId,
+ vm.editComponentSections = {
+  details: function (componentId, detail) {
+   var componentData = {
+    componentId: componentId,
     title: detail.title,
     description: detail.description
    };
-   vm.editExplorer(explorerData);
-  }
- };
-
- vm.cancelExplorer = function (form) {
-  vm.FormDisplay = false;
-  vm.newExplorerData = angular.copy(vm.defaultExplorerData)
-  if (form) {
-   form.$setPristine();
-   form.$setUntouched();
+   vm.editComponent(componentData);
   }
  };
 
 
- vm.getExplorerSections = function (explorerId) {
-  vm.explorerSectionsSrv.getExplorerSections(explorerId).then(function (response) {
-   vm.explorerSections = response;
+ //Component
 
-   angular.forEach(response, function (question, key) {
-    vm.explorerSectionsSrv.getSectionAnswersPreview(question.id, explorerId).then(function (answerResponse) {
-     vm.explorerSections[key].answers = answerResponse;
-     vm.explorerSections[key].explorer_id = explorerId;
-     var minSizeY = 1 + Math.floor(answerResponse.length / 5);
-     vm.explorerSections[key].gridMap = {
-      'minSizeY': minSizeY,
-      'maxSizeY': 4
-     };
-     //  sizeX: 3,
-     //  sizeY: 1
-     // }
-    });
-   });
+ vm.getComponent = function (componentId, listFormat) {
+  vm.componentsSrv.getComponent(componentId, listFormat).then(function (response) {
+   vm.component = response;
+   $css.bind({
+    href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + response.type.title + '.css'
+   }, $scope);
   });
  };
 
- vm.createExplorerSection = function (data) {
-  vm.explorerSectionsSrv.createExplorerSection(data).then(function (response) {
-   vm.sectionFormDisplay = false;
-   vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData);
-   vm.explorerSections.unshift(response);
-  }, function (response) {
-   console.log(response);
-  });
- };
+ vm.createComponent = function (componentBucket) {
+  vm.componentsSrv.createComponent(componentBucket.newComponentData).then(function (response) {
 
- vm.editExplorerSection = function (data) {
-  vm.explorerSectionsSrv.editExplorerSection(data).then(function (response) {
-   vm.sectionFormDisplay = false;
-   vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData);
-   vm.explorerSectionsCopy = angular.copy(vm.explorerSections);
-  }, function (response) {
-   console.log(response);
-  });
- };
-
- vm.editExplorerSectionSections = {
-  details: function (explorerSectionId, detail) {
-   var explorerSectionData = {
-    explorerSectionId: explorerSectionId,
-    title: detail.title,
-    description: detail.description
-   };
-   vm.editExplorerSection(explorerSectionData);
-  }
- };
-
- vm.cancelExplorerSection = function (form) {
-  vm.sectionFormDisplay = false;
-  vm.newExplorerSectionData = angular.copy(vm.defaultExplorerSectionData)
-  if (form) {
-   form.$setPristine();
-   form.$setUntouched();
-  }
- };
-
- vm.openExplorerSection = function (explorerSection) {
-  var modalInstance = $uibModal.open({
-   animation: true,
-   templateUrl: 'explorer-section-modal.html',
-   controller: 'ExplorerSectionCtrl as explorerSectionCtrl',
-   backdrop: 'static',
-   size: 'xl',
-   resolve: {
-    explorerSectionData: function () {
-     return explorerSection;
-    }
-   }
-  });
-
-  modalInstance.result.then(function (selectedItem) {
-   $scope.selected = selectedItem;
-  }, function () {
-   $log.info('Modal dismissed at: ' + new Date());
-  });
- };
-
- vm.openExplorerSectionItem = function (explorerSectionItem) {
-  var modalInstance = $uibModal.open({
-   animation: true,
-   templateUrl: 'explorer-section-item-modal.html',
-   controller: 'ExplorerSectionItemCtrl as explorerSectionItemCtrl',
-   backdrop: 'static',
-   size: 'xl',
-   resolve: {
-    explorerSectionData: function () {
-     return explorerSectionItem;
-    }
-   }
-  });
-
-  modalInstance.result.then(function (selectedItem) {
-   $scope.selected = selectedItem;
-  }, function () {
-   $log.info('Modal dismissed at: ' + new Date());
-  });
- };
-
- vm.addToExplorerSection = function (data) {
-  console.log("added", data);
-  return vm.explorerSectionsSrv.createAnswer(data);
- };
-
- //--------init------
- vm.getExplorerSections(vm.explorerId);
-
-
-
-
- vm.getSubExplorersStats = function (explorerId) {
-  vm.componentsSrv.getSubExplorersStats(explorerId).then(function (data) {
-   vm.subExplorersStats = data;
-  });
- };
-
-
- //Components
- vm.getExplorerComponents = function (explorerId, componentId) {
-  vm.componentsSrv.getExplorerComponents(explorerId, componentId, 1).then(function (response) {
-   vm.explorerComponentBuckets = response;
-   vm.explorerComponentBuckets.newExplorerComponentData = vm.getDefaultExplorerComponentData();
-  });
- };
-
- vm.createExplorerComponent = function (explorerComponentBucket) {
-  vm.componentsSrv.createExplorerComponent(explorerComponentBucket.newExplorerComponentData).then(function (response) {
-
-   if (explorerComponentBucket.newExplorerComponentData.parentComponentId) {
-    explorerComponentBucket.explorerComponents.push(response);
-    explorerComponentBucket.newExplorerComponentData = vm.getDefaultExplorerComponentData(explorerComponentBucket.newExplorerComponentData.parentComponentId);
+   if (componentBucket.newComponentData.parentComponentId) {
+    componentBucket.components.push(response);
+    componentBucket.newComponentData = vm.getDefaultComponentData(componentBucket.newComponentData.parentComponentId);
    } else {
-    explorerComponentBucket.explorerComponents.push(response);
-    explorerComponentBucket.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+    componentBucket.components.push(response);
+    componentBucket.newComponentData = vm.getDefaultComponentData();
    }
 
   }, function (response) {
@@ -294,36 +138,34 @@ var explorerCtrl = function (
  };
 
 
- vm.editExplorerComponent = function (data) {
-  vm.componentsSrv.editExplorerComponent(data).then(function (response) {
+ vm.editComponent = function (data) {
+  vm.componentsSrv.editComponent(data).then(function (response) {
    vm.componentFormDisplay = false;
-   vm.newExplorerComponentData = angular.copy(vm.defaultExplorerComponentData);
-   vm.explorerComponentsCopy = angular.copy(vm.explorerComponents);
+   vm.newComponentData = angular.copy(vm.defaultComponentData);
+   vm.componentsCopy = angular.copy(vm.components);
   }, function (response) {
    console.log(response);
   });
  };
 
- vm.editExplorerComponentSections = {
-  details: function (explorerComponentId, detail) {
-   var explorerComponentData = {
-    explorerComponentId: explorerComponentId,
+ vm.editComponentSections = {
+  details: function (componentId, detail) {
+   var componentData = {
+    componentId: componentId,
     title: detail.title,
     description: detail.description
    };
-   vm.editExplorerComponent(explorerComponentData);
+   vm.editComponent(componentData);
   }
- }
-
-
+ };
 
  vm.openComponent = function (componentId) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'explorer-component-modal.html',
-   controller: 'ExplorerComponentCtrl as explorerComponentCtrl',
+   templateUrl: 'component-modal.html',
+   controller: 'ComponentCtrl as componentCtrl',
    backdrop: 'static',
-   size: 'explorer-view',
+   size: 'component-view',
    resolve: {
     componentId: function () {
      return componentId;
@@ -343,32 +185,32 @@ var explorerCtrl = function (
 
 
  //Contributors
- vm.createExplorerContribution = function (data) {
-  vm.explorerContributionsSrv.createExplorerContribution(data).then(function (response) {
+ vm.createComponentContribution = function (data) {
+  vm.contributionsSrv.createComponentContribution(data).then(function (response) {
    vm.contributionFormDisplay = false;
-   vm.newExplorerContributionData = angular.copy(vm.defaultExplorerContributionData);
-   vm.explorerContributionsCopy = angular.copy(vm.explorerContributionsSrv.explorerContributions);
+   vm.newComponentContributionData = angular.copy(vm.defaultComponentContributionData);
+   vm.contributionsCopy = angular.copy(vm.contributionsSrv.contributions);
   }, function (response) {
    console.log(response);
   });
  };
- vm.editExplorerContribution = function (data) {
-  vm.explorerContributionsSrv.editExplorerContribution(data).then(function (response) {
+ vm.editComponentContribution = function (data) {
+  vm.contributionsSrv.editComponentContribution(data).then(function (response) {
    vm.contributionFormDisplay = false;
-   vm.newExplorerContributionData = angular.copy(vm.defaultExplorerContributionData);
-   vm.explorerContributionsCopy = angular.copy(vm.explorerContributionsSrv.explorerContributions);
+   vm.newComponentContributionData = angular.copy(vm.defaultComponentContributionData);
+   vm.contributionsCopy = angular.copy(vm.contributionsSrv.contributions);
   }, function (response) {
    console.log(response);
   });
  };
- vm.editExplorerContributionSections = {
-  details: function (explorerContributionId, detail) {
-   var explorerContributionData = {
-    explorerContributionId: explorerContributionId,
+ vm.editComponentContributionSections = {
+  details: function (componentContributionId, detail) {
+   var componentContributionData = {
+    componentContributionId: componentContributionId,
     title: detail.title,
     description: detail.description
    };
-   vm.editExplorerContribution(explorerContributionData);
+   vm.editComponentContribution(componentContributionData);
   }
  }
 
@@ -376,8 +218,8 @@ var explorerCtrl = function (
  vm.prepareSelectUsers = function (contributionType) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'create-explorer-contribution-modal.html',
-   controller: 'CreateExplorerContributionCtrl as createExplorerContributionCtrl',
+   templateUrl: 'create-component-contribution-modal.html',
+   controller: 'CreateComponentContributionCtrl as createComponentContributionCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
@@ -393,16 +235,16 @@ var explorerCtrl = function (
   });
  };
 
- vm.openExplorerContribution = function (explorerContribution) {
+ vm.openComponentContribution = function (componentContribution) {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'explorer-contribution-modal.html',
-   controller: 'ExplorerContributionCtrl as explorerContributionCtrl',
+   templateUrl: 'component-contribution-modal.html',
+   controller: 'ComponentContributionCtrl as componentContributionCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
-    explorerContributionData: function () {
-     return explorerContribution;
+    componentContributionData: function () {
+     return componentContribution;
     }
    }
   });
@@ -420,33 +262,19 @@ var explorerCtrl = function (
   vm.appsConstants = data;
  });
 
- vm.explorerContributionsSrv.getExplorerContributions(vm.explorerId).then(function (data) {
-  vm.explorerContributions = data;
+ vm.contributionsSrv.getComponentContributions(vm.componentId).then(function (data) {
+  vm.contributions = data;
  });
-
- vm.getComponent = function (componentId, listFormat) {
-  vm.componentsSrv.getComponent(componentId, listFormat).then(function (response) {
-   vm.component = response;
-   $css.bind({
-    href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + response.type.title + '.css'
-   }, $scope);
-  });
- }
 
  vm.getComponent(vm.componentId, 3);
 
-
-
-
- //vm.getSubExplorersStats(vm.explorerId);
 };
 
 explorerCtrl.$inject = ['_',
  'level_categories',
  'ConstantsSrv',
- 'ExplorerSectionsSrv',
  'ComponentsSrv',
- 'ExplorerContributionsSrv',
+ 'ContributionsSrv',
  '$scope',
  '$state',
  '$stateParams',

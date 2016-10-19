@@ -7,7 +7,7 @@
  </div>
  <div class="gb-actions btn-group pull-right">
   <md-button class="gb-ellipsis gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12"
-             ng-click="explorerComponentCtrl.addComponents(type)">
+             ng-click="componentCtrl.addComponents(type)">
    <div class="gb-icon">
     <i class="fa fa-plus"></i>
    </div>
@@ -18,5 +18,5 @@
      gb-component-step-box
      component="component"
      step-number="$index"
-     get-component="explorerComponentCtrl.getComponent(component.id, 2)">
+     get-component="componentCtrl.getComponent(component.id, 2)">
 </div>

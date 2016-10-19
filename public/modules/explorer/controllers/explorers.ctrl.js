@@ -43,9 +43,9 @@ var explorersCtrl = function (
  /*
   vm.getComponents = function (component, resultFormat) {
   vm.componentsSrv.getComponents(component.id, resultFormat).then(function (response) {
-  vm.explorerComponent = component;
-  vm.explorerComponent.components = response;
-  vm.explorerComponent.newExplorerComponentData = vm.getDefaultExplorerComponentData();
+  vm.component = component;
+  vm.component.components = response;
+  vm.component.newComponentData = vm.getDefaultComponentData();
   }, function (error) {
   console.log(error);
   });

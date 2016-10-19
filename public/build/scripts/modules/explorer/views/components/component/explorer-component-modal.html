@@ -1,27 +1,27 @@
 <div class="modal-header gb-modal-header row">
  <md-button class="gb-back"
-            ng-class="{'gb-disabled-1':!explorerComponentCtrl.component.parent_component_id}"
-            ng-click="explorerComponentCtrl.getComponent(explorerComponentCtrl.component.parent_component_id, 2)">
+            ng-class="{'gb-disabled-1':!componentCtrl.component.parent_component_id}"
+            ng-click="componentCtrl.getComponent(componentCtrl.component.parent_component_id, 2)">
   <i class="fa fa-chevron-left"></i>
  </md-button>
  <div class="gb-title">
   <p class="gb-ellipsis">
    <i class="fa icon-gb-component"></i>
-   {{explorerComponentCtrl.component.title}}
+   {{componentCtrl.component.title}}
   </p>
  </div>
- <md-button data-ui-sref="apps.component.explore({componentId: explorerComponentCtrl.component.id})" class="gb-new-window">
+ <md-button data-ui-sref="apps.component.explore({componentId: componentCtrl.component.id})" class="gb-new-window">
   <i class="fa fa-square-o"></i>
  </md-button>
  <md-button class="gb-search">
   <i class="fa fa-search"></i>
  </md-button>
- <md-button class="gb-close" ng-click="explorerComponentCtrl.close()">
+ <md-button class="gb-close" ng-click="componentCtrl.close()">
   x
  </md-button>
 </div>
 <div class="modal-body gb-modal-body"
-     ng-style="{'background-color':explorerComponentCtrl.component.background_color.title}">
+     ng-style="{'background-color':componentCtrl.component.background_color.title}">
  <div class="gb-nav-3 row">
   <ul class="nav nav-tabs row" role="tablist">
    <li role="presentation" class="active">
@@ -54,8 +54,8 @@
      </div>
      <div class="gb-actions">
       <md-button class=""
-                 ng-show="!explorerComponentCtrl.editDecriptionMode"
-                 ng-click="explorerComponentCtrl.editDecriptionMode = true">
+                 ng-show="!componentCtrl.editDecriptionMode"
+                 ng-click="componentCtrl.editDecriptionMode = true">
        <div class="gb-icon">
         <i class="fa fa-pencil"></i>
        </div>
@@ -65,30 +65,30 @@
     <div class="gb-body-row-1 row">
      <div class="gb-card-description-sm">
       <div class="gb-box-content"
-           ng-hide="explorerComponentCtrl.editDecriptionMode">
+           ng-hide="componentCtrl.editDecriptionMode">
        <h4 class="gb-title">
-        {{explorerComponentCtrl.component.title}}
+        {{componentCtrl.component.title}}
        </h4>
        <p class="gb-description">
-        {{explorerComponentCtrl.component.description}}
+        {{componentCtrl.component.description}}
        </p>
       </div>
-      <form ng-show="explorerComponentCtrl.editDecriptionMode"
-            ng-submit="explorerComponentCtrl.editComponentSections.details()">
+      <form ng-show="componentCtrl.editDecriptionMode"
+            ng-submit="componentCtrl.editComponentSections.details()">
        <md-input-container class="md-block">
-        <input ng-model="explorerComponentCtrl.component.title" name="title" required
+        <input ng-model="componentCtrl.component.title" name="title" required
                placeholder="Title"
                class="">
        </md-input-container>
        <md-input-container class="md-block">
-        <input ng-model="explorerComponentCtrl.component.description" name="title"
+        <input ng-model="componentCtrl.component.description" name="title"
                placeholder="Description"
                class="">
        </md-input-container>
        <div class="row"
-            ng-show="explorerComponentCtrl.editDecriptionMode">
+            ng-show="componentCtrl.editDecriptionMode">
         <div class="btn-group pull-right">
-         <md-button type="button" class="" ng-click="explorerComponentCtrl.editDecriptionMode = false">
+         <md-button type="button" class="" ng-click="componentCtrl.editDecriptionMode = false">
           Cancel
          </md-button>
          <md-button type="submit" class="gb-color-primary">
@@ -102,7 +102,7 @@
     </div>
    </section>
    <section class="row"
-            ng-repeat="(type, component) in explorerComponentCtrl.component.components track by $index">
+            ng-repeat="(type, component) in componentCtrl.component.components track by $index">
     <ng-include ng-if="component.components.length > 1" src="'public/build/scripts/modules/explorer/views/components/component/component-'+type+'.html'">
     </ng-include>
    </section>
@@ -114,7 +114,7 @@
 </div>
 <div class="modal-footer">
  <md-button class="pull-right" aria-label="Close Todo Modal"
-            ng-click="explorerComponentCtrl.close()">
+            ng-click="componentCtrl.close()">
   Close
  </md-button>
 </div>

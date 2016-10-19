@@ -40,23 +40,23 @@
        Description
       </h3>
      </div>
-     <div ng-hide="explorerComponent.editDescriptionMode.visible" class="gb-box-content">
+     <div ng-hide="component.editDescriptionMode.visible" class="gb-box-content">
       <div class="gb-subdescription row">
        <div class="row">
         {{explorerSection.description}}
        </div>
       </div>
      </div>
-     <div ng-show="explorerComponent.editDescriptionMode.visible"
+     <div ng-show="component.editDescriptionMode.visible"
           class="gb-form-content row">
-      <form ng-submit="explorerComponent.editDescriptionMode.edit()">
+      <form ng-submit="component.editDescriptionMode.edit()">
        <md-input-container class="md-block">
-        <input ng-model="explorerComponent.editDescriptionMode.data.title" name="title" required
+        <input ng-model="component.editDescriptionMode.data.title" name="title" required
                placeholder="Title"
                class="">
        </md-input-container>
        <md-input-container class="md-block">
-        <textarea ng-model="explorerComponent.editDescriptionMode.data.description" name="description"
+        <textarea ng-model="component.editDescriptionMode.data.description" name="description"
                   placeholder="Description" rows="4"
                   class="form-control gb-md">
         </textarea>

@@ -1,29 +1,29 @@
-<div class="gb-card-activity gb-app-type-{{::explorer.first_explorer.app_type.id}}">
+<div class="gb-card-activity gb-app-type-{{::explorer.first_explorer.type_id}}">
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    {{::explorerComponent.component.title}}
+    {{::component.component.title}}
    </h3>
   </div>
   <div class="gb-subdescription row">
    <p class="gb-ellipsis">
-    {{::explorerComponent.component.type.name}}</p>
+    {{::component.component.type.name}}</p>
   </div>
   <div class="gb-description row">
    <p class="">
     <span>
-     {{::explorerComponent.component.description}}
+     {{::component.component.description}}
     </span>
    </p>
-   <p ng-if="!explorerComponent.component.description" class="gb-no-info gb-ellipsis">
+   <p ng-if="!component.component.description" class="gb-no-info gb-ellipsis">
     No description to show.
    </p>
   </div>
   <div class="gb-listbox-content">
-   <div class="gb-no-info row" ng-show="!explorerComponent.components.length">
+   <div class="gb-no-info row" ng-show="!component.components.length">
     No list to show
    </div>
-   <div class="gb-one-liner" ng-repeat="component in explorerComponent.components| limitTo:componentsLimitTo track by $index">
+   <div class="gb-one-liner" ng-repeat="component in component.components| limitTo:componentsLimitTo track by $index">
     <a class="gb-ellipsis" ng-click="openItem(component)">
      {{component.title}}
     </a>

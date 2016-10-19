@@ -1,0 +1,443 @@
+
+<ul class="drag-list">
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     Overview
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <li class="drag-item">
+    <div class="gb-card-description">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Description
+      </h3>
+     </div>
+     <div ng-hide="explorerCtrl.editDescriptionMode.visible" class="gb-box-content">
+      <h4 class="gb-title">
+       {{explorerCtrl.component.title}}
+      </h4>
+      <p class="gb-description">
+       {{explorerCtrl.component.description}}
+      </p>
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        {{explorerCtrl.component.type.title}}
+       </p>
+      </div>
+      <div ng-if="false" class="gb-name-badge-1 row">
+       <a class="gb-name gb-ellipsis"
+          data-ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator_id})">
+        <i>by:</i>
+        {{ ::explorerCtrl.component.creator.firstname}}
+        {{ ::explorerCtrl.component.creator.lastname}}
+       </a>
+       <div class="gb-image">
+        <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+             ng-src="public/img/profile_pic/{{ ::explorerCtrl.component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+       </div>
+      </div>
+     </div>
+     <div ng-show="explorerCtrl.editDescriptionMode.visible"
+          class="gb-form-content row">
+      <form>
+       <md-input-container class="md-block">
+        <input ng-model="explorerCtrl.editDescriptionMode.data.title" name="title" required
+               placeholder="Title"
+               class="">
+       </md-input-container>
+       <md-input-container class="md-block">
+        <textarea ng-model="explorerCtrl.editDescriptionMode.data.description" name="description"
+                  placeholder="Description" rows="4"
+                  class="form-control gb-md">
+        </textarea>
+       </md-input-container>
+      </form>
+     </div>
+     <div class="gb-box-footer row">
+      <div class="row" ng-show="explorerCtrl.editDescriptionMode.visible">
+       <div class="btn-group pull-right">
+        <md-button type="button" class="" ng-click="explorerCtrl.editDescriptionMode.hide()">
+         Cancel
+        </md-button>
+        <md-button ng-click="explorerCtrl.editDescriptionMode.edit()"
+                   type="button" class="gb-color-primary">
+         Done
+        </md-button>
+       </div>
+      </div>
+      <div class="row" ng-hide="explorerCtrl.editDescriptionMode.visible">
+       <md-button  ng-click="explorerCtrl.editDescriptionMode.show()" class="gb-color-primary">
+        EDIT
+       </md-button>
+       <md-button data-ui-sref="apps.explorerItem.explore({explorerId: explorer.id})" class="pull-right gb-color-primary">
+        <i class="fa fa-star-o"></i>
+       </md-button>
+      </div>
+     </div>
+    </div>
+   </li>
+   <li ng-if="false" class="drag-item">
+    <div class="gb-card-3 gb-shadow-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa fa-list"></i>
+       Activity
+      </h3>
+     </div>
+     <div class="gb-box-content">
+
+      <div ng-if="true" class="gb-summary-bar row">
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <i class="gb-icon fa fa-list-ol"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::explorerCtrl.component.stats.subexplorers_count}}
+        </p>
+       </div>
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+        <i class="gb-icon fa icon-gb-apply"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::explorerCtrl.component.stats.applications_count}}
+        </p>
+       </div>
+       <div class="gb-stat col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <i class="gb-icon fa icon-users"></i>
+        <p class="gb-number gb-ellipsis">
+         {{::explorerCtrl.component.stats.contributions_count}}
+        </p>
+       </div>
+      </div>
+      <div class="gb-description row">
+       <p class="gb-ellipsis">
+        <span ng-if="explorer.template_type_id === 100001">
+         Template For - </span>
+        {{explorer.app_type.title}} - {{::explorer.level.title}}
+       </p>
+      </div>
+     </div>
+    </div>
+   </li>
+   <li class="drag-item" ng-if="explorerCtrl.component.parent_explorers.length > 0">
+    <div class="gb-card-3 gb-shadow-3">
+     <div class="gb-big-title">
+      <h3 class="gb-title gb-ellipsis">
+       <i class="fa icon-gb-explorer"></i>
+       Parent Entry
+      </h3>
+     </div>
+     <div class="gb-box-content">
+      <div class="row">
+       <div ng-repeat="applicationExplorer in explorerCtrl.component.parent_explorers track by $index"
+            gb-explorer-box explorer="applicationExplorer"
+            template-url="public/modules/explorer/views/templates/sub-explorer/parent-explorer-box.tpl.html"
+            class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin">
+       </div>
+      </div>
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     BACKGROUND
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.background({explorerId: explorerCtrl.explorerId})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Add Section">
+    </md-input-container>
+   </form>
+   <li ng-repeat="(key, component) in explorerCtrl.component.motive track by $index"
+       class="drag-item">
+    <div gb-component-box component="component"
+         open-component="explorerCtrl.openComponent(component.id)"
+         class="">
+    </div>
+   </li>
+  </ul>
+ </li>
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     RELATED TOPICS
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: componentBucket.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     <md-button ng-click="explorerCtrl.openAddComponentModal()" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        ADD
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(componentBucket)">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="componentBucket.newComponentData.title" type="text" placeholder='+ Add to "{{componentBucket.component.title}}"'>
+    </md-input-container>
+    <div class="gb-footer row">
+     <div class="btn-group">
+      <md-button aria-label="">
+       <i class="fa fa-user"></i>
+      </md-button>
+     </div>
+     <div class="pull-right btn-group">
+      <md-button class="text-danger" aria-label="cancel">
+       <i class="fa fa-times"></i>
+      </md-button>
+      <md-button ng-click="explorerCtrl.createComponent(componentBucket)"
+                 class="text-success" aria-label="submit">
+       <i class="fa fa-check"></i>
+      </md-button>
+     </div>
+    </div>
+   </form>
+   <li class="drag-item"
+       ng-repeat="(key, component) in explorerCtrl.component.apps track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="explorerCtrl.openComponent(component.id)">
+    </div>
+   </li>
+  </ul>
+ </li>
+
+ <li class="drag-column">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     CONTRIBUTION
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button ui-sref="apps.explorerItem.contribution" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Request Contributors">
+    </md-input-container>
+   </form>
+   <li class="drag-item" ng-repeat="contribution in explorerCtrl.component.contributions">
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title row">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+         {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
+        </a>
+       </h3>
+      </div>
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        {{contribution.level.title}} - {{contribution.status.title}}
+       </p>
+      </div>
+      <div class="gb-description row">
+      </div>
+     </div>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           src="public/img/profile_pic/{{contribution.contributor.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
+    </div>
+   </li>
+  </ul>
+ </li>
+
+ <li class="drag-column"
+     ng-repeat="(key, component) in explorerCtrl.component.components track by $index"
+     ng-init="component.newComponentData = explorerCtrl.getDefaultComponentData(componentBucket.component_id)">
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     {{component.title}}
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: componentBucket.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     <md-button ng-click="explorerCtrl.openAddComponentModal()" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        ADD
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <ul class="drag-inner-list">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(componentBucket)">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="componentBucket.newComponentData.title" type="text" placeholder='+ Add to "{{componentBucket.component.title}}"'>
+    </md-input-container>
+    <div class="gb-footer row">
+     <div class="btn-group">
+      <md-button aria-label="">
+       <i class="fa fa-user"></i>
+      </md-button>
+     </div>
+     <div class="pull-right btn-group">
+      <md-button class="text-danger" aria-label="cancel">
+       <i class="fa fa-times"></i>
+      </md-button>
+      <md-button ng-click="explorerCtrl.createComponent(componentBucket)"
+                 class="text-success" aria-label="submit">
+       <i class="fa fa-check"></i>
+      </md-button>
+     </div>
+    </div>
+   </form>
+   <li class="drag-item" ng-repeat="component in component.components track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="explorerCtrl.openComponent(component.id)">
+    </div>
+   </li>
+  </ul>
+ </li>
+
+ <li class="drag-column gb-column-placeholder">
+  <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(explorerCtrl.componentBuckets)">
+   <md-input-container class="md-block" md-no-float>
+    <input ng-model="explorerCtrl.componentBuckets.newComponentData.title" type="text" placeholder="+ Add a New Column">
+   </md-input-container>
+  </form>
+ </li>
+</ul>
+<!--
+<div class="" ng-include="'public/modules/explorer/views/components/objective/explorer-objectives.html'"></div>
+<div class="" ng-include="'public/modules/explorer/views/components/plan/explorer-plans.html'"></div>
+<div class="" ng-include="'public/modules/explorer/views/components/todo/explorer-todos.html'"></div>
+-->

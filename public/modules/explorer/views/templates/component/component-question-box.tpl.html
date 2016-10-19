@@ -1,4 +1,4 @@
-<div class="gb-card-question-sm gb-app-type-{{::explorer.first_explorer.app_type.id}}">
+<div class="gb-card-question-sm gb-app-type-{{::explorer.first_explorer.type_id}}">
  <div class="gb-menu">
   <div class="gb-action-dropdown btn-group">
    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
@@ -32,9 +32,9 @@
     </small>
    </div>
   </h4>
-  <form class="gb-answer-form" ng-submit="explorerCtrl.createExplorerComponent()">
+  <form class="gb-answer-form" ng-submit="explorerCtrl.createComponent()">
    <md-input-container class="md-block" md-no-float>
-    <input ng-model="explorerCtrl.newExplorerComponentData.title" type="text" placeholder="Your Answer">
+    <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="Your Answer">
    </md-input-container>
   </form>
  </div>

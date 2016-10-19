@@ -125,7 +125,7 @@ ul {
 }
 
 .drag-column {
- width:300px;
+ width:270px;
  display: -moz-inline-stack;
  display: inline-block;
  vertical-align: top;
@@ -145,7 +145,7 @@ ul {
 	}
 
  .gb-add-bucket-btn {
-  height: 300px;
+  height: 270px;
   position: relative;
   background-color: #F9F9F9;
   border-radius: 2px;
@@ -2766,7 +2766,7 @@ input.gb-form-show{
  overflow: hidden;
  position: relative;
  //@include position(absolute, 0 0 0 25px);
- height: 210px;
+ height: 220px;
  width: 100%;
  background-color: #FFF;
  border-radius: 2px;
@@ -2775,11 +2775,7 @@ input.gb-form-show{
  white-space: normal;
  @include shadow(1);
  &:hover, &:focus {
-  @include shadow(3);
-  transform:translateY(-4px);
- }
- &:active {
-  @include shadow(1);
+  @include shadow(2);
   transform:translateY(-2px);
  }
  .gb-image {
@@ -2792,11 +2788,21 @@ input.gb-form-show{
    min-height: 110px;
   }
 
+  @mixin card-border {
+   @for $i from 1 through length($apps-colors){
+    &.gb-app-type-#{$i}
+    {
+     border-bottom: nth($apps-colors, $i) solid 2px;
+    }
+   }
+  }
+
+  @include card-border;
+
  }
  .gb-box-content {
   // @include position(absolute, 200px 0 0 0);
-  height: 80px;
-  padding: 8px 6px 5px 6px;
+  padding: 14px 6px 14px 6px;
 
   .gb-title {
    //color: #888;
@@ -2805,14 +2811,14 @@ input.gb-form-show{
     font-size: 12px;
     font-weight: 400;
     //line-height: 32px;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
    }
   }
 
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    //margin-bottom: 0px;
-   font-size: 11px;
+   font-size: 12px;
    p {
     text-transform: uppercase;
     color: #777;
@@ -2848,26 +2854,27 @@ input.gb-form-show{
  }
 
  .gb-name-badge-1 {
-  margin-bottom: 2px;
+  margin-bottom: 8px;
   position: relative;
   //float: right;
   height: 20px;
   padding-left: 20px;
   font-size: 9px;
   .gb-name {
-   padding-top: 1px;
-   padding-left: 0px;
+   padding-top: 2px;
+   padding-left: 5px;
   }
   .gb-image {
    @include position(absolute, 0 null 0 0);
+   border: none;
    right: auto;
-   height: 16px;
-   width: 16px;
+   height: 20px;
+   width: 20px;
    img {
     border-radius: 50%;
-    min-height: 16px;
-    height: 16px;
-    width: 16px;
+    min-height: 20px;
+    height: 20px;
+    width: 20px;
    }
   }
  }
@@ -2922,9 +2929,9 @@ input.gb-form-show{
  display:block;
  transition:all 250ms;
  @include shadow(1);
- &:hover,&:focus {
-  @include shadow(3);
-  transform:translateY(-3px);
+ &:hover {
+  @include shadow(2);
+  transform:translateY(-2px);
  }
  .gb-image {
   //@include position(absolute, 0 0 null 0);
@@ -3715,7 +3722,7 @@ input.gb-form-show{
   padding: 10px 0 0 0;
  }
 
- &.gb-app-type-1 {
+ &.gb-app-type-1 { 
   .gb-indicator {
    //background-color: $color-skill;
   }
