@@ -293,9 +293,12 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('components/{componentId}/listformat/{listFormat}', 'Component\ComponentController@getComponent');
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
 
+ Route::post('component/create', 'Component\ComponentController@createComponent');
  Route::post('component/editstatus', 'Component\ComponentController@editComponentStatus');
  Route::post('component/{componentId}/edit/description', 'Component\ComponentController@editComponentDescription');
  Route::post('component/{componentId}/edit/background', 'Component\ComponentController@editComponentBackground');
+
+
  Route::get('component/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
 
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');

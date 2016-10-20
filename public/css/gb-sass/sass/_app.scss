@@ -119,7 +119,7 @@ ul {
 .drag-list {
  height: 100%;
  white-space: nowrap;
-
+ -webkit-overflow-scrolling: touch;
 	@media (max-width: 690px) {
 	}
 }
@@ -136,7 +136,7 @@ ul {
 	margin: 0 10px;
 	position: relative;
 	overflow: hidden;
-
+ -webkit-overflow-scrolling: touch;
 	h2 {
 		font-size: 14px;
 		margin: 0;
@@ -2773,10 +2773,14 @@ input.gb-form-show{
  display:block;
  transition:all 250ms;
  white-space: normal;
+ color: #222222;
+
  @include shadow(1);
  &:hover, &:focus {
   @include shadow(2);
   transform:translateY(-2px);
+  color: #222222;
+  text-decoration: none;
  }
  .gb-image {
   //@include position(absolute, 0 0 null 0);
@@ -2805,7 +2809,6 @@ input.gb-form-show{
   padding: 14px 6px 14px 6px;
 
   .gb-title {
-   //color: #888;
    //font-size:18px;
    h3 {
     font-size: 12px;
@@ -3722,7 +3725,7 @@ input.gb-form-show{
   padding: 10px 0 0 0;
  }
 
- &.gb-app-type-1 { 
+ &.gb-app-type-1 {
   .gb-indicator {
    //background-color: $color-skill;
   }

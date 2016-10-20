@@ -231,7 +231,7 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: componentBucket.component_id})"
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: component.component_id})"
                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
@@ -257,9 +257,9 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(componentBucket)">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="componentBucket.newComponentData.title" type="text" placeholder='+ Add to "{{componentBucket.component.title}}"'>
+     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add to "{{component.component.title}}"'>
     </md-input-container>
     <div class="gb-footer row">
      <div class="btn-group">
@@ -271,7 +271,7 @@
       <md-button class="text-danger" aria-label="cancel">
        <i class="fa fa-times"></i>
       </md-button>
-      <md-button ng-click="explorerCtrl.createComponent(componentBucket)"
+      <md-button ng-click="explorerCtrl.createComponent(component)"
                  class="text-success" aria-label="submit">
        <i class="fa fa-check"></i>
       </md-button>
@@ -355,7 +355,7 @@
 
  <li class="drag-column"
      ng-repeat="(key, component) in explorerCtrl.component.components track by $index"
-     ng-init="component.newComponentData = explorerCtrl.getDefaultComponentData(componentBucket.component_id)">
+     ng-init="component.newComponentData = explorerCtrl.getDefaultComponentData()">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
@@ -372,7 +372,7 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: componentBucket.component_id})"
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: explorerCtrl.explorerId, componentId: component.component_id})"
                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
@@ -398,9 +398,9 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(componentBucket)">
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="componentBucket.newComponentData.title" type="text" placeholder='+ Add to "{{componentBucket.component.title}}"'>
+     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add to "{{component.component.title}}"'>
     </md-input-container>
     <div class="gb-footer row">
      <div class="btn-group">
@@ -412,7 +412,7 @@
       <md-button class="text-danger" aria-label="cancel">
        <i class="fa fa-times"></i>
       </md-button>
-      <md-button ng-click="explorerCtrl.createComponent(componentBucket)"
+      <md-button ng-click="explorerCtrl.createComponent(component)"
                  class="text-success" aria-label="submit">
        <i class="fa fa-check"></i>
       </md-button>
@@ -429,15 +429,10 @@
  </li>
 
  <li class="drag-column gb-column-placeholder">
-  <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(explorerCtrl.componentBuckets)">
+  <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(explorerCtrl.component)">
    <md-input-container class="md-block" md-no-float>
-    <input ng-model="explorerCtrl.componentBuckets.newComponentData.title" type="text" placeholder="+ Add a New Column">
+    <input ng-model="explorerCtrl.component.newComponentData.title" type="text" placeholder="+ Add a New Column">
    </md-input-container>
   </form>
  </li>
 </ul>
-<!--
-<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/objective/explorer-objectives.html'"></div>
-<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/plan/explorer-plans.html'"></div>
-<div class="" ng-include="'public/build/scripts/modules/explorer/views/components/todo/explorer-todos.html'"></div>
--->

@@ -73,7 +73,7 @@ var componentsSrv = function ($http, $q) {
   var deferred = $q.defer();
   $http({
    method: 'POST',
-   url: '/api/explorer/' + componentData.explorerId + '/components/create',
+   url: '/api/component/create',
    data: componentData
   }).success(function (data) {
    self.deferredHandler(data, deferred);

@@ -1,4 +1,5 @@
-<div class="gb-card-1">
+<a class="gb-card-1"
+   data-ui-sref="apps.component.explore({componentId: component.id})">
  <div class="gb-image gb-app-type-{{::component.type_id}}">
   <img data-ui-sref="apps.component.overview({explorerId: component.id})"
        ng-src="public/build/img/explorer/{{ ::component.component_picture_url}}"
@@ -7,9 +8,7 @@
  <div class="gb-box-content">
   <div class="gb-title row">
    <h3 class="gb-ellipsis">
-    <a data-ui-sref="apps.component.explore({componentId: component.id})">
-     {{::component.title}}
-    </a>
+    {{::component.title}}
    </h3>
   </div>
   <div class="gb-name-badge-1 row">
@@ -18,11 +17,10 @@
          ng-src="public/build/img/profile_pic/{{ ::component.creator.avatar_url}}"
          class="gb-heading-pic" alt="">
    </div>
-   <a class="gb-name gb-ellipsis"
-      data-ui-sref="apps.profile.overview({profileId: component.creator_id})">
+   <p class="gb-name gb-ellipsis">
     {{ ::component.creator.firstname}}
     {{ ::component.creator.lastname}}
-   </a>
+   </p>
   </div>
   <div class="gb-subdescription row">
    <p class="">
@@ -35,4 +33,4 @@
    </p>
   </div>
  </div>
-</div>
+</a>

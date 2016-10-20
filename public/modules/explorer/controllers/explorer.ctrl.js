@@ -27,8 +27,8 @@ var explorerCtrl = function (
  //Component
  vm.component = [];
  vm.defaultComponentData = {
-  componentId: vm.componentId,
-  typeId: level_categories.component.none,
+  parentComponentId: null,
+  typeId: level_categories.component.note,
   title: "",
   description: "",
   privacy: 0
@@ -79,23 +79,10 @@ var explorerCtrl = function (
  };
 
 
- vm.getDefaultComponentData = function (parentComponentId) {
+ vm.getDefaultComponentData = function () {
   var result = angular.copy(vm.defaultComponentData);
-  if (parentComponentId) {
-   result.parentComponentId = parentComponentId;
-  }
+  //result.parentComponentId = parentComponentId;
   return result;
- };
-
-
- vm.createComponent = function (data) {
-  vm.componentsSrv.createComponent(data).then(function (response) {
-   vm.FormDisplay = false;
-   vm.newComponentData = angular.copy(vm.defaultComponentData);
-   vm.componentCopy = angular.copy(vm.componentsSrv.component);
-  }, function (response) {
-   console.log(response);
-  });
  };
 
  vm.editComponentSections = {
@@ -115,23 +102,21 @@ var explorerCtrl = function (
  vm.getComponent = function (componentId, listFormat) {
   vm.componentsSrv.getComponent(componentId, listFormat).then(function (response) {
    vm.component = response;
+   vm.component.newComponentData = vm.getDefaultComponentData(componentId);
    $css.bind({
     href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + response.type.title + '.css'
    }, $scope);
   });
  };
 
- vm.createComponent = function (componentBucket) {
-  vm.componentsSrv.createComponent(componentBucket.newComponentData).then(function (response) {
-
-   if (componentBucket.newComponentData.parentComponentId) {
-    componentBucket.components.push(response);
-    componentBucket.newComponentData = vm.getDefaultComponentData(componentBucket.newComponentData.parentComponentId);
-   } else {
-    componentBucket.components.push(response);
-    componentBucket.newComponentData = vm.getDefaultComponentData();
+ vm.createComponent = function (component) {
+  component.newComponentData.parentComponentId = component.id;
+  vm.componentsSrv.createComponent(component.newComponentData).then(function (response) {
+   if (!component.components) {
+    component.components = [];
    }
-
+   component.components.push(response);
+   component.newComponentData = vm.getDefaultComponentData();
   }, function (response) {
    console.log(response);
   });

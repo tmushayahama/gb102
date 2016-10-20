@@ -33,6 +33,11 @@ class ComponentController extends Controller {
   return '';
  }
 
+ public function createComponent() {
+  $component = Component::createComponent();
+  return \Response::json($component);
+ }
+
  public function editComponentDescription($componentId) {
   $description = Component::editComponentDescription($componentId);
   return \Response::json($description);

@@ -51,12 +51,17 @@ class Level extends Model {
          'explorer' => 300000,
          'notes' => 300001,
      ),
+     'template_types' => array(
+         'basic' => 7001,
+         'template' => 7002
+     ),
      'privacy' => array(
          'private' => 10001,
          'public' => 10002,
          'customize' => 10003,
      ),
-     "component_type" => 11000,
+     'template_type' => 7000,
+     'component_type' => 11000,
      'component_background_colors' => 13000,
      'default_component_background_color' => 13001,
      "component_motive" => 14000,
