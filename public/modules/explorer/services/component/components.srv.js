@@ -43,6 +43,17 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ComponentsSrv.prototype.getUserComponents = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/components/user/' + userId).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  ComponentsSrv.prototype.getComponent = function (componentId, listFormat) {
   var self = this;
   var deferred = $q.defer();

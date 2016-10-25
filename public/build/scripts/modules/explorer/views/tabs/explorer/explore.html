@@ -4,7 +4,6 @@
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
-     <i class="fa fa-list"></i>
      Overview
     </h2>
    </div>
@@ -53,7 +52,7 @@
         {{explorerCtrl.component.type.title}}
        </p>
       </div>
-      <div ng-if="false" class="gb-name-badge-1 row">
+      <div class="gb-name-badge-1 row">
        <a class="gb-name gb-ellipsis"
           data-ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator_id})">
         <i>by:</i>
@@ -200,11 +199,6 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
-    <md-input-container class="md-block" md-no-float>
-     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Add Section">
-    </md-input-container>
-   </form>
    <li ng-repeat="(key, component) in explorerCtrl.component.motive track by $index"
        class="drag-item">
     <div gb-component-box component="component"
@@ -212,6 +206,11 @@
          class="">
     </div>
    </li>
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Add Section">
+    </md-input-container>
+   </form>
   </ul>
  </li>
  <li class="drag-column">
@@ -257,9 +256,16 @@
    </div>
   </div>
   <ul class="drag-inner-list">
+   <li class="drag-item"
+       ng-repeat="(key, component) in explorerCtrl.component.apps track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="explorerCtrl.openComponent(component.id)">
+    </div>
+   </li>
    <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add to "{{component.component.title}}"'>
+     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add Related Topic'>
     </md-input-container>
     <div class="gb-footer row">
      <div class="btn-group">
@@ -278,16 +284,8 @@
      </div>
     </div>
    </form>
-   <li class="drag-item"
-       ng-repeat="(key, component) in explorerCtrl.component.apps track by $index">
-    <div gb-component-box
-         component="component"
-         open-component="explorerCtrl.openComponent(component.id)">
-    </div>
-   </li>
   </ul>
  </li>
-
  <li class="drag-column">
   <div class="drag-column-header">
    <div class="gb-title">
@@ -320,11 +318,31 @@
    </div>
   </div>
   <ul class="drag-inner-list">
-   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
-    <md-input-container class="md-block" md-no-float>
-     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Request Contributors">
-    </md-input-container>
-   </form>
+   <li class="drag-item">
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title row">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator_id})">
+         {{explorerCtrl.component.creator.firstname + ' ' + explorerCtrl.component.creator.lastname}}
+        </a>
+       </h3>
+      </div>
+      <div class="gb-subdescription row">
+       <p class="gb-ellipsis">
+        creator
+       </p>
+      </div>
+      <div class="gb-description row">
+      </div>
+     </div>
+     <div class="gb-image">
+      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           src="public/build/img/profile_pic/{{explorerCtrl.component.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
+    </div>
+   </li>
    <li class="drag-item" ng-repeat="contribution in explorerCtrl.component.contributions">
     <div class="gb-card-profile">
      <div class="gb-box-content">
@@ -350,6 +368,11 @@
      </div>
     </div>
    </li>
+   <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent()">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="explorerCtrl.newComponentData.title" type="text" placeholder="+ Request Contributors">
+    </md-input-container>
+   </form>
   </ul>
  </li>
 
@@ -398,9 +421,17 @@
    </div>
   </div>
   <ul class="drag-inner-list">
+   <li class="drag-item" ng-repeat="component in component.components track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="explorerCtrl.openComponent(component.id)">
+    </div>
+   </li>
    <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
     <md-input-container class="md-block" md-no-float>
-     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add to "{{component.component.title}}"'>
+     <input ng-model="component.newComponentData.title" type="text"
+            required
+            placeholder='+ Add to "{{component.title}}"'>
     </md-input-container>
     <div class="gb-footer row">
      <div class="btn-group">
@@ -419,12 +450,6 @@
      </div>
     </div>
    </form>
-   <li class="drag-item" ng-repeat="component in component.components track by $index">
-    <div gb-component-box
-         component="component"
-         open-component="explorerCtrl.openComponent(component.id)">
-    </div>
-   </li>
   </ul>
  </li>
 

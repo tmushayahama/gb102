@@ -219,8 +219,8 @@ ul {
  }
 }
 
-.drag-inner-list { 
- padding-bottom: 200px;
+.drag-inner-list {
+ padding-bottom: 100px;
 	min-height: 50px;
  max-height: 100%;
  overflow-y: auto;
@@ -320,6 +320,11 @@ ul {
 		color: white;
 		text-decoration: none;
 		font-weight: 300;
+  &:focus,
+   &:hover {
+   outline: none;
+   border: none;
+  }
 	}
 
 	h4 {
@@ -780,20 +785,20 @@ input[type="checkbox"] {
 
  .gb-heading-icon {
   @include position(absolute, 0 null 0 0);
-  padding-left: 3px;
+  padding-left: 10px;
   width: 30px;
   display: block;
   color: #AAA;
   font-size: 20px;
-  line-height: 38px;
+  line-height: 35px;
   //border-radius: 5px;
  }
 
  .gb-title {
-  padding: 6px 0 0 35px;
-  margin-right: 5px;
-  font-size: 18px;
-  color: #777;
+  @include position(absolute, 0 100px 0 30px);
+  padding: 6px 0 0 5px;
+  font-size: 16px;
+  color: #444;
   text-transform: uppercase;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
@@ -804,17 +809,17 @@ input[type="checkbox"] {
    font-size: 15px;
   }
  }
- .gb-filter-btn {
-  color: #656565;
-  margin-top: 5px;
-  border: none;
-  border-bottom: rgba($primary-color, 0.4) solid 1px;
- }
- .gb-action.md-button {
-  height: 35px;
-  min-width: 40px;
-  max-width: 150px;
-  margin: 0;
+ .gb-action {
+  @include position(absolute, 0 0 0 null);
+  width: 100px;
+  .md-button {
+   font-size: 10px;
+   float: left;
+   height: 35px;
+   line-height: 35px;
+   width: 50px;
+   margin: 0;
+  }
  }
 }
 .gb-body-row {
@@ -838,7 +843,7 @@ input[type="checkbox"] {
 
 .gb-body-row-1 {
  // margin: 20px 0;
- border-bottom: #CCC solid 1px;
+ //border-bottom: #CCC solid 1px;
  @include respond-to (gb-sm) {
   padding-left: 0px;
   padding-right: 0px;
@@ -847,6 +852,9 @@ input[type="checkbox"] {
 
 .gb-horizontal-scroll {
  position:relative;
+ &.gb-apps-scroll {
+  min-height: 236px
+ }
  .gb-left-scroll,
  .gb-right-scroll {
   width: 15px;
@@ -2915,6 +2923,32 @@ input.gb-form-show{
  }
 }
 
+.gb-box-content-footer {
+ .gb-stat {
+  height: 20px;
+  font-size: 10px;
+  color: #777;
+  overflow: hidden;
+  i {
+   float: left;
+   margin-right: 5px;
+   line-height: 12px;
+  }
+  p {
+   line-height: 13px;
+  }
+ }
+}
+
+.gb-card-row {
+ padding: 0 0 10px 0;
+ margin: 10px 0;
+ position: relative;
+ background-color: #F2F2F2;
+
+ @include shadow(1);
+}
+
 .gb-card-1 {
  padding: 0 0 0 0;
  overflow: hidden;
@@ -4375,10 +4409,11 @@ input.gb-form-show{
  border-radius: 2px;
  transition:all 250ms;
  white-space: normal;
+ background-color: rgba(#FFF, 0.4);
  @include shadow(1);
  &:hover,&:focus {
   @include shadow(2);
-  transform:translateY(-3px);
+  transform:translateY(-2px);
   border: rgba($primary-color, 0.5) solid 1px;
  }
  &:active {
@@ -4955,7 +4990,7 @@ input.gb-form-show{
   }
 
   .gb-description {
-   font-size: 12px;
+   font-size: 14px;
    margin-bottom: 5px;
   }
 
@@ -4964,6 +4999,27 @@ input.gb-form-show{
    font-size: 10px;
    color: #888;
    text-transform: uppercase;
+  }
+
+  .gb-name-badge-1 {
+   position: relative;
+   //float: right;
+   padding-left: 25px;
+   font-size: 12px;
+   .gb-name {
+    padding-top: 6px;
+    padding-left: 0px;
+   }
+   .gb-image {
+    @include position(absolute, 4px auto 4px 0);
+    height: 20px;
+    width: 20px;
+    img {
+     border-radius: 50%;
+     height: 100%;
+     width: 100%;
+    }
+   }
   }
  }
 
@@ -4977,28 +5033,6 @@ input.gb-form-show{
    margin: 0;
    line-height: 40px;
    padding: 0px 14px;
-  }
-  .gb-name-badge-1 {
-   position: relative;
-   //float: right;
-   height: 100%;
-   padding-left: 25px;
-   font-size: 11px;
-   .gb-name {
-    padding-top: 6px;
-    padding-left: 0px;
-   }
-   .gb-image {
-    // @include position(absolute, 4px null 4px null);
-    right: auto;
-    height: 20px;
-    width: 20px;
-    img {
-     border-radius: 50%;
-     height: 100%;
-     width: 100%;
-    }
-   }
   }
  }
 
@@ -5059,10 +5093,26 @@ input.gb-form-show{
  height: 50px;
  width: 100%;
  white-space: normal;
+ margin: 3px 0;
+ background-color: rgba(#FFF, 0.4);
+ @include shadow(1);
+ &:hover, &:focus {
+  @include shadow(2);
+  transform:translateY(-1px);
+  background-color: rgba(#FFF, 0.7);
+  text-decoration: none;
+ }
+ @include respond-to (gb-sm) {
+  &:hover, &:focus {
+   @include shadow(2);
+   transform:translateY(0);
+   background-color: rgba(#FFF, 0.4);
+  }
+ }
  .gb-menu {
   @include position(absolute, 0 null 0 0);
   //height: auto;
-  width: 70px;
+  width: 50px;
   .gb-action-dropdown {
    float: left;
    margin:0;
@@ -5074,12 +5124,12 @@ input.gb-form-show{
   }
   .gb-step-number {
    float: left;
-   padding-top: 5px;
+   padding: 5px;
    margin:15px 2px 10px 0;
    background-color: rgba($primary-color, 0.8);
-   color: #DDD;
+   color: #EEE;
    font-size: 10px;
-   text-align: center;
+   max-width: 25px;
   }
  }
  .gb-box-content {
@@ -5087,10 +5137,14 @@ input.gb-form-show{
   padding: 10px 0px 10px 0px;
   // border-left: transparent solid 5px;
   z-index: 2;
+  &:focus {
+   outline: none;
+  }
   .gb-title {
    //color: #888;
    //font-size:18px;
-   font-size: 12px;
+   margin-bottom: 5px;
+   font-size: 14px;
    font-weight: 400;
    small {
     font-size: 12px;
@@ -5114,6 +5168,7 @@ input.gb-form-show{
     font-size: 10px;
    }
   }
+
  }
 
  .gb-goto-btn {
@@ -5220,6 +5275,22 @@ input.gb-form-show{
  height: 100px;
  width: 100%;
  white-space: normal;
+ margin: 3px 0;
+ background-color: rgba(#FFF, 0.4);
+ @include shadow(1);
+ &:hover, &:focus {
+  @include shadow(2);
+  transform:translateY(-1px);
+  background-color: rgba(#FFF, 0.7);
+  text-decoration: none;
+ }
+ @include respond-to (gb-sm) {
+  &:hover, &:focus {
+   @include shadow(2);
+   transform:translateY(0);
+   background-color: rgba(#FFF, 0.4);
+  }
+ }
  .gb-menu {
   @include position(absolute, 0 null 0 0);
   position: relative;
@@ -5236,9 +5307,8 @@ input.gb-form-show{
   }
  }
  .gb-box-content {
-  @include position(absolute, 0 30px 0 50px);
+  @include position(absolute, 0 30px 0 30px);
   //height: auto;
-  display: table-cell;
   padding: 10px 0px 10px 0px;
   // border-left: transparent solid 5px;
   z-index: 2;
@@ -5275,10 +5345,11 @@ input.gb-form-show{
    overflow: hidden;
    margin-bottom: 5px;
    md-input-container {
+    padding: 0;
     margin: 0;
    }
    input {
-    padding-left: 5px;
+    padding-left: 0;
     padding-right: 5px;
     background-color: transparent;
    }

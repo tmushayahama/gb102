@@ -61,6 +61,12 @@ class Component extends Model {
   return $components;
  }
 
+ public static function getUserComponents($userId) {
+  $component["apps"] = Component::getUserSubComponents($userId, 1);
+  $component["components"] = Component::getUserSubComponents($userId, 2, 3);
+  return $component;
+ }
+
  public static function getComponents1($componentId, $resultFormat) {
   $components = Component::orderBy('id', 'asc')
           //->where('parent_component_id', $componentId)
@@ -134,6 +140,31 @@ class Component extends Model {
   return $components;
  }
 
+ public static function getUserSubComponents($userId, $appType, $depth = 0) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('creator_id', $userId)
+          ->whereHas('type', function($q) use($appType) {
+           if ($appType == 1) {
+            $q->where('parent_level_id', 1);
+           } else if ($appType == 2) {
+            $q->where('parent_level_id', Level::$level_categories['component_type']);
+           } else if ($appType == 3) {
+            $q->where('parent_level_id', Level::$level_categories['component_motive']);
+           }
+          })
+          ->with('type')
+          ->with('creator')
+          ->with('backgroundColor')
+          ->take(20)
+          ->get();
+  if ($depth > 0) {
+   foreach ($components as $component) {
+    $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
+   }
+  }
+  return $components;
+ }
+
  public static function getComponent($componentId, $listFormat) {
   $component = Component::orderBy('id', 'asc')
           ->with('type')
@@ -155,7 +186,7 @@ class Component extends Model {
    case Level::$componentJsonFormat["columns"]:
     $components = array();
     $component["apps"] = Component::getSubComponents($component->id, 1);
-    $component["components"] = Component::getSubComponents($component->id, 2, 2);
+    $component["components"] = Component::getSubComponents($component->id, 2, 3);
 
     $componentTypes = Level::getLevel(Level::$level_categories['component_motive']);
     foreach ($componentTypes as $componentType) {

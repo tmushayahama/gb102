@@ -33,22 +33,30 @@
    </div>
   </div>
 
-  <div class="row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
+  <div class="row gb-card-row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="gb-heading-row-4 row">
       <div class="gb-heading-icon">
-       <i class="fa icon-gb-mentorships"></i>
+       <i class="fa {{::component.icon}}"></i>
       </div>
       <div class="gb-title">
        <p class="gb-ellipsis">
-        {{component.title}}
+        {{::component.title}}
        </p>
+      </div>
+      <div class="gb-action">
+       <md-button>
+        Add
+       </md-button>
+       <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
+        More
+       </md-button>
       </div>
      </div>
     </div>
    </div>
-   <div class="gb-horizontal-scroll row">
+   <div class="gb-horizontal-scroll gb-apps-scroll row">
     <div class="gb-left-scroll">
      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
       <i class="fa fa-chevron-left"></i>

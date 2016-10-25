@@ -153,6 +153,7 @@
    @include position(absolute, 0 0 null 0);
    font-weight: normal;
    height: 30px;
+   border-bottom: #BBB solid 3px;
 
    .nav-tabs {
     height: 30px;

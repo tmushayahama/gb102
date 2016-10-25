@@ -19,6 +19,11 @@ class ComponentController extends Controller {
   return \Response::json($components);
  }
 
+ public function getUserComponents($userId) {
+  $components = Component::getUserComponents($userId);
+  return \Response::json($components);
+ }
+
  public function getComponent($componentId, $listFormat = 1) {
   $component = Component::getComponent($componentId, $listFormat);
   return \Response::json($component);

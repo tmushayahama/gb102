@@ -160,13 +160,13 @@
    </li>
   </ul>
  </li>
- <li class="drag-column"
-     ng-repeat="appsExplorer in profileCtrl.appsExplorers track by $index">
+
+ <li class="drag-column">
   <div class="drag-column-header">
    <div class="gb-title">
     <h2 class="gb-title gb-ellipsis">
-     <i class="gb-icon fa icon-gb-{{::appsExplorer.title}}"></i>
-     {{appsExplorer.title}}
+     <i class="fa fa-list"></i>
+     MY APPS
     </h2>
    </div>
    <div class="gb-actions btn-group pull-right">
@@ -178,8 +178,8 @@
     </md-button>
     <ul class="dropdown-menu dropdown-menu-right">
      <li class="row">
-     <md-button class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                ng-click="">
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: profileCtrl.explorerId, componentId: component.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-icon">
        <i class="fa fa-folder-open-o"></i>
       </div>
@@ -189,32 +189,132 @@
        </p>
       </div>
      </md-button>
+     <md-button ng-click="profileCtrl.openAddComponentModal()" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        ADD
+       </p>
+      </div>
+     </md-button>
      </li>
     </ul>
    </div>
   </div>
   <ul class="drag-inner-list">
    <li class="drag-item"
-       ng-repeat="explorer in appsExplorer.explorers track by $index">
-    <div gb-explorer-box explorer="explorer"
-         template-url="{{appsCtrl.getTemplateUrl(explorer, '')}}">
+       ng-repeat="(key, component) in profileCtrl.component.apps track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="profileCtrl.openComponent(component.id)">
     </div>
    </li>
+   <form class="gb-new-item-form" ng-submit="profileCtrl.createComponent(component)">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add Related Topic'>
+    </md-input-container>
+    <div class="gb-footer row">
+     <div class="btn-group">
+      <md-button aria-label="">
+       <i class="fa fa-user"></i>
+      </md-button>
+     </div>
+     <div class="pull-right btn-group">
+      <md-button class="text-danger" aria-label="cancel">
+       <i class="fa fa-times"></i>
+      </md-button>
+      <md-button ng-click="profileCtrl.createComponent(component)"
+                 class="text-success" aria-label="submit">
+       <i class="fa fa-check"></i>
+      </md-button>
+     </div>
+    </div>
+   </form>
   </ul>
  </li>
  <li class="drag-column">
- <md-button class="gb-add-bucket-btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
-            ng-click="">
-  <div class="gb-icon">
-   <i class="fa fa-plus"></i>
+  <div class="drag-column-header">
+   <div class="gb-title">
+    <h2 class="gb-title gb-ellipsis">
+     <i class="fa fa-list"></i>
+     MY COMPONENTS
+    </h2>
+   </div>
+   <div class="gb-actions btn-group pull-right">
+    <md-button class="gb-ellipsis dropdown-toggle gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+     <div class="gb-icon">
+      <i class="fa fa-chevron-down"></i>
+     </div>
+    </md-button>
+    <ul class="dropdown-menu dropdown-menu-right">
+     <li class="row">
+     <md-button data-ui-sref="apps.explorerItem.components({explorerId: profileCtrl.explorerId, componentId: component.component_id})"
+                class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        VIEW
+       </p>
+      </div>
+     </md-button>
+     <md-button ng-click="profileCtrl.openAddComponentModal()" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-icon">
+       <i class="fa fa-folder-open-o"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        ADD
+       </p>
+      </div>
+     </md-button>
+     </li>
+    </ul>
+   </div>
   </div>
-  <div class="gb-title">
-   <p class="gb-ellipsis">
-    ADD A NEW COLUMN
-   </p>
-  </div>
- </md-button>
-</li>
+  <ul class="drag-inner-list">
+   <li class="drag-item"
+       ng-repeat="(key, component) in profileCtrl.component.components track by $index">
+    <div gb-component-box
+         component="component"
+         open-component="profileCtrl.openComponent(component.id)">
+    </div>
+   </li>
+   <form class="gb-new-item-form" ng-submit="profileCtrl.createComponent(component)">
+    <md-input-container class="md-block" md-no-float>
+     <input ng-model="component.newComponentData.title" type="text" placeholder='+ Add Related Topic'>
+    </md-input-container>
+    <div class="gb-footer row">
+     <div class="btn-group">
+      <md-button aria-label="">
+       <i class="fa fa-user"></i>
+      </md-button>
+     </div>
+     <div class="pull-right btn-group">
+      <md-button class="text-danger" aria-label="cancel">
+       <i class="fa fa-times"></i>
+      </md-button>
+      <md-button ng-click="profileCtrl.createComponent(component)"
+                 class="text-success" aria-label="submit">
+       <i class="fa fa-check"></i>
+      </md-button>
+     </div>
+    </div>
+   </form>
+  </ul>
+ </li>
+
+ <li class="drag-column gb-column-placeholder">
+  <form class="gb-new-item-form" ng-submit="profileCtrl.createComponent(profileCtrl.component)">
+   <md-input-container class="md-block" md-no-float>
+    <input ng-model="profileCtrl.component.newComponentData.title" type="text" placeholder="+ Add a New Column">
+   </md-input-container>
+  </form>
+ </li>
 </ul>
 <!--
 <div class="" ng-include="'public/modules/explorer/views/components/objective/explorer-objectives.html'"></div>

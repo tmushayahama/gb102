@@ -1592,50 +1592,50 @@
 6402	7836	11001	"Vowel, or n or s ending"	"Words ending in a vowel, or n or s, the next to last syllable is stressed."	7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 6403	7836	11001	Consonant other than n or s ending	Words ending in a consonant other than n or s stress falls on the last syllable.	7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 6404	7836	11001	Accent Mark	"If the word has an accent mark, then that syllable is stressed"	7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7343	7833	11001	Making new friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7344	7343	11001	Understand your fear is only in your head		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7345	7344	11001	Develop a healthy mental image of meeting new people.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7346	7344	11001	Do not be concerned about making a good impression		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7347	7344	11001	"Don't think too much about it, the scarier it will become"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7348	7344	11001	Don't worry about people who will judge you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7349	7343	11001	Start small		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7350	7349	11001	Start with people you are more familiar with		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7351	7349	11001	Reach out to acquaintances		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7352	7349	11001	Get to know your friends' friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7353	7349	11001	You can ask your friend to introduce you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7354	7343	11001	Accept invitations		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7355	7343	11001	Get out there		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7356	7355	11001	Join meetup.com. There are so many variety of groups. Pick what interests you.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7357	7355	11001	Join online communities and groups i.e facebook groups near you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7358	7355	11001	Go to parties you will probably meet quantity of people but not automatically quality of friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7359	7355	11001	"Attend workshops, classes, courses you will meet like-minded people"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7360	7343	11001	Initiate conversation and take the first step		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7361	7360	11001	Smile and say hello		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7362	7360	11001	Ask their name and remember it		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7363	7360	11001	Share something about yourself		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7364	7360	11001	Let them share something about themselves		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7365	7360	11001	Make eye contact		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7366	7360	11001	Allow personal space		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7367	7360	11001	Be open-minded. Don't judge or make assumptions.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7368	7360	11001	Accept people who come from totally different backgrounds as yours		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7369	7360	11001	Be vulnerable at times because most people in return will reveal their guarded personality		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7370	7360	11001	"By admitting you don't know everything, you give others an opportunity to show-case their knowledge"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7371	7360	11001	Get to know each other		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7372	7360	11001	Connect with them with unpretentious		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7373	7360	11001	Make the effort to stay in touch		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7374	7360	11001	Maintain the friendship afterwards by keeping in touch		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7375	7360	11001	Don't measure your friendship by how frequently you meet up		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7376	7360	11001	Catching up once in a while might be sufficient		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7377	7343	11001	Body Language: First Impressions	Your body language speaks before you do.	7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7378	7377	11001	Slow down		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7379	7378	11001	"Make slow, controlled gestures"		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7380	7378	11001	Keep your drink at the table		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7381	7378	11001	"Don't make rushed movements, it will seem as if you are in a hurry"		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7382	7343	11001	Smile		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7383	7382	11001	Smile when you are approaching to someone you want to talk to		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7384	7382	11001	Smile when you first start talking to someone		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7385	7382	11001	But don't fake a smile or oversmile		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7386	7382	11001	Focus your eyes on a person to helps you concentrate thus improving your listening skills		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7343	7833	11005	Making new friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7344	7343	11005	Understand your fear is only in your head		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7345	7344	11005	Develop a healthy mental image of meeting new people.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7346	7344	11005	Do not be concerned about making a good impression		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7347	7344	11005	"Don't think too much about it, the scarier it will become"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7348	7344	11005	Don't worry about people who will judge you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7349	7343	11005	Start small		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7350	7349	11005	Start with people you are more familiar with		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7351	7349	11005	Reach out to acquaintances		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7352	7349	11005	Get to know your friends' friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7353	7349	11005	You can ask your friend to introduce you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7354	7343	11005	Accept invitations		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7355	7343	11005	Get out there		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7356	7355	11005	Join meetup.com. There are so many variety of groups. Pick what interests you.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7357	7355	11005	Join online communities and groups i.e facebook groups near you		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7358	7355	11005	Go to parties you will probably meet quantity of people but not automatically quality of friends		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7359	7355	11005	"Attend workshops, classes, courses you will meet like-minded people"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7360	7343	11005	Initiate conversation and take the first step		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7361	7360	11005	Smile and say hello		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7362	7360	11005	Ask their name and remember it		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7363	7360	11005	Share something about yourself		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7364	7360	11005	Let them share something about themselves		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7365	7360	11005	Make eye contact		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7366	7360	11005	Allow personal space		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7367	7360	11005	Be open-minded. Don't judge or make assumptions.		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7368	7360	11005	Accept people who come from totally different backgrounds as yours		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7369	7360	11005	Be vulnerable at times because most people in return will reveal their guarded personality		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7370	7360	11005	"By admitting you don't know everything, you give others an opportunity to show-case their knowledge"		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7371	7360	11005	Get to know each other		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7372	7360	11005	Connect with them with unpretentious		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7373	7360	11005	Make the effort to stay in touch		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7374	7360	11005	Maintain the friendship afterwards by keeping in touch		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7375	7360	11005	Don't measure your friendship by how frequently you meet up		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7376	7360	11005	Catching up once in a while might be sufficient		7002	7	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7377	7343	11005	Body Language: First Impressions	Your body language speaks before you do.	7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7378	7377	11005	Slow down		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7379	7378	11005	"Make slow, controlled gestures"		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7380	7378	11005	Keep your drink at the table		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7381	7378	11005	"Don't make rushed movements, it will seem as if you are in a hurry"		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7382	7343	11005	Smile		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7383	7382	11005	Smile when you are approaching to someone you want to talk to		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7384	7382	11005	Smile when you first start talking to someone		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7385	7382	11005	But don't fake a smile or oversmile		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7386	7382	11005	Focus your eyes on a person to helps you concentrate thus improving your listening skills		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7387	7833	11001	Communicate confidence		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7388	7387	11001	Don't stare or have a fixed stare		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7389	7387	11001	Body Mirroring		7002	3	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
@@ -1697,14 +1697,14 @@
 8057	8051	11001	Ask for advice or recommendations.		7002	1	default.png		14-12-03 08:57:19	15-01-01 00:10:19		10002	1	0	-4.646255232
 8058	8051	11001	Ask a hypothetical question		7002	1	default.png		14-12-03 08:57:20	15-01-01 00:10:20		10002	1	0	-4.646255232
 8059	8051	11001	Ask open-ended questions.		7002	1	default.png		14-12-03 08:57:21	15-01-01 00:10:21		10002	1	0	-4.646255232
-7439	\N	11000	Notes		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7440	\N	11000	Activities		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7441	\N	11000	Guidelines		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7439	\N	11001	Notes		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7440	\N	11005	Activities		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7441	\N	11005	Guidelines		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7442	\N	11000	Todos		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7443	\N	11000	Weblinks		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7444	4745	11000	Common Verbs		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 7445	\N	11000	Diphthongs and Triphthongs		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
-7446	4	11000	Day 36		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
+7446	4	11005	Day 36		7002	2	default.png	13001	14-12-03 08:57:00	15-01-01 00:10:00		10002	1	0	
 19	16	12	The Weather	A subject when starting a conversation	7001	3	default.png		14-09-20 08:51:02	16-02-08 16:00:02	29	10001	1	0	0.409188026
 52	\N	12	Body Language	A subject when starting a conversation	7001	2	default.png		14-09-20 08:51:00	16-01-08 16:00:07	1	10001	1	0	0.409188026
 53	\N	12	Remembering names	When starting a conversation	7001	5	default.png		14-09-20 08:51:01	16-01-08 16:00:05	29	10001	1	0	0.409188026

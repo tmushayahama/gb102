@@ -179,6 +179,7 @@ var explorerCtrl = function (
    console.log(response);
   });
  };
+
  vm.editComponentContribution = function (data) {
   vm.contributionsSrv.editComponentContribution(data).then(function (response) {
    vm.contributionFormDisplay = false;

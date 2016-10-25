@@ -39,9 +39,9 @@ var profileCtrl = function (
  vm.profileSrv = new ProfileSrv();
  vm.userProfileSectionSrv = new UserProfileSectionSrv();
  vm.constantsSrv = new ConstantsSrv();
- vm.ComponentsSrv = new ComponentsSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.searchSrv = new SearchSrv();
- vm.appsExplorers = [];
+ vm.components = [];
 
  vm.getSearchSuggestions = function (val) {
   var searchData = {
@@ -80,14 +80,43 @@ var profileCtrl = function (
   });
  };
 
+ vm.openComponent = function (componentId) {
+  var modalInstance = $uibModal.open({
+   animation: true,
+   templateUrl: 'component-modal.html',
+   controller: 'ComponentCtrl as componentCtrl',
+   backdrop: 'static',
+   size: 'component-view',
+   resolve: {
+    componentId: function () {
+     return componentId;
+    },
+    appsConstants: function () {
+     return vm.appsConstants;
+    }
+   }
+  });
+
+  modalInstance.result.then(function (selectedItem) {
+   $scope.selected = selectedItem;
+  }, function () {
+   $log.info('Modal dismissed at: ' + new Date());
+  });
+ };
+
+
 
  //--------init------
  vm.profileSrv.getProfile(vm.profileId).then(function (data) {
   vm.userProfileSectionSrv.getUserProfileSection(vm.profileId);
  });
 
- vm.ComponentsSrv.getUserExplorers(vm.profileId).then(function (data) {
-  vm.appsExplorers = data;
+ vm.componentsSrv.getUserComponents(vm.profileId).then(function (data) {
+  vm.component = data;
+ });
+
+ vm.constantsSrv.getConstants().then(function (data) {
+  vm.appsConstants = data;
  });
 
 };

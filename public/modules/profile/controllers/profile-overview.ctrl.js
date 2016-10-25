@@ -12,10 +12,6 @@ var profileOverviewCtrl = function (
 
  vm.userId = $stateParams.profileId;
 
- vm.ComponentsSrv.getUserExplorersStats(vm.userId).then(function (data) {
-  vm.explorersStats = data;
- });
-
  vm.profileSrv.getUserConnections(vm.userId).then(function (data) {
   vm.connections = data;
  });
