@@ -19,7 +19,7 @@
   </div>
  </header>
  <section class="gb-explorer-row row" ng-controller='ExplorersCtrl as explorersCtrl'>
-  <div class="container">
+  <div class="container gb-padding-thin">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
      <div class="gb-heading-row gb-background-white gb-shadow-1">
@@ -36,34 +36,50 @@
      </div>
     </div>
    </div>
-   <div class="gb-horizontal-scroll row">
-    <div class="gb-left-scroll">
-     <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', -200)" aria-label="scroll left">
-      <i class="fa fa-chevron-left"></i>
-     </md-button>
-    </div>
-    <ul id="gb-featured-apps" class="gb-body-row-4 gb-inline">
-     <li ng-repeat="app in appsCtrl.apps track by $index"
-         class="gb-card-holder gb-card-md gb-padding-medium">
-      <div class="gb-card-apps gb-app-type-{{::app.id}}">
-       <i class="gb-icon fa {{::app.icon}}"></i>
-       <div class="gb-title">
-        {{::app.title}}
+   <div class="row gb-card-row">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-apply"></i>
        </div>
-       <p class="gb-description">
-        {{::app.long_description}}
-       </p>
-       <md-button class="gb-learn-more-btn"
-                  ui-sref="apps.app({'app_name': '{{::app.title}}'})">
-        Explore More
-       </md-button>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         Applications
+        </p>
+       </div>
       </div>
-     </li>
-    </ul>
-    <div class="gb-right-scroll">
-     <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', 200)" aria-label="scroll right">
-      <i class="fa fa-chevron-right"></i>
-     </md-button>
+     </div>
+    </div>
+    <div class="gb-horizontal-scroll gb-apps-scroll row">
+     <div class="gb-left-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', -200)" aria-label="scroll left">
+       <i class="fa fa-chevron-left"></i>
+      </md-button>
+     </div>
+     <ul id="gb-featured-apps" class="gb-body-row-4 gb-inline">
+      <li ng-repeat="app in appsCtrl.apps track by $index"
+          class="gb-card-holder gb-card-md gb-padding-medium">
+       <div class="gb-card-apps gb-app-type-{{::app.id}}">
+        <i class="gb-icon fa {{::app.icon}}"></i>
+        <div class="gb-title">
+         {{::app.title}}
+        </div>
+        <p class="gb-description">
+         {{::app.long_description}}
+        </p>
+        <md-button class="gb-learn-more-btn"
+                   ui-sref="apps.app({'app_name': '{{::app.title}}'})">
+         Explore More
+        </md-button>
+       </div>
+      </li>
+     </ul>
+     <div class="gb-right-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', 200)" aria-label="scroll right">
+       <i class="fa fa-chevron-right"></i>
+      </md-button>
+     </div>
     </div>
    </div>
    <div class="row">
@@ -83,7 +99,7 @@
      </div>
     </div>
    </div>
-   <div class="row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
+   <div class="row gb-card-row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
     <div class="row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="gb-heading-row-4 row">
@@ -95,10 +111,18 @@
          {{component.title}}
         </p>
        </div>
+       <div class="gb-action">
+        <md-button>
+         Add
+        </md-button>
+        <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
+         More
+        </md-button>
+       </div>
       </div>
      </div>
     </div>
-    <div class="gb-horizontal-scroll row">
+    <div class="gb-horizontal-scroll gb-apps-scroll row">
      <div class="gb-left-scroll">
       <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
        <i class="fa fa-chevron-left"></i>

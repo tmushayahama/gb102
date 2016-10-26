@@ -56,9 +56,9 @@ body {
  //@include position(fixed, 0 0 0 0);
 }
 
-#main-container {
+#main-container { 
  //@include position(absolute, 0 0 0 0);
- background-color: #ECEFF1;
+ background-color: #E7E7E7;
  //overflow-y: auto;
  //overflow-x: hidden;
  -webkit-overflow-scrolling: touch;
@@ -1086,7 +1086,7 @@ input[type="checkbox"] {
  z-index: 0;
 }
 #gb-explorer-header {
- @include position(absolute, 0px 0 null 0);
+ @include position(absolute, 0 0 null 0);
  background-color: $primary-color;
  height: 40px;
  padding: 3px 5px 3px 5px!important;
@@ -1151,7 +1151,7 @@ input[type="checkbox"] {
   }
 
   .gb-title {
-   @include position(absolute, 0 50px 0 80px);
+   @include position(absolute, 0 120px 0 80px);
    padding: 10px 0 10px 0;
    font-size: 16px;
    font-weight: normal;
@@ -1197,20 +1197,18 @@ input[type="checkbox"] {
  }
 
  .gb-action {
-  @include position(absolute, 0 3px 0 null);
-  width: 200px;
+  @include position(absolute, 0 0 0 null);
+  width: 135px;
   padding-top: 2px;
   button{
    color: lighten($primary-color, 70%);
-   margin: 0px 5px 0 5px;
+   width: 30px;
+   margin: 0;
    @include respond-to (gb-xs) {
-    margin-left: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
     font-size: 14px;
     i {
      font-size: 15px;
-     margin: 6px 3px;
+     //margin: 6px 3px;
     }
    }
   }
@@ -3052,7 +3050,7 @@ input.gb-form-show{
   padding-left: 20px;
   font-size: 9px;
   .gb-name {
-   padding-top: 2px;
+   padding-top: 4px;
    padding-left: 5px;
   }
   .gb-image {
@@ -3928,6 +3926,11 @@ input.gb-form-show{
  padding:20px 2px 5px 2px;
  text-decoration: none;
  border-bottom: transparent solid 3px;
+ @include shadow(1);
+ &:hover,&:focus {
+  @include shadow(2);
+  transform:translateY(-1px);
+ }
  /*
  -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
  -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
