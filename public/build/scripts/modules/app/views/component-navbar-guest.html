@@ -1,0 +1,34 @@
+<div class="gb-heading-row-1 gb-guest row">
+ <div class="gb-heading-logo">
+  <md-button ng-click="$root.openMenuModal('left')"
+             class="gb-menu-bars">
+   <i class="fa fa-bars"></i>
+  </md-button>
+  <md-button class="gb-logo" ui-sref="apps.explorer">
+   <i class="gb-logo-icon fa icon-gb-logo"></i>
+  </md-button>
+ </div>
+ <div class="gb-title">
+  <h1 class="gb-ellipsis">
+   <a data-ui-sref-active="active" data-ui-sref="apps.explorerItem.explore">
+    {{explorerCtrl.component.title}}
+   </a>
+  </h1>
+  <p class="gb-ellipsis">
+   <a class="gb-description"
+      ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator.id})">
+   </a>
+  </p>
+ </div>
+ <div class="gb-action">
+  <md-button type="button" ng-click="appsCtrl.openLoginModal()" class="gb-link pull-right">
+   <i class='gb-menu-icon fa fa-sign-in'></i>
+  </md-button>
+  <md-button type="button" ng-click="appsCtrl.openRegistrationModal()" class="gb-link pull-right">
+   <i class='gb-menu-icon fa fa-key'></i>
+  </md-button>
+  <md-button type="button" class="gb-link pull-right" ng-click="$root.openSearchModal()">
+   <i class="gb-menu-icon fa fa-search"></i>
+  </md-button>
+ </div>
+</div>

@@ -91,16 +91,21 @@
 }
 
 .modal-component-view {
- @include position(absolute, 20px 20px 20px 20px);
+ @include position(absolute, 10px 10px 10px 10px);
  .modal-content {
   @include position(absolute, 0 0 0 0);
  }
+
  .modal-header {
+  padding: 0;
   @include position(absolute, 0 0 null 0);
   @include linear-gradient(70deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
-
-  border-bottom: #CCC solid 1px;
+  height: 70px;
   font-weight: normal;
+ }
+
+ .gb-modal-header {
+  position: relative;
   height: 40px;
   .gb-back {
    @include position(absolute, 0 null 0 0);
@@ -145,44 +150,45 @@
   }
  }
 
- .modal-body {
-  @include position(absolute, 41px 0 46px 0);
-  padding-top: 30px;
+ .gb-modal-subheader {
+  position: relative;
+  //@include position(absolute, 41px 0 46px 0);
+  font-weight: normal;
+  height: 30px;
+  border-bottom: #BBB solid 3px;
 
-  .gb-nav-3 {
-   @include position(absolute, 0 0 null 0);
-   font-weight: normal;
+  .nav-tabs {
    height: 30px;
-   border-bottom: #BBB solid 3px;
-
-   .nav-tabs {
-    height: 30px;
-    border: none;
-    li {
-     height: 100%;
-     border-bottom: transparent solid 3px;
-     &:hover {
-      border-bottom: rgba($primary-color, 0.4) solid 3px;
-     }
-     &.active {
-      border-bottom: rgba($primary-color, 0.6) solid 3px;
-      .md-button {
-       background-color: transparent;
-      }
-     }
+   border: none;
+   li {
+    height: 100%;
+    border-bottom: transparent solid 3px;
+    &:hover {
+     border-bottom: rgba($primary-color, 0.4) solid 3px;
+    }
+    &.active {
+     border-bottom: rgba($primary-color, 0.6) solid 3px;
      .md-button {
       background-color: transparent;
-      padding: 6px 12px;
-      margin: 0;
-      height: 100%;
-      line-height: 20px;
-      font-size: 10px;
-      border-radius: 0;
-      border: none;
      }
+    }
+    .md-button {
+     background-color: transparent;
+     padding: 6px 12px;
+     margin: 0;
+     height: 100%;
+     line-height: 20px;
+     font-size: 10px;
+     border-radius: 0;
+     border: none;
     }
    }
   }
+ }
+ .modal-body {
+  @include position(absolute, 71px 0 46px 0);
+  padding-top: 30px;
+
  }
  .modal-footer {
   @include position(absolute, null 0 0 0);

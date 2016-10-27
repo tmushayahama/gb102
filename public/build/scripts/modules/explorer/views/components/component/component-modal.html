@@ -1,28 +1,27 @@
-<div class="modal-header gb-modal-header row">
- <md-button class="gb-back"
-            ng-class="{'gb-disabled-1':!componentCtrl.component.parent_component_id}"
-            ng-click="componentCtrl.getComponent(componentCtrl.component.parent_component_id, 2)">
-  <i class="fa fa-chevron-left"></i>
- </md-button>
- <div class="gb-title">
-  <p class="gb-ellipsis">
-   <i class="fa icon-gb-component"></i>
-   {{componentCtrl.component.title}}
-  </p>
+<div class="modal-header">
+ <div class="gb-modal-header row">
+  <md-button class="gb-back"
+             ng-class="{'gb-disabled-1':!componentCtrl.component.parent_component_id}"
+             ng-click="componentCtrl.getComponent(componentCtrl.component.parent_component_id, 2)">
+   <i class="fa fa-chevron-left"></i>
+  </md-button>
+  <div class="gb-title">
+   <p class="gb-ellipsis">
+    <i class="fa icon-gb-component"></i>
+    {{componentCtrl.component.title}}
+   </p>
+  </div>
+  <md-button data-ui-sref="apps.component.explore({componentId: componentCtrl.component.id})" class="gb-new-window">
+   <i class="fa fa-square-o"></i>
+  </md-button>
+  <md-button class="gb-search">
+   <i class="fa fa-search"></i>
+  </md-button>
+  <md-button class="gb-close" ng-click="componentCtrl.close()">
+   x
+  </md-button>
  </div>
- <md-button data-ui-sref="apps.component.explore({componentId: componentCtrl.component.id})" class="gb-new-window">
-  <i class="fa fa-square-o"></i>
- </md-button>
- <md-button class="gb-search">
-  <i class="fa fa-search"></i>
- </md-button>
- <md-button class="gb-close" ng-click="componentCtrl.close()">
-  x
- </md-button>
-</div>
-<div class="modal-body gb-modal-body"
-     ng-style="{'background-color':componentCtrl.component.background_color.title}">
- <div class="gb-nav-3 row">
+ <div class="gb-modal-subheader row">
   <ul class="nav nav-tabs row" role="tablist">
    <li role="presentation" class="active">
    <md-button href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
@@ -42,6 +41,9 @@
    </li>
   </ul>
  </div>
+</div>
+<div class="modal-body gb-modal-body"
+     ng-style="{'background-color':componentCtrl.component.background_color.title}">
  <div class="tab-content gb-tab-content-3">
   <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
    <section class="row">

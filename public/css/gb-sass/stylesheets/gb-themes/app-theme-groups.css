@@ -497,10 +497,10 @@ btn:focus {
 
 .modal-component-view {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
 }
 .modal-component-view .modal-content {
   position: absolute;
@@ -510,6 +510,7 @@ btn:focus {
   left: 0;
 }
 .modal-component-view .modal-header {
+  padding: 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -517,11 +518,14 @@ btn:focus {
   background-color: #EEE;
   background-image: -webkit-linear-gradient(-340deg, #EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
   background-image: linear-gradient(70deg,#EEE 0%, #DDD 50%, #EEE 51%, #FFF 100%);
-  border-bottom: #CCC solid 1px;
+  height: 70px;
   font-weight: normal;
+}
+.modal-component-view .gb-modal-header {
+  position: relative;
   height: 40px;
 }
-.modal-component-view .modal-header .gb-back {
+.modal-component-view .gb-modal-header .gb-back {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -533,7 +537,7 @@ btn:focus {
   font-size: 22px;
   color: #777;
 }
-.modal-component-view .modal-header .gb-title {
+.modal-component-view .gb-modal-header .gb-title {
   position: absolute;
   top: 0;
   right: 90px;
@@ -542,7 +546,7 @@ btn:focus {
   padding: 8px 8px 8px 0;
   font-size: 16px;
 }
-.modal-component-view .modal-header .gb-new-window {
+.modal-component-view .gb-modal-header .gb-new-window {
   position: absolute;
   top: 0;
   right: 60px;
@@ -554,7 +558,7 @@ btn:focus {
   font-size: 18px;
   color: #777;
 }
-.modal-component-view .modal-header .gb-search {
+.modal-component-view .gb-modal-header .gb-search {
   position: absolute;
   top: 0;
   right: 30px;
@@ -566,7 +570,7 @@ btn:focus {
   font-size: 18px;
   color: #777;
 }
-.modal-component-view .modal-header .gb-close {
+.modal-component-view .gb-modal-header .gb-close {
   position: absolute;
   top: 0;
   right: 0;
@@ -578,41 +582,30 @@ btn:focus {
   font-size: 22px;
   color: #777;
 }
-.modal-component-view .modal-body {
-  position: absolute;
-  top: 41px;
-  right: 0;
-  bottom: 46px;
-  left: 0;
-  padding-top: 30px;
-}
-.modal-component-view .modal-body .gb-nav-3 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+.modal-component-view .gb-modal-subheader {
+  position: relative;
   font-weight: normal;
   height: 30px;
   border-bottom: #BBB solid 3px;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs {
+.modal-component-view .gb-modal-subheader .nav-tabs {
   height: 30px;
   border: none;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs li {
+.modal-component-view .gb-modal-subheader .nav-tabs li {
   height: 100%;
   border-bottom: transparent solid 3px;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs li:hover {
+.modal-component-view .gb-modal-subheader .nav-tabs li:hover {
   border-bottom: rgba(0, 34, 119, 0.4) solid 3px;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs li.active {
+.modal-component-view .gb-modal-subheader .nav-tabs li.active {
   border-bottom: rgba(0, 34, 119, 0.6) solid 3px;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs li.active .md-button {
+.modal-component-view .gb-modal-subheader .nav-tabs li.active .md-button {
   background-color: transparent;
 }
-.modal-component-view .modal-body .gb-nav-3 .nav-tabs li .md-button {
+.modal-component-view .gb-modal-subheader .nav-tabs li .md-button {
   background-color: transparent;
   padding: 6px 12px;
   margin: 0;
@@ -621,6 +614,14 @@ btn:focus {
   font-size: 10px;
   border-radius: 0;
   border: none;
+}
+.modal-component-view .modal-body {
+  position: absolute;
+  top: 71px;
+  right: 0;
+  bottom: 46px;
+  left: 0;
+  padding-top: 30px;
 }
 .modal-component-view .modal-footer {
   position: absolute;
@@ -4664,7 +4665,7 @@ input[type="checkbox"] {
 
 .gb-heading-row-4 {
   position: relative;
-  height: 40px;
+  height: 30px;
   margin: 15px 0 5px 0;
 }
 .gb-heading-row-4 .gb-heading-icon {
@@ -6882,6 +6883,27 @@ input.gb-form-show {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.gb-card-row-2 {
+  background-color: #F2F2F2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-row-2 .gb-title {
+  padding: 16px 14px 0px 14px;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: #000;
+}
+.gb-card-row-2 .gb-description {
+  font-size: 12px;
+  margin-bottom: 16px;
+  color: #000;
+}
+.gb-card-row-2 .carousel-inner {
+  height: 250px !important;
+  overflow: hidden;
+}
+
 .gb-card-1 {
   padding: 0 0 0 0;
   overflow: hidden;
@@ -6997,7 +7019,8 @@ input.gb-form-show {
   font-size: 9px;
 }
 .gb-card-1 .gb-name-badge-1 .gb-name {
-  padding-top: 4px;
+  font-size: 12px;
+  padding-top: 0px;
   padding-left: 5px;
 }
 .gb-card-1 .gb-name-badge-1 .gb-image {

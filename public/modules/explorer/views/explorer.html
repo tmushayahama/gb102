@@ -1,4 +1,5 @@
-<div id="gb-explorer-header" ng-include="'public/modules/app/views/top-hero-bar-app-entry.html'" class="row"></div>
+<div id="gb-explorer-header" ng-if="!$root.authenticated" ng-include="'public/modules/app/views/component-navbar-guest.html'" class="row"></div>
+<div id="gb-explorer-header" ng-if="$root.authenticated" ng-include="'public/modules/app/views/component-navbar.html'" class="row"></div>
 <div id="gb-explorer-content">
  <div ui-view="content" class="drag-container gb-component-body" ng-cloak></div>
 </div>

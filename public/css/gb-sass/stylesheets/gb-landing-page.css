@@ -319,22 +319,6 @@ and open the template in the editor.
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 1;
 }
-.gb-landing-page .gb-explorer-row .gb-heading-row .gb-title {
-  padding: 16px 14px 0px 14px;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  color: #000;
-}
-.gb-landing-page .gb-explorer-row .gb-heading-row .gb-description {
-  font-size: 12px;
-  margin-bottom: 16px;
-  color: #000;
-}
-.gb-landing-page .gb-explorer-row .gb-heading-row .carousel-inner {
-  height: 250px !important;
-  overflow: hidden;
-}
 .gb-landing-page .gb-lp-timeline-row {
   padding: 0;
   background: url(../../../img/landing-page/background-2.png);
