@@ -1,4 +1,4 @@
-var addExplorerCtrl = function (
+var addComponentCtrl = function (
         constantsSrv,
         communitySrv,
         level_categories,
@@ -178,7 +178,7 @@ var addExplorerCtrl = function (
  }
 };
 
-addExplorerCtrl.$inject = [
+addComponentCtrl.$inject = [
  'constantsSrv',
  'communitySrv',
  'level_categories',
@@ -195,4 +195,4 @@ addExplorerCtrl.$inject = [
  '$log',
  'appTypes'];
 
-angular.module("app.explorer").controller('AddExplorerCtrl', addExplorerCtrl);
+angular.module("app.explorer").controller('AddComponentCtrl', addComponentCtrl);

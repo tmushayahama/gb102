@@ -23,7 +23,7 @@ define(['angular'
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
-                  'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/component/add-component-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                  ]
                 });
@@ -49,7 +49,7 @@ define(['angular'
                   'public/modules/app/services/constants.srv.js',
                   'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/explorer/controllers/explorers.ctrl.js',
-                  'public/modules/explorer/controllers/add-explorer-modal.ctrl.js',
+                  'public/modules/explorer/controllers/component/add-component-modal.ctrl.js',
                   'public/modules/explorer/controllers/create-request-explorer-modal.ctrl.js',
                   'public/modules/explorer/controllers/explorers-app.ctrl.js',
                  ]

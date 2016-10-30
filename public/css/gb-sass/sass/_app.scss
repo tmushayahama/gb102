@@ -82,7 +82,6 @@ body {
  @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
 }
 
-
 md-toolbar button.md-button.md-icon-button:first-child {
  margin-left: 0px;
  margin-right: 16px;
@@ -129,11 +128,10 @@ ul {
  display: -moz-inline-stack;
  display: inline-block;
  vertical-align: top;
- margin: 5px;
+ margin: 0 5px;
  zoom: 1;
  *display: inline;
  height: 100%;
-	margin: 0 10px;
 	position: relative;
 	overflow: hidden;
  -webkit-overflow-scrolling: touch;
@@ -471,6 +469,7 @@ md-input-container.md-input-focused .md-input {
 .md-button {
  min-height: 20px;
  min-width: 22px;
+ border-radius: 0;
  &.md-fab.md-mini.gb-xs {
   line-height: 30px;
   width: 30px;
@@ -1025,11 +1024,7 @@ input[type="checkbox"] {
 }
 .gb-cover {
  @include position(absolute, 0 0 0 0);
- background: url(../../../../img/explorer/cover-1.png);
- -webkit-background-size: auto 100%!important;
- -moz-background-size: auto 100%!important;
- -o-background-size: auto 100%!important;
- background-size: auto 100%!important;
+ background-color: rgba($primary-color, 0.5);
  padding: 5px;
  overflow: hidden;
  z-index: -1;
@@ -1085,14 +1080,14 @@ input[type="checkbox"] {
 
 .gb-cover-overlap {
  @include position(absolute, 0 0 0 0);
- background-color: rgba($primary-color, 0.9);
+ background-color: rgba($primary-color, 0.5);
  z-index: 0;
 }
 #gb-explorer-header {
  @include position(absolute, 0 0 null 0);
  background-color: $primary-color;
  height: 40px;
- padding: 3px 5px 3px 5px!important;
+ padding: 3px 0!important;
  list-style: none;
  color: #EEE;
  //background-color: rgba($primary-color, 0.6);
@@ -1114,10 +1109,10 @@ input[type="checkbox"] {
   height: 100%;
   margin: 0;
 
-  .gb-heading-logo {
-   @include position(absolute, 0 null 0 10px);
+  .gb-heading-logo { 
+   @include position(absolute, 0 null 0 5px);
    //padding: 10px 0;
-   width:80px;
+   width:60px;
    .gb-menu-bars {
     color : #EEE;
     &:hover {
@@ -1126,7 +1121,7 @@ input[type="checkbox"] {
    }
    .gb-logo {
     line-height: 22px;
-    font-size: 25px;
+    font-size: 18px;
     .gb-logo-icon {
      font-size: 18px;
      line-height: 0px;
@@ -1154,7 +1149,7 @@ input[type="checkbox"] {
   }
 
   .gb-title {
-   @include position(absolute, 0 120px 0 80px);
+   @include position(absolute, 0 120px 0 60px);
    padding: 10px 0 10px 0;
    font-size: 16px;
    font-weight: normal;
@@ -1239,7 +1234,7 @@ input[type="checkbox"] {
 
 #gb-explorer-content {
  @include position(absolute, 41px 0 0 0);
- padding: 10px;
+ padding: 8px 0;
  overflow-y: hidden;
  overflow-x: auto;
 }
@@ -2516,7 +2511,7 @@ input.gb-form-show{
   margin: 0;
   padding: 0;
   line-height: 40px;
-  font-size: 30px;
+  font-size: 20px;
  }
  .container {
   height: 100%;
@@ -2975,6 +2970,64 @@ input.gb-form-show{
  }
 }
 
+.gb-card-row-3 {
+ position: relative;
+ height: 60px;
+ background-color: #FFF;
+ @include shadow(1);
+
+ .gb-title {
+  @include position(absolute, 0 100px 0 0);
+  padding: 15px 0 15px 10px;
+  font-size: 24px;
+  color: #555;
+  text-transform: uppercase;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+
+  &.gb-small {
+   padding: 0 0 0 0;
+   font-size: 15px;
+  }
+ }
+ .gb-action {
+  @include position(absolute, 0 0 0 null);
+  padding: 10px 10px 10px 0;
+  width: 100px;
+  .md-button {
+   font-size: 14px;
+   //float: left;
+   height: 40px;
+   line-height: 42px;
+   width: 90px;
+   margin: 0;
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 50px;
+
+  .gb-title {
+   @include position(absolute, 0 80px 0 0);
+   padding: 14px 0 12px 5px;
+   font-size: 18px;
+   font-weight: bold;
+  }
+  .gb-action {
+   @include position(absolute, 0 0 0 null);
+   padding: 5px 5px 5px 0;
+   width: 80px;
+   .md-button {
+    font-size: 12px;
+    //float: left;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+   }
+  }
+ }
+}
+
 .gb-card-1 {
  padding: 0 0 0 0;
  overflow: hidden;
@@ -3044,7 +3097,7 @@ input.gb-form-show{
   }
 
   .gb-subdescription {
-   //@include position(absolute, 23px 0 50px 0);  p {
+   //@include position(absolute, 23px 0 50px 0);
    font-size: 10px;
    height: 25px;
    display: block;

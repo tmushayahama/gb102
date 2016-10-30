@@ -14,7 +14,8 @@ var explorersCtrl = function (
         $uibModal,
         $log,
         $filter,
-        $css) {
+        $css,
+        $interval) {
 
  var vm = this;
 
@@ -63,8 +64,8 @@ var explorersCtrl = function (
  $rootScope.openAddExplorerModal = function () {
   var modalInstance = $uibModal.open({
    animation: true,
-   templateUrl: 'add-explorer-modal.html',
-   controller: 'AddExplorerCtrl as addExplorerCtrl',
+   templateUrl: 'add-component-modal.html',
+   controller: 'AddComponentCtrl as addComponentCtrl',
    backdrop: 'static',
    size: 'xl',
    resolve: {
@@ -81,8 +82,8 @@ var explorersCtrl = function (
   });
 
   modalInstance.result.then(function (explorer) {
-   vm.ComponentsSrv.createExplorer(explorer).then(function (data) {
-    $state.go("apps.explorerItem.explore", {"explorerId": data.id});
+   vm.componentsSrv.createExplorer(explorer).then(function (data) {
+    $state.go("apps.componentItem.explore", {"componentId": data.id});
    });
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
@@ -90,20 +91,20 @@ var explorersCtrl = function (
  };
 
  vm.createExplorer = function (data) {
-  vm.ComponentsSrv.createExplorer(data).then(function (response) {
+  vm.componentsSrv.createExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
+   vm.explorersCopy = angular.copy(vm.componentsSrv.explorers);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editExplorer = function (data) {
-  vm.ComponentsSrv.editExplorer(data).then(function (response) {
+  vm.componentsSrv.editExplorer(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newExplorerData = angular.copy(vm.defaultExplorerData);
-   vm.explorersCopy = angular.copy(vm.ComponentsSrv.explorers);
+   vm.explorersCopy = angular.copy(vm.componentsSrv.explorers);
   }, function (response) {
    console.log(response);
   });
@@ -314,6 +315,13 @@ var explorersCtrl = function (
  }, $scope);
 
 
+ $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern};
+ $interval(function () {
+  $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern};
+ }, 5000);
+
+
+
 };
 
 explorersCtrl.$inject = [
@@ -331,6 +339,7 @@ explorersCtrl.$inject = [
  '$uibModal',
  '$log',
  '$filter',
- '$css'];
+ '$css',
+ '$interval'];
 
 angular.module("app.explorer").controller('ExplorersCtrl', explorersCtrl);

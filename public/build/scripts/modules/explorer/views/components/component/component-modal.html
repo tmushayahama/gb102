@@ -33,17 +33,48 @@
     Favorites
    </md-button>
    </li>
-   <li role="presentation" class="pull-right">
-   <md-button class=""
+   <li role="presentation" class="">
+   <md-button class="gb-settings-btn"
               href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
     <i class="fa fa-cog"></i>
    </md-button>
    </li>
+   <li role="presentation" class="">
+   <md-button ng-click="$root.openAddExplorerModal()" class="gb-settings-btn">
+    <i class="fa fa-plus"></i>
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+    <div class="btn-group pull-right">
+     <md-button class="gb-settings-btn dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-ellipsis-h"></i>
+     </md-button>
+     <ul class="dropdown-menu dropdown-menu-right">
+      <li class="row">
+      <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="gb-icon">
+        <i class="fa fa-folder-open-o"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         VIEW
+        </p>
+       </div>
+      </md-button>
+      </li>
+     </ul>
+    </div>
+   </li>
+
   </ul>
  </div>
 </div>
 <div class="modal-body gb-modal-body"
      ng-style="{'background-color':componentCtrl.component.background_color.title}">
+
+
  <div class="tab-content gb-tab-content-3">
   <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
    <section class="row">

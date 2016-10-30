@@ -12,15 +12,12 @@ var explorersAppCtrl = function (
         $uibModal,
         $log,
         $filter,
-        $css) {
+        $css,
+        $interval) {
 
  var vm = this;
 
  $rootScope.appName = $stateParams.app_name;
-
- $css.bind({
-  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + $rootScope.appName + '.css'
- }, $scope);
 
  $rootScope.subAppName = $rootScope.appName.toUpperCase();
 
@@ -52,6 +49,15 @@ var explorersAppCtrl = function (
    break;
  }
 
+ $css.bind({
+  href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-' + $rootScope.appName + '.css'
+ }, $scope);
+
+ $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern};
+ $interval(function () {
+  vm.$rootScope = {background: $rootScope.generateBackgroundPattern};
+ }, 5000);
+
 };
 
 explorersAppCtrl.$inject = [
@@ -68,6 +74,7 @@ explorersAppCtrl.$inject = [
  '$uibModal',
  '$log',
  '$filter',
- '$css'];
+ '$css',
+ '$interval'];
 
 angular.module("app.explorer").controller('ExplorersAppCtrl', explorersAppCtrl);

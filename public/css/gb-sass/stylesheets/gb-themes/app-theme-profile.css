@@ -375,9 +375,9 @@ btn:focus {
 
 .gb-menu-bars {
   float: left;
-  margin: 0 5px 0 0;
+  margin: 0 0 0 0;
   padding: 0 0 0 0;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .modal-body {
@@ -502,6 +502,15 @@ btn:focus {
   bottom: 10px;
   left: 10px;
 }
+@media (max-width: 991px) {
+  .modal-component-view {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
 .modal-component-view .modal-content {
   position: absolute;
   top: 0;
@@ -610,10 +619,14 @@ btn:focus {
   padding: 6px 12px;
   margin: 0;
   height: 100%;
-  line-height: 20px;
+  line-height: 15px;
   font-size: 10px;
   border-radius: 0;
   border: none;
+}
+.modal-component-view .gb-modal-subheader .nav-tabs li .md-button.gb-settings-btn {
+  line-height: 15px;
+  font-size: 15px;
 }
 .modal-component-view .modal-body {
   position: absolute;
@@ -621,7 +634,7 @@ btn:focus {
   right: 0;
   bottom: 46px;
   left: 0;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .modal-component-view .modal-footer {
   position: absolute;
@@ -1357,11 +1370,14 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .gb-top-nav-4 {
-  padding: 50px 5px 50px 5px !important;
+  background: url(../../../../img/explorer/cover-1.png);
+  -webkit-background-size: auto 100% !important;
+  -moz-background-size: auto 100% !important;
+  -o-background-size: auto 100% !important;
+  background-size: auto 100% !important;
   height: 200px;
   list-style: none;
   color: #EEE;
-  background-color: rgba(31, 68, 134, 0.6);
   margin: 0;
   z-index: 1;
 }
@@ -1383,16 +1399,17 @@ Copyright (c) 2014 Daniel Eden
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
+  left: 5px;
+  width: 150px;
+  height: 150px;
   display: block;
-  background-color: #FFF;
-  color: rgba(31, 68, 134, 0.6);
-  font-size: 40px;
-  line-height: 110px;
+  color: #FFF;
+  background-color: #1F4486;
+  background-image: -webkit-linear-gradient(-340deg, #1F4486 0%, rgba(255, 255, 255, 0.6) 50%, rgba(238, 238, 238, 0.3) 51%, rgba(31, 68, 134, 0.6) 100%);
+  background-image: linear-gradient(70deg,#1F4486 0%, rgba(255, 255, 255, 0.6) 50%, rgba(238, 238, 238, 0.3) 51%, rgba(31, 68, 134, 0.6) 100%);
+  font-size: 90px;
+  line-height: 160px;
   text-align: center;
-  border-radius: 50%;
 }
 .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image {
   line-height: 40px;
@@ -1402,144 +1419,23 @@ Copyright (c) 2014 Daniel Eden
   min-height: 100%;
   border-radius: 50%;
 }
-.gb-top-nav-4 .gb-heading-row-1 .gb-title {
-  position: absolute;
-  top: 0;
-  right: 150px;
-  bottom: 0;
-  left: 100px;
-  padding: 40px 0 0 10px;
-  font-size: 20px;
-  text-transform: capitalize;
-  font-weight: normal;
-  color: #FFF;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-1 {
-  padding: 15px 0 0 10px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-2 {
-  padding: 30px 0 0 10px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title h1 {
-  font-weight: normal;
-  font-size: 20px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title p {
-  line-height: 25px;
-  font-size: 12px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title p a {
-  color: #DDD;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-small {
-  padding: 0 0 0 0;
-  font-size: 15px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-filter-btn {
-  color: #656565;
-  margin-top: 5px;
-  border: none;
-  border-bottom: rgba(31, 68, 134, 0.4) solid 1px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button {
-  padding: 10px 20px;
-  height: 50px;
-  min-width: 40px;
-  line-height: 30px;
-  font-size: 20px;
-  margin: 27px 0 0 0;
-  background-color: rgba(31, 68, 134, 0.6);
-  color: #F2F2F2;
-  border: #F2F2F2 solid 1px;
-}
-.gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button:hover {
-  background-color: #1f4486;
-  color: #FFF;
-  border: #FFF solid 1px;
-}
-.gb-top-nav-4 .gb-link {
-  margin: 0 8px 0 0;
-  line-height: 40px;
-}
-.gb-top-nav-4 .gb-link .gb-icon {
-  color: #BBB;
-  font-size: 15px;
-}
-.gb-top-nav-4 .gb-link.active .gb-icon {
-  color: #FFF;
-}
-.gb-top-nav-4 .gb-title {
-  margin-right: 10px;
-  padding: 0 0 0 5px;
-  font-weight: bold;
-  line-height: 40px;
-  color: white;
-}
-.gb-top-nav-4 .gb-action {
-  margin-top: 30px;
-  padding-top: 2px;
-}
-.gb-top-nav-4 .gb-action .btn {
-  color: white;
-  margin-left: 5px;
-}
-@media (max-width: 767px) {
-  .gb-top-nav-4 .gb-action .btn {
-    margin-left: 0px;
-  }
-}
-.gb-top-nav-4 .gb-menu-icon {
-  font-size: 28px;
-}
 @media (max-width: 767px) {
   .gb-top-nav-4 {
-    padding: 10px 5px 10px 5px !important;
-    height: 60px;
+    height: 120px;
   }
   .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 42px;
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    line-height: 85px;
   }
   .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image {
-    line-height: 20px;
+    line-height: 40px;
   }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title {
-    position: absolute;
-    top: 0;
-    right: 50px;
-    bottom: 0;
-    left: 35px;
-    padding: 10px 0 0 10px;
-    font-size: 15px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-1 {
-    padding: 0 0 0 10px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-title-2 {
-    padding: 4px 0 0 10px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title h1 {
-    font-size: 12px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title p {
-    line-height: 12px;
-    font-size: 10px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-title.gb-small {
-    font-size: 10px;
-  }
-  .gb-top-nav-4 .gb-heading-row-1 .gb-action.md-button {
-    padding: 0;
-    height: 25px;
-    min-width: 25px;
-    line-height: 24px;
-    font-size: 15px;
-    margin: 5px 0 0 0;
-  }
-  .gb-top-nav-4 .gb-menu-icon {
-    font-size: 15px;
+  .gb-top-nav-4 .gb-heading-row-1 .gb-heading-icon.gb-heading-image img {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 50%;
   }
 }
 
@@ -4031,11 +3927,10 @@ ul {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: top;
-  margin: 5px;
+  margin: 0 5px;
   zoom: 1;
   *display: inline;
   height: 100%;
-  margin: 0 10px;
   position: relative;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
@@ -4362,6 +4257,7 @@ md-input-container.md-input-focused .md-input {
 .md-button {
   min-height: 20px;
   min-width: 22px;
+  border-radius: 0;
 }
 .md-button.md-fab.md-mini.gb-xs {
   line-height: 30px;
@@ -4931,11 +4827,7 @@ input[type="checkbox"] {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(../../../../img/explorer/cover-1.png);
-  -webkit-background-size: auto 100% !important;
-  -moz-background-size: auto 100% !important;
-  -o-background-size: auto 100% !important;
-  background-size: auto 100% !important;
+  background-color: rgba(31, 68, 134, 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: -1;
@@ -4999,7 +4891,7 @@ input[type="checkbox"] {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(31, 68, 134, 0.9);
+  background-color: rgba(31, 68, 134, 0.5);
   z-index: 0;
 }
 
@@ -5010,7 +4902,7 @@ input[type="checkbox"] {
   left: 0;
   background-color: #1F4486;
   height: 40px;
-  padding: 3px 5px 3px 5px !important;
+  padding: 3px 0 !important;
   list-style: none;
   color: #EEE;
   margin: 0;
@@ -5034,8 +4926,8 @@ input[type="checkbox"] {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 10px;
-  width: 80px;
+  left: 5px;
+  width: 60px;
 }
 #gb-explorer-header .gb-heading-row-1 .gb-heading-logo .gb-menu-bars {
   color: #EEE;
@@ -5045,7 +4937,7 @@ input[type="checkbox"] {
 }
 #gb-explorer-header .gb-heading-row-1 .gb-heading-logo .gb-logo {
   line-height: 22px;
-  font-size: 25px;
+  font-size: 18px;
 }
 #gb-explorer-header .gb-heading-row-1 .gb-heading-logo .gb-logo .gb-logo-icon {
   font-size: 18px;
@@ -5074,7 +4966,7 @@ input[type="checkbox"] {
   top: 0;
   right: 120px;
   bottom: 0;
-  left: 80px;
+  left: 60px;
   padding: 10px 0 10px 0;
   font-size: 16px;
   font-weight: normal;
@@ -5155,7 +5047,7 @@ input[type="checkbox"] {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 10px;
+  padding: 8px 0;
   overflow-y: hidden;
   overflow-x: auto;
 }
@@ -6464,7 +6356,7 @@ input.gb-form-show {
   margin: 0;
   padding: 0;
   line-height: 40px;
-  font-size: 30px;
+  font-size: 20px;
 }
 .gb-top-nav-1 .container {
   height: 100%;
@@ -6902,6 +6794,75 @@ input.gb-form-show {
 .gb-card-row-2 .carousel-inner {
   height: 250px !important;
   overflow: hidden;
+}
+
+.gb-card-row-3 {
+  position: relative;
+  height: 60px;
+  background-color: #FFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-row-3 .gb-title {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  bottom: 0;
+  left: 0;
+  padding: 15px 0 15px 10px;
+  font-size: 24px;
+  color: #555;
+  text-transform: uppercase;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+}
+.gb-card-row-3 .gb-title.gb-small {
+  padding: 0 0 0 0;
+  font-size: 15px;
+}
+.gb-card-row-3 .gb-action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 10px 10px 0;
+  width: 100px;
+}
+.gb-card-row-3 .gb-action .md-button {
+  font-size: 14px;
+  height: 40px;
+  line-height: 42px;
+  width: 90px;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .gb-card-row-3 {
+    height: 50px;
+  }
+  .gb-card-row-3 .gb-title {
+    position: absolute;
+    top: 0;
+    right: 80px;
+    bottom: 0;
+    left: 0;
+    padding: 14px 0 12px 5px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .gb-card-row-3 .gb-action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px 5px 5px 0;
+    width: 80px;
+  }
+  .gb-card-row-3 .gb-action .md-button {
+    font-size: 12px;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+  }
 }
 
 .gb-card-1 {

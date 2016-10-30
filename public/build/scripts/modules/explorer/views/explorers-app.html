@@ -1,6 +1,25 @@
 
 <div class="gb-app-list">
- <div ng-include="'public/build/scripts/modules/app/views/top-hero-bar.html'"></div>
+ <div class="row" ng-include="'public/build/scripts/modules/app/views/top-hero-bar.html'"></div>
+ <div class="row">
+  <div class="gb-card-row-3">
+   <div class="container gb-padding-none">
+    <div class="gb-height-100pc col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+       {{$root.appName}}
+      </p>
+     </div>
+     <div class="gb-action">
+      <md-button class="md-primary" ng-click="$root.openAddExplorerModal()">
+       Add
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
  <div class="row">
   <div class="container">
    <div class="row">
