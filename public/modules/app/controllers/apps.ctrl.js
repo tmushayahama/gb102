@@ -380,8 +380,9 @@ var appsCtrl = function (
  };
 
  //Init
- vm.constantsSrv.getLevel(level_categories.apps).then(function (data) {
-  $rootScope.apps = data;
+ vm.constantsSrv.getComponentTypes().then(function (data) {
+  $rootScope.apps = data.apps;
+  $rootScope.sections = data.sections;
  });
 };
 

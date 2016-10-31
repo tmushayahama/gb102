@@ -34,6 +34,17 @@ angular.module('app').service('ConstantsSrv',
            return deferred.promise;
           };
 
+          ConstantsSrv.prototype.getComponentTypes = function () {
+           var self = this;
+           var deferred = $q.defer();
+           $http.get('/api/constants/componenttypes').success(function (data) {
+            self.deferredHandler(data, deferred);
+           }).error(function (data) {
+            self.deferredHandler(data, deferred, 'Unknown error');
+           });
+           return deferred.promise;
+          };
+
           ConstantsSrv.prototype.getLevel = function (category) {
            var self = this;
            var deferred = $q.defer();

@@ -176,6 +176,11 @@ class Component extends Model {
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
     $components = array();
+    $componentTypes = Level::getLevel(Level::$level_categories['apps']);
+    foreach ($componentTypes as $componentType) {
+     $components[$componentType->id] = $componentType;
+     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
+    }
     $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
     foreach ($componentTypes as $componentType) {
      $components[$componentType->id] = $componentType;

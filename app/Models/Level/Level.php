@@ -110,4 +110,11 @@ class Level extends Model {
   return $config;
  }
 
+ public static function getComponentTypes() {
+  $result = array();
+  $result['apps'] = $componentTypes = Level::getLevel(Level::$level_categories['apps']);
+  $result['sections'] = $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+  return $result;
+ }
+
 }

@@ -217,7 +217,7 @@ ul {
  }
 }
 
-.drag-inner-list {  
+.drag-inner-list {
  padding-bottom: 100px;
 	min-height: 50px;
  max-height: 100%;
@@ -5286,12 +5286,12 @@ input.gb-form-show{
  width: 100%;
  white-space: normal;
  margin: 3px 0;
- background-color: rgba(#FFF, 0.4);
+ background-color: rgba(#FFF, 0.2);
  @include shadow(1);
  &:hover, &:focus {
   @include shadow(2);
   transform:translateY(-1px);
-  background-color: rgba(#FFF, 0.7);
+  background-color: rgba(#FFF, 0.5);
   text-decoration: none;
  }
  @include respond-to (gb-sm) {
@@ -5458,8 +5458,7 @@ input.gb-form-show{
   margin: 0;
  }
 
-}
-
+}    
 
 .gb-card-question-sm {
  padding: 0 0 0 0;
@@ -5468,12 +5467,12 @@ input.gb-form-show{
  width: 100%;
  white-space: normal;
  margin: 3px 0;
- background-color: rgba(#FFF, 0.4);
+ background-color: rgba(#FFF, 0.2);
  @include shadow(1);
  &:hover, &:focus {
   @include shadow(2);
   transform:translateY(-1px);
-  background-color: rgba(#FFF, 0.7);
+  background-color: rgba(#FFF, 0.5);
   text-decoration: none;
  }
  @include respond-to (gb-sm) {

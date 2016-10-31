@@ -17,6 +17,7 @@ var componentCtrl = function (
  vm.componentsSrv = new ComponentsSrv();
  vm.componentFormDisplay = false;
  vm.componentSettingsDisplay = false;
+ vm.selectedApp = $rootScope.sections[0];
  vm.defaultComponentData = {
   explorerId: vm.explorerId,
   typeId: level_categories.component.none,
@@ -41,10 +42,15 @@ var componentCtrl = function (
   $uibModalInstance.dismiss('cancel');
  };
 
+ vm.selectApp = function (app) {
+  vm.selectedApp = app;
+ };
+
  vm.createComponent = function (parentComponent) {
+  parentComponent.newComponentData.parentComponentId = parentComponent.id;
   vm.componentsSrv.createComponent(parentComponent.newComponentData).then(function (response) {
 
-   parentComponent.components.push(response);
+   parentComponent.components[vm.selectedApp.id].components.push(response);
    parentComponent.newComponentData = vm.getDefaultComponentData(parentComponent.newComponentData.parentComponentId);
   }, function (response) {
    console.log(response);

@@ -37,11 +37,6 @@
    </md-button>
    </li>
    <li role="presentation" class="">
-   <md-button ng-click="$root.openAddExplorerModal()" class="gb-settings-btn">
-    <i class="fa fa-plus"></i>
-   </md-button>
-   </li>
-   <li role="presentation" class="">
     <div class="btn-group pull-right">
      <md-button class="gb-settings-btn dropdown-toggle" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -129,7 +124,7 @@
    </section>
    <section class="row"
             ng-repeat="(type, component) in componentCtrl.component.components track by $index">
-    <ng-include ng-if="component.components.length > 1" src="'public/modules/explorer/views/components/component/component-'+type+'.html'">
+    <ng-include ng-if="component.components.length > 0" src="'public/modules/explorer/views/components/component/component-'+type+'.html'">
     </ng-include>
    </section>
   </div>
@@ -139,11 +134,56 @@
  </div>
 </div>
 <div class="modal-footer">
- <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
+ <div class="gb-toolbar-section btn-group row">
+  <div class="btn-group dropup">
+   <md-button class="dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+    <i class="fa icon-gb-components"></i>
+   </md-button>
+   <ul class="dropdown-menu dropdown-menu-left">
+    <li class="row" ng-repeat="section in $root.sections">
+    <md-button ng-click="componentCtrl.selectApp(section)" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-title pull-left">
+      <p class="gb-ellipsis">
+       {{section.title}}
+      </p>
+     </div>
+    </md-button>
+    </li>
+   </ul>
+  </div>
+  <div class="btn-group dropup">
+   <md-button class="dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+    <i class="fa icon-gb-apply"></i>
+   </md-button>
+   <ul class="dropdown-menu dropdown-menu-left">
+    <li class="row" ng-repeat="app in $root.apps">
+    <md-button ng-click="componentCtrl.selectApp(app)" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-title pull-left">
+      <p class="gb-ellipsis">
+       {{app.title}}
+      </p>
+     </div>
+    </md-button>
+    </li>
+   </ul>
+  </div>
+  <md-button>
+   <i class="fa fa-users"></i>
+  </md-button>
+  <md-button>
+   <i class="fa fa-tag"></i>
+  </md-button>
+  <p class="gb-selected-app pull-right badge">
+   {{componentCtrl.selectedApp.title}}
+  </p>
+ </div>
+ <form class="gb-new-item-form" ng-submit="componentCtrl.createComponent(componentCtrl.component)">
   <md-input-container class="md-block" md-no-float>
-   <input ng-model="component.newComponentData.title" type="text"
+   <input ng-model="componentCtrl.component.newComponentData.title" type="text"
           required
-          placeholder='+ Add to "{{component.title}}"'>
+          placeholder="Type to add a cmponent">
   </md-input-container>
  </form>
 </div>

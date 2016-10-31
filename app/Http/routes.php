@@ -274,6 +274,7 @@ Route::group(['prefix' => 'api'], function() {
 
  Route::get('constants/all', 'ConstantsController@getConstants');
  Route::get('constants/level/{parent}', 'ConstantsController@getLevel');
+ Route::get('constants/componenttypes', 'ConstantsController@getComponentTypes');
 
  //Activity
  Route::get('activity/{activityId}/activities', 'Activity\ActivityController@getSubActivities');

@@ -1,0 +1,149 @@
+<div class="gb-boxette-header">
+ <div class="gb-gb-boxette-header row">
+  <md-button class="gb-back"
+             ng-class="{'gb-disabled-1':!componentCtrl.component.parent_component_id}"
+             ng-click="componentCtrl.getComponent(componentCtrl.component.parent_component_id, 2)">
+   <i class="fa fa-chevron-left"></i>
+  </md-button>
+  <div class="gb-title">
+   <p class="gb-ellipsis">
+    <i class="fa icon-gb-component"></i>
+    {{componentCtrl.component.title}}
+   </p>
+  </div>
+  <md-button data-ui-sref="apps.component.explore({componentId: componentCtrl.component.id})" class="gb-new-window">
+   <i class="fa fa-arrows-alt"></i>
+  </md-button>
+  <md-button class="gb-close" ng-click="componentCtrl.close()">
+   x
+  </md-button>
+ </div>
+ <div class="gb-gb-boxette-subheader row">
+  <ul class="nav nav-tabs row" role="tablist">
+   <li role="presentation" class="active">
+   <md-button href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
+    Home
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+   <md-button href="#gb-component-overview" aria-controls="favorites" role="tab" data-toggle="tab">
+    Favorites
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+   <md-button class="gb-settings-btn"
+              href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
+    <i class="fa fa-cog"></i>
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+   <md-button ng-click="$root.openAddExplorerModal()" class="gb-settings-btn">
+    <i class="fa fa-plus"></i>
+   </md-button>
+   </li>
+   <li role="presentation" class="">
+    <div class="btn-group pull-right">
+     <md-button class="gb-settings-btn dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-ellipsis-h"></i>
+     </md-button>
+     <ul class="dropdown-menu dropdown-menu-right">
+      <li class="row">
+      <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                 class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <div class="gb-icon">
+        <i class="fa fa-folder-open-o"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         VIEW
+        </p>
+       </div>
+      </md-button>
+      </li>
+     </ul>
+    </div>
+   </li>
+  </ul>
+ </div>
+</div>
+<div class="gb-boxette-body gb-gb-boxette-body"
+     ng-style="{'background-color':componentCtrl.component.background_color.title}">
+ <div class="tab-content gb-tab-content-3">
+  <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
+   <section class="row">
+    <div class="gb-heading-row-3">
+     <div class="gb-title">
+      <h2 class="gb-ellipsis">
+       <i class="fa fa-list"></i>
+       DESCRIPTION
+      </h2>
+     </div>
+     <div class="gb-actions">
+      <md-button class=""
+                 ng-show="!componentCtrl.editDecriptionMode"
+                 ng-click="componentCtrl.editDecriptionMode = true">
+       <div class="gb-icon">
+        <i class="fa fa-pencil"></i>
+       </div>
+      </md-button>
+     </div>
+    </div>
+    <div class="gb-body-row-1 row">
+     <div class="gb-card-description-sm">
+      <div class="gb-box-content"
+           ng-hide="componentCtrl.editDecriptionMode">
+       <h4 class="gb-title">
+        {{componentCtrl.component.title}}
+       </h4>
+       <p class="gb-description">
+        {{componentCtrl.component.description}}
+       </p>
+      </div>
+      <form ng-show="componentCtrl.editDecriptionMode"
+            ng-submit="componentCtrl.editComponentSections.details()">
+       <md-input-container class="md-block">
+        <input ng-model="componentCtrl.component.title" name="title" required
+               placeholder="Title"
+               class="">
+       </md-input-container>
+       <md-input-container class="md-block">
+        <input ng-model="componentCtrl.component.description" name="title"
+               placeholder="Description"
+               class="">
+       </md-input-container>
+       <div class="row"
+            ng-show="componentCtrl.editDecriptionMode">
+        <div class="btn-group pull-right">
+         <md-button type="button" class="" ng-click="componentCtrl.editDecriptionMode = false">
+          Cancel
+         </md-button>
+         <md-button type="submit" class="gb-color-primary">
+          Done
+         </md-button>
+        </div>
+       </div>
+      </form>
+     </div>
+    </div>
+   </section>
+   <section class="row"
+            ng-repeat="(type, component) in componentCtrl.component.components track by $index">
+    <ng-include ng-if="component.components.length > 1" src="'public/build/scripts/modules/explorer/views/components/component/component-'+type+'.html'">
+    </ng-include>
+   </section>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="gb-component-settings">
+   <div ng-include="'public/build/scripts/modules/explorer/views/components/component/component-settings.html'"></div>
+  </div>
+ </div>
+</div>
+<div class="gb-boxette-footer">
+ <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(component)">
+  <md-input-container class="md-block" md-no-float>
+   <input ng-model="component.newComponentData.title" type="text"
+          required
+          placeholder='+ Add to "{{component.title}}"'>
+  </md-input-container>
+ </form>
+</div>

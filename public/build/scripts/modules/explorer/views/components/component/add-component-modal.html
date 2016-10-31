@@ -17,7 +17,7 @@
     </md-button>
    </div>
    <ul id="gb-select-featured-apps" class="gb-body-row-4 gb-inline">
-    <li ng-repeat="app in addComponentCtrl.appTypes track by $index"
+    <li ng-repeat="app in addComponentCtrl.apps track by $index"
         class="gb-card-holder gb-card-xs gb-padding-medium">
     <md-button ng-click="addComponentCtrl.chooseAppType(app)" class="gb-card-apps-mini gb-app-type-{{::app.id}}"
                ng-class="{'active': (addComponentCtrl.selectedAppType.id === $index + 2)}">
@@ -61,7 +61,7 @@
   </md-input-container>
   <div class="form-group row">
    <label class="gb-label control-label row">
-    {{addComponentCtrl.component.appType.title}} Level:
+    {{addComponentCtrl.component.app.title}} Level:
    </label>
    <select class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12"
            ng-model="addComponentCtrl.component.level">

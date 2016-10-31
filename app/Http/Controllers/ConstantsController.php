@@ -19,6 +19,10 @@ class ConstantsController extends Controller {
   return \Response::json(Level::getConstants());
  }
 
+ public function getComponentTypes() {
+  return \Response::json(Level::getComponentTypes());
+ }
+
  public function getLevel($category) {
   return \Response::json(Level::getLevel($category));
  }
