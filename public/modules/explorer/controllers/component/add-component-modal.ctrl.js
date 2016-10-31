@@ -3,7 +3,6 @@ var addComponentCtrl = function (
         communitySrv,
         level_categories,
         $uibModalInstance,
-        WizardHandler,
         $q,
         $timeout,
         $scope,
@@ -12,30 +11,26 @@ var addComponentCtrl = function (
         $http,
         $rootScope,
         $location,
-        $log,
-        appTypes) {
+        $log) {
  var vm = this;
- vm.wizardHandler = WizardHandler;
- vm.explorer = {};
- vm.explorerLevels;
+ vm.component = {};
+ vm.componentLevels;
  vm.requestTypes;
- vm.appTypes = appTypes;
  vm.requestTypes = [];
  vm.selectedAppType;
- vm.wizardCurrentStep = "Choose App";
 
  vm.constantsSrv = constantsSrv;
  vm.communitySrv = communitySrv;
 
  vm.getLevels = function (appId) {
   vm.constantsSrv.getLevel(appId).then(function (data) {
-   vm.explorerLevels = data;
+   vm.componentLevels = data;
   });
  };
 
  vm.getUsers = function () {
   vm.constantsSrv.getLevel().then(function (data) {
-   vm.explorerLevels = data;
+   vm.componentLevels = data;
   });
  };
 
@@ -47,7 +42,7 @@ var addComponentCtrl = function (
             {
              requestLevel: requestLevel,
              checked: false,
-             explorerRequest: {
+             componentRequest: {
               levelId: requestLevel.id,
               description: ''
              }
@@ -61,60 +56,39 @@ var addComponentCtrl = function (
  vm.getPrivacyTypes = function () {
   vm.constantsSrv.getLevel(level_categories.privacy_type).then(function (data) {
    vm.privacyTypes = data;
+   vm.component.privacy_id = level_categories.privacy.private;
   }
   );
  };
 
  vm.chooseAppType = function (appType) {
-  vm.explorer.app_type_id = appType.id;
+  vm.component.app_type_id = appType.id;
   vm.selectedAppType = appType;
   vm.getLevels(appType.id);
   vm.getRequestTypes(appType.id);
  };
 
- vm.next = function () {
-  vm.wizardHandler.wizard('explorer-form').next();
- };
-
- vm.previous = function (appType) {
-  vm.wizardHandler.wizard('explorer-form').previous();
- };
 
  vm.ok = function () {
-  vm.explorer.explorer_requests = [];
-  vm.explorer.explorer_share_with_ids = [];
-  vm.explorer.explorer_picture_url = 'default.png';
+  vm.component.component_requests = [];
+  vm.component.component_share_with_ids = [];
+  vm.component.component_picture_url = 'default.png';
 
   angular.forEach(vm.selectedRequestTypes, function (selectedRequestType) {
-   vm.explorer.explorer_requests.push(selectedRequestType.explorerRequest);
+   vm.component.component_requests.push(selectedRequestType.componentRequest);
   });
 
   angular.forEach(vm.shareWithUsers, function (shareWithUser) {
-   vm.explorer.explorer_share_with_ids.push(shareWithUser.id);
+   vm.component.component_share_with_ids.push(shareWithUser.id);
   });
 
-  $uibModalInstance.close(vm.explorer);
+  $uibModalInstance.close(vm.component);
  };
 
  vm.close = function () {
   $uibModalInstance.dismiss('cancel');
  };
 
- vm.getPrivacyTypes();
- vm.communitySrv.getUsers().then(function () {
-  vm.allContacts = vm.communitySrv.users;//loadContacts();
-  vm.contacts = [vm.allContacts[0]];
-
-  return vm.contacts.map(function (c, index) {
-   var contact = {
-    name: c.firstname + ' ' + c.lastname,
-    email: c.email,
-    image: c.avatar_url
-   };
-   contact._lowername = contact.name.toLowerCase();
-   return contact;
-  });
- });
 
 
 
@@ -176,6 +150,24 @@ var addComponentCtrl = function (
    return (lowerCaserFilterString.indexOf(lowercaseQuery) != -1);
   };
  }
+
+ //Init
+ vm.chooseAppType($rootScope.apps[0]);
+ vm.getPrivacyTypes();
+ vm.communitySrv.getUsers().then(function () {
+  vm.allContacts = vm.communitySrv.users;//loadContacts();
+  vm.contacts = [vm.allContacts[0]];
+
+  return vm.contacts.map(function (c, index) {
+   var contact = {
+    name: c.firstname + ' ' + c.lastname,
+    email: c.email,
+    image: c.avatar_url
+   };
+   contact._lowername = contact.name.toLowerCase();
+   return contact;
+  });
+ });
 };
 
 addComponentCtrl.$inject = [
@@ -183,7 +175,6 @@ addComponentCtrl.$inject = [
  'communitySrv',
  'level_categories',
  '$uibModalInstance',
- 'WizardHandler',
  '$q',
  '$timeout',
  '$scope',
@@ -192,7 +183,6 @@ addComponentCtrl.$inject = [
  '$http',
  '$rootScope',
  '$location',
- '$log',
- 'appTypes'];
+ '$log'];
 
 angular.module("app.explorer").controller('AddComponentCtrl', addComponentCtrl);

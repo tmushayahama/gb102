@@ -195,7 +195,7 @@ var appsCtrl = function (
   }
  };
 
- vm.apps = [];
+ $rootScope.apps = [];
 
  vm.myInterval = 5000;
  vm.noWrapSlides = false;
@@ -381,7 +381,7 @@ var appsCtrl = function (
 
  //Init
  vm.constantsSrv.getLevel(level_categories.apps).then(function (data) {
-  vm.apps = data;
+  $rootScope.apps = data;
  });
 };
 

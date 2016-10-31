@@ -75,8 +75,8 @@ var explorersCtrl = function (
     constantsSrv: function () {
      return vm.constantsSrv;
     },
-    appTypes: function () {
-     return vm.appTypes;
+    apps: function () {
+     return vm.apps;
     }
    }
   });

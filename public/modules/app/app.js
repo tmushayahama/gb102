@@ -150,6 +150,7 @@ define([
                 name: 'app',
                 serie: true,
                 files: [
+                 'public/modules/explorer/directives/component/component-boxette.drv.js',
                  'public/modules/app/services/constants.srv.js',
                  'public/modules/auth/services/auth.srv.js',
                  'public/modules/common/services/toast.srv.js',

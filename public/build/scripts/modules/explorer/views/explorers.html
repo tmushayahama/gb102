@@ -43,7 +43,7 @@
       </md-button>
      </div>
      <ul id="gb-featured-apps" class="gb-body-row-4 gb-inline">
-      <li ng-repeat="app in appsCtrl.apps track by $index"
+      <li ng-repeat="app in $root.apps track by $index"
           class="gb-card-holder gb-card-md gb-padding-medium">
        <div class="gb-card-apps gb-app-type-{{::app.id}}">
         <i class="gb-icon fa {{::app.icon}}"></i>
