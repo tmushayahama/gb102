@@ -5458,7 +5458,91 @@ input.gb-form-show{
   margin: 0;
  }
 
-}    
+}
+
+.gb-card-note-sm {
+ padding: 0 0 0 0;
+ position: relative;
+ height: 50px;
+ width: 100%;
+ white-space: normal;
+ margin: 3px 0;
+ background-color: rgba(#FFF, 0.2);
+ @include shadow(1);
+ &:hover, &:focus {
+  @include shadow(2);
+  transform:translateY(-1px);
+  background-color: rgba(#FFF, 0.5);
+  text-decoration: none;
+ }
+ @include respond-to (gb-sm) {
+  &:hover, &:focus {
+   @include shadow(2);
+   transform:translateY(0);
+   background-color: rgba(#FFF, 0.4);
+  }
+ }
+ .gb-menu {
+  @include position(absolute, 0 null 0 0);
+  //height: auto;
+  width: 30px;
+  .gb-action-dropdown {
+   float: left;
+   margin:0;
+   .md-button {
+    padding: 0 0px;
+    margin: 0;
+    height: 50px;
+   }
+  }
+ }
+ .gb-box-content {
+  @include position(absolute, 0 30px 0 30px);
+  padding: 10px 0px 10px 0px;
+  // border-left: transparent solid 5px;
+  z-index: 2;
+  &:focus {
+   outline: none;
+  }
+  .gb-title {
+   //color: #888;
+   //font-size:18px;
+   margin-bottom: 5px;
+   font-size: 14px;
+   font-weight: 400;
+   small {
+    font-size: 12px;
+    font-weight: normal;
+   }
+  }
+
+  .gb-subdescription {
+   margin-bottom: 3px;
+   font-size: 12px;
+   height: auto;
+   color: #888;
+  }
+
+  .gb-description {
+   height: auto;
+   font-size: 14px;
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+
+ }
+
+ .gb-goto-btn {
+  @include position(absolute, 0 0 0 null);
+  width: 30px;
+  margin: 0;
+  padding: 0 3px;
+ }
+
+}
 
 .gb-card-question-sm {
  padding: 0 0 0 0;
@@ -5497,6 +5581,7 @@ input.gb-form-show{
    }
   }
  }
+
  .gb-box-content {
   @include position(absolute, 0 30px 0 30px);
   //height: auto;
@@ -5555,9 +5640,6 @@ input.gb-form-show{
  }
 
 }
-
-
-
 
 
 

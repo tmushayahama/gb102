@@ -48,8 +48,9 @@ var componentCtrl = function (
 
  vm.createComponent = function (parentComponent) {
   parentComponent.newComponentData.parentComponentId = parentComponent.id;
-  vm.componentsSrv.createComponent(parentComponent.newComponentData).then(function (response) {
+  parentComponent.newComponentData.typeId = vm.selectedApp.id;
 
+  vm.componentsSrv.createComponent(parentComponent.newComponentData).then(function (response) {
    parentComponent.components[vm.selectedApp.id].components.push(response);
    parentComponent.newComponentData = vm.getDefaultComponentData(parentComponent.newComponentData.parentComponentId);
   }, function (response) {

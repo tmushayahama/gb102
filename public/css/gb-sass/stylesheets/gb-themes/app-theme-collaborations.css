@@ -9317,6 +9317,91 @@ input.gb-form-show {
   margin: 0;
 }
 
+.gb-card-note-sm {
+  padding: 0 0 0 0;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  white-space: normal;
+  margin: 3px 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.gb-card-note-sm:hover, .gb-card-note-sm:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+@media (max-width: 991px) {
+  .gb-card-note-sm:hover, .gb-card-note-sm:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+.gb-card-note-sm .gb-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+}
+.gb-card-note-sm .gb-menu .gb-action-dropdown {
+  float: left;
+  margin: 0;
+}
+.gb-card-note-sm .gb-menu .gb-action-dropdown .md-button {
+  padding: 0 0px;
+  margin: 0;
+  height: 50px;
+}
+.gb-card-note-sm .gb-box-content {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  bottom: 0;
+  left: 30px;
+  padding: 10px 0px 10px 0px;
+  z-index: 2;
+}
+.gb-card-note-sm .gb-box-content:focus {
+  outline: none;
+}
+.gb-card-note-sm .gb-box-content .gb-title {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.gb-card-note-sm .gb-box-content .gb-title small {
+  font-size: 12px;
+  font-weight: normal;
+}
+.gb-card-note-sm .gb-box-content .gb-subdescription {
+  margin-bottom: 3px;
+  font-size: 12px;
+  height: auto;
+  color: #888;
+}
+.gb-card-note-sm .gb-box-content .gb-description {
+  height: auto;
+  font-size: 14px;
+}
+.gb-card-note-sm .gb-box-content .gb-description .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+}
+.gb-card-note-sm .gb-goto-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  margin: 0;
+  padding: 0 3px;
+}
+
 .gb-card-question-sm {
   padding: 0 0 0 0;
   position: relative;
