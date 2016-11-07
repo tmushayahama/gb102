@@ -19,3 +19,10 @@ id	email	password	remember_token	lastname	firstname	avatar_url	gender	birthdate	
 18	carloso@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Ocasio	Carlos	gb_avatar.png	M	0000-00-00		"Cleveland, OH, United States"	0	1
 19	artw@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Wells	Art	gb_avatar.png	M	0000-00-00		"Cleveland, OH, United States"	0	1
 20	kristenw@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Wells	Kristen	gb_avatar.png	F	0000-00-00		"Cleveland, OH, United States"	0	1
+21	brittanyt@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Testing	Brittany	gb_avatar.png	F	0000-00-01		"Irvine, CA, United States"	0	1
+22	nyashan@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Nemutamnwe	Nyasha	gb_avatar.png	M	0000-00-02		"Cleveland, OH, United States"	0	1
+23	emmanuelh@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Hlupho	Emmanuel	gb_avatar.png	M	0000-00-03			0	1
+24	shingid@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Dzimwasha	Shingi	gb_avatar.png	M	0000-00-04			0	1
+25	faraim@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Mbengo	Farai	gb_avatar.png	M	0000-00-05			0	1
+26	tapiwam@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Manhango	Tapiwa	gb_avatar.png	M	0000-00-06			0	1
+27	tapiwam.1@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Mutizwa	Tapiwa	gb_avatar.png	M	0000-00-07			0	1

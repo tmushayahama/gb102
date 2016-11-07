@@ -29,6 +29,11 @@ class ComponentController extends Controller {
   return \Response::json($component);
  }
 
+ public function getRandomComponent($userId = null) {
+  $component = Component::getRandomComponent($userId);
+  return \Response::json($component);
+ }
+
  public function getComponentsByType($listFormat, $type) {
   $typeId = Level::$level_categories[$type];
   if ($typeId) {

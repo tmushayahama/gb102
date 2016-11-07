@@ -61,7 +61,7 @@ var explorersCtrl = function (
   });
  };
 
- $rootScope.openAddExplorerModal = function () {
+ $rootScope.openAddExplorerModal = function (selectedType) {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'add-component-modal.html',
@@ -77,13 +77,16 @@ var explorersCtrl = function (
     },
     apps: function () {
      return vm.apps;
+    },
+    selectedType: function () {
+     return selectedType;
     }
    }
   });
 
-  modalInstance.result.then(function (explorer) {
-   vm.componentsSrv.createExplorer(explorer).then(function (data) {
-    $state.go("apps.componentItem.explore", {"componentId": data.id});
+  modalInstance.result.then(function (component) {
+   vm.componentsSrv.createComponent(component).then(function (data) {
+    $state.go("apps.component.explore", {"componentId": data.id});
    });
   }, function () {
    $log.info('Modal dismissed at: ' + new Date());
@@ -99,6 +102,8 @@ var explorersCtrl = function (
    console.log(response);
   });
  };
+
+
 
  vm.editExplorer = function (data) {
   vm.componentsSrv.editExplorer(data).then(function (response) {

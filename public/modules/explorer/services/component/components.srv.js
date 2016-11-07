@@ -65,6 +65,17 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
+ ComponentsSrv.prototype.getRandomComponent = function (userId) {
+  var self = this;
+  var deferred = $q.defer();
+  $http.get('/api/component/random/userid/' + userId).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
  /*
   ComponentsSrv.prototype.getComponents = function (componentId, gbFormat) {
   var self = this;

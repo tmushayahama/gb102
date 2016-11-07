@@ -45,7 +45,7 @@ var explorersAllCtrl = function (
    break;
  }
 
- $rootScope.openAddExplorerModal = function () {
+ $rootScope.openAddExplorerModal = function (selectedType) {
   var modalInstance = $uibModal.open({
    animation: true,
    templateUrl: 'add-explorer-modal.html',
@@ -55,6 +55,9 @@ var explorersAllCtrl = function (
    resolve: {
     appTypes: function () {
      return vm.appTypes;
+    },
+    selectedType: function () {
+     return selectedType;
     }
    }
   });

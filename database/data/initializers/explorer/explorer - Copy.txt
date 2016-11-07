@@ -1,4 +1,4 @@
-id	app_type_id	template_type_id	creator_id	explorer_picture_url	title	description	created_date	updated_date	level_id	privacy	order	status	list_type	rand
+id	type_id	template_type_id	creator_id	explorer_picture_url	title	description	created_date	updated_date	level_id	privacy	order	status	list_type	rand
 1	2	7002	1	default.png	antiquing		14-09-23 05:12:00	15-02-06 22:11:00		10002	1	0		0.796174463
 2	2	7002	1	default.png	make a simple budget		14-12-13 01:46:00	15-05-03 19:03:00		10002	1	0		0.839203516
 3	2	7002	1	default.png	insurance loss adjuster		14-07-16 13:04:00	15-10-18 00:27:00		10002	1	0		0.611837416

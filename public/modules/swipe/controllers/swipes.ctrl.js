@@ -2,7 +2,7 @@
 var swipesCtrl = function (
         level_categories,
         ConstantsSrv,
-        SwipesSrv,
+        ComponentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -22,26 +22,26 @@ var swipesCtrl = function (
 
  $rootScope.appName = 'SWIPE';
 
- vm.swipesSrv = new SwipesSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
  vm.swipeLevels;
 
 
  vm.createSwipe = function (data) {
-  vm.swipesSrv.createSwipe(data).then(function (response) {
+  vm.componentsSrv.createSwipe(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipesCopy = angular.copy(vm.swipesSrv.swipes);
+   vm.swipesCopy = angular.copy(vm.componentsSrv.swipes);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editSwipe = function (data) {
-  vm.swipesSrv.editSwipe(data).then(function (response) {
+  vm.componentsSrv.editSwipe(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newSwipeData = angular.copy(vm.defaultSwipeData);
-   vm.swipesCopy = angular.copy(vm.swipesSrv.swipes);
+   vm.swipesCopy = angular.copy(vm.componentsSrv.swipes);
   }, function (response) {
    console.log(response);
   });
@@ -67,86 +67,9 @@ var swipesCtrl = function (
   }
  };
 
- vm.revertSwipe = function (swipe, swipeCopy) {
-  swipe = swipeCopy;
-  /*
-   $filter('filter')
-   (vm.swipesSrv.swipes, {id: swipeId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.swipesCopy, {id: swipeId}, true)[0]);
-   if (swipe.length && swipeCopy.length) {
-   // vm.swipesSrv.swipes angular.copy(vm.swipesCopy);
-   }
-   */
- };
-
-
-
-
-
-
- vm.edited = null;
-
- $scope.$watch(angular.bind(this, function () {
-  return vm.swipes;
- }), function () {
-  //vm.remainingCount = filterFilter(swipes, {completed: false}).length;
-  vm.doneCount = vm.swipesSrv.swipes.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //SwipeService.put(vm.swipes);
- }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
-
-
- vm.edit = function (swipe) {
-  vm.edited = swipe;
-  // Clone the original swipe to restore it on demand.
-  vm.original = angular.copy(swipe);
- };
-
-
- vm.doneEditing = function (swipe) {
-  vm.edited = null;
-  swipe.title = swipe.title.trim();
-
-  if (!swipe.title) {
-   vm.remove(swipe);
-  }
- };
-
- vm.openAddSwipeModal = function () {
-  var modalInstance = $uibModal.open({
-   animation: true,
-   templateUrl: 'add-swipe-modal.html',
-   controller: 'AddSwipeCtrl as addSwipeCtrl',
-   backdrop: 'static',
-   size: 'xl',
-   resolve: {
-    swipeLevels: function () {
-     return vm.swipeLevels;
-    }
-   }
-  });
-
-  modalInstance.result.then(function (swipe) {
-   vm.swipesSrv.createSwipe(swipe);
-  }, function () {
-   $log.info('Modal dismissed at: ' + new Date());
-  });
- };
 
  //--------init------
- //vm.swipesSrv.getSwipes(vm.swipeId);
+ //vm.componentsSrv.getSwipes(vm.swipeId);
  vm.constantsSrv.getLevel(level_categories.swipe).then(function (data) {
   vm.swipeLevels = data;
  });
@@ -155,7 +78,7 @@ var swipesCtrl = function (
 swipesCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'SwipesSrv',
+ 'ComponentsSrv',
  '$scope',
  '$state',
  '$stateParams',

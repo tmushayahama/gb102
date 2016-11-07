@@ -2,6 +2,7 @@
 
 namespace App\Models\Component;
 
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Component\ComponentContribution;
 use App\Models\Level\Level;
@@ -206,6 +207,17 @@ class Component extends Model {
     }
     break;
   }
+  return $component;
+ }
+
+ public static function getRandomComponent($userId = null) {
+  $howMany = 1;
+  $component = (new Collection(
+          Component::with('creator')
+          ->with('type')
+          ->take(500)
+          ->get()))
+          ->random($howMany);
   return $component;
  }
 

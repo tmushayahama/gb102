@@ -76,7 +76,7 @@ class Collaboration extends Model {
  public static function getCollaborations($appName) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
-   $collaborations = Collaboration::where('app_type_id', $appId->id)
+   $collaborations = Collaboration::where('type_id', $appId->id)
            ->orderBy('id', 'desc')
            ->with('explorer')
            ->with('explorer.app_type')
@@ -121,14 +121,14 @@ class Collaboration extends Model {
  public static function createCollaboration() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("app_type_id");
+  $appTypeId = Request::get("type_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
 
   $collaboration = new Collaboration;
   $collaboration->creator_id = $userId;
-  $collaboration->app_type_id = $appTypeId;
+  $collaboration->type_id = $appTypeId;
   $collaboration->title = $title;
   $collaboration->description = $description;
   $collaboration->level_id = $levelId;

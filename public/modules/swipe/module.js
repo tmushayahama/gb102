@@ -21,7 +21,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/swipe/services/swipes.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/swipe/controllers/swipes.ctrl.js',
                  ]
                 });

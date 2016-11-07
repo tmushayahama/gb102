@@ -24,7 +24,7 @@ class Explorer extends Model {
  );
 
  public function app_type() {
-  return $this->belongsTo('App\Models\Level\Level', 'app_type_id');
+  return $this->belongsTo('App\Models\Level\Level', 'type_id');
  }
 
  public function creator() {
@@ -126,7 +126,7 @@ class Explorer extends Model {
   $explorers = self::initExplorerQuery();
 
   if ($appId) {
-   $explorers = $explorers->where('app_type_id', $appId);
+   $explorers = $explorers->where('type_id', $appId);
 
    if ($userId) {
 
@@ -188,7 +188,7 @@ class Explorer extends Model {
  public static function getUserExplorers($userId, $appName) {
   $appId = Level::$level_categories[$appName];
   if ($appId) {
-   $explorers = Explorer::where('app_type_id', $appId->id)
+   $explorers = Explorer::where('type_id', $appId->id)
            ->where('creator_id', $userId)
            ->orderBy('updated_at', 'desc')
            ->with('app_type')
@@ -203,7 +203,7 @@ class Explorer extends Model {
 
  public static function getUserExplorersByAppId($userId, $appId) {
   if ($appId) {
-   $explorers = Explorer::where('app_type_id', $appId)
+   $explorers = Explorer::where('type_id', $appId)
            ->where('creator_id', $userId)
            ->orderBy('updated_at', 'desc')
            ->with('app_type')
@@ -245,7 +245,7 @@ class Explorer extends Model {
  public static function createExplorer() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("app_type_id");
+  $appTypeId = Request::get("type_id");
   //$parentExplorerId = Request::get("parent_explorer_id");
   $title = Request::get("title");
   $explorerPictureUrl = Request::get("explorer_picture_url");
@@ -258,7 +258,7 @@ class Explorer extends Model {
   $explorer = new Explorer;
   $explorer->creator_id = $userId;
   //$explorer->parent_explorer_id = $parentExplorerId;
-  $explorer->app_type_id = $appTypeId;
+  $explorer->type_id = $appTypeId;
   $explorer->title = $title;
   $explorer->description = $description;
   $explorer->explorer_picture_url = $explorerPictureUrl;
@@ -337,7 +337,7 @@ class Explorer extends Model {
   $explorers = self::initExplorerQuery();
 
   if ($appId) {
-   $explorers = $explorers->where('app_type_id', $appId);
+   $explorers = $explorers->where('type_id', $appId);
 
    if ($userId) {
 

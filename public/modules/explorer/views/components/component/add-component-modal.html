@@ -17,7 +17,7 @@
     </md-button>
    </div>
    <ul id="gb-select-featured-apps" class="gb-body-row-4 gb-inline">
-    <li ng-repeat="app in addComponentCtrl.apps track by $index"
+    <li ng-repeat="app in $root.apps track by $index"
         class="gb-card-holder gb-card-xs gb-padding-medium">
     <md-button ng-click="addComponentCtrl.chooseAppType(app)" class="gb-card-apps-mini gb-app-type-{{::app.id}}"
                ng-class="{'active': (addComponentCtrl.selectedAppType.id === $index + 2)}">
@@ -144,9 +144,8 @@
              aria-label="Close">
    Close
   </md-button>
-  <md-button ng-class="{
-    'gb-disabled': addComponentCtrl.wizardCurrentStep === 'Choose App'}" class="" ng-click="addComponentCtrl.ok()"
-             aria-label="Add">
+  <md-button class="" ng-click="addComponentCtrl.ok()"
+             aria-label="Add Component">
    Add
   </md-button>
  </div>

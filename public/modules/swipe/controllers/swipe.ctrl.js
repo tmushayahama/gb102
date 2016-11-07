@@ -1,7 +1,7 @@
 var swipeCtrl = function (
         level_categories,
         ConstantsSrv,
-        SwipeSrv,
+        ComponentsSrv,
         $scope,
         $timeout,
         $state,
@@ -104,7 +104,7 @@ var swipeCtrl = function (
  }
 
  vm.getSwipe = function () {
-  vm.swipeSrv.getSwipe().then(function (response) {
+  vm.componentsSrv.getRandomComponent(0).then(function (response) {
    vm.currentExplorer = response;
   });
  };
@@ -115,17 +115,17 @@ var swipeCtrl = function (
    levelId: levelId,
    description: ""
   };
-  vm.swipeSrv.createSwipe(data).then(function (response) {
+  vm.componentsSrv.createSwipe(data).then(function (response) {
    //vm.currentExplorer = response;
   });
   vm.getSwipe();
  };
 
  vm.viewSwipe = function () {
-  vm.swipeSrv.getSwipes();
+  vm.componentsSrv.getSwipes();
  };
 
- vm.swipeSrv = new SwipeSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.getSwipe();
  vm.constantsSrv.getLevel(12).then(function (data) {
   vm.swipeLevels = data;
@@ -137,7 +137,7 @@ var swipeCtrl = function (
 swipeCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'SwipeSrv',
+ 'ComponentsSrv',
  '$scope',
  '$timeout',
  '$state',

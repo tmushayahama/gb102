@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS `gb_explorer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_explorer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `app_type_id` int(11) NOT NULL DEFAULT '1',
+  `type_id` int(11) NOT NULL DEFAULT '1',
   `template_type_id` int(11) NOT NULL DEFAULT '100000',
   `creator_id` int(11) NOT NULL,
   `explorer_picture_url` varchar(250) NOT NULL DEFAULT "explorer_default.png",
@@ -17,12 +17,12 @@ CREATE TABLE `gb_explorer` (
   `status` int(11) DEFAULT '0',
   `list_type` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `explorer_app_type_id` (`app_type_id`),
+  KEY `explorer_type_id` (`type_id`),
   KEY `explorer_template_type_id` (`template_type_id`),
   KEY `explorer_creator_id` (`creator_id`),
   KEY `explorer_level_id` (`level_id`),
   KEY `explorer_privacy_id` (`privacy_id`),
-  CONSTRAINT `explorer_app_type_id` FOREIGN KEY (`app_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `explorer_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `explorer_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -293,7 +293,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explore
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `app_type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`, `list_type`);
+   (`id`, `type_id`, `template_type_id`,	`creator_id`, `explorer_picture_url`,	`title`,	`description`,	`created_at`, `updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`, `list_type`);
 
 -- ------------------ explorer_component----------------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/explorer/explorer-component.txt'

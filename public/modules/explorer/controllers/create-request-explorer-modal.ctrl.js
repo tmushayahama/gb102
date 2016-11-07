@@ -47,13 +47,13 @@ var createRequestExplorerCtrl = function (
 
  vm.chooseRequestOption = function (requestOption) {
   vm.explorer.requestOptionId = requestOption.id;
-  vm.explorer.app_type_id = requestOption.level.app_type_id;
+  vm.explorer.type_id = requestOption.level.type_id;
   vm.explorer.parent_explorer_id = requestOption.explorer_id;
   vm.explorer.title = requestOption.explorer.title;
   vm.explorer.description = requestOption.explorer.description;
   vm.selectedRequestOption = requestOption;
-  vm.getLevels(requestOption.level.app_type_id);
-  vm.getRequestTypes(requestOption.level.app_type_id);
+  vm.getLevels(requestOption.level.type_id);
+  vm.getRequestTypes(requestOption.level.type_id);
  };
 
  vm.next = function () {

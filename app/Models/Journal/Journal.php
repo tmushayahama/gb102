@@ -76,7 +76,7 @@ class Journal extends Model {
  public static function getJournals($appName) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
-   $journals = Journal::where('app_type_id', $appId->id)
+   $journals = Journal::where('type_id', $appId->id)
            ->orderBy('id', 'desc')
            ->with('explorer')
            ->with('explorer.app_type')
@@ -121,14 +121,14 @@ class Journal extends Model {
  public static function createJournal() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("app_type_id");
+  $appTypeId = Request::get("type_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
 
   $journal = new Journal;
   $journal->creator_id = $userId;
-  $journal->app_type_id = $appTypeId;
+  $journal->type_id = $appTypeId;
   $journal->title = $title;
   $journal->description = $description;
   $journal->level_id = $levelId;

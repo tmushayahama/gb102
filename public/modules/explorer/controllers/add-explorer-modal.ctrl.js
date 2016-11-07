@@ -64,10 +64,10 @@ var addExplorerCtrl = function (
  };
 
  vm.chooseAppType = function (appType) {
-  vm.explorer.app_type_id = appType.id;
+  vm.explorer.type_id = type.id;
   vm.selectedAppType = appType;
-  vm.getLevels(appType.id);
-  vm.getRequestTypes(appType.id);
+  vm.getLevels(type.id);
+  vm.getRequestTypes(type.id);
  };
 
 

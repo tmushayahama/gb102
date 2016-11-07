@@ -11,13 +11,16 @@ var addComponentCtrl = function (
         $http,
         $rootScope,
         $location,
-        $log) {
+        $log,
+        selectedType) {
  var vm = this;
  vm.component = {};
  vm.componentLevels;
  vm.requestTypes;
  vm.requestTypes = [];
  vm.selectedAppType;
+
+ vm.component.description = ""
 
  vm.constantsSrv = constantsSrv;
  vm.communitySrv = communitySrv;
@@ -61,11 +64,11 @@ var addComponentCtrl = function (
   );
  };
 
- vm.chooseAppType = function (appType) {
-  vm.component.app_type_id = appType.id;
-  vm.selectedAppType = appType;
-  vm.getLevels(appType.id);
-  vm.getRequestTypes(appType.id);
+ vm.chooseAppType = function (type) {
+  vm.component.typeId = type.id;
+  vm.selectedAppType = type;
+  vm.getLevels(type.id);
+  vm.getRequestTypes(type.id);
  };
 
 
@@ -152,7 +155,11 @@ var addComponentCtrl = function (
  }
 
  //Init
- vm.chooseAppType($rootScope.apps[0]);
+ if (selectedType) {
+  vm.chooseAppType(selectedType);
+ } else {
+  vm.chooseAppType($rootScope.apps[0]);
+ }
  vm.getPrivacyTypes();
  vm.communitySrv.getUsers().then(function () {
   vm.allContacts = vm.communitySrv.users;//loadContacts();
@@ -183,6 +190,7 @@ addComponentCtrl.$inject = [
  '$http',
  '$rootScope',
  '$location',
- '$log'];
+ '$log',
+ 'selectedType'];
 
 angular.module("app.explorer").controller('AddComponentCtrl', addComponentCtrl);

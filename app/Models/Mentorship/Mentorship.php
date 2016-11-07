@@ -19,7 +19,7 @@ class Mentorship extends Model {
  protected $table = 'gb_mentorship';
 
  public function app_type() {
-  return $this->belongsTo('App\Models\AppType\AppType', 'app_type_id');
+  return $this->belongsTo('App\Models\AppType\AppType', 'type_id');
  }
 
  public function explorer() {
@@ -80,7 +80,7 @@ class Mentorship extends Model {
  public static function getMentorships($levelId) {
   $appId = AppType::where('name', $appName)->first();
   if ($appId) {
-   $mentorships = Mentorship::where('app_type_id', $appId->id)
+   $mentorships = Mentorship::where('type_id', $appId->id)
            /*
              ->whereHas('explorer', function($q) use ($mentorshipId) {
              $q->where('parent_explorer_id', $mentorshipId);
@@ -130,14 +130,14 @@ class Mentorship extends Model {
  public static function createMentorship() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("app_type_id");
+  $appTypeId = Request::get("type_id");
   $title = Request::get("title");
   $description = Request::get("description");
   $levelId = Request::get("level");
 
   $mentorship = new Mentorship;
   $mentorship->creator_id = $userId;
-  $mentorship->app_type_id = $appTypeId;
+  $mentorship->type_id = $appTypeId;
   $mentorship->title = $title;
   $mentorship->description = $description;
   $mentorship->level_id = $levelId;
