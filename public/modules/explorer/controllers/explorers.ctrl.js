@@ -15,6 +15,7 @@ var explorersCtrl = function (
         $log,
         $filter,
         $css,
+        $timeout,
         $interval) {
 
  var vm = this;
@@ -325,6 +326,10 @@ var explorersCtrl = function (
   $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern};
  }, 5000);
 
+ $timeout(function () {
+  $('.gb-card-load-container').remove();
+ }, 10000);
+
 
 
 };
@@ -345,6 +350,7 @@ explorersCtrl.$inject = [
  '$log',
  '$filter',
  '$css',
+ '$timeout',
  '$interval'];
 
 angular.module("app.explorer").controller('ExplorersCtrl', explorersCtrl);

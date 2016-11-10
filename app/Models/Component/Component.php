@@ -210,13 +210,19 @@ class Component extends Model {
   return $component;
  }
 
- public static function getRandomComponent($userId = null) {
+ public static function getRandomComponent($typeId = null) {
   $howMany = 1;
-  $component = (new Collection(
-          Component::with('creator')
+  $query = Component::with('creator')
           ->with('type')
-          ->take(500)
-          ->get()))
+          ->take(500);
+
+  if ($typeId) {
+   $query = $query->where('type_id', $typeId);
+  }
+
+  $query = $query->get();
+
+  $component = (new Collection($query))
           ->random($howMany);
   return $component;
  }

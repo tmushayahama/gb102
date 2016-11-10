@@ -29,8 +29,13 @@ class ComponentController extends Controller {
   return \Response::json($component);
  }
 
- public function getRandomComponent($userId = null) {
-  $component = Component::getRandomComponent($userId);
+ public function getRandomComponent() {
+  $component = Component::getRandomComponent();
+  return \Response::json($component);
+ }
+
+ public function getRandomComponentByType($typeId) {
+  $component = Component::getRandomComponent($typeId);
   return \Response::json($component);
  }
 

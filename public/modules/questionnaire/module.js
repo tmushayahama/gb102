@@ -21,7 +21,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/app/services/constants.srv.js',
-                  'public/modules/questionnaire/services/questionnaires.srv.js',
+                  'public/modules/explorer/services/component/components.srv.js',
                   'public/modules/questionnaire/controllers/questionnaires.ctrl.js',
                  ]
                 });

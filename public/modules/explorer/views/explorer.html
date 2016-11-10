@@ -1,8 +1,6 @@
 <div id="gb-explorer-header" ng-if="!$root.authenticated" ng-include="'public/modules/app/views/component-navbar-guest.html'" class="row"></div>
 <div id="gb-explorer-header" ng-if="$root.authenticated" ng-include="'public/modules/app/views/component-navbar.html'" class="row"></div>
-<div id="gb-explorer-content">
- <div ui-view="content" class="drag-container gb-component-body" ng-cloak></div>
-</div>
+<div ui-view="content" class="row" ng-cloak></div>
 <script type="text/ng-template" id="component-modal.html">
  <div class="gb-section-page" ng-include="'public/modules/explorer/views/components/component/component-modal.html'"></div>
 </script>

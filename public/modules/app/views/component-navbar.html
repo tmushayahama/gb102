@@ -1,105 +1,103 @@
-<div class="gb-heading-row-1 row">
- <div class="gb-heading-logo">
-  <md-button class="gb-logo pull-left" ui-sref="apps.explorer">
-   <i class="fa icon-gb-logo"></i>
+<div class="gb-menu-toolbar">
+ <md-button class="gb-logo pull-left gb-border-r" ui-sref="apps.explorer">
+  <i class="fa icon-gb-logo"></i>
+ </md-button>
+ <md-button ng-click="$root.openMenuModal('left')"
+            class="gb-menu-bars pull-left gb-border-r">
+  <i class="fa fa-bars"></i>
+ </md-button>
+ <md-button type="button" class="gb-link gb-border-r"
+            ng-click="$root.openSearchModal()">
+  <i class="fa fa-search"></i>
+ </md-button>
+</div>
+<div class="gb-title">
+ <h1 class="gb-ellipsis">
+  <a data-ui-sref-active="active" data-ui-sref="apps.explorerItem.explore">
+   {{explorerCtrl.component.title}}
+  </a>
+ </h1>
+ <p class="gb-ellipsis">
+  <a class="gb-description"
+     ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator.id})">
+  </a>
+ </p>
+</div>
+<div class="gb-action">
+ <div class="btn-group">
+  <md-button class="gb-ellipsis dropdown-toggle gb-link" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+   <div class="gb-icon">
+    <i class="fa fa-cogs"></i>
+   </div>
   </md-button>
-  <md-button ng-click="$root.openMenuModal('left')"
-             class="gb-menu-bars pull-left">
-   <i class="fa fa-bars"></i>
-  </md-button>
- </div>
- <div class="gb-title">
-  <h1 class="gb-ellipsis">
-   <a data-ui-sref-active="active" data-ui-sref="apps.explorerItem.explore">
-    {{explorerCtrl.component.title}}
-   </a>
-  </h1>
-  <p class="gb-ellipsis">
-   <a class="gb-description"
-      ui-sref="apps.profile.overview({profileId: explorerCtrl.component.creator.id})">
-   </a>
-  </p>
- </div>
- <div class="gb-action">
-  <div class="btn-group">
-   <md-button class="gb-ellipsis dropdown-toggle gb-link" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-    <div class="gb-icon">
-     <i class="fa fa-cogs"></i>
-    </div>
-   </md-button>
-   <div class="dropdown-menu dropdown-menu-right">
-    <md-button ui-sref="apps.explorer" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
-               data-ripple-color="#DDD"
-               ng-class="{
+  <div class="dropdown-menu dropdown-menu-right">
+   <md-button ui-sref="apps.explorer" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+              data-ripple-color="#DDD"
+              ng-class="{
                       active: ('apps.explorer' | includedByState)
                      }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-explorer"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      EXPLORE
-     </div>
-    </md-button>
-    <md-button ui-sref="apps.swipes.swipe" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
-               ng-class="{
+    <div class="gb-icon">
+     <i class="fa icon-gb-explorer"></i>
+    </div>
+    <div class="gb-title gb-ellipsis">
+     EXPLORE
+    </div>
+   </md-button>
+   <md-button ui-sref="apps.swipes.swipe" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+              ng-class="{
                       active: ('apps.swipes' | includedByState)
                      }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-swipe"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      SWIPE
-     </div>
-    </md-button>
-    <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
-               ng-class="{
+    <div class="gb-icon">
+     <i class="fa icon-gb-swipe"></i>
+    </div>
+    <div class="gb-title gb-ellipsis">
+     SWIPE
+    </div>
+   </md-button>
+   <md-button ui-sref="apps.questionnaires.questionnaire" class="gb-link col-lg-4 col-md-4 col-sm-4 col-xs-4"
+              ng-class="{
                       active: ('apps.questionnaires' | includedByState)
                      }">
-     <div class="gb-icon">
-      <i class="fa icon-gb-matcher"></i>
-     </div>
-     <div class="gb-title gb-ellipsis">
-      MATCHER
-     </div>
-    </md-button>
-   </div>
+    <div class="gb-icon">
+     <i class="fa icon-gb-matcher"></i>
+    </div>
+    <div class="gb-title gb-ellipsis">
+     MATCHER
+    </div>
+   </md-button>
   </div>
-  <md-button type="button" class="gb-link"
-             ng-click="$root.openSearchModal()">
-   <i class="gb-menu-icon fa fa-search"></i>
+ </div>
+ <div class="btn-group">
+  <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <i class="gb-menu-icon fa fa-bell"></i>
   </md-button>
-  <div class="btn-group">
-   <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="gb-menu-icon fa fa-bell"></i>
-   </md-button>
-   <div class="dropdown-menu dropdown-menu-right text-center">
-    <div class="gb-body-row-1">
-     <div class="gb-no-info">
-      No notifications to show
-     </div>
+  <div class="dropdown-menu dropdown-menu-right text-center">
+   <div class="gb-body-row-1">
+    <div class="gb-no-info">
+     No notifications to show
     </div>
    </div>
   </div>
-  <div class="btn-group">
-   <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <div class="gb-icon-image">
-     <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-profile-img" alt="">
-    </div>
-   </md-button>
-   <ul class="dropdown-menu dropdown-menu-right text-left">
-    <li>
-     <a class="gb-ellipsis" ui-sref="apps.profile.overview({profileId: $root.user.id})">
-      {{$root.user.firstname + " " + $root.user.lastname}}
-     </a>
-    </li>
-    <li role="separator" class="divider"></li>
-    <li>
-     <a ng-click="appsCtrl.logout()">
-      <i class="fa fa-power-off"></i> Log Out
-     </a>
-    </li>
-   </ul>
-  </div>
+ </div>
+ <div class="btn-group">
+  <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <div class="gb-icon-image">
+    <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-profile-img" alt="">
+   </div>
+  </md-button>
+  <ul class="dropdown-menu dropdown-menu-right text-left">
+   <li>
+    <a class="gb-ellipsis" ui-sref="apps.profile.overview({profileId: $root.user.id})">
+     {{$root.user.firstname + " " + $root.user.lastname}}
+    </a>
+   </li>
+   <li role="separator" class="divider"></li>
+   <li>
+    <a ng-click="appsCtrl.logout()">
+     <i class="fa fa-power-off"></i> Log Out
+    </a>
+   </li>
+  </ul>
  </div>
 </div>

@@ -280,7 +280,8 @@ define([
            "note": 11002,
            "guideline": 11003,
            "activity": 11004,
-           "weblink": 11005
+           "weblink": 11005,
+           "question": 11100
           },
           "component_background_colors": 13000,
           "default_component_background_color": 13001

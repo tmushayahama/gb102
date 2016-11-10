@@ -62,7 +62,7 @@ var swipeCtrl = function (
  };
 
  vm.constantsSrv = new ConstantsSrv();
- vm.currentExplorer;
+ vm.component;
  vm.swipeLevels;
 
  vm.swipeRight = function ($event, explorerId) {
@@ -104,8 +104,8 @@ var swipeCtrl = function (
  }
 
  vm.getSwipe = function () {
-  vm.componentsSrv.getRandomComponent(0).then(function (response) {
-   vm.currentExplorer = response;
+  vm.componentsSrv.getRandomComponent().then(function (response) {
+   vm.component = response;
   });
  };
 
@@ -116,7 +116,7 @@ var swipeCtrl = function (
    description: ""
   };
   vm.componentsSrv.createSwipe(data).then(function (response) {
-   //vm.currentExplorer = response;
+   //vm.component = response;
   });
   vm.getSwipe();
  };

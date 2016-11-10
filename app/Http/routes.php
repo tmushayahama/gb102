@@ -42,6 +42,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('profile/{id}/connections', 'Profile\ProfileController@getUserConnections');
 
  Route::get('profiles/all', 'Profile\ProfileController@getProfilesAll');
+ Route::get('profile/{id}/sections', 'Profile\ProfileController@getUserProfileSections');
+ Route::get('profile/{id}', 'Profile\ProfileController@getProfile');
+
 
  Route::get('constants/all', 'ConstantsController@getConstants');
  Route::get('constants/level/{parent}', 'ConstantsController@getLevel');
@@ -75,7 +78,8 @@ Route::group(['prefix' => 'api'], function() {
 
 
  Route::get('component/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
- Route::get('component/random/userid/{userId}', 'Component\ComponentController@getRandomComponent');
+ Route::get('component/random', 'Component\ComponentController@getRandomComponent');
+ Route::get('component/random/type/{typeId}', 'Component\ComponentController@getRandomComponentByType');
 
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
  Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');

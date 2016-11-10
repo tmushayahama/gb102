@@ -58,25 +58,6 @@ define(['angular'
              }
             }
            }})
-          .state('apps.explorer.mine', {
-           url: '/mine',
-           views: {
-            "app-tab": {
-             controller: 'ExplorersMineCtrl as explorersTabCtrl',
-             templateUrl: 'public/modules/explorer/views/tabs/explorers/explorer-list.html',
-             resolve: {
-              load: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                 name: 'app.explorer',
-                 serie: true,
-                 files: [
-                  'public/modules/explorer/controllers/explorers-mine.ctrl.js',
-                 ]
-                });
-               }]
-             }
-            }
-           }})
           .state('apps.component', {
            abstract: true,
            url: '/component/{componentId}',
@@ -91,6 +72,7 @@ define(['angular'
                  serie: true,
                  files: [
                   'public/modules/explorer/directives/component/component-box.drv.js',
+                  'public/modules/explorer/directives/component/component-note-box.drv.js',
                   'public/modules/explorer/directives/component/component-question-box.drv.js',
                   'public/modules/explorer/directives/component/component-checklist-box.drv.js',
                   'public/modules/explorer/directives/component/component-step-box.drv.js',
@@ -108,6 +90,45 @@ define(['angular'
              }
             }
            }})
+
+
+          .state('apps.component.linear', {
+           url: '/linearview',
+           views: {
+            "content": {
+             // controller: 'ExplorerExploreCtrl as explorerExploreCtrl',
+             templateUrl: 'public/modules/explorer/views/tabs/explorer/explore-linear.html',
+             resolve: {
+              todoLevelId: function (level_categories) {
+               return  level_categories.todo_level_progress;
+              },
+              load: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                 name: 'app.explorer',
+                 serie: true,
+                 files: [
+                  'public/modules/explorer/directives/sub-explorer/sub-explorer-box.drv.js',
+                  'public/modules/explorer/directives/sub-explorer/application-explorer-box.drv.js',
+                  'public/modules/explorer/controllers/explorer-explore.ctrl.js',
+                  //Component
+                  'public/modules/explorer/services/component/components.srv.js',
+                  'public/modules/explorer/controllers/component/component-modal.ctrl.js',
+                  //Contributions
+                  'public/modules/explorer/services/contribution/contribution.srv.js',
+                  'public/modules/explorer/services/contribution/contributions.srv.js',
+                  'public/modules/explorer/controllers/contribution/contributions.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/contribution.ctrl.js',
+                  'public/modules/explorer/controllers/contribution/create-contribution-modal.ctrl.js',
+                 ]
+                });
+               }]
+             }
+            }
+           }})
+
+
+
+
           .state('apps.component.explore', {
            url: '/explore',
            views: {

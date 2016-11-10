@@ -1,7 +1,7 @@
 var questionnaireCtrl = function (
         level_categories,
         ConstantsSrv,
-        QuestionnaireSrv,
+        ComponentsSrv,
         $scope,
         $timeout,
         $state,
@@ -16,7 +16,7 @@ var questionnaireCtrl = function (
  var vm = this;
 
  vm.constantsSrv = new ConstantsSrv();
- vm.currentQuestionnaireQuestion;
+ vm.component;
  vm.questionnaireLevels;
 
  vm.questionnaireRight = function ($event, questionnaireQuestionId) {
@@ -53,16 +53,16 @@ var questionnaireCtrl = function (
   }, 1000);
  };
 
- vm.answer = function (currentQuestionnaireQuestion, data) {
+ vm.answer = function (component, data) {
   vm.createQuestionAnswer(
-          currentQuestionnaireQuestion.question.id,
+          component.question.id,
           data.description);
  };
 
 
  vm.getQuestionnaireQuestion = function () {
-  vm.questionnaireSrv.getQuestionnaireQuestion(1).then(function (response) {
-   vm.currentQuestionnaireQuestion = response;
+  vm.componentsSrv.getRandomComponent(level_categories.component.question).then(function (response) {
+   vm.component = response;
   });
  };
 
@@ -71,17 +71,17 @@ var questionnaireCtrl = function (
    questionId: questionId,
    description: description
   };
-  vm.questionnaireSrv.createQuestionAnswer(data).then(function (response) {
+  vm.componentsSrv.createQuestionAnswer(data).then(function (response) {
    vm.getQuestionnaireQuestion();
    $scope.description = '';
   });
  };
 
  vm.viewQuestionnaire = function () {
-  vm.questionnaireSrv.getQuestionnaires();
+  vm.componentsSrv.getQuestionnaires();
  };
 
- vm.questionnaireSrv = new QuestionnaireSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.getQuestionnaireQuestion();
  vm.constantsSrv.getLevel(11).then(function (data) {
   vm.questionnaireLevels = data;
@@ -93,7 +93,7 @@ var questionnaireCtrl = function (
 questionnaireCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'QuestionnaireSrv',
+ 'ComponentsSrv',
  '$scope',
  '$timeout',
  '$state',

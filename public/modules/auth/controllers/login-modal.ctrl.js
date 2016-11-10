@@ -26,7 +26,7 @@ var loginModalCtrl = function (
    $rootScope.authenticated = true;
    $rootScope.user = response.data.user;
    $uibModalInstance.close();
-   $state.go('apps.explorer');
+   $state.go('apps.profile.overview', {'profileId': $rootScope.user.id});
   });
  };
 

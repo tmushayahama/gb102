@@ -1,0 +1,227 @@
+
+<div class="gb-app-list">
+ <div class="row" ng-include="'public/modules/app/views/top-hero-bar.html'"></div>
+ <div class="row">
+  <div class="gb-card-row-3">
+   <div class="container gb-padding-none">
+    <div class="gb-height-100pc col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+       {{explorerCtrl.component.title}}
+      </p>
+     </div>
+     <div class="gb-action">
+      <md-button class="md-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="$root.openAddExplorerModal()">
+       Add
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div> 
+ <div class="row">
+  <div ng-if="false" class="container gb-padding-thin">
+   <div class="modal-header">
+    <div class="gb-modal-header row">
+     <md-button class="gb-back"
+                ng-class="{'gb-disabled-1':!explorerCtrl.component.parent_component_id}"
+                ng-click="explorerCtrl.getComponent(explorerCtrl.component.parent_component_id, 2)">
+      <i class="fa fa-chevron-left"></i>
+     </md-button>
+     <div class="gb-title">
+      <p class="gb-ellipsis">
+       <i class="fa icon-gb-component"></i>
+       {{explorerCtrl.component.title}}
+      </p>
+     </div>
+     <md-button data-ui-sref="apps.component.explore({componentId: explorerCtrl.component.id})" class="gb-new-window">
+      <i class="fa fa-arrows-alt"></i>
+     </md-button>
+     <md-button class="gb-close" ng-click="explorerCtrl.close()">
+      x
+     </md-button>
+    </div>
+    <div class="gb-modal-subheader row">
+     <ul class="nav nav-tabs row" role="tablist">
+      <li role="presentation" class="active">
+      <md-button href="#gb-component-overview" aria-controls="home" role="tab" data-toggle="tab">
+       Home
+      </md-button>
+      </li>
+      <li role="presentation" class="">
+      <md-button href="#gb-component-overview" aria-controls="favorites" role="tab" data-toggle="tab">
+       Favorites
+      </md-button>
+      </li>
+      <li role="presentation" class="">
+      <md-button class="gb-settings-btn"
+                 href="#gb-component-settings" aria-controls="home" role="tab" data-toggle="tab">
+       <i class="fa fa-cog"></i>
+      </md-button>
+      </li>
+      <li role="presentation" class="">
+       <div class="btn-group pull-right">
+        <md-button class="gb-settings-btn dropdown-toggle" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+         <i class="fa fa-ellipsis-h"></i>
+        </md-button>
+        <ul class="dropdown-menu dropdown-menu-right">
+         <li class="row">
+         <md-button data-ui-sref="apps.explorerItem.overview({explorerId: explorerCtrl.explorerId})"
+                    class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gb-icon">
+           <i class="fa fa-folder-open-o"></i>
+          </div>
+          <div class="gb-title">
+           <p class="gb-ellipsis">
+            VIEW
+           </p>
+          </div>
+         </md-button>
+         </li>
+        </ul>
+       </div>
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="modal-body gb-modal-body"
+        ng-style="{'background-color':explorerCtrl.component.background_color.title}">
+    <div class="tab-content gb-tab-content-3">
+     <div role="tabpanel" class="tab-pane active" id="gb-component-overview">
+      <section class="row">
+       <div class="gb-heading-row-3">
+        <div class="gb-title">
+         <h2 class="gb-ellipsis">
+          <i class="fa fa-list"></i>
+          DESCRIPTION
+         </h2>
+        </div>
+        <div class="gb-actions">
+         <md-button class=""
+                    ng-show="!explorerCtrl.editDecriptionMode"
+                    ng-click="explorerCtrl.editDecriptionMode = true">
+          <div class="gb-icon">
+           <i class="fa fa-pencil"></i>
+          </div>
+         </md-button>
+        </div>
+       </div>
+       <div class="gb-body-row-1 row">
+        <div class="gb-card-description-sm">
+         <div class="gb-box-content"
+              ng-hide="explorerCtrl.editDecriptionMode">
+          <h4 class="gb-title">
+           {{explorerCtrl.component.title}}
+          </h4>
+          <p class="gb-description">
+           {{explorerCtrl.component.description}}
+          </p>
+         </div>
+         <form ng-show="explorerCtrl.editDecriptionMode"
+               ng-submit="explorerCtrl.editComponentSections.details()">
+          <md-input-container class="md-block">
+           <input ng-model="explorerCtrl.component.title" name="title" required
+                  placeholder="Title"
+                  class="">
+          </md-input-container>
+          <md-input-container class="md-block">
+           <input ng-model="explorerCtrl.component.description" name="title"
+                  placeholder="Description"
+                  class="">
+          </md-input-container>
+          <div class="row"
+               ng-show="explorerCtrl.editDecriptionMode">
+           <div class="btn-group pull-right">
+            <md-button type="button" class="" ng-click="explorerCtrl.editDecriptionMode = false">
+             Cancel
+            </md-button>
+            <md-button type="submit" class="gb-color-primary">
+             Done
+            </md-button>
+           </div>
+          </div>
+         </form>
+        </div>
+       </div>
+      </section>
+      <section class="row"
+               ng-repeat="(type, component) in explorerCtrl.component.components track by $index">
+       <ng-include ng-if="component.components.length > 0" src="'public/modules/explorer/views/components/component/component-'+type+'.html'">
+       </ng-include>
+      </section>
+     </div>
+     <div role="tabpanel" class="tab-pane" id="gb-component-settings">
+      <div ng-include="'public/modules/explorer/views/components/component/component-settings.html'"></div>
+     </div>
+    </div>
+   </div>
+   <div class="modal-footer">
+    <div class="gb-toolbar-section btn-group row">
+     <div class="btn-group dropup">
+      <md-button class="dropdown-toggle" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <i class="fa icon-gb-components"></i>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-left">
+       <li class="row" ng-repeat="section in $root.sections">
+       <md-button ng-click="explorerCtrl.selectApp(section)" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gb-title pull-left">
+         <p class="gb-ellipsis">
+          {{section.title}}
+         </p>
+        </div>
+       </md-button>
+       </li>
+      </ul>
+     </div>
+     <div class="btn-group dropup">
+      <md-button class="dropdown-toggle" data-toggle="dropdown"
+                 aria-haspopup="true" aria-expanded="false">
+       <i class="fa icon-gb-apply"></i>
+      </md-button>
+      <ul class="dropdown-menu dropdown-menu-left">
+       <li class="row" ng-repeat="app in $root.apps">
+       <md-button ng-click="explorerCtrl.selectApp(app)" class="gb-menu-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gb-title pull-left">
+         <p class="gb-ellipsis">
+          {{app.title}}
+         </p>
+        </div>
+       </md-button>
+       </li>
+      </ul>
+     </div>
+     <md-button>
+      <i class="fa fa-users"></i>
+     </md-button>
+     <md-button>
+      <i class="fa fa-tag"></i>
+     </md-button>
+     <p class="gb-selected-app pull-right badge">
+      {{explorerCtrl.selectedApp.title}}
+     </p>
+    </div>
+    <form class="gb-new-item-form" ng-submit="explorerCtrl.createComponent(explorerCtrl.component)">
+     <md-input-container class="md-block" md-no-float>
+      <input ng-model="explorerCtrl.component.newComponentData.title" type="text"
+             required
+             placeholder="Type to add a cmponent">
+     </md-input-container>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- ------------------------------- MODALS ------------------------- -->
+
+<script type="text/ng-template" id="add-component-modal.html">
+ <div ng-include="'public/modules/explorer/views/components/component/add-component-modal.html'"></div>
+</script>
+<script type="text/ng-template" id="add-request-component-modal.html">
+ <div ng-include="'public/modules/explorer/views/create-request-component-modal.html'"></div>
+</script>
+
+
+
+

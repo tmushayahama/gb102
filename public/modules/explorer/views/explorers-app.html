@@ -11,7 +11,7 @@
       </p>
      </div>
      <div class="gb-action">
-      <md-button class="md-primary" ng-click="$root.openAddExplorerModal()">
+      <md-button class="md-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="$root.openAddExplorerModal()">
        Add
       </md-button>
      </div>
@@ -21,18 +21,15 @@
  </div>
 
  <div class="row">
-  <div class="container">
+  <div class="container gb-padding-none">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class='gb-body-row-4 row'>
       <div id="gb-explorers" class="gb-list row" finite-scroll="addMoreItems()">
-       <br>
-       <div class="gb-padding-thin">
-        <div ng-repeat="component in explorersAppCtrl.components"
-             class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
-             gb-explorer-box component="component"
-             template-url="{{appsCtrl.getTemplateUrl(component, '')}}">
-        </div>
+       <div ng-repeat="component in explorersAppCtrl.components"
+            class="col-lg-4 col-md-4 col-sm-6 col-xs-12 gb-padding-medium"
+            gb-explorer-box component="component"
+            template-url="{{appsCtrl.getTemplateUrl(component, '')}}">
        </div>
        <div class="gb-dummy-height row"></div>
       </div>

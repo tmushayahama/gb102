@@ -2,7 +2,7 @@
 var questionnairesCtrl = function (
         level_categories,
         ConstantsSrv,
-        QuestionnairesSrv,
+        ComponentsSrv,
         $scope,
         $state,
         $stateParams,
@@ -20,27 +20,27 @@ var questionnairesCtrl = function (
   href: 'public/css/gb-sass/stylesheets/gb-themes/app-theme-matcher.css'
  }, $scope);
 
- vm.questionnairesSrv = new QuestionnairesSrv();
+ vm.componentsSrv = new ComponentsSrv();
  vm.constantsSrv = new ConstantsSrv();
  $rootScope.appName = 'MATCHER';
  vm.questionnaireLevels;
 
 
  vm.createQuestionnaire = function (data) {
-  vm.questionnairesSrv.createQuestionnaire(data).then(function (response) {
+  vm.componentsSrv.createQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
-   vm.questionnairesCopy = angular.copy(vm.questionnairesSrv.questionnaires);
+   vm.questionnairesCopy = angular.copy(vm.componentsSrv.questionnaires);
   }, function (response) {
    console.log(response);
   });
  };
 
  vm.editQuestionnaire = function (data) {
-  vm.questionnairesSrv.editQuestionnaire(data).then(function (response) {
+  vm.componentsSrv.editQuestionnaire(data).then(function (response) {
    vm.FormDisplay = false;
    vm.newQuestionnaireData = angular.copy(vm.defaultQuestionnaireData);
-   vm.questionnairesCopy = angular.copy(vm.questionnairesSrv.questionnaires);
+   vm.questionnairesCopy = angular.copy(vm.componentsSrv.questionnaires);
   }, function (response) {
    console.log(response);
   });
@@ -66,86 +66,8 @@ var questionnairesCtrl = function (
   }
  };
 
- vm.revertQuestionnaire = function (questionnaire, questionnaireCopy) {
-  questionnaire = questionnaireCopy;
-  /*
-   $filter('filter')
-   (vm.questionnairesSrv.questionnaires, {id: questionnaireId}, true)[0]
-   = angular.copy($filter('filter')
-   (vm.questionnairesCopy, {id: questionnaireId}, true)[0]);
-   if (questionnaire.length && questionnaireCopy.length) {
-   // vm.questionnairesSrv.questionnaires angular.copy(vm.questionnairesCopy);
-   }
-   */
- };
-
-
-
-
-
-
- vm.edited = null;
-
- $scope.$watch(angular.bind(this, function () {
-  return vm.questionnaires;
- }), function () {
-  //vm.remainingCount = filterFilter(questionnaires, {completed: false}).length;
-  vm.doneCount = vm.questionnairesSrv.questionnaires.length - vm.remainingCount;
-  vm.allChecked = !vm.remainingCount;
-  //QuestionnaireService.put(vm.questionnaires);
- }, true);
- /*
-  $scope.$watch(angular.bind(this, function () {
-  return vm.location.path();
-  }), function (path) {
-  vm.statusFilter = (path === '/active') ?
-  {completed: false} : (path === '/completed') ?
-  {completed: true} : null;
-  });
-  */
-
-
-
-
- vm.edit = function (questionnaire) {
-  vm.edited = questionnaire;
-  // Clone the original questionnaire to restore it on demand.
-  vm.original = angular.copy(questionnaire);
- };
-
-
- vm.doneEditing = function (questionnaire) {
-  vm.edited = null;
-  questionnaire.title = questionnaire.title.trim();
-
-  if (!questionnaire.title) {
-   vm.remove(questionnaire);
-  }
- };
-
- vm.openAddQuestionnaireModal = function () {
-  var modalInstance = $uibModal.open({
-   animation: true,
-   templateUrl: 'add-questionnaire-modal.html',
-   controller: 'AddQuestionnaireCtrl as addQuestionnaireCtrl',
-   backdrop: 'static',
-   size: 'xl',
-   resolve: {
-    questionnaireLevels: function () {
-     return vm.questionnaireLevels;
-    }
-   }
-  });
-
-  modalInstance.result.then(function (questionnaire) {
-   vm.questionnairesSrv.createQuestionnaire(questionnaire);
-  }, function () {
-   $log.info('Modal dismissed at: ' + new Date());
-  });
- };
-
  //--------init------
- //vm.questionnairesSrv.getQuestionnaires(vm.questionnaireId);
+ //vm.componentsSrv.getQuestionnaires(vm.questionnaireId);
  vm.constantsSrv.getLevel(level_categories.questionnaire).then(function (data) {
   vm.questionnaireLevels = data;
  });
@@ -154,7 +76,7 @@ var questionnairesCtrl = function (
 questionnairesCtrl.$inject = [
  'level_categories',
  'ConstantsSrv',
- 'QuestionnairesSrv',
+ 'ComponentsSrv',
  '$scope',
  '$state',
  '$stateParams',

@@ -5,7 +5,8 @@
 .gb-questionnaire-container {
  .stack {
   height: 350px;
-  @include position(absolute, 100px null null 50%);
+  //@include position(absolute, 100px null null 50%);
+  position: relative;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
@@ -104,13 +105,13 @@
   }
  }
  .gb-footer {
-  @include position(absolute, 460px null null 50%);
+  position: relative;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
  }
  .gb-answer-form {
-  @include position(absolute, 460px null null 50%);
+  position: relative;
   -ms-transform: translate(-50%, 0%);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);

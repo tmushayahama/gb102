@@ -102,3 +102,55 @@
  0%   { transform: rotate(0deg);   transform: rotate(0deg); }
  100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
+
+
+
+.gb-card-load-container {
+	@include position(absolute, 0 0 0 0);
+	text-align: center;
+}
+
+.gb-card-load-inner {
+ @include position(absolute, 50% null null 50%);
+ transform: translateX(-50%) translateY(-50%);
+	width: 49px;
+	height: 49px;
+}
+
+.gb-card-load {
+	width: 49px;
+	height: 49px;
+	margin: 0 auto;
+	border-radius: 50%;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	box-shadow: 3px 3px 1px rgb(0,0,0);
+	animation: cssload-spin 690ms infinite linear;
+ -o-animation: cssload-spin 690ms infinite linear;
+ -ms-animation: cssload-spin 690ms infinite linear;
+ -webkit-animation: cssload-spin 690ms infinite linear;
+ -moz-animation: cssload-spin 690ms infinite linear;
+}
+
+
+
+@keyframes cssload-spin {
+	100%{ transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-o-keyframes cssload-spin {
+	100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-ms-keyframes cssload-spin {
+	100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-webkit-keyframes cssload-spin {
+	100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-moz-keyframes cssload-spin {
+	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}

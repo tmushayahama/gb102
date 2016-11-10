@@ -32,6 +32,7 @@ class Level extends Model {
      'advices' => 9,
      'groups' => 10,
      'journals' => 11,
+     'questions' => 11100,
      'request_type_skill' => 1001,
      'request_type_goal' => 1002,
      'todo_level_normal' => 50000,

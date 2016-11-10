@@ -65,10 +65,16 @@ var componentsSrv = function ($http, $q) {
   return deferred.promise;
  };
 
- ComponentsSrv.prototype.getRandomComponent = function (userId) {
+ ComponentsSrv.prototype.getRandomComponent = function (typeId) {
   var self = this;
   var deferred = $q.defer();
-  $http.get('/api/component/random/userid/' + userId).success(function (data) {
+  var url = "";
+  if (typeId) {
+   url = '/api/component/random/type/' + typeId;
+  } else {
+   url = '/api/component/random';
+  }
+  $http.get(url).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {
    self.deferredHandler(data, deferred, 'Unknown error');
@@ -127,6 +133,21 @@ var componentsSrv = function ($http, $q) {
    method: 'POST',
    url: '/api/component/' + componentData.componentId + '/edit/background',
    data: componentData
+  }).success(function (data) {
+   self.deferredHandler(data, deferred);
+  }).error(function (data) {
+   self.deferredHandler(data, deferred, 'Unknown error');
+  });
+  return deferred.promise;
+ };
+
+ ComponentsSrv.prototype.createComponentFavorite = function (componentFavoriteData) {
+  var self = this;
+  var deferred = $q.defer();
+  $http({
+   method: 'POST',
+   url: '/api/component/favorite/' + componentFavoriteData.componentId + '/create',
+   data: componentFavoriteData
   }).success(function (data) {
    self.deferredHandler(data, deferred);
   }).error(function (data) {

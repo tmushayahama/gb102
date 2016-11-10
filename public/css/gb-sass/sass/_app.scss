@@ -14,22 +14,22 @@ and open the template in the editor.
 @import "components/gb-search";
 @import "components/gb-buttons";
 @import "components/gb-modals";
-@import "components/gb-sections";
-@import "components/gb-timeline";
+//@import "components/gb-sections";
+//@import "components/gb-timeline";
 @import "components/gb-navs";
 @import "components/gb-wizard";
 @import "components/gb-swipe";
 @import "components/gb-questionnaire";
 @import "components/gb-tags-input";
-@import "components/gb-comments";
-@import "components/gb-todo";
-@import "components/gb-weblinks";
+//@import "components/gb-comments";
+//@import "components/gb-todo";
+//@import "components/gb-weblinks";
 @import "components/gb-grid";
 @import "components/gb-joyride";
-@import "components/custom-xeditable";
+//@import "components/custom-xeditable";
 @import "components/gb-horizontal-scroll";
 
-//@import "components/gb-spinner";
+@import "components/gb-spinner";
 
 @import "components/gb-ui-select";
 
@@ -730,7 +730,7 @@ input[type="checkbox"] {
 .gb-heading-row-3 {
  position: relative;
  height: 40px;
- border-bottom: #BBB solid 1px;
+ border-bottom: #999 solid 1px;
  .gb-title {
   @include position(absolute, 0 40px 0 0);
   padding: 12px 0;
@@ -1087,13 +1087,16 @@ input[type="checkbox"] {
  @include position(absolute, 0 0 null 0);
  background-color: $primary-color;
  height: 40px;
- padding: 3px 0!important;
+ padding: 0!important;
  list-style: none;
  color: #EEE;
  //background-color: rgba($primary-color, 0.6);
  margin: 0;
  z-index: 901;
 
+ .gb-border-r {
+  border-right: rgba(#FFF, 0.3) solid 1px;
+ }
  .container {
   height: 100%;
  }
@@ -1105,90 +1108,94 @@ input[type="checkbox"] {
  &:hover {
   opacity: 1;
  }
- .gb-heading-row-1 {
-  height: 100%;
+
+ .md-button {
+  height: 40px;
   margin: 0;
+  &:hover {
+   color : #FFF;
+  }
+ }
 
-  .gb-heading-logo {
-   @include position(absolute, 0 null 0 5px);
-   //padding: 10px 0;
-   width:60px;
-   .gb-menu-bars {
-    color : #EEE;
-    &:hover {
-     color : #FFF;
-    }
-   }
-   .gb-logo {
-    margin: 0;
-    padding: 0 6px;
-    line-height: 40px;
-    font-size: 18px;
+ .gb-menu-toolbar {
+  @include position(absolute, 0 null 0 5px);
+  //padding: 10px 0;
+  width:160px;
+  .gb-link,
+  .gb-menu-bars {
+   width: 35px;
+   color : #EEE;
+  }
+  .gb-logo {
+   width: 35px;
+   margin: 0;
+   padding: 0 6px;
+   line-height: 44px;
+   font-size: 18px;
+  }
+ }
+
+ .gb-heading-icon {
+  @include position(absolute, 0 null 0 0);
+  //padding: 10px 0;
+  width:26px;
+  height: 26px;
+  display: block;
+  background-color: #FFF;
+  color: rgba($primary-color, 0.6);
+  font-size: 16px;
+  text-align: center;
+  border-radius: 50%;
+  &.gb-heading-image {
+   img {
+    width: 100%;
+    min-height: 100%;
    }
   }
+ }
 
-  .gb-heading-icon {
-   @include position(absolute, 0 null 0 0);
-   //padding: 10px 0;
-   width:26px;
-   height: 26px;
-   display: block;
-   background-color: #FFF;
-   color: rgba($primary-color, 0.6);
-   font-size: 16px;
-   text-align: center;
-   border-radius: 50%;
-   &.gb-heading-image {
-    img {
-     width: 100%;
-     min-height: 100%;
-    }
-   }
-  }
-
-  .gb-title {
-   @include position(absolute, 0 120px 0 60px);
-   padding: 10px 0 10px 0;
-   font-size: 16px;
+ .gb-title {
+  @include position(absolute, 0 120px 0 160px);
+  padding: 14px 0 14px 14px;
+  color: #F9F9F9;
+  text-align: center;
+  h1 {
    font-weight: normal;
-   color: #F9F9F9;
-   h1 {
-    font-size: 14px;
-    a {
-     color: #F9F9F9;
-     &:hover {
-      text-decoration: none;
-     }
+   font-size: 12px;
+   a {
+    color: #F9F9F9;
+    &:hover {
+     text-decoration: none;
     }
-   }
-   p {
-    line-height:15px;
-    font-size: 12px;
-    a {
-     color: #F9F9F9;
-    }
-   }
-   &.gb-small {
-    padding: 0 0 0 0;
-    font-size: 15px;
    }
   }
-  .gb-action.md-button {
-   padding: 10px 20px;
-   height: 50px;
-   min-width: 40px;
-   //max-width: 150px;
-   line-height: 30px;
-   font-size: 20px;
-   margin: 27px 0 0 0;
-   background-color: rgba($primary-color, 0.6);
-   color: #444;
-   border: #F2F2F2 solid 1px;
-   &:hover {
-    background-color: rgba($primary-color, 1);
-    color: #222;
-    border: #FFF solid 1px;
+  p {
+   line-height:15px;
+   font-size: 12px;
+   a {
+    color: #F9F9F9;
    }
+  }
+  &.gb-small {
+   padding: 0 0 0 0;
+   font-size: 15px;
+  }
+ }
+ .gb-action.md-button {
+  padding: 10px 20px;
+  height: 50px;
+  min-width: 40px;
+  //max-width: 150px;
+  line-height: 30px;
+  font-size: 20px;
+  margin: 27px 0 0 0;
+  background-color: rgba($primary-color, 0.6);
+  color: #444;
+  border: #F2F2F2 solid 1px;
+  &:hover {
+   background-color: rgba($primary-color, 1);
+   color: #222;
+   border: #FFF solid 1px;
   }
  }
 
@@ -2998,7 +3005,6 @@ input.gb-form-show{
    //float: left;
    height: 40px;
    line-height: 42px;
-   width: 90px;
    margin: 0;
   }
  }
@@ -5287,22 +5293,10 @@ input.gb-form-show{
  height: 50px;
  width: 100%;
  white-space: normal;
- margin: 3px 0;
+ margin: 0;
  background-color: rgba(#FFF, 0.2);
- @include shadow(1);
- &:hover, &:focus {
-  @include shadow(2);
-  transform:translateY(-1px);
-  background-color: rgba(#FFF, 0.5);
-  text-decoration: none;
- }
- @include respond-to (gb-sm) {
-  &:hover, &:focus {
-   @include shadow(2);
-   transform:translateY(0);
-   background-color: rgba(#FFF, 0.4);
-  }
- }
+ border-bottom: #999 solid 1px;
+
  .gb-menu {
   @include position(absolute, 0 null 0 0);
   //height: auto;
@@ -5465,28 +5459,17 @@ input.gb-form-show{
 .gb-card-note-sm {
  padding: 0 0 0 0;
  position: relative;
- height: 50px;
+ height: 55px;
  width: 100%;
  white-space: normal;
- margin: 3px 0;
+ margin: 0;
  background-color: rgba(#FFF, 0.2);
- @include shadow(1);
- &:hover, &:focus {
-  @include shadow(2);
-  transform:translateY(-1px);
-  background-color: rgba(#FFF, 0.5);
-  text-decoration: none;
- }
- @include respond-to (gb-sm) {
-  &:hover, &:focus {
-   @include shadow(2);
-   transform:translateY(0);
-   background-color: rgba(#FFF, 0.4);
-  }
- }
+ border-bottom: #999 solid 1px;
+ //@include shadow(1);
  .gb-menu {
   @include position(absolute, 0 null 0 0);
-  //height: auto;
+  position: relative;
+  height: 100%;
   width: 30px;
   .gb-action-dropdown {
    float: left;
@@ -5494,26 +5477,25 @@ input.gb-form-show{
    .md-button {
     padding: 0 0px;
     margin: 0;
-    height: 50px;
+    height: 55px;
    }
   }
  }
+
  .gb-box-content {
   @include position(absolute, 0 30px 0 30px);
+  //height: auto;
   padding: 10px 0px 10px 0px;
   // border-left: transparent solid 5px;
   z-index: 2;
-  &:focus {
-   outline: none;
-  }
   .gb-title {
    //color: #888;
    //font-size:18px;
-   margin-bottom: 5px;
    font-size: 14px;
    font-weight: 400;
+   margin-bottom: 5px;
    small {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
    }
   }
@@ -5534,40 +5516,27 @@ input.gb-form-show{
     font-size: 10px;
    }
   }
-
  }
 
  .gb-goto-btn {
   @include position(absolute, 0 0 0 null);
   width: 30px;
-  margin: 0;
   padding: 0 3px;
+  margin: 0;
  }
 
 }
 
+
 .gb-card-question-sm {
  padding: 0 0 0 0;
  position: relative;
- height: 100px;
+ height: 110px;
  width: 100%;
  white-space: normal;
- margin: 3px 0;
+ margin: 0;
  background-color: rgba(#FFF, 0.2);
- @include shadow(1);
- &:hover, &:focus {
-  @include shadow(2);
-  transform:translateY(-1px);
-  background-color: rgba(#FFF, 0.5);
-  text-decoration: none;
- }
- @include respond-to (gb-sm) {
-  &:hover, &:focus {
-   @include shadow(2);
-   transform:translateY(0);
-   background-color: rgba(#FFF, 0.4);
-  }
- }
+ border-bottom: #999 solid 1px;
  .gb-menu {
   @include position(absolute, 0 null 0 0);
   position: relative;
@@ -5587,7 +5556,7 @@ input.gb-form-show{
  .gb-box-content {
   @include position(absolute, 0 30px 0 30px);
   //height: auto;
-  padding: 10px 0px 10px 0px;
+  padding: 14px 0px 14px 0px;
   // border-left: transparent solid 5px;
   z-index: 2;
   .gb-title {
