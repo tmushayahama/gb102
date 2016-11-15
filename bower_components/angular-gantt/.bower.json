@@ -46,6 +46,6 @@
     "commit": "b103d384d86e9278f6b8e03ffe21434ea947b3c0"
   },
   "_source": "https://github.com/angular-gantt/angular-gantt.git",
-  "_target": "^1.2.13",
+  "_target": "1.2.13",
   "_originalSource": "angular-gantt"
 }

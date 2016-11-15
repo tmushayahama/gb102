@@ -4216,11 +4216,12 @@ input[type="checkbox"] {
 }
 #gb-explorer-header .gb-menu-toolbar .gb-link,
 #gb-explorer-header .gb-menu-toolbar .gb-menu-bars {
+  float: left;
   width: 35px;
   color: #EEE;
 }
 #gb-explorer-header .gb-menu-toolbar .gb-logo {
-  width: 35px;
+  width: 40px;
   margin: 0;
   padding: 0 6px;
   line-height: 44px;
@@ -4298,25 +4299,14 @@ input[type="checkbox"] {
   bottom: 0;
   width: 135px;
   padding-top: 2px;
+  width: 160px;
 }
-#gb-explorer-header .gb-action button {
-  color: #ceffa5;
-  width: 30px;
-  margin: 0;
-}
-@media (max-width: 767px) {
-  #gb-explorer-header .gb-action button {
-    font-size: 14px;
-  }
-  #gb-explorer-header .gb-action button i {
-    font-size: 15px;
-  }
-}
-#gb-explorer-header .gb-menu-icon {
-  font-size: 16px;
+#gb-explorer-header .gb-action .gb-link {
+  float: left;
+  width: 35px;
+  color: #EEE;
 }
 #gb-explorer-header .gb-icon-image {
-  margin-top: -6px;
   width: 30px;
 }
 #gb-explorer-header .gb-icon-image img {

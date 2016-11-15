@@ -1,0 +1,39 @@
+<!-- BOARDS -->
+<div id="boards" class="md-accent-bg" layout="column" flex>
+
+ <!-- BOARD SELECTION -->
+ <div id="board-selector" layout="column" layout-align="start center" flex>
+
+  <h1 translate="SB.SCRUMBOARD_APP">Scrumboard App</h1>
+
+  <!-- BOARD LIST -->
+  <div ng-repeat="app in vm.boardList.apps"
+       layout="column">
+   <div class="board-list" layout="row" layout-align="center center" layout-wrap>
+
+    <!-- BOARD -->
+    <div class="board-list-item" ng-repeat="component in app.components"
+         ui-sref="app.scrumboard.boards.board({id:component.id, uri:board.uri})"
+         layout="column" layout-align="center center">
+     <md-icon md-font-icon="icon-trello" class="icon s64"></md-icon>
+     <div class="board-name">{{component.title}}</div>
+    </div>
+    <!-- / BOARD -->
+
+    <!-- NEW BOARD BUTTON -->
+    <div class="board-list-item add-new-board" layout="column" layout-align="center center"
+         ui-sref="app.scrumboard.boards.addBoard">
+     <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
+     <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
+    </div>
+    <!-- / NEW BOARD BUTTON -->
+
+   </div>
+  </div>
+  <!-- / BOARD LIST -->
+
+ </div>
+ <!-- / BOARD SELECTION -->
+
+</div>
+<!-- / BOARDS -->

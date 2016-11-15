@@ -175,6 +175,45 @@ module.exports = function (grunt) {
   grunt.task.run('copy:copy_build_files');
  });
 
+ grunt.registerTask('copyIndexFile', function () {
+
+  grunt.config.set("copy.copy_index_file", {
+   files: [{
+     expand: true,
+     cwd: 'public/app-v2/.tmp/serve/',
+     src: ['index.html'],
+     dest: 'public/app-v2'
+    }]
+  });
+  grunt.config.set("replace.replace_index_file", {
+   options: {
+    patterns: [
+     {
+      match: /src="..\/bower_components/g,
+      replacement: 'src="public/app-v2/bower_components'
+     },
+     {
+      match: /href='..\/bower_components/g,
+      replacement: "href='public/app-v2/bower_components"
+     },
+     {
+      match: /src="app\//g,
+      replacement: 'src="public/app-v2/src/app/'
+     }
+    ]
+   },
+   files: [
+    {
+     expand: true,
+     src: ['public/app-v2/index.html'],
+     dest: ''
+    }
+   ]
+  });
+  grunt.task.run('copy:copy_index_file');
+  grunt.task.run('replace:replace_index_file');
+ });
+
  grunt.registerTask('replaceBuildFiles', function () {
 
   grunt.config.set("replace.replace_build_files", {
@@ -264,6 +303,10 @@ module.exports = function (grunt) {
   'copyBuildFiles',
   'cssmin',
   'replaceBuildFiles'
+ ]);
+
+ grunt.registerTask('gb_copy_index_file', [
+  'copyIndexFile'
  ]);
 
  grunt.registerTask('gb_app_copy_replace', [

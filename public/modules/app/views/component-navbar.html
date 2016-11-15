@@ -1,9 +1,9 @@
 <div class="gb-menu-toolbar">
- <md-button class="gb-logo pull-left gb-border-r" ui-sref="apps.explorer">
+ <md-button class="gb-link gb-logo gb-border-r" ui-sref="apps.explorer">
   <i class="fa icon-gb-logo"></i>
  </md-button>
  <md-button ng-click="$root.openMenuModal('left')"
-            class="gb-menu-bars pull-left gb-border-r">
+            class="gb-link gb-border-r">
   <i class="fa fa-bars"></i>
  </md-button>
  <md-button type="button" class="gb-link gb-border-r"
@@ -25,7 +25,7 @@
 </div>
 <div class="gb-action">
  <div class="btn-group">
-  <md-button class="gb-ellipsis dropdown-toggle gb-link" data-toggle="dropdown"
+  <md-button class="gb-ellipsis dropdown-toggle gb-link gb-border-l" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
    <div class="gb-icon">
     <i class="fa fa-cogs"></i>
@@ -69,7 +69,7 @@
   </div>
  </div>
  <div class="btn-group">
-  <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <md-button type="button" class="gb-link dropdown-toggle gb-border-l" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    <i class="gb-menu-icon fa fa-bell"></i>
   </md-button>
   <div class="dropdown-menu dropdown-menu-right text-center">
@@ -81,7 +81,7 @@
   </div>
  </div>
  <div class="btn-group">
-  <md-button type="button" class="gb-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <md-button type="button" class="gb-link dropdown-toggle gb-border-l" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    <div class="gb-icon-image">
     <img src="public/img/profile_pic/{{$root.user.avatar_url}}" class="gb-profile-img" alt="">
    </div>

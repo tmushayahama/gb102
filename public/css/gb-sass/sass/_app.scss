@@ -1123,11 +1123,12 @@ input[type="checkbox"] {
   width:160px;
   .gb-link,
   .gb-menu-bars {
+   float: left;
    width: 35px;
    color : #EEE;
   }
   .gb-logo {
-   width: 35px;
+   width: 40px;
    margin: 0;
    padding: 0 6px;
    line-height: 44px;
@@ -1203,24 +1204,15 @@ input[type="checkbox"] {
   @include position(absolute, 0 0 0 null);
   width: 135px;
   padding-top: 2px;
-  button{
-   color: lighten($primary-color, 70%);
-   width: 30px;
-   margin: 0;
-   @include respond-to (gb-xs) {
-    font-size: 14px;
-    i {
-     font-size: 15px;
-     //margin: 6px 3px;
-    }
-   }
+  width:160px;
+  .gb-link{
+   float: left;
+   width: 35px;
+   color : #EEE;
   }
  }
- .gb-menu-icon {
-  font-size: 16px;
- }
  .gb-icon-image {
-  margin-top: -6px;
+  //margin-top: -6px;
   width: 30px;
   img {
    width: 100%;
