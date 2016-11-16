@@ -19,6 +19,16 @@
   vm.card = {};
   vm.cardOptions = {};
   vm.newListName = '';
+
+  vm.defaultComponentData = {
+   //explorerId: vm.explorerId,
+   typeId: 11001,
+   title: "",
+   description: "",
+   privacy: 0
+  };
+  vm.board.newComponentData = angular.copy(vm.defaultComponentData);
+
   vm.sortableListOptions = {
    axis: 'x',
    delay: 75,
@@ -110,7 +120,7 @@
 
   // Methods
   vm.openCardDialog = DialogService.openCardDialog;
-  vm.addNewList = addNewList;
+  vm.createComponent = createComponent;
   vm.removeList = removeList;
   vm.cardFilter = cardFilter;
   vm.isOverdue = isOverdue;
@@ -171,17 +181,20 @@
   /**
    * Add new list
    */
-  function addNewList()
+  function createComponent(parentComponent)
   {
-   if (vm.newListName === '')
+   if (parentComponent.newComponentData.title === '')
    {
     return;
    }
+   parentComponent.newComponentData.parentComponentId = parentComponent.id;
+   parentComponent.newComponentData.typeId = 11001;
+   BoardService.createComponent().then(function (response) {
+    parentComponent.components.push(response);
+    parentComponent.newComponentData = angular.copy(vm.defaultComponentData);
 
-   vm.board.lists.push({
-    id: msUtils.guidGenerator(),
-    name: vm.newListName,
-    idCards: []
+   }, function (response) {
+
    });
 
    vm.newListName = '';

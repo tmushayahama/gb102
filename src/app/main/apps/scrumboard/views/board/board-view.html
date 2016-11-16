@@ -13,7 +13,7 @@
    <div class="list-header" layout="row" layout-align="space-between center">
 
     <div class="list-header-name">
-     <span editable-text="list.name">{{list.title}}</span>
+     <span editable-text="list.title">{{list.title}}</span>
     </div>
 
     <md-menu md-offset="0 48px" class="options list-header-option-button">
@@ -46,12 +46,13 @@
      <!-- CARD -->
      <div class="list-card md-whiteframe-2dp"
           ng-repeat="component in list.components| filter: vm.cardFilter track by $index"
-          ng-click="vm.openCardDialog($event, cardId)">
+          ng-click="vm.openCardDialog($event, component)"
+          ng-style="{'background-color':component.background_color.title}">
 
       <!-- CARD COVER -->
-      <div ng-if="vm.board.settings.cardCoverImages && vm.board.cards.getById(cardId).idAttachmentCover"
+      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
            class="list-card-cover">
-       <img ng-src="{{vm.board.cards.getById(cardId).attachments.getById(vm.board.cards.getById(cardId).idAttachmentCover).src}}">
+       <img ng-src="{{component.component_picture_url}}">
       </div>
       <!-- / CARD COVER -->
 
@@ -78,7 +79,7 @@
        <!-- / CARD LABELS -->
 
        <!-- CARD NAME -->
-       <div class="list-card-name">{{vm.board.cards.getById(cardId).name}}</div>
+       <div class="list-card-name">{{component.title}}</div>
        <!-- / CARD NAME -->
 
        <div ng-if="vm.board.cards.getById(cardId).due || vm.board.cards.getById(cardId).checkItems"
@@ -190,11 +191,11 @@
  <!-- NEW LIST BUTTON-->
  <div class="new-list-wrapper">
   <div class="list new-list md-whiteframe-1dp">
-   <span editable-text="vm.newListName" e-form="newListForm" onaftersave="vm.addNewList()"></span>
+   <span editable-text="vm.board.newComponentData.title" e-form="newListForm" onaftersave="vm.createComponent(vm.board)"></span>
    <md-button class="new-list-form-button" ng-click="newListForm.$show()" ng-hide="newListForm.$visible">
     <div layout="row" layout-align="start center">
      <i class="icon-plus md-red-bg"></i>
-     <span translate="SB.ADD_A_LIST">Add a list</span>
+     <span translate="SB.ADD_A_LIST">Add a new Column</span>
     </div>
    </md-button>
   </div>

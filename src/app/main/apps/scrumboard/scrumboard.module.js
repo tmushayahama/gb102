@@ -101,6 +101,7 @@
 
   // Api
   msApiProvider.register('explorer.component', ['/api/components/:id/listformat/3', {id: "@id"}]);
+  msApiProvider.register('explorer.createComponent', ['/api/component/create']);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('scrumboard.boardList', ['src/app/data/scrumboard/board-list.json']);
   msApiProvider.register('scrumboard.board', ['src/app/data/scrumboard/boards/:id.json']);

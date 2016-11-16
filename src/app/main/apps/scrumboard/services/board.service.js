@@ -12,6 +12,7 @@
   var service = {
    data: {},
    addNewBoard: addNewBoard,
+   createComponent: createComponent,
    getBoardData: getBoardData
   };
 
@@ -27,7 +28,6 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.component@get', {id: boardId},
-   // SUCCESS
            function (response)
            {
             // Attach the data
@@ -36,16 +36,42 @@
             // Resolve the promise
             deferred.resolve(response);
            },
-           // ERROR
-                   function (response)
-                   {
-                    // Reject the promise
-                    deferred.reject(response);
-                   }
-           );
+           function (response)
+           {
+            // Reject the promise
+            deferred.reject(response);
+           }
+   );
 
-           return deferred.promise;
-          }
+   return deferred.promise;
+  }
+
+  /**
+   * Create a Component
+   *
+   * @param componentData
+   * @returns {*}
+   */
+  function createComponent(componentData)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.createComponent@save', {}, componentData,
+           function (response)
+           {
+            // Resolve the promise
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            // Reject the promise
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
 
   /**
    * Create an empty board object and set it.

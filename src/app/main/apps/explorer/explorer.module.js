@@ -33,7 +33,7 @@
   $translatePartialLoaderProvider.addPart('src/app/main/apps/explorer');
 
   // Api
-  msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
+  //msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('explorer.explorer', ['src/app/data/explorer/explorer.json']);
   msApiProvider.register('explorer.labels', ['src/app/data/explorer/labels.json']);
 
