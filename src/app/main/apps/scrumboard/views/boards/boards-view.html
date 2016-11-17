@@ -9,14 +9,48 @@
   <!-- BOARD LIST -->
   <div ng-repeat="app in vm.boardList.apps"
        layout="column">
-   <div class="board-list" layout="row" layout-align="center center" layout-wrap>
+   <div class="board-list flex-scrollable only-x" layout="row" layout-align="start" flex layout-nowrap>
 
     <!-- BOARD -->
     <div class="board-list-item" ng-repeat="component in app.components"
          ui-sref="app.scrumboard.boards.board({id:component.id, uri:board.uri})"
-         layout="column" layout-align="center center">
-     <md-icon md-font-icon="icon-trello" class="icon s64"></md-icon>
-     <div class="board-name">{{component.title}}</div>
+         layout="column" layout-align="start" layout-nowrap>
+     <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
+          class="gb-list-card-cover">
+      <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
+     </div>
+     <div ng-if="component.component_placeholder_style"
+          class="gb-list-card-cover"
+          ng-style="component.component_placeholder_style">
+     </div>
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <h3 class="gb-ellipsis">
+        {{component.title}}
+       </h3>
+      </div>
+      <div class="gb-name-badge-1">
+       <div class="gb-image">
+        <img data-ui-sref="apps.component.overview({componentId: component.id})"
+             ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+       </div>
+       <p class="gb-name gb-ellipsis">
+        {{ ::component.creator.firstname}}
+        {{ ::component.creator.lastname}}
+       </p>
+      </div>
+      <div class="gb-subdescription row">
+       <p class="">
+        <span>
+         {{::component.description}}
+        </span>
+       </p>
+       <p ng-if="!component.description" class="gb-no-info">
+        No description to show
+       </p>
+      </div>
+     </div>
     </div>
     <!-- / BOARD -->
 

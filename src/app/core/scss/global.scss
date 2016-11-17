@@ -1,5 +1,5 @@
 @import '../../../../bower_components/angular-material/angular-material.scss';
-
+@import "../../../lib/bourbon/bourbon";
 @import 'partials/reset';
 @import 'partials/variables';
 @import 'partials/mixins';
@@ -25,3 +25,16 @@
 
 @import 'partials/helpers';
 @import 'partials/print';
+
+.gb-ellipsis {
+ display: block;
+ margin: 0;
+ white-space: nowrap;
+ width: 100%;
+ overflow: hidden; 
+
+ text-overflow: ellipsis;
+}
+.gb-ellipsis a {
+ text-overflow: ellipsis;
+}
