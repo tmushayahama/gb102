@@ -2,10 +2,17 @@
  min-height: 100%;
 
  #board-selector {
+  width: 1100px;
+  @include respond-to (gb-md) {
+   width: 80%;
+  }
+  @include respond-to (gb-sm) {
+   width: 100%;
+  }
   margin-top: 88px;
 
   .board-list {
-   padding: 32px 0;
+   padding: 0;
 
    .board-list-item {
     height: 230px;
@@ -22,18 +29,22 @@
      box-shadow: $whiteframe-shadow-4dp;
     }
 
-
-    .gb-list-card-cover {
+    .gb-card-cover {
      height: 110px;
      border-bottom: transparent solid 2px;
      overflow: hidden;
-     img {
+     .gb-cover-image {
+      height: 100%;
       width: 100%;
-      min-height: 110px;
+      overflow: hidden;
+      img {
+       width: 100%;
+       min-height: 110px;
+      }
      }
     }
 
-    .gb-box-content {
+    .gb-card-content {
      padding: 14px 6px 14px 6px;
 
      .gb-title {

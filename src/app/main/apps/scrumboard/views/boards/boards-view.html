@@ -1,73 +1,145 @@
 <!-- BOARDS -->
-<div id="boards" class="md-accent-bg" layout="column" flex>
+<div id="boards" class="md-accent-bg" layout="column" layout-align="center center" flex>
 
  <!-- BOARD SELECTION -->
  <div id="board-selector" layout="column" layout-align="start center" flex>
 
-  <h1 translate="SB.SCRUMBOARD_APP">Scrumboard App</h1>
+  <div class="gb-card-row" ng-repeat="app in vm.boardList.aypps track by $index">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="gb-heading-row-4 row">
+      <div class="gb-heading-icon">
+       <i class="fa icon-gb-mentorships"></i>
+      </div>
+      <div class="gb-title">
+       <p class="gb-ellipsis">
+        {{component.title}}
+       </p>
+      </div>
+      <div class="gb-action">
+       <md-button>
+        Add
+       </md-button>
+       <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
+        More
+       </md-button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="gb-card-load-container">
+    <div class="gb-card-load-inner">
+     <div class="gb-card-load"></div>
+    </div>
+   </div>
+   <div class="gb-horizontal-scroll gb-apps-scroll row">
+    <div class="gb-left-scroll">
+     <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
+      <i class="fa fa-chevron-left"></i>
+     </md-button>
+    </div>
+    <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
+     <div ng-repeat="component in component.components"
+          class="gb-card-holder gb-card-sm gb-padding-medium"
+          gb-explorer-box component="component"
+          template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
+     </div>
+    </div>
+    <div class="gb-right-scroll">
+     <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 200)" aria-label="scroll right">
+      <i class="fa fa-chevron-right"></i>
+     </md-button>
+    </div>
+   </div>
+  </div>
 
   <!-- BOARD LIST -->
   <div ng-repeat="app in vm.boardList.apps"
        layout="column">
-   <div class="board-list flex-scrollable only-x" layout="row" layout-align="start" flex layout-nowrap>
-
-    <!-- BOARD -->
-    <div class="board-list-item" ng-repeat="component in app.components"
-         ui-sref="app.scrumboard.boards.board({id:component.id, uri:board.uri})"
-         layout="column" layout-align="start" layout-nowrap>
-     <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
-          class="gb-list-card-cover">
-      <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
-     </div>
-     <div ng-if="component.component_placeholder_style"
-          class="gb-list-card-cover"
-          ng-style="component.component_placeholder_style">
-     </div>
-     <div class="gb-box-content">
-      <div class="gb-title">
-       <h3 class="gb-ellipsis">
-        {{component.title}}
-       </h3>
-      </div>
-      <div class="gb-name-badge-1">
-       <div class="gb-image">
-        <img data-ui-sref="apps.component.overview({componentId: component.id})"
-             ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
-             class="gb-heading-pic" alt="">
+   <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+      <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+     </md-button>
+     <h2>
+      <span>{{::app.title}}</span>
+     </h2>
+     <span flex></span>
+     <md-button class="md-icon-button" aria-label="Add">
+      <md-icon md-font-icon="icon-plus"></md-icon>
+     </md-button>
+     <md-button class="md-icon-button" aria-label="More">
+      <md-icon md-font-icon="icon-more"></md-icon>
+     </md-button>
+    </div>
+   </md-toolbar>
+   <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
+    <md-button class="gb-left-scroll md-fab"
+               ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-left"></md-icon>
+    </md-button>
+    <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
+         layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+     <!-- BOARD -->
+     <div class="board-list-item" ng-repeat="component in app.components"
+          ui-sref="app.scrumboard.boards.board({id:component.id, uri:board.uri})"
+          layout="column" layout-align="start" layout-nowrap>
+      <div class="gb-card-cover">
+       <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
+            class="gb-cover-image">
+        <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
        </div>
-       <p class="gb-name gb-ellipsis">
-        {{ ::component.creator.firstname}}
-        {{ ::component.creator.lastname}}
-       </p>
+       <div ng-if="component.component_placeholder_style"
+            class="gb-cover-image"
+            ng-style="component.component_placeholder_style">
+       </div>
       </div>
-      <div class="gb-subdescription row">
-       <p class="">
-        <span>
-         {{::component.description}}
-        </span>
-       </p>
-       <p ng-if="!component.description" class="gb-no-info">
-        No description to show
-       </p>
+      <div class="gb-card-content">
+       <div class="gb-title">
+        <h3 class="gb-ellipsis">
+         {{component.title}}
+        </h3>
+       </div>
+       <div class="gb-name-badge-1">
+        <div class="gb-image">
+         <img data-ui-sref="apps.component.overview({componentId: component.id})"
+              ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+              class="gb-heading-pic" alt="">
+        </div>
+        <p class="gb-name gb-ellipsis">
+         {{ ::component.creator.firstname}}
+         {{ ::component.creator.lastname}}
+        </p>
+       </div>
+       <div class="gb-subdescription row">
+        <p class="">
+         <span>
+          {{::component.description}}
+         </span>
+        </p>
+        <p ng-if="!component.description" class="gb-no-info">
+         No description to show
+        </p>
+       </div>
       </div>
      </div>
+     <!-- / BOARD -->
+     <!-- NEW BOARD BUTTON -->
+     <div class="board-list-item add-new-board" layout="column" layout-align="center center"
+          ui-sref="app.scrumboard.boards.addBoard">
+      <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
+      <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
+     </div>
+     <!-- / NEW BOARD BUTTON -->
     </div>
-    <!-- / BOARD -->
-
-    <!-- NEW BOARD BUTTON -->
-    <div class="board-list-item add-new-board" layout="column" layout-align="center center"
-         ui-sref="app.scrumboard.boards.addBoard">
-     <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
-     <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
-    </div>
-    <!-- / NEW BOARD BUTTON -->
-
+    <md-button class="gb-right-scroll md-fab"
+               ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-right"></md-icon>
+    </md-button>
    </div>
   </div>
   <!-- / BOARD LIST -->
-
  </div>
  <!-- / BOARD SELECTION -->
-
 </div>
 <!-- / BOARDS -->

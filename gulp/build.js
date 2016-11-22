@@ -73,15 +73,19 @@ gulp.task('html', ['inject', 'partials'], function ()
 });
 
 //To replace app with src/app
-gulp.task('index-replace', function () {
- gulp.src([conf.paths.tmp + '/serve/index.html'])
+gulp.task('index-replace-html', function () {
+ return gulp.src([conf.paths.tmp + '/serve/index.html'])
          .pipe(replace('app/', 'src/app/'))
          .pipe(gulp.dest(''));
+});
 
- gulp.src([conf.paths.tmp + '/serve/app/index.css'])
+gulp.task('index-replace-css', function () {
+ return gulp.src([conf.paths.tmp + '/serve/app/index.css'])
          .pipe(replace('', ''))
          .pipe(gulp.dest(conf.paths.src + '/app/'));
 });
+
+gulp.task('index-replace', ['index-replace-html', 'index-replace-css']);
 
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
@@ -128,4 +132,4 @@ gulp.task('clean', function ()
  return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'material-docs', ]);
+gulp.task('build', ['html', 'fonts', 'other', 'material-docs']);

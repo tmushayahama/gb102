@@ -1,5 +1,6 @@
 @import '../../../../bower_components/angular-material/angular-material.scss';
 @import "../../../lib/bourbon/bourbon";
+@import "../../../lib/compass-breakpoint/breakpoint.scss";
 @import 'partials/reset';
 @import 'partials/variables';
 @import 'partials/mixins';
@@ -31,10 +32,34 @@
  margin: 0;
  white-space: nowrap;
  width: 100%;
- overflow: hidden; 
+ overflow: hidden;
 
  text-overflow: ellipsis;
 }
 .gb-ellipsis a {
  text-overflow: ellipsis;
+}
+.gb-horizontal-scroll {
+ position:relative;
+ &.gb-apps-scroll {
+  min-height: 236px
+ }
+ .gb-left-scroll,
+ .gb-right-scroll {
+  margin: 0;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0.7; 
+  &:hover {
+   opacity: 1;
+  }
+ }
+ .gb-left-scroll {
+  @include position(absolute, 50% null null -28px);
+
+ }
+ .gb-right-scroll {
+  @include position(absolute, 50% -28px 0 null);
+ }
 }
