@@ -1,5 +1,5 @@
 <!-- BOARDS -->
-<div id="boards" class="md-accent-bg" layout="column" layout-align="center center" flex>
+<div id="boards" class="" layout="column" layout-align="center center" flex>
 
  <!-- BOARD SELECTION -->
  <div id="board-selector" layout="column" layout-align="start center" flex>
@@ -55,8 +55,9 @@
 
   <!-- BOARD LIST -->
   <div ng-repeat="app in vm.boardList.apps"
+       class="gb-cards-row"
        layout="column">
-   <md-toolbar class="md-hue-2">
+   <md-toolbar class="gb-toolbar gb-toolbar-1">
     <div class="md-toolbar-tools">
      <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
       <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
