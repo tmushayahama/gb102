@@ -1,6 +1,23 @@
+<div class="gb-hero-bar-1" ng-include="'src/app/main/top-hero-bar.html'"></div>
+<div class="gb-card-row-3">
+ <div class="container gb-padding-none">
+  <div class="gb-height-100pc col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="gb-title">
+    <p class="gb-ellipsis">
+     {{$root.appName}}
+    </p>
+   </div>
+   <div class="gb-action">
+    <md-button class="md-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="$root.openAddExplorerModal()">
+     Add
+    </md-button>
+   </div>
+  </div>
+ </div>
+</div>
+
 <!-- BOARDS -->
 <div id="boards" class="" layout="column" layout-align="center center" flex>
-
  <!-- BOARD SELECTION -->
  <div id="board-selector" layout="column" layout-align="start center" flex>
 
@@ -57,7 +74,7 @@
   <div ng-repeat="app in vm.boardList.apps"
        class="gb-cards-row"
        layout="column">
-   <md-toolbar class="gb-toolbar gb-toolbar-1">
+   <md-toolbar ng-if="false" class="gb-toolbar gb-toolbar-1">
     <div class="md-toolbar-tools">
      <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
       <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
@@ -74,6 +91,25 @@
      </md-button>
     </div>
    </md-toolbar>
+
+   <div class="gb-heading-row-1" flex>
+    <div class="gb-heading-icon">
+     <i class="fa {{::app.icon}}"></i>
+    </div>
+    <div class="gb-title">
+     <p class="gb-ellipsis">
+      {{::app.title}}
+     </p>
+    </div>
+    <div layout="row" class="gb-action" flex>
+     <md-button ng-click="$root.openAddExplorerModal(component)">
+      Add
+     </md-button>
+     <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
+      More
+     </md-button>
+    </div>
+   </div>
    <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
     <md-button class="gb-left-scroll md-fab"
                ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">

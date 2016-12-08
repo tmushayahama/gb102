@@ -1,7 +1,7 @@
 <div id="scrumboard" class="page-layout simple fullwidth" layout="column">
 
  <!-- HEADER -->
- <div class="header" ng-class="'md-' + vm.board.settings.color + '-bg'" layout="column">
+ <div class="header md-accent-bg" ng-class="'md-' + vm.board.settings.color + '-bg'" layout="column">
   <div class="header-content" layout="row" layout-align="space-between" layout-wrap flex>
    <!-- BOARD SELECTION BUTTON -->
    <div layout="row" layout-align="center center" flex-order="1" flex-order-xs="2">
@@ -84,7 +84,7 @@
  <!-- BOARD SELECTION -->
  <div ng-show="vm.boardSelectorVisible"
       id="board-selector"
-      class="animate-slide-down board-list md-whiteframe-3dp"
+      class="md-accent-bg animate-slide-down board-list md-whiteframe-3dp"
       ng-class="'md-' + vm.board.settings.color + '-bg'"
       layout="row" layout-align="start center">
 

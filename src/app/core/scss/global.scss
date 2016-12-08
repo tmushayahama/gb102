@@ -30,7 +30,9 @@
 /*
           ANGULAR MATERIAL OVERRIDES
 */
-
+.md-button {
+ min-width:20px;
+}
 md-toolbar {
  &.gb-toolbar {
   &.gb-toolbar-1 {
@@ -100,4 +102,213 @@ md-toolbar {
  background-color: #F2F2F2;
 
  @include shadow(1);
+}
+
+.gb-card-row-3 {
+ position: relative;
+ height: 60px;
+ background-color: #FFF;
+ @include shadow(1);
+
+ .gb-title {
+  @include position(absolute, 0 100px 0 0);
+  padding: 15px 0 15px 10px;
+  font-size: 24px;
+  color: #555;
+  text-transform: uppercase;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+
+  &.gb-small {
+   padding: 0 0 0 0;
+   font-size: 15px;
+  }
+ }
+ .gb-action {
+  @include position(absolute, 0 0 0 null);
+  padding: 10px 10px 10px 0;
+  width: 100px;
+  .md-button {
+   font-size: 14px;
+   //float: left;
+   height: 40px;
+   line-height: 42px;
+   margin: 0;
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 50px;
+
+  .gb-title {
+   @include position(absolute, 0 80px 0 0);
+   padding: 14px 0 12px 5px;
+   font-size: 18px;
+   font-weight: bold;
+  }
+  .gb-action {
+   @include position(absolute, 0 0 0 null);
+   padding: 5px 5px 5px 0;
+   width: 80px;
+   .md-button {
+    font-size: 12px;
+    //float: left;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+   }
+  }
+ }
+}
+
+
+.gb-hero-bar-1 {
+ position: relative;
+ @include shadow(1);
+ //padding: 50px 5px 50px 5px!important;
+ background: url(../../../../src/assets/images/explorer/cover-1.png);
+ -webkit-background-size: auto 100%!important;
+ -moz-background-size: auto 100%!important;
+ -o-background-size: auto 100%!important;
+ background-size: auto 100%!important;
+ height: 200px;
+ width: 100%;
+ list-style: none;
+ color: #EEE;
+ //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
+ margin: 0;
+ z-index: 1;
+
+ .container {
+  height: 100%;
+ }
+ .gb-navbar-container {
+  position: relative;
+  height: 100%;
+ }
+
+ &:hover {
+  opacity: 1;
+ }
+
+ .gb-cover {
+  @include position(absolute, 0 0 0 0);
+  background-color: rgba(nth($apps-colors, 1), 0.5);
+  padding: 5px;
+  overflow: hidden;
+  z-index: -1;
+  .gb-cover-img {
+   width: 100%;
+  }
+ }
+
+ .gb-cover-overlap {
+  @include position(absolute, 0 0 0 0);
+  background-color: rgba(nth($apps-colors, 1), 0.5);
+  z-index: 0;
+ }
+ .gb-heading-row-1 {
+  height: 100%;
+  margin: 0;
+
+  .gb-heading-icon {
+   @include position(absolute, 0 null 0 5px);
+   //padding: 10px 0;
+   width: 150px;
+   height: 150px;
+   display: block;
+   color: #FFF;
+   @include linear-gradient(70deg, nth($apps-colors, 1) 0%, rgba(#FFF, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(nth($apps-colors, 1), 0.6) 100%);
+   //background-color: rgba(nth($apps-colors, 1), 0.6);
+   font-size: 90px;
+   line-height: 160px;
+   text-align: center;
+   &.gb-heading-image {
+    line-height: 40px;
+    img {
+     width: 100%;
+     min-height: 100%;
+     border-radius: 50%;
+    }
+   }
+  }
+ }
+
+ @include respond-to (gb-sm) {
+
+ }
+
+ @include respond-to (gb-xs) {
+  height: 120px;
+
+  .gb-heading-row-1 {
+
+   .gb-heading-icon {
+    //padding: 10px 0;
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    line-height: 85px;
+    &.gb-heading-image {
+     line-height: 40px;
+     img {
+      width: 100%;
+      min-height: 100%;
+      border-radius: 50%;
+     }
+    }
+   }
+
+  }
+ }
+}
+
+.gb-heading-row-1 {
+ position: relative;
+ height: 30px;
+ margin: 15px 0 5px 0;
+ //padding: 0 0 5px 0;
+ //background-color: #FFF;
+
+ .gb-heading-icon {
+  @include position(absolute, 0 null 0 0);
+  padding-left: 10px;
+  width: 30px;
+  display: block;
+  color: #AAA;
+  font-size: 20px;
+  line-height: 35px;
+  //border-radius: 5px;
+ }
+
+ .gb-title {
+  @include position(absolute, 0 100px 0 30px);
+  padding: 6px 0 0 5px;
+  font-size: 16px;
+  color: #444;
+  text-transform: uppercase;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+
+  &.gb-small {
+   padding: 0 0 0 0;
+   font-size: 15px;
+  }
+ }
+ .gb-action {
+  @include position(absolute, 0 0 0 null);
+  width: 100px;
+  .md-button {
+   font-size: 10px;
+   float: left;
+   height: 35px;
+   line-height: 35px;
+   width: 50px;
+   margin: 0;
+  }
+ }
+ &.gb-guest {
+
+ }
 }
