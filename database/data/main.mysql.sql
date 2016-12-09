@@ -84,6 +84,7 @@ CREATE TABLE `gb_component` (
   `type_id` int(11) NOT NULL,
   `title` varchar(150) NOT NULL DEFAULT "",
   `description` varchar(1000) NOT NULL DEFAULT "",
+  `due` datetime,
 	 `template_type_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `component_picture_url` varchar(1000) NOT NULL DEFAULT "",
@@ -113,7 +114,7 @@ CREATE TABLE `gb_component` (
 
 
 --
--- Table structure for table `gb_contribution`
+-- Table structure for table `gb_checklist`
 --
 DROP TABLE IF EXISTS `gb_checklist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -136,7 +137,7 @@ CREATE TABLE `gb_checklist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_contribution`
+-- Table structure for table `gb_component_contribution`
 --
 DROP TABLE IF EXISTS `gb_component_contribution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -467,7 +468,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
+   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`due`, `template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
 
 
 -- ----------- COMPONENT ---------------
