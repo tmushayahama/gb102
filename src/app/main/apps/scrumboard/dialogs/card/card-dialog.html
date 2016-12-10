@@ -4,7 +4,6 @@
  <!-- DIALOG TOOLBAR -->
  <md-toolbar class="md-accent" ng-class="'md-' + vm.board.settings.color + '-bg'">
   <div class="md-toolbar-tools">
-
    <!-- DUE DATE -->
    <div class="due-date">
     <div ng-if="!vm.card.due" moment-picker="vm.card.due" format="x" min-view="year"
@@ -18,12 +17,10 @@
     </div>
    </div>
    <!-- / DUE DATE -->
-
    <md-menu ng-if="vm.card.due" md-offset="0 48" class="remove-due-date">
     <md-button class="md-icon-button" aria-label="Members" ng-click="$mdOpenMenu($event)">
      <md-icon md-font-icon="icon-calendar"></md-icon>
     </md-button>
-
     <md-menu-content class="remove-due-date-menu-content" width="4" ms-scroll>
      <md-menu-item>
       <md-button ng-click="vm.card.due = ''" aria-label="remove due date"
@@ -34,7 +31,6 @@
      </md-menu-item>
     </md-menu-content>
    </md-menu>
-
    <!-- LABELS -->
    <md-menu md-offset="0 48" class="labels">
     <md-button class="md-icon-button" aria-label="Label" translate translate-attr-aria-label="SB.LABEL"
@@ -43,7 +39,6 @@
     </md-button>
     <md-menu-content class="labels-menu-content" width="4" ms-scroll>
      <md-tabs md-selected="vm.labelTabIndex" md-dynamic-height>
-
       <!-- SELECT LABEL -->
       <md-tab>
        <md-tab-body>
@@ -130,12 +125,10 @@
        </md-tab-body>
       </md-tab>
       <!-- / ADD LABEL -->
-
       <!-- EDIT LABEL -->
       <md-tab>
        <md-tab-body>
         <div class="edit-label-tab-content">
-
          <div class="header" layout="row" layout-align="space-between center">
           <md-button class="md-icon-button" md-prevent-menu-close
                      ng-click="vm.labelTabIndex = 0" aria-label="back"
@@ -144,7 +137,6 @@
           </md-button>
           <span flex translate="SB.EDIT_LABEL">Edit Label</span>
          </div>
-
          <div class="content" layout="column" layout-align="start stretch">
           <md-input-container class="no-errors-spacer" md-no-float>
            <input placeholder="Label Name" type="text"
@@ -329,9 +321,7 @@
      </div>
     </div>
     <!-- / CARD NAME -->
-
    </div>
-
    <!-- DUE DATE -->
    <div ng-if="vm.card.due" class="due-date" layout="row" layout-align="start center">
     <div class="picker day-picker" moment-picker="vm.card.due" format="x" min-view="year" max-view="month"
@@ -341,7 +331,6 @@
       <span>{{vm.card.due| date:'mediumDate'}}</span>
      </div>
     </div>
-
     <div class="picker hour-picker" moment-picker="vm.card.due" format="x" min-view="day" max-view="hour"
          start-view="day">
      <div layout="row" layout-align="start center">
@@ -349,15 +338,12 @@
       <span>{{vm.card.due| date:'shortTime'}}</span>
      </div>
     </div>
-
     <div class="remove-due-date" layout="row" layout-align="center center" ng-click="vm.card.due = ''">
      <i class="s16 icon icon-close"></i>
     </div>
    </div>
    <!-- / DUE DATE -->
-
   </div>
-
   <!-- DESCRIPTION -->
   <div class="description">
    <md-input-container class="md-block">
@@ -634,10 +620,55 @@
    </div>
    <!-- / CHECKLISTS SECTION -->
 
+   <div class="section"
+        ng-repeat="(type, component) in vm.card.components track by $index"
+        ng-if="component.components.length > 0">
+    <div class="comments">
+     <div class="section-header" layout="row" layout-align="start center">
+      <i class="icon-comment s18"></i>
+      <span class="section-title">
+       {{component.title}}
+      </span>
+     </div>
+     <div class="section-content">
+      <form name="cardCommentForm"
+            ng-submit="vm.addNewComment(vm.newCommentText); vm.newCommentText = ''"
+            class="comment new-comment" layout="column" layout-align="start" no-validate>
+       <div layout="row">
+        <img class="comment-member-avatar" src="src/assets/images/avatars/profile.jpg">
+        <md-input-container flex md-no-float>
+         <textarea placeholder="Write a comment.."
+                   ng-model="vm.newCommentText" required max-rows="4"
+                   translate translate-attr-placeholder="SB.WRITE_A_COMMENT"></textarea>
+        </md-input-container>
+       </div>
+       <div layout="row" layout-align="end center">
+        <md-button type="submit" class="md-raised md-accent"
+                   ng-disabled="cardCommentForm.$invalid || cardCommentForm.$pristine"
+                   aria-label="Add">
+         <span translate="SB.ADD">Add</span>
+        </md-button>
+       </div>
+      </form>
+
+      <div class="comment" layout="row" ng-repeat="component in component.components track by $index">
+       <img class="comment-member-avatar"
+            ng-src="{{vm.board.members.getById(comment.idMember).avatar}}">
+
+       <div layout="column">
+        <div class="comment-member-name">
+         {{vm.board.members.getById(comment.idMember).name}}
+        </div>
+        <div class="comment-bubble">{{comment.title}}</div>
+        <div class="comment-time secondary-text">{{comment.time}}</div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
    <!-- COMMENTS SECTION -->
    <div class="section">
     <div class="comments">
-
      <div class="section-header" layout="row" layout-align="start center">
       <i class="icon-comment s18"></i>
       <span class="section-title" translate="SB.COMMENTS">Comments</span>
@@ -685,9 +716,7 @@
 
    <!-- ACTIVITIES SECTION -->
    <div ng-if="vm.card.activities[0]" class="section">
-
     <div class="activities">
-
      <div class="section-header" layout="row" layout-align="start center">
       <i class="icon-format-list-bulleted s18"></i>
       <span class="section-title" translate="SB.ACTIVITY">Activity</span>

@@ -55,10 +55,12 @@
             }
            },
            resolve: {
-            BoardData: function ($stateParams, BoardService)
-            {
-             return BoardService.getBoardData($stateParams.id);
-            }
+            /*
+             BoardData: function ($stateParams, BoardService)
+             {
+             return BoardService.getBoardData($stateParams.id, 2);
+             }
+             */
            }
           }
           )
@@ -100,7 +102,11 @@
   $translatePartialLoaderProvider.addPart('src/app/main/apps/scrumboard');
 
   // Api
-  msApiProvider.register('explorer.component', ['/api/components/:id/listformat/3', {id: "@id"}]);
+  msApiProvider.register('explorer.component', ['/api/components/:id/listformat/:listFormat',
+   {
+    id: "@id",
+    listformat: "@listformat"
+   }]);
   msApiProvider.register('explorer.createComponent', ['/api/component/create']);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('scrumboard.boardList', ['src/app/data/scrumboard/board-list.json']);

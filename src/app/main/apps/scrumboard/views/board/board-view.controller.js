@@ -7,13 +7,13 @@
          .controller('BoardViewController', BoardViewController);
 
  /** @ngInject */
- function BoardViewController($document, $window, $timeout, $mdDialog, msUtils, BoardList, BoardService, CardFilters, DialogService)
+ function BoardViewController($stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardList, BoardService, CardFilters, DialogService)
  {
   var vm = this;
 
   // Data
   vm.currentView = 'board';
-  vm.board = BoardService.data;
+  vm.board = [];//BoardService.data;
   vm.boardList = BoardList.data;
   vm.cardFilters = CardFilters;
   vm.card = {};
@@ -134,7 +134,9 @@
    */
   function init()
   {
-
+   BoardService.getBoard($stateParams.id, 3).then(function (data) {
+    vm.board = data;
+   });
    $timeout(function ()
    {
     // IE list-content max-height hack

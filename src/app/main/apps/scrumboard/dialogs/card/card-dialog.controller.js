@@ -12,13 +12,14 @@
   var vm = this;
 
   // Data
-  vm.board = BoardService.data;
-  vm.card = cardId; //vm.board.cards.getById(cardId);
+  vm.board = [];
+  vm.card = {}; //vm.board.cards.getById(cardId);
   vm.newLabelColor = 'red';
   vm.members = vm.board.members;
   vm.labels = vm.board.labels;
 
   // Methods
+  vm.init = init;
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
   vm.toggleInArray = msUtils.toggleInArray;
@@ -45,6 +46,8 @@
   vm.createCheckList = createCheckList;
   /* Comment */
   vm.addNewComment = addNewComment;
+
+  vm.init();
 
   //////////
 
@@ -351,6 +354,12 @@
    {
     return angular.lowercase(item.name).indexOf(lowercaseQuery) >= 0;
    };
+  }
+
+  function init() {
+   BoardService.getCard(cardId, 2).then(function (data) {
+    vm.card = data;
+   });
   }
  }
 })();

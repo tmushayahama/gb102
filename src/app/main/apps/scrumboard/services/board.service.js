@@ -13,7 +13,8 @@
    data: {},
    addNewBoard: addNewBoard,
    createComponent: createComponent,
-   getBoardData: getBoardData
+   getBoard: getBoard,
+   getCard: getCard
   };
 
   /**
@@ -22,17 +23,44 @@
    * @param boardId
    * @returns {*}
    */
-  function getBoardData(boardId)
+  function getBoard(boardId, listFormat)
   {
    // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('explorer.component@get', {id: boardId},
+   msApi.request('explorer.component@get', {id: boardId, listFormat: listFormat},
            function (response)
            {
             // Attach the data
             service.data = response;
 
+            // Resolve the promise
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            // Reject the promise
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get board data from the server
+   *
+   * @param boardId
+   * @returns {*}
+   */
+  function getCard(cardId, listFormat)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.component@get', {id: cardId, listFormat: listFormat},
+           function (response)
+           {
             // Resolve the promise
             deferred.resolve(response);
            },

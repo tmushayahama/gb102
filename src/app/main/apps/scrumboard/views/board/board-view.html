@@ -36,12 +36,12 @@
      <!-- CARD -->
      <div class="list-card"
           ng-repeat="component in list.components| filter: vm.cardFilter track by $index"
-          ng-click="vm.openCardDialog($event, component)"
+          ng-click="vm.openCardDialog($event, component.id)"
           ng-style="{'background-color':component.background_color.title}">
       <!-- CARD COVER -->
       <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
            class="list-card-cover">
-       <img ng-src="{{component.component_picture_url}}">
+       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
       </div>
       <!-- / CARD COVER -->
       <!-- CARD DETAILS -->
