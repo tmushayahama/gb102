@@ -81,6 +81,10 @@
    moveBy(sectionId, delta);
   };
 
+  $rootScope.settings = {
+   color: "#027887"
+  };
+
   $rootScope.generateBackgroundPattern = function () {
    function getRandom(min, max) {
     if (min > max) {

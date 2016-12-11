@@ -1,19 +1,16 @@
-<div layout="row" layout-align="start center">
+<div layout="row" layout-align="start center"
+     ng-class="'md-' + $root.settings.color + '-bg'">
  <div layout="row" layout-align="start center" flex>
   <md-button id="navigation-toggle" class="md-icon-button" ng-click="vm.toggleSidenav('navigation')"
-             hide-gt-sm aria-label="Toggle navigation" translate
+             aria-label="Toggle navigation" translate
              translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION">
    <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
   </md-button>
-  <md-button class="md-icon-button navigation-fold-toggle"
-             hide show-gt-sm aria-label="Toggle navigation fold"
-             translate translate-attr-aria-label="TOOLBAR.TOGGLE_NAVIGATION_FOLD"
-             ng-click="vm.toggleMsNavigationFolded()">
-   <md-icon class="s18" md-font-icon="icon-backburger"></md-icon>
-  </md-button>
   <div class="toolbar-separator"></div>
   <div class="logo" layout="row" layout-align="start center">
-   <span class="logo-image">S</span>
+   <span class="logo-image">
+    <i class="fa icon-gb-logo"></i>
+   </span>
    <span class="logo-text">
     <strong>SKILL</strong>SECTION
    </span>
@@ -51,10 +48,6 @@
     </md-button>
 
     <md-menu-content width="3">
-     <md-menu-item class="md-indent" ui-sref="app.explorer">
-      <md-icon md-font-icon="icon-account" class="icon"></md-icon>
-      <md-button>Explorer</md-button>
-     </md-menu-item>
      <md-menu-item class="md-indent" ui-sref="app.pages_profile">
       <md-icon md-font-icon="icon-account" class="icon"></md-icon>
       <md-button>My Profile</md-button>

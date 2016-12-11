@@ -55,12 +55,10 @@
             }
            },
            resolve: {
-            /*
-             BoardData: function ($stateParams, BoardService)
-             {
-             return BoardService.getBoardData($stateParams.id, 2);
-             }
-             */
+            BoardData: function ($stateParams, BoardService)
+            {
+             return BoardService.getBoard($stateParams.id, 3);
+            }
            }
           }
           )

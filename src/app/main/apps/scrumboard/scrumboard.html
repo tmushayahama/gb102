@@ -5,12 +5,16 @@
   <div class="header-content" layout="row" layout-align="space-between" layout-wrap flex>
    <!-- BOARD SELECTION BUTTON -->
    <div layout="row" layout-align="center center" flex-order="1" flex-order-xs="2">
-    <md-button class="md-accent md-raised md-hue-2 header-boards-button"
+    <md-button class="md-icon-button"
+               ui-sref="app.scrumboard.boards" aria-label="Calendar" translate translate-attr-aria-label="SB.CALENDAR">
+     <md-icon md-font-icon="icon-chevron-left"></md-icon>
+     <md-tooltip><span>Back</span></md-tooltip>
+    </md-button>
+    <md-button class="header-boards-button"
                ng-class="'md-' + vm.board.settings.color + '-700-bg'"
                ng-click="vm.boardSelectorVisible = !vm.boardSelectorVisible"
                aria-label="boards button" translate translate-attr-aria-label="SB.BOARDS_BUTTON">
-     <md-icon md-font-icon="icon-trello" class="icon"></md-icon>
-     <span translate="SB.BOARDS">BOARDS</span>
+     <span>{{vm.board.title}}</span>
     </md-button>
    </div>
    <!-- / BOARD SELECTION BUTTON -->

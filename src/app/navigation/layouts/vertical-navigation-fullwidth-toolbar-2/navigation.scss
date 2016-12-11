@@ -2,17 +2,27 @@
  padding: 0;
  &.gb-vertical-nav-1 {
   width: 100%;
-  li,
+  li {
+   width: 100%;
+  }
   .md-button {
+   padding: 5px 5px 5px 10px;
    text-align: left;
    margin: 0;
    width: 100%;
    text-transform: capitalize;
+   md-icon {
+    line-height: 0;
+    font-size: 25px;
+    height: 100%;
+    width: 35px;
+   }
   }
  }
 }
 
 .gb-nav-heading {
+ padding: 5px 5px 5px 10px;
  color: #777;
  font-size: 12px;
 }

@@ -1,17 +1,16 @@
-<div class="gb-hero-bar-1" ng-include="'src/app/main/top-hero-bar.html'"></div>
-<div class="gb-card-row-3">
- <div class="container gb-padding-none">
-  <div class="gb-height-100pc col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-   <div class="gb-title">
-    <p class="gb-ellipsis">
-     {{$root.appName}}
-    </p>
-   </div>
-   <div class="gb-action">
-    <md-button class="md-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-click="$root.openAddExplorerModal()">
-     Add
-    </md-button>
-   </div>
+<div class="gb-hero-bar-1" layout="column" layout-align="center center" flex
+     ng-include="'src/app/main/top-hero-bar.html'"></div>
+<div class="gb-card-row-3" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="start center" flex>
+  <div class="gb-title">
+   <p class="gb-ellipsis">
+    {{$root.appName}}
+   </p>
+  </div>
+  <div class="gb-action">
+   <md-button class="md-primary" ng-click="$root.openAddExplorerModal()">
+    Add
+   </md-button>
   </div>
  </div>
 </div>
@@ -19,11 +18,11 @@
 <!-- BOARDS -->
 <div id="boards" class="" layout="column" layout-align="center center" flex>
  <!-- BOARD SELECTION -->
- <div id="board-selector" layout="column" layout-align="start center" flex>
+ <div id="board-selector" class="gb-container" layout="column" layout-align="start center" flex>
 
   <div class="gb-card-row" ng-repeat="app in vm.boardList.aypps track by $index">
    <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="">
      <div class="gb-heading-row-4 row">
       <div class="gb-heading-icon">
        <i class="fa icon-gb-mentorships"></i>

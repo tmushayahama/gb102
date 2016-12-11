@@ -4,11 +4,11 @@
 
  angular
          .module('app.scrumboard')
-         .controller('msSbAddCardController', msSbAddCardController)
-         .directive('msSbAddCard', msSbAddCardDirective);
+         .controller('CardQuestionController', cardQuestionController)
+         .directive('gbCardQuestion', cardQuestiondDirective);
 
  /** @ngInject */
- function msSbAddCardController($scope, $timeout, BoardService, msUtils)
+ function cardQuestionController($scope, $timeout, BoardService, msUtils)
  {
   var vm = this;
 
@@ -64,7 +64,7 @@
  }
 
  /** @ngInject */
- function msSbAddCardDirective($document, $window, $timeout)
+ function cardQuestiondDirective($document, $window, $timeout)
  {
   return {
    restrict: 'E',

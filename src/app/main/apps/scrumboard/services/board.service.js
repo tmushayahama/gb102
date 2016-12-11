@@ -31,15 +31,11 @@
    msApi.request('explorer.component@get', {id: boardId, listFormat: listFormat},
            function (response)
            {
-            // Attach the data
             service.data = response;
-
-            // Resolve the promise
             deferred.resolve(response);
            },
            function (response)
            {
-            // Reject the promise
             deferred.reject(response);
            }
    );

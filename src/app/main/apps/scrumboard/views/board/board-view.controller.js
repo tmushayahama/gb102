@@ -13,7 +13,7 @@
 
   // Data
   vm.currentView = 'board';
-  vm.board = [];//BoardService.data;
+  vm.board = BoardService.data;
   vm.boardList = BoardList.data;
   vm.cardFilters = CardFilters;
   vm.card = {};
@@ -134,9 +134,6 @@
    */
   function init()
   {
-   BoardService.getBoard($stateParams.id, 3).then(function (data) {
-    vm.board = data;
-   });
    $timeout(function ()
    {
     // IE list-content max-height hack
