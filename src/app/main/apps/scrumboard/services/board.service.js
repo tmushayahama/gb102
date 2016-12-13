@@ -3,7 +3,7 @@
  'use strict';
 
  angular
-         .module('app.scrumboard')
+         .module('app.explorer')
          .factory('BoardService', BoardService);
 
  /** @ngInject */

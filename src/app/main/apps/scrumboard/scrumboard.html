@@ -6,7 +6,7 @@
    <!-- BOARD SELECTION BUTTON -->
    <div layout="row" layout-align="center center" flex-order="1" flex-order-xs="2">
     <md-button class="md-icon-button"
-               ui-sref="app.scrumboard.boards" aria-label="Calendar" translate translate-attr-aria-label="SB.CALENDAR">
+               ui-sref="app.explorer.boards" aria-label="Calendar" translate translate-attr-aria-label="SB.CALENDAR">
      <md-icon md-font-icon="icon-chevron-left"></md-icon>
      <md-tooltip><span>Back</span></md-tooltip>
     </md-button>
@@ -32,8 +32,8 @@
 
     <!-- CALENDAR BUTTON -->
     <md-button class="md-icon-button"
-               ui-sref="app.scrumboard.boards.board.calendar"
-               ng-hide="'app.scrumboard.boards.board.calendar' | isState"
+               ui-sref="app.explorer.boards.board.calendar"
+               ng-hide="'app.explorer.boards.board.calendar' | isState"
                aria-label="Calendar" translate translate-attr-aria-label="SB.CALENDAR">
      <md-icon md-font-icon="icon-calendar"></md-icon>
      <md-tooltip><span translate="SB.CALENDAR">Calendar</span></md-tooltip>
@@ -42,8 +42,8 @@
 
     <!-- BOARD BUTTON -->
     <md-button class="md-icon-button"
-               ui-sref="app.scrumboard.boards.board"
-               ng-hide="'app.scrumboard.boards.board' | isState"
+               ui-sref="app.explorer.boards.board"
+               ng-hide="'app.explorer.boards.board' | isState"
                aria-label="Board" translate translate-attr-aria-label="SB.BOARD">
      <md-icon md-font-icon="icon-trello"></md-icon>
      <md-tooltip><span translate="SB.BOARD">Board</span></md-tooltip>
@@ -93,7 +93,7 @@
       layout="row" layout-align="start center">
 
   <div class="board-list-item" ng-repeat="board in vm.boardList"
-       ui-sref="app.scrumboard.boards.board({id:board.id, uri:board.uri})"
+       ui-sref="app.explorer.boards.board({id:board.id, uri:board.uri})"
        layout="column" layout-align="space-between center">
 
    <div class="board-icon">
@@ -112,7 +112,7 @@
   </div>
 
   <div class="board-list-item add-new-board"
-       ui-sref="app.scrumboard.boards.addBoard" ui-sref-active="hidden"
+       ui-sref="app.explorer.boards.addBoard" ui-sref-active="hidden"
        layout="column" layout-align="space-between center">
 
    <div class="board-icon">

@@ -27,7 +27,7 @@
           'app.chat',
           'app.file-manager',
           'app.gantt-chart',
-          'app.scrumboard',
+          'app.explorer',
           'app.todo',
           'app.contacts',
           'app.notes',

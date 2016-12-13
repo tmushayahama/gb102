@@ -3,7 +3,7 @@
  'use strict';
 
  angular
-         .module('app.scrumboard',
+         .module('app.explorer',
                  [
                   // 3rd Party Dependencies
                   'moment-picker',
@@ -18,9 +18,9 @@
  function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
  {
   $stateProvider
-          .state('app.scrumboard', {
+          .state('app.explorer', {
            abstract: true,
-           url: '/scrumboard',
+           url: '/explorer',
            resolve: {
             BoardList: function (msApi)
             {
@@ -31,7 +31,7 @@
           })
 
           // Home
-          .state('app.scrumboard.boards', {
+          .state('app.explorer.boards', {
            url: '/boards',
            views: {
             'content@app': {
@@ -42,14 +42,14 @@
           })
 
           // Board
-          .state('app.scrumboard.boards.board', {
+          .state('app.explorer.boards.board', {
            url: '/:id',
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/scrumboard/scrumboard.html',
              controller: 'ScrumboardController as vm'
             },
-            'scrumboardContent@app.scrumboard.boards.board': {
+            'scrumboardContent@app.explorer.boards.board': {
              templateUrl: 'src/app/main/apps/scrumboard/views/board/board-view.html',
              controller: 'BoardViewController as vm'
             }
@@ -64,14 +64,14 @@
           )
 
           // Add board
-          .state('app.scrumboard.boards.addBoard', {
+          .state('app.explorer.boards.addBoard', {
            url: '/add',
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/scrumboard/scrumboard.html',
              controller: 'ScrumboardController as vm'
             },
-            'scrumboardContent@app.scrumboard.boards.addBoard': {
+            'scrumboardContent@app.explorer.boards.addBoard': {
              templateUrl: 'src/app/main/apps/scrumboard/views/board/board-view.html',
              controller: 'BoardViewController as vm'
             }
@@ -86,10 +86,10 @@
           )
 
           // Calendar
-          .state('app.scrumboard.boards.board.calendar', {
+          .state('app.explorer.boards.board.calendar', {
            url: '/calendar',
            views: {
-            'scrumboardContent@app.scrumboard.boards.board': {
+            'scrumboardContent@app.explorer.boards.board': {
              templateUrl: 'src/app/main/apps/scrumboard/views/calendar/calendar-view.html',
              controller: 'CalendarViewController as vm'
             }
@@ -114,7 +114,7 @@
   msNavigationServiceProvider.saveItem('apps.scrumboard', {
    title: 'Scrumboard',
    icon: 'icon-trello',
-   state: 'app.scrumboard.boards',
+   state: 'app.explorer.boards',
    weight: 8
   });
  }

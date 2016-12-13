@@ -19,19 +19,20 @@
           'app.toolbar',
           // Quick Panel
           'app.quick-panel',
+          'app.login-panel',
+          'app.registration-panel',
           // Apps
-          'app.dashboards',
+          'app.welcome',
           'app.calendar',
           'app.e-commerce',
           'app.mail',
           'app.chat',
           'app.file-manager',
           'app.gantt-chart',
-          'app.scrumboard',
+          'app.explorer',
           'app.todo',
           'app.contacts',
           'app.notes',
-          'app.explorer',
           // Pages
           'app.pages',
           // User Interface

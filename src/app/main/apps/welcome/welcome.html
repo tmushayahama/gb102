@@ -1,0 +1,237 @@
+<div id="gb-welcome">
+ <header id="gb-intro-section" class="">
+  <div class="intro-text col-lg-10 col-md-10 col-sm-11 col-xs-11">
+   <h1 class="intro-heading">
+    APPLY & TRACK SKILLS
+   </h1>
+   <h2 class="intro-lead-in">
+    Discover what a new kind of skill exploration and application can do for you
+   </h2>
+  </div>
+  <div class="gb-intro-carousel" uib-carousel active="vm.active" interval="vm.myInterval"
+       template-url="public/modules/common/views/templates/gb-carousel.tpl.html">
+   <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
+    <img ng-src="{{slide.image}}" style="margin:auto;">
+   </div>
+  </div>
+ </header>
+ <section class="gb-explorer-row row">
+  <div class="container gb-padding-thin">
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="gb-card-row-2">
+      <div class="row">
+       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="gb-title">
+         Apply your skills
+        </h2>
+        <p class="gb-description">
+         Check out how others are applying their skill
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row gb-card-row">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa icon-gb-apply"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         Applications
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="gb-horizontal-scroll gb-apps-scroll row">
+     <div class="gb-left-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', -200)" aria-label="scroll left">
+       <i class="fa fa-chevron-left"></i>
+      </md-button>
+     </div>
+     <ul id="gb-featured-apps" class="gb-body-row-4 gb-inline">
+      <li ng-repeat="app in $root.apps track by $index"
+          class="gb-card-holder gb-card-md gb-padding-medium">
+      <md-button class="gb-card-apps gb-app-type-{{::app.id}}"
+                 ui-sref="apps.app({'app_name': '{{::app.title}}'})">
+       <i class="gb-icon fa {{::app.icon}}"></i>
+       <div class="gb-title">
+        {{::app.title}}
+       </div>
+       <p class="gb-description">
+        {{::app.long_description}}
+       </p>
+       <div class="gb-learn-more-btn">
+        Explore More
+       </div>
+      </md-button>
+      </li>
+     </ul>
+     <div class="gb-right-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', 200)" aria-label="scroll right">
+       <i class="fa fa-chevron-right"></i>
+      </md-button>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="gb-card-row-2">
+      <div class="row">
+       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="gb-title">
+         Start by exploring skills
+        </h2>
+        <p class="gb-description">
+         <strong>Find inspiration. Cheer someone</strong><br>
+         Browse through the skill bank and see what others are doing with their skills
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row gb-card-row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa {{::component.icon}}"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         {{component.title}}
+        </p>
+       </div>
+       <div class="gb-action">
+        <md-button>
+         Add
+        </md-button>
+        <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
+         More
+        </md-button>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="gb-card-load-container">
+     <div class="gb-card-load-inner">
+      <div class="gb-card-load"></div>
+     </div>
+    </div>
+    <div class="gb-horizontal-scroll gb-apps-scroll row">
+     <div class="gb-left-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
+       <i class="fa fa-chevron-left"></i>
+      </md-button>
+     </div>
+     <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
+      <div ng-repeat="component in component.components"
+           class="gb-card-holder gb-card-sm gb-padding-medium"
+           gb-explorer-box component="component"
+           template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
+      </div>
+     </div>
+     <div class="gb-right-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 200)" aria-label="scroll right">
+       <i class="fa fa-chevron-right"></i>
+      </md-button>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="gb-card-row-2">
+      <div class="row">
+       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="gb-title">
+         Check some activities in skills
+        </h2>
+        <p class="gb-description">
+         <strong>Find inspiration. Cheer someone</strong><br>
+         Browse through the skill bank and see what others are doing with their skills
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="row" ng-repeat="(id, component) in explorersCtrl.components.activities track by $index">
+    <div class="row">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gb-heading-row-4 row">
+       <div class="gb-heading-icon">
+        <i class="fa {{::component.icon}}"></i>
+       </div>
+       <div class="gb-title">
+        <p class="gb-ellipsis">
+         {{component.title}}
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="gb-card-load-container">
+     <div class="gb-card-load-inner">
+      <div class="gb-card-load"></div>
+     </div>
+    </div>
+    <div class="gb-horizontal-scroll row">
+     <div class="gb-left-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
+       <i class="fa fa-chevron-left"></i>
+      </md-button>
+     </div>
+     <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
+      <div ng-repeat="component in component.components"
+           class="gb-card-holder gb-card-sm gb-padding-medium"
+           gb-explorer-box component="component"
+           template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
+      </div>
+     </div>
+     <div class="gb-right-scroll">
+      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 200)" aria-label="scroll right">
+       <i class="fa fa-chevron-right"></i>
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class='gb-get-started'>
+  <div class="container">
+   <div class="row">
+    <h2>
+     Get started today
+    </h2>
+    <p>
+     Discover what a new kind of skill exploration and application can do for you.
+    </p>
+   </div>
+   <div class="row">
+    <div class="gb-btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="btn-toolbar row">
+      <button type="button" ng-click="appCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
+       <i class="fa fa-key"></i> Beta Access
+      </button>
+      <div class="gb-or">
+       or
+      </div>
+      <button type="button" ng-click="appCtrl.openLoginModal()" class="btn btn-default">
+       <i class="fa fa-sign-in"></i> Login
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <div class="gb-lp-footer">
+  &copy;Copyright 2016 SkillSection.com. All rights reserved.
+ </div>
+</div>

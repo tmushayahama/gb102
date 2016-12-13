@@ -4,7 +4,7 @@
 
     config.$inject = ["$stateProvider", "$translatePartialLoaderProvider", "msApiProvider", "msNavigationServiceProvider"];
     angular
-        .module('app.scrumboard',
+        .module('app.explorer',
             [
                 // 3rd Party Dependencies
                 'moment-picker',
@@ -19,7 +19,7 @@
     function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
     {
         $stateProvider
-            .state('app.scrumboard', {
+            .state('app.explorer', {
                 abstract : true,
                 url      : '/scrumboard',
                 resolve  : {
@@ -32,7 +32,7 @@
             })
 
             // Home
-            .state('app.scrumboard.boards', {
+            .state('app.explorer.boards', {
                 url  : '/boards',
                 views: {
                     'content@app': {
@@ -43,14 +43,14 @@
             })
 
             // Board
-            .state('app.scrumboard.boards.board', {
+            .state('app.explorer.boards.board', {
                     url    : '/:id/:uri',
                     views  : {
                         'content@app'                                  : {
                             templateUrl: 'src/app/main/apps/scrumboard/scrumboard.html',
                             controller : 'ScrumboardController as vm'
                         },
-                        'scrumboardContent@app.scrumboard.boards.board': {
+                        'scrumboardContent@app.explorer.boards.board': {
                             templateUrl: 'src/app/main/apps/scrumboard/views/board/board-view.html',
                             controller : 'BoardViewController as vm'
                         }
@@ -65,14 +65,14 @@
             )
 
             // Add board
-            .state('app.scrumboard.boards.addBoard', {
+            .state('app.explorer.boards.addBoard', {
                     url    : '/add',
                     views  : {
                         'content@app'                                     : {
                             templateUrl: 'src/app/main/apps/scrumboard/scrumboard.html',
                             controller : 'ScrumboardController as vm'
                         },
-                        'scrumboardContent@app.scrumboard.boards.addBoard': {
+                        'scrumboardContent@app.explorer.boards.addBoard': {
                             templateUrl: 'src/app/main/apps/scrumboard/views/board/board-view.html',
                             controller : 'BoardViewController as vm'
                         }
@@ -87,10 +87,10 @@
             )
 
             // Calendar
-            .state('app.scrumboard.boards.board.calendar', {
+            .state('app.explorer.boards.board.calendar', {
                 url  : '/calendar',
                 views: {
-                    'scrumboardContent@app.scrumboard.boards.board': {
+                    'scrumboardContent@app.explorer.boards.board': {
                         templateUrl: 'src/app/main/apps/scrumboard/views/calendar/calendar-view.html',
                         controller : 'CalendarViewController as vm'
                     }
@@ -108,7 +108,7 @@
         msNavigationServiceProvider.saveItem('apps.scrumboard', {
             title : 'Scrumboard',
             icon  : 'icon-trello',
-            state : 'app.scrumboard.boards',
+            state : 'app.explorer.boards',
             weight: 8
         });
     }
@@ -120,7 +120,7 @@
 
     ScrumboardCalendarEventDialogController.$inject = ["$mdDialog", "dueDate", "BoardService", "msUtils"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('ScrumboardCalendarEventDialogController', ScrumboardCalendarEventDialogController);
 
     /** @ngInject */
@@ -211,7 +211,7 @@
 
     MembersMenuController.$inject = ["$document", "$mdDialog", "BoardService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('MembersMenuController', MembersMenuController);
 
     /** @ngInject */
@@ -283,7 +283,7 @@
 
     LabelsMenuController.$inject = ["$document", "$mdColorPalette", "$mdDialog", "fuseGenerator", "msUtils", "BoardService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('LabelsMenuController', LabelsMenuController);
 
     /** @ngInject */
@@ -364,7 +364,7 @@
 
     ColorMenuController.$inject = ["$mdColorPalette", "BoardService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('ColorMenuController', ColorMenuController);
 
     /** @ngInject */
@@ -4451,7 +4451,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     CalendarViewController.$inject = ["$scope", "$document", "$mdDialog", "$mdSidenav", "BoardService", "DialogService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('CalendarViewController', CalendarViewController);
 
     /** @ngInject */
@@ -4655,7 +4655,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     BoardsViewController.$inject = ["BoardList"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('BoardsViewController', BoardsViewController);
 
     /** @ngInject */
@@ -4677,7 +4677,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     BoardViewController.$inject = ["$document", "$window", "$timeout", "$mdDialog", "msUtils", "BoardList", "BoardService", "CardFilters", "DialogService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('BoardViewController', BoardViewController);
 
     /** @ngInject */
@@ -4950,7 +4950,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     SettingsSidenavController.$inject = ["$mdColorPalette", "BoardService"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('SettingsSidenavController', SettingsSidenavController);
 
     /** @ngInject */
@@ -4975,7 +4975,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     FiltersSidenavController.$inject = ["msUtils", "BoardService", "CardFilters"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('FiltersSidenavController', FiltersSidenavController);
 
     /** @ngInject */
@@ -5005,7 +5005,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
 
     ScrumboardCardDialogController.$inject = ["$document", "$mdDialog", "fuseTheming", "fuseGenerator", "msUtils", "BoardService", "cardId"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('ScrumboardCardDialogController', ScrumboardCardDialogController);
 
     /** @ngInject */
@@ -5364,7 +5364,7 @@ angular.module('buttonsDemo1', ['ngMaterial'])
     msSbAddCardController.$inject = ["$scope", "$timeout", "BoardService", "msUtils"];
     msSbAddCardDirective.$inject = ["$document", "$window", "$timeout"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('msSbAddCardController', msSbAddCardController)
         .directive('msSbAddCard', msSbAddCardDirective);
 
@@ -16054,7 +16054,7 @@ angular.module('app.components.material-docs')
     'use strict';
 
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .factory('CardFilters', CardFiltersService);
 
     /** @ngInject */
@@ -16097,7 +16097,7 @@ angular.module('app.components.material-docs')
 
     DialogService.$inject = ["$mdDialog", "$document"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .factory('DialogService', DialogService);
 
     /** @ngInject */
@@ -16140,7 +16140,7 @@ angular.module('app.components.material-docs')
 
     BoardService.$inject = ["$q", "msApi"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .factory('BoardService', BoardService);
 
     /** @ngInject */
@@ -20690,7 +20690,7 @@ angular.module('app.components.material-docs')
 
     ScrumboardController.$inject = ["$mdSidenav", "BoardService", "BoardList", "CardFilters"];
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('ScrumboardController', ScrumboardController);
 
     /** @ngInject */
@@ -30708,7 +30708,7 @@ angular.module('app.components.material-docs')
           'app.chat',
           'app.file-manager',
           'app.gantt-chart',
-          'app.scrumboard',
+          'app.explorer',
           'app.todo',
           'app.contacts',
           'app.notes',

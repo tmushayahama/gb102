@@ -11,7 +11,7 @@
 
             <!-- BOARD -->
             <div class="board-list-item" ng-repeat="board in vm.boardList"
-                 ui-sref="app.scrumboard.boards.board({id:board.id, uri:board.uri})"
+                 ui-sref="app.explorer.boards.board({id:board.id, uri:board.uri})"
                  layout="column" layout-align="center center">
                 <md-icon md-font-icon="icon-trello" class="icon s64"></md-icon>
                 <div class="board-name">{{board.name}}</div>
@@ -20,7 +20,7 @@
 
             <!-- NEW BOARD BUTTON -->
             <div class="board-list-item add-new-board" layout="column" layout-align="center center"
-                 ui-sref="app.scrumboard.boards.addBoard">
+                 ui-sref="app.explorer.boards.addBoard">
                 <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
                 <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
             </div>

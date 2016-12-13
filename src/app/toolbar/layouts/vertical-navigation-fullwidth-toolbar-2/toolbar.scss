@@ -2,8 +2,31 @@
 
  #toolbar {
 
+  .gb-left-nav,
+  .gb-right-nav{
+   width: 200px;
+   max-width: 200px;
+  }
+
+  .md-button.md-icon-button {
+   margin: 0;
+   height: 40px;
+   min-width: 0;
+   line-height: 24px;
+   padding: 8px 0;
+   width: 50px;
+   border-radius: 0;
+  }
   md-icon {
    color: #F5F5F5;
+   font-size: 18px;
+  }
+
+  .ms-search-bar .ms-search-bar-expander,
+  .ms-search-bar .ms-search-bar-collapser {
+   width: 50px !important;
+   height: 40px !important;
+   line-height: 40px !important;
   }
 
   .logo {
@@ -12,22 +35,30 @@
    .logo-image {
     display: block;
     //background: material-color('light-blue', '600');
-    width: 32px;
-    min-width: 32px;
+    //width: 32px;
+    // min-width: 32px;
     height: 32px;
     line-height: 32px;
     text-align: center;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
-    border-radius: 2px;
+    //border-radius: 2px;
    }
 
    .logo-text {
     color: #FFFFFF;
-    margin-left: 16px;
+    //margin-left: 16px;
     font-size: 16px;
    }
+  }
+
+  .avatar {
+   width: 30px;
+   min-width: 30px;
+   height: 30px;
+   line-height: 30px;
+   margin: 0 0 0 0;
   }
 
   .navigation-fold-toggle {

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.scrumboard')
+        .module('app.explorer')
         .controller('ScrumboardCardDialogController', ScrumboardCardDialogController);
 
     /** @ngInject */

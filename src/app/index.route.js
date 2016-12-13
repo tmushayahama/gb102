@@ -11,7 +11,7 @@
  {
   // $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/dashboard-project');
+  $urlRouterProvider.otherwise('/welcome');
 
   /**
    * Layout Style Switcher
@@ -89,6 +89,14 @@
             'quickPanel@app': {
              templateUrl: 'src/app/quick-panel/quick-panel.html',
              controller: 'QuickPanelController as vm'
+            },
+            'loginPanel@app': {
+             templateUrl: 'src/app/login-panel/login-panel.html',
+             controller: 'LoginPanelController as vm'
+            },
+            'registrationPanel@app': {
+             templateUrl: 'src/app/registration-panel/registration-panel.html',
+             controller: 'RegistrationPanelController as vm'
             }
            }
           });
