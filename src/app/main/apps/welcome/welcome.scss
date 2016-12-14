@@ -15,7 +15,116 @@ $color-6: #077568;
 
 
 #gb-welcome {
- //background-color: #FFF;
+ .gb-card-row-2 {
+  background-color: #F9F9F9;
+  .gb-title {
+   padding: 16px 14px 0px 14px;
+   font-size: 24px;
+   font-weight: 400;
+   //line-height: 32px;
+   margin-bottom: 8px;
+   color: #000;
+  }
+  .gb-description {
+   font-size: 12px;
+   margin-bottom: 16px;
+   color: #000;
+  }
+ }
+ .gb-boards-tabs {
+  height: 375px;
+ }
+ .gb-cards-apps {
+  height: 240px;
+ }
+ md-tabs {
+  height: 100%;
+  width: 100%;
+
+
+  .gb-horizontal-scroll {
+   position:relative;
+   &.gb-apps-scroll {
+    min-height: 236px
+   }
+   .gb-left-scroll,
+   .gb-right-scroll {
+    background-color: #FFF;
+    margin: 0;
+    height: 100%;
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 0.7;
+    z-index: 1;
+    &:hover {
+     opacity: 1;
+    }
+   }
+   .gb-left-scroll {
+    @include position(absolute, 0 null 0 0);
+    width: 32px;
+   }
+   .board-list {
+    padding: 0 35px 0 0;
+    //@include position(absolute, 0 40px 0 40px);
+   }
+   .gb-right-scroll {
+    @include position(absolute, 0 0 0 null);
+    width: 32px;
+   }
+  }
+
+  md-tabs-canvas,
+  md-pagination-wrapper {
+   height: 78px;
+  }
+  md-tab-item {
+   height: 80px;
+   .gb-icon {
+    font-size: 25px;
+    margin-bottom: 9px;
+    color: #999;
+   }
+   .gb-title {
+    font-size: 10px;
+   }
+  }
+
+  md-tabs-wrapper {
+   background-color: #F2F2F2;
+   border-top: #AAA solid 1px;
+   border-bottom: #AAA solid 1px;
+
+   .md-tab {
+    max-width: none !important;
+   }
+  }
+
+  md-tabs-content-wrapper {
+   top: 80px;
+
+   md-tab-content {
+    height: 100%;
+    overflow: hidden;
+
+    > div {
+     overflow: hidden;
+     height: 100%;
+    }
+
+    md-list {
+
+     .md-subheader {
+
+     }
+
+     md-list-item {
+     }
+    }
+   }
+  }
+ }
 
  .gb-background-color-3 {
   background-color: #DDD;
@@ -360,6 +469,15 @@ $color-6: #077568;
   }
  }
 
+ .gb-welcome-section-1 {
+  padding: 20px 0;
+  background-color: #D2D2D2;
+ }
+
+ .gb-welcome-section-2 {
+  padding: 20px 0;
+  background-color: #FFF;
+ }
 
  .gb-lp-timeline-row {
   padding: 0;

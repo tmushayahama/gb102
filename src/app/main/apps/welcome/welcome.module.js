@@ -33,7 +33,7 @@
   });
 
   // Api
-  msApiProvider.register('welcome.server', ['src/app/data/welcome/server/data.json']);
+  msApiProvider.register('welcome.components', ['/api/components/listformat/2']);
  }
 
 })();

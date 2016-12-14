@@ -126,6 +126,152 @@ md-toolbar {
  }
 }
 
+.gb-card-apps {
+ height: 210px;
+ min-width: 210px;
+ width: 210px;
+ margin: 8px;
+ border-radius: 2px;
+ line-height: 18px;
+ text-align: center;
+ padding:20px 2px 5px 2px;
+ text-decoration: none;
+ border-bottom: transparent solid 3px;
+ @include shadow(1);
+ &:hover,&:focus {
+  @include shadow(2);
+  transform:translateY(-1px);
+ }
+ /*
+ -webkit-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ -moz-box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.33);
+ */
+
+ @mixin card-apps-background {
+  @for $i from 1 through length($apps-colors){
+   &.gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.1);
+    color: darken(nth($apps-colors, $i), 5%);
+   }
+  }
+ }
+
+ @include card-apps-background;
+
+ .gb-icon {
+  display: block;
+  margin: 0 auto 5px auto;
+  //background-color: rgba($primary-color, 0.2);
+  line-height: 60px;
+  min-width: 0;
+  width: 150px;
+  height: 60px;
+  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  //border-radius: 50%;
+  font-size: 60px;
+  //color: darken($primary-color, 5%);
+  //color: #
+  @include respond-to (gb-sm) {
+   //font-size: 18px;
+  }
+  @include respond-to (gb-xs) {
+   //font-size: 20px;
+  }
+ }
+
+ .gb-title {
+  padding:10px 10px 10px 10px;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+  //line-height: 15px;
+ }
+ .gb-description{
+  height: 30px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #111;
+  text-decoration: none;
+  text-transform: lowercase;
+ }
+ .gb-learn-more-btn {
+  font-weight: bold;
+  margin: 0;
+  line-height: 40px;
+ }
+ .gb-image-icon {
+  width: 100%;
+  padding: 0px;
+  margin-right: 7px;
+ }
+}
+
+.gb-card-apps-mini {
+ margin: 5px 0;
+ height: 100%;;
+ width: 100%;
+ text-align: center;
+ text-decoration: none;
+
+ @mixin card-apps-background {
+  @for $i from 1 through length($apps-colors){
+   &.gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.2);
+    color: darken(nth($apps-colors, $i), 5%);
+    &.active {
+     outline: rgba(nth($apps-colors, $i), 0.4) solid 10px;
+    }
+    &:hover {
+     outline: rgba(nth($apps-colors, $i), 0.1) solid 10px;;
+    }
+   }
+  }
+ }
+
+ @include card-apps-background;
+
+ .gb-icon {
+  display: block;
+  margin: 10px auto 5px auto;
+  //background-color: rgba($primary-color, 0.2);
+  line-height: 40px;
+  min-width: 0;
+  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  //border-radius: 50%;
+  font-size: 40px;
+  //color: darken($primary-color, 5%);
+  //color: #
+  @include respond-to (gb-sm) {
+   //font-size: 18px;
+  }
+  @include respond-to (gb-xs) {
+   //font-size: 20px;
+  }
+ }
+
+ .gb-title {
+  padding:0px 5px 0px 5px;
+  font-size: 10px;
+  color: #222;
+  word-wrap: normal;
+  //line-height: 15px;
+ }
+}
+
+
 
 .gb-cards-row {
  padding: 0 0 10px 0;
@@ -342,5 +488,123 @@ md-toolbar {
  }
  &.gb-guest {
 
+ }
+}
+
+
+
+.board-list-item {
+ height: 230px;
+ min-width: 210px;
+ width: 210px;
+ padding: 0 0 0 0;
+ margin: 8px;
+ border-radius: 2px;
+ background-color: #FFF;
+ color: #555;
+ cursor: pointer;
+ @include shadow(1);
+
+ &:hover {
+  box-shadow: $whiteframe-shadow-4dp;
+ }
+
+ .gb-card-cover {
+  height: 110px;
+  border-bottom: transparent solid 2px;
+  overflow: hidden;
+  .gb-cover-image {
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+   img {
+    width: 100%;
+    min-height: 110px;
+   }
+  }
+ }
+
+ .gb-card-content {
+  padding: 14px 6px 14px 6px;
+
+  .gb-title {
+   //font-size:18px;
+   color: #555;
+   h3 {
+    font-size: 12px;
+    font-weight: 400;
+    //line-height: 32px;
+    margin-bottom: 8px;
+   }
+  }
+
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   //margin-bottom: 0px;
+   font-size: 12px;
+   p {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 8px;
+   }
+  }
+
+  .gb-subdescription {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 10px;
+   height: 25px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   p {
+    font-size: 10px;
+    line-height: 12px;
+   }
+   .gb-no-info {
+    padding: 12px 5px;
+    color: #BBB;
+    font-size: 10px;
+   }
+  }
+
+ }
+
+ .gb-name-badge-1 {
+  margin-bottom: 8px;
+  position: relative;
+  //float: right;
+  height: 20px;
+  padding-left: 20px;
+  font-size: 9px;
+  .gb-name {
+   font-size: 12px;
+   padding-top: 0px;
+   padding-left: 5px;
+  }
+  .gb-image {
+   @include position(absolute, 0 null 0 0);
+   border: none;
+   right: auto;
+   height: 20px;
+   width: 20px;
+   img {
+    border-radius: 50%;
+    min-height: 20px;
+    height: 20px;
+    width: 20px;
+   }
+  }
+ }
+
+ .board-name {
+  padding-top: 16px;
+  font-weight: 500;
  }
 }
