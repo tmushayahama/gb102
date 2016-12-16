@@ -14,6 +14,9 @@
           // Core
           'app.core',
           'app.profile',
+          'app.explorer',
+          'app.swipe',
+          'app.matcher',
           // Navigation
           'app.navigation',
           // Toolbar
@@ -30,7 +33,6 @@
           'app.chat',
           'app.file-manager',
           'app.gantt-chart',
-          'app.explorer',
           'app.todo',
           'app.contacts',
           'app.notes',

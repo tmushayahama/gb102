@@ -9,25 +9,20 @@
   <div class="toolbar-separator"></div>
   <ms-search-bar on-search="vm.search(query)" on-result-click="vm.searchResultClick(item)" debounce="300"></ms-search-bar>
 
-  <md-button class="md-icon-button"
-             ui-sref="app.explorer"
-             aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
+  <md-button class="md-icon-button" ui-sref="app.explorer"
+             aria-label="Open explorer" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
    <md-icon md-font-icon="fa icon-gb-explorer" class="icon"></md-icon>
   </md-button>
-  <md-button class="md-icon-button"
-             aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
+  <md-button class="md-icon-button" ui-sref="app.swipe"
+             aria-label="Open swipe" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
    <md-icon md-font-icon="fa icon-gb-swipe" class="icon"></md-icon>
   </md-button>
-  <md-button class="md-icon-button"
-             aria-label="Toggle quick panel" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
+  <md-button class="md-icon-button" ui-sref="app.matcher"
+             aria-label="Open Matcher" translate translate-attr-aria-label="TOOLBAR.TOGGLE_QUICK_PANEL">
    <md-icon md-font-icon="fa icon-gb-matcher" class="icon"></md-icon>
   </md-button>
-
   <div class="toolbar-separator"></div>
-
  </div>
-
-
  <div class="logo" layout="row" layout-align="center center" flex class="gb-middle-nav">
   <md-button ui-sref="app.welcome" layout="row" layout-align="center center">
    <span class="logo-image">

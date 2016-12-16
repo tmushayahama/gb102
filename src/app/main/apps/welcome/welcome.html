@@ -69,7 +69,7 @@
               layout="row" layout-align="start" ms-scroll flex layout-nowrap>
           <!-- BOARD -->
           <div class="board-list-item" ng-repeat="component in app.components"
-               ui-sref="app.explorer.boards.board({id:component.id, uri:board.uri})"
+               ui-sref="app.componentColumnView({id:component.id})"
                layout="column" layout-align="start" layout-nowrap>
            <div class="gb-card-cover">
             <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
@@ -233,7 +233,7 @@
               layout="row" layout-align="start" ms-scroll flex layout-nowrap>
           <!-- BOARD -->
           <div class="board-list-item" ng-repeat="component in app.components"
-               ui-sref="app.explorer.boards.board({id:component.id, uri:board.uri})"
+               ui-sref="app.componentColumnView({id:component.id})"
                layout="column" layout-align="start" layout-nowrap>
            <div class="gb-card-cover">
             <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
