@@ -19,7 +19,7 @@
  {
   $stateProvider
           .state('app.explorer', {
-           abstract: true,
+           //abstract: true,
            url: '/explorer',
            resolve: {
             BoardList: function (msApi)
@@ -27,22 +27,24 @@
              return msApi.resolve('explorer.components@get');
             }
            },
-           bodyClass: 'scrumboard'
-          })
-
-          // Home
-          .state('app.explorer.boards', {
-           url: '/boards',
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/scrumboard/views/boards/boards-view.html',
              controller: 'BoardsViewController as vm'
             }
+           },
+           bodyClass: 'scrumboard'
+          })
+          .state('app.apps', {
+           url: '/explorer/{app_name}',
+           views: {
+            'content@app': {
+             templateUrl: 'src/app/main/apps/scrumboard/views/app-boards/app-boards-view.html',
+             controller: 'AppBoardsViewController as vm'
+            }
            }
           })
-
-          // Board
-          .state('app.explorer.boards.board', {
+          .state('app.component', {
            url: '/:id',
            views: {
             'content@app': {
@@ -107,14 +109,11 @@
    }]);
   msApiProvider.register('explorer.createComponent', ['/api/component/create']);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
+  msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
+   {
+    appName: '@appName'
+   }]);
 
-  // Navigation
-  msNavigationServiceProvider.saveItem('apps.scrumboard', {
-   title: 'Scrumboard',
-   icon: 'icon-trello',
-   state: 'app.explorer.boards',
-   weight: 8
-  });
  }
 
 })();

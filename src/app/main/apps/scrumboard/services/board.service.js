@@ -14,13 +14,67 @@
    addNewBoard: addNewBoard,
    createComponent: createComponent,
    getBoard: getBoard,
+   getBoards: getBoards,
+   getBoardsByType: getBoardsByType,
    getCard: getCard
   };
 
   /**
    * Get board data from the server
    *
+   * @returns {*}
+   */
+  function getBoards()
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.components@get',
+           function (response)
+           {
+            //service.data = response;
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get board data from the server
+   *
+   * @param appName
+   * @returns {*}
+   */
+  function getBoardsByType(appName)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.componentsByType@query', {appName: appName},
+           function (response)
+           {
+            //service.data = response;
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get board data from the server
+   *
    * @param boardId
+   * @param listFormat
    * @returns {*}
    */
   function getBoard(boardId, listFormat)
@@ -31,7 +85,7 @@
    msApi.request('explorer.component@get', {id: boardId, listFormat: listFormat},
            function (response)
            {
-            service.data = response;
+            //service.data = response;
             deferred.resolve(response);
            },
            function (response)

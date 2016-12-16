@@ -32,58 +32,21 @@
    }
   ]);
 
-  // Get active layout
-  var layoutStyle = $cookies.get('layoutStyle') || 'verticalNavigation';
-
-  var layouts = {
-   verticalNavigation: {
-    main: 'src/app/core/layouts/vertical-navigation.html',
-    toolbar: 'src/app/toolbar/layouts/vertical-navigation/toolbar.html',
-    navigation: 'src/app/navigation/layouts/vertical-navigation/navigation.html'
-   },
-   verticalNavigationFullwidthToolbar: {
-    main: 'src/app/core/layouts/vertical-navigation-fullwidth-toolbar.html',
-    toolbar: 'src/app/toolbar/layouts/vertical-navigation-fullwidth-toolbar/toolbar.html',
-    navigation: 'src/app/navigation/layouts/vertical-navigation/navigation.html'
-   },
-   verticalNavigationFullwidthToolbar2: {
-    main: 'src/app/core/layouts/vertical-navigation-fullwidth-toolbar-2.html',
-    toolbar: 'src/app/toolbar/layouts/vertical-navigation-fullwidth-toolbar-2/toolbar.html',
-    navigation: 'src/app/navigation/layouts/vertical-navigation-fullwidth-toolbar-2/navigation.html'
-   },
-   horizontalNavigation: {
-    main: 'src/app/core/layouts/horizontal-navigation.html',
-    toolbar: 'src/app/toolbar/layouts/horizontal-navigation/toolbar.html',
-    navigation: 'src/app/navigation/layouts/horizontal-navigation/navigation.html'
-   },
-   contentOnly: {
-    main: 'src/app/core/layouts/content-only.html',
-    toolbar: '',
-    navigation: ''
-   },
-   contentWithToolbar: {
-    main: 'src/app/core/layouts/content-with-toolbar.html',
-    toolbar: 'src/app/toolbar/layouts/content-with-toolbar/toolbar.html',
-    navigation: ''
-   }
-  };
-  // END - Layout Style Switcher
-
   // State definitions
   $stateProvider
           .state('app', {
            abstract: true,
            views: {
             'main@': {
-             templateUrl: layouts[layoutStyle].main,
+             templateUrl: 'src/app/core/layouts/main.html',
              controller: 'MainController as vm'
             },
             'toolbar@app': {
-             templateUrl: layouts[layoutStyle].toolbar,
+             templateUrl: 'src/app/toolbar/toolbar.html',
              controller: 'ToolbarController as vm'
             },
             'navigation@app': {
-             templateUrl: layouts[layoutStyle].navigation,
+             templateUrl: 'src/app/navigation/navigation.html',
              controller: 'NavigationController as vm'
             },
             'quickPanel@app': {

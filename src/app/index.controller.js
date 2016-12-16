@@ -20,7 +20,6 @@
           function (data)
           {
            $rootScope.commonData = data;
-           console.error(data);
           },
           function (response)
           {

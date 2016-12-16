@@ -26,7 +26,7 @@
     localStorageService.set('user', user);
     $rootScope.authenticated = true;
     $rootScope.user = response.data.user;
-    $state.go('app.pages_profile');
+    $state.go('app.profile', {user_id: $rootScope.user.id});
    });
   };
  }

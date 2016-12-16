@@ -1,17 +1,90 @@
-<div class="gb-hero-bar-1" layout="column" layout-align="center center" flex
-     ng-include="'src/app/main/top-hero-bar.html'"></div>
-<div class="gb-card-row-3" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="start center" flex>
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+ <div class="gb-cover-overlap" ></div>
+ <div class="gb-cover" ng-style="$root.headerStyle"></div>
+ <div class="gb-container user-info" layout="column" layout-align="center center">
+  <div class="gb-header-icon">
+   <i class="fa" ng-class="'fa icon-gb-' + $root.appName.toLowerCase()"></i>
+  </div>
   <div class="gb-title">
-   <p class="gb-ellipsis">
-    {{$root.appName}}
-   </p>
+   {{$root.appName}}
   </div>
-  <div class="gb-action">
-   <md-button class="md-primary" ng-click="$root.openAddExplorerModal()">
-    Add
-   </md-button>
-  </div>
+ </div>
+ <div class="actions" layout="row" layout-align="end center">
+  <md-button class="md-raised md-accent" aria-label="Follow" translate="PROFILE.FOLLOW"
+             translate-attr-aria-label="PROFILE.FOLLOW">Follow
+  </md-button>
+  <md-button class="md-raised md-primary" translate="PROFILE.SEND_MESSAGE"
+             translate-attr-aria-label="PROFILE.SEND_MESSAGE">Send Message
+  </md-button>
+ </div>
+</div>
+<!-- / HEADER -->
+<div class="gb-row gb-spacing-1"></div>
+<!-- CONTENT -->
+<div class="gb-tabs-1" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <md-tabs md-stretch-tabs="always" class="">
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-icon">
+      <i class="fa fa-list"></i>
+     </div>
+     <div class="gb-title">
+      Overview
+     </div>
+    </md-tab-label>
+    <md-tab-body>
+     <md-content class="overview-tab"
+                 ng-include="'src/app/main/profile/tabs/overview/overview.html'">
+     </md-content>
+    </md-tab-body>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-icon">
+      <i class="fa icon-gb-apps"></i>
+     </div>
+     <div class="gb-title">
+      Apps
+     </div>
+    </md-tab-label>
+    <md-tab-body>
+     <md-content class="apps-tab"
+                 ng-include="'src/app/main/profile/tabs/apps/apps.html'">
+     </md-content>
+    </md-tab-body>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-icon">
+      <i class="fa fa-info"></i>
+     </div>
+     <div class="gb-title">
+      About
+     </div>
+    </md-tab-label>
+    <md-tab-body>
+     <md-content class="about-tab"
+                 ng-include="'src/app/main/profile/tabs/about/about.html'">
+     </md-content>
+    </md-tab-body>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-icon">
+      <i class="fa fa-cog"></i>
+     </div>
+     <div class="gb-title">
+      Settings
+     </div>
+    </md-tab-label>
+    <md-tab-body>
+     <md-content class="settings-tab"
+                 ng-include="'src/app/main/profile/tabs/settings/settings.html'">
+     </md-content>
+    </md-tab-body>
+   </md-tab>
+  </md-tabs>
  </div>
 </div>
 <!-- BOARDS -->
@@ -19,33 +92,6 @@
  <!-- BOARD SELECTION -->
  <div id="board-selector" class="gb-container" layout="column" layout-align="start center" flex>
   <div class="gb-card-row" ng-repeat="app in vm.boardList.aypps track by $index">
-   <div class="row">
-    <div class="">
-     <div class="gb-heading-row-4 row">
-      <div class="gb-heading-icon">
-       <i class="fa icon-gb-mentorships"></i>
-      </div>
-      <div class="gb-title">
-       <p class="gb-ellipsis">
-        {{component.title}}
-       </p>
-      </div>
-      <div class="gb-action">
-       <md-button>
-        Add
-       </md-button>
-       <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
-        More
-       </md-button>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="gb-card-load-container">
-    <div class="gb-card-load-inner">
-     <div class="gb-card-load"></div>
-    </div>
-   </div>
    <div class="gb-horizontal-scroll gb-apps-scroll row">
     <div class="gb-left-scroll" show-gt-sm >
      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">

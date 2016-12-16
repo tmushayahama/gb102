@@ -155,7 +155,7 @@
           layout="row" layout-align="start" ms-scroll flex layout-nowrap>
       <md-button ng-repeat="app in $root.commonData.apps"
                  class="gb-card-apps gb-app-type-{{::app.id}}"
-                 ui-sref="apps.app({'app_name': '{{::app.title}}'})"
+                 ui-sref="app.apps({'app_name': '{{::app.title}}'})"
                  layout="column" layout-align="start" layout-nowrap>
        <i class="gb-icon fa {{::app.icon}}"></i>
        <div class="gb-title">

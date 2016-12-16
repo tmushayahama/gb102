@@ -13,6 +13,7 @@
           'xeditable',
           // Core
           'app.core',
+          'app.profile',
           // Navigation
           'app.navigation',
           // Toolbar
