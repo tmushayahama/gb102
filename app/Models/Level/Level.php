@@ -3,6 +3,7 @@
 namespace App\Models\Level;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Component\Component;
 use Request;
 use DB;
 use JWTAuth;
@@ -90,10 +91,16 @@ class Level extends Model {
   return $levelsArray;
  }
 
- public static function getLevel($parentId) {
+ public static function getLevel($parentId, $withCount = false) {
   $levels = Level::orderBy('id', 'asc')
           ->where('parent_level_id', $parentId)
           ->get();
+
+  if ($withCount) {
+   foreach ($levels as $level) {
+    $level["count"] = Component::where("type_id", $level->id)->count();
+   }
+  }
   return $levels;
  }
 
@@ -113,8 +120,8 @@ class Level extends Model {
 
  public static function getComponentTypes() {
   $result = array();
-  $result['apps'] = $componentTypes = Level::getLevel(Level::$level_categories['apps']);
-  $result['activities'] = $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+  $result['apps'] = Level::getLevel(Level::$level_categories['apps'], true);
+  $result['activities'] = Level::getLevel(Level::$level_categories['component_type'], true);
   return $result;
  }
 

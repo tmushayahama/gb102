@@ -19,8 +19,8 @@
  {
   $stateProvider
           .state('app.explorer', {
-           //abstract: true,
            url: '/explorer',
+           abstract: true,
            resolve: {
             BoardList: function (msApi)
             {
@@ -34,6 +34,19 @@
             }
            },
            bodyClass: 'explorer'
+          })
+          .state('app.explorer.home', {
+           url: '/overview',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/tabs/home/home.html',
+             controller: 'BoardsHomeTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 0
+           }
+           //bodyClass: 'explorer'
           })
           .state('app.apps', {
            url: '/explorer/{app_name}',

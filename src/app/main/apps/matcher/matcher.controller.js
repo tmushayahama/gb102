@@ -7,9 +7,12 @@
          .controller('MatcherController', MatcherController);
 
  /** @ngInject */
- function MatcherController($stateParams, $mdSidenav, BoardService, CardFilters)
+ function MatcherController($stateParams, $rootScope, $mdSidenav, BoardService, CardFilters)
  {
   var vm = this;
+
+  $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
+  $rootScope.appName = "Matcher";
 
   // Data
   vm.currentView = 'board';

@@ -10,7 +10,8 @@ id	parent_level_id	title	code	description	long_description	icon
 9	1	advices		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices
 10	1	groups		Create A Group	Create A Group	icon-gb-groups
 11	1	journals		Write a Journal	Write a Journal	icon-gb-journals
-12	1	topic		Create A Topic	Create A Topic	icon-gb-topic
+12	1	pages		Create A Page	Blogs	icon-gb-pages
+13	1	projects		Create A Project	A project	icon-gb-projects
 1001	2	Skill Gained		\N		
 1002	2	Skill to Improve		\N		
 1003	2	Skill to Learn		\N		

@@ -7,9 +7,86 @@
          .controller('SwipeController', SwipeController);
 
  /** @ngInject */
- function SwipeController($stateParams, $mdSidenav, BoardService, CardFilters)
+ function SwipeController($stateParams, $rootScope, $mdSidenav, BoardService, CardFilters)
  {
   var vm = this;
+
+  $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
+  $rootScope.appName = "Swipe";
+
+  vm.component;
+  vm.swipeLevels;
+
+  vm.swipeRight = function ($event, explorerId) {
+   vm.createSwipe(explorerId, vm.swipeLevels[2].id);
+
+   var ele = $event.target;
+   //var x = Math.floor(Math.random() * 200) + 1,
+   $(ele).css({
+    'transform': "translate(50%, 30%) rotate(" + 20 + "deg)",
+    'opacity': "0.3"
+
+   });
+   $timeout(function () {
+    $(ele).css({
+     'transform': "translate(0%, 0%) rotate(" + 0 + "deg)",
+     'opacity': "1"
+    });
+   }, 1000);
+  };
+
+  vm.swipeLeft = function ($event, explorerId) {
+   vm.createSwipe(explorerId, vm.swipeLevels[0].id);
+   var ele = $event.target;
+   //var x = Math.floor(Math.random() * 200) + 1,
+   $(ele).css({
+    'transform': "translate(-50%, 30%) rotate(" + -20 + "deg)",
+    'opacity': "0.3"
+
+   });
+   $timeout(function () {
+    $(ele).css({
+     'transform': "translate(0%, 0%) rotate(" + 0 + "deg)",
+     'opacity': "1"
+    });
+   }, 1000);
+  }
+  vm.swipeDown = function ($event, explorerId) {
+   vm.createSwipe(explorerId, vm.swipeLevels[1].id);
+  }
+
+  vm.getSwipe = function () {
+   vm.componentsSrv.getRandomComponent().then(function (response) {
+    vm.component = response;
+   });
+  };
+
+  vm.createSwipe = function (explorerId, levelId) {
+   var data = {
+    explorerId: explorerId,
+    levelId: levelId,
+    description: ""
+   };
+   vm.componentsSrv.createSwipe(data).then(function (response) {
+    //vm.component = response;
+   });
+   vm.getSwipe();
+  };
+
+  vm.viewSwipe = function () {
+   vm.componentsSrv.getSwipes();
+  };
+
+  vm.componentsSrv = new ComponentsSrv();
+  vm.getSwipe();
+  vm.constantsSrv.getLevel(12).then(function (data) {
+   vm.swipeLevels = data;
+  });
+
+
+
+
+
 
   // Data
   vm.currentView = 'board';

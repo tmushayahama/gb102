@@ -488,6 +488,44 @@ md-toolbar {
  }
 }
 
+.gb-apps-widget {
+ height: 200px;
+ .gb-title {
+
+  font-size: 40px;
+  text-transform: capitalize;
+ }
+ .gb-stat {
+  font-size: 20px;
+ }
+ md-icon {
+  &.gb-app-icon {
+   color: #BBB;
+   font-size: 150px;
+   width: 150px;
+   min-width: 150px;
+   max-width: 150px;
+  }
+ }
+ @mixin apps-widget-background {
+  @for $i from 1 through length($apps-colors){
+   .gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.3);
+    color: darken(nth($apps-colors, $i), 15%);
+    &:hover {
+     background-color: rgba(nth($apps-colors, $i), 0.5);
+     color: darken(nth($apps-colors, $i), 25%);
+    }
+   }
+  }
+ }
+
+ @include apps-widget-background;
+
+}
+
+
 .gb-card-apps-mini {
  margin: 5px 0;
  height: 100%;;

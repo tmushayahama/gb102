@@ -29,8 +29,8 @@
            },
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/matcher/views/boards/boards-view.html',
-             controller: 'SwipeHistoryController as vm'
+             templateUrl: 'src/app/main/apps/matcher/matcher.html',
+             controller: 'MatcherController as vm'
             }
            },
            bodyClass: 'matcher'
