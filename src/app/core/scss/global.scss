@@ -656,6 +656,28 @@ md-tabs {
 
  @include apps-widget-background;
 
+
+
+ .gb-name-badge-1 {
+  position: relative;
+  //float: right;
+  padding-left: 25px;
+  font-size: 12px;
+  .gb-name {
+   padding-top: 6px;
+   padding-left: 0px;
+  }
+  .gb-image {
+   @include position(absolute, 4px auto 4px 0);
+   height: 20px;
+   width: 20px;
+   img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+   }
+  }
+ }
 }
 .gb-count-widget {
  height: 200px;

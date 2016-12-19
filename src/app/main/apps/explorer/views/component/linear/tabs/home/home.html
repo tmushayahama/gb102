@@ -3,7 +3,6 @@ LINEAR VIEW HOME
 -->
 <div class="gb-container widget-group" layout="row" flex="100" layout-wrap>
  <ms-widget flippable="true" class="gb-description-widget" layout="column" flex="100">
-  <!-- Front -->
   <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
    <div layout="column" layout-align="start start" flex>
     <md-toolbar class="gb-heading">
@@ -28,21 +27,26 @@ LINEAR VIEW HOME
     <div class="gb-description">
      {{componentLinearCtrl.component.description}}
     </div>
-    <div class="gb-subdescription row">
-     <p class="gb-ellipsis">
-      {{componentLinearCtrl.component.type.title}}
-     </p>
-    </div>
-    <div class="gb-name-badge-1 row">
-     <a class="gb-name gb-ellipsis"
-        data-ui-sref="apps.profile.overview({profileId: componentLinearCtrl.component.creator_id})">
-      <i>by:</i>
-      {{ ::componentLinearCtrl.component.creator.firstname}}
-      {{ ::componentLinearCtrl.component.creator.lastname}}
-     </a>
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+         {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
+        </a>
+       </h3>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        creator
+       </p>
+      </div>
+      <div class="gb-description">
+      </div>
+     </div>
      <div class="gb-image">
       <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           ng-src="public/img/profile_pic/{{ ::componentLinearCtrl.component.creator.avatar_url}}"
+           src="public/img/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
            class="gb-heading-pic" alt="">
      </div>
     </div>
@@ -51,8 +55,6 @@ LINEAR VIEW HOME
     <md-icon md-font-icon="fa fa-list" class="gb-app-icon"></md-icon>
    </div>
   </ms-widget-front>
-  <!-- / Front -->
-  <!-- Back -->
   <ms-widget-back class="grey-50-bg">
    <md-toolbar class="gb-heading">
     <div class="md-toolbar-tools">
@@ -91,7 +93,6 @@ LINEAR VIEW HOME
     </md-input-container>
    </form>
   </ms-widget-back>
-  <!-- / Back -->
  </ms-widget>
 </div>
 <div class="gb-container widget-group" layout="row" flex="100" layout-nowrap>
@@ -165,7 +166,6 @@ LINEAR VIEW HOME
   </ms-widget-back>
  </ms-widget>
 </div>
-
 <div class="gb-container" layout="row" layout-padding layout-align="start center" layout-wrap flex="100">
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
@@ -184,21 +184,21 @@ LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div ng-repeat="contribution in componentLinearCtrl.component.contributions" flex="33">
-  <div class="gb-card-profile">
+  <div class="gb-card-profile md-whiteframe-2dp">
    <div class="gb-box-content">
-    <div class="gb-title row">
+    <div class="gb-title">
      <h3 class="gb-ellipsis">
       <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
        {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
       </a>
      </h3>
     </div>
-    <div class="gb-subdescription row">
+    <div class="gb-subdescription">
      <p class="gb-ellipsis">
       {{contribution.level.title}} - {{contribution.status.title}}
      </p>
     </div>
-    <div class="gb-description row">
+    <div class="gb-description">
     </div>
    </div>
    <div class="gb-image">
@@ -209,9 +209,23 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-
 <div class="gb-container" layout="column" layout-align="start center" flex="100">
- <!-- BOARD LIST -->
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Related Topics
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-raised" aria-label="Add Contributors">
+    ADD
+   </md-button>
+  </div>
+ </md-toolbar>
  <div class="gb-cards-row"
       layout="column">
   <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
@@ -282,9 +296,25 @@ LINEAR VIEW HOME
 </div>
 
 <div class="gb-container" layout="column" layout-align="start center" flex="100">
- <!-- BOARD LIST -->
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Motivation
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-raised" aria-label="Add Contributors">
+    ADD
+   </md-button>
+  </div>
+ </md-toolbar>
  <div class="gb-cards-row"
       layout="column"
+      flex="100"
       ng-repeat="motive in componentLinearCtrl.component.motives">
   <div class="">
    {{motive.title}}
