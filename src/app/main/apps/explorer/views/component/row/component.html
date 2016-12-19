@@ -1,0 +1,188 @@
+<textarea>{{vm.board}}</textarea>
+
+<!-- BOARD -->
+<div id="board" ng-class="vm.board.settings.color + '-100-bg'" ui-sortable="vm.sortableListOptions"
+     ng-model="vm.board.lists" layout="row">
+ <!-- LIST -->
+ <div class="list-wrapper" ng-repeat="list in vm.board.components track by list.id">
+  <div class="list" layout="column">
+   <!-- LIST HEADER -->
+   <div class="list-header" layout="row" layout-align="space-between center">
+    <div class="list-header-name">
+     <div class="gb-ellipsis">
+      <span editable-text="list.title">{{list.title}}</span>
+     </div>
+    </div>
+    <md-menu md-offset="0 48px" class="options list-header-option-button">
+     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="Options"
+                translate translate-attr-aria-label="SB.OPTIONS">
+      <md-icon md-menu-origin md-font-icon="icon-dots-vertical"></md-icon>
+     </md-button>
+     <md-menu-content class="options-menu-content" width="4">
+      <md-menu-item>
+       <md-button ng-click="vm.removeList($event, list)" aria-label="Remove List"
+                  translate translate-attr-aria-label="SB.REMOVE_LIST">
+        <md-icon md-font-icon="icon-delete" md-menu-align-target></md-icon>
+        <span translate="SB.REMOVE_LIST">Remove List</span>
+       </md-button>
+      </md-menu-item>
+     </md-menu-content>
+    </md-menu>
+   </div>
+   <!-- / LIST HEADER -->
+   <!-- LIST CONTENT -->
+   <div class="list-content" layout="column">
+    <div class="list-cards" ui-sortable="vm.sortableCardOptions" ng-model="list.idCards" ms-scroll>
+     <!-- CARD -->
+     <div class="list-card"
+          ng-repeat="component in list.components| filter: vm.cardFilter track by $index"
+          ng-click="vm.openCardDialog($event, component.id)"
+          ng-style="{'background-color':component.background_color.title}">
+      <!-- CARD COVER -->
+      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
+           class="list-card-cover">
+       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
+      </div>
+      <!-- / CARD COVER -->
+      <!-- CARD DETAILS -->
+      <div class="list-card-details">
+       <!-- CARD SORT HANDLE -->
+       <div class="list-card-sort-handle">
+        <md-icon md-font-icon="icon-cursor-move" class="icon s16"></md-icon>
+       </div>
+       <!-- /CARD SORT HANDLE -->
+       <!-- CARD LABELS -->
+       <div ng-if="component.idLabels.length > 0" class="list-card-labels"
+            layout="row" layout-wrap>
+        <span class="list-card-label"
+              ng-class="'md-' + vm.board.labels.getById(labelId).color + '-bg'"
+              ng-repeat="labelId in component.idLabels">
+         <md-tooltip>
+          {{vm.board.labels.getById(labelId).name}}
+         </md-tooltip>
+        </span>
+       </div>
+       <!-- / CARD LABELS -->
+       <!-- CARD NAME -->
+       <div class="list-card-name">{{component.title}}</div>
+       <div ng-if="component.description" class="list-card-description">
+        {{component.description}}
+       </div>
+       <!-- / CARD NAME -->
+       <div ng-if="component.components.length > 0" class="list-card-list">
+        <div class="gb-one-liner" ng-repeat="component in component.components| limitTo:4 track by $index">
+         <a class="gb-ellipsis">
+          {{component.title}}
+         </a>
+        </div>
+       </div>
+
+       <div ng-if="false"
+            class="list-card-badges" layout="row" layout-align="start center">
+        <!-- CARD DUE -->
+        <span class="badge due-date"
+              ng-class="{'overdue': vm.isOverdue(component.due)}"
+              ng-if="component.due" layout="row"
+              layout-align="start center">
+         <i class="icon-clock s16"></i>
+         <span>{{component.due| date:'mediumDate'}}</span>
+        </span>
+        <!-- / CARD DUE -->
+        <!-- CARD CHECK ITEMS STATUS -->
+        <span ng-if="component.checkItems"
+              class="badge check-items"
+              ng-class="{'completed': component.checkItemsChecked === component.checkItems}"
+              layout="row" layout-align="start center">
+         <i class="icon-checkbox-marked-circle s16"></i>
+         <span>{{component.checkItemsChecked}}</span>
+         <span>/</span>
+         <span>{{component.checkItems}}</span>
+        </span>
+        <!-- / CARD CHECK ITEMS STATUS -->
+       </div>
+       <!-- CARD MEMBERS -->
+       <div ng-if="component.contributions.length > 0" class="list-card-members"
+            layout="row">
+        <div class="list-card-member"
+             ng-repeat="contribution in component.contributions">
+         <img class="list-card-member-avatar"
+              ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}">
+         <md-tooltip>
+          <div class="name">{{ contribution.contributor.firstname + " " + contribution.contributor.lastname}}</div>
+         </md-tooltip>
+        </div>
+       </div>
+       <!-- / CARD MEMBERS -->
+      </div>
+      <!-- / CARD DETAILS -->
+      <!-- CARD FOOTER -->
+      <div class="list-card-footer" layout="row" layout-align="space-between center">
+
+       <div layout="row" layout-align="start center">
+
+        <!-- CARD SUBSCRIBE -->
+        <span ng-if="component.subscribed" class="list-card-footer-item"
+              layout="row" layout-align="start center">
+         <i class="icon-eye s18"></i>
+        </span>
+        <!-- / CARD SUBSCRIBE -->
+
+        <!-- CARD DETAILS -->
+        <span ng-if="component.description !== ''"
+              class="list-card-footer-item" layout="row" layout-align="start center">
+         <i class="icon-document s18"></i>
+        </span>
+        <!-- / CARD DETAILS -->
+       </div>
+       <div layout="row" layout-align="end center">
+        <!-- CARD ATTACHMENT -->
+        <span class="list-card-footer-item" ng-if="component.attachments"
+              layout="row" layout-align="start center">
+         <i class="icon-attachment s18"></i>
+         <span class="value">{{component.attachments.length}}</span>
+        </span>
+        <!-- / CARD ATTACHMENT -->
+
+        <!-- CARD COMMENTS -->
+        <span class="list-card-footer-item" ng-if="component.comments"
+              layout="row" layout-align="start center">
+         <i class="icon-comment s18"></i>
+         <span class="value">{{component.comments.length}}</span>
+        </span>
+        <!-- / CARD COMMENTS -->
+
+       </div>
+      </div>
+      <!-- CARD FOOTER -->
+     </div>
+     <!-- / CARD -->
+    </div>
+   </div>
+   <!-- / LIST CONTENT -->
+
+   <!-- NEW CARD BUTTON-->
+   <div class="list-footer">
+    <ms-sb-add-card ms-list-id="list.id"></ms-sb-add-card>
+   </div>
+   <!-- / NEW CARD BUTTON-->
+
+  </div>
+ </div>
+ <!-- / LIST -->
+
+ <!-- NEW LIST BUTTON-->
+ <div class="new-list-wrapper">
+  <div class="list new-list md-whiteframe-1dp">
+   <span editable-text="vm.board.newComponentData.title" e-form="newListForm" onaftersave="vm.createComponent(vm.board)"></span>
+   <md-button class="new-list-form-button" ng-click="newListForm.$show()" ng-hide="newListForm.$visible">
+    <div layout="row" layout-align="start center">
+     <i class="icon-plus md-red-bg"></i>
+     <span translate="SB.ADD_A_LIST">Add a new Column</span>
+    </div>
+   </md-button>
+  </div>
+ </div>
+ <!-- / NEW LIST BUTTON-->
+
+</div>
+<!-- / BOARD -->

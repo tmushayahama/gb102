@@ -133,48 +133,42 @@
   </div>
  </div>
  <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
-  <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
-   <div class="gb-card-row-2" layout="column" layout-align="center center" flex>
-    <div class="text-center">
-     <h2 class="gb-title">
-      Check some activities in skills
-     </h2>
-     <p class="gb-description">
-      <strong>Find inspiration. Cheer someone</strong><br>
-      Browse through the skill bank and see what others are doing with their skills
-     </p>
-    </div>
-   </div>
-   <div class="gb-cards-apps" layout="column" layout-align="start center" flex>
-    <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
-     <md-button class="gb-left-scroll"
-                ng-click="$root.scrollHorizontal('#gb-featured-apps', -400)"aria-label="Scroll Left">
-      <md-icon md-font-icon="icon-chevron-left"></md-icon>
+  <div class="gb-container widget-group" layout="row" flex="100" layout-wrap>
+   <!-- WIDGET 9 -->
+   <ms-widget flippable="true" class="gb-apps-widget" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="33"
+              ng-repeat="app in $root.commonData.apps">
+    <!-- Front -->
+    <ms-widget-front class="md-whiteframe-2dp gb-app-type-{{::app.id}}" layout="row" flex
+                     ui-sref="app.apps({'app_name': '{{::app.title}}'})">
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-title">
+       {{app.title}}
+      </div>
+      <div class="gb-stat">
+       {{app.count}} ENTRIES
+      </div>
+     </div>
+     <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+      <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
      </md-button>
-     <div id="gb-featured-apps" class="board-list flex-scrollable only-x"
-          layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-      <md-button ng-repeat="app in $root.commonData.apps"
-                 class="gb-card-apps gb-app-type-{{::app.id}}"
-                 ui-sref="app.apps({'app_name': '{{::app.title}}'})"
-                 layout="column" layout-align="start" layout-nowrap>
-       <i class="gb-icon fa {{::app.icon}}"></i>
-       <div class="gb-title">
-        {{::app.title}}
-       </div>
-       <p class="gb-description">
-        {{::app.long_description}}
-       </p>
-       <div class="gb-learn-more-btn">
-        Explore More
-       </div>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa {{::app.icon}}" class="gb-app-icon"></md-icon>
+     </div>
+    </ms-widget-front>
+    <!-- / Front -->
+    <!-- Back -->
+    <ms-widget-back class="grey-50-bg">
+     <div class="flip-to-front">
+      <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
+       <md-icon md-font-icon="icon-close" class="s16"></md-icon>
       </md-button>
      </div>
-     <md-button class="gb-right-scroll"
-                ng-click="$root.scrollHorizontal('#gb-featured-apps', 400)"aria-label="Scroll Left">
-      <md-icon md-font-icon="icon-chevron-right"></md-icon>
-     </md-button>
-    </div>
-   </div>
+     <div>
+      {{app.long_description}}
+     </div>
+    </ms-widget-back>
+    <!-- / Back -->
+   </ms-widget>
   </div>
  </div>
 

@@ -58,19 +58,53 @@
            }
           })
           .state('app.componentColumnView', {
-           url: '/component/:id',
+           url: '/component/boardview/:id',
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/explorer/explorer.html',
              controller: 'ExplorerController as vm'
             },
             'explorerContent@app.componentColumnView': {
-             templateUrl: 'src/app/main/apps/explorer/views/board/board-view.html',
-             controller: 'BoardViewController as vm'
+             templateUrl: 'src/app/main/apps/explorer/views/component/column/component.html',
+             controller: 'ComponentColumnController as vm'
             }
            }
-          }
-          )
+          })
+          .state('app.componentLinearView', {
+           url: '/component/linearview/:id',
+           abstract: true,
+           views: {
+            'content@app': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/component.html',
+             controller: 'ComponentLinearController as componentLinearCtrl'
+            }
+           }
+          })
+          .state('app.componentLinearView.home', {
+           url: '/overview',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/home/home.html',
+             controller: 'ComponentLinearHomeController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 0
+           }
+          })
+          .state('app.componentRowView', {
+           url: '/component/rowview/:id',
+           views: {
+            'content@app': {
+             templateUrl: 'src/app/main/apps/explorer/explorer.html',
+             controller: 'ExplorerController as vm'
+            },
+            'explorerContent@app.componentColumnView': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/row/component.html',
+             controller: 'ComponentRowController as vm'
+            }
+           }
+          })
 
           // Add board
           .state('app.explorer.boards.addBoard', {

@@ -66,7 +66,7 @@ class Level extends Model {
      'component_type' => 11000,
      'component_background_colors' => 13000,
      'default_component_background_color' => 13001,
-     "component_motive" => 14000,
+     "component_motives" => 14000,
  );
  public static $componentJsonFormat = array(
      "subcomponents" => 1,

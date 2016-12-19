@@ -130,7 +130,7 @@ class Component extends Model {
            } else if ($appType == 2) {
             $q->where('parent_level_id', Level::$level_categories['component_type']);
            } else if ($appType == 3) {
-            $q->where('parent_level_id', Level::$level_categories['component_motive']);
+            $q->where('parent_level_id', Level::$level_categories['component_motives']);
            }
           })
           ->with('type')
@@ -156,7 +156,7 @@ class Component extends Model {
            } else if ($appType == 2) {
             $q->where('parent_level_id', Level::$level_categories['component_type']);
            } else if ($appType == 3) {
-            $q->where('parent_level_id', Level::$level_categories['component_motive']);
+            $q->where('parent_level_id', Level::$level_categories['component_motives']);
            }
           })
           ->with('type')
@@ -178,6 +178,7 @@ class Component extends Model {
           ->with('creator')
           ->with('backgroundColor')
           ->find($componentId);
+  $component["stats"] = self::getComponentStats($componentId);
   $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
 
   switch ($listFormat) {
@@ -200,12 +201,12 @@ class Component extends Model {
     $component["apps"] = Component::getSubComponents($component->id, 1);
     $component["components"] = Component::getSubComponents($component->id, 2, 3);
 
-    $componentTypes = Level::getLevel(Level::$level_categories['component_motive']);
+    $componentTypes = Level::getLevel(Level::$level_categories['component_motives']);
     foreach ($componentTypes as $componentType) {
      $components[$componentType->id] = $componentType;
      $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
     }
-    $component["motive"] = $components;
+    $component["motives"] = $components;
     break;
    default:
     foreach ($components as $component) {
@@ -257,7 +258,7 @@ class Component extends Model {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
           ->whereHas('type', function($q) {
-           $q->where('parent_level_id', Level::$level_categories['component_motive']);
+           $q->where('parent_level_id', Level::$level_categories['component_motives']);
           })
           ->with('type')
           ->with('creator')
@@ -341,6 +342,18 @@ class Component extends Model {
   DB::commit();
 
   return Level::find($backgroundColorId);
+ }
+
+ private static function getComponentStats($componentId) {
+  return array(
+      "activities_count" => Component::
+              where('parent_component_id', $componentId)
+              ->count(),
+      "contributors_count" => ComponentContribution::
+              where('component_id', $componentId)
+              ->count(),
+      "discussions_count" => 0,
+  );
  }
 
 }
