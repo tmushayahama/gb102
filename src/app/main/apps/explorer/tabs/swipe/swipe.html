@@ -1,0 +1,97 @@
+<!--
+SWIPE TAB VIEW
+-->
+<div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
+ <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
+  <div class="gb-swipe-container gb-list row">
+   <div  class="gb-flex-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="gb-swipe-box gb-container col-lg-8 col-md-8 col-sm-10 col-xs-11"
+         hm-swipe-left="swipeCtrl.swipeLeft($event, swipeCtrl.component.id)"
+         hm-swipe-right="swipeCtrl.swipeRight($event, swipeCtrl.component.id)">
+     <div class="gb-icon-image">
+      <i class="fa gb-icon icon-gb-{{swipeCtrl.component.type.title.toLowerCase()}}"></i>
+     </div>
+     <div class="gb-box-body gb-shadow-1">
+      <div class="gb-image">
+       <img data-ui-sref="apps.component.overview({componentId: component.id})"
+            ng-src="public/img/explorer/{{ ::swipeCtrl.component.component_picture_url}}"
+            class="gb-heading-pic" alt="">
+
+      </div>
+      <div class="gb-box-content">
+       <div class="gb-heading row">
+        <p class="gb-title">
+         {{swipeCtrl.component.type.title + ' - ' + swipeCtrl.component.level.title}}
+        </p>
+       </div>
+       <div class="gb-description row">
+        <p class="">
+         {{swipeCtrl.component.title}}
+        </p>
+        {{swipeCtrl.component.description}}
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="gb-footer row">
+     <div class="btn-toolbar">
+      <md-button type="button" ng-click="swipeCtrl.createSwipe(swipeCtrl.component.id, swipeCtrl.swipeLevels[0].id)"
+                 class="md-raised">
+       {{swipeCtrl.swipeLevels[0].name}}
+      </md-button>
+      <md-button type="button" ng-click="swipeCtrl.createSwipe(swipeCtrl.component.id, swipeCtrl.swipeLevels[2].id)"
+                 class="md-raised">
+       {{swipeCtrl.swipeLevels[2].name}}
+      </md-button>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
+ <div id="gb-explorers" class="gb-list row">
+  <div ng-repeat="swipe in swipeHistoryCtrl.swipeSrv.swipeAnswers" class="gb-card-1 row">
+   <div class="gb-swipe-indicator gb-swipe-indicator-{{swipe.level.code}}">
+
+   </div>
+   <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+         ng-src="public/img/explorer/{{ ::swipe.explorer.explorer_picture_url}}"
+         onerror="this.src = 'public/img/explorer/default.png'" class="gb-heading-pic" alt="">
+
+   </div>
+   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <div class="gb-heading row">
+     <p class="gb-title">{{swipe.explorer.app_type.title + " - " + swipe.explorer.level.title}}</p>
+     <div class="gb-dropdown-action">
+      <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fa fa-chevron-down"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li>
+        <a href ui-sref="apps.explorerItem.explore({explorerId: explorer.id})">
+         Open
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="gb-description row">
+     <a href ui-sref="apps.explorerItem.explore({explorerId: swipe.explorer.id})" class="">
+      {{swipe.explorer.title}}
+     </a>
+     {{swipe.explorer.description}}
+    </div>
+    <div class="gb-footer row">
+     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <h5 class="gb-ellipsis"><a>{{swipe.explorer.creator.firstname + ' ' + swipe.explorer.creator.lastname}}</a></h5>
+     </div>
+     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

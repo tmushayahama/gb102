@@ -1,7 +1,7 @@
 <!--
 LINEAR VIEW HOME
 -->
-<div class="gb-container widget-group" layout="row" flex="100" layout-wrap>
+<div class="gb-container widget-group gb-card-row" layout="row" flex="100" layout-wrap>
  <ms-widget flippable="true" class="gb-description-widget" layout="column" flex="100">
   <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
    <div layout="column" layout-align="start start" flex>
@@ -96,7 +96,7 @@ LINEAR VIEW HOME
  </ms-widget>
 </div>
 <div class="gb-container widget-group" layout="row" flex="100" layout-nowrap>
- <ms-widget flippable="true" class="gb-count-widget" layout="column" flex="33">
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8 green-bg white-fg" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-count">
@@ -119,7 +119,7 @@ LINEAR VIEW HOME
    </md-button>
   </ms-widget-back>
  </ms-widget>
- <ms-widget flippable="true" class="gb-count-widget" layout="column" flex="33">
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8 deep-purple-bg white-fg" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-count">
@@ -130,7 +130,7 @@ LINEAR VIEW HOME
     </div>
    </div>
    <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s16"></md-icon>
+    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
    </md-button>
    <div class="background-image-center">
     <md-icon md-font-icon="fa fa-comments-o" class="s128 faint-text"></md-icon>
@@ -142,7 +142,7 @@ LINEAR VIEW HOME
    </md-button>
   </ms-widget-back>
  </ms-widget>
- <ms-widget flippable="true" class="gb-count-widget" layout="column" flex="33">
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8 deep-orange-bg white-fg" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-count">
@@ -166,7 +166,7 @@ LINEAR VIEW HOME
   </ms-widget-back>
  </ms-widget>
 </div>
-<div class="gb-container" layout="row" layout-padding layout-align="start center" layout-wrap flex="100">
+<div class="gb-container gb-card-row" layout="row" layout-align="start center" layout-wrap flex="100">
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -183,7 +183,7 @@ LINEAR VIEW HOME
    </md-button>
   </div>
  </md-toolbar>
- <div ng-repeat="contribution in componentLinearCtrl.component.contributions" flex="33">
+ <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="33">
   <div class="gb-card-profile md-whiteframe-2dp">
    <div class="gb-box-content">
     <div class="gb-title">
@@ -209,7 +209,7 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-<div class="gb-container" layout="column" layout-align="start center" flex="100">
+<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -294,8 +294,8 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-
-<div class="gb-container" layout="column" layout-align="start center" flex="100">
+<div class="gb-container gb-motive-card gb-card-row md-whiteframe-2dp" layout="column" layout-align="start center" flex="100"
+     ng-repeat="motive in componentLinearCtrl.component.motives">
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -303,7 +303,7 @@ LINEAR VIEW HOME
    </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
-     Motivation
+     {{motive.title}}
     </span>
    </div>
    <span flex></span>
@@ -312,29 +312,14 @@ LINEAR VIEW HOME
    </md-button>
   </div>
  </md-toolbar>
- <div class="gb-cards-row"
-      layout="column"
-      flex="100"
-      ng-repeat="motive in componentLinearCtrl.component.motives">
-  <div class="">
-   {{motive.title}}
-   <div class="" ng-repeat="component in motive.components">
+ <div ng-repeat="component in motive.components" ng-if="motive.components.length > 0" class="gb-one-liner" layout="column" layout-align="center start" flex="100">
+  <a flex="100">
+   <span class="ellipsis">
     {{component.title}}
-   </div>
-  </div>
+   </span>
+  </a>
  </div>
-</div>
-
-<div class="gb-container" layout="column" layout-align="start center" flex="100">
- <!-- BOARD LIST -->
- <div class="gb-cards-row"
-      layout="column"
-      ng-repeat="(key, motive) in componentLinearCtrl.component.motives">
-  <div class="">
-   {{motive.title}}
-   <div class="" ng-repeat="component in motive.components">
-    {{component.title}}
-   </div>
-  </div>
+ <div class="gb-no-info" ng-if="motive.components.length === 0" flex="100">
+  No entries to show.
  </div>
 </div>

@@ -7,7 +7,7 @@
          .controller('BoardsViewController', BoardsViewController);
 
  /** @ngInject */
- function BoardsViewController(BoardService, $rootScope)
+ function BoardsViewController(BoardService, $scope, $rootScope)
  {
   var vm = this;
 
@@ -40,6 +40,9 @@
     });
    });
   }
+  $scope.$on('$stateChangeSuccess', function (event, toState) {
+   $scope.selectedIndex = toState.data.selectedTab;
+  });
   //////////
  }
 })();

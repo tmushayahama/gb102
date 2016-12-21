@@ -7,7 +7,7 @@
          .controller('ComponentLinearController', ComponentLinearController);
 
  /** @ngInject */
- function ComponentLinearController($stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
+ function ComponentLinearController($scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
  {
   var vm = this;
 
@@ -286,5 +286,9 @@
   {
    return moment() > moment(cardDate, 'x');
   }
+
+  $scope.$on('$stateChangeSuccess', function (event, toState) {
+   $scope.selectedIndex = toState.data.selectedTab;
+  });
  }
 })();

@@ -46,7 +46,54 @@
            data: {
             'selectedTab': 0
            }
-           //bodyClass: 'explorer'
+          })
+          .state('app.explorer.swipe', {
+           url: '/swipe',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/tabs/swipe/swipe.html',
+             controller: 'BoardsSwipeTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 1
+           }
+          })
+          .state('app.explorer.matcher', {
+           url: '/matcher',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/tabs/matcher/matcher.html',
+             controller: 'BoardsMatcherTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 2
+           }
+          })
+          .state('app.explorer.business', {
+           url: '/business',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/tabs/business/business.html',
+             controller: 'BoardsBusinessTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 3
+           }
+          })
+          .state('app.explorer.mentorship', {
+           url: '/mentorship',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/tabs/mentorship/mentorship.html',
+             controller: 'BoardsMentorshipTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 4
+           }
           })
           .state('app.apps', {
            url: '/explorer/{app_name}',
@@ -90,6 +137,78 @@
            },
            data: {
             'selectedTab': 0
+           }
+          })
+          .state('app.componentLinearView.activities', {
+           url: '/activities',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/activities/activities.html',
+             controller: 'ComponentLinearActivitiesController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 1
+           }
+          })
+          .state('app.componentLinearView.timeline', {
+           url: '/timeline',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/timeline/timeline.html',
+             controller: 'ComponentLinearTimelineController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 2
+           }
+          })
+          .state('app.componentLinearView.calendar', {
+           url: '/calendar',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/calendar/calendar.html',
+             controller: 'ComponentLinearCalendarController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 3
+           }
+          })
+          .state('app.componentLinearView.discussions', {
+           url: '/discussion',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/discussions/discussions.html',
+             controller: 'ComponentLinearDiscussionsController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 4
+           }
+          })
+          .state('app.componentLinearView.graphs', {
+           url: '/graphs',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/graphs/graphs.html',
+             controller: 'ComponentLinearGraphsController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 5
+           }
+          })
+          .state('app.componentLinearView.settings', {
+           url: '/settings',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/settings/settings.html',
+             controller: 'ComponentLinearSettingsController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 6
            }
           })
           .state('app.componentRowView', {

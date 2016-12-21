@@ -29,71 +29,85 @@ LINEAR VIEW
   <md-tabs  md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-home"></i>
-     </div>
-     <div class="gb-title">
-      Overview
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa icon-gb-apps"></i>
-     </div>
-     <div class="gb-title">
-      Activities
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.home({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title">
+       Overview
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-times-circle"></i>
-     </div>
-     <div class="gb-title">
-      Timeline
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-calendar"></i>
-     </div>
-     <div class="gb-title">
-      Calendar
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.activities({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa icon-gb-apps"></i>
+      </div>
+      <div class="gb-title">
+       Activities
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-comments-o"></i>
-     </div>
-     <div class="gb-title">
-      Discussion
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-bar-chart-o"></i>
-     </div>
-     <div class="gb-title">
-      Graphs
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.timeline({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-times-circle"></i>
+      </div>
+      <div class="gb-title">
+       Timeline
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-cog"></i>
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.calendar({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-calendar"></i>
+      </div>
+      <div class="gb-title">
+       Calendar
+      </div>
      </div>
-     <div class="gb-title">
-      Settings
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.discussions({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-comments-o"></i>
+      </div>
+      <div class="gb-title">
+       Discussion
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.graphs({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-bar-chart-o"></i>
+      </div>
+      <div class="gb-title">
+       Graphs
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.settings({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-cog"></i>
+      </div>
+      <div class="gb-title">
+       Settings
+      </div>
      </div>
     </md-tab-label>
    </md-tab>

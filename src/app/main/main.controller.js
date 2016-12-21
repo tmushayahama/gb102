@@ -14,13 +14,15 @@
   //////////
 
   // Remove the splash screen
-  $scope.$on('$viewContentAnimationEnded', function (event)
-  {
+  /*
+   $scope.$on('$viewContentAnimationEnded', function (event)
+   {
    if (event.targetScope.$id === $scope.$id)
    {
-    $rootScope.$broadcast('msSplashScreen::remove');
+   $rootScope.$broadcast('msSplashScreen::remove');
    }
-  });
+   });
+   */
 
   function scrollArrowShow() {
    var maxScroll = ($('#inner-wrap').width() - $('#slide-wrap').scrollLeft()) - $('#slide-wrap').width();

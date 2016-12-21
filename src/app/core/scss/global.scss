@@ -27,7 +27,7 @@
 @import 'partials/helpers';
 @import 'partials/print';
 
-
+/*
 html {
  display: block;
  padding: 0;
@@ -50,6 +50,7 @@ body {
 	-webkit-font-smoothing: antialiased;
  //@include position(fixed, 0 0 0 0);
 }
+*/
 
 #toolbar {
  background-color: rgba(nth($apps-colors, 1), 0.9);
@@ -239,11 +240,18 @@ md-toolbar {
   height: 100%;
   width: 100%;
 
+  .gb-tab-button {
+   padding: 12px 24px;
+   height: 100%;
+   width: 100%;
+  }
+
   md-tabs-canvas,
   md-pagination-wrapper {
    height: 78px;
   }
   md-tab-item {
+   padding: 0;
    height: 80px;
    .gb-icon {
     font-size: 25px;
@@ -291,6 +299,34 @@ md-toolbar {
  }
 }
 
+.gb-card-row {
+ margin: 10px 0;
+
+ md-toolbar.gb-heading {
+  background-color: transparent;
+  text-transform: uppercase;
+  md-icon {
+   color: #555;
+   &.gb-title-icon {
+    color: #999;
+   }
+  }
+  .md-toolbar-tools {
+   height: 60px;
+   padding: 0 10px 0 5px;
+  }
+  .gb-heading-title {
+   color: #999;
+   font-size: 15px;
+  }
+ }
+
+ .gb-no-info {
+  padding: 12px 5px;
+  color: #BBB;
+  font-size: 10px;
+ }
+}
 
 .gb-card-row-2 {
  background-color: #F9F9F9;
@@ -593,6 +629,7 @@ md-tabs {
 }
 
 .gb-description-widget {
+ padding: 0;
  min-height: 250px;
  ms-widget-front {
   padding: 0 8px;
@@ -603,24 +640,6 @@ md-tabs {
   padding: 0 8px;
   md-input-container {
    margin: 12px 0;
-  }
- }
- md-toolbar.gb-heading {
-  background-color: transparent;
-  text-transform: uppercase;
-  md-icon {
-   color: #555;
-   &.gb-title-icon {
-    color: #999;
-   }
-  }
-  .md-toolbar-tools {
-   height: 60px;
-   padding: 0 10px 0 5px;
-  }
-  .gb-heading-title {
-   color: #999;
-   font-size: 15px;
   }
  }
  .gb-title {
@@ -656,28 +675,10 @@ md-tabs {
 
  @include apps-widget-background;
 
-
-
- .gb-name-badge-1 {
-  position: relative;
-  //float: right;
-  padding-left: 25px;
-  font-size: 12px;
-  .gb-name {
-   padding-top: 6px;
-   padding-left: 0px;
-  }
-  .gb-image {
-   @include position(absolute, 4px auto 4px 0);
-   height: 20px;
-   width: 20px;
-   img {
-    border-radius: 50%;
-    height: 100%;
-    width: 100%;
-   }
-  }
+ .gb-card-profile {
+  background-color: transparent;
  }
+
 }
 .gb-count-widget {
  height: 200px;
@@ -777,6 +778,7 @@ md-tabs {
    //color: #888;
    //font-size:18px;
    //margin-top: 5px;
+   padding: 0;
    h3 {
     font-size: 14px;
     font-weight: 400;
@@ -826,93 +828,6 @@ md-tabs {
     color: #BBB;
     font-size: 10px;
    }
-  }
- }
-
- .gb-box-footer {
-  @include position(absolute, null 150px 0 0);
-  //border-top: #CCC solid 1px;
-  //border-bottom: #CCC solid 1px;
-  height: 40px;
-  .md-button {
-   font-weight: bold;
-   margin: 0;
-   line-height: 36px;
-   padding: 0px 14px 0 19px;
-  }
-  .gb-name-badge-1 {
-   position: relative;
-   //float: right;
-   height: 100%;
-   padding-left: 25px;
-   font-size: 11px;
-   .gb-name {
-    padding-top: 6px;
-    padding-left: 0px;
-   }
-   .gb-image {
-    // @include position(absolute, 4px null 4px null);
-    right: auto;
-    height: 20px;
-    width: 20px;
-    img {
-     border-radius: 50%;
-     height: 100%;
-     width: 100%;
-    }
-   }
-  }
- }
- .gb-box-subcontent {
-  //@include position(absolute, 326px 0 0 0);
-  height: 80px;
-  padding: 16px 14px;
-  .gb-description {
-   //@include position(absolute, 23px 0 50px 0);
-   font-size: 14px;
-   height: 33px;
-   display: block;
-   /* Fallback for non-webkit */
-   display: -webkit-box;
-   /* Fallback for non-webkit */
-   line-height: 1.2;
-   -webkit-line-clamp: 2;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   .gb-no-info {
-    padding: 2px 5px;
-    color: #BBB;
-    font-size: 18px;
-   }
-  }
- }
- .gb-summary-bar {
-  padding-top: 16px;
-  height: 50px;
-  .gb-stat:not(:first-child) {
-   border-left: #DDD solid 1px;
-  }
-  .gb-stat {
-   text-align: center;
-   color: #999;
-   .gb-icon {
-    font-size: 30px;
-    color: #AAA;
-    margin-bottom: 10px;
-   }
-   .gb-number {
-    font-size: 10px;
-   }
-  }
- }
- .gb-footer-content {
-  padding: 10px 0 0 0;
- }
- &.gb-app-type-10 {
-  .gb-indicator {
-   //background-color: $color-journal;
   }
  }
 }
@@ -977,6 +892,36 @@ md-tabs {
  background-color: #F2F2F2;
 
  @include shadow(1);
+}
+
+.gb-motive-card {
+ margin-bottom: 10px;
+ //position: relative;
+ background-color: #F5F5F5;
+
+ md-toolbar {
+  padding-left: 8px;
+ }
+ .gb-one-liner {
+  position: relative;
+  border-bottom: #CCC solid 1px;
+  width: 100%;
+  a {
+   padding: 10px 35px 10px 14px;
+   text-decoration: none;
+   color: #222;
+   height: 100%;
+   width: 100%;
+  }
+  &:hover {
+   background-color: #F2F2F2;
+  }
+
+  .gb-action-btn {
+   @include position(absolute, 0 0 0 null);
+   line-height: 30px;
+  }
+ }
 }
 
 .gb-card-row-3 {

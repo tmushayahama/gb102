@@ -23,74 +23,64 @@
 <!-- CONTENT -->
 <div class="gb-tabs-1" layout="column" layout-align="center center" flex>
  <div class="gb-container" layout="column" layout-align="" flex>
-  <md-tabs  md-selected="selectedIndex" md-stretch-tabs="always" class="">
+  <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-home"></i>
-     </div>
-     <div class="gb-title">
-      Overview
+     <div class="gb-tab-button" ui-sref="app.explorer.home">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title">
+       Overview
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa icon-gb-apps"></i>
+     <div class="gb-tab-button" ui-sref="app.explorer.swipe">
+      <div class="gb-icon">
+       <i class="fa icon-gb-swipe"></i>
+      </div>
+      <div class="gb-title">
+       Swipe
+      </div>
      </div>
-     <div class="gb-title">
-      Activities
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <div class="gb-tab-button" ui-sref="app.explorer.matcher">
+     <md-tab-label>
+      <div class="gb-icon">
+       <i class="fa icon-gb-matcher"></i>
+      </div>
+      <div class="gb-title">
+       Matcher
+      </div>
+     </md-tab-label>
+    </div>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.explorer.mentorship">
+      <div class="gb-icon">
+       <i class="fa fa-calendar"></i>
+      </div>
+      <div class="gb-title">
+       Mentorship
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-times-circle"></i>
-     </div>
-     <div class="gb-title">
-      Timeline
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-calendar"></i>
-     </div>
-     <div class="gb-title">
-      Calendar
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-comments-o"></i>
-     </div>
-     <div class="gb-title">
-      Discussion
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-bar-chart-o"></i>
-     </div>
-     <div class="gb-title">
-      Graphs
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-icon">
-      <i class="fa fa-cog"></i>
-     </div>
-     <div class="gb-title">
-      Settings
+     <div class="gb-tab-button" ui-sref="app.explorer.business">
+      <div class="gb-icon">
+       <i class="fa fa-briefcase"></i>
+      </div>
+      <div class="gb-title">
+       For Business
+      </div>
      </div>
     </md-tab-label>
    </md-tab>
