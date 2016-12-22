@@ -27,7 +27,7 @@
 @import 'partials/helpers';
 @import 'partials/print';
 
-/*
+
 html {
  display: block;
  padding: 0;
@@ -50,7 +50,7 @@ body {
 	-webkit-font-smoothing: antialiased;
  //@include position(fixed, 0 0 0 0);
 }
-*/
+
 
 #toolbar {
  background-color: rgba(nth($apps-colors, 1), 0.9);

@@ -58,7 +58,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     return null;
     // return response()->json(['token_absent'], $e->getStatusCode());
    }
-
    // the token is valid and we have found the user via the sub claim
    return $user->id;
   }

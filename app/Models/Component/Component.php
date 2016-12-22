@@ -10,23 +10,66 @@ use Request;
 use DB;
 use JWTAuth;
 
+/**
+ * This is a SkillSection's component model. A component is a base of every component found in
+ * SkillSection.
+ * Follwing is list of components derived from Component. They have shared properties This has helped
+ * to reduce the number database tables and simplified it.
+ *
+ * - Note
+ * - Guideline
+ * - Activity
+ * - Step
+ * - Question
+ * - Checklist Item
+ * - Weblink Item
+ * - Todo Item
+ * - Skill
+ * - Goals
+ * - Hobby
+ * - Promise
+ * - Mentorship
+ * - Collaboration
+ * - Teach
+ * - Advice
+ * - Group
+ * - Journal
+ * - Page
+ * - Project
+ *
+ */
 class Component extends Model {
 
  /**
-  * The database table used by the model.
+  * The database table used by the model gb_component.
   *
   * @var string
   */
  protected $table = 'gb_component';
 
+ /**
+  * Defines the creator's many to one relationship with a component
+  *
+  * @return type creator relationship
+  */
  public function creator() {
   return $this->belongsTo('App\Models\User\User', 'creator_id');
  }
 
+ /**
+  * Defines the level type's many to one relationship with a component
+  *
+  * @return type level type relationship
+  */
  public function type() {
   return $this->belongsTo('App\Models\Level\Level', 'type_id');
  }
 
+ /**
+  * Defines the background color's many to one relationship with a component
+  *
+  * @return type background color relationship
+  */
  public function backgroundColor() {
   return $this->belongsTo('App\Models\Level\Level', 'background_color_id');
  }
@@ -38,8 +81,53 @@ class Component extends Model {
   */
  protected $fillable = ['description'];
 
+ /**
+  * Create a new component with a minimum of the following request params
+  * title
+  * description
+  * type
+  *
+  * @return type a newly created component
+  */
+ public static function createComponent() {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $parentComponentId = Request::get("parentComponentId");
+  $typeId = Request::get("typeId");
+  $title = Request::get("title");
+  $description = Request::get("description");
+
+  $component = new Component;
+  $component->parent_component_id = $parentComponentId;
+  $component->creator_id = $userId;
+  $component->type_id = $typeId;
+  $component->title = $title;
+  $component->description = $description;
+  $component->background_color_id = Level::$level_categories["default_component_background_color"];
+  $component->template_type_id = Level::$level_categories["template_types"]["basic"];
+  $component->privacy_id = Level::$level_categories["privacy"]["public"];
+
+  DB::beginTransaction();
+  try {
+   $component->save();
+  } catch (\Exception $e) {
+   //failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return $component;
+ }
+
+ /**
+  * Get All components with their subcomponents recursively.
+  *
+  * @param type $listFormat default column view
+  * @return components colection
+  */
  public static function getAllComponents($listFormat) {
   $components = array();
+
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
     $componentTypes = Level::getLevel(Level::$level_categories['apps']);
@@ -54,48 +142,31 @@ class Component extends Model {
     }
     break;
    default:
-    foreach ($components as $component) {
-     // $component["components"] = Component::getComponents($component->id, $resultFormat);
-    }
+    //TODO
     break;
   }
   return $components;
  }
 
+ /**
+  * Get a specific user components with their subcomponents recursively.
+  *
+  * @param type $userId a specific user
+  * @return components collection
+  */
  public static function getUserComponents($userId) {
   $component["apps"] = Component::getUserSubComponents($userId, 1);
   $component["components"] = Component::getUserSubComponents($userId, 2, 3);
   return $component;
  }
 
- public static function getComponents1($componentId, $resultFormat) {
-  $components = Component::orderBy('id', 'asc')
-          //->where('parent_component_id', $componentId)
-          ->with('type')
-          ->with('creator')
-          ->with('backgroundColor')
-          ->take(100)
-          ->get();
-
-  switch ($resultFormat) {
-   case Level::$componentJsonFormat["types"]:
-    $components = $components->groupBy('type_id');
-    foreach ($components as $component) {
-     for ($i = 0; $i < count($component); $i++) {
-      // $component[$i]["components"] = Component::getComponents($component[$i]->id, $resultFormat);
-     }
-    }
-    break;
-   default:
-    foreach ($components as $component) {
-     // $component["components"] = Component::getComponents($component->id, $resultFormat);
-    }
-    break;
-  }
-  return $components;
- }
-
- public static function getComponentsByType($typeId, $listFormat = 1) {
+ /**
+  * Get components by type with their subcomponents recursively.
+  *
+  * @param type $typeId type of a the component
+  * @return components collection
+  */
+ public static function getComponentsByType($typeId) {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')
@@ -105,6 +176,13 @@ class Component extends Model {
   return $components;
  }
 
+ /**
+  * A helper function for recursively getting subcomponents by type with their subbcomponents recursively....
+  *
+  * @param type $componentId id of the component
+  * @param type $typeId type of a the component
+  * @return components collection
+  */
  public static function getSubComponentsByType($componentId, $typeId) {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
@@ -121,6 +199,15 @@ class Component extends Model {
   return $components;
  }
 
+ /**
+  * Get subcomponents of a component recursively
+  *
+  * @param type $componentId a component Id
+  * @param type $appType the type of a component
+  * @param type $depth how deep should the recursion go
+  *
+  * @return type components collection
+  */
  public static function getSubComponents($componentId, $appType, $depth = 0) {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
@@ -138,6 +225,7 @@ class Component extends Model {
           ->with('backgroundColor')
           ->take(20)
           ->get();
+
   if ($depth > 0) {
    foreach ($components as $component) {
     $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
@@ -147,6 +235,14 @@ class Component extends Model {
   return $components;
  }
 
+ /**
+  * A hepler function to get a specific user components with their subcomponents recursively.
+  *
+  * @param type $userId a specific user
+  * @param type $appType
+  * @param type $depth how deep the recursion should go
+  * @return json response of components
+  */
  public static function getUserSubComponents($userId, $appType, $depth = 0) {
   $components = Component::orderBy('id', 'asc')
           ->where('creator_id', $userId)
@@ -172,6 +268,13 @@ class Component extends Model {
   return $components;
  }
 
+ /**
+  * Get a specific component with its subcomponents recursively.
+  *
+  * @param $componentId a specific component
+  * @param type $listFormat column, row or linear. Default column view
+  * @return component
+  */
  public static function getComponent($componentId, $listFormat) {
   $component = Component::orderBy('id', 'asc')
           ->with('type')
@@ -217,6 +320,12 @@ class Component extends Model {
   return $component;
  }
 
+ /**
+  * Get a random component by type. Used for Swipe and Matcher
+  *
+  * @param type $typeId a componentn type
+  * @return type ra ndom component
+  */
  public static function getRandomComponent($typeId = null) {
   $howMany = 1;
   $query = Component::with('creator')
@@ -231,42 +340,18 @@ class Component extends Model {
 
   $component = (new Collection($query))
           ->random($howMany);
+
   return $component;
  }
 
- public static function getComponentsByType2($componentId, $typeId) {
-  $result = array();
-  //$componentTypes = Level::getLevel(Level::$level_categories['component_type']);
-
-  foreach ($componentTypes as $componentType) {
-   $components = Component::with('creator')
-           ->with('type')
-           ->with('backgroundColor')
-           ->where('parent_component_id', $componentId)
-           ->where('type_id', $componentType->id)
-           ->orderBy('id', 'DESC')
-           ->get();
-   $result[$componentType->id] = $components->groupBy('yupe_id');
-   foreach ($components as $component) {
-    $component["components"] = Component::getSubComponents($component->id);
-   }
-  }
-  return $result;
- }
-
- public static function getComponentsByType3($componentId, $typeId) {
-  $components = Component::orderBy('id', 'asc')
-          ->where('parent_component_id', $componentId)
-          ->whereHas('type', function($q) {
-           $q->where('parent_level_id', Level::$level_categories['component_motives']);
-          })
-          ->with('type')
-          ->with('creator')
-          ->with('backgroundColor')
-          ->take(20)
-          ->get();
- }
-
+ /**
+  * Create a new component with a minimum of the following request params
+  * title
+  * description
+  * type
+  *
+  * @return type a newly created component
+  */
  public static function createComponent() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
@@ -285,8 +370,6 @@ class Component extends Model {
   $component->template_type_id = Level::$level_categories["template_types"]["basic"];
   $component->privacy_id = Level::$level_categories["privacy"]["public"];
 
-
-
   DB::beginTransaction();
   try {
    $component->save();
@@ -299,6 +382,12 @@ class Component extends Model {
   return $component;
  }
 
+ /**
+  * Edit the component's title and description
+  *
+  * @param type $componentId
+  * @return type json response of a component's new title and description
+  */
  public static function editComponentDescription($componentId) {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
@@ -324,6 +413,12 @@ class Component extends Model {
   return $result;
  }
 
+ /**
+  * Edit a background color of a component
+  *
+  * @param type $componentId
+  * @return type json response of a component's new background color
+  */
  public static function editComponentBackground($componentId) {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
@@ -344,6 +439,12 @@ class Component extends Model {
   return Level::find($backgroundColorId);
  }
 
+ /**
+  * Helper function to get a component statistics
+  *
+  * @param type $componentId an id of the component
+  * @return type
+  */
  private static function getComponentStats($componentId) {
   return array(
       "activities_count" => Component::

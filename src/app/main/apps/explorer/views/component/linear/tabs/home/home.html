@@ -38,7 +38,7 @@ LINEAR VIEW HOME
       </div>
       <div class="gb-subdescription">
        <p class="gb-ellipsis">
-        creator
+        CREATOR
        </p>
       </div>
       <div class="gb-description">
@@ -320,6 +320,36 @@ LINEAR VIEW HOME
   </a>
  </div>
  <div class="gb-no-info" ng-if="motive.components.length === 0" flex="100">
+  No entries to show.
+ </div>
+</div>
+<div class="gb-container gb-motive-card gb-card-row md-whiteframe-2dp" layout="column" layout-align="start center" flex="100"
+     ng-repeat="section in componentLinearCtrl.component.components">
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{section.title}}
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-raised" aria-label="Add Contributors">
+    ADD
+   </md-button>
+  </div>
+ </md-toolbar>
+ <div ng-repeat="component in section.components" ng-if="section.components.length > 0" class="gb-one-liner" ng-style="{'background-color':component.background_color.title}"
+      layout="column" layout-align="center start" flex="100">
+  <a flex="100">
+   <span class="ellipsis">
+    {{component.title}}
+   </span>
+  </a>
+ </div>
+ <div class="gb-no-info" ng-if="component.components.length === 0" flex="100">
   No entries to show.
  </div>
 </div>
