@@ -63,16 +63,20 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('components/user/{userId}', 'Component\ComponentController@getUserComponents');
  Route::get('components/{componentId}/listformat/{listFormat}', 'Component\ComponentController@getComponent');
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
- Route::post('component/create', 'Component\ComponentController@createComponent');
- Route::post('component/editstatus', 'Component\ComponentController@editComponentStatus');
- Route::post('component/{componentId}/edit/description', 'Component\ComponentController@editComponentDescription');
- Route::post('component/{componentId}/edit/background', 'Component\ComponentController@editComponentBackground');
- Route::get('component/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
- Route::get('component/random', 'Component\ComponentController@getRandomComponent');
- Route::get('component/random/type/{typeId}', 'Component\ComponentController@getRandomComponentByType');
+ Route::post('components/create', 'Component\ComponentController@createComponent');
+ Route::post('components/editstatus', 'Component\ComponentController@editComponentStatus');
+ Route::post('components/{componentId}/edit/description', 'Component\ComponentController@editComponentDescription');
+ Route::post('components/{componentId}/edit/background', 'Component\ComponentController@editComponentBackground');
+ Route::get('components/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
+ Route::get('components/random', 'Component\ComponentController@getRandomComponent');
+ Route::get('components/random/type/{typeId}', 'Component\ComponentController@getRandomComponentByType');
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
  Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');
  Route::post('component/checklist/edit', 'Explorer\ExplorerController@editExplorerComponentChecklist');
+
+ //Component Bookmarks
+ Route::get('components/bookmarks/{creatorId}', 'Component\ComponentController@getComponentBookmarks');
+ Route::post('components/bookmarks/create', 'Component\ComponentController@createComponentBookmark');
 
  //Guideline
  Route::get('guideline/{guidelineId}/guidelines', 'Guideline\GuidelineController@getSubGuidelines');

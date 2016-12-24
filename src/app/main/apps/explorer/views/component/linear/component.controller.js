@@ -27,7 +27,6 @@
    description: "",
    privacy: 0
   };
-  vm.component.newComponentData = angular.copy(vm.defaultComponentData);
 
   vm.sortableListOptions = {
    axis: 'x',
@@ -136,6 +135,7 @@
   {
    BoardService.getBoard($stateParams.id, 3).then(function (data) {
     vm.component = data;
+    vm.component.newComponentData = angular.copy(vm.defaultComponentData);
    });
    $timeout(function ()
    {

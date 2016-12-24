@@ -16,16 +16,16 @@
   vm.board = BoardService.data;
   //vm.boardList = BoardList.data;
   vm.boardSelectorVisible = false;
+  ////////
 
   // Methods
   vm.toggleSidenav = toggleSidenav;
   vm.updateBoardUri = updateBoardUri;
   vm.clearFilters = CardFilters.clear;
   vm.filteringIsOn = CardFilters.isOn;
-
-  //init();
-
   ////////
+
+
 
   /**
    * Update Board Uri

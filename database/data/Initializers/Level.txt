@@ -101,6 +101,9 @@ id	parent_level_id	title	code	description	long_description	icon
 7001	7000	basic				
 7002	7000	template				
 8000	\N	Share Type	share_type			
+9000	\N	Swipe Type	swipe type			
+9001	9000	Not Now				
+9002	9000	Explore				
 10000	\N	Privacy	privacy			
 10001	10000	private				
 10002	10000	public				
@@ -126,8 +129,6 @@ id	parent_level_id	title	code	description	long_description	icon
 13007	13000	#E8E8C0				
 13008	13000	#EBD6C7				
 13009	13000	#E0EBE0				
-20000	\N					
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
 14000	\N	Component Motive				
 14001	14000	My motivations				
 14002	14000	My goals				
@@ -144,3 +145,7 @@ id	parent_level_id	title	code	description	long_description	icon
 15002	15000	in progress				
 15003	15000	later				
 15004	15000	done				
+16000	\N	Bookmark	bookmark			
+16001	16000	Favorite				
+20000	\N					
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community

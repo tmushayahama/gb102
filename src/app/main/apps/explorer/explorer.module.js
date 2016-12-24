@@ -267,12 +267,21 @@
     id: "@id",
     listformat: "@listformat"
    }]);
-  msApiProvider.register('explorer.createComponent', ['/api/component/create']);
+  msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
+  msApiProvider.register('explorer.createComponent', ['/api/components/create']);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
    {
     appName: '@appName'
    }]);
+
+  //Component Bookmarks
+  msApiProvider.register('explorer.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',
+   {
+    creatorId: "@creatorId"
+   }]);
+  msApiProvider.register('explorer.createComponentBookmark', ['/api/components/bookmarks/create']);
+
  }
 
 })();

@@ -345,44 +345,6 @@ class Component extends Model {
  }
 
  /**
-  * Create a new component with a minimum of the following request params
-  * title
-  * description
-  * type
-  *
-  * @return type a newly created component
-  */
- public static function createComponent() {
-  $user = JWTAuth::parseToken()->toUser();
-  $userId = $user->id;
-  $parentComponentId = Request::get("parentComponentId");
-  $typeId = Request::get("typeId");
-  $title = Request::get("title");
-  $description = Request::get("description");
-
-  $component = new Component;
-  $component->parent_component_id = $parentComponentId;
-  $component->creator_id = $userId;
-  $component->type_id = $typeId;
-  $component->title = $title;
-  $component->description = $description;
-  $component->background_color_id = Level::$level_categories["default_component_background_color"];
-  $component->template_type_id = Level::$level_categories["template_types"]["basic"];
-  $component->privacy_id = Level::$level_categories["privacy"]["public"];
-
-  DB::beginTransaction();
-  try {
-   $component->save();
-  } catch (\Exception $e) {
-   //failed logic here
-   DB::rollback();
-   throw $e;
-  }
-  DB::commit();
-  return $component;
- }
-
- /**
   * Edit the component's title and description
   *
   * @param type $componentId

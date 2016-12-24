@@ -14,6 +14,7 @@ use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Component\Component;
+use App\Models\Component\ComponentBookmark;
 use App\Models\Level\Level;
 use Request;
 use DB;
@@ -133,6 +134,29 @@ class ComponentController extends Controller {
  public function editComponentBackground($componentId) {
   $backgroundColor = Component::editComponentBackground($componentId);
   return \Response::json($backgroundColor);
+ }
+
+ /**
+  * Get all bookmarks for a particular user
+  *
+  * @return type json response of all component bookmarks
+  */
+ public function getComponentBookmarks($creatorId) {
+  $componentBookmarks = ComponentBookmark::getComponentBookmarks($creatorId);
+  return \Response::json($componentBookmarks);
+ }
+
+ /**
+  * Create a new component with a minimum of the following request params
+  * title
+  * description
+  * type
+  *
+  * @return type json response of a newly created component
+  */
+ public function createComponentBookmark() {
+  $componentBookmark = ComponentBookmark::createComponentBookmark();
+  return \Response::json($componentBookmark);
  }
 
 }

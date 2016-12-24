@@ -7,39 +7,69 @@
          .controller('BoardsSwipeTabController', BoardsSwipeTabController);
 
  /** @ngInject */
- function BoardsSwipeTabController(BoardService, $rootScope)
+ function BoardsSwipeTabController(level_categories, BoardService, $scope, $rootScope)
  {
   var vm = this;
 
-  // Data
-  vm.boardList = [];
+  //Data
+  vm.swipeTypes = level_categories.swipe;
+  vm.component;
+  vm.components;
+  ////////
 
-  init();
+  //Methods
+  vm.getSwipe = getSwipe;
+  vm.getSwipes = getSwipes;
+  vm.createSwipe = createSwipe;
+  ////////
 
-  $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
-  $rootScope.appName = "Explorer";
+  //Init
+  getSwipe();
+  getSwipes($rootScope.user.id);
+  ////////
 
-
-  // Methods
-  function init() {
-   BoardService.getBoards().then(function (data) {
-    vm.boardList = data;
-    angular.forEach(vm.boardList.apps, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
-      }
-     });
-    });
-    angular.forEach(vm.boardList.activities, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
-      }
-     });
-    });
+  /**
+   * Get a random component
+   * @returns
+   */
+  function getSwipe() {
+   BoardService.getRandomBoard().then(function (response) {
+    vm.component = response;
    });
   }
-  //////////
+
+  /**
+   * Get all user's swipes
+   *
+   * @returns
+   */
+  function getSwipes(creatorId) {
+   if (creatorId) {
+    BoardService.getComponentBookmarks(creatorId).then(function (response) {
+     vm.components = response;
+    });
+   }
+  }
+
+  /**
+   * Creates a swipe component
+   *
+   * @param {type} levelId swipe type id
+   * @returns {undefined}
+   */
+  function createSwipe(levelId) {
+   var data = {
+    componentId: vm.component.id,
+    levelId: levelId
+            // description: ""
+   };
+   BoardService.createComponentBookmark(data).then(function (response) {
+    getSwipe();
+   });
+  }
+
+  $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
+  $rootScope.appName = "Explorer Swipe";
+
  }
 })();

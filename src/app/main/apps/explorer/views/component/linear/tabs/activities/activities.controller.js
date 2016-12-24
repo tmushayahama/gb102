@@ -7,12 +7,12 @@
          .controller('ComponentLinearActivitiesController', ComponentLinearActivitiesController);
 
  /** @ngInject */
- function ComponentLinearActivitiesController(BoardService, $rootScope, $document, $timeout, $scope, $mdSidenav, $mdDialog)
+ function ComponentLinearActivitiesController(BoardService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
  {
   var vm = this;
 
   // Data
-  vm.notes = [];//NotesService.data;
+  vm.components = [];//NotesService.data;
   vm.labels = [];//LabelsService.data;
   vm.search = '';
   vm.searchToolbar = false;
@@ -32,6 +32,8 @@
   //vm.addNewLabel = LabelsService.addLabel;
 
   //////////
+
+  init();
 
   /**
    * Change Notes Filter
@@ -174,6 +176,18 @@
     return x.id === value;
    })[0];
   };
+
+  /**
+   * Initialize
+   */
+  function init()
+  {
+   BoardService.getBoard($stateParams.id, 3).then(function (data) {
+    vm.components = data.components;
+    vm.components.newComponentData = angular.copy(vm.defaultComponentData);
+   });
+  }
+
 
  }
 

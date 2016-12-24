@@ -20,9 +20,13 @@
    addNewBoard: addNewBoard,
    createComponent: createComponent,
    getBoard: getBoard,
+   getRandomBoard: getRandomBoard,
    getBoards: getBoards,
    getBoardsByType: getBoardsByType,
-   getCard: getCard
+   getCard: getCard,
+   //Component Bookmarks
+   getComponentBookmarks: getComponentBookmarks,
+   createComponentBookmark: createComponentBookmark
   };
 
   /**
@@ -64,7 +68,6 @@
    msApi.request('explorer.componentsByType@query', {appName: appName},
            function (response)
            {
-            //service.data = response;
             deferred.resolve(response);
            },
            function (response)
@@ -91,7 +94,30 @@
    msApi.request('explorer.component@get', {id: boardId, listFormat: listFormat},
            function (response)
            {
-            //service.data = response;
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get a random board data from the server
+   *
+   * @returns {*}
+   */
+  function getRandomBoard()
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.randomComponent@get', {},
+           function (response)
+           {
             deferred.resolve(response);
            },
            function (response)
@@ -117,12 +143,10 @@
    msApi.request('explorer.component@get', {id: cardId, listFormat: listFormat},
            function (response)
            {
-            // Resolve the promise
             deferred.resolve(response);
            },
            function (response)
            {
-            // Reject the promise
             deferred.reject(response);
            }
    );
@@ -150,6 +174,60 @@
            function (response)
            {
             // Reject the promise
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+
+//Component Bookmarks
+
+
+  /**
+   * Get all Component Bookmarks of a specific user
+   *
+   * @param creatorId a specific user
+   * @returns {*}
+   */
+  function getComponentBookmarks(creatorId)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.getComponentBookmarks@query', {creatorId: creatorId},
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Create a Component Bookmark
+   *
+   * @param componentData
+   * @returns {*}
+   */
+  function createComponentBookmark(componentData)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.createComponentBookmark@save', componentData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
             deferred.reject(response);
            }
    );

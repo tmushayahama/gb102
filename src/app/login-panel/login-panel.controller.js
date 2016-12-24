@@ -14,6 +14,7 @@
   vm.user;
 
   vm.login = function () {
+
    $auth.login(vm.user).then(function ()
    {
     return $http.get('api/authenticate/user');

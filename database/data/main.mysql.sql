@@ -166,61 +166,30 @@ CREATE TABLE `gb_component_contribution` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_matcher`
+-- Table structure for table `gb_component_bookmark`
 --
-DROP TABLE IF EXISTS `gb_component_matcher`;
+DROP TABLE IF EXISTS `gb_component_bookmark`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_component_matcher` (
+CREATE TABLE `gb_component_bookmark` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `component_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `contributor_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status_id` int(11) NOT NULL DEFAULT '70000',
+  `privacy_id` int(11) NOT NULL,
+  `status_id` int(11),
   PRIMARY KEY (`id`),
-  KEY `component_matcher_component_id` (`component_id`),
-  KEY `component_matcher_creator_id` (`creator_id`),
-  KEY `component_matcher_level_id` (`level_id`),
-  KEY `component_matcher_status_id` (`status_id`),
-  KEY `component_matcher_contributor_id` (`contributor_id`),
-  CONSTRAINT `component_matcher_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_matcher_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_matcher_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_matcher_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_matcher_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_swipe`
---
-DROP TABLE IF EXISTS `gb_component_swipe`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_component_swipe` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `component_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `creator_id` int(11) NOT NULL,
-  `contributor_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status_id` int(11) NOT NULL DEFAULT '70000',
-  PRIMARY KEY (`id`),
-  KEY `component_swipe_component_id` (`component_id`),
-  KEY `component_swipe_creator_id` (`creator_id`),
-  KEY `component_swipe_level_id` (`level_id`),
-  KEY `component_swipe_status_id` (`status_id`),
-  KEY `component_swipe_contributor_id` (`contributor_id`),
-  CONSTRAINT `component_swipe_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_swipe_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_swipe_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_swipe_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_swipe_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `component_bookmark_component_id` (`component_id`),
+  KEY `component_bookmark_creator_id` (`creator_id`),
+  KEY `component_bookmark_level_id` (`level_id`),
+  KEY `component_bookmark_status_id` (`status_id`),
+  CONSTRAINT `component_bookmark_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_bookmark_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_bookmark_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_bookmark_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
