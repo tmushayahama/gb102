@@ -14,7 +14,7 @@
   //Data
   vm.swipeTypes = level_categories.swipe;
   vm.component;
-  vm.components;
+  vm.swipes;
   ////////
 
   //Methods
@@ -35,6 +35,7 @@
   function getSwipe() {
    BoardService.getRandomBoard().then(function (response) {
     vm.component = response;
+    addComponentPlaceholderImage(vm.component);
    });
   }
 
@@ -46,7 +47,10 @@
   function getSwipes(creatorId) {
    if (creatorId) {
     BoardService.getComponentBookmarks(creatorId).then(function (response) {
-     vm.components = response;
+     vm.swipes = response;
+     angular.forEach(vm.swipes, function (swipe) {
+      addComponentPlaceholderImage(swipe.component);
+     });
     });
    }
   }
@@ -66,6 +70,18 @@
    BoardService.createComponentBookmark(data).then(function (response) {
     getSwipe();
    });
+  }
+
+  /**
+   * Adds a placeholder css generated image to the component
+   *
+   * @param {type} component a component to be added a placeholder image
+   * @returns {undefined}
+   */
+  function addComponentPlaceholderImage(component) {
+   if (component.component_picture_url || component.component_picture_url === 'default.png') {
+    component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
+   }
   }
 
   $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};

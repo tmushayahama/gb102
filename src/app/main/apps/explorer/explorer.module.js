@@ -267,13 +267,19 @@
     id: "@id",
     listformat: "@listformat"
    }]);
-  msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
   msApiProvider.register('explorer.createComponent', ['/api/components/create']);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
    {
     appName: '@appName'
    }]);
+  msApiProvider.register('explorer.randomComponentByType', ['/api/components/random/type/:typeId',
+   {
+    typeId: '@typeId'
+   }
+  ]);
+  msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
+
 
   //Component Bookmarks
   msApiProvider.register('explorer.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',

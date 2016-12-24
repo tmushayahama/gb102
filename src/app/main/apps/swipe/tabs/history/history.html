@@ -1,0 +1,63 @@
+<!--
+SWIPE HISTORY TAB VIEW
+-->
+
+<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Swipe Results
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-raised" aria-label="Filter Swipe Results">
+    Filter
+   </md-button>
+  </div>
+ </md-toolbar>
+</div>
+<div class="gb-container">
+ <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="swipe in vm.swipes"
+      ui-sref="app.componentLinearView.home({id:swipe.component.id})">
+  <div class="gb-card-cover">
+   <div ng-if="swipe.component.component_picture_url && swipe.component.component_picture_url !== 'default.png'"
+        class="gb-cover-image">
+    <img ng-src="src/assets/images/swipe/{{swipe.component.component_picture_url}}">
+   </div>
+   <div ng-if="swipe.component.component_placeholder_style"
+        class="gb-cover-image"
+        ng-style="swipe.component.component_placeholder_style">
+   </div>
+  </div>
+  <div class="gb-card-content">
+   <div class="gb-title">
+    {{swipe.component.title}}
+   </div>
+   <div class="gb-name-badge-1">
+    <div class="gb-image">
+     <img data-ui-sref="apps.component.overview({componentId: component.id})"
+          ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+          class="gb-heading-pic" alt="">
+    </div>
+    <p class="gb-name gb-ellipsis">
+     {{ ::swipe.component.creator.firstname}}
+     {{ ::swipe.component.creator.lastname}}
+    </p>
+   </div>
+   <div class="gb-subdescription">
+    <p class="">
+     <span>
+      {{::swipe.component.description}}
+     </span>
+    </p>
+    <p ng-if="!swipe.component.description" class="gb-no-info">
+     No description to show
+    </p>
+   </div>
+  </div>
+ </div>
+</div>

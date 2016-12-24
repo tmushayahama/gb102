@@ -15,6 +15,8 @@
           'app.core',
           'app.profile',
           'app.explorer',
+          'app.swipe',
+          'app.matcher',
           // Navigation
           'app.navigation',
           // Toolbar

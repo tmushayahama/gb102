@@ -48,6 +48,13 @@ class Component extends Model {
  protected $table = 'gb_component';
 
  /**
+  * The attributes that are mass assignable.
+  *
+  * @var array
+  */
+ protected $fillable = ['title', 'description'];
+
+ /**
   * Defines the creator's many to one relationship with a component
   *
   * @return type creator relationship
@@ -73,13 +80,6 @@ class Component extends Model {
  public function backgroundColor() {
   return $this->belongsTo('App\Models\Level\Level', 'background_color_id');
  }
-
- /**
-  * The attributes that are mass assignable.
-  *
-  * @var array
-  */
- protected $fillable = ['description'];
 
  /**
   * Create a new component with a minimum of the following request params

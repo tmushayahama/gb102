@@ -19,10 +19,11 @@
    data: {},
    addNewBoard: addNewBoard,
    createComponent: createComponent,
-   getBoard: getBoard,
-   getRandomBoard: getRandomBoard,
    getBoards: getBoards,
    getBoardsByType: getBoardsByType,
+   getBoard: getBoard,
+   getRandomBoard: getRandomBoard,
+   getRandomBoardByType: getRandomBoardByType,
    getCard: getCard,
    //Component Bookmarks
    getComponentBookmarks: getComponentBookmarks,
@@ -116,6 +117,31 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.randomComponent@get', {},
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get a random board data by its type
+   *
+   * @param typeId type of the board
+   * @returns {*}
+   */
+  function getRandomBoardByType(typeId)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.randomComponentByType@get', {typeId: typeId},
            function (response)
            {
             deferred.resolve(response);

@@ -1,29 +1,19 @@
 <!--
 SWIPE TAB VIEW
 -->
-<div class="gb-container widget-group gb-card-row" layout="row" flex="70">
- <ms-widget flippable="true" class="gb-description-widget" layout="column" flex="100">
+<div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
+ <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex="60">
   <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
-   <div layout="column" layout-align="start start" flex>
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        {{vm.component.type.title}}
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-ellipsis-v"></md-icon>
-      </md-button>
-     </div>
-    </md-toolbar>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-type-title">
+     {{vm.component.type.title}}
+    </div>
     <div class="gb-title">
      {{vm.component.title}}
     </div>
+    <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+     Details
+    </md-button>
    </div>
    <div class="background-image-center" layout-align="center center"  flex>
     <md-icon md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}" class="gb-app-icon"></md-icon>
@@ -46,14 +36,23 @@ SWIPE TAB VIEW
      </md-button>
     </div>
    </md-toolbar>
+   <div class="gb-type-title">
+    {{vm.component.type.title}}
+   </div>
    <div class="gb-title">
+    {{vm.component.title}}
+   </div>
+   <div class="gb-description">
     {{vm.component.description}}
+    <span ng-if="!vm.component.description">
+     No description yet.
+    </span>
    </div>
   </ms-widget-back>
  </ms-widget>
 </div>
 
-<div class="gb-container" layout="row" flex="100">
+<div class="" layout="row" flex="40">
  <md-button type="button" ng-click="vm.createSwipe(vm.swipeTypes.notnow)"
             class="md-raised">
   Not Now
@@ -63,49 +62,62 @@ SWIPE TAB VIEW
   Explore
  </md-button>
 </div>
-
-<div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
- <div id="gb-components" class="gb-list row">
-  <div ng-repeat="swipe in vm.components" class="gb-card-1 row">
-   <div class="gb-swipe-indicator gb-swipe-indicator-{{swipe.level.code}}">
-
+<br>
+<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Swipe Results
+    </span>
    </div>
-   <div class="gb-icon-image col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <img data-ui-sref="apps.component.overview({componentId: component.id})"
-         ng-src="public/img/component/{{ ::swipe.component.component_picture_url}}"
-         onerror="this.src = 'public/img/component/default.png'" class="gb-heading-pic" alt="">
-
+   <span flex></span>
+   <md-button class="md-raised" aria-label="Filter Swipe Results">
+    Filter
+   </md-button>
+  </div>
+ </md-toolbar>
+</div>
+<div class="gb-container">
+ <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="swipe in vm.swipes"
+      ui-sref="app.componentLinearView.home({id:swipe.component.id})">
+  <div class="gb-card-cover">
+   <div ng-if="swipe.component.component_picture_url && swipe.component.component_picture_url !== 'default.png'"
+        class="gb-cover-image">
+    <img ng-src="src/assets/images/explorer/{{swipe.component.component_picture_url}}">
    </div>
-   <div class="gb-box-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
-    <div class="gb-heading row">
-     <p class="gb-title">{{swipe.component.app_type.title + " - " + swipe.component.level.title}}</p>
-     <div class="gb-dropdown-action">
-      <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       <i class="fa fa-chevron-down"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-       <li>
-        <a href ui-sref="apps.componentItem.explore({componentId: component.id})">
-         Open
-        </a>
-       </li>
-      </ul>
-     </div>
+   <div ng-if="swipe.component.component_placeholder_style"
+        class="gb-cover-image"
+        ng-style="swipe.component.component_placeholder_style">
+   </div>
+  </div>
+  <div class="gb-card-content">
+   <div class="gb-title">
+    {{swipe.component.title}}
+   </div>
+   <div class="gb-name-badge-1">
+    <div class="gb-image">
+     <img data-ui-sref="apps.component.overview({componentId: component.id})"
+          ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+          class="gb-heading-pic" alt="">
     </div>
-    <div class="gb-description row">
-     <a href ui-sref="apps.componentItem.explore({componentId: swipe.component.id})" class="">
-      {{swipe.component.title}}
-     </a>
-     {{swipe.component.description}}
-    </div>
-    <div class="gb-footer row">
-     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <h5 class="gb-ellipsis"><a>{{swipe.component.creator.firstname + ' ' + swipe.component.creator.lastname}}</a></h5>
-     </div>
-     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
-
-     </div>
-    </div>
+    <p class="gb-name gb-ellipsis">
+     {{ ::swipe.component.creator.firstname}}
+     {{ ::swipe.component.creator.lastname}}
+    </p>
+   </div>
+   <div class="gb-subdescription">
+    <p class="">
+     <span>
+      {{::swipe.component.description}}
+     </span>
+    </p>
+    <p ng-if="!swipe.component.description" class="gb-no-info">
+     No description to show
+    </p>
    </div>
   </div>
  </div>
