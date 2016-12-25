@@ -182,7 +182,7 @@
    */
   function init()
   {
-   BoardService.getBoard($stateParams.id, 3).then(function (data) {
+   BoardService.getBoard($stateParams.id, 4).then(function (data) {
     vm.components = data.components;
     vm.components.newComponentData = angular.copy(vm.defaultComponentData);
    });

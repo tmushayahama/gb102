@@ -265,8 +265,9 @@ md-toolbar {
 
   md-tabs-wrapper {
    background-color: #F5F5F5;
-   border-top: #AAA solid 1px;
-   border-bottom: #AAA solid 1px;
+   border: none;
+   // border-top: #AAA solid 1px;
+   //border-bottom: #AAA solid 1px;
 
    .md-tab {
     max-width: none !important;

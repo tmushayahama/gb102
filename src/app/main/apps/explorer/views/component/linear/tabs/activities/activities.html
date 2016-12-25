@@ -3,7 +3,7 @@ LINEAR VIEW ACTIVITIES HOME
 -->
 
 
-<div id="notes" class="gb-container" layout="column">
+<div id="notes" class="" layout="column" layout-align="start center" flex="100">
 
  <!-- MAIN SIDENAV -->
  <md-sidenav class="sidenav main-sidenav md-white-bg" ms-scroll
@@ -12,25 +12,16 @@ LINEAR VIEW ACTIVITIES HOME
  </md-sidenav>
  <!-- / MAIN SIDENAV -->
 
+
  <!-- TOOLBAR -->
- <md-toolbar class="md-accent">
-
-  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-
+ <md-toolbar class="gb-notes-toolbar" layout-align="center center">
+  <div class="gb-container md-toolbar-tools" layout="row" layout-align="space-between center">
    <div layout="row">
-
-    <!-- MAIN SIDENAV BUTTON -->
     <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('main-sidenav')"
                aria-label="Toggle sidenav" translate translate-attr-aria-label="NOTES.TOGGLE_SIDENAV">
      <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
     </md-button>
-    <!-- / MAIN SIDENAV BUTTON -->
-
-    <!-- MAIN TITLE -->
     <div class="main-title" layout="row" layout-align="start center">
-
-     <md-icon class="logo-icon mr-8" md-font-icon="icon-lightbulb"></md-icon>
-
      <span class="title" ng-if="vm.noteListType === 'notes'"
            translate="NOTES.NOTES">Notes</span>
      <span class="title" ng-if="vm.noteListType === 'reminders'"
@@ -42,15 +33,9 @@ LINEAR VIEW ACTIVITIES HOME
      <span ng-if="filteredNotes.length" class="pl-8 white-text secondary-text notes-count">
       ({{filteredNotes.length}})
      </span>
-
     </div>
-    <!-- / MAIN TITLE-->
-
    </div>
-
    <div flex></div>
-
-   <!-- SEARCH BUTTON -->
    <md-button class="md-icon-button sidenav-toggle" ng-click="vm.openSearchToolbar()"
               aria-label="open search toolbar" translate translate-attr-aria-label="NOTES.OPEN_SEARCH_TOOLBAR">
     <md-icon md-font-icon="icon-magnify" class="icon"></md-icon>
@@ -66,7 +51,7 @@ LINEAR VIEW ACTIVITIES HOME
           translate-attr-placeholder="NOTES.SEARCH_NOTES" ng-model-options="{'debounce': 200}" flex>
   </div>
  </md-toolbar>
- <md-content ms-scroll flex>
+ <md-content class="gb-container" ms-scroll flex="100">
   <ms-new-note ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
   <ms-masonry class="notes" options='{"columnCount":5}'>
    <ms-masonry-item class="note"
@@ -74,46 +59,30 @@ LINEAR VIEW ACTIVITIES HOME
                     ms-note-item="note"
                     ng-click="vm.editNote($event, note.id)">
    </ms-masonry-item>
-   <!-- / NOTE -->
-
   </ms-masonry>
-  <!-- NOTES -->
-
-  <!-- NO RESULTS -->
   <div class="no-results text-center" ng-if="filteredNotes.length === 0 && vm.search === ''">
-
    <div class="message" ng-if="vm.noteListType === 'notes'">
     <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
     <div class="message-text" translate="NOTES.NO_NOTES_YET">No notes yet...</div>
    </div>
-
    <div class="message" ng-if="vm.noteListType === 'reminders'">
     <md-icon class="message-icon s96" md-font-icon="icon-bell"></md-icon>
     <div class="message-text" translate="NOTES.NO_NOTES_WITH_REMINDERS">No notes with reminders</div>
    </div>
-
    <div class="message" ng-if="vm.noteListType === 'archive'">
     <md-icon class="message-icon s96" md-font-icon="icon-archive"></md-icon>
     <div class="message-text" translate="NOTES.NO_ARCHIVED_NOTES">No archived Notes</div>
    </div>
-
    <div class="message" ng-if="vm.noteListType.name">
     <md-icon class="message-icon s96" md-font-icon="icon-label"></md-icon>
     <div class="message-text" translate="NOTES.NO_NOTES_WITH_THIS_LABEL">No notes with this label</div>
    </div>
-
   </div>
-
   <div class="no-results text-center" ng-if="filteredNotes.length === 0 && vm.search !== ''">
-
    <div class="message">
     <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
     <div class="message-text" translate="NOTES.NO_RESULTS">No results...</div>
    </div>
-
   </div>
-  <!-- / NO RESULTS -->
-
  </md-content>
-
 </div>

@@ -1,4 +1,6 @@
-/* List card is a mixin because we want this to be re-usable */
+.gb-component-tab {
+ min-height: 1000px;
+}
 @mixin list-card {
  position: relative;
  width: 100%;

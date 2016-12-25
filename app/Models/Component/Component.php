@@ -286,35 +286,15 @@ class Component extends Model {
 
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:
-    $components = array();
-    $componentTypes = Level::getLevel(Level::$level_categories['apps']);
-    foreach ($componentTypes as $componentType) {
-     $components[$componentType->id] = $componentType;
-     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
-    }
-    $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
-    foreach ($componentTypes as $componentType) {
-     $components[$componentType->id] = $componentType;
-     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
-    }
-    $component["components"] = $components;
+    self::formatComponentByType($component);
     break;
    case Level::$componentJsonFormat["columns"]:
-    $components = array();
-    $component["apps"] = Component::getSubComponents($component->id, 1);
-    $component["components"] = Component::getSubComponents($component->id, 2, 3);
-
-    $componentTypes = Level::getLevel(Level::$level_categories['component_motives']);
-    foreach ($componentTypes as $componentType) {
-     $components[$componentType->id] = $componentType;
-     $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
-    }
-    $component["motives"] = $components;
+    self::formatComponentByColumn($component);
+    break;
+   case Level::$componentJsonFormat["linear"]:
+    self::formatComponentByLinear($component);
     break;
    default:
-    foreach ($components as $component) {
-     // $component["components"] = Component::getComponents($component->id, $resultFormat);
-    }
     break;
   }
   return $component;
@@ -417,6 +397,64 @@ class Component extends Model {
               ->count(),
       "discussions_count" => 0,
   );
+ }
+
+ /**
+  * Format the results of the componet by Type
+  *
+  * @param array $component the parent component to be formatted
+  */
+ private static function formatComponentByType($component) {
+  $components = array();
+  $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
+  $componentComponentTypes = Level::getLevel(Level::$level_categories['component_type']);
+
+  foreach ($componentAppTypes as $componentType) {
+   $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
+  }
+  foreach ($componentComponentTypes as $componentType) {
+   $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
+  }
+  $component["components"] = $components;
+ }
+
+ /**
+  * Format the results of the componet for linear view
+  *
+  * @param array $component the parent component to be formatted
+  */
+ private static function formatComponentByLinear($component) {
+  $components = array();
+  $component["apps"] = Component::getSubComponents($component->id, 1);
+  $subComponents = Component::getSubComponents($component->id, 2, 3);
+
+  $merged = new Collection();
+  foreach ($subComponents as $subComponent) {
+   $collection = collect($subComponent["components"]);
+   $merged = $merged->merge($collection);
+  }
+
+  $component["components"] = $merged->all();
+ }
+
+ /**
+  * Format the results of the componet by column for column view
+  *
+  * @param array $component the parent component to be formatted
+  */
+ private static function formatComponentByColumn($component) {
+  $components = array();
+  $component["apps"] = Component::getSubComponents($component->id, 1);
+  $component["components"] = Component::getSubComponents($component->id, 2, 3);
+
+  $componentTypes = Level::getLevel(Level::$level_categories['component_motives']);
+  foreach ($componentTypes as $componentType) {
+   $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
+  }
+  $component["motives"] = $components;
  }
 
 }

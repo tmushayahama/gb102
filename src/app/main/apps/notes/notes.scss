@@ -1,13 +1,19 @@
 #notes {
- height: 100%;
+ //height: 100%;
 
- > md-toolbar {
-  background-image: url('/src/assets/images/backgrounds/header-bg.png');
-  background-size: cover;
+ md-toolbar.gb-notes-toolbar {
+  // background-image: url('/src/assets/images/backgrounds/header-bg.png');
+  // background-size: cover;
+  background-color: transparent;
+  border-bottom: #AAA solid 1px;
+  color: #444;
 
   .md-toolbar-tools {
+   md-icon {
+    color: #555;
+   }
 
-   .main-title { 
+   .main-title {
     .notes-count {
      font-size: 14px;
     }
@@ -22,7 +28,7 @@
      cursor: pointer;
 
      md-icon {
-      color: rgba(255, 255, 255, 0.8);
+      color: #555;
      }
 
     }

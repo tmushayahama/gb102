@@ -71,7 +71,8 @@ class Level extends Model {
  public static $componentJsonFormat = array(
      "subcomponents" => 1,
      "types" => 2,
-     "columns" => 3
+     "columns" => 3,
+     "linear" => 4
  );
 
  /**
