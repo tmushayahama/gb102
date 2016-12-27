@@ -7,7 +7,7 @@
          .controller('ComponentLinearCalendarController', ComponentLinearCalendarController);
 
  /** @ngInject */
- function ComponentLinearCalendarController(BoardService, $rootScope)
+ function ComponentLinearCalendarController(BoardService, DialogService, $document, $mdDialog, $mdSidenav, $scope, $rootScope)
  {
   var vm = this;
 

@@ -191,7 +191,7 @@
    // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('explorer.createComponent@save', {}, componentData,
+   msApi.request('explorer.createComponent@save', componentData,
            function (response)
            {
             // Resolve the promise

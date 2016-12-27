@@ -7,12 +7,16 @@
          .controller('BoardsViewController', BoardsViewController);
 
  /** @ngInject */
- function BoardsViewController(BoardService, $scope, $rootScope)
+ function BoardsViewController(BoardService, DialogService, $scope, $rootScope)
  {
   var vm = this;
 
   // Data
   vm.boardList = [];
+  /////////
+
+  //Methods
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
 
   init();
 

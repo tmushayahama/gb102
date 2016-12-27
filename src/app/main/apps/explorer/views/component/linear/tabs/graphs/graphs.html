@@ -1,325 +1,251 @@
-<!--
-LINEAR VIEW GRAPHS HOME
--->
-<div class="gb-container widget-group gb-card-row" layout="row" flex="100" layout-wrap>
- <ms-widget flippable="true" class="gb-description-widget" layout="column" flex="100">
-  <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
-   <div layout="column" layout-align="start start" flex>
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-list"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        Description
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-raised" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       Edit
-      </md-button>
+<div id="dashboard-analytics">
+
+ <!-- WIDGETS -->
+ <div id="widgets">
+
+  <!-- WIDGET GROUP -->
+  <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+   <!-- WIDGET 1 -->
+   <ms-widget flippable="false" layout="row" flex="100">
+
+    <!-- Front -->
+    <ms-widget-front class="white-bg">
+
+     <div class="p-24 border-bottom" layout="row" layout-align="space-between center">
+      <div class="h3">{{vm.widget1.title}}</div>
+      <div class="text-boxed green-600-bg white-fg">{{vm.widget1.onlineUsers}} online users</div>
      </div>
-    </md-toolbar>
-    <div class="gb-title">
-     {{componentLinearCtrl.component.title}}
-    </div>
-    <div class="gb-description">
-     {{componentLinearCtrl.component.description}}
-    </div>
-    <div class="gb-card-profile">
-     <div class="gb-box-content">
-      <div class="gb-title">
-       <h3 class="gb-ellipsis">
-        <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-         {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
-        </a>
-       </h3>
-      </div>
-      <div class="gb-subdescription">
-       <p class="gb-ellipsis">
-        creator
-       </p>
-      </div>
-      <div class="gb-description">
-      </div>
+
+     <div class="pb-32 border-bottom">
+      <nvd3 class="h-400 remove-x-lines remove-opacity"
+            options="vm.widget1.bigChart.options"
+            data="vm.widget1.bigChart.data"></nvd3>
      </div>
-     <div class="gb-image">
-      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           src="public/img/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
-           class="gb-heading-pic" alt="">
-     </div>
-    </div>
-   </div>
-   <div class="background-image-center" layout-align="center center"  flex>
-    <md-icon md-font-icon="fa fa-list" class="gb-app-icon"></md-icon>
-   </div>
-  </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-toolbar class="gb-heading">
-    <div class="md-toolbar-tools">
-     <md-button class="md-icon-button" aria-label="Description Icon">
-      <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-     </md-button>
-     <div class="gb-heading-title">
-      <span class="ellipsis">
-       Edit Description
-      </span>
-     </div>
-     <span flex></span>
-     <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
-                ng-show="editDescriptionForm.$invalid || editDescriptionForm.$pristine">
-      Submit
-     </md-button>
-     <md-button class="md-raised" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Cancel
-     </md-button>
-    </div>
-   </md-toolbar>
-   <form name="editDescriptionForm" novalidate>
-    <md-input-container class="md-block">
-     <input type="text" name="title" ng-model="vm.basicForm.firstname"
-            placeholder="Title"
-            required>
-     <div ng-messages="editDescriptionForm.title.$error"
-          role="alert">
-      <div ng-message="required">
-       <span>Title field is required.</span>
-      </div>
-     </div>
-    </md-input-container>
-    <md-input-container class="md-block">
-     <textarea ng-model="vm.basicForm.biography" placeholder="Description" md-maxlength="150" max-rows="2"></textarea>
-    </md-input-container>
-   </form>
-  </ms-widget-back>
- </ms-widget>
-</div>
-<div class="gb-container widget-group" layout="row" flex="100" layout-nowrap>
- <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
-  <ms-widget-front class="p-8 green-bg white-fg" layout="row" flex>
-   <div layout="column" layout-align="center center" flex>
-    <div class="gb-count">
-     {{::componentLinearCtrl.component.stats.contributors_count}}
-    </div>
-    <div class="gb-title">
-     CONTRIBUTORS
-    </div>
-   </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
-   <div class="background-image-center">
-    <md-icon md-font-icon="fa icon-users" class="s128 faint-text"></md-icon>
-   </div>
-  </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="fa fa-times" class="s16"></md-icon>
-   </md-button>
-  </ms-widget-back>
- </ms-widget>
- <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
-  <ms-widget-front class="p-8 deep-purple-bg white-fg" layout="row" flex>
-   <div layout="column" layout-align="center center" flex>
-    <div class="gb-count">
-     {{::componentLinearCtrl.component.stats.discussions_count}}
-    </div>
-    <div class="gb-title">
-     DISCUSSIONS
-    </div>
-   </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
-   <div class="background-image-center">
-    <md-icon md-font-icon="fa fa-comments-o" class="s128 faint-text"></md-icon>
-   </div>
-  </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="icon-close" class="s16"></md-icon>
-   </md-button>
-  </ms-widget-back>
- </ms-widget>
- <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
-  <ms-widget-front class="p-8 deep-orange-bg white-fg" layout="row" flex>
-   <div layout="column" layout-align="center center" flex>
-    <div class="gb-count">
-     {{::componentLinearCtrl.component.stats.activities_count}}
-    </div>
-    <div class="gb-title">
-     ACTIVITIES
-    </div>
-   </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
-   <div class="background-image-center">
-    <md-icon md-font-icon="fa icon-gb-apply" class="s128 faint-text"></md-icon>
-   </div>
-  </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-   </md-button>
-  </ms-widget-back>
- </ms-widget>
-</div>
-<div class="gb-container gb-card-row" layout="row" layout-align="start center" layout-wrap flex="100">
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Contributors
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Add Contributors">
-    ADD
-   </md-button>
-  </div>
- </md-toolbar>
- <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="33">
-  <div class="gb-card-profile md-whiteframe-2dp">
-   <div class="gb-box-content">
-    <div class="gb-title">
-     <h3 class="gb-ellipsis">
-      <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-       {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
-      </a>
-     </h3>
-    </div>
-    <div class="gb-subdescription">
-     <p class="gb-ellipsis">
-      {{contribution.level.title}} - {{contribution.status.title}}
-     </p>
-    </div>
-    <div class="gb-description">
-    </div>
-   </div>
-   <div class="gb-image">
-    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-         src="public/img/profile_pic/{{contribution.contributor.avatar_url}}"
-         class="gb-heading-pic" alt="">
-   </div>
-  </div>
- </div>
-</div>
-<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Related Topics
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Add Contributors">
-    ADD
-   </md-button>
-  </div>
- </md-toolbar>
- <div class="gb-cards-row"
-      layout="column">
-  <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
-   <md-button class="gb-left-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-left"></md-icon>
-   </md-button>
-   <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
-        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-    <!-- BOARD -->
-    <div class="board-list-item" ng-repeat="component in componentLinearCtrl.component.apps"
-         ui-sref="app.componentLinearView.home({id:component.id})"
-         layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-cover">
-      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
-           class="gb-cover-image">
-       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
-      </div>
-      <div ng-if="component.component_placeholder_style"
-           class="gb-cover-image"
-           ng-style="component.component_placeholder_style">
-      </div>
-     </div>
-     <div class="gb-card-content">
-      <div class="gb-title">
-       <h3 class="gb-ellipsis">
-        {{component.title}}
-       </h3>
-      </div>
-      <div class="gb-name-badge-1">
-       <div class="gb-image">
-        <img data-ui-sref="apps.component.overview({componentId: component.id})"
-             ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
-             class="gb-heading-pic" alt="">
+
+     <div layout="row" layout-align="start center" layout-wrap>
+
+      <div class="p-24 grey-50-bg" layout="row" layout-align="start center" flex="100" flex-gt-xs="50"
+           flex-gt-md="25">
+       <div layout="column" flex>
+        <div class="h3 secondary-text pb-8">
+         {{vm.widget1.sessions.title}}
+        </div>
+
+        <div class="font-size-32 line-height-32 pb-16">
+         {{vm.widget1.sessions.value}}
+        </div>
+
+        <div>
+         <nvd3 class="h-40"
+               options="vm.widget1.sessions.options"
+               data="vm.widget1.sessions.data"></nvd3>
+        </div>
        </div>
-       <p class="gb-name gb-ellipsis">
-        {{ ::component.creator.firstname}}
-        {{ ::component.creator.lastname}}
-       </p>
       </div>
-      <div class="gb-subdescription">
-       <p class="">
-        <span>
-         {{::component.description}}
-        </span>
-       </p>
-       <p ng-if="!component.description" class="gb-no-info">
-        No description to show
-       </p>
+
+      <!-- -->
+
+      <div class="p-24 grey-50-bg" layout="row" layout-align="start center" flex="100" flex-gt-xs="50"
+           flex-gt-md="25">
+       <div layout="column" flex>
+        <div class="h3 secondary-text pb-8">
+         {{vm.widget1.pageviews.title}}
+        </div>
+
+        <div class="font-size-32 line-height-32 pb-16">
+         {{vm.widget1.pageviews.value}}
+        </div>
+
+        <div>
+         <nvd3 class="h-40"
+               options="vm.widget1.pageviews.options"
+               data="vm.widget1.pageviews.data"></nvd3>
+        </div>
+       </div>
+      </div>
+
+      <!-- -->
+
+      <div class="p-24 grey-50-bg" layout="row" layout-align="start center" flex="100" flex-gt-xs="50"
+           flex-gt-md="25">
+       <div layout="column" flex>
+        <div class="h3 secondary-text pb-8">
+         {{vm.widget1.pagesSessions.title}}
+        </div>
+
+        <div class="font-size-32 line-height-32 pb-16">
+         {{vm.widget1.pagesSessions.value}}
+        </div>
+
+        <div>
+         <nvd3 class="h-40"
+               options="vm.widget1.pagesSessions.options"
+               data="vm.widget1.pagesSessions.data"></nvd3>
+        </div>
+       </div>
+      </div>
+
+      <!-- -->
+
+      <div class="p-24 grey-50-bg" layout="row" layout-align="start center" flex="100" flex-gt-xs="50"
+           flex-gt-md="25">
+       <div layout="column" flex>
+        <div class="h3 secondary-text pb-8">
+         {{vm.widget1.avgSessionDuration.title}}
+        </div>
+
+        <div class="font-size-32 line-height-32 pb-16">
+         {{vm.widget1.avgSessionDuration.value}}
+        </div>
+
+        <div>
+         <nvd3 class="h-40"
+               options="vm.widget1.avgSessionDuration.options"
+               data="vm.widget1.avgSessionDuration.data"></nvd3>
+        </div>
+       </div>
       </div>
      </div>
-    </div>
-    <!-- / BOARD -->
-    <!-- NEW BOARD BUTTON -->
-    <div class="board-list-item add-new-board" layout="column" layout-align="center center"
-         ui-sref="app.explorer.boards.addBoard">
-     <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
-     <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
-    </div>
-    <!-- / NEW BOARD BUTTON -->
-   </div>
-   <md-button class="gb-right-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-right"></md-icon>
-   </md-button>
+
+
+    </ms-widget-front>
+    <!-- / Front -->
+
+   </ms-widget>
+   <!-- / WIDGET 1 -->
+
   </div>
- </div>
-</div>
-<div class="gb-container gb-motive-card gb-card-row md-whiteframe-2dp" layout="column" layout-align="start center" flex="100"
-     ng-repeat="motive in componentLinearCtrl.component.motives">
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     {{motive.title}}
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Add Contributors">
-    ADD
-   </md-button>
+  <!-- / WIDGET GROUP -->
+
+  <!-- WIDGET GROUP -->
+  <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+   <!-- WIDGET 2 -->
+   <ms-widget flippable="false" layout="column" flex="100" flex-gt-md="65">
+
+    <!-- Front -->
+    <ms-widget-front class="white-bg">
+     <div class="p-16" layout="row" layout-align="space-between center">
+      <div class="h3">{{vm.widget2.title}}</div>
+
+      <md-menu>
+       <md-button aria-label="more" class="md-icon-button"
+                  ng-click="$mdOpenMenu($event)">
+        <md-icon md-font-icon="icon-dots-vertical"></md-icon>
+       </md-button>
+       <md-menu-content width="2">
+        <md-menu-item>
+         <md-button ng-click="refreshWidget()" aria-label="Refresh widget">
+          Refresh
+         </md-button>
+        </md-menu-item>
+       </md-menu-content>
+      </md-menu>
+     </div>
+
+     <div>
+      <ui-gmap-google-map center="vm.widget2.map.center" zoom="vm.widget2.map.zoom"
+                          options="vm.widget2.map.options">
+       <ui-gmap-markers models="vm.widget2.map.markers" coords="'coords'">
+        <ui-gmap-windows show="show">
+         <div ng-non-bindable>{{sessions}}</div>
+        </ui-gmap-windows>
+       </ui-gmap-markers>
+      </ui-gmap-google-map>
+     </div>
+
+    </ms-widget-front>
+    <!-- / Front -->
+
+   </ms-widget>
+   <!-- / WIDGET 2 -->
+
+   <!-- WIDGET 3 -->
+   <ms-widget flippable="false" layout="column" flex="100" flex-gt-md="35">
+
+    <!-- Front -->
+    <ms-widget-front class="white-bg">
+     <div class="ph-16 border-bottom" layout="row" layout-align="space-between center">
+      <div class="h3">{{vm.widget3.title}}</div>
+
+      <div class="pv-16">
+       <md-select class="simplified" ng-model="vm.widget3.currentRange"
+                  aria-label="Change range">
+        <md-option ng-repeat="(key, range) in vm.widget3.ranges"
+                   value="{{key}}">
+         {{range}}
+        </md-option>
+       </md-select>
+      </div>
+     </div>
+
+     <div class="ph-16 pv-20 border-bottom"
+          ng-repeat="page in vm.widget3.pages[vm.widget3.currentRange]"
+          layout="row" layout-align="space-between center">
+      <div layout="column" flex>
+       <span class="h4 pb-10">{{page.path}}</span>
+       <md-progress-linear class="md-accent" md-mode="determinate"
+                           value="{{page.value}}"></md-progress-linear>
+      </div>
+      <div class="pl-32 h3 font-weight-500 secondary-text">
+       {{page.value}}%
+      </div>
+     </div>
+
+    </ms-widget-front>
+    <!-- / Front -->
+
+   </ms-widget>
+   <!-- / WIDGET 3 -->
+
   </div>
- </md-toolbar>
- <div ng-repeat="component in motive.components" ng-if="motive.components.length > 0" class="gb-one-liner" layout="column" layout-align="center start" flex="100">
-  <a flex="100">
-   <span class="ellipsis">
-    {{component.title}}
-   </span>
-  </a>
- </div>
- <div class="gb-no-info" ng-if="motive.components.length === 0" flex="100">
-  No entries to show.
+  <!-- / WIDGET GROUP -->
+
+
+  <!-- WIDGET GROUP -->
+  <div class="widget-group" layout="row" flex="100" layout-wrap>
+
+   <!-- WIDGET 4 -->
+   <ms-widget flippable="false" layout="row" flex="100">
+
+    <!-- Front -->
+    <ms-widget-front class="white-bg">
+     <div class="ph-16 pt-16 pb-8 md-accent-bg">
+      <div class="h3">{{vm.widget4.title}}</div>
+     </div>
+
+     <md-tabs class="md-accent no-radius" md-dynamic-height>
+      <md-tab label="{{tab.label}}" ng-repeat="tab in vm.widget4.tabs">
+
+       <div layout="row" layout-align="start center" layout-wrap>
+
+        <div flex="100" flex-gt-xs="50" flex-gt-md="25"
+             ng-repeat="group in tab.groups">
+         <div class="h2 m-16 pb-16 border-bottom">{{group.title}}</div>
+
+         <div class="p-16 pb-32" ng-repeat="data in group.data">
+          <div class="pb-8" layout="row" layout-align="space-between start">
+           <span class="h3">{{data.title}}</span>
+           <span class="h3 secondary-text font-weight-500">{{data.value}}%</span>
+          </div>
+          <md-progress-linear class="{{data.progressColor}}" md-mode="determinate"
+                              value="{{data.value}}"></md-progress-linear>
+         </div>
+        </div>
+
+       </div>
+
+      </md-tab>
+     </md-tabs>
+
+    </ms-widget-front>
+    <!-- / Front -->
+
+   </ms-widget>
+   <!-- / WIDGET 4 -->
+
+  </div>
+  <!-- / WIDGET GROUP -->
  </div>
 </div>

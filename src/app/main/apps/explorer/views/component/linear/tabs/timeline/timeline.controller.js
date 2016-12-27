@@ -7,12 +7,12 @@
          .controller('ComponentLinearTimelineController', ComponentLinearTimelineController);
 
  /** @ngInject */
- function ComponentLinearTimelineController(BoardService, $rootScope)
+ function ComponentLinearTimelineController(BoardService, msApi, $q, $stateParams, $rootScope)
  {
   var vm = this;
 
   // Data
-  vm.timeline = Timeline.data;
+  vm.timeline = [];
   vm.timelineOptions = {
    scrollEl: '#content'
   };
@@ -22,8 +22,9 @@
 
   // Methods
   vm.loadNextPage = loadNextPage;
-
   //////////
+
+  init();
 
   /**
    * Load next page
@@ -48,27 +49,55 @@
     var pageName = 'timeline.page' + vm.currentPage + '@get';
 
     msApi.request(pageName, {},
-            // SUCCESS
-                    function (response)
-                    {
-                     for (var i = 0; i < response.data.length; i++)
-                     {
-                      vm.timeline.push(response.data[i]);
-                     }
+            function (response)
+            {
+             for (var i = 0; i < response.data.length; i++)
+             {
+              // vm.timeline.push(response.data[i]);
+             }
 
-                     // Resolve the promise
-                     deferred.resolve(response);
-                    },
-                    // ERROR
-                            function (response)
-                            {
-                             // Reject the promise
-                             deferred.reject(response);
-                            }
-                    );
-                   }
+             // Resolve the promise
+             deferred.resolve(response);
+            },
+            function (response)
+            {
+             // Reject the promise
+             deferred.reject(response);
+            }
+    );
+   }
 
-           return deferred.promise;
-          }
+   return deferred.promise;
+  }
+
+  /**
+   * Initialize
+   */
+  function init()
+  {
+   BoardService.getBoard($stateParams.id, 4).then(function (data) {
+    vm.timeline = [];
+    angular.forEach(data.components, function (component) {
+     vm.timeline.push({
+      "card": {
+       "template": "src/app/core/directives/ms-card/templates/template-10/template-10.html",
+       "title": component.type.title,
+       "subtitle": component.title,
+       "media": {
+        "image": {
+         "src": "src/assets/images/profile_pic/" + component.creator.avatar_url,
+         "alt": component.creator.firstname
+        }
+       },
+       "text": component.description
+      },
+      "icon": "icon-gb-" + component.type.title.toLowerCase(),
+      "time": "July 22, 2015, 12:33AM",
+      "event": "Alice Freeman shared an article with public"
+     });
+    });
+    // vm.timeline.newComponentData = angular.copy(vm.defaultComponentData);
+   });
+  }
  }
 })();

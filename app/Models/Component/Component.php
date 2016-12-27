@@ -41,6 +41,13 @@ use JWTAuth;
 class Component extends Model {
 
  /**
+  * The default value for a newly created component
+  *
+  * var string
+  */
+ const DEFAULT_PICTURE_URL = 'default.png';
+
+ /**
   * The database table used by the model gb_component.
   *
   * @var string
@@ -87,13 +94,14 @@ class Component extends Model {
   * description
   * type
   *
-  * @return type a newly created component
+  * @return type a newly created component with limited data beacuse it is redirected to the new page
   */
  public static function createComponent() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $parentComponentId = Request::get("parentComponentId");
   $typeId = Request::get("typeId");
+  $privacy = Request::get("privacyId");
   $title = Request::get("title");
   $description = Request::get("description");
 
@@ -105,7 +113,8 @@ class Component extends Model {
   $component->description = $description;
   $component->background_color_id = Level::$level_categories["default_component_background_color"];
   $component->template_type_id = Level::$level_categories["template_types"]["basic"];
-  $component->privacy_id = Level::$level_categories["privacy"]["public"];
+  $component->privacy_id = $privacy;
+  $component->component_picture_url = Component::DEFAULT_PICTURE_URL;
 
   DB::beginTransaction();
   try {
