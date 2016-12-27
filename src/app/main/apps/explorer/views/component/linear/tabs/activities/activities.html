@@ -1,19 +1,11 @@
 <!--
 LINEAR VIEW ACTIVITIES HOME
 -->
-
-
 <div id="notes" class="" layout="column" layout-align="start center" flex="100">
-
- <!-- MAIN SIDENAV -->
  <md-sidenav class="sidenav main-sidenav md-white-bg" ms-scroll
              md-component-id="main-sidenav"
              ms-sidenav-helper ng-include="'src/app/main/apps/notes/sidenavs/main/main-sidenav.html'">
  </md-sidenav>
- <!-- / MAIN SIDENAV -->
-
-
- <!-- TOOLBAR -->
  <md-toolbar class="gb-notes-toolbar" layout-align="center center">
   <div class="gb-container md-toolbar-tools" layout="row" layout-align="space-between center">
    <div layout="row">
@@ -52,7 +44,7 @@ LINEAR VIEW ACTIVITIES HOME
   </div>
  </md-toolbar>
  <md-content class="gb-container" ms-scroll flex="100">
-  <ms-new-note ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
+  <ms-new-note gb-notes="vm.components" gb-parent-component-id="vm.componentId" ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
   <ms-masonry class="notes" options='{"columnCount":5}'>
    <ms-masonry-item class="note"
                     ng-repeat="note in vm.components track by note.id "
