@@ -82,11 +82,16 @@
   function editNote(ev, noteId)
   {
    $mdDialog.show({
-    template: '<md-dialog ms-scroll><ms-note-form note-type="\'edit\'" note-id="\'' + noteId + '\'"></ms-note-form></md-dialog>',
-    parent: $document.find('#notes'),
+    templateUrl: 'src/app/main/apps/notes/dialogs/note/note-dialog.html',
+    //parent: $document.find('#notes'),
+    controller: 'NoteDialogController',
+    controllerAs: 'vm',
     targetEvent: ev,
     clickOutsideToClose: true,
-    escapeToClose: true
+    escapeToClose: true,
+    locals: {
+     noteId: noteId
+    }
    });
   }
 

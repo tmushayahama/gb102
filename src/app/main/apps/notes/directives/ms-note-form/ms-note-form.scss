@@ -9,6 +9,34 @@
    height: 100%;
    width: 100%;
 
+   .gb-title, .gb-description {
+    md-input-container {
+     margin: 0;
+     textarea {
+      padding: 14px 12px;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      &:hover, &:focus {
+       border: #CCC solid 1px;
+      }
+     }
+    }
+   }
+
+   .gb-title {
+    md-input-container {
+     textarea {
+      font-size: 18px;
+     }
+    }
+   }
+   .gb-description {
+    textarea {
+     font-size: 14px;
+    }
+   }
+
    > .image-wrapper {
     position: relative;
 

@@ -1133,6 +1133,52 @@ md-tabs {
 
  @include shadow(1);
 }
+.gb-editible-note-card {
+ margin-bottom: 10px;
+ position: relative;
+ background-color: #FFF;
+ md-toolbar {
+  padding-left: 8px;
+ }
+ .gb-card-content {
+  //width: 100%;
+  //min-width: 100%;
+  //max-width: 100%;
+  .gb-title{
+   width: 100%;
+   md-input-container {
+    margin: 0;
+    padding: 0; 
+    input {
+     padding: 10px 12px;
+     background-color: transparent;
+     border: none;
+     border-bottom: #CCC solid 1px;
+     &:hover, &:focus {
+      border: #CCC solid 1px;
+     }
+     &.gb-add-note-input {
+      padding: 14px 12px;
+      border: none;
+      &:hover, &:focus {
+       border: none;
+      }
+     }
+    }
+    .md-errors-spacer {
+     display: none;
+     min-height: 0px;
+     min-width: 1px;
+    }
+   }
+  }
+
+  .gb-action-btn {
+   @include position(absolute, 0 0 0 null);
+   line-height: 30px;
+  }
+ }
+}
 
 .gb-motive-card {
  margin-bottom: 10px;
@@ -1146,6 +1192,26 @@ md-tabs {
   position: relative;
   border-bottom: #CCC solid 1px;
   width: 100%;
+  .gb-title{
+   width: 100%;
+   md-input-container {
+    margin: 0;
+    textarea {
+     padding: 8px 12px;
+     background-color: transparent;
+     border: none;
+     border-radius: 5px;
+     &:hover, &:focus {
+      border: #CCC solid 1px;
+     }
+    }
+    .md-errors-spacer {
+     display: none;
+     min-height: 0px;
+     min-width: 1px;
+    }
+   }
+  }
   a {
    padding: 10px 35px 10px 14px;
    text-decoration: none;

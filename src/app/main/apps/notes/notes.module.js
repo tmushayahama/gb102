@@ -33,18 +33,14 @@
   $translatePartialLoaderProvider.addPart('src/app/main/apps/notes');
 
   // Api
+  msApiProvider.register('notes.getNote', ['/api/components/:id/listformat/:listFormat',
+   {
+    id: "@id",
+    listformat: "@listformat"
+   }]);
   msApiProvider.register('notes.createNote', ['/api/components/create']);
-
-  msApiProvider.register('notes.notes', ['src/app/data/notes/notes.json']);
-  msApiProvider.register('notes.labels', ['src/app/data/notes/labels.json']);
-
-  // Navigation
-  msNavigationServiceProvider.saveItem('apps.notes', {
-   title: 'Notes',
-   icon: 'icon-lightbulb',
-   state: 'app.notes',
-   weight: 11
-  });
+  // msApiProvider.register('notes.notes', ['src/app/data/notes/notes.json']);
+  //msApiProvider.register('notes.labels', ['src/app/data/notes/labels.json']);
 
  }
 

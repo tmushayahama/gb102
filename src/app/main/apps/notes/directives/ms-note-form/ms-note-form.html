@@ -7,15 +7,17 @@
    <md-icon md-font-icon="icon-delete"></md-icon>
   </md-button>
  </div>
- <md-input-container class="md-block" ng-class="MsNoteForm.note.color">
-  <input type="text"  placeholder="Title" ng-model="MsNoteForm.note.title"
-         ng-class="MsNoteForm.note.color">
- </md-input-container>
- <md-input-container class="md-block" ng-class="MsNoteForm.note.color">
-  <textarea  ng-model="MsNoteForm.note.description" columns="1" md-maxlength="150" max-rows="4"
-             placeholder="Take a note..">
-  </textarea>
- </md-input-container>
+ <div class="gb-title">
+  <md-input-container class="md-block" md-no-float>
+   <textarea ng-model="MsNoteForm.note.title" placeholder="Title" columns="1" md-maxlength="150" max-rows="15"></textarea>
+  </md-input-container>
+ </div>
+ <div class="gb-description">
+  <md-input-container class="md-block" md-no-float>
+   <textarea ng-model="MsNoteForm.note.description" placeholder="Description" columns="1" md-maxlength="150" max-rows="15"></textarea>
+  </md-input-container>
+ </div>
+
  <md-list class="checklist" ng-if="MsNoteForm.note.checklist.length > 0">
   <md-divider></md-divider>
   <md-list-item ng-repeat="item in MsNoteForm.note.checklist">

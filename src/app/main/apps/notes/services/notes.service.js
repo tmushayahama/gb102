@@ -11,6 +11,7 @@
  {
   var service = {
    data: [],
+   getNote: getNote,
    createNote: createNote,
    addNote: addNote,
    updateNote: updateNote,
@@ -83,6 +84,32 @@
      service.data.splice(i, 1);
     }
    }
+  }
+
+  /**
+   * Get note data
+   *
+   * @param boardId
+   * @param listFormat
+   * @returns {*}
+   */
+  function getNote(noteId, listFormat)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('notes.getNote@get', {id: noteId, listFormat: listFormat},
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
   }
 
   /**
