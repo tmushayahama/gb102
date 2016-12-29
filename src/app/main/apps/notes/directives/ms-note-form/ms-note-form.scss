@@ -4,7 +4,7 @@
   height: 100%;
 
   form {
-   padding: 8px;
+   padding: 0px;
    font-size: inherit;
    height: 100%;
    width: 100%;
@@ -12,14 +12,18 @@
    .gb-title, .gb-description {
     md-input-container {
      margin: 0;
+     padding: 0;
      textarea {
-      padding: 14px 12px;
       background-color: transparent;
-      border: none;
-      border-radius: 5px;
+      border-bottom-color: #CCC;
       &:hover, &:focus {
-       border: #CCC solid 1px;
+       //border: #CCC solid 1px;
       }
+     }
+     .md-errors-spacer {
+      display: none;
+      min-height: 0px;
+      min-width: 1px;
      }
     }
    }
@@ -27,12 +31,16 @@
    .gb-title {
     md-input-container {
      textarea {
+      min-height: 52px;
+      padding: 12px 12px;
       font-size: 18px;
      }
     }
    }
    .gb-description {
     textarea {
+     min-height: 44px;
+     padding: 8px 12px;
      font-size: 14px;
     }
    }
@@ -100,7 +108,7 @@
 
    > .footer {
     width: 100%;
-    padding: 0px;
+    padding: 8px;
     overflow: hidden;
 
     .md-button {

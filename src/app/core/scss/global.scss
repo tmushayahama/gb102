@@ -217,7 +217,6 @@ md-dialog {
  }
  .gb-title {
   font-size: 34px;
-  color: #EEE;
   text-transform: capitalize;
  }
 
@@ -233,15 +232,10 @@ md-dialog {
  }
 }
 
-.gb-row {
- &.gb-spacing-1 {
-  background-color: #F5F5F5;
-  height: 80px;
- }
-}
-
 .gb-tabs-1 {
- margin-top: -80px;
+ background-color: #F5F5F5;
+ position: relative;
+ //margin-top: -80px;
  md-tabs {
   height: 100%;
   width: 100%;
@@ -745,7 +739,9 @@ md-tabs {
 
 .gb-description-widget {
  padding: 0;
+ ///height: 250px;
  min-height: 250px;
+ //max-height: 250px;
  ms-widget-front {
   padding: 0 8px;
   background-color: #F5F5F5;
@@ -757,13 +753,34 @@ md-tabs {
    margin: 12px 0;
   }
  }
+ .gb-title, .gb-description {
+  md-input-container {
+   margin: 0;
+   textarea {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    &:hover, &:focus {
+     border: #CCC solid 1px;
+    }
+   }
+   .md-errors-spacer {
+    display: none;
+   }
+  }
+ }
  .gb-title {
-  padding: 0 10px;
-  font-size: 25px;
+  md-input-container {
+   textarea {
+    font-size: 18px;
+   }
+  }
  }
  .gb-description {
-  padding: 0 10px;
-  font-size: 15px;
+  textarea {
+   font-size: 14px;
+  }
  }
  md-icon {
   &.gb-app-icon {
@@ -1148,8 +1165,9 @@ md-tabs {
    width: 100%;
    md-input-container {
     margin: 0;
-    padding: 0; 
+    padding: 0;
     input {
+     height: 35px;
      padding: 10px 12px;
      background-color: transparent;
      border: none;
@@ -1158,6 +1176,7 @@ md-tabs {
       border: #CCC solid 1px;
      }
      &.gb-add-note-input {
+      height: 40px;
       padding: 14px 12px;
       border: none;
       &:hover, &:focus {
