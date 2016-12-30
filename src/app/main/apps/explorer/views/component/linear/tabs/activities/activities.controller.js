@@ -40,8 +40,7 @@
    * Change Notes Filter
    * @param type
    */
-  function filterChange(type)
-  {
+  function filterChange(type) {
 
    vm.noteListType = type;
 

@@ -1,7 +1,7 @@
 <!--
 LINEAR VIEW ACTIVITIES HOME
 -->
-<div id="notes" class="" layout="column" layout-align="start center" flex="100">
+<div id="notes" class="gb-container" layout="column" layout-align="start stretch" flex>
  <md-sidenav class="sidenav main-sidenav md-white-bg" ms-scroll
              md-component-id="main-sidenav"
              ms-sidenav-helper ng-include="'src/app/main/apps/notes/sidenavs/main/main-sidenav.html'">
@@ -43,7 +43,7 @@ LINEAR VIEW ACTIVITIES HOME
           translate-attr-placeholder="NOTES.SEARCH_NOTES" ng-model-options="{'debounce': 200}" flex>
   </div>
  </md-toolbar>
- <md-content class="gb-container" ms-scroll flex="100">
+ <div class="" flex>
   <ms-new-note gb-notes="vm.components" gb-parent-component-id="vm.componentId" ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
   <ms-masonry class="notes" options='{"columnCount":5}'>
    <ms-masonry-item class="note"
@@ -76,5 +76,5 @@ LINEAR VIEW ACTIVITIES HOME
     <div class="message-text" translate="NOTES.NO_RESULTS">No results...</div>
    </div>
   </div>
- </md-content>
+ </div>
 </div>

@@ -475,17 +475,14 @@
      <div class="section-header" layout="row" layout-align="start center">
       <i class="icon-checkbox-marked s18"></i>
       <span flex class="section-title" ng-hide="editChecklistForm.$visible">{{checklist.name}}</span>
-
       <span flex class="section-title" editable-text="checklist.name"
             ng-show="editChecklistForm.$visible"
             e-form="editChecklistForm"></span>
-
       <md-menu md-position-mode="target-right target" class="options">
        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="options"
                   translate translate-attr-aria-label="SB.OPTIONS">
         <md-icon md-menu-origin md-font-icon="icon-dots-vertical"></md-icon>
        </md-button>
-
        <md-menu-content class="options-menu-content">
         <md-menu-item>
          <md-button ng-click="editChecklistForm.$show()" aria-label="Edit"
@@ -504,41 +501,32 @@
        </md-menu-content>
       </md-menu>
      </div>
-
      <div class="section-content">
-
       <div class="checklist-progress" layout="row" layout-align="start center">
        <span class="checklist-progress-value">
         {{checklist.checkItemsChecked}} / {{checklist.checkItems.length}}
        </span>
-
        <md-progress-linear class="md-accent checklist-progressbar" md-mode="determinate"
                            value="{{100 * checklist.checkItemsChecked / checklist.checkItems.length}}">
        </md-progress-linear>
       </div>
-
       <div class="check-items">
        <div class="check-item" ng-repeat="checkItem in checklist.checkItems" layout="row"
             layout-align="space-between center">
-
         <md-checkbox ng-model="checkItem.checked"
                      ng-change="vm.updateCheckedCount(checklist)"
                      aria-label="{{checkItem.name}}"
                      ng-hide="editCheckItemForm.$visible">
          {{checkItem.name}}
         </md-checkbox>
-
         <span flex editable-text="checkItem.name" ng-show="editCheckItemForm.$visible"
               e-form="editCheckItemForm"></span>
-
         <md-menu md-position-mode="target-right target" class="options">
-
          <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)"
                     aria-label="options"
                     translate translate-attr-aria-label="SB.OPTIONS">
           <md-icon md-menu-origin md-font-icon="icon-dots-vertical" class="s20"></md-icon>
          </md-button>
-
          <md-menu-content class="options-menu-content">
           <md-menu-item>
            <md-button ng-click="editCheckItemForm.$show()" aria-label="Edit"
@@ -558,14 +546,11 @@
           </md-menu-item>
          </md-menu-content>
         </md-menu>
-
        </div>
       </div>
-
       <form name="newCheckItemForm" class="new-check-item-form"
             ng-submit="vm.addCheckItem(vm[checklist.id].newCheckItem, checklist); vm[checklist.id].newCheckItem = ''"
             layout="row" layout-align="start center">
-
        <md-input-container class="no-errors-spacer" flex>
         <label>
          <i class="icon-plus s18"></i>
@@ -573,21 +558,19 @@
         </label>
         <input type="text" autocomplete="off" ng-model="vm[checklist.id].newCheckItem">
        </md-input-container>
-
        <md-button type="submit" class="md-raised md-accent" aria-label="Add"
                   translate translate-attr-aria-label="SB.ADD">
         <span translate="SB.ADD">Add</span>
        </md-button>
       </form>
-
      </div>
     </div>
    </div>
    <div class="gb-container gb-editible-note-card gb-card-row md-whiteframe-1dp"
-        layout="column" layout-align="start" flex="100"
+        layout="column" layout-align="start stretch" flex
         ng-repeat="section in vm.note.components track by $index"
         ng-if="section.components.length > 0">
-    <md-toolbar class="gb-heading" flex="100">
+    <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Description Icon">
        <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
@@ -600,7 +583,7 @@
       <span flex></span>
      </div>
     </md-toolbar>
-    <div class="gb-card-content" flex="100">
+    <div class="gb-card-content" flex>
      <div ng-repeat="component in section.components" class="gb-title" ng-style="{'background-color':component.background_color.title}">
       <md-input-container class="md-block" md-no-float>
        <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">

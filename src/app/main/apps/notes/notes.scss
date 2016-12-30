@@ -80,29 +80,25 @@
   }
  }
 
- > md-content {
-  background: transparent;
-  padding: 8px;
 
-  .notes {
-   max-width: 1200px;
-   margin: 0 auto;
-  }
+ .notes {
+  max-width: 1200px;
+  margin: 0 auto;
+ }
 
-  .no-results {
-   margin-top: 20vh;
+ .no-results {
+  margin-top: 20vh;
 
-   .message {
+  .message {
 
-    .message-icon {
-     margin: 16px;
-     color: rgba(0, 0, 0, 0.33);
-    }
-    .message-text {
-     font-size: 24px;
-     font-weight: 300;
-     color: rgba(0, 0, 0, 0.33);
-    }
+   .message-icon {
+    margin: 16px;
+    color: rgba(0, 0, 0, 0.33);
+   }
+   .message-text {
+    font-size: 24px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.33);
    }
   }
  }

@@ -27,7 +27,6 @@
 @import 'partials/helpers';
 @import 'partials/print';
 
-
 html {
  display: block;
  padding: 0;
@@ -54,7 +53,7 @@ body {
 
 #toolbar {
  background-color: rgba(nth($apps-colors, 1), 0.9);
- color: #F5F5F5;
+ color: #F2F2F2;
 }
 
 md-sidenav {
@@ -78,7 +77,11 @@ md-sidenav {
 .md-button {
  min-width:20px;
 }
-
+.widget-group {
+ ms-widget {
+  padding: 8px;
+ }
+}
 
 i {
  //font-size: 24px; */
@@ -143,7 +146,7 @@ md-dialog {
  }
  .gb-left-scroll,
  .gb-right-scroll {
-  background-color: #FFF;
+  background-color: #FAFAFA;
   margin: 0;
   height: 100%;
   opacity: 0.7;
@@ -233,7 +236,7 @@ md-dialog {
 }
 
 .gb-tabs-1 {
- background-color: #F5F5F5;
+ background-color: #F2F2F2;
  position: relative;
  //margin-top: -80px;
  md-tabs {
@@ -264,7 +267,7 @@ md-dialog {
   }
 
   md-tabs-wrapper {
-   background-color: #F5F5F5;
+   background-color: #F2F2F2;
    border: none;
    // border-top: #AAA solid 1px;
    //border-bottom: #AAA solid 1px;
@@ -300,8 +303,11 @@ md-dialog {
  }
 }
 
+.gb-section-row {
+ background-color: #F2F2F2;
+}
 .gb-card-row {
- margin: 10px 0;
+ margin: 8px 0;
 
  md-toolbar.gb-heading {
   background-color: transparent;
@@ -326,6 +332,15 @@ md-dialog {
   padding: 12px 5px;
   color: #BBB;
   font-size: 10px;
+ }
+ .gb-view-more-button {
+  margin: 0;
+  height: 50px;
+  font-size: 18px;
+  background-color: rgba(#000, 0.1);
+  &:hover {
+   background-color: rgba(#000, 0.3);
+  }
  }
 }
 
@@ -414,7 +429,7 @@ md-tabs {
   overflow: hidden;
   height: 100%;
   width: 100%;
-  background-color: #FFF;
+  background-color: #FAFAFA;
   border-radius: 2px;
   display:block;
 
@@ -546,7 +561,7 @@ md-tabs {
  padding: 0 0 0 0;
  margin: 15px 0;
  border-radius: 2px;
- background-color: #FFF;
+ background-color: #FAFAFA;
  color: #555;
 
  .gb-card-cover {
@@ -743,15 +758,8 @@ md-tabs {
  min-height: 250px;
  //max-height: 250px;
  ms-widget-front {
-  padding: 0 8px;
-  background-color: #F5F5F5;
- }
- ms-widget-back {
-  background-color: #F5F5F5;
-  padding: 0 8px;
-  md-input-container {
-   margin: 12px 0;
-  }
+  padding: 0;
+  background-color: #F2F2F2;
  }
  .gb-title, .gb-description {
   md-input-container {
@@ -783,7 +791,7 @@ md-tabs {
   }
  }
  md-icon {
-  &.gb-app-icon {
+  &.gb-background-icon {
    color: #EEE;
    font-size: 150px;
    width: 150px;
@@ -813,15 +821,58 @@ md-tabs {
 
 }
 
+.gb-section-widget-group {
+ -webkit-transition: height 1000ms linear;
+ -moz-transition: height 1000ms linear;
+ -o-transition: height 1000ms linear;
+ -ms-transition: height 1000ms linear;
+ transition: height 1000ms linear;
+ &.gb-collapsed {
+  height: 410px;
+  overflow: hidden;
+ }
+}
+.gb-section-widget {
+ height: 200px;
+ min-height: 200px;
+ max-height: 200px;
+ text-align: center;
+ ms-widget-front {
+  background-color: #FAFAFA;
+  .gb-title {
+   font-size: 18px;
+   text-transform: uppercase;
+  }
+  .gb-description {
+   font-size: 14px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    color: #EEE;
+    font-size: 150px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+   }
+  }
+  .gb-add-section-button {
+   height: 40px;
+   background-color: rgba(#000, 0.1);
+   &:hover {
+    background-color: rgba(#000, 0.3);
+   }
+  }
+ }
+}
 .gb-swipe-widget {
  padding: 0;
  height: 300px;
  ms-widget-front {
   padding: 0 8px;
-  background-color: #F5F5F5;
+  background-color: #F2F2F2;
  }
  ms-widget-back {
-  background-color: #F5F5F5;
+  background-color: #F2F2F2;
   padding: 0 8px;
   .gb-title {
    text-align: left;
@@ -846,7 +897,7 @@ md-tabs {
   font-size: 15px;
  }
  md-icon {
-  &.gb-app-icon {
+  &.gb-background-icon {
    color: #EEE;
    font-size: 150px;
    width: 150px;
@@ -880,10 +931,10 @@ md-tabs {
  height: 300px;
  ms-widget-front {
   padding: 0 8px;
-  background-color: #F5F5F5;
+  background-color: #F2F2F2;
  }
  ms-widget-back {
-  background-color: #F5F5F5;
+  background-color: #F2F2F2;
   padding: 0 8px;
   .gb-title {
    text-align: left;
@@ -908,7 +959,7 @@ md-tabs {
   font-size: 15px;
  }
  md-icon {
-  &.gb-app-icon {
+  &.gb-background-icon {
    color: #EEE;
    font-size: 150px;
    width: 150px;
@@ -939,6 +990,9 @@ md-tabs {
 
 .gb-count-widget {
  height: 200px;
+ ms-widget-front {
+  background-color: #F2F2F2;
+ }
  .gb-count {
   font-size: 40px;
  }
@@ -950,8 +1004,8 @@ md-tabs {
   @include position(absolute, 5px  5px null null);
  }
  md-icon {
-  &.gb-app-icon {
-   //color: #BBB;
+  &.gb-background-icon {
+   color: #EEE;
    font-size: 150px;
    width: 150px;
    min-width: 150px;
@@ -973,7 +1027,7 @@ md-tabs {
   font-size: 20px;
  }
  md-icon {
-  &.gb-app-icon {
+  &.gb-background-icon {
    color: #BBB;
    font-size: 150px;
    width: 150px;
@@ -1005,7 +1059,7 @@ md-tabs {
  position: relative;
  height: 90px;
  width: 100%;
- background-color: #FFF;
+ background-color: #FAFAFA;
  border-radius: 2px;
  .gb-indicator {
   @include position(absolute, 5px  null null 5px);
@@ -1153,7 +1207,7 @@ md-tabs {
 .gb-editible-note-card {
  margin-bottom: 10px;
  position: relative;
- background-color: #FFF;
+ background-color: #FAFAFA;
  md-toolbar {
   padding-left: 8px;
  }
@@ -1166,7 +1220,7 @@ md-tabs {
    md-input-container {
     margin: 0;
     padding: 0;
-    input {
+    input, textarea {
      height: 35px;
      padding: 10px 12px;
      background-color: transparent;
@@ -1176,8 +1230,9 @@ md-tabs {
       border: #CCC solid 1px;
      }
      &.gb-add-note-input {
-      height: 40px;
-      padding: 14px 12px;
+      min-height: 60px;
+      font-size: 20px;
+      padding: 16px 12px;
       border: none;
       &:hover, &:focus {
        border: none;
@@ -1202,7 +1257,7 @@ md-tabs {
 .gb-motive-card {
  margin-bottom: 10px;
  //position: relative;
- background-color: #F5F5F5;
+ background-color: #F2F2F2;
 
  md-toolbar {
   padding-left: 8px;
@@ -1252,7 +1307,7 @@ md-tabs {
 .gb-card-row-3 {
  position: relative;
  height: 60px;
- background-color: #FFF;
+ background-color: #FAFAFA;
  @include shadow(1);
 
  .gb-title {
@@ -1362,8 +1417,8 @@ md-tabs {
    width: 150px;
    height: 150px;
    display: block;
-   color: #FFF;
-   @include linear-gradient(70deg, nth($apps-colors, 1) 0%, rgba(#FFF, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(nth($apps-colors, 1), 0.6) 100%);
+   color: #FAFAFA;
+   @include linear-gradient(70deg, nth($apps-colors, 1) 0%, rgba(#FAFAFA, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(nth($apps-colors, 1), 0.6) 100%);
    //background-color: rgba(nth($apps-colors, 1), 0.6);
    font-size: 90px;
    line-height: 160px;
@@ -1413,7 +1468,7 @@ md-tabs {
  height: 30px;
  margin: 15px 0 5px 0;
  //padding: 0 0 5px 0;
- //background-color: #FFF;
+ //background-color: #FAFAFA;
 
  .gb-heading-icon {
   @include position(absolute, 0 null 0 0);
@@ -1462,12 +1517,12 @@ md-tabs {
 
 .board-list-item {
  height: 230px;
- min-width: 210px;
- width: 210px;
+ //min-width: 210px;
+ // width: 210px;
  padding: 0 0 0 0;
  margin: 8px;
  border-radius: 2px;
- background-color: #FFF;
+ background-color: #FAFAFA;
  color: #555;
  cursor: pointer;
  @include shadow(1);
