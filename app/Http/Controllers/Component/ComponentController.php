@@ -137,6 +137,18 @@ class ComponentController extends Controller {
  }
 
  /**
+  * Get Contribution Suggestions of a component
+  *
+  * @param type $componentId
+  * @param type $typeId the contribution type id
+  * @return type json of contribution suggesstions
+  */
+ public function getContributionSuggestions($componentId, $typeId) {
+  $contributionSuggestions = Component::getContributionSuggestions($componentId, $typeId);
+  return \Response::json($contributionSuggestions);
+ }
+
+ /**
   * Get all bookmarks for a particular user
   *
   * @return type json response of all component bookmarks

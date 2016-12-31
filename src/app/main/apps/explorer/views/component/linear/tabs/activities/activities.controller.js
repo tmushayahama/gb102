@@ -36,6 +36,10 @@
 
   init();
 
+  // ******************************
+  // Internal methods
+  // ******************************
+
   /**
    * Change Notes Filter
    * @param type

@@ -27,13 +27,20 @@
    getCard: getCard,
    //Component Bookmarks
    getComponentBookmarks: getComponentBookmarks,
-   createComponentBookmark: createComponentBookmark
+   createComponentBookmark: createComponentBookmark,
+   //Component Contribution
+   getContributionSuggestions: getContributionSuggestions,
   };
+
+
+  // ******************************
+  // Internal methods
+  // ******************************
 
   /**
    * Get board data from the server
    *
-   * @returns {*}
+   * @returns a promise
    */
   function getBoards()
   {
@@ -207,6 +214,28 @@
    return deferred.promise;
   }
 
+//Component Contribution
+
+  function getContributionSuggestions(componentId, typeId) {
+   var deferred = $q.defer();
+
+   msApi.request('explorer.getContributionSuggestions@query',
+           {
+            componentId: componentId,
+            typeId: typeId
+           },
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
 
 //Component Bookmarks
 

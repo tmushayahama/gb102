@@ -7,7 +7,7 @@
          .controller('ExplorerAddComponentDialogController', ExplorerAddComponentDialogController);
 
  /** @ngInject */
- function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService, startTabIndex)
+ function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService, componentId, startTabIndex, preselectedData)
  {
   var vm = this;
 
@@ -70,6 +70,10 @@
 
   //////////
 
+  // ******************************
+  // Internal methods
+  // ******************************
+
   /**
    * Close Dialog
    */
@@ -131,6 +135,9 @@
   function selectAddContributors(contributionType) {
    selectTab(vm.tabs.contributors);
    vm.selectedContributorType = contributionType;
+   BoardService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
+    vm.contributionSuggestions = response;
+   });
   }
 
   /**
@@ -156,6 +163,37 @@
     vm.closeDialog();
     $state.go('app.componentLinearView.home', {id: data.id});
    });
+  }
+
+
+
+
+
+
+  vm.querySearch = querySearch;
+
+
+
+  /**
+   * Search for repos... use $timeout to simulate
+   * remote dataservice call.
+   */
+  function querySearch(query) {
+   var results = query ? vm.contributionSuggestions.filter(createFilterFor(query)) : vm.contributionSuggestions;
+
+   return results;
+  }
+
+  /**
+   * Create filter function for a query string
+   */
+  function createFilterFor(query) {
+   var lowercaseQuery = angular.lowercase(query);
+
+   return function filterFn(item) {
+    return (item.value.indexOf(lowercaseQuery) === 0);
+   };
+
   }
 
   /**

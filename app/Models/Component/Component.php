@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Component\ComponentContribution;
 use App\Models\Level\Level;
+use App\Models\User\User;
 use Request;
 use DB;
 use JWTAuth;
@@ -388,6 +389,19 @@ class Component extends Model {
   DB::commit();
 
   return Level::find($backgroundColorId);
+ }
+
+ /**
+  * Get Contribution Suggestions of a component
+  *
+  * @param type $componentId
+  * @param type $typeId the contribution type id
+  * @return type json of contribution suggesstions
+  */
+ public static function getContributionSuggestions($componentId, $typeId) {
+  //placeholder functions
+  $users = User::get();
+  return $users;
  }
 
  /**

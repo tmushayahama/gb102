@@ -16,6 +16,10 @@
 
   //////////
 
+  // ******************************
+  // Internal methods
+  // ******************************
+
   /**
    * Open card dialog
    *
@@ -42,8 +46,10 @@
    *
    * @param ev the event which triggered the dialog
    * @param startTabIndex an initial selected tab index
+   * @param preselectedData data coming from external diaolog selection tab
+   *
    */
-  function openAddComponentDialog(ev, startTabIndex) {
+  function openAddComponentDialog(ev, componentId, startTabIndex, preselectedData) {
    $mdDialog.show({
     templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
@@ -53,7 +59,9 @@
     clickOutsideToClose: false,
     escapeToClose: true,
     locals: {
-     startTabIndex: startTabIndex
+     startTabIndex: startTabIndex,
+     preselectedData: preselectedData,
+     componentId: componentId
     }
    });
   }

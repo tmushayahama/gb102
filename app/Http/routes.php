@@ -73,6 +73,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
  Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');
  Route::post('component/checklist/edit', 'Explorer\ExplorerController@editExplorerComponentChecklist');
+ //Component Contributions
+ Route::get('components/{componentId}/contribution/type/{typeId}/suggestions', 'Component\ComponentController@getContributionSuggestions');
 
  //Component Bookmarks
  Route::get('components/bookmarks/{creatorId}', 'Component\ComponentController@getComponentBookmarks');

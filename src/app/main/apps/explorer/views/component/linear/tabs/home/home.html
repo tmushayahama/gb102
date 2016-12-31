@@ -159,7 +159,7 @@ LINEAR VIEW HOME
         Lists all users who have contributed to this skill.
        </div>
       </div>
-      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.contribution)" class="gb-add-section-button">
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)" class="gb-add-section-button">
        Request Contributions
       </md-button>
      </div>
@@ -179,7 +179,7 @@ LINEAR VIEW HOME
         Sub topics
        </div>
       </div>
-      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.apps)" class="gb-add-section-button">
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-add-section-button">
        Add Components
       </md-button>
      </div>
@@ -199,7 +199,7 @@ LINEAR VIEW HOME
 
        </div>
       </div>
-      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.motives)" class="gb-add-section-button">
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-add-section-button">
        Add Background
       </md-button>
      </div>
@@ -219,7 +219,7 @@ LINEAR VIEW HOME
         Sub topics
        </div>
       </div>
-      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.activities)" class="gb-add-section-button">
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.activities)" class="gb-add-section-button">
        Add Activities
       </md-button>
      </div>
@@ -229,7 +229,7 @@ LINEAR VIEW HOME
     </ms-widget-front>
    </ms-widget>
   </div>
-  <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.sections)" class="gb-view-more-button" flex>
+  <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.sections)" class="gb-view-more-button" flex>
    View More
   </md-button>
  </div>
@@ -251,7 +251,7 @@ LINEAR VIEW HOME
    </md-button>
   </div>
  </md-toolbar>
- <div class="widget-group gb-section-widget-group" ms-scroll
+ <div class="widget-group gb-section-widget-group" flex="100"
       layout="row" layout-align="start" layout-wrap flex>
   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
              ng-repeat="contributionType in $root.commonData.contributionTypes">
@@ -265,7 +265,7 @@ LINEAR VIEW HOME
        {{contributionType.long_description}}
       </div>
      </div>
-     <md-button ng-click="vm.selectTab(vm.tabs.contributors)" class="gb-add-section-button">
+     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributors, contributionType)" class="gb-add-section-button">
       Request Contributions
      </md-button>
     </div>

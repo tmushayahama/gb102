@@ -280,6 +280,12 @@
   ]);
   msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
 
+//Component Contribution
+  msApiProvider.register('explorer.getContributionSuggestions', ['api/components/:componentId/contribution/type/:typeId/suggestions',
+   {
+    componentId: "@componentId",
+    typeId: "@typeId"
+   }]);
 
   //Component Bookmarks
   msApiProvider.register('explorer.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',

@@ -25,7 +25,9 @@
   vm.filteringIsOn = CardFilters.isOn;
   ////////
 
-
+  // ******************************
+  // Internal methods
+  // ******************************
 
   /**
    * Update Board Uri
