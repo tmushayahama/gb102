@@ -5,6 +5,16 @@
  angular
          .module('fuse')
          // .constant('_', window._)
+         .constant('add_component_tabs',
+                 {
+                  "sections": 0,
+                  "apps": 1,
+                  "activities": 2,
+                  "motives": 3,
+                  "contributions": 4,
+                  "contributors": 5,
+                  "fillApps": 6
+                 })
          .constant('level_categories',
                  {
                   "apps": 1,

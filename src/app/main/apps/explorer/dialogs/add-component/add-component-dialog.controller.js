@@ -7,14 +7,17 @@
          .controller('ExplorerAddComponentDialogController', ExplorerAddComponentDialogController);
 
  /** @ngInject */
- function ExplorerAddComponentDialogController(level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService)
+ function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService, startTabIndex)
  {
   var vm = this;
 
   // Data
   vm.component = {};
   vm.formTabIndex = 0;
+  vm.tabs = add_component_tabs;
+  vm.selectedTabHistory = [];
   vm.selectedApp = [];
+  vm.selectedContributorType = [];
   vm.privacy = level_categories.privacy;
   vm.selectedPrivacy = {};
   vm.board = [];
@@ -24,7 +27,13 @@
   vm.labels = vm.board.labels;
 
   // Methods
+  vm.selectTab = selectTab;
+  vm.tabBack = tabBack;
   vm.selectApp = selectApp;
+  vm.selectAddContributors = selectAddContributors;
+  vm.selectAddSubComponents = selectAddSubComponents;
+  vm.selectAddMotives = selectAddMotives;
+
   vm.selectPrivacy = selectPrivacy;
   vm.addComponent = addComponent;
 
@@ -69,6 +78,23 @@
    $mdDialog.hide();
   }
 
+  /**
+   * Select a tab
+   *
+   * @param {type} index a tab index
+   */
+  function selectTab(index) {
+   vm.formTabIndex = index;
+   vm.selectedTabHistory.push(index);
+  }
+
+  /**
+   * Back a tab
+   */
+  function tabBack() {
+   vm.selectedTabHistory.pop();
+   vm.formTabIndex = vm.selectedTabHistory[vm.selectedTabHistory.length - 1];
+  }
 
   /**
    * Select the app
@@ -77,8 +103,34 @@
    * @returns {undefined}
    */
   function selectApp(app) {
-   vm.formTabIndex = 1;
+   vm.formTabIndex = vm.tabs.fillApps;
+   vm.selectedTabHistory.push(vm.tabs.fillApps);
    vm.selectedApp = app;
+  }
+
+  /**
+   * Select to add sub components
+   */
+  function selectAddSubComponents() {
+   vm.formTabIndex = vm.tabs.apps;
+   vm.selectedTabHistory.push(vm.tabs.apps);
+  }
+
+  /**
+   * Select to add a motivation
+   */
+  function selectAddMotives() {
+   vm.formTabIndex = vm.tabs.motives;
+   vm.selectedTabHistory.push(vm.tabs.motives);
+  }
+
+  /**
+   * Add Contributors button has been selected
+   * @param contributionType a contributor type
+   */
+  function selectAddContributors(contributionType) {
+   selectTab(vm.tabs.contributors);
+   vm.selectedContributorType = contributionType;
   }
 
   /**
@@ -408,6 +460,7 @@
    *
    */
   function init() {
+   selectTab(startTabIndex);
    selectPrivacy(level_categories.privacy.public, "Public");
    vm.component.description = "";
   }

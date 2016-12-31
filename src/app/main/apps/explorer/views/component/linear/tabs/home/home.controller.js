@@ -7,26 +7,18 @@
          .controller('ComponentLinearHomeController', ComponentLinearHomeController);
 
  /** @ngInject */
- function ComponentLinearHomeController(BoardService, $rootScope)
+ function ComponentLinearHomeController(add_component_tabs, BoardService, DialogService, $rootScope)
  {
   var vm = this;
   //////////
   //
   ////Data
-  vm.collapseMoreSections = true;
-
+  vm.tabs = add_component_tabs;
   ///////////
-  //
-  //
-  //Methods
-  vm.toggleMoreSections = toggleMoreSections;
 
-  /**
-   * Toggle the More Sections Section
-   *
-   */
-  function toggleMoreSections() {
-   vm.collapseMoreSections = !vm.collapseMoreSections;
-  }
+  //Methods
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
+
+
  }
 })();

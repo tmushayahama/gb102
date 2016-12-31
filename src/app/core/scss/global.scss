@@ -63,6 +63,11 @@ md-sidenav {
 .gb-container {
  position: relative;
  width: 1100px;
+ &.gb-section-row {
+  width: 1084px;
+  margin: 8px 0;
+  background-color: #F2F2F2;
+ }
  @include respond-to (gb-md) {
   width: 80%;
  }
@@ -303,11 +308,7 @@ md-dialog {
  }
 }
 
-.gb-section-row {
- background-color: #F2F2F2;
-}
 .gb-card-row {
- margin: 8px 0;
 
  md-toolbar.gb-heading {
   background-color: transparent;
@@ -827,6 +828,7 @@ md-tabs {
  -o-transition: height 1000ms linear;
  -ms-transition: height 1000ms linear;
  transition: height 1000ms linear;
+ max-height: 2000px;
  &.gb-collapsed {
   height: 410px;
   overflow: hidden;

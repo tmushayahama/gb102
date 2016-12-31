@@ -144,7 +144,7 @@ class Component extends Model {
      $components["apps"][$componentType->id] = $componentType;
      $components["apps"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
     }
-    $componentTypes = Level::getLevel(Level::$level_categories['component_type']);
+    $componentTypes = Level::getLevel(Level::$level_categories['component_types']);
     foreach ($componentTypes as $componentType) {
      $components["activities"][$componentType->id] = $componentType;
      $components["activities"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
@@ -224,7 +224,7 @@ class Component extends Model {
            if ($appType == 1) {
             $q->where('parent_level_id', 1);
            } else if ($appType == 2) {
-            $q->where('parent_level_id', Level::$level_categories['component_type']);
+            $q->where('parent_level_id', Level::$level_categories['component_types']);
            } else if ($appType == 3) {
             $q->where('parent_level_id', Level::$level_categories['component_motives']);
            }
@@ -259,7 +259,7 @@ class Component extends Model {
            if ($appType == 1) {
             $q->where('parent_level_id', 1);
            } else if ($appType == 2) {
-            $q->where('parent_level_id', Level::$level_categories['component_type']);
+            $q->where('parent_level_id', Level::$level_categories['component_types']);
            } else if ($appType == 3) {
             $q->where('parent_level_id', Level::$level_categories['component_motives']);
            }
@@ -416,7 +416,7 @@ class Component extends Model {
  private static function formatComponentByType($component) {
   $components = array();
   $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
-  $componentComponentTypes = Level::getLevel(Level::$level_categories['component_type']);
+  $componentComponentTypes = Level::getLevel(Level::$level_categories['component_types']);
 
   foreach ($componentAppTypes as $componentType) {
    $components[$componentType->id] = $componentType;

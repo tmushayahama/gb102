@@ -17,6 +17,10 @@ class Level extends Model {
   */
  protected $table = 'gb_level';
 
+ /**
+  *
+  * @return type
+  */
  public function level() {
   return $this->belongsTo('App\Models\Level', 'parent_level_id');
  }
@@ -65,7 +69,7 @@ class Level extends Model {
          'customize' => 10003,
      ),
      'template_type' => 7000,
-     'component_type' => 11000,
+     'component_types' => 11000,
      'component_background_colors' => 13000,
      'default_component_background_color' => 13001,
      "component_motives" => 14000,
@@ -124,7 +128,9 @@ class Level extends Model {
  public static function getComponentTypes() {
   $result = array();
   $result['apps'] = Level::getLevel(Level::$level_categories['apps'], true);
-  $result['activities'] = Level::getLevel(Level::$level_categories['component_type'], true);
+  $result['activities'] = Level::getLevel(Level::$level_categories['component_types'], true);
+  $result['motives'] = Level::getLevel(Level::$level_categories['component_motives'], true);
+  $result['contributionTypes'] = Level::getLevel(Level::$level_categories['contribution_types'], true);
   return $result;
  }
 

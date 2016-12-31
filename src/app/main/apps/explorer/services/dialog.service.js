@@ -22,8 +22,7 @@
    * @param ev
    * @param cardId
    */
-  function openCardDialog(ev, cardId)
-  {
+  function openCardDialog(ev, cardId) {
    $mdDialog.show({
     templateUrl: 'src/app/main/apps/explorer/dialogs/card/card-dialog.html',
     controller: 'ExplorerCardDialogController',
@@ -41,10 +40,10 @@
   /**
    * Open Add Component dialog
    *
-   * @param ev
+   * @param ev the event which triggered the dialog
+   * @param startTabIndex an initial selected tab index
    */
-  function openAddComponentDialog(ev)
-  {
+  function openAddComponentDialog(ev, startTabIndex) {
    $mdDialog.show({
     templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
@@ -53,6 +52,9 @@
     targetEvent: ev,
     clickOutsideToClose: false,
     escapeToClose: true,
+    locals: {
+     startTabIndex: startTabIndex
+    }
    });
   }
 

@@ -79,7 +79,7 @@ LINEAR VIEW HOME
   </ms-widget-front>
   <ms-widget-back class="grey-50-bg">
    <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="fa fa-times" class="s16"></md-icon>
+    <md-icon md-font-icon="fa fa-times" class="s32"></md-icon>
    </md-button>
   </ms-widget-back>
  </ms-widget>
@@ -101,8 +101,8 @@ LINEAR VIEW HOME
    </div>
   </ms-widget-front>
   <ms-widget-back class="grey-50-bg">
-   <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="icon-close" class="s16"></md-icon>
+   <md-button class="md-icon-button gb-details-btn" ng-click="flipWidget()" aria-label="Flip widget">
+    <md-icon md-font-icon="icon-close" class="s32"></md-icon>
    </md-button>
   </ms-widget-back>
  </ms-widget>
@@ -146,20 +146,20 @@ LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="" layout="column" layout-align="start stretch" flex>
-  <div class="widget-group gb-section-widget-group" ng-class="{'gb-collapsed':vm.collapseMoreSections}"
+  <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="33">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
     <ms-widget-front layout="row" flex>
      <div layout="column" layout-align="space-between" flex>
       <div layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        CONTRIBUTORS
+        CONTRIBUTIONS
        </div>
        <div class="gb-description">
         Lists all users who have contributed to this skill.
        </div>
       </div>
-      <md-button class="gb-add-section-button">
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.contribution)" class="gb-add-section-button">
        Request Contributions
       </md-button>
      </div>
@@ -168,70 +168,69 @@ LINEAR VIEW HOME
      </div>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="33">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
     <ms-widget-front layout="row" flex>
      <div layout="column" layout-align="space-between" flex>
       <div layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        Components
+        COMPONENTS
        </div>
        <div class="gb-description">
         Sub topics
        </div>
       </div>
-      <md-button class="gb-add-section-button">
-       Request Components
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.apps)" class="gb-add-section-button">
+       Add Components
       </md-button>
      </div>
      <div class="background-image-center">
-      <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
+      <md-icon md-font-icon="fa icon-gb-apps" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget  ng-repeat="component in componentLinearCtrl.component.components" class="p-8 gb-section-widget" layout="column" flex="33">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
     <ms-widget-front layout="row" flex>
      <div layout="column" layout-align="space-between" flex>
       <div layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        {{component.title}}
+        BACKGROUND
        </div>
        <div class="gb-description">
-        {{component.description}}
+
        </div>
       </div>
-      <md-button class="gb-add-section-button">
-       Add {{component.title}}
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.motives)" class="gb-add-section-button">
+       Add Background
       </md-button>
      </div>
      <div class="background-image-center">
-      <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
+      <md-icon md-font-icon="fa fa-history" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget  ng-repeat="motive in componentLinearCtrl.component.motives" class="p-8 gb-section-widget" layout="column" flex="33">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
     <ms-widget-front layout="row" flex>
      <div layout="column" layout-align="space-between" flex>
       <div layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        {{motive.title}}
+        ACTIVITIES
        </div>
        <div class="gb-description">
-        {{motive.description}}
+        Sub topics
        </div>
       </div>
-      <md-button class="gb-add-section-button">
-       Add
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.activities)" class="gb-add-section-button">
+       Add Activities
       </md-button>
      </div>
      <div class="background-image-center">
-      <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
+      <md-icon md-font-icon="fa icon-gb-apps" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
   </div>
-  <md-button ng-click="vm.toggleMoreSections()" class="gb-view-more-button" flex>
-   <span ng-if="vm.collapseMoreSections">View More</span>
-   <span ng-if="!vm.collapseMoreSections">View Less</span>
+  <md-button ng-click="vm.openAddComponentDialog($event, vm.tabs.sections)" class="gb-view-more-button" flex>
+   View More
   </md-button>
  </div>
 </div>
@@ -252,6 +251,30 @@ LINEAR VIEW HOME
    </md-button>
   </div>
  </md-toolbar>
+ <div class="widget-group gb-section-widget-group" ms-scroll
+      layout="row" layout-align="start" layout-wrap flex>
+  <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
+             ng-repeat="contributionType in $root.commonData.contributionTypes">
+   <ms-widget-front layout="row" flex>
+    <div layout="column" layout-align="space-between" flex>
+     <div layout="column" layout-align="center stretch" flex>
+      <div class="gb-title">
+       {{contributionType.title}}
+      </div>
+      <div class="gb-description">
+       {{contributionType.long_description}}
+      </div>
+     </div>
+     <md-button ng-click="vm.selectTab(vm.tabs.contributors)" class="gb-add-section-button">
+      Request Contributions
+     </md-button>
+    </div>
+    <div class="background-image-center">
+     <md-icon md-font-icon="fa {{contributionType.icon}}" class="gb-background-icon"></md-icon>
+    </div>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
  <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="33">
   <div class="gb-card-profile md-whiteframe-1dp">
    <div class="gb-box-content">
