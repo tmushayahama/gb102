@@ -1633,4 +1633,38 @@ md-tabs {
  }
 }
 
+// ******************************
+// User
+// ******************************
+
+.gb-members {
+ .section-content {
+  padding: 8px 0 32px 0;
+ }
+ .gb-member-chips {
+  .md-chips {
+   box-shadow: none;
+   padding: 0;
+
+   md-chip {
+    padding-left: 0;
+
+    .gb-member-chip {
+
+     .gb-member-chip-avatar {
+      width: 32px;
+      border-radius: 50%;
+     }
+    }
+
+    .md-chip-remove-container {
+     right: 6px;
+     line-height: 30px;
+    }
+   }
+  }
+ }
+}
+
+
 

@@ -15,11 +15,15 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Component\Component;
 use App\Models\Component\ComponentBookmark;
+use App\Models\Component\ComponentContribution;
 use App\Models\Level\Level;
 use Request;
 use DB;
 
 class ComponentController extends Controller {
+ // ******************************
+ // Component Methods
+ // ******************************
 
  /**
   * Get All components with their subcomponents recursively.
@@ -136,6 +140,10 @@ class ComponentController extends Controller {
   return \Response::json($backgroundColor);
  }
 
+ // ******************************
+ // Component Contribution Methods
+ // ******************************
+
  /**
   * Get Contribution Suggestions of a component
   *
@@ -146,6 +154,16 @@ class ComponentController extends Controller {
  public function getContributionSuggestions($componentId, $typeId) {
   $contributionSuggestions = Component::getContributionSuggestions($componentId, $typeId);
   return \Response::json($contributionSuggestions);
+ }
+
+ /**
+  * Create a new component contribution
+  *
+  * @return type json response of a newly created component contribution
+  */
+ public function createComponentContributions() {
+  $componentContributions = ComponentContribution::createComponentContributions();
+  return \Response::json($componentContributions);
  }
 
  /**

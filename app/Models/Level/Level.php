@@ -63,6 +63,10 @@ class Level extends Model {
          'basic' => 7001,
          'template' => 7002
      ),
+     'status' => array(
+         'pending' => 5001,
+         'accepted' => 5002
+     ),
      'privacy' => array(
          'private' => 10001,
          'public' => 10002,

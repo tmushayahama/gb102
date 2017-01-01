@@ -653,7 +653,7 @@ ADD COMPONENT DIALOG
           </md-button>
           <div class="gb-heading-title">
            <span class="ellipsis">
-            Add {{vm.selectedContributorType.title}}
+            Add {{vm.componentContribution.contributorType.title}}
            </span>
           </div>
           <span flex></span>
@@ -662,43 +662,34 @@ ADD COMPONENT DIALOG
        </div>
       </div>
       <form class="gb-dialog-body" ms-scroll>
-       <md-autocomplete
-        md-floating-label="Select"
-        md-no-cache="false"
-        md-selected-item="vm.selectedUser"
-        md-search-text-change="vm.searchTextChange(vm.searchText)"
-        md-search-text="vm.searchText"
-        md-selected-item-change="vm.selectedItemChange(item)"
-        md-items="item in vm.querySearch(vm.searchText)"
-        md-item-text="item.name"
-        md-min-length="0"
-        placeholder="Select a User"
-        md-menu-class="autocomplete-custom-template">
-        <md-item-template>
-         <span class="item-title">
-          <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
-          <span> {{item.firstname}} </span>
-         </span>
-         <span class="item-metadata">
-          <span class="item-metastat">
-           <strong>{{item.watchers}}</strong> watchers
-          </span>
-          <span class="item-metastat">
-           <strong>{{item.forks}}</strong> forks
-          </span>
-         </span>
-        </md-item-template>
-       </md-autocomplete>
-       <div class="gb-title">
-        <md-input-container class="md-block">
-         <label translate="explorer.title_text">Title</label>
-         <textarea ng-model="vm.component.title" columns="1" md-maxlength="150" max-rows="2"></textarea>
-        </md-input-container>
+       <div class="gb-members" flex>
+        <div class="section-content">
+         <md-chips class="gb-member-chips" ng-model="vm.componentContribution.selectedContributors" md-autocomplete-snap
+                   md-require-match="true" md-transform-chip="$chip">
+          <md-autocomplete
+           md-selected-item="vm.componentContribution.selectedContributor"
+           md-search-text="vm.searchContributorText"
+           md-items="member in vm.contributionSuggestionsQuerySearch(vm.searchContributorText)"
+           md-item-text="member.firstname+' '+member.lastname"
+           placeholder="Search for a member">
+           <span md-highlight-text="vm.searchContributorText">
+            {{member.firstname + ' ' + member.lastname}}
+           </span>
+          </md-autocomplete>
+          <md-chip-template class="gb-member-chip">
+           <img class="gb-member-chip-avatar" src="src/assets/images/profile_pic/{{$chip.avatar_url}}" alt="">
+           <strong>{{$chip.firstname + ' ' + $chip.lastname}}</strong>
+          </md-chip-template>
+          <button md-chip-remove class="md-primary">
+           <md-icon md-font-icon="icon-close" class="s18"></md-icon>
+          </button>
+         </md-chips>
+        </div>
        </div>
        <div class="description">
         <md-input-container class="md-block">
-         <label translate="explorer.description_text">Description</label>
-         <textarea ng-model="vm.component.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
+         <label>Personalize the invite with a note</label>
+         <textarea ng-model="vm.componentContribution.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
         </md-input-container>
        </div>
       </form>
@@ -793,7 +784,7 @@ ADD COMPONENT DIALOG
     </md-menu-item>
    </md-menu-content>
   </md-menu>
-  <md-button class="md-raised md-accent" ng-click="vm.addComponent()">
+  <md-button class="md-raised md-accent" ng-click="vm.submit()">
    Create
   </md-button>
  </md-dialog-actions>

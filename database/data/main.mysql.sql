@@ -152,17 +152,20 @@ CREATE TABLE `gb_component_contribution` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status_id` int(11) NOT NULL DEFAULT '70000',
+  `privacy_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `contribution_component_id` (`component_id`),
   KEY `contribution_creator_id` (`creator_id`),
   KEY `contribution_level_id` (`level_id`),
   KEY `contribution_status_id` (`status_id`),
   KEY `contribution_contributor_id` (`contributor_id`),
+  KEY `contribution_privacy_id` (`privacy_id`),
   CONSTRAINT `contribution_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `contribution_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `contribution_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `contribution_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `contribution_privacy_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -501,7 +504,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`,	`level_id`, `component_id`, `creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`);
+    (`id`,	`level_id`, `component_id`, `creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`, `privacy_id`);
 
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.txt'

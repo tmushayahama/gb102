@@ -12,14 +12,25 @@
   var vm = this;
 
   // Data
+
   vm.component = {};
   vm.formTabIndex = 0;
   vm.tabs = add_component_tabs;
   vm.selectedTabHistory = [];
   vm.selectedApp = [];
-  vm.selectedContributorType = [];
   vm.privacy = level_categories.privacy;
   vm.selectedPrivacy = {};
+
+  /* Contributions */
+  vm.componentContribution = {};
+
+  vm.submitType = {
+   component: 0,
+   contribution: 1
+  };
+
+
+
   vm.board = [];
   vm.card = {}; //vm.board.cards.getById(cardId);
   vm.newLabelColor = 'red';
@@ -27,6 +38,7 @@
   vm.labels = vm.board.labels;
 
   // Methods
+  vm.submit = submit;
   vm.selectTab = selectTab;
   vm.tabBack = tabBack;
   vm.selectApp = selectApp;
@@ -35,7 +47,11 @@
   vm.selectAddMotives = selectAddMotives;
 
   vm.selectPrivacy = selectPrivacy;
-  vm.addComponent = addComponent;
+  vm.createComponent = createComponent;
+
+  /* Contribution */
+  vm.contributionSuggestionsQuerySearch = contributionSuggestionsQuerySearch;
+  vm.createComponentContributions = createComponentContributions;
 
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
@@ -73,6 +89,21 @@
   // ******************************
   // Internal methods
   // ******************************
+
+  /**
+   * Submit the form depending on the selected action
+   */
+  function submit() {
+   switch (vm.selectedSubmitType) {
+    case vm.submitType.component:
+     createComponent();
+     break;
+    case vm.submitType.contribution:
+     createComponentContributions();
+     break;
+    default:
+   }
+  }
 
   /**
    * Close Dialog
@@ -134,10 +165,16 @@
    */
   function selectAddContributors(contributionType) {
    selectTab(vm.tabs.contributors);
-   vm.selectedContributorType = contributionType;
+   vm.componentContribution.selectedContributors = [];
+   vm.componentContribution.contributorType = contributionType;
+   vm.componentContribution.componentId = componentId;
+   vm.componentContribution.description = "";
+
    BoardService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
     vm.contributionSuggestions = response;
    });
+
+   vm.selectedSubmitType = vm.submitType.contribution;
   }
 
   /**
@@ -155,7 +192,7 @@
    * Add a new component
    *
    */
-  function addComponent() {
+  function createComponent() {
    vm.component.parent_component_id = null;
    vm.component.typeId = vm.selectedApp.id;
    vm.component.privacyId = vm.selectedPrivacy.id;
@@ -165,35 +202,51 @@
    });
   }
 
-
-
-
-
-
-  vm.querySearch = querySearch;
-
-
-
+  /* Component Contribution */
   /**
-   * Search for repos... use $timeout to simulate
-   * remote dataservice call.
+   * Search for suggested contribution
+   *
+   * @param query search text
+   * @returns contributionSuggestions
    */
-  function querySearch(query) {
+  function contributionSuggestionsQuerySearch(query) {
    var results = query ? vm.contributionSuggestions.filter(createFilterFor(query)) : vm.contributionSuggestions;
-
    return results;
   }
 
   /**
-   * Create filter function for a query string
+   * Add a new component
+   *
    */
-  function createFilterFor(query) {
-   var lowercaseQuery = angular.lowercase(query);
-
-   return function filterFn(item) {
-    return (item.value.indexOf(lowercaseQuery) === 0);
+  function createComponentContributions() {
+   var data = {
+    componentId: vm.componentContribution.componentId,
+    description: vm.componentContribution.description,
+    levelId: vm.componentContribution.contributorType.id,
+    privacyId: vm.selectedPrivacy.id,
+    contributorIds: vm.componentContribution.selectedContributors.map(function (selectedContributor) {
+     return selectedContributor.id;
+    })
    };
+   BoardService.createComponentContributions(data).then(function (response) {
+    vm.closeDialog();
+    //$state.go('app.componentLinearView.home', {id: data.id});
+   });
+  }
 
+  /**
+   * Filter for chips
+   *
+   * @param query
+   * @returns {filterFn}
+   */
+  function createFilterFor(query)
+  {
+   var lowercaseQuery = angular.lowercase(query);
+   return function filterFn(item)
+   {
+    return angular.lowercase(item.firstname).indexOf(lowercaseQuery) >= 0;
+   };
   }
 
   /**
@@ -476,21 +529,6 @@
    };
 
    vm.card.comments.unshift(newComment);
-  }
-
-  /**
-   * Filter for chips
-   *
-   * @param query
-   * @returns {filterFn}
-   */
-  function createFilterFor(query)
-  {
-   var lowercaseQuery = angular.lowercase(query);
-   return function filterFn(item)
-   {
-    return angular.lowercase(item.name).indexOf(lowercaseQuery) >= 0;
-   };
   }
 
   /**

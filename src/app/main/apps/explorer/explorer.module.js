@@ -280,14 +280,16 @@
   ]);
   msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
 
-//Component Contribution
+  /*Component Contribution*/
   msApiProvider.register('explorer.getContributionSuggestions', ['api/components/:componentId/contribution/type/:typeId/suggestions',
    {
     componentId: "@componentId",
     typeId: "@typeId"
    }]);
+  msApiProvider.register('explorer.createComponentContributions', ['/api/components/contributions/create']);
 
-  //Component Bookmarks
+
+  /*Component Bookmarks*/
   msApiProvider.register('explorer.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',
    {
     creatorId: "@creatorId"

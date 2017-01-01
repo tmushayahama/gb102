@@ -30,6 +30,7 @@
    createComponentBookmark: createComponentBookmark,
    //Component Contribution
    getContributionSuggestions: getContributionSuggestions,
+   createComponentContributions: createComponentContributions,
   };
 
 
@@ -40,7 +41,7 @@
   /**
    * Get board data from the server
    *
-   * @returns a promise
+   * @returns promise of the deferred response
    */
   function getBoards()
   {
@@ -66,7 +67,7 @@
    * Get board data from the server
    *
    * @param appName
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getBoardsByType(appName)
   {
@@ -92,7 +93,7 @@
    *
    * @param boardId
    * @param listFormat
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getBoard(boardId, listFormat)
   {
@@ -116,7 +117,7 @@
   /**
    * Get a random board data from the server
    *
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getRandomBoard()
   {
@@ -141,7 +142,7 @@
    * Get a random board data by its type
    *
    * @param typeId type of the board
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getRandomBoardByType(typeId)
   {
@@ -166,7 +167,7 @@
    * Get board data from the server
    *
    * @param boardId
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getCard(cardId, listFormat)
   {
@@ -191,7 +192,8 @@
    * Create a Component
    *
    * @param componentData
-   * @returns {*}
+   *
+   * @returns promise of the deferred response
    */
   function createComponent(componentData)
   {
@@ -214,8 +216,16 @@
    return deferred.promise;
   }
 
-//Component Contribution
+  /* Component Contribution */
 
+  /**
+   * A query search for the suggested contributors
+   *
+   * @param componentId
+   * @param typeId contribution type id
+   *
+   * @returns promise of the deferred response
+   */
   function getContributionSuggestions(componentId, typeId) {
    var deferred = $q.defer();
 
@@ -237,14 +247,43 @@
    return deferred.promise;
   }
 
-//Component Bookmarks
+  /**
+   * Create a Component Contribution
+   *
+   * @param componentContributionData
+   *
+   * @returns promise of the deferred response
+   */
+  function createComponentContributions(componentContributionData)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
 
+   msApi.request('explorer.createComponentContributions@save', componentContributionData,
+           function (response)
+           {
+            // Resolve the promise
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            // Reject the promise
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+
+
+  /* Component Bookmarks */
 
   /**
    * Get all Component Bookmarks of a specific user
    *
    * @param creatorId a specific user
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function getComponentBookmarks(creatorId)
   {
@@ -269,7 +308,7 @@
    * Create a Component Bookmark
    *
    * @param componentData
-   * @returns {*}
+   * @returns promise of the deferred response
    */
   function createComponentBookmark(componentData)
   {
