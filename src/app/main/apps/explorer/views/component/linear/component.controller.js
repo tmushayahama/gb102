@@ -7,11 +7,12 @@
          .controller('ComponentLinearController', ComponentLinearController);
 
  /** @ngInject */
- function ComponentLinearController($scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
+ function ComponentLinearController(level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
  {
   var vm = this;
 
   // Data
+  vm.privacy = level_categories.privacy;
   vm.currentView = 'board';
   vm.component = [];
   //vm.componentList = BoardList.data;
@@ -156,6 +157,28 @@
   }
 
   /**
+   * Create a new component
+   *
+   * @param {type} component a parent component
+   */
+  function createComponent(component) {
+   if (!component.newComponent.title) {
+    return;
+   }
+   var data = {
+    title: component.newComponent.title,
+    description: "",
+    parentComponentId: vm.component.id, //parent component
+    typeId: component.id,
+    privacyId: vm.privacy.public
+   };
+   BoardService.createComponent(data).then(function (response) {
+    component.components.push(response);
+    component.newComponent.title = "";
+   });
+  }
+
+  /**
    * IE ONLY
    * Calculate the list-content height
    * IE ONLY
@@ -178,28 +201,6 @@
     // Add the max height
     listWrapperEl.find('.list-content').css({'max-height': maxHeight});
    });
-  }
-
-  /**
-   * Add new list
-   */
-  function createComponent(parentComponent)
-  {
-   if (parentComponent.newComponentData.title === '')
-   {
-    return;
-   }
-   parentComponent.newComponentData.parentComponentId = parentComponent.id;
-   parentComponent.newComponentData.typeId = 11001;
-   BoardService.createComponent().then(function (response) {
-    parentComponent.components.push(response);
-    parentComponent.newComponentData = angular.copy(vm.defaultComponentData);
-
-   }, function (response) {
-
-   });
-
-   vm.newListName = '';
   }
 
   /**

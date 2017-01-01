@@ -141,6 +141,7 @@
    vm.formTabIndex = vm.tabs.fillApps;
    vm.selectedTabHistory.push(vm.tabs.fillApps);
    vm.selectedApp = app;
+   vm.selectedSubmitType = vm.submitType.component;
   }
 
   /**
@@ -193,7 +194,7 @@
    *
    */
   function createComponent() {
-   vm.component.parent_component_id = null;
+   vm.component.parentComponentId = componentId;
    vm.component.typeId = vm.selectedApp.id;
    vm.component.privacyId = vm.selectedPrivacy.id;
    BoardService.createComponent(vm.component).then(function (data) {

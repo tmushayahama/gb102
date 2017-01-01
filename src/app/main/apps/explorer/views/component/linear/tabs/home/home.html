@@ -130,7 +130,6 @@ LINEAR VIEW HOME
   </ms-widget-back>
  </ms-widget>
 </div>
-
 <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">
@@ -229,9 +228,6 @@ LINEAR VIEW HOME
     </ms-widget-front>
    </ms-widget>
   </div>
-  <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.sections)" class="gb-view-more-button" flex>
-   View More
-  </md-button>
  </div>
 </div>
 <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
@@ -364,7 +360,8 @@ LINEAR VIEW HOME
  </div>
 </div>
 <div class="gb-container gb-editible-note-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
-     ng-repeat="motive in componentLinearCtrl.component.motives">
+     ng-repeat="motive in componentLinearCtrl.component.motives"
+     ng-if="motive.components.length > 0">
  <md-toolbar class="gb-heading" flex>
   <div class="md-toolbar-tools">
    <div class="gb-heading-title">
@@ -381,18 +378,16 @@ LINEAR VIEW HOME
     <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
    </md-input-container>
   </div>
-  <div class="gb-no-info" ng-if="motive.components.length === 0">
-   No entries to show.
-  </div>
-  <div class="gb-title">
+  <form ng-submit="componentLinearCtrl.createComponent(motive)" class="gb-title">
    <md-input-container class="md-block" md-no-float>
-    <textarea class="gb-add-note-input" ng-model="motive.newComponent.title" placeholder='Add to "{{motive.title}}"' md-maxlength="150" max-rows='5'></textarea>
+    <input type="text" class="gb-add-note-input" ng-model="motive.newComponent.title" placeholder='Add to "{{motive.title}}"' md-maxlength="150">
    </md-input-container>
-  </div>
+  </form>
  </div>
 </div>
-<div class="gb-container gb-motive-card gb-card-row md-whiteframe-2dp" layout="column" layout-align="start center" flex
-     ng-repeat="section in componentLinearCtrl.component.components">
+<div class="gb-container gb-motive-card gb-card-row md-whiteframe-2dp" layout="column" layout-align="start stretch" flex
+     ng-repeat="section in componentLinearCtrl.component.components"
+     ng-if="section.components.length > 0">
  <md-toolbar class="gb-heading" flex>
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -406,12 +401,16 @@ LINEAR VIEW HOME
    <span flex></span>
   </div>
  </md-toolbar>
- <div ng-repeat="component in section.components" ng-if="section.components.length > 0" class="gb-one-liner" ng-style="{'background-color':component.background_color.title}"
-      layout="column" layout-align="center start" flex>
-  <a>
-   <span class="ellipsis">
-    {{component.title}}
-   </span>
-  </a>
+ <div class="gb-card-content" flex>
+  <div ng-repeat="component in section.components" class="gb-title" ng-style="{'background-color':component.background_color.title}">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
+   </md-input-container>
+  </div>
+  <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" class="gb-add-note-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+   </md-input-container>
+  </form>
  </div>
 </div>
