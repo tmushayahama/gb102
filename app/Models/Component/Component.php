@@ -340,7 +340,7 @@ class Component extends Model {
   * @param type $componentId
   * @return type json response of a component's new title and description
   */
- public static function editComponentDescription($componentId) {
+ public static function updateComponentDescription($componentId) {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
   $title = Request::get("title");
@@ -429,18 +429,14 @@ class Component extends Model {
   */
  private static function formatComponentByType($component) {
   $components = array();
+  $componentMotiveTypes = Level::getLevel(Level::$level_categories['component_motives']);
   $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
-  $componentComponentTypes = Level::getLevel(Level::$level_categories['component_types']);
+  $componentActivityTypes = Level::getLevel(Level::$level_categories['component_types']);
 
-  foreach ($componentAppTypes as $componentType) {
-   $components[$componentType->id] = $componentType;
-   $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
-  }
-  foreach ($componentComponentTypes as $componentType) {
-   $components[$componentType->id] = $componentType;
-   $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
-  }
-  $component["components"] = $components;
+  $component["apps"] = Component::getSubComponents($component->id, 1);
+  $component["motives"] = self::formatSubComponentByType($component->id, $componentMotiveTypes);
+  $component["components"] = self::formatSubComponentByType($component->id, $componentAppTypes);
+  $component["activities"] = self::formatSubComponentByType($component->id, $componentActivityTypes);
  }
 
  /**
@@ -449,7 +445,6 @@ class Component extends Model {
   * @param array $component the parent component to be formatted
   */
  private static function formatComponentByLinear($component) {
-  $components = array();
   $component["apps"] = Component::getSubComponents($component->id, 1);
   $subComponents = Component::getSubComponents($component->id, 2, 3);
 
@@ -478,6 +473,21 @@ class Component extends Model {
    $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
   }
   $component["motives"] = $components;
+ }
+
+ /**
+  * A helper function of format by type. It formats the results of the componet by Sub Type
+  *
+  * @param int $componentId the parent componentId to be formatted
+  * @param array $componentTypes the types of component
+  */
+ private static function formatSubComponentByType($componentId, $componentTypes) {
+  $components = array();
+  foreach ($componentTypes as $componentType) {
+   $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
+  }
+  return $components;
  }
 
 }

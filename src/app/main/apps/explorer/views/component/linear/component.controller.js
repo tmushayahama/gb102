@@ -121,6 +121,7 @@
   // Methods
   vm.openCardDialog = DialogService.openCardDialog;
   vm.createComponent = createComponent;
+  vm.updateComponentDescription = updateComponentDescription;
   vm.removeList = removeList;
   vm.cardFilter = cardFilter;
   vm.isOverdue = isOverdue;
@@ -134,7 +135,7 @@
    */
   function init()
   {
-   BoardService.getBoard($stateParams.id, 3).then(function (data) {
+   BoardService.getBoard($stateParams.id, 2).then(function (data) {
     vm.component = data;
     vm.component.newComponentData = angular.copy(vm.defaultComponentData);
    });
@@ -175,6 +176,25 @@
    BoardService.createComponent(data).then(function (response) {
     component.components.push(response);
     component.newComponent.title = "";
+   });
+  }
+
+  /**
+   * Update a component
+   *
+   * @param {type} component to ve updated
+   */
+  function updateComponentDescription(component) {
+   if (!component.title) {
+    return;
+   }
+   var data = {
+    componentId: component.id,
+    title: component.title,
+    description: component.description
+   };
+   BoardService.updateComponentDescription(data).then(function (response) {
+    // component.components.push(response);
    });
   }
 

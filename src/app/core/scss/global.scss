@@ -1222,9 +1222,9 @@ md-tabs {
    md-input-container {
     margin: 0;
     padding: 0;
-    input, textarea {
-     height: 35px;
-     padding: 10px 12px;
+    input {
+     height: 40px;
+     padding: 14px 12px;
      background-color: transparent;
      border: none;
      border-bottom: #CCC solid 1px;
@@ -1247,12 +1247,12 @@ md-tabs {
      min-width: 1px;
     }
    }
+   .gb-action-btn {
+    @include position(absolute, 0 0 0 null);
+   }
   }
 
-  .gb-action-btn {
-   @include position(absolute, 0 0 0 null);
-   line-height: 30px;
-  }
+
  }
 }
 

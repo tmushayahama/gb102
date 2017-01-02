@@ -268,6 +268,10 @@
     listformat: "@listformat"
    }]);
   msApiProvider.register('explorer.createComponent', ['/api/components/create']);
+  msApiProvider.register('explorer.updateComponent', ['/api/components/update']);
+  msApiProvider.register('explorer.updateComponentDescription', ['/api/components/:componentId/update/description', {
+    componentId: "@componentId",
+   }]);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
   msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
    {

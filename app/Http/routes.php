@@ -65,8 +65,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
  Route::post('components/create', 'Component\ComponentController@createComponent');
  Route::post('components/editstatus', 'Component\ComponentController@editComponentStatus');
- Route::post('components/{componentId}/edit/description', 'Component\ComponentController@editComponentDescription');
- Route::post('components/{componentId}/edit/background', 'Component\ComponentController@editComponentBackground');
+ Route::post('components/{componentId}/update/description', 'Component\ComponentController@updateComponentDescription');
+ Route::post('components/{componentId}/update/background', 'Component\ComponentController@editComponentBackground');
  Route::get('components/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
  Route::get('components/random', 'Component\ComponentController@getRandomComponent');
  Route::get('components/random/type/{typeId}', 'Component\ComponentController@getRandomComponentByType');

@@ -109,34 +109,34 @@ class ComponentController extends Controller {
  }
 
  /**
-  * Edit the component's title and description
+  * Update the component's title and description
   *
   * @param type $componentId
   * @return type json response of a component's new title and description
   */
- public function editComponentDescription($componentId) {
-  $description = Component::editComponentDescription($componentId);
+ public function updateComponentDescription($componentId) {
+  $description = Component::updateComponentDescription($componentId);
   return \Response::json($description);
  }
 
  /**
-  * Edit a status of the component
+  * Update a status of the component
   *
   * @return type json response of a component's new status
   */
- public function editComponentStatus() {
-  $component = Component::editComponentStatus();
+ public function updateComponentStatus() {
+  $component = Component::updateComponentStatus();
   return \Response::json($component);
  }
 
  /**
-  * Edit a background color of a component
+  * Update a background color of a component
   *
   * @param type $componentId
   * @return type json response of a component's new background color
   */
- public function editComponentBackground($componentId) {
-  $backgroundColor = Component::editComponentBackground($componentId);
+ public function updateComponentBackground($componentId) {
+  $backgroundColor = Component::updateComponentBackground($componentId);
   return \Response::json($backgroundColor);
  }
 

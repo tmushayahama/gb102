@@ -19,6 +19,8 @@
    data: {},
    addNewBoard: addNewBoard,
    createComponent: createComponent,
+   updateComponent: updateComponent,
+   updateComponentDescription: updateComponentDescription,
    getBoards: getBoards,
    getBoardsByType: getBoardsByType,
    getBoard: getBoard,
@@ -203,16 +205,62 @@
    msApi.request('explorer.createComponent@save', componentData,
            function (response)
            {
-            // Resolve the promise
             deferred.resolve(response);
            },
            function (response)
            {
-            // Reject the promise
             deferred.reject(response);
            }
    );
+   return deferred.promise;
+  }
 
+  /**
+   * Update a Component
+   *
+   * @param componentData
+   *
+   * @returns promise of the deferred response
+   */
+  function updateComponent(componentData) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.updateComponent@save', componentData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+   return deferred.promise;
+  }
+
+  /**
+   * Update a Component Title and Description
+   *
+   * @param componentData
+   *
+   * @returns promise of the deferred response
+   */
+  function updateComponentDescription(componentData) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.updateComponentDescription@save',
+           componentData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
    return deferred.promise;
   }
 
