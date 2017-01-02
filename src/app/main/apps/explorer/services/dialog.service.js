@@ -11,7 +11,8 @@
  {
   var service = {
    openCardDialog: openCardDialog,
-   openAddComponentDialog: openAddComponentDialog
+   openAddComponentDialog: openAddComponentDialog,
+   openComponentDialog: openComponentDialog
   };
 
   //////////
@@ -62,6 +63,27 @@
      startTabIndex: startTabIndex,
      preselectedData: preselectedData,
      componentId: componentId
+    }
+   });
+  }
+
+  /**
+   * Open component as a note
+   *
+   * @param ev  the event which triggered the dialog
+   * @param componentId the component Id
+   */
+  function openComponentDialog(ev, componentId) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/notes/dialogs/note/note-dialog.html',
+    //parent: $document.find('#notes'),
+    controller: 'NoteDialogController',
+    controllerAs: 'vm',
+    targetEvent: ev,
+    clickOutsideToClose: true,
+    escapeToClose: true,
+    locals: {
+     noteId: componentId
     }
    });
   }

@@ -81,15 +81,6 @@ class Component extends Model {
  }
 
  /**
-  * Defines the background color's many to one relationship with a component
-  *
-  * @return type background color relationship
-  */
- public function backgroundColor() {
-  return $this->belongsTo('App\Models\Level\Level', 'background_color_id');
- }
-
- /**
   * Create a new component with a minimum of the following request params
   * title
   * description
@@ -112,7 +103,6 @@ class Component extends Model {
   $component->type_id = $typeId;
   $component->title = $title;
   $component->description = $description;
-  $component->background_color_id = Level::$level_categories["default_component_background_color"];
   $component->template_type_id = Level::$level_categories["template_types"]["basic"];
   $component->privacy_id = $privacy;
   $component->component_picture_url = Component::DEFAULT_PICTURE_URL;
@@ -180,7 +170,6 @@ class Component extends Model {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')
-          ->with('backgroundColor')
           ->take(20)
           ->get();
   return $components;
@@ -198,7 +187,6 @@ class Component extends Model {
           ->where('parent_component_id', $componentId)
           ->where('type_id', $typeId)
           ->with('creator')
-          ->with('backgroundColor')
           ->take(20)
           ->get();
 
@@ -232,7 +220,6 @@ class Component extends Model {
           })
           ->with('type')
           ->with('creator')
-          ->with('backgroundColor')
           ->take(50)
           ->get();
 
@@ -267,7 +254,6 @@ class Component extends Model {
           })
           ->with('type')
           ->with('creator')
-          ->with('backgroundColor')
           ->take(20)
           ->get();
   if ($depth > 0) {
@@ -289,7 +275,6 @@ class Component extends Model {
   $component = Component::orderBy('id', 'asc')
           ->with('type')
           ->with('creator')
-          ->with('backgroundColor')
           ->find($componentId);
   $component["stats"] = self::getComponentStats($componentId);
   $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
@@ -361,23 +346,26 @@ class Component extends Model {
   DB::commit();
 
   $result = array();
+  $result["id"] = $component->id;
   $result["title"] = $component->title;
   $result["description"] = $component->description;
   return $result;
  }
 
  /**
-  * Edit a background color of a component
+  * Edit the component's title and background
   *
   * @param type $componentId
-  * @return type json response of a component's new background color
+  * @return type json response of a component's new title and background
   */
- public static function editComponentBackground($componentId) {
+ public static function updateComponentBackground($componentId) {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $backgroundColorId = Request::get("backgroundColorId");
+  $title = Request::get("title");
+  $backgroundColor = Request::get("backgroundColor");
   $component = Component::find($componentId);
-  $component->background_color_id = $backgroundColorId;
+  $component->title = $title;
+  $component->background_color = $backgroundColor;
 
   DB::beginTransaction();
   try {
@@ -389,7 +377,11 @@ class Component extends Model {
   }
   DB::commit();
 
-  return Level::find($backgroundColorId);
+  $result = array();
+  $result["id"] = $component->id;
+  $result["title"] = $component->title;
+  $result["background"] = $component->background;
+  return $result;
  }
 
  /**

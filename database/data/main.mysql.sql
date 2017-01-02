@@ -88,7 +88,7 @@ CREATE TABLE `gb_component` (
 	 `template_type_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `component_picture_url` varchar(1000) NOT NULL DEFAULT "",
-  `background_color_id` int(11) NOT NULL,
+  `background_color` varchar(50) DEFAULT '',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `level_id` int(11),
@@ -102,14 +102,12 @@ CREATE TABLE `gb_component` (
   KEY `component_template_type_id` (`template_type_id`),
   KEY `component_level_id` (`level_id`),
   KEY `component_privacy_id` (`privacy_id`),
-  KEY `component_background_color_id` (`background_color_id`),
   CONSTRAINT `component_parent_component_id` FOREIGN KEY (`parent_component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_template_type_id` FOREIGN KEY (`template_type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `component_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `component_background_color_id` FOREIGN KEY (`background_color_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `component_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -440,7 +438,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`due`, `template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color_id`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
+   (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`due`, `template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
 
 
 -- ----------- COMPONENT ---------------

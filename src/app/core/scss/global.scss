@@ -1218,6 +1218,7 @@ md-tabs {
   //min-width: 100%;
   //max-width: 100%;
   .gb-title{
+   position: relative;
    width: 100%;
    md-input-container {
     margin: 0;
@@ -1249,6 +1250,13 @@ md-tabs {
    }
    .gb-action-btn {
     @include position(absolute, 0 0 0 null);
+    md-icon {
+     font-size: 14px;
+     color: rgba(#000, 0.4);
+     &:hover {
+      color: rgba(#000, 0.7);
+     }
+    }
    }
   }
 

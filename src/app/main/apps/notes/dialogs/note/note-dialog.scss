@@ -8,6 +8,7 @@ md-dialog {
   overflow: hidden;
 
   md-toolbar {
+   background-color: rgba(nth($apps-colors, 1), 0.8);
 
    .md-toolbar-tools {
 
@@ -107,6 +108,11 @@ md-dialog {
       &:hover, &:focus {
        border: #CCC solid 1px;
       }
+     }
+     .md-errors-spacer {
+      display: none;
+      min-height: 0px;
+      min-width: 1px;
      }
     }
    }

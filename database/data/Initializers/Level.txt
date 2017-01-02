@@ -119,16 +119,6 @@ id	parent_level_id	title	code	description	long_description	icon
 11100	11000	Questions				
 12000	\N	Bucket Type	bucket_type			
 12001	12000	Normal		Normal Bucket		
-13000	\N	Component Background Colors	component_background_colors			
-13001	13000	#FFFFFF				
-13002	13000	#FFF5EB				
-13003	13000	#FFFFEB				
-13004	13000	#EBFFFF				
-13005	13000	#EBEBFF				
-13006	13000	#FFEBEB				
-13007	13000	#E8E8C0				
-13008	13000	#EBD6C7				
-13009	13000	#E0EBE0				
 14000	\N	Component Motive				
 14001	14000	My motivations				
 14002	14000	My goals				

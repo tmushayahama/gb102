@@ -7,7 +7,7 @@
          .controller('NoteDialogController', NoteDialogController);
 
  /** @ngInject */
- function NoteDialogController($document, $mdDialog, fuseTheming, fuseGenerator, msUtils, NotesService, noteId)
+ function NoteDialogController($scope, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, NotesService, noteId)
  {
   var vm = this;
 
@@ -20,6 +20,7 @@
 
   // Methods
   vm.updateNoteDescription = updateNoteDescription;
+  vm.updateNoteBackground = updateNoteBackground;
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
   vm.toggleInArray = msUtils.toggleInArray;
@@ -54,7 +55,7 @@
 
 
   /**
-   * Update a note
+   * Update a note title and background
    *
    * @param {type} note to ve updated
    */
@@ -68,6 +69,21 @@
     description: note.description
    };
    NotesService.updateNoteDescription(data).then(function (response) {
+    // note.notes.push(response);
+   });
+  }
+
+  /**
+   * Update a note background
+   *
+   * @param {type} note to ve updated
+   */
+  function updateNoteBackground(note) {
+   var data = {
+    componentId: note.id,
+    backgroundColor: note.background_color
+   };
+   NotesService.updateNoteBackground(data).then(function (response) {
     // note.notes.push(response);
    });
   }
@@ -382,5 +398,15 @@
     vm.note = data;
    });
   }
+
+  $scope.$watch(
+          "vm.note.background_color",
+          function handleBackgroundChange(newValue, oldValue) {
+           if (newValue && oldValue && newValue !== oldValue) {
+            updateNoteBackground(vm.note);
+            console.log("vm.fooCount:", newValue);
+           }
+          }
+  );
  }
 })();

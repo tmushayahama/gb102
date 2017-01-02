@@ -27,7 +27,6 @@
   vm.filterChange = filterChange;
   vm.openSearchToolbar = openSearchToolbar;
   vm.closeSearchToolbar = closeSearchToolbar;
-  vm.editNote = editNote;
   vm.deleteLabel = deleteLabel;
   vm.toggleSidenav = toggleSidenav;
   //vm.addNewLabel = LabelsService.addLabel;
@@ -77,26 +76,7 @@
 
   }
 
-  /**
-   * Edit Note
-   * @param ev
-   * @param noteId
-   */
-  function editNote(ev, noteId)
-  {
-   $mdDialog.show({
-    templateUrl: 'src/app/main/apps/notes/dialogs/note/note-dialog.html',
-    //parent: $document.find('#notes'),
-    controller: 'NoteDialogController',
-    controllerAs: 'vm',
-    targetEvent: ev,
-    clickOutsideToClose: true,
-    escapeToClose: true,
-    locals: {
-     noteId: noteId
-    }
-   });
-  }
+
 
   /**
    * Delete Label

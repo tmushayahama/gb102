@@ -43,6 +43,9 @@
   msApiProvider.register('note.updateNoteDescription', ['/api/components/:componentId/update/description', {
     componentId: "@componentId",
    }]);
+  msApiProvider.register('note.updateNoteBackground', ['/api/components/:componentId/update/background', {
+    componentId: "@componentId",
+   }]);
  }
 
 })();

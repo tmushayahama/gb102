@@ -1,8 +1,7 @@
 <!-- NOTE DIALOG -->
 <md-dialog class="gb-note-dialog" aria-label="Card Dialog" ng-cloak>
- <md-toolbar class="md-accent" ng-class="'md-' + vm.board.settings.color + '-bg'">
+ <md-toolbar class="" ng-class="vm.note.background_color">
   <div class="md-toolbar-tools">
-   <!-- DUE DATE -->
    <div class="due-date">
     <div ng-if="!vm.note.due" moment-picker="vm.note.due" format="x" min-view="year"
          max-view="hour"
@@ -14,7 +13,6 @@
      </md-button>
     </div>
    </div>
-   <!-- / DUE DATE -->
    <md-menu ng-if="vm.note.due" md-offset="0 48" class="remove-due-date">
     <md-button class="md-icon-button" aria-label="Members" ng-click="$mdOpenMenu($event)">
      <md-icon md-font-icon="icon-calendar"></md-icon>
@@ -29,6 +27,11 @@
      </md-menu-item>
     </md-menu-content>
    </md-menu>
+   <ms-material-color-picker ng-model="vm.note.background_color">
+    <md-button class="md-icon-button" aria-label="color">
+     <md-icon md-font-icon="icon-palette" class="s20"></md-icon>
+    </md-button>
+   </ms-material-color-picker>
    <!-- LABELS -->
    <md-menu md-offset="0 48" class="labels">
     <md-button class="md-icon-button" aria-label="Label" translate translate-attr-aria-label="SB.LABEL"

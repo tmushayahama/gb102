@@ -15,6 +15,7 @@
    createNote: createNote,
    updateNote: updateNote,
    updateNoteDescription: updateNoteDescription,
+   updateNoteBackground: updateNoteBackground,
    addNote: addNote,
    getData: getData
   };
@@ -83,6 +84,31 @@
    var deferred = $q.defer();
 
    msApi.request('note.updateNoteDescription@save',
+           noteData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+   return deferred.promise;
+  }
+
+  /**
+   * Update a Note Title and Background
+   *
+   * @param noteData
+   *
+   * @returns promise of the deferred response
+   */
+  function updateNoteBackground(noteData) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('note.updateNoteBackground@save',
            noteData,
            function (response)
            {

@@ -66,7 +66,9 @@
                    "weblink": 11005,
                    "question": 11100
                   },
-                  "component_background_colors": 13000,
-                  "default_component_background_color": 13001
+                  "edit_component_part": {
+                   "description": 1,
+                   "background": 2
+                  },
                  });
 })();

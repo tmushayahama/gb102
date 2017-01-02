@@ -47,9 +47,9 @@ LINEAR VIEW ACTIVITIES HOME
   <ms-new-note gb-notes="vm.components" gb-parent-component-id="vm.componentId" ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
   <ms-masonry class="notes" options='{"columnCount":5}'>
    <ms-masonry-item class="note"
-                    ng-repeat="note in vm.components track by note.id "
+                    ng-repeat="note in vm.components track by note.id"
                     ms-note-item="note"
-                    ng-click="vm.editNote($event, note.id)">
+                    ng-click="componentLinearCtrl.openComponentDialog($event, note.id)">
    </ms-masonry-item>
   </ms-masonry>
   <div class="no-results text-center" ng-if="filteredNotes.length === 0 && vm.search === ''">

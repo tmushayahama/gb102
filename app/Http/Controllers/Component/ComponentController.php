@@ -120,6 +120,17 @@ class ComponentController extends Controller {
  }
 
  /**
+  * Update a background color of a component
+  *
+  * @param type $componentId
+  * @return type json response of a component's new background color
+  */
+ public function updateComponentBackground($componentId) {
+  $background = Component::updateComponentBackground($componentId);
+  return \Response::json($background);
+ }
+
+ /**
   * Update a status of the component
   *
   * @return type json response of a component's new status
@@ -127,17 +138,6 @@ class ComponentController extends Controller {
  public function updateComponentStatus() {
   $component = Component::updateComponentStatus();
   return \Response::json($component);
- }
-
- /**
-  * Update a background color of a component
-  *
-  * @param type $componentId
-  * @return type json response of a component's new background color
-  */
- public function updateComponentBackground($componentId) {
-  $backgroundColor = Component::updateComponentBackground($componentId);
-  return \Response::json($backgroundColor);
  }
 
  // ******************************

@@ -301,7 +301,7 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-<div class="gb-container gb-card-row gb-section-row" layout="column" layout-align="start center" flex>
+<div ng-if="false" class="gb-container gb-card-row gb-section-row" layout="column" layout-align="start center" flex>
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
    <div class="gb-heading-title">
@@ -377,14 +377,13 @@ LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-style="{
-    'background-color':component.background_color.title}">
+  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title"
            ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
            placeholder="Title" md-maxlength="250">
    </md-input-container>
-   <md-button ng-click="" class="gb-action-btn md-icon-button" aria-label="open">
+   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
     <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
    </md-button>
   </div>
@@ -412,11 +411,13 @@ LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-style="{
-    'background-color':component.background_color.title}">
+  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
    </md-input-container>
+   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
+    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+   </md-button>
   </div>
   <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
    <md-input-container class="md-block" md-no-float>
@@ -442,11 +443,13 @@ LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-style="{
-    'background-color':component.background_color.title}">
+  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
    </md-input-container>
+   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
+    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+   </md-button>
   </div>
   <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
    <md-input-container class="md-block" md-no-float>

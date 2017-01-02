@@ -119,6 +119,7 @@
   };
 
   // Methods
+  vm.openComponentDialog = DialogService.openComponentDialog;
   vm.openCardDialog = DialogService.openCardDialog;
   vm.createComponent = createComponent;
   vm.updateComponentDescription = updateComponentDescription;

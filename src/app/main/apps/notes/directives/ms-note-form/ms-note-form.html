@@ -1,7 +1,7 @@
 <!-- NOTE FORM -->
-<form ng-submit="MsNoteForm.submit()" ng-class="MsNoteForm.note.color">
+<form ng-submit="MsNoteForm.submit()">
  <div ng-if="MsNoteForm.note.image" class="image-wrapper">
-  <img class="md-card-image" ng-src="{{MsNoteForm.note.image}}">
+  <img class="md-card-image" ng-src="src/assets/images/explorer{{MsNoteForm.note.component_picture_url}}">
   <md-button class="md-fab md-mini delete-image-button" ng-click="MsNoteForm.deleteImage()"
              aria-label="delete image" translate translate-attr-aria-label="NOTES.DELETE_IMAGE">
    <md-icon md-font-icon="icon-delete"></md-icon>
@@ -17,7 +17,6 @@
    <textarea ng-model="MsNoteForm.note.description" placeholder="Description" columns="1" md-maxlength="150" max-rows="15"></textarea>
   </md-input-container>
  </div>
-
  <md-list class="checklist" ng-if="MsNoteForm.note.checklist.length > 0">
   <md-divider></md-divider>
   <md-list-item ng-repeat="item in MsNoteForm.note.checklist">
