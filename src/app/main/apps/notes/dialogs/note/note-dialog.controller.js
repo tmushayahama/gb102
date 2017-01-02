@@ -19,7 +19,7 @@
   vm.labels = vm.board.labels;
 
   // Methods
-  vm.init = init;
+  vm.updateNoteDescription = updateNoteDescription;
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
   vm.toggleInArray = msUtils.toggleInArray;
@@ -47,9 +47,30 @@
   /* Comment */
   vm.addNewComment = addNewComment;
 
-  vm.init();
+  init();
 
   //////////
+
+
+
+  /**
+   * Update a note
+   *
+   * @param {type} note to ve updated
+   */
+  function updateNoteDescription(note) {
+   if (!note.title) {
+    return;
+   }
+   var data = {
+    componentId: note.id,
+    title: note.title,
+    description: note.description
+   };
+   NotesService.updateNoteDescription(data).then(function (response) {
+    // note.notes.push(response);
+   });
+  }
 
   /**
    * Close Dialog

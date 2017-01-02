@@ -191,7 +191,7 @@
    */
   function init()
   {
-   BoardService.getBoard(vm.componentId, 4).then(function (data) {
+   BoardService.getBoard(vm.componentId, 0).then(function (data) {
     vm.components = data.components;
     vm.components.newComponentData = angular.copy(vm.defaultComponentData);
    });

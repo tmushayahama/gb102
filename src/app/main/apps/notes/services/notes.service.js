@@ -13,15 +13,15 @@
    data: [],
    getNote: getNote,
    createNote: createNote,
-   addNote: addNote,
    updateNote: updateNote,
-   deleteNote: deleteNote,
+   updateNoteDescription: updateNoteDescription,
+   addNote: addNote,
    getData: getData
   };
 
 
   /**
-   * Create a Note Component
+   * Create a Note Note
    *
    * @param noteData
    * @returns {*}
@@ -48,42 +48,61 @@
   }
 
   /**
+   * Update a Note
+   *
+   * @param noteData
+   *
+   * @returns promise of the deferred response
+   */
+  function updateNote(noteData) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('note.updateNote@save', noteData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+   return deferred.promise;
+  }
+
+  /**
+   * Update a Note Title and Description
+   *
+   * @param noteData
+   *
+   * @returns promise of the deferred response
+   */
+  function updateNoteDescription(noteData) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('note.updateNoteDescription@save',
+           noteData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+   return deferred.promise;
+  }
+
+  /**
    * Add Note
    * @param note
    */
   function addNote(note)
   {
    service.data.push(note);
-  }
-
-  /**
-   * Update Note
-   * @param note
-   */
-  function updateNote(note)
-  {
-   for (var i = 0; i < service.data.length; i++)
-   {
-    if (service.data[i].id === note.id)
-    {
-     service.data[i] = note;
-    }
-   }
-  }
-
-  /**
-   * Delete Note
-   * @param note
-   */
-  function deleteNote(note)
-  {
-   for (var i = 0; i < service.data.length; i++)
-   {
-    if (service.data[i].id === note.id)
-    {
-     service.data.splice(i, 1);
-    }
-   }
   }
 
   /**

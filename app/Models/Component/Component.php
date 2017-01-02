@@ -233,7 +233,7 @@ class Component extends Model {
           ->with('type')
           ->with('creator')
           ->with('backgroundColor')
-          ->take(20)
+          ->take(50)
           ->get();
 
   if ($depth > 0) {
@@ -305,6 +305,7 @@ class Component extends Model {
     self::formatComponentByLinear($component);
     break;
    default:
+    $component["components"] = self::getSubComponents($componentId, null, 1);
     break;
   }
   return $component;
@@ -445,16 +446,17 @@ class Component extends Model {
   * @param array $component the parent component to be formatted
   */
  private static function formatComponentByLinear($component) {
-  $component["apps"] = Component::getSubComponents($component->id, 1);
-  $subComponents = Component::getSubComponents($component->id, 2, 3);
+  $componentMotiveTypes = Level::getLevel(Level::$level_categories['component_motives']);
+  $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
+  $componentActivityTypes = Level::getLevel(Level::$level_categories['component_types']);
 
-  $merged = new Collection();
-  foreach ($subComponents as $subComponent) {
-   $collection = collect($subComponent["components"]);
-   $merged = $merged->merge($collection);
-  }
+  $motives = collect(self::formatSubComponentByType($component->id, $componentMotiveTypes));
+  $apps = collect(self::formatSubComponentByType($component->id, $componentAppTypes));
+  $activities = collect(self::formatSubComponentByType($component->id, $componentActivityTypes));
 
-  $component["components"] = $merged->all();
+  $components = $motives->merge($apps)->merge($activities);
+
+  $component["components"] = $components->all();
  }
 
  /**

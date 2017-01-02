@@ -39,9 +39,10 @@
     listformat: "@listformat"
    }]);
   msApiProvider.register('notes.createNote', ['/api/components/create']);
-  // msApiProvider.register('notes.notes', ['src/app/data/notes/notes.json']);
-  //msApiProvider.register('notes.labels', ['src/app/data/notes/labels.json']);
-
+  msApiProvider.register('note.updateNote', ['/api/components/update']);
+  msApiProvider.register('note.updateNoteDescription', ['/api/components/:componentId/update/description', {
+    componentId: "@componentId",
+   }]);
  }
 
 })();
