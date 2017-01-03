@@ -317,83 +317,75 @@ ADD COMPONENT DIALOG
        <div class="widget-group gb-section-widget-group" ms-scroll
             layout="row" layout-align="start" layout-wrap flex>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" flex>
-          <div layout="column" layout-align="space-between" flex>
-           <div layout="column" layout-align="center stretch" flex>
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectTab(vm.tabs.contributions)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon md-deep-purple-400-bg" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa icon-users"></i>
+           </div>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
             <div class="gb-title">
-             CONTRIBUTIONS
+             REQUEST CONTRIBUTIONS
             </div>
             <div class="gb-description">
              Lists all users who have contributed to this skill.
             </div>
            </div>
-           <md-button ng-click="vm.selectTab(vm.tabs.contributions)" class="gb-add-section-button">
-            Request Contributions
-           </md-button>
-          </div>
-          <div class="background-image-center">
-           <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
-          </div>
+          </md-button>
          </ms-widget-front>
         </ms-widget>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" flex>
-          <div layout="column" layout-align="space-between" flex>
-           <div layout="column" layout-align="center stretch" flex>
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectTab(vm.tabs.apps)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon md-lime-400-bg" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa icon-tree"></i>
+           </div>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
             <div class="gb-title">
-             COMPONENTS
+             ADD COMPONENTS
             </div>
             <div class="gb-description">
-             Sub topics
+             Lists all users who have contributed to this skill.
             </div>
            </div>
-           <md-button ng-click="vm.selectTab(vm.tabs.apps)" class="gb-add-section-button">
-            Add Components
-           </md-button>
-          </div>
-          <div class="background-image-center">
-           <md-icon md-font-icon="fa icon-gb-apps" class="gb-background-icon"></md-icon>
-          </div>
+          </md-button>
          </ms-widget-front>
         </ms-widget>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" flex>
-          <div layout="column" layout-align="space-between" flex>
-           <div layout="column" layout-align="center stretch" flex>
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectTab(vm.tabs.motives)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon md-green-400-bg" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa fa-file-text-o"></i>
+           </div>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
             <div class="gb-title">
-             BACKGROUND
+             ADD BACKGROUND
             </div>
             <div class="gb-description">
-
+             Lists all users who have contributed to this skill.
             </div>
            </div>
-           <md-button ng-click="vm.selectTab(vm.tabs.motives)" class="gb-add-section-button">
-            Add Background
-           </md-button>
-          </div>
-          <div class="background-image-center">
-           <md-icon md-font-icon="fa fa-history" class="gb-background-icon"></md-icon>
-          </div>
+          </md-button>
          </ms-widget-front>
         </ms-widget>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" flex>
-          <div layout="column" layout-align="space-between" flex>
-           <div layout="column" layout-align="center stretch" flex>
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectTab(vm.tabs.activities)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon md-indigo-400-bg" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa icon-gb-activity"></i>
+           </div>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
             <div class="gb-title">
-             ACTIVITIES
+             ADD ACTIVITIES
             </div>
             <div class="gb-description">
-             Sub topics
+             Lists all users who have contributed to this skill.
             </div>
            </div>
-           <md-button ng-click="vm.selectTab(vm.tabs.activities)" class="gb-add-section-button">
-            Add Activities
-           </md-button>
-          </div>
-          <div class="background-image-center">
-           <md-icon md-font-icon="fa icon-gb-apps" class="gb-background-icon"></md-icon>
-          </div>
+          </md-button>
          </ms-widget-front>
         </ms-widget>
        </div>
@@ -613,23 +605,22 @@ ADD COMPONENT DIALOG
             layout="row" layout-align="start" layout-wrap flex>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
                    ng-repeat="contributionType in $root.commonData.contributionTypes">
-         <ms-widget-front layout="row" flex>
-          <div layout="column" layout-align="space-between" flex>
-           <div layout="column" layout-align="center stretch" flex>
+
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectAddContributors(contributionType)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa {{contributionType.icon}}"></i>
+           </div>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
             <div class="gb-title">
-             {{contributionType.title}}
+             REQUEST {{contributionType.title}}
             </div>
             <div class="gb-description">
              {{contributionType.long_description}}
             </div>
            </div>
-           <md-button ng-click="vm.selectAddContributors(contributionType)" class="gb-add-section-button">
-            Request Contributions
-           </md-button>
-          </div>
-          <div class="background-image-center">
-           <md-icon md-font-icon="fa {{contributionType.icon}}" class="gb-background-icon"></md-icon>
-          </div>
+          </md-button>
          </ms-widget-front>
         </ms-widget>
        </div>

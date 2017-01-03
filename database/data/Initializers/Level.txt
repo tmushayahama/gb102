@@ -1,141 +1,141 @@
-id	parent_level_id	title	code	description	long_description	icon
-1	\N	Apps	apps			
-2	1	skills		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills
-3	1	goals		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals
-4	1	hobbies		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies
-5	1	promises		Add a Promise	Add a Promise	icon-gb-promises
-6	1	mentorships		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorships
-7	1	collaborations		Create A Collaboration	Create A Collaboration	icon-gb-collaborations
-8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach
-9	1	advices		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices
-10	1	groups		Create A Group	Create A Group	icon-gb-groups
-11	1	journals		Write a Journal	Write a Journal	icon-gb-journals
-12	1	pages		Create A Page	Blogs	icon-gb-pages
-13	1	projects		Create A Project	A project	icon-gb-projects
-1001	2	Skill Gained		\N		
-1002	2	Skill to Improve		\N		
-1003	2	Skill to Learn		\N		
-1004	3	Goal Achieved		\N		
-1005	3	Goal to Accomplish		\N		
-1006	3	Goal of Interest		\N		
-1007	4	Hobby Developed		\N		
-1008	4	Hobby to Learn		\N		
-1009	4	Hobby of Interest		\N		
-1010	5	Promise Kept		\N		
-1011	5	Promise to Develop		\N		
-1012	5	Promise of Interest		\N		
-1013	6	Peer/Friendly		\N		
-1014	6	"Natural, senior mentoring junior"		\N		
-1015	6	Formal i.e. trainer trainee		\N		
-1016	6	Supervisory		\N		
-1017	7	Peer/Friendly		\N		
-1018	7	Team Collaboration		Goal		
-1019	7	Community Collaboration		sharing and build knowledge		
-1020	8	Formal		\N		
-1021	8	Expert/Coach		\N		
-1022	8	Coordinator/Facilitator		\N		
-1023	8	Peer/Friendly		\N		
-1024	9	Decision Support		\N		
-1025	9	Information		\N		
-1026	9	Recommendation		\N		
-1027	9	"Natural, senior advising junior"		\N		
-1028	9	Similar Experiences		\N		
-1029		General		\N		
-1030		Not Now		\N		
-1031		Ehh!!		\N		
-1032		Explore		\N		
-1033		Super Explore		\N		
-2001		I can provide mentorship		Request Mentorship		icon-gb-mentorships
-2002		I want mentorship		Be a mentor		icon-gb-mentorships
-2003		I need advice		Advise		icon-gb-advices
-2004		I can give advise		Get Advice		icon-gb-advices
-2005		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2006		I want to make it a hobby		Make a hobby		icon-gb-journals
-2007		Write it in journal		Put it in Journal		icon-gb-journals
-2008		I can provide mentorship		Request Mentorship		icon-gb-mentorships
-2009		I want mentorship		Be a mentor		icon-gb-mentorships
-2010		I need advice		Advise		icon-gb-advices
-2011		I can give advise		Get Advice		icon-gb-advices
-2012		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2013		I want to make it a hobby		Make a hobby		icon-gb-hobby
-2014		Write it in journal		Put it in Journal		icon-gb-journals
-2015		I can provide mentorship		Request Mentorship		icon-gb-mentorships
-2016		I want mentorship		Be a mentor		icon-gb-mentorships
-2017		I need advice		Advise		icon-gb-advices
-2018		I can give advise		Get Advice		icon-gb-advices
-2019		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2020		Write it in journal		Put it in Journal		icon-gb-journals
-2021		Write it in journal		Put it in Journal		icon-gb-journals
-2022		I can provide mentorship		Request Mentorship		icon-gb-mentorships
-2023		I want mentorship		Be a mentor		icon-gb-mentorships
-2024		I need advice		Advise		icon-gb-advices
-2025		I can give advise		Get Advice		icon-gb-advices
-2026		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2027		I can provide more mentorship		Request Mentorship		icon-gb-mentorships
-2028		I want more mentorship		Be a mentor		icon-gb-mentorships
-2029		I need advice		Advise		icon-gb-advices
-2030		I can give advise		Get Advice		icon-gb-advices
-2031		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2032		Write it in journal		Put it in Journal		icon-gb-journals
-2033		I can provide mentorship		Request Mentorship		icon-gb-mentorships
-2034		I want mentorship		Be a mentor		icon-gb-mentorships
-2035		I need more advice		Advise		icon-gb-advices
-2036		I can give more advise		Get Advice		icon-gb-advices
-2037		I want to collaborate		Start Collaboration		icon-gb-collaborations
-2038		Write it in journal		Put it in Journal		icon-gb-journals
-3000		in progress				
-3001		later				
-3002		done				
-4000	\N	Contribution Type	contribution_type			
-4001	4000	Follower				icon-gb-follower
-4002	4000	Observer				icon-gb-observer
-4003	4000	Judge				icon-gb-judge
-4004	4000	Administrator				icon-gb-admin
-5000	\N	Request	request			
-5001	5000	pending				
-5002	5000	accepted				
-6000	\N	Explorer Relationship	explorer_relationship			
-6001	6000	parent				
-6002	6000	application				
-7000	\N	Template	template			
-7001	7000	basic				
-7002	7000	template				
-8000	\N	Share Type	share_type			
-9000	\N	Swipe Type	swipe type			
-9001	9000	Not Now				
-9002	9000	Explore				
-10000	\N	Privacy	privacy			
-10001	10000	private				
-10002	10000	public				
-10003	10000	customize				
-11000	\N	Component Type	component_type			
-11001	11000	Notes				
-11002	11000	Steps				
-11003	11000	Checklists				
-11004	11000	Todos				
-11005	11000	Activities				
-11006	11000	Guidelines				
-11007	11000	Weblinks				
-11100	11000	Questions				
-12000	\N	Bucket Type	bucket_type			
-12001	12000	Normal		Normal Bucket		
-14000	\N	Component Motive				
-14001	14000	My motivations				
-14002	14000	My goals				
-14003	14000	My background knowledge				
-14004	14000	Materials and Resources				
-14005	14000	Learning Strategies				
-14006	14000	My plans and timeline				
-14007	14000	Applications				
-14008	14000	Acknowledge your strengths				
-14009	14000	Identify your weaknesses				
-14010	14000	Any obstacles				
-15000	\N	check Status				
-15001	15000	not started				
-15002	15000	in progress				
-15003	15000	later				
-15004	15000	done				
-16000	\N	Bookmark	bookmark			
-16001	16000	Favorite				
-20000	\N					
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community
+id	parent_level_id	title	code	description	long_description	icon	background_color
+1	\N	Apps	apps				
+2	1	skills		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills	md-blue-300-bg
+3	1	goals		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals	md-pink-300-bg
+4	1	hobbies		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies	md-teal-300-bg
+5	1	promises		Add a Promise	Add a Promise	icon-gb-promises	md-green-300-bg
+6	1	mentorships		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorships	md-deep-purple-300-bg
+7	1	collaborations		Create A Collaboration	Create A Collaboration	icon-gb-collaborations	md-light-blue-300-bg
+8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach	md-blue-300-bg
+9	1	advices		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices	md-indigo-300-bg
+10	1	groups		Create A Group	Create A Group	icon-gb-groups	md-blue-300-bg
+11	1	journals		Write a Journal	Write a Journal	icon-gb-journals	md-teal-300-bg
+12	1	pages		Create A Page	Blogs	icon-gb-pages	md-yellow-300-bg
+13	1	projects		Create A Project	A project	icon-gb-projects	md-blue-300-bg
+1001	2	Skill Gained		\N			md-blue-300-bg
+1002	2	Skill to Improve		\N			md-blue-300-bg
+1003	2	Skill to Learn		\N			md-blue-300-bg
+1004	3	Goal Achieved		\N			md-blue-300-bg
+1005	3	Goal to Accomplish		\N			md-blue-300-bg
+1006	3	Goal of Interest		\N			md-blue-300-bg
+1007	4	Hobby Developed		\N			md-blue-300-bg
+1008	4	Hobby to Learn		\N			md-blue-300-bg
+1009	4	Hobby of Interest		\N			md-blue-300-bg
+1010	5	Promise Kept		\N			md-blue-300-bg
+1011	5	Promise to Develop		\N			md-blue-300-bg
+1012	5	Promise of Interest		\N			md-blue-300-bg
+1013	6	Peer/Friendly		\N			md-blue-300-bg
+1014	6	"Natural, senior mentoring junior"		\N			md-blue-300-bg
+1015	6	Formal i.e. trainer trainee		\N			md-blue-300-bg
+1016	6	Supervisory		\N			md-blue-300-bg
+1017	7	Peer/Friendly		\N			md-blue-300-bg
+1018	7	Team Collaboration		Goal			md-blue-300-bg
+1019	7	Community Collaboration		sharing and build knowledge			md-blue-300-bg
+1020	8	Formal		\N			md-blue-300-bg
+1021	8	Expert/Coach		\N			md-blue-300-bg
+1022	8	Coordinator/Facilitator		\N			md-blue-300-bg
+1023	8	Peer/Friendly		\N			md-blue-300-bg
+1024	9	Decision Support		\N			md-blue-300-bg
+1025	9	Information		\N			md-blue-300-bg
+1026	9	Recommendation		\N			md-blue-300-bg
+1027	9	"Natural, senior advising junior"		\N			md-blue-300-bg
+1028	9	Similar Experiences		\N			md-blue-300-bg
+1029		General		\N			md-blue-300-bg
+1030		Not Now		\N			md-blue-300-bg
+1031		Ehh!!		\N			md-blue-300-bg
+1032		Explore		\N			md-blue-300-bg
+1033		Super Explore		\N			md-blue-300-bg
+2001		I can provide mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2002		I want mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2003		I need advice		Advise		icon-gb-advices	md-blue-300-bg
+2004		I can give advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2005		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2006		I want to make it a hobby		Make a hobby		icon-gb-journals	md-blue-300-bg
+2007		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+2008		I can provide mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2009		I want mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2010		I need advice		Advise		icon-gb-advices	md-blue-300-bg
+2011		I can give advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2012		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2013		I want to make it a hobby		Make a hobby		icon-gb-hobby	md-blue-300-bg
+2014		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+2015		I can provide mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2016		I want mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2017		I need advice		Advise		icon-gb-advices	md-blue-300-bg
+2018		I can give advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2019		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2020		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+2021		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+2022		I can provide mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2023		I want mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2024		I need advice		Advise		icon-gb-advices	md-blue-300-bg
+2025		I can give advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2026		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2027		I can provide more mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2028		I want more mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2029		I need advice		Advise		icon-gb-advices	md-blue-300-bg
+2030		I can give advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2031		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2032		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+2033		I can provide mentorship		Request Mentorship		icon-gb-mentorships	md-blue-300-bg
+2034		I want mentorship		Be a mentor		icon-gb-mentorships	md-blue-300-bg
+2035		I need more advice		Advise		icon-gb-advices	md-blue-300-bg
+2036		I can give more advise		Get Advice		icon-gb-advices	md-blue-300-bg
+2037		I want to collaborate		Start Collaboration		icon-gb-collaborations	md-blue-300-bg
+2038		Write it in journal		Put it in Journal		icon-gb-journals	md-blue-300-bg
+3000		in progress					md-blue-300-bg
+3001		later					md-blue-300-bg
+3002		done					md-blue-300-bg
+4000	\N	Contribution Type	contribution_type				md-blue-300-bg
+4001	4000	Follower				icon-gb-follower	md-blue-300-bg
+4002	4000	Observer				icon-gb-observer	md-pink-300-bg
+4003	4000	Judge				icon-gb-judge	md-teal-300-bg
+4004	4000	Administrator				icon-gb-admin	md-green-300-bg
+5000	\N	Request	request				md-blue-300-bg
+5001	5000	pending					md-blue-300-bg
+5002	5000	accepted					md-blue-300-bg
+6000	\N	Explorer Relationship	explorer_relationship				md-blue-300-bg
+6001	6000	parent					md-blue-300-bg
+6002	6000	application					md-blue-300-bg
+7000	\N	Template	template				md-blue-300-bg
+7001	7000	basic					md-blue-300-bg
+7002	7000	template					md-blue-300-bg
+8000	\N	Share Type	share_type				md-blue-300-bg
+9000	\N	Swipe Type	swipe type				md-blue-300-bg
+9001	9000	Not Now					md-blue-300-bg
+9002	9000	Explore					md-blue-300-bg
+10000	\N	Privacy	privacy				md-blue-300-bg
+10001	10000	private					md-blue-300-bg
+10002	10000	public					md-blue-300-bg
+10003	10000	customize					md-blue-300-bg
+11000	\N	Component Type	component_type				md-blue-300-bg
+11001	11000	Notes					md-blue-300-bg
+11002	11000	Steps					md-blue-300-bg
+11003	11000	Checklists					md-blue-300-bg
+11004	11000	Todos					md-blue-300-bg
+11005	11000	Activities					md-blue-300-bg
+11006	11000	Guidelines					md-blue-300-bg
+11007	11000	Weblinks					md-blue-300-bg
+11100	11000	Questions					md-blue-300-bg
+12000	\N	Bucket Type	bucket_type				md-blue-300-bg
+12001	12000	Normal		Normal Bucket			md-blue-300-bg
+14000	\N	Component Motive					md-blue-300-bg
+14001	14000	My motivations					md-blue-300-bg
+14002	14000	My goals					md-blue-300-bg
+14003	14000	My background knowledge					md-blue-300-bg
+14004	14000	Materials and Resources					md-blue-300-bg
+14005	14000	Learning Strategies					md-blue-300-bg
+14006	14000	My plans and timeline					md-blue-300-bg
+14007	14000	Applications					md-blue-300-bg
+14008	14000	Acknowledge your strengths					md-blue-300-bg
+14009	14000	Identify your weaknesses					md-blue-300-bg
+14010	14000	Any obstacles					md-blue-300-bg
+15000	\N	check Status					md-blue-300-bg
+15001	15000	not started					md-blue-300-bg
+15002	15000	in progress					md-blue-300-bg
+15003	15000	later					md-blue-300-bg
+15004	15000	done					md-blue-300-bg
+16000	\N	Bookmark	bookmark				md-blue-300-bg
+16001	16000	Favorite					md-blue-300-bg
+20000	\N						md-blue-300-bg
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	md-blue-300-bg

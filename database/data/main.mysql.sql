@@ -207,6 +207,7 @@ CREATE TABLE `gb_level` (
   `description` varchar(150),
   `long_description` varchar(500),
   `icon` varchar(50) NOT NULL,
+  `background_color` varchar(50) DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `level_parent_level_id` (`parent_level_id`),
   CONSTRAINT `level_parent_level_id` FOREIGN KEY (`parent_level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -428,7 +429,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/level.t
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `parent_level_id`,`title`, `code`, `description`, `long_description`, `icon`);
+    (`id`, `parent_level_id`,`title`, `code`, `description`, `long_description`, `icon`, `background_color`);
 
 -- ----------- COMPONENT ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/component.txt'

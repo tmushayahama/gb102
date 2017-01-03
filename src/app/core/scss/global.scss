@@ -823,38 +823,52 @@ md-tabs {
 }
 
 .gb-section-widget-group {
- -webkit-transition: height 1000ms linear;
- -moz-transition: height 1000ms linear;
- -o-transition: height 1000ms linear;
- -ms-transition: height 1000ms linear;
- transition: height 1000ms linear;
- max-height: 2000px;
  &.gb-collapsed {
   height: 410px;
   overflow: hidden;
  }
 }
 .gb-section-widget {
- height: 200px;
- min-height: 200px;
- max-height: 200px;
- text-align: center;
+ //height: 150px;
+ //min-height: 150px;
+ //max-height: 150px;
  ms-widget-front {
   background-color: #FAFAFA;
+  .gb-main-button, .gb-widget-content, .gb-title-icon {
+   height: 150px;
+   min-height: 150px;
+   overflow: hidden;
+  }
+  .gb-widget-content {
+   padding: 14px;
+  }
+  .gb-title-icon {
+   text-align: center;
+   width: 150px;
+   min-width: 150px;
+   max-width: 150px;
+   i{
+    color: #EEE;
+    font-size: 80px;
+   }
+  }
   .gb-title {
+   text-align: left;
    font-size: 18px;
    text-transform: uppercase;
   }
   .gb-description {
+   text-align: left;
+   text-transform: capitalize;
    font-size: 14px;
   }
   md-icon {
    &.gb-background-icon {
     color: #EEE;
     font-size: 150px;
-    width: 150px;
-    min-width: 150px;
-    max-width: 150px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
    }
   }
   .gb-add-section-button {
