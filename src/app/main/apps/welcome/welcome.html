@@ -8,14 +8,16 @@
     Discover what a new kind of skill exploration and application can do for you
    </h2>
   </div>
-  <div class="gb-intro-carousel" uib-carousel active="vm.active" interval="vm.myInterval"
+  <div class="gb-intro-sample">
+
+  </div>
+  <div ng-if="false" class="gb-intro-carousel" uib-carousel active="vm.active" interval="vm.myInterval"
        template-url="public/modules/common/views/templates/gb-carousel.tpl.html">
    <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
     <img ng-src="{{slide.image}}" style="margin:auto;">
    </div>
   </div>
  </header>
-
  <div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
   <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
    <div class="gb-card-row-2" layout="column" layout-align="center center" flex>
@@ -28,147 +30,31 @@
      </p>
     </div>
    </div>
-   <div class="gb-boards-tabs" layout="column" layout-align="start center" flex>
-    <md-tabs md-stretch-tabs="always">
-     <md-tab ng-repeat="app in vm.boardList.apps">
-      <md-tab-label>
-       <div class="gb-icon">
-        <i class="fa {{::app.icon}}"></i>
-       </div>
-       <div class="gb-title">
-        {{::app.title}}
-       </div>
-      </md-tab-label>
-      <md-tab-body>
-       <md-content class="scrollable" ms-scroll>
-        <!-- BOARD LIST -->
-        <div class="gb-heading-row-1" flex>
-         <div class="gb-heading-icon">
-          <i class="fa {{::app.icon}}"></i>
-         </div>
-         <div class="gb-title">
-          <p class="gb-ellipsis">
-           {{::app.title}}
-          </p>
-         </div>
-         <div layout="row" class="gb-action" flex>
-          <md-button ng-click="$root.openAddExplorerModal(component)">
-           Add
-          </md-button>
-          <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
-           More
-          </md-button>
-         </div>
-        </div>
-        <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
-         <md-button class="gb-left-scroll"
-                    ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
-          <md-icon md-font-icon="icon-chevron-left"></md-icon>
-         </md-button>
-         <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
-              layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-          <!-- BOARD -->
-          <div class="board-list-item" ng-repeat="component in app.components"
-               ui-sref="app.componentColumnView({id:component.id})"
-               layout="column" layout-align="start" layout-nowrap>
-           <div class="gb-card-cover">
-            <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
-                 class="gb-cover-image">
-             <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
-            </div>
-            <div ng-if="component.component_placeholder_style"
-                 class="gb-cover-image"
-                 ng-style="component.component_placeholder_style">
-            </div>
-           </div>
-           <div class="gb-card-content">
-            <div class="gb-title">
-             <h3 class="gb-ellipsis">
-              {{component.title}}
-             </h3>
-            </div>
-            <div class="gb-name-badge-1">
-             <div class="gb-image">
-              <img data-ui-sref="apps.component.overview({componentId: component.id})"
-                   ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
-                   class="gb-heading-pic" alt="">
-             </div>
-             <p class="gb-name gb-ellipsis">
-              {{ ::component.creator.firstname}}
-              {{ ::component.creator.lastname}}
-             </p>
-            </div>
-            <div class="gb-subdescription">
-             <p class="">
-              <span>
-               {{::component.description}}
-              </span>
-             </p>
-             <p ng-if="!component.description" class="gb-no-info">
-              No description to show
-             </p>
-            </div>
-           </div>
-          </div>
-          <!-- / BOARD -->
-          <!-- NEW BOARD BUTTON -->
-          <div class="board-list-item add-new-board" layout="column" layout-align="center center"
-               ui-sref="app.explorer.boards.addBoard">
-           <md-icon md-font-icon="icon-plus-circle" class="icon s64"></md-icon>
-           <div class="board-name" translate="SB.ADD_NEW_BOARD">Add new board</div>
-          </div>
-          <!-- / NEW BOARD BUTTON -->
-         </div>
-         <md-button class="gb-right-scroll"
-                    ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 400)"aria-label="Scroll Left">
-          <md-icon md-font-icon="icon-chevron-right"></md-icon>
-         </md-button>
-        </div>
-        <!-- / BOARD LIST -->
-       </md-content>
-      </md-tab-body>
-     </md-tab>
-    </md-tabs>
-   </div>
   </div>
  </div>
  <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
-  <div class="gb-container widget-group" layout="row" flex="100" layout-wrap>
-   <!-- WIDGET 9 -->
-   <ms-widget flippable="true" class="gb-apps-widget" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="33"
-              ng-repeat="app in $root.commonData.apps">
-    <!-- Front -->
-    <ms-widget-front class="md-whiteframe-2dp gb-app-type-{{::app.id}}" layout="row" flex
-                     ui-sref="app.apps({'app_name': '{{::app.title}}'})">
-     <div layout="column" layout-align="center center" flex>
-      <div class="gb-title">
-       {{app.title}}
-      </div>
-      <div class="gb-stat">
-       {{app.count}} ENTRIES
-      </div>
-     </div>
-     <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-     </md-button>
-     <div class="background-image-center" layout-align="center center"  flex>
-      <md-icon md-font-icon="fa {{::app.icon}}" class="gb-app-icon"></md-icon>
-     </div>
-    </ms-widget-front>
-    <!-- / Front -->
-    <!-- Back -->
-    <ms-widget-back class="grey-50-bg">
-     <div class="flip-to-front">
-      <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-       <md-icon md-font-icon="icon-close" class="s16"></md-icon>
+  <div class="gb-container" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="33">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ui-sref="app.apps({'app_name': '{{::app.title}}'})" class="gb-main-button"
+                 layout="row" layout-align="start stretch" flex>
+       <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Entries
+        </div>
+       </div>
       </md-button>
-     </div>
-     <div>
-      {{app.long_description}}
-     </div>
-    </ms-widget-back>
-    <!-- / Back -->
-   </ms-widget>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
   </div>
  </div>
 

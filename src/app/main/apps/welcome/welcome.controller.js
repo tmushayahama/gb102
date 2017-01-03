@@ -51,7 +51,7 @@
 
 
   function init() {
-   WelcomeService.getBoards().then(function (data) {
+   WelcomeService.getComponents(5).then(function (data) {
     vm.boardList = data;
     angular.forEach(vm.boardList.apps, function (app, key) {
      angular.forEach(app.components, function (component, key) {

@@ -33,7 +33,10 @@
   });
 
   // Api
-  msApiProvider.register('welcome.components', ['/api/components/listformat/2']);
+  msApiProvider.register('welcome.components', ['/api/components/listformat/:listFormat',
+   {
+    listformat: "@listformat"
+   }]);
  }
 
 })();

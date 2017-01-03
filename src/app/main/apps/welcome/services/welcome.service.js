@@ -13,7 +13,7 @@
    data: {},
    addNewBoard: addNewBoard,
    createComponent: createComponent,
-   getBoards: getBoards,
+   getComponents: getComponents,
   };
 
   /**
@@ -22,12 +22,12 @@
    * @param boardId
    * @returns {*}
    */
-  function getBoards()
+  function getComponents(listFormat)
   {
    // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('welcome.components@get',
+   msApi.request('welcome.components@get', {listFormat: listFormat},
            function (response)
            {
             deferred.resolve(response);

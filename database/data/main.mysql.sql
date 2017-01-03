@@ -194,6 +194,33 @@ CREATE TABLE `gb_component_bookmark` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_component_recommendation`
+--
+DROP TABLE IF EXISTS `gb_component_recommendation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_component_recommendation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `component_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `importance` int (11),
+  `status_id` int(11),
+  PRIMARY KEY (`id`),
+  KEY `component_recommendation_component_id` (`component_id`),
+  KEY `component_recommendation_creator_id` (`creator_id`),
+  KEY `component_recommendation_level_id` (`level_id`),
+  KEY `component_recommendation_status_id` (`status_id`),
+  CONSTRAINT `component_recommendation_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_recommendation_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_recommendation_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `component_recommendation_status_id` FOREIGN KEY (`status_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_level`
 --
 DROP TABLE IF EXISTS `gb_level`;
@@ -504,6 +531,17 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`,	`level_id`, `component_id`, `creator_id`,	`contributor_id`,	`description`,	`created_at`,	`updated_at`,	`status_id`, `privacy_id`);
+
+-- ----------- RECOMMENED ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/component-recommendation.txt'
+    into table gb102.gb_component_recommendation
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`,	`level_id`, `component_id`, `creator_id`, `description`, `created_at`, `updated_at`, `importance`, `status_id`);
+
 
 -- ----------- QUESTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/share.txt'

@@ -26,7 +26,7 @@ class Level extends Model {
  }
 
  public static $level_categories = array(
-     'app' => 1,
+     'apps' => 1,
      'skill' => 2,
      'goal' => 3,
      'hobby' => 4,
@@ -72,9 +72,12 @@ class Level extends Model {
          'public' => 10002,
          'customize' => 10003,
      ),
+     "recommendation_setup" => array(
+         "samples" => 13001
+     ),
      'template_type' => 7000,
      'component_types' => 11000,
-     'component_background_colors' => 13000,
+     'recommendation' => 12000,
      'default_component_background_color' => 13001,
      "component_motives" => 14000,
  );
@@ -82,7 +85,8 @@ class Level extends Model {
      "subcomponents" => 1,
      "types" => 2,
      "columns" => 3,
-     "linear" => 4
+     "linear" => 4,
+     "recommendations" => 5
  );
 
  /**

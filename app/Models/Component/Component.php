@@ -5,6 +5,7 @@ namespace App\Models\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Component\ComponentContribution;
+use App\Models\Component\ComponentRecommended;
 use App\Models\Level\Level;
 use App\Models\User\User;
 use Request;
@@ -129,6 +130,10 @@ class Component extends Model {
   $components = array();
 
   switch ($listFormat) {
+   case Level::$componentJsonFormat["recommendations"]:
+    $components["recommendations"] = ComponentRecommendation::getComponentRecommendations();
+    $components["samples"] = ComponentRecommendation::getComponentRecommendationByType(Level::$level_categories["recommendation_setup"]["samples"]);
+    break;
    case Level::$componentJsonFormat["types"]:
     $componentTypes = Level::getLevel(Level::$level_categories['apps']);
     foreach ($componentTypes as $componentType) {

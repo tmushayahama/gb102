@@ -264,8 +264,10 @@ md-dialog {
    padding: 0;
    height: 80px;
    .gb-icon {
+    height: 25px;
+    max-height: 25px;
     font-size: 25px;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
     color: #999;
    }
    .gb-title {
@@ -856,11 +858,13 @@ md-tabs {
    }
   }
   .gb-title {
+   color: #222;
    text-align: left;
    font-size: 14px;
    text-transform: uppercase;
   }
   .gb-description {
+   color: #656565;
    text-align: left;
    text-transform: none;
    font-size: 14px;

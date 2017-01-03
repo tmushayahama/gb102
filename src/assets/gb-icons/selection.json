@@ -26,7 +26,7 @@
         {}
       ],
       "properties": {
-        "order": 101,
+        "order": 142,
         "id": 40,
         "name": "gb-activity",
         "prevSize": 32,
@@ -89,7 +89,7 @@
         {}
       ],
       "properties": {
-        "order": 100,
+        "order": 141,
         "id": 39,
         "name": "gb-admin",
         "prevSize": 32,
@@ -144,7 +144,7 @@
         {}
       ],
       "properties": {
-        "order": 99,
+        "order": 140,
         "id": 38,
         "name": "gb-advice",
         "prevSize": 32,
@@ -199,7 +199,7 @@
         {}
       ],
       "properties": {
-        "order": 98,
+        "order": 139,
         "id": 37,
         "name": "gb-advise",
         "prevSize": 32,
@@ -238,7 +238,7 @@
         {}
       ],
       "properties": {
-        "order": 97,
+        "order": 138,
         "id": 36,
         "name": "gb-apply",
         "prevSize": 32,
@@ -305,7 +305,7 @@
         {}
       ],
       "properties": {
-        "order": 102,
+        "order": 143,
         "id": 35,
         "name": "gb-apps",
         "prevSize": 32,
@@ -372,7 +372,7 @@
         {}
       ],
       "properties": {
-        "order": 103,
+        "order": 144,
         "id": 34,
         "name": "gb-checklist",
         "prevSize": 32,
@@ -407,7 +407,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": [
-          "gb-collaborations"
+          "gb-collaboration"
         ],
         "colorPermutations": {
           "12552552551": [
@@ -431,9 +431,9 @@
         {}
       ],
       "properties": {
-        "order": 104,
+        "order": 145,
         "id": 33,
-        "name": "gb-collaborations",
+        "name": "gb-collaboration",
         "prevSize": 32,
         "code": 60025
       },
@@ -482,7 +482,7 @@
         {}
       ],
       "properties": {
-        "order": 105,
+        "order": 146,
         "id": 32,
         "name": "gb-community",
         "prevSize": 32,
@@ -525,7 +525,7 @@
         {}
       ],
       "properties": {
-        "order": 106,
+        "order": 147,
         "id": 31,
         "name": "gb-component",
         "prevSize": 32,
@@ -579,7 +579,7 @@
         {}
       ],
       "properties": {
-        "order": 107,
+        "order": 148,
         "id": 30,
         "name": "gb-discover",
         "prevSize": 32,
@@ -630,7 +630,7 @@
         {}
       ],
       "properties": {
-        "order": 108,
+        "order": 149,
         "id": 29,
         "name": "gb-explorer",
         "prevSize": 32,
@@ -673,7 +673,7 @@
         {}
       ],
       "properties": {
-        "order": 109,
+        "order": 150,
         "id": 28,
         "name": "gb-follower",
         "prevSize": 32,
@@ -720,7 +720,7 @@
         {}
       ],
       "properties": {
-        "order": 110,
+        "order": 151,
         "id": 27,
         "name": "gb-goal",
         "prevSize": 32,
@@ -763,7 +763,7 @@
         {}
       ],
       "properties": {
-        "order": 111,
+        "order": 152,
         "id": 26,
         "name": "gb-group",
         "prevSize": 32,
@@ -814,7 +814,7 @@
         {}
       ],
       "properties": {
-        "order": 112,
+        "order": 153,
         "id": 25,
         "name": "gb-guideline",
         "prevSize": 32,
@@ -853,7 +853,7 @@
         {}
       ],
       "properties": {
-        "order": 113,
+        "order": 154,
         "id": 24,
         "name": "gb-handpicked",
         "prevSize": 32,
@@ -956,7 +956,7 @@
         {}
       ],
       "properties": {
-        "order": 114,
+        "order": 155,
         "id": 23,
         "name": "gb-hobby",
         "prevSize": 32,
@@ -1015,7 +1015,7 @@
         {}
       ],
       "properties": {
-        "order": 96,
+        "order": 137,
         "id": 22,
         "name": "gb-journal",
         "prevSize": 32,
@@ -1054,7 +1054,7 @@
         {}
       ],
       "properties": {
-        "order": 95,
+        "order": 136,
         "id": 21,
         "name": "gb-judge",
         "prevSize": 32,
@@ -1097,7 +1097,7 @@
         {}
       ],
       "properties": {
-        "order": 94,
+        "order": 135,
         "id": 20,
         "name": "gb-logo",
         "prevSize": 32,
@@ -1144,7 +1144,7 @@
         {}
       ],
       "properties": {
-        "order": 93,
+        "order": 134,
         "id": 19,
         "name": "gb-matcher",
         "prevSize": 32,
@@ -1201,7 +1201,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": [
-          "gb-mentorships"
+          "gb-mentorship"
         ],
         "colorPermutations": {
           "12552552551": [
@@ -1247,9 +1247,9 @@
         {}
       ],
       "properties": {
-        "order": 92,
+        "order": 133,
         "id": 18,
-        "name": "gb-mentorships",
+        "name": "gb-mentorship",
         "prevSize": 32,
         "code": 60040
       },
@@ -1310,7 +1310,7 @@
         {}
       ],
       "properties": {
-        "order": 115,
+        "order": 156,
         "id": 17,
         "name": "gb-note",
         "prevSize": 32,
@@ -1417,7 +1417,7 @@
         {}
       ],
       "properties": {
-        "order": 116,
+        "order": 157,
         "id": 16,
         "name": "gb-objective",
         "prevSize": 32,
@@ -1468,7 +1468,7 @@
         {}
       ],
       "properties": {
-        "order": 117,
+        "order": 158,
         "id": 15,
         "name": "gb-observer",
         "prevSize": 32,
@@ -1515,7 +1515,7 @@
         {}
       ],
       "properties": {
-        "order": 118,
+        "order": 159,
         "id": 14,
         "name": "gb-organize",
         "prevSize": 32,
@@ -1566,7 +1566,7 @@
         {}
       ],
       "properties": {
-        "order": 119,
+        "order": 160,
         "id": 13,
         "name": "gb-page",
         "prevSize": 32,
@@ -1617,7 +1617,7 @@
         {}
       ],
       "properties": {
-        "order": 120,
+        "order": 161,
         "id": 12,
         "name": "gb-plan",
         "prevSize": 32,
@@ -1676,7 +1676,7 @@
         {}
       ],
       "properties": {
-        "order": 121,
+        "order": 162,
         "id": 11,
         "name": "gb-project",
         "prevSize": 32,
@@ -1711,7 +1711,7 @@
         {}
       ],
       "properties": {
-        "order": 122,
+        "order": 163,
         "id": 10,
         "name": "gb-promise",
         "prevSize": 32,
@@ -1782,7 +1782,7 @@
         }
       ],
       "properties": {
-        "order": 123,
+        "order": 164,
         "id": 9,
         "name": "gb-promise-2",
         "prevSize": 32,
@@ -1835,7 +1835,7 @@
         {}
       ],
       "properties": {
-        "order": 124,
+        "order": 165,
         "id": 8,
         "name": "gb-question",
         "prevSize": 32,
@@ -1886,7 +1886,7 @@
         {}
       ],
       "properties": {
-        "order": 125,
+        "order": 166,
         "id": 7,
         "name": "gb-skill",
         "prevSize": 32,
@@ -1929,7 +1929,7 @@
         {}
       ],
       "properties": {
-        "order": 126,
+        "order": 167,
         "id": 6,
         "name": "gb-step",
         "prevSize": 32,
@@ -1980,7 +1980,7 @@
         {}
       ],
       "properties": {
-        "order": 127,
+        "order": 168,
         "id": 5,
         "name": "gb-swipe",
         "prevSize": 32,
@@ -2031,7 +2031,7 @@
         {}
       ],
       "properties": {
-        "order": 91,
+        "order": 132,
         "id": 4,
         "name": "gb-teach",
         "prevSize": 32,
@@ -2098,7 +2098,7 @@
         {}
       ],
       "properties": {
-        "order": 90,
+        "order": 131,
         "id": 3,
         "name": "gb-timeline",
         "prevSize": 32,
@@ -2153,7 +2153,7 @@
         {}
       ],
       "properties": {
-        "order": 89,
+        "order": 130,
         "id": 2,
         "name": "gb-todo",
         "prevSize": 32,
@@ -2204,7 +2204,7 @@
         {}
       ],
       "properties": {
-        "order": 88,
+        "order": 129,
         "id": 1,
         "name": "gb-weblink",
         "prevSize": 32,
@@ -2243,7 +2243,7 @@
         {}
       ],
       "properties": {
-        "order": 87,
+        "order": 128,
         "id": 0,
         "name": "gb-wrenches",
         "prevSize": 32,

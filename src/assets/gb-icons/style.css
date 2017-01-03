@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?8h20ya');
-  src:  url('fonts/icomoon.eot?8h20ya#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?8h20ya') format('truetype'),
-    url('fonts/icomoon.woff?8h20ya') format('woff'),
-    url('fonts/icomoon.svg?8h20ya#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?3u3nxh');
+  src:  url('fonts/icomoon.eot?3u3nxh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?3u3nxh') format('truetype'),
+    url('fonts/icomoon.woff?3u3nxh') format('woff'),
+    url('fonts/icomoon.svg?3u3nxh#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -45,7 +45,7 @@
 .icon-gb-checklist:before {
   content: "\ea78";
 }
-.icon-gb-collaborations:before {
+.icon-gb-collaboration:before {
   content: "\ea79";
 }
 .icon-gb-community:before {
@@ -90,7 +90,7 @@
 .icon-gb-matcher:before {
   content: "\ea87";
 }
-.icon-gb-mentorships:before {
+.icon-gb-mentorship:before {
   content: "\ea88";
 }
 .icon-gb-note:before {
