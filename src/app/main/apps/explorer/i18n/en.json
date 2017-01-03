@@ -2,6 +2,8 @@
  "explorer" :{
   "send_request_text" :"Send Request" ,
   "add_text" :"Add" ,
+  "contribute_text" :"Contribute" ,
+  "subscribe_text" :"Subscibe" ,
   "title_text" :"Title" ,
   "description_text" :"Description" ,
   "back_text" :"Back" ,

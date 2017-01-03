@@ -229,13 +229,15 @@ md-dialog {
  }
 
  .actions {
-
+  height: 36px;
+  max-height: 36px;
   .md-button {
    text-transform: none;
    padding: 0 16px;
-   height: 32px;
-   line-height: 32px;
-   margin: 0 0 0 8px;
+   height: 36px;
+   max-height: 36px;
+   line-height: 36px;
+   margin: 0 0 0 5px;
   }
  }
 }
@@ -829,24 +831,25 @@ md-tabs {
  }
 }
 .gb-section-widget {
- //height: 150px;
- //min-height: 150px;
- //max-height: 150px;
  ms-widget-front {
   background-color: #FAFAFA;
   .gb-main-button, .gb-widget-content, .gb-title-icon {
-   height: 150px;
-   min-height: 150px;
+   height: 120px;
+   min-height: 120px;
    overflow: hidden;
+  }
+  .gb-main-button {
+   padding: 0;
+   margin: 0;
   }
   .gb-widget-content {
    padding: 14px;
   }
   .gb-title-icon {
    text-align: center;
-   width: 150px;
-   min-width: 150px;
-   max-width: 150px;
+   width: 120px;
+   min-width: 120px;
+   max-width: 120px;
    i{
     color: #EEE;
     font-size: 80px;
@@ -854,13 +857,15 @@ md-tabs {
   }
   .gb-title {
    text-align: left;
-   font-size: 18px;
+   font-size: 14px;
    text-transform: uppercase;
   }
   .gb-description {
    text-align: left;
-   text-transform: capitalize;
+   text-transform: none;
    font-size: 14px;
+   white-space: normal;
+   line-height: 20px;
   }
   md-icon {
    &.gb-background-icon {
@@ -879,7 +884,33 @@ md-tabs {
    }
   }
  }
+
+ &.gb-widget-sm {
+  ms-widget-front {
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 100px;
+    min-height: 100px;
+   }
+   .gb-widget-content {
+    padding: 14px;
+   }
+   .gb-title-icon {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    i{
+     font-size: 50px;
+    }
+   }
+   .gb-title {
+    font-size: 18px;
+   }
+  }
+ }
 }
+
+
+
 .gb-swipe-widget {
  padding: 0;
  height: 300px;
@@ -1005,7 +1036,7 @@ md-tabs {
 }
 
 .gb-count-widget {
- height: 200px;
+ height: 150px;
  ms-widget-front {
   background-color: #F2F2F2;
  }
@@ -1013,7 +1044,7 @@ md-tabs {
   font-size: 40px;
  }
  .gb-title {
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
  }
  .gb-details-btn {
@@ -1021,11 +1052,11 @@ md-tabs {
  }
  md-icon {
   &.gb-background-icon {
-   color: #EEE;
-   font-size: 150px;
-   width: 150px;
-   min-width: 150px;
-   max-width: 150px;
+   color: #E2E5E5;
+   font-size: 120px;
+   width: 120px;
+   min-width: 120px;
+   max-width: 120px;
   }
  }
 
@@ -1102,7 +1133,8 @@ md-tabs {
   padding: 14px 14px 14px 14px;
   z-index: 2;
   .gb-title {
-   //color: #888;
+   color: #555;
+   text-decoration: none;
    //font-size:18px;
    //margin-top: 5px;
    padding: 0;

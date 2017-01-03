@@ -7,11 +7,13 @@
          .controller('ComponentLinearController', ComponentLinearController);
 
  /** @ngInject */
- function ComponentLinearController(level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
+ function ComponentLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
  {
   var vm = this;
 
   // Data
+  vm.tabs = add_component_tabs;
+  vm.componentId = $stateParams.id;
   vm.privacy = level_categories.privacy;
   vm.currentView = 'board';
   vm.component = [];
@@ -120,6 +122,7 @@
 
   // Methods
   vm.openComponentDialog = DialogService.openComponentDialog;
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
   vm.openCardDialog = DialogService.openCardDialog;
   vm.createComponent = createComponent;
   vm.updateComponentDescription = updateComponentDescription;

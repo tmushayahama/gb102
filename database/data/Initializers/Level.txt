@@ -1,17 +1,17 @@
 id	parent_level_id	title	code	description	long_description	icon	background_color
 1	\N	Apps	apps				
-2	1	skills		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skills	md-blue-300-bg
-3	1	goals		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goals	md-pink-300-bg
-4	1	hobbies		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobbies	md-teal-300-bg
-5	1	promises		Add a Promise	Add a Promise	icon-gb-promises	md-green-300-bg
-6	1	mentorships		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorships	md-deep-purple-300-bg
-7	1	collaborations		Create A Collaboration	Create A Collaboration	icon-gb-collaborations	md-light-blue-300-bg
+2	1	skill		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skill	md-blue-300-bg
+3	1	goal		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goal	md-pink-300-bg
+4	1	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	md-teal-300-bg
+5	1	promise		Add a Promise	Add a Promise	icon-gb-promise	md-green-300-bg
+6	1	mentorship		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorship	md-deep-purple-300-bg
+7	1	collaboration		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	md-light-blue-300-bg
 8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach	md-blue-300-bg
-9	1	advices		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advices	md-indigo-300-bg
-10	1	groups		Create A Group	Create A Group	icon-gb-groups	md-blue-300-bg
-11	1	journals		Write a Journal	Write a Journal	icon-gb-journals	md-teal-300-bg
-12	1	pages		Create A Page	Blogs	icon-gb-pages	md-yellow-300-bg
-13	1	projects		Create A Project	A project	icon-gb-projects	md-blue-300-bg
+9	1	advice		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advice	md-indigo-300-bg
+10	1	group		Create A Group	Create A Group	icon-gb-group	md-blue-300-bg
+11	1	journal		Write a Journal	Write a Journal	icon-gb-journal	md-teal-300-bg
+12	1	page		Create A Page	Blogs	icon-gb-page	md-yellow-300-bg
+13	1	project		Create A Project	A project	icon-gb-project	md-blue-300-bg
 1001	2	Skill Gained		\N			md-blue-300-bg
 1002	2	Skill to Improve		\N			md-blue-300-bg
 1003	2	Skill to Learn		\N			md-blue-300-bg
@@ -90,7 +90,7 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 4001	4000	Follower				icon-gb-follower	md-blue-300-bg
 4002	4000	Observer				icon-gb-observer	md-pink-300-bg
 4003	4000	Judge				icon-gb-judge	md-teal-300-bg
-4004	4000	Administrator				icon-gb-admin	md-green-300-bg
+4004	4000	Admin				icon-gb-admin	md-green-300-bg
 5000	\N	Request	request				md-blue-300-bg
 5001	5000	pending					md-blue-300-bg
 5002	5000	accepted					md-blue-300-bg
@@ -109,14 +109,14 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 10002	10000	public					md-blue-300-bg
 10003	10000	customize					md-blue-300-bg
 11000	\N	Component Type	component_type				md-blue-300-bg
-11001	11000	Notes					md-blue-300-bg
-11002	11000	Steps					md-blue-300-bg
-11003	11000	Checklists					md-blue-300-bg
-11004	11000	Todos					md-blue-300-bg
-11005	11000	Activities					md-blue-300-bg
-11006	11000	Guidelines					md-blue-300-bg
-11007	11000	Weblinks					md-blue-300-bg
-11100	11000	Questions					md-blue-300-bg
+11001	11000	note				icon-gb-note	md-blue-300-bg
+11002	11000	step				icon-gb-step	md-blue-300-bg
+11003	11000	checklist				icon-gb-checklist	md-blue-300-bg
+11004	11000	todo				icon-gb-todo	md-blue-300-bg
+11005	11000	activity				icon-gb-activity	md-blue-300-bg
+11006	11000	guideline				icon-gb-guideline	md-blue-300-bg
+11007	11000	weblink				icon-gb-weblink	md-blue-300-bg
+11100	11000	question				icon-gb-question	md-blue-300-bg
 12000	\N	Bucket Type	bucket_type				md-blue-300-bg
 12001	12000	Normal		Normal Bucket			md-blue-300-bg
 14000	\N	Component Motive					md-blue-300-bg

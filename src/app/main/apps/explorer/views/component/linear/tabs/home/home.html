@@ -74,18 +74,10 @@ LINEAR VIEW HOME
      CONTRIBUTORS
     </div>
    </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
    <div class="background-image-center">
     <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="fa fa-times" class="s32"></md-icon>
-   </md-button>
-  </ms-widget-back>
  </ms-widget>
  <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8" layout="row" flex>
@@ -97,18 +89,10 @@ LINEAR VIEW HOME
      DISCUSSIONS
     </div>
    </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
    <div class="background-image-center">
     <md-icon md-font-icon="fa fa-comments-o" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="md-icon-button gb-details-btn" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-   </md-button>
-  </ms-widget-back>
  </ms-widget>
  <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8" layout="row" flex>
@@ -120,18 +104,10 @@ LINEAR VIEW HOME
      ACTIVITIES
     </div>
    </div>
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="details">
-    <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
-   </md-button>
    <div class="background-image-center">
     <md-icon md-font-icon="fa icon-gb-apply" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-button class="gb-details-btn md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-    <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-   </md-button>
-  </ms-widget-back>
  </ms-widget>
 </div>
 <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
@@ -163,7 +139,7 @@ LINEAR VIEW HOME
         REQUEST CONTRIBUTIONS
        </div>
        <div class="gb-description">
-        Lists all users who have contributed to this skill.
+        Invite people to take part.
        </div>
       </div>
      </md-button>
@@ -181,7 +157,7 @@ LINEAR VIEW HOME
         ADD COMPONENTS
        </div>
        <div class="gb-description">
-        Lists all users who have contributed to this skill.
+        Break down into subcomponents and related components
        </div>
       </div>
      </md-button>
@@ -199,7 +175,7 @@ LINEAR VIEW HOME
         ADD BACKGROUND
        </div>
        <div class="gb-description">
-        Lists all users who have contributed to this skill.
+        Add any prerequisites, motivations, background information
        </div>
       </div>
      </md-button>
@@ -217,7 +193,7 @@ LINEAR VIEW HOME
         ADD ACTIVITIES
        </div>
        <div class="gb-description">
-        Lists all users who have contributed to this skill.
+        Any actions like notes, exercises, steps, guidelines, questions
        </div>
       </div>
      </md-button>
@@ -237,15 +213,11 @@ LINEAR VIEW HOME
      Contributors
     </span>
    </div>
-   <span flex></span>
-   <md-button class="md-icon-button" aria-label="Add Contributors">
-    <md-icon md-font-icon="fa fa-plus"></md-icon>
-   </md-button>
   </div>
  </md-toolbar>
  <div class="widget-group gb-section-widget-group" flex="100"
       layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
              ng-repeat="contributionType in $root.commonData.contributionTypes">
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributors, contributionType)" class="gb-main-button"
@@ -256,9 +228,6 @@ LINEAR VIEW HOME
      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
       <div class="gb-title">
        REQUEST {{contributionType.title}}
-      </div>
-      <div class="gb-description">
-       {{contributionType.long_description}}
       </div>
      </div>
     </md-button>
@@ -390,7 +359,7 @@ LINEAR VIEW HOME
  <md-toolbar class="gb-heading" flex>
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
    </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
@@ -422,7 +391,7 @@ LINEAR VIEW HOME
  <md-toolbar class="gb-heading" flex>
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
    </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
