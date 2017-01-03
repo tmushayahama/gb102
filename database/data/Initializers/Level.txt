@@ -118,12 +118,11 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 11007	11000	weblink				icon-gb-weblink	md-blue-400-bg
 11100	11000	question				icon-gb-question	md-blue-400-bg
 12000	\N	Recommended					md-blue-400-bg
-12001	12000	Discover: For the curious					
-12002	12000	Today's top skills					
+12002	12000	Discover: For the curious					
 12003	12000	For your personal development					
 12004	12000	Inspiring mentorhips					
-12006	12000	Students are Viewing					
 12005	12000	Pretty good advice					
+12006	12000	Students are Viewing					
 12007	12000	Companies are viewing 					
 12008	12000	Interesting hobbies					
 12009	12000	Teams are viewing					
@@ -149,6 +148,7 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 16001	16000	Favorite					md-blue-400-bg
 20000	\N						md-blue-400-bg
 100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	md-blue-400-bg
+							
 							
 							
 							

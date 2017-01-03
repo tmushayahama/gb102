@@ -50,7 +50,7 @@ class ComponentRecommendation extends Model {
   $recommendationTypes = Level::getLevel(Level::$level_categories['recommendation']);
   foreach ($recommendationTypes as $recommendationType) {
    $componentRecommendations[$recommendationType->id] = $recommendationType;
-   $componentRecommendations[$recommendationType->id]["recommendation"] = self::getComponentRecommendationByType($recommendationType->id);
+   $componentRecommendations[$recommendationType->id]["recommendationComponents"] = self::getComponentRecommendationByType($recommendationType->id);
   }
   return $componentRecommendations;
  }
@@ -65,7 +65,7 @@ class ComponentRecommendation extends Model {
           where('level_id', $typeId)
           ->orderBy('importance', 'DESC')
           ->with('component')
-          ->with('creator')
+          ->with('component.creator')
           ->get();
   return $componentRecommendation;
  }

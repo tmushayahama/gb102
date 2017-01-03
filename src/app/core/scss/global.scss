@@ -834,6 +834,8 @@ md-tabs {
 }
 .gb-section-widget {
  ms-widget-front {
+  height: 120px;
+  min-height: 120px;
   background-color: #FAFAFA;
   .gb-main-button, .gb-widget-content, .gb-title-icon {
    height: 120px;
@@ -891,6 +893,8 @@ md-tabs {
 
  &.gb-widget-sm {
   ms-widget-front {
+   height: 100px;
+   min-height: 100px;
    .gb-main-button, .gb-widget-content, .gb-title-icon {
     height: 100px;
     min-height: 100px;
@@ -1577,8 +1581,8 @@ md-tabs {
 
 .board-list-item {
  height: 230px;
- //min-width: 210px;
- // width: 210px;
+ min-width: 210px;
+ width: 210px;
  padding: 0 0 0 0;
  margin: 8px;
  border-radius: 2px;
