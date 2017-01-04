@@ -7,7 +7,7 @@
          .controller('ComponentLinearActivitiesController', ComponentLinearActivitiesController);
 
  /** @ngInject */
- function ComponentLinearActivitiesController(BoardService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
+ function ComponentLinearActivitiesController(ExplorerComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
  {
   var vm = this;
 
@@ -171,7 +171,7 @@
    */
   function init()
   {
-   BoardService.getBoard(vm.componentId, 0).then(function (data) {
+   ExplorerComponentService.getComponent(vm.componentId, 0).then(function (data) {
     vm.components = data.components;
     vm.components.newComponentData = angular.copy(vm.defaultComponentData);
    });

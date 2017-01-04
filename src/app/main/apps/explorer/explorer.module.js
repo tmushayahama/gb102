@@ -29,8 +29,8 @@
            },
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/explorer/views/boards/boards-view.html',
-             controller: 'BoardsViewController as vm'
+             templateUrl: 'src/app/main/apps/explorer/views/components/components.html',
+             controller: 'ExplorerComponentsController as vm'
             }
            },
            bodyClass: 'explorer'
@@ -97,13 +97,28 @@
           })
           .state('app.apps', {
            url: '/explorer/{app_name}',
+           abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/explorer/views/app-boards/app-boards-view.html',
-             controller: 'AppBoardsViewController as vm'
+             templateUrl: 'src/app/main/apps/explorer/views/app-components/app-components.html',
+             controller: 'AppExplorerComponentsController as componentsCtrl'
             }
            }
           })
+          .state('app.apps.home', {
+           url: '/home',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/app-components/tabs/home/home.html',
+             controller: 'AppComponentsHomeTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 0
+           }
+          })
+
+
           .state('app.componentColumnView', {
            url: '/component/boardview/:id',
            views: {
@@ -239,9 +254,9 @@
             }
            },
            resolve: {
-            BoardData: function ($stateParams, BoardService)
+            BoardData: function ($stateParams, ExplorerComponentService)
             {
-             return BoardService.addNewBoard();
+             return ExplorerComponentService.addNewBoard();
             }
            }
           }

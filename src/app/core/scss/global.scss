@@ -154,10 +154,16 @@ md-dialog {
   background-color: #FAFAFA;
   margin: 0;
   height: 100%;
-  opacity: 0.7;
+  opacity: 0.5;
   z-index: 1;
   &:hover {
    opacity: 1;
+  }
+  @include respond-to (gb-sm) {
+   display: none;
+  }
+  @include respond-to (gb-xs) {
+   display: none;
   }
  }
  .gb-left-scroll {
@@ -702,15 +708,15 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 0 auto 5px auto;
-  //background-color: rgba($primary-color, 0.2);
+  //background-color: rgba(rgba(nth($apps-colors, 1), 0.2);
   line-height: 60px;
   min-width: 0;
   width: 150px;
   height: 60px;
-  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba(nth($apps-colors, 1), 0.8);
   //border-radius: 50%;
   font-size: 60px;
-  //color: darken($primary-color, 5%);
+  //color: darken(rgba(nth($apps-colors, 1), 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;
@@ -1227,13 +1233,13 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 10px auto 5px auto;
-  //background-color: rgba($primary-color, 0.2);
+  //background-color: rgba(rgba(nth($apps-colors, 1), 0.2);
   line-height: 40px;
   min-width: 0;
-  // box-shadow: 0 2px 5px 0 rgba($primary-color, 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba(nth($apps-colors, 1), 0.8);
   //border-radius: 50%;
   font-size: 40px;
-  //color: darken($primary-color, 5%);
+  //color: darken(rgba(nth($apps-colors, 1), 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;

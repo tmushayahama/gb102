@@ -7,7 +7,7 @@
          .controller('ComponentLinearController', ComponentLinearController);
 
  /** @ngInject */
- function ComponentLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, BoardService, CardFilters, DialogService)
+ function ComponentLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, ExplorerComponentService, CardFilters, DialogService)
  {
   var vm = this;
 
@@ -139,7 +139,7 @@
    */
   function init()
   {
-   BoardService.getBoard($stateParams.id, 2).then(function (data) {
+   ExplorerComponentService.getComponent($stateParams.id, 2).then(function (data) {
     vm.component = data;
     vm.component.newComponentData = angular.copy(vm.defaultComponentData);
    });
@@ -177,7 +177,7 @@
     typeId: component.id,
     privacyId: vm.privacy.public
    };
-   BoardService.createComponent(data).then(function (response) {
+   ExplorerComponentService.createComponent(data).then(function (response) {
     component.components.push(response);
     component.newComponent.title = "";
    });
@@ -197,7 +197,7 @@
     title: component.title,
     description: component.description
    };
-   BoardService.updateComponentDescription(data).then(function (response) {
+   ExplorerComponentService.updateComponentDescription(data).then(function (response) {
     // component.components.push(response);
    });
   }

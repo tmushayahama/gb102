@@ -1,0 +1,92 @@
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+ <div class="gb-cover-overlap" ></div>
+ <div class="gb-cover" ng-style="$root.headerStyle"></div>
+ <div class="gb-container user-info" layout="column" layout-align="center center">
+  <div class="gb-header-icon">
+   <i class="fa" ng-class="'fa icon-gb-' + $root.appName.toLowerCase()"></i>
+  </div>
+  <div class="gb-title">
+   {{$root.appName}}
+  </div>
+ </div>
+ <div class="actions" layout="row" layout-align="end center">
+  <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
+             ng-click="vm.openAddComponentDialog($event)"
+             translate-attr-aria-label="explorer.add">Add
+  </md-button>
+  <md-button class="md-raised md-primary" translate="explorer.send_request_text"
+             ng-click="vm.sendComponentRequest()"
+             translate-attr-aria-label="explorer.send_request_text">Send Request
+  </md-button>
+ </div>
+</div>
+<!-- / HEADER -->
+<div class="gb-row gb-spacing-1"></div>
+<!-- CONTENT -->
+<div class="gb-tabs-1" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.explorer.home">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title">
+       Overview
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.explorer.swipe">
+      <div class="gb-icon">
+       <i class="fa icon-gb-swipe"></i>
+      </div>
+      <div class="gb-title">
+       Swipe
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <div class="gb-tab-button" ui-sref="app.explorer.matcher">
+     <md-tab-label>
+      <div class="gb-icon">
+       <i class="fa icon-gb-matcher"></i>
+      </div>
+      <div class="gb-title">
+       Matcher
+      </div>
+     </md-tab-label>
+    </div>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.explorer.mentorship">
+      <div class="gb-icon">
+       <i class="fa fa-calendar"></i>
+      </div>
+      <div class="gb-title">
+       Mentorship
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.explorer.business">
+      <div class="gb-icon">
+       <i class="fa fa-briefcase"></i>
+      </div>
+      <div class="gb-title">
+       For Business
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+  </md-tabs>
+ </div>
+</div>
+<div id="boards" ui-view="tab" class="" layout="column" layout-align="center center" flex></div>

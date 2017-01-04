@@ -8,13 +8,13 @@
          .directive('gbCardQuestion', cardQuestiondDirective);
 
  /** @ngInject */
- function cardQuestionController($scope, $timeout, BoardService, msUtils)
+ function cardQuestionController($scope, $timeout, ExplorerComponentService, msUtils)
  {
   var vm = this;
 
   vm.newCardName = '';
   vm.listId = $scope.msListId;
-  vm.board = BoardService.data;
+  vm.board = ExplorerComponentService.data;
   vm.cards = vm.board.cards;
   //vm.list = vm.board.lists.getById(vm.listId);
 

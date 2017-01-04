@@ -7,7 +7,7 @@
          .controller('ExplorerCardDialogController', ExplorerCardDialogController);
 
  /** @ngInject */
- function ExplorerCardDialogController($document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService, cardId)
+ function ExplorerCardDialogController($document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ExplorerComponentService, cardId)
  {
   var vm = this;
 
@@ -357,7 +357,7 @@
   }
 
   function init() {
-   BoardService.getCard(cardId, 2).then(function (data) {
+   ExplorerComponentService.getCard(cardId, 2).then(function (data) {
     vm.card = data;
    });
   }

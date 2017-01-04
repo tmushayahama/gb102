@@ -7,7 +7,7 @@
          .controller('ComponentLinearTimelineController', ComponentLinearTimelineController);
 
  /** @ngInject */
- function ComponentLinearTimelineController(BoardService, msApi, $q, $stateParams, $rootScope)
+ function ComponentLinearTimelineController(ExplorerComponentService, msApi, $q, $stateParams, $rootScope)
  {
   var vm = this;
 
@@ -75,7 +75,7 @@
    */
   function init()
   {
-   BoardService.getBoard($stateParams.id, 4).then(function (data) {
+   ExplorerComponentService.getComponent($stateParams.id, 4).then(function (data) {
     vm.timeline = [];
     angular.forEach(data.components, function (component) {
      vm.timeline.push({

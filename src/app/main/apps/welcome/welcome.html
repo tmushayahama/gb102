@@ -2,10 +2,10 @@
  <header id="gb-intro-section" class="">
   <div class="intro-text row">
    <h1 class="intro-heading">
-    APPLY & TRACK SKILLS
+    Skills with profiles
    </h1>
    <h2 class="intro-lead-in">
-    Discover what a new kind of skill exploration and application can do for you
+    Apply and track skills
    </h2>
   </div>
   <div class="gb-intro-sample" layout="row" layout-align="start" layout-nowrap>
@@ -49,7 +49,7 @@
         layout="row" layout-align="start" layout-wrap flex>
     <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="33">
      <ms-widget-front layout="row" layout-fill flex>
-      <md-button ui-sref="app.apps({'app_name': '{{::app.title}}'})" class="gb-main-button"
+      <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
                  layout="row" layout-align="start stretch" flex>
        <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
         <i class="fa {{app.icon}}"></i>
@@ -68,7 +68,11 @@
    </div>
   </div>
  </div>
-
+ <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="start center" flex>
+   <img src="src/assets/images/landing-page/screenshot-1.png" alt="screenshot">
+  </div>
+ </div>
 
  <div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
   <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>

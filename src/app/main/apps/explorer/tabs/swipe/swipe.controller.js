@@ -7,7 +7,7 @@
          .controller('BoardsSwipeTabController', BoardsSwipeTabController);
 
  /** @ngInject */
- function BoardsSwipeTabController(level_categories, BoardService, $scope, $rootScope)
+ function BoardsSwipeTabController(level_categories, ExplorerComponentService, $scope, $rootScope)
  {
   var vm = this;
 
@@ -33,7 +33,7 @@
    * @returns
    */
   function getSwipe() {
-   BoardService.getRandomBoard().then(function (response) {
+   ExplorerComponentService.getRandomBoard().then(function (response) {
     vm.component = response;
     addComponentPlaceholderImage(vm.component);
    });
@@ -46,7 +46,7 @@
    */
   function getSwipes(creatorId) {
    if (creatorId) {
-    BoardService.getComponentBookmarks(creatorId).then(function (response) {
+    ExplorerComponentService.getComponentBookmarks(creatorId).then(function (response) {
      vm.swipes = response;
      angular.forEach(vm.swipes, function (swipe) {
       addComponentPlaceholderImage(swipe.component);
@@ -67,7 +67,7 @@
     levelId: levelId
             // description: ""
    };
-   BoardService.createComponentBookmark(data).then(function (response) {
+   ExplorerComponentService.createComponentBookmark(data).then(function (response) {
     getSwipe();
    });
   }

@@ -1,6 +1,5 @@
 
 
-$primary-color: #027887;
 $explorer-color: #027887;
 $swipe-color: #5E2D35;
 $matcher-color:#027;
@@ -38,7 +37,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba($primary-color, 0.8);
+    color: rgba(nth($apps-colors, 1), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -95,7 +94,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba($primary-color, 0.8);
+    color: rgba(nth($apps-colors, 1), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -155,7 +154,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba($primary-color, 0.8) solid 3px;
+  //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
   //background-color: rgba(#000, 0.2);
   // color: #555;
   .gb-action {
@@ -206,13 +205,13 @@ $color-6: #077568;
   //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   //background: url(../../../src/assets/images/landing-page/background-2.jpg);
-  -webkit-background-size: 100%!important;
-  -moz-background-size: 100%!important;
-  -o-background-size: 100%!important;
-  background-size: 100%!important;
+  //-webkit-background-size: 100%!important;
+  //-moz-background-size: 100%!important;
+  //-o-background-size: 100%!important;
+  // background-size: 100%!important;
   position: relative;
   //margin-bottom: 30px;
-  height: 550px;
+  height: 600px;
   text-align: center;
   background-color: #FFF;
   overflow: hidden;
@@ -231,23 +230,12 @@ $color-6: #077568;
   }
   .intro-text {
    padding-top: 50px;
-   //@include position(absolute, 50% null null 50%);
-   //-ms-transform: translate(-50%,-50%);
-   //-webkit-transform: translate(-50%,-50%);
-   // transform: translate(-50%, -50%);
    z-index: 3;
-   .gb-dynamic-word {
-    padding:3px 10px;
-    color: #555;
-    font-weight: bold;
-    transition: opacity 2s ease;
-    opacity: 1;
-   }
    .btn-toolbar {
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken($primary-color, 15%), 0.6);
+    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -266,19 +254,18 @@ $color-6: #077568;
     }
    }
    .intro-lead-in {
-    color: #555;
+    color: #777;
     margin-bottom: 15px;
     font-size: 20px;
-    font-weight: bold;
-    line-height: 40px;
+    //font-weight: bold;
+    line-height: 20px;
    }
    .intro-heading {
     color: #333;
-    text-transform: uppercase;
     margin-bottom: 0px;
     font-size: 45px;
-    font-weight: 400;
-    line-height: 50px;
+    font-weight: bold;
+    line-height: 30px;
    }
   }
 
@@ -288,9 +275,9 @@ $color-6: #077568;
    height: 360px;
    .gb-image-card{
     height: 100px;
-    min-width: 80px;
-    width: 80px;
-    padding: 0 0 0 0;
+    min-width: 60px;
+    width: 60px;
+    padding: 0;
     margin: 4px;
     background-color: #FAFAFA;
     color: #555;
@@ -298,6 +285,7 @@ $color-6: #077568;
 
     &:hover {
      box-shadow: $whiteframe-shadow-2dp;
+     outline: rbgb(#00E676, 0.4) solid 2px;
     }
 
     .gb-card-cover {
@@ -309,7 +297,7 @@ $color-6: #077568;
       overflow: hidden;
       img {
        height: 100%;
-       min-width: 80px;
+       min-width: 60px;
       }
      }
     }
@@ -358,7 +346,7 @@ $color-6: #077568;
      height: 50px;
      min-width: 40px;
      width: 40px;
-     margin: 8px;
+     margin: 3px;
      .gb-card-cover {
       height: 100%;
       overflow: hidden;
@@ -582,7 +570,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: $primary-color;
+  color: nth($apps-colors, 1);
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -605,7 +593,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: $primary-color;
+  color: nth($apps-colors, 1);
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -637,7 +625,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken($primary-color, 15%), 0.6);
+    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -1062,7 +1050,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba($primary-color, 0.8);
+    color: rgba(nth($apps-colors, 1), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1119,7 +1107,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba($primary-color, 0.8);
+    color: rgba(nth($apps-colors, 1), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1179,7 +1167,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba($primary-color, 0.8) solid 3px;
+  //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
   // background-color: rgba(#FFF, 0.9);
   // color: #555;
   .gb-action {
@@ -1207,7 +1195,7 @@ $color-6: #077568;
   position: relative;
   height: 550px;
   text-align: center;
-  background-color: $primary-color;
+  background-color: nth($apps-colors, 1);
   overflow: hidden;
   .intro-text {
    @include position(absolute, 50% null null 50%);
@@ -1225,7 +1213,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken($primary-color, 15%), 0.6);
+    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -1461,7 +1449,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: $primary-color;
+  color: nth($apps-colors, 1);
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1484,7 +1472,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: $primary-color;
+  color: nth($apps-colors, 1);
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1514,7 +1502,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken($primary-color, 15%), 0.6);
+    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;

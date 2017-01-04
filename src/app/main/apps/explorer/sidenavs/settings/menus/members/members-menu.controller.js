@@ -7,12 +7,12 @@
         .controller('MembersMenuController', MembersMenuController);
 
     /** @ngInject */
-    function MembersMenuController($document, $mdDialog, BoardService)
+    function MembersMenuController($document, $mdDialog, ExplorerComponentService)
     {
         var vm = this;
 
         // Data
-        vm.board = BoardService.data;
+        vm.board = ExplorerComponentService.data;
         vm.newMemberSearchInput = '';
 
         // Methods

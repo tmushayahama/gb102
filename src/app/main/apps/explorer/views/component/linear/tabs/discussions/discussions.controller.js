@@ -7,7 +7,7 @@
          .controller('ComponentLinearDiscussionsController', ComponentLinearDiscussionsController);
 
  /** @ngInject */
- function ComponentLinearDiscussionsController(BoardService, $rootScope)
+ function ComponentLinearDiscussionsController(ExplorerComponentService, $rootScope)
  {
   var vm = this;
   //////////

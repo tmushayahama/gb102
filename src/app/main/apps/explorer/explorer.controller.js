@@ -7,13 +7,13 @@
          .controller('ExplorerController', ExplorerController);
 
  /** @ngInject */
- function ExplorerController($stateParams, $mdSidenav, BoardService, CardFilters)
+ function ExplorerController($stateParams, $mdSidenav, ExplorerComponentService, CardFilters)
  {
   var vm = this;
 
   // Data
   vm.currentView = 'board';
-  vm.board = BoardService.data;
+  vm.board = ExplorerComponentService.data;
   //vm.boardList = BoardList.data;
   vm.boardSelectorVisible = false;
   ////////
@@ -71,7 +71,7 @@
   };
 
   function init() {
-   BoardService.getBoard($stateParams.id, 3).then(function (data) {
+   ExplorerComponentService.getComponent($stateParams.id, 3).then(function (data) {
     vm.board = data;
    });
   }

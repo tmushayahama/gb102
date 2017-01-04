@@ -7,12 +7,12 @@
          .controller('ComponentLinearCalendarController', ComponentLinearCalendarController);
 
  /** @ngInject */
- function ComponentLinearCalendarController(BoardService, DialogService, $document, $mdDialog, $mdSidenav, $scope, $rootScope)
+ function ComponentLinearCalendarController(ExplorerComponentService, DialogService, $document, $mdDialog, $mdSidenav, $scope, $rootScope)
  {
   var vm = this;
 
   // Data
-  vm.board = BoardService.data;
+  vm.board = ExplorerComponentService.data;
   vm.eventSources = [];
 
   vm.calendarUiConfig = {

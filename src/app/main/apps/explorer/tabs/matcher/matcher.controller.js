@@ -7,7 +7,7 @@
          .controller('BoardsMatcherTabController', BoardsMatcherTabController);
 
  /** @ngInject */
- function BoardsMatcherTabController(level_categories, BoardService, $scope, $rootScope)
+ function BoardsMatcherTabController(level_categories, ExplorerComponentService, $scope, $rootScope)
  {
   var vm = this;
 
@@ -33,7 +33,7 @@
    * @returns
    */
   function getMatcher() {
-   BoardService.getRandomBoardByType(level_categories.component.question).then(function (response) {
+   ExplorerComponentService.getRandomBoardByType(level_categories.component.question).then(function (response) {
     vm.component = response;
     addComponentPlaceholderImage(vm.component);
    });
@@ -46,7 +46,7 @@
    */
   function getMatchers(creatorId) {
    if (creatorId) {
-    BoardService.getComponentBookmarks(creatorId).then(function (response) {
+    ExplorerComponentService.getComponentBookmarks(creatorId).then(function (response) {
      vm.matchers = response;
      angular.forEach(vm.matchers, function (matcher) {
       addComponentPlaceholderImage(matcher.component);
@@ -67,7 +67,7 @@
     levelId: levelId
             // description: ""
    };
-   BoardService.createComponentBookmark(data).then(function (response) {
+   ExplorerComponentService.createComponentBookmark(data).then(function (response) {
     getMatcher();
    });
   }

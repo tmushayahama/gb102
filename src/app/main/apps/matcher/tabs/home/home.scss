@@ -20,7 +20,7 @@
   padding: 10px 0 0 0;
   overflow: hidden;
   text-align: center;
-  background-color: rgba($primary-color, 0.8);
+  background-color: rgba(nth($apps-colors, 1), 0.8);
   color: #EEE;
   z-index: 1;
   .gb-icon {
@@ -126,7 +126,7 @@
   list-style: none;
   background: #FFF;
   border-radius: 5px;
-  border: 7px solid rgba($primary-color, 0.5);
+  border: 7px solid rgba(nth($apps-colors, 1), 0.5);
   box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);
   box-sizing: border-box;
   cursor: default;
@@ -173,20 +173,20 @@
     float: none;
     font-size: 30px;
     .fa-outer {
-     color: rgba($primary-color, 0.2);
+     color: rgba(nth($apps-colors, 1), 0.2);
     }
     .fa-inner{
      top: 35px;
      left: 20px;
      font-size: 30px;
-     color: darken($primary-color, 0%);
+     color: darken(nth($apps-colors, 1), 0%);
     }
     &:hover {
      .fa-outer {
-      color: rgba($primary-color, 0.7);
+      color: rgba(nth($apps-colors, 1), 0.7);
      }
      .fa-inner{
-      color: darken($primary-color, 10%);
+      color: darken(nth($apps-colors, 1), 10%);
      }
     }
    }

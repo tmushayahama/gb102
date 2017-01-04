@@ -7,7 +7,7 @@
          .controller('ExplorerAddComponentDialogController', ExplorerAddComponentDialogController);
 
  /** @ngInject */
- function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, BoardService, componentId, startTabIndex, preselectedData)
+ function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ExplorerComponentService, componentId, startTabIndex, preselectedData)
  {
   var vm = this;
 
@@ -171,7 +171,7 @@
    vm.componentContribution.componentId = componentId;
    vm.componentContribution.description = "";
 
-   BoardService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
+   ExplorerComponentService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
     vm.contributionSuggestions = response;
    });
 
@@ -197,7 +197,7 @@
    vm.component.parentComponentId = componentId;
    vm.component.typeId = vm.selectedApp.id;
    vm.component.privacyId = vm.selectedPrivacy.id;
-   BoardService.createComponent(vm.component).then(function (data) {
+   ExplorerComponentService.createComponent(vm.component).then(function (data) {
     vm.closeDialog();
     $state.go('app.componentLinearView.home', {id: data.id});
    });
@@ -229,7 +229,7 @@
      return selectedContributor.id;
     })
    };
-   BoardService.createComponentContributions(data).then(function (response) {
+   ExplorerComponentService.createComponentContributions(data).then(function (response) {
     vm.closeDialog();
     //$state.go('app.componentLinearView.home', {id: data.id});
    });
