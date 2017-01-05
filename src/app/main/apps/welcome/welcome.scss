@@ -211,48 +211,16 @@ $color-6: #077568;
   // background-size: 100%!important;
   position: relative;
   //margin-bottom: 30px;
-  height: 600px;
+  height: 550px;
   text-align: center;
   background-color: #FFF;
   overflow: hidden;
 
-  .gb-intro-carousel {
-   @include position(absolute, null null -400px 50%);
-   -ms-transform: translate(-50%);
-   -webkit-transform: translate(-50%);
-   transform: translate(-50%);
-   width: 60%;
-   z-index: 2;
-   background-color: transparent;
-   img {
-    width: 100%;
-   }
-  }
-  .intro-text {
-   padding-top: 50px;
-   z-index: 3;
-   .btn-toolbar {
-    margin-top: 30px;
-    display: inline-block;
-    border: #888 solid 1px;
-    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
-    padding: 10px;
-    .btn {
-     border-radius: 0;
-     text-decoration: none;
-     width: 150px;
-    }
-    .btn.gb-beta-btn {
-     background-color: #79AA72;
-     color: #FFF;
-    }
-    .gb-or {
-     padding: 7px 6px 0 10px;
-     font-weight: 600;
-     float: left;
-     color: #BBB;
-    }
-   }
+  .gb-intro-message {
+   @include position(absolute, 50px null 0 0);
+   width: 100%;
+   height: 200px;
+   z-index: 1;
    .intro-lead-in {
     color: #777;
     margin-bottom: 15px;
@@ -269,39 +237,16 @@ $color-6: #077568;
    }
   }
 
-  .gb-intro-sample {
+  .gb-intro-img {
    @include position(absolute, null 0 0 0);
+   background: url(../../../src/assets/images/landing-page/background-3.jpg);
+   -webkit-background-size: auto 100%!important;
+   -moz-background-size: auto 100%!important;
+   -o-background-size: auto 100%!important;
+   background-size: auto 100%!important;
    width: 100%;
-   height: 360px;
-   .gb-image-card{
-    height: 100px;
-    min-width: 60px;
-    width: 60px;
-    padding: 0;
-    margin: 4px;
-    background-color: #FAFAFA;
-    color: #555;
-    cursor: pointer;
-
-    &:hover {
-     box-shadow: $whiteframe-shadow-2dp;
-     outline: rbgb(#00E676, 0.4) solid 2px;
-    }
-
-    .gb-card-cover {
-     height: 100%;
-     overflow: hidden;
-     .gb-cover-image {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      img {
-       height: 100%;
-       min-width: 60px;
-      }
-     }
-    }
-   }
+   height: 400px;
+   z-index: 0;
   }
 
   .gb-heading-row {
@@ -325,7 +270,7 @@ $color-6: #077568;
     bottom: -200px;
     width: 80%;
    }
-   .intro-text {
+   .gb-intro-message {
     padding-top: 20px;
     // padding-bottom: 200px;
     .intro-lead-in {
@@ -340,7 +285,7 @@ $color-6: #077568;
      line-height: 30px;
     }
    }
-   .gb-intro-sample {
+   .gb-intro-img {
     height: 300px;
     .gb-image-card{
      height: 50px;
@@ -369,7 +314,7 @@ $color-6: #077568;
     bottom: -80px;
     width: 80%;
    }
-   .intro-text {
+   .gb-intro-message {
     .btn-toolbar {
      .btn {
       font-size: 12px;
@@ -1197,7 +1142,7 @@ $color-6: #077568;
   text-align: center;
   background-color: nth($apps-colors, 1);
   overflow: hidden;
-  .intro-text {
+  .gb-intro-message {
    @include position(absolute, 50% null null 50%);
    -ms-transform: translate(-50%,-50%);
    -webkit-transform: translate(-50%,-50%);
@@ -1254,7 +1199,7 @@ $color-6: #077568;
 
   }
   @include respond-to (gb-sm) {
-   .intro-text {
+   .gb-intro-message {
     // padding-top: 300px;
     // padding-bottom: 200px;
    }
@@ -1263,7 +1208,7 @@ $color-6: #077568;
   @include respond-to (gb-xs) {
    // padding-top: 300px;
    // padding-bottom: 200px;
-   .intro-text {
+   .gb-intro-message {
     .btn-toolbar {
      .btn {
       font-size: 12px;

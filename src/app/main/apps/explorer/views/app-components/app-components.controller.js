@@ -11,32 +11,20 @@
  {
   var vm = this;
 
-  init();
-  var vm = this;
-
   // Data
-  vm.components = [];
+  vm.app = {};
   vm.appName = $stateParams.app_name;
 
   init();
 
   // Methods
   function init() {
-   ExplorerComponentService.getComponentsByType(vm.appName).then(function (data) {
-    vm.components = data;
-    angular.forEach(vm.components.apps, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
-      }
-     });
-    });
-    angular.forEach(vm.components.activities, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
-      }
-     });
+   ExplorerComponentService.getComponentApp(vm.appName).then(function (data) {
+    vm.app = data;
+    angular.forEach(vm.app.components, function (component) {
+     if (component.component_picture_url || component.component_picture_url === 'default.png') {
+      component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
+     }
     });
    });
   }

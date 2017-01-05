@@ -60,6 +60,22 @@ class ComponentController extends Controller {
  }
 
  /**
+  * Get the component app and its subcomponents
+  *
+  * @param type $type name of the component app
+  *
+  * @return json response of a component
+  */
+ public function getComponentApp($type) {
+  $typeId = Level::$level_categories[$type];
+  if ($typeId) {
+   $component = Component::getComponentApp($typeId);
+   return \Response::json($component);
+  }
+  return '';
+ }
+
+ /**
   * Get a random component. Used for Swipe and Matcher
   * @return json response of a component
   */
@@ -89,8 +105,8 @@ class ComponentController extends Controller {
  public function getComponentsByType($listFormat, $type) {
   $typeId = Level::$level_categories[$type];
   if ($typeId) {
-   $components = Component::getComponentsByType($typeId, $listFormat);
-   return \Response::json($components);
+   $component = Component::getComponentsByType($typeId, $listFormat);
+   return \Response::json($component);
   }
   return '';
  }

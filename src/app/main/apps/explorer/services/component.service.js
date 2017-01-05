@@ -24,6 +24,7 @@
    getComponents: getComponents,
    getComponentsByType: getComponentsByType,
    getComponent: getComponent,
+   getComponentApp: getComponentApp,
    getRandomComponent: getRandomComponent,
    getRandomComponentByType: getRandomComponentByType,
    getCard: getCard,
@@ -103,6 +104,31 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.component@get', {id: componentId, listFormat: listFormat},
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get component app and its subcomponents
+   *
+   * @param appName
+   * @returns promise of the deferred response
+   */
+  function getComponentApp(appName)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.componentApp@get', {appName: appName},
            function (response)
            {
             deferred.resolve(response);

@@ -60,6 +60,8 @@ Route::group(['prefix' => 'api'], function() {
  //Component
  Route::get('components/listformat/{listFormat}', 'Component\ComponentController@getAllComponents');
  Route::get('components/listformat/{listFormat}/type/{type}', 'Component\ComponentController@getComponentsByType');
+ Route::get('components/app/{type}', 'Component\ComponentController@getComponentApp');
+
  Route::get('components/user/{userId}', 'Component\ComponentController@getUserComponents');
  Route::get('components/{componentId}/listformat/{listFormat}', 'Component\ComponentController@getComponent');
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');

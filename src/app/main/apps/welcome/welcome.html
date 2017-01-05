@@ -1,53 +1,36 @@
 <div id="gb-welcome">
  <header id="gb-intro-section" class="">
-  <div class="intro-text row">
+  <div class="gb-intro-message">
    <h1 class="intro-heading">
-    Skills with profiles
+    Do more with your skills
    </h1>
    <h2 class="intro-lead-in">
-    Apply and track skills
+    Applications like mentorship, advice, goal setting... all in one app
    </h2>
   </div>
-  <div class="gb-intro-sample" layout="row" layout-align="start" layout-nowrap>
-   <div ng-repeat="(col, rows) in vm.displayComponents"
-        layout="column" layout-align="end" layout-nowrap>
-    <div class="gb-image-card" ng-repeat="component in rows"
-         ui-sref="app.componentLinearView.home({id:component.id})"
-         layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-cover">
-      <div class="gb-cover-image">
-       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <div ng-if="false" class="gb-intro-carousel" uib-carousel active="vm.active" interval="vm.myInterval"
-       template-url="public/modules/common/views/templates/gb-carousel.tpl.html">
-   <div uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
-    <img ng-src="{{slide.image}}" style="margin:auto;">
-   </div>
+  <div class="gb-intro-img">
+
   </div>
  </header>
- <div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
-  <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
-   <div class="gb-card-row-2" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="" flex>
+   <div class="" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
       Apply your skills
      </h2>
      <p class="gb-description">
-      Check out how others are applying their skill
+      Check out these apps and what others are doing with their skills
      </p>
     </div>
    </div>
   </div>
  </div>
- <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-2" layout="column" layout-align="start center" flex>
   <div class="gb-container" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="33">
+    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-sm" layout="column" 	flex-xs="50" flex="33">
      <ms-widget-front layout="row" layout-fill flex>
       <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
                  layout="row" layout-align="start stretch" flex>
@@ -68,38 +51,50 @@
    </div>
   </div>
  </div>
- <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
-  <div class="gb-container" layout="column" layout-align="start center" flex>
-   <img src="src/assets/images/landing-page/screenshot-1.png" alt="screenshot">
-  </div>
- </div>
-
  <div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
-  <div class="gb-container md-whiteframe-2dp" layout="column" layout-align="" flex>
-   <div class="gb-card-row-2" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="" flex>
+   <div class="" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
-      Check some activities in skills
+      Skill Profile Pages
      </h2>
      <p class="gb-description">
-      <strong>Find inspiration. Cheer someone</strong><br>
-      Browse through the skill bank and see what others are doing with their skills
+      Track and manage skills.
      </p>
     </div>
    </div>
   </div>
-
+  <div class="gb-container" layout="column" layout-align="start center" flex>
+   <img src="src/assets/images/landing-page/screenshot-1.png" alt="screenshot">
+  </div>
+ </div>
+ <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="" flex>
+   <div class="" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Explore and discover
+     </h2>
+     <p class="gb-description">
+      <strong>Find inspiration. Cheer someone</strong><br>
+      Browse through the skill bank
+     </p>
+    </div>
+   </div>
+  </div>
   <div class="gb-container" layout="column" layout-align="start center">
    <div ng-repeat="recommendation in vm.components.recommendations"
-        class="gb-cards-row"
+        class="gb-card-row mb-15"
         layout="column">
-    <div class="gb-heading-row-1" flex>
-     <div class="gb-title">
-      <p class="gb-ellipsis">
-       {{::recommendation.title}}
-      </p>
+    <md-toolbar class="gb-heading">
+     <div class="md-toolbar-tools">
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{::recommendation.title}}
+       </span>
+      </div>
      </div>
-    </div>
+    </md-toolbar>
     <div class="gb-horizontal-scroll gb-apps-scroll" layout="row">
      <md-button class="gb-left-scroll"
                 ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
@@ -344,7 +339,7 @@
      Discover what a new kind of skill exploration and application can do for you.
     </p>
    </div>
-   <div class="row">
+   <div class="row" ng-if="false">
     <div class="gb-btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="btn-toolbar row">
       <button type="button" ng-click="appCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">

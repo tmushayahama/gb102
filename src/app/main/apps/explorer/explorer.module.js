@@ -101,7 +101,7 @@
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/explorer/views/app-components/app-components.html',
-             controller: 'AppExplorerComponentsController as componentsCtrl'
+             controller: 'AppExplorerComponentsController as componentAppCtrl'
             }
            }
           })
@@ -291,6 +291,10 @@
     componentId: "@componentId",
    }]);
   msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
+  msApiProvider.register('explorer.componentApp', ['api/components/app/:appName',
+   {
+    appName: '@appName'
+   }]);
   msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
    {
     appName: '@appName'

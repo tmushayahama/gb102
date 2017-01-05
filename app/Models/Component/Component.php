@@ -302,6 +302,19 @@ class Component extends Model {
  }
 
  /**
+  * Get the component app and its subcomponents
+  *
+  * @param type $typeId id of the component app
+  *
+  * @return json response of a component
+  */
+ public static function getComponentApp($typeId) {
+  $component = array();
+  $component["components"] = Component::getComponentsByType($typeId);
+  return $component;
+ }
+
+ /**
   * Get a random component by type. Used for Swipe and Matcher
   *
   * @param type $typeId a componentn type
