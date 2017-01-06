@@ -193,7 +193,7 @@ LINEAR VIEW HOME
         ADD ACTIVITIES
        </div>
        <div class="gb-description">
-        Any actions like notes, exercises, steps, guidelines, questions
+        Any actions like components, exercises, steps, guidelines, questions
        </div>
       </div>
      </md-button>
@@ -322,7 +322,7 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-<div class="gb-container gb-editible-note-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
      ng-repeat="section in componentLinearCtrl.component.motives"
      ng-if="section.components.length > 0">
  <md-toolbar class="gb-heading" flex>
@@ -348,12 +348,12 @@ LINEAR VIEW HOME
   </div>
   <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
    <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-note-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
    </md-input-container>
   </form>
  </div>
 </div>
-<div class="gb-container gb-editible-note-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
      ng-repeat="section in componentLinearCtrl.component.components"
      ng-if="section.components.length > 0">
  <md-toolbar class="gb-heading" flex>
@@ -380,12 +380,12 @@ LINEAR VIEW HOME
   </div>
   <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
    <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-note-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
    </md-input-container>
   </form>
  </div>
 </div>
-<div class="gb-container gb-editible-note-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
      ng-repeat="section in componentLinearCtrl.component.activities"
      ng-if="section.components.length > 0">
  <md-toolbar class="gb-heading" flex>
@@ -412,7 +412,7 @@ LINEAR VIEW HOME
   </div>
   <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
    <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-note-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
    </md-input-container>
   </form>
  </div>

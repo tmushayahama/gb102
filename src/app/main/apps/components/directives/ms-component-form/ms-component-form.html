@@ -1,0 +1,185 @@
+<!-- NOTE FORM -->
+<form ng-submit="MsComponentForm.submit()">
+ <div ng-if="MsComponentForm.component.image" class="image-wrapper">
+  <img class="md-card-image" ng-src="src/assets/images/explorer{{MsComponentForm.component.component_picture_url}}">
+  <md-button class="md-fab md-mini delete-image-button" ng-click="MsComponentForm.deleteImage()"
+             aria-label="delete image" translate translate-attr-aria-label="NOTES.DELETE_IMAGE">
+   <md-icon md-font-icon="icon-delete"></md-icon>
+  </md-button>
+ </div>
+ <div class="gb-title">
+  <md-input-container class="md-block" md-no-float>
+   <textarea ng-model="MsComponentForm.component.title" placeholder="Title" columns="1" md-maxlength="150" max-rows="15"></textarea>
+  </md-input-container>
+ </div>
+ <div class="gb-description">
+  <md-input-container class="md-block" md-no-float>
+   <textarea ng-model="MsComponentForm.component.description" placeholder="Description" columns="1" md-maxlength="150" max-rows="15"></textarea>
+  </md-input-container>
+ </div>
+ <md-list class="checklist" ng-if="MsComponentForm.component.checklist.length > 0">
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="item in MsComponentForm.component.checklist">
+   <md-checkbox ng-model="item.checked" aria-label="toggle check"></md-checkbox>
+   <p ng-class="{'text-strike md-secondary-text':item.checked}">{{item.text}}</p>
+   <md-icon ng-click="$event.preventDefault();$event.stopPropagation();MsComponentForm.deleteCheckItem(item)"
+            class="md-secondary"
+            md-font-icon="icon-close-circle" aria-label="remove">
+   </md-icon>
+   <md-divider></md-divider>
+  </md-list-item>
+ </md-list>
+ <div class="checklist-form" ng-if="MsComponentForm.component.checklist.length > 0 || MsComponentForm.checkListForm" layout="row"
+      layout-align="space-between end">
+  <md-input-container class="" md-no-float flex>
+   <input id="new-checklist-item-input" type="text" placeholder="List item"
+          ng-model="MsComponentForm.newCheckListItem"
+          ng-keydown="$event.keyCode === 13 ? $event.preventDefault() + MsComponentForm.addChecklistItem() : '';">
+  </md-input-container>
+  <md-button class="md-icon-button" ng-click="MsComponentForm.addChecklistItem()" aria-label="add">
+   <md-icon md-font-icon="icon-plus"></md-icon>
+  </md-button>
+ </div>
+ <!-- / NOTE CHECKLIST FORM-->
+
+ <!-- NOTE LABELS -->
+ <div class="labels" ng-if="MsComponentForm.component.labels.length > 0" layout="row" layout-wrap layout-align="end start">
+  <div class="label" ng-repeat="labelId in MsComponentForm.component.labels"
+       ng-class="MsComponentForm.labels.getById(labelId).color">
+   {{MsComponentForm.labels.getById(labelId).name}}
+  </div>
+ </div>
+ <!-- NOTE LABELS -->
+
+ <!-- NOTE EDIT DATE -->
+ <div ng-if="MsComponentForm.type === 'edit'" class="date text-right p-16">{{MsComponentForm.component.time| altDate}}</div>
+ <!-- / NOTE EDIT DATE -->
+
+ <div class="footer" layout-gt-xs="row" layout-align-gt-xs="space-between center" layout="column" layout-align="center center">
+
+  <!-- FORM INPUT ACTIONS -->
+  <div class="actions" layout="row" layout-align="center center">
+
+   <!-- IMAGE UPLOADER -->
+   <div id="image-uploader"
+        flow-init="MsComponentForm.ngFlowOptions"
+        flow-name="MsComponentForm.ngFlow.flow"
+        flow-files-submitted="MsComponentForm.upload()"
+        flow-file-success="MsComponentForm.imageSuccess($file, $message)"
+        flow-complete="MsComponentForm.uploadComplete()"
+        flow-file-added="!!{svg:1,png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+    <md-button flow-btn class="add-img-button md-icon-button"
+               aria-label="Add image" translate
+               translate-attr-aria-label="NOTES.ADD_IMAGE">
+     <md-icon md-font-icon="icon-file-image-box" class="s20"></md-icon>
+    </md-button>
+   </div>
+   <!-- / IMAGE UPLOADER -->
+
+   <!-- CHECKLIST TOGGLER -->
+   <md-button class="md-icon-button" aria-label="checklist" ng-click="MsComponentForm.checklistFormToggle()">
+    <md-icon md-font-icon="icon-checkbox-multiple-marked" class="s20"></md-icon>
+   </md-button>
+   <!-- / CHECKLIST TOGGLER -->
+
+   <!-- LABEL SELECTOR -->
+   <md-menu class="label-menu">
+
+    <md-button class="md-icon-button" aria-label="Label" translate translate-attr-aria-label="NOTES.LABEL"
+               ng-click="$mdOpenMenu($event)">
+     <md-icon md-menu-origin md-font-icon="icon-label" class="s20"></md-icon>
+    </md-button>
+
+    <md-menu-content class="components-labels-menu-content" width="4" ms-scroll>
+
+     <md-menu-item>
+      <md-input-container class="no-errors-spacer" md-no-float>
+       <input placeholder="Search labels..." type="text"
+              ng-model="MsComponentForm.labelSearchText" autocomplete="off"
+              translate-attr-palceholder="NOTES.SEARCH_LABELS">
+      </md-input-container>
+     </md-menu-item>
+
+     <md-menu-item class="label"
+                   ng-repeat="label in MsComponentForm.labels| filter: MsComponentForm.labelSearchText">
+
+      <md-button class="label-toggle-button" md-prevent-menu-close
+                 ng-class="label.color"
+                 ng-click="MsComponentForm.toggleInArray(label.id, MsComponentForm.component.labels)"
+                 aria-label="Toggle Label" translate
+                 translate-attr-aria-label="NOTES.TOGGLE_LABEL">
+
+       <div layout="row" layout-align="space-between center" flex>
+        <span> {{label.name}}</span>
+        <i ng-if="MsComponentForm.exists(label.id, MsComponentForm.component.labels)"
+           class="icon-check s16"></i>
+       </div>
+
+      </md-button>
+
+     </md-menu-item>
+
+    </md-menu-content>
+   </md-menu>
+   <!-- / LABEL SELECTOR -->
+
+   <!-- SEND TO ARCHIVE BUTTON -->
+   <md-button class="md-icon-button" ng-click="MsComponentForm.toggleArchive()" aria-label="archive">
+    <md-icon md-font-icon="icon-archive" class="s20"></md-icon>
+   </md-button>
+   <!-- / SEND TO ARCHIVE BUTTON -->
+
+   <!-- COLOR PICKER -->
+   <ms-material-color-picker ng-model="MsComponentForm.component.color">
+    <md-button class="md-icon-button" aria-label="color">
+     <md-icon md-font-icon="icon-palette" class="s20"></md-icon>
+    </md-button>
+   </ms-material-color-picker>
+   <!-- / COLOR PICKER -->
+
+   <!-- REMINDER -->
+   <md-datepicker class="reminder" ng-model="MsComponentForm.component.reminder" md-placeholder="Add reminder"
+                  ms-datepicker-fix>
+   </md-datepicker>
+   <!-- / REMINDER -->
+
+  </div>
+  <!-- / FORM INPUT ACTIONS -->
+
+  <div layout="row" layout-align="end center">
+
+   <!-- DELETE NOTE -->
+   <md-button ng-if="MsComponentForm.type === 'edit'" ng-click="MsComponentForm.deleteComponent()" class="md-icon-button"
+              aria-label="delete component">
+    <md-icon md-font-icon="icon-delete"></md-icon>
+   </md-button>
+   <!-- / DELETE NOTE -->
+
+   <md-menu class="">
+    <md-button class="md-raised" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
+     {{vm.selectedPrivacy.title}}
+    </md-button>
+    <md-menu-content class="subscribe-menu-content" width="4">
+     <md-menu-item>
+      <md-button ng-click="vm.selectPrivacy(vm.privacy.private, 'Public')" aria-label="Public"
+                 translate="explorer.public_text" translate-attr-aria-label="explorer.public_text">
+       Public
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="vm.selectPrivacy(vm.privacy.private, 'Private')" aria-label="Private"
+                 translate="explorer.private_text" translate-attr-aria-label="explorer.private_text">
+       Private
+      </md-button>
+     </md-menu-item>
+    </md-menu-content>
+   </md-menu>
+   <md-button ng-if="MsComponentForm.type === 'edit'" type="submit" translate="NOTES.SAVE"
+              ng-disabled="MsComponentForm.isNotValid()">Save
+   </md-button>
+   <md-button ng-if="MsComponentForm.type === 'new'" type="submit" translate="NOTES.ADD"
+              ng-disabled="MsComponentForm.isNotValid()">Add
+   </md-button>
+  </div>
+ </div>
+</form>

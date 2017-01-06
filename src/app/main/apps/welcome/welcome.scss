@@ -231,7 +231,7 @@ $color-6: #077568;
    .intro-heading {
     color: #333;
     margin-bottom: 0px;
-    font-size: 45px;
+    font-size: 60px;
     font-weight: bold;
     line-height: 30px;
    }
@@ -266,10 +266,6 @@ $color-6: #077568;
   }
   @include respond-to (gb-sm) {
    height: 400px;
-   .gb-intro-carousel {
-    bottom: -200px;
-    width: 80%;
-   }
    .gb-intro-message {
     padding-top: 20px;
     // padding-bottom: 200px;
@@ -279,8 +275,8 @@ $color-6: #077568;
      line-height: 20px;
     }
     .intro-heading {
-     margin-bottom: 10px;
-     font-size: 30px;
+     margin-bottom: 5px;
+     font-size: 40px;
      font-weight: 700;
      line-height: 30px;
     }
@@ -309,31 +305,39 @@ $color-6: #077568;
   @include respond-to (gb-xs) {
    // padding-top: 300px;
    //padding-bottom: 200px;
-   height: 250px;
-   .gb-intro-carousel {
-    bottom: -80px;
-    width: 80%;
-   }
+   height: 270px;
    .gb-intro-message {
-    .btn-toolbar {
-     .btn {
-      font-size: 12px;
-      width: 110px;
-     }
-     .gb-or {
-      padding: 5px 5px 0 5px;
-     }
-    }
+    top: 20px;
+    padding: 0px 20px 0 20px;
     .intro-lead-in {
-     margin-bottom: 15px;
-     font-size: 15px;
-     line-height: 20px;
+     margin-bottom: 5px;
+     font-size: 12px;
+     line-height: 15px;
     }
     .intro-heading {
-     margin-bottom: 10px;
-     font-size: 20px;
+     margin-bottom: 5px;
+     font-size: 24px;
      font-weight: 700;
-     line-height: 30px;
+     line-height: 20px;
+    }
+   }
+   .gb-intro-img {
+    height: 200px;
+    .gb-image-card{
+     height: 50px;
+     min-width: 40px;
+     width: 40px;
+     margin: 3px;
+     .gb-card-cover {
+      height: 100%;
+      overflow: hidden;
+      .gb-cover-image {
+       img {
+        height: 100%;
+        min-width: 40px;
+       }
+      }
+     }
     }
    }
   }

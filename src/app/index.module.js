@@ -28,19 +28,15 @@
           // Apps
           'app.welcome',
           'app.calendar',
-          'app.e-commerce',
-          'app.mail',
           'app.chat',
-          'app.file-manager',
           'app.gantt-chart',
           'app.todo',
-          'app.contacts',
-          'app.notes',
-          // Pages
-          'app.pages',
-          // User Interface
-          'app.ui',
-          // Components
-          'app.components'
+          'app.components',
+                  // Pages
+                  //'app.pages',
+                  // User Interface
+                  //'app.ui',
+                  // Components
+                  //'app.components'
          ]);
 })();

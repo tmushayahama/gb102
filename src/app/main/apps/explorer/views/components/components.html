@@ -11,11 +11,11 @@
  </div>
  <div class="actions" layout="row" layout-align="end center">
   <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
-             ng-click="vm.openAddComponentDialog($event)"
+             ng-click="componentsCtrl.openAddComponentDialog($event, null, componentsCtrl.tabs.apps)"
              translate-attr-aria-label="explorer.add">Add
   </md-button>
   <md-button class="md-raised md-primary" translate="explorer.send_request_text"
-             ng-click="vm.sendComponentRequest()"
+             ng-click="componentsCtrl.sendComponentRequest()"
              translate-attr-aria-label="explorer.send_request_text">Send Request
   </md-button>
  </div>

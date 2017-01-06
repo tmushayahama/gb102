@@ -110,13 +110,13 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 10003	10000	customize					md-blue-400-bg
 11000	\N	Component Type	component_type				md-blue-400-bg
 11001	11000	note				icon-gb-note	md-blue-400-bg
-11002	11000	step				icon-gb-step	md-blue-400-bg
-11003	11000	checklist				icon-gb-checklist	md-blue-400-bg
-11004	11000	todo				icon-gb-todo	md-blue-400-bg
-11005	11000	activity				icon-gb-activity	md-blue-400-bg
-11006	11000	guideline				icon-gb-guideline	md-blue-400-bg
-11007	11000	weblink				icon-gb-weblink	md-blue-400-bg
-11100	11000	question				icon-gb-question	md-blue-400-bg
+11002	11000	step				icon-gb-step	md-yellow-400-bg
+11003	11000	checklist				icon-gb-checklist	md-cyan-400-bg
+11004	11000	todo				icon-gb-todo	md-purple-400-bg
+11005	11000	activity				icon-gb-activity	md-green-400-bg
+11006	11000	guideline				icon-gb-guideline	md-teal-400-bg
+11007	11000	weblink				icon-gb-weblink	md-deep-purple-400-bg
+11100	11000	question				icon-gb-question	md-indigo-400-bg
 12000	\N	Recommended					md-blue-400-bg
 12002	12000	Discover: For the curious					
 12003	12000	For your personal development					
@@ -129,16 +129,16 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 13000	\N	Recommended Setup					md-blue-400-bg
 13001	13000	welcome page		Normal Bucket			md-blue-400-bg
 14000	\N	Component Motive					md-blue-400-bg
-14001	14000	My motivations					md-blue-400-bg
-14002	14000	My goals					md-blue-400-bg
-14003	14000	My background knowledge					md-blue-400-bg
-14004	14000	Materials and Resources					md-blue-400-bg
-14005	14000	Learning Strategies					md-blue-400-bg
-14006	14000	My plans and timeline					md-blue-400-bg
-14007	14000	Applications					md-blue-400-bg
-14008	14000	Acknowledge your strengths					md-blue-400-bg
-14009	14000	Identify your weaknesses					md-blue-400-bg
-14010	14000	Any obstacles					md-blue-400-bg
+14001	14000	My motivations					md-deep-purple-400-bg
+14002	14000	My goals					md-light-blue-400-bg
+14003	14000	My background knowledge					md-cyan-400-bg
+14004	14000	Materials and Resources					md-indigo-400-bg
+14005	14000	Learning Strategies					md-light-green-400-bg
+14006	14000	My plans and timeline					md-yellow-400-bg
+14007	14000	Applications					md-cyan-400-bg
+14008	14000	Acknowledge your strengths					md-purple-400-bg
+14009	14000	Identify your weaknesses					md-green-400-bg
+14010	14000	Any obstacles					md-teal-400-bg
 15000	\N	check Status					md-blue-400-bg
 15001	15000	not started					md-blue-400-bg
 15002	15000	in progress					md-blue-400-bg
@@ -148,7 +148,3 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 16001	16000	Favorite					md-blue-400-bg
 20000	\N						md-blue-400-bg
 100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	md-blue-400-bg
-							
-							
-							
-							

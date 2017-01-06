@@ -314,7 +314,7 @@ ADD COMPONENT DIALOG
        </div>
       </div>
       <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group gb-section-widget-group" ms-scroll
+       <div class="widget-group"
             layout="row" layout-align="start" layout-wrap flex>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
          <ms-widget-front layout="row" layout-fill flex>
@@ -419,35 +419,24 @@ ADD COMPONENT DIALOG
       </div>
       <div class="gb-dialog-body" ms-scroll>
        <div class="widget-group" layout="row" layout-wrap>
-        <ms-widget flippable="true" class="gb-apps-widget" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="33"
-                   ng-repeat="app in $root.commonData.apps"
-                   ng-click="vm.selectApp(app)">
-         <ms-widget-front class="md-whiteframe-1dp gb-app-type-{{::app.id}}" layout="row" flex>
-          <div layout="column" layout-align="center center" flex>
-           <div class="gb-title">
-            {{app.title}}
+        <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget"
+                   ng-click="vm.selectApp(app)" layout="column" flex="50">
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa {{app.icon}}"></i>
            </div>
-          </div>
-          <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-           <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+            <div class="gb-title">
+             {{app.title}}
+            </div>
+            <div class="gb-description">
+             {{app.long_description}}
+            </div>
+           </div>
           </md-button>
-          <div class="background-image-center" layout-align="center center"  flex>
-           <md-icon md-font-icon="fa {{::app.icon}}" class="gb-app-icon"></md-icon>
-          </div>
          </ms-widget-front>
-         <ms-widget-back class="grey-50-bg">
-          <div class="flip-to-front">
-           <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-            <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-           </md-button>
-          </div>
-          <div class="gb-title">
-           {{app.title}}
-          </div>
-          <div class="gb-description">
-           {{app.long_description}}
-          </div>
-         </ms-widget-back>
         </ms-widget>
        </div>
       </div>
@@ -479,36 +468,25 @@ ADD COMPONENT DIALOG
        </div>
       </div>
       <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group" layout="row" flex="100" layout-wrap>
-        <ms-widget flippable="true" class="gb-apps-widget" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="33"
-                   ng-repeat="app in $root.commonData.activities"
-                   ng-click="vm.selectApp(app)">
-         <ms-widget-front class="md-whiteframe-1dp gb-app-type-{{::app.id}}" layout="row" flex>
-          <div layout="column" layout-align="center center" flex>
-           <div class="gb-title">
-            {{app.title}}
+       <div class="widget-group" layout="row" layout-wrap>
+        <ms-widget ng-repeat="app in $root.commonData.activities" class="p-8 gb-section-widget"
+                   ng-click="vm.selectApp(app)" layout="column" flex="50">
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa {{app.icon}}"></i>
            </div>
-          </div>
-          <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-           <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+            <div class="gb-title">
+             {{app.title}}
+            </div>
+            <div class="gb-description">
+             {{app.long_description}}
+            </div>
+           </div>
           </md-button>
-          <div class="background-image-center" layout-align="center center"  flex>
-           <md-icon md-font-icon="fa {{::app.icon}}" class="gb-app-icon"></md-icon>
-          </div>
          </ms-widget-front>
-         <ms-widget-back class="grey-50-bg">
-          <div class="flip-to-front">
-           <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-            <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-           </md-button>
-          </div>
-          <div class="gb-title">
-           {{app.title}}
-          </div>
-          <div class="gb-description">
-           {{app.long_description}}
-          </div>
-         </ms-widget-back>
         </ms-widget>
        </div>
       </div>
@@ -541,35 +519,24 @@ ADD COMPONENT DIALOG
       </div>
       <div class="gb-dialog-body" ms-scroll>
        <div class="widget-group" layout="row" flex="100" layout-wrap>
-        <ms-widget flippable="true" class="gb-apps-widget" layout="column" flex="100" flex-gt-xs="50" flex-gt-md="33"
-                   ng-repeat="app in $root.commonData.motives"
-                   ng-click="vm.selectApp(app)">
-         <ms-widget-front class="md-whiteframe-1dp gb-app-type-{{::app.id}}" layout="row" flex>
-          <div layout="column" layout-align="center center" flex>
-           <div class="gb-title">
-            {{app.title}}
+        <ms-widget ng-repeat="app in $root.commonData.motives" class="p-8 gb-section-widget"
+                   ng-click="vm.selectApp(app)" layout="column" flex="100">
+         <ms-widget-front layout="row" layout-fill flex>
+          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
+                     layout="row" layout-align="start stretch" flex>
+           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+            <i class="fa {{app.icon}}"></i>
            </div>
-          </div>
-          <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-           <md-icon md-font-icon="fa fa-ellipsis-v" class="s32"></md-icon>
+           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+            <div class="gb-title">
+             {{app.title}}
+            </div>
+            <div class="gb-description">
+             {{app.long_description}}
+            </div>
+           </div>
           </md-button>
-          <div class="background-image-center" layout-align="center center"  flex>
-           <md-icon md-font-icon="fa {{::app.icon}}" class="gb-app-icon"></md-icon>
-          </div>
          </ms-widget-front>
-         <ms-widget-back class="grey-50-bg">
-          <div class="flip-to-front">
-           <md-button class="md-icon-button" ng-click="flipWidget()" aria-label="Flip widget">
-            <md-icon md-font-icon="icon-close" class="s32"></md-icon>
-           </md-button>
-          </div>
-          <div class="gb-title">
-           {{app.title}}
-          </div>
-          <div class="gb-description">
-           {{app.long_description}}
-          </div>
-         </ms-widget-back>
         </ms-widget>
        </div>
       </div>
@@ -601,7 +568,7 @@ ADD COMPONENT DIALOG
        </div>
       </div>
       <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group gb-section-widget-group" ms-scroll
+       <div class="widget-group"
             layout="row" layout-align="start" layout-wrap flex>
         <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
                    ng-repeat="contributionType in $root.commonData.contributionTypes">
@@ -679,7 +646,7 @@ ADD COMPONENT DIALOG
        </div>
        <div class="description">
         <md-input-container class="md-block">
-         <label>Personalize the invite with a note</label>
+         <label>Personalize the invite with a component</label>
          <textarea ng-model="vm.componentContribution.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
         </md-input-container>
        </div>
@@ -687,6 +654,7 @@ ADD COMPONENT DIALOG
      </div>
     </md-tab-body>
    </md-tab>
+
    <md-tab>
     <md-tab-body>
      <div class="gb-app-tab-content">

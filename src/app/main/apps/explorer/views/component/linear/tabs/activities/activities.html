@@ -1,12 +1,12 @@
 <!--
 LINEAR VIEW ACTIVITIES HOME
 -->
-<div id="notes" class="gb-container" layout="column" layout-align="start stretch" flex>
+<div id="components" class="gb-container" layout="column" layout-align="start stretch" flex>
  <md-sidenav class="sidenav main-sidenav md-white-bg" ms-scroll
              md-component-id="main-sidenav"
-             ms-sidenav-helper ng-include="'src/app/main/apps/notes/sidenavs/main/main-sidenav.html'">
+             ms-sidenav-helper ng-include="'src/app/main/apps/components/sidenavs/main/main-sidenav.html'">
  </md-sidenav>
- <md-toolbar class="gb-notes-toolbar" layout-align="center center">
+ <md-toolbar class="gb-components-toolbar" layout-align="center center">
   <div class="gb-container md-toolbar-tools" layout="row" layout-align="space-between center">
    <div layout="row">
     <md-button class="md-icon-button sidenav-toggle" ng-click="vm.toggleSidenav('main-sidenav')"
@@ -14,16 +14,16 @@ LINEAR VIEW ACTIVITIES HOME
      <md-icon md-font-icon="icon-menu" class="icon"></md-icon>
     </md-button>
     <div class="main-title" layout="row" layout-align="start center">
-     <span class="title" ng-if="vm.noteListType === 'notes'"
-           translate="NOTES.NOTES">Notes</span>
-     <span class="title" ng-if="vm.noteListType === 'reminders'"
+     <span class="title" ng-if="vm.componentListType === 'components'"
+           translate="NOTES.NOTES">Components</span>
+     <span class="title" ng-if="vm.componentListType === 'reminders'"
            translate="NOTES.REMINDERS">Reminders</span>
-     <span class="title" ng-if="vm.noteListType === 'archive'"
+     <span class="title" ng-if="vm.componentListType === 'archive'"
            translate="NOTES.ARCHIVE">Archive</span>
-     <span class="title" ng-if="vm.noteListType.name">{{vm.noteListType.name}}</span>
+     <span class="title" ng-if="vm.componentListType.name">{{vm.componentListType.name}}</span>
 
-     <span ng-if="filteredNotes.length" class="pl-8 white-text secondary-text notes-count">
-      ({{filteredNotes.length}})
+     <span ng-if="filteredComponents.length" class="pl-8 white-text secondary-text components-count">
+      ({{filteredComponents.length}})
      </span>
     </div>
    </div>
@@ -39,38 +39,38 @@ LINEAR VIEW ACTIVITIES HOME
               translate-attr-aria-label="NOTES.CLOSE" aria-label="close">
     <md-icon md-font-icon="icon-close" class="mr-8"></md-icon>
    </md-button>
-   <input id="search-notes-input" placeholder="Search notes" type="text" ng-model="vm.search" translate
+   <input id="search-components-input" placeholder="Search components" type="text" ng-model="vm.search" translate
           translate-attr-placeholder="NOTES.SEARCH_NOTES" ng-model-options="{'debounce': 200}" flex>
   </div>
  </md-toolbar>
  <div class="" flex>
-  <ms-new-note gb-notes="vm.components" gb-parent-component-id="vm.componentId" ng-hide="vm.noteListType === 'archive'" class="md-whiteframe-2dp"></ms-new-note>
-  <ms-masonry class="notes" options='{"columnCount":5}'>
-   <ms-masonry-item class="note"
-                    ng-repeat="note in vm.components track by note.id"
-                    ms-note-item="note"
-                    ng-click="componentLinearCtrl.openComponentDialog($event, note.id)">
+  <ms-new-component gb-components="vm.components" gb-parent-component-id="vm.componentId" ng-hide="vm.componentListType === 'archive'" class="md-whiteframe-2dp"></ms-new-component>
+  <ms-masonry class="components" options='{"columnCount":5}'>
+   <ms-masonry-item class="component"
+                    ng-repeat="component in vm.components track by component.id"
+                    ms-component-item="component"
+                    ng-click="componentLinearCtrl.openComponentDialog($event, component.id)">
    </ms-masonry-item>
   </ms-masonry>
-  <div class="no-results text-center" ng-if="filteredNotes.length === 0 && vm.search === ''">
-   <div class="message" ng-if="vm.noteListType === 'notes'">
+  <div class="no-results text-center" ng-if="filteredComponents.length === 0 && vm.search === ''">
+   <div class="message" ng-if="vm.componentListType === 'components'">
     <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
-    <div class="message-text" translate="NOTES.NO_NOTES_YET">No notes yet...</div>
+    <div class="message-text" translate="NOTES.NO_NOTES_YET">No components yet...</div>
    </div>
-   <div class="message" ng-if="vm.noteListType === 'reminders'">
+   <div class="message" ng-if="vm.componentListType === 'reminders'">
     <md-icon class="message-icon s96" md-font-icon="icon-bell"></md-icon>
-    <div class="message-text" translate="NOTES.NO_NOTES_WITH_REMINDERS">No notes with reminders</div>
+    <div class="message-text" translate="NOTES.NO_NOTES_WITH_REMINDERS">No components with reminders</div>
    </div>
-   <div class="message" ng-if="vm.noteListType === 'archive'">
+   <div class="message" ng-if="vm.componentListType === 'archive'">
     <md-icon class="message-icon s96" md-font-icon="icon-archive"></md-icon>
-    <div class="message-text" translate="NOTES.NO_ARCHIVED_NOTES">No archived Notes</div>
+    <div class="message-text" translate="NOTES.NO_ARCHIVED_NOTES">No archived Components</div>
    </div>
-   <div class="message" ng-if="vm.noteListType.name">
+   <div class="message" ng-if="vm.componentListType.name">
     <md-icon class="message-icon s96" md-font-icon="icon-label"></md-icon>
-    <div class="message-text" translate="NOTES.NO_NOTES_WITH_THIS_LABEL">No notes with this label</div>
+    <div class="message-text" translate="NOTES.NO_NOTES_WITH_THIS_LABEL">No components with this label</div>
    </div>
   </div>
-  <div class="no-results text-center" ng-if="filteredNotes.length === 0 && vm.search !== ''">
+  <div class="no-results text-center" ng-if="filteredComponents.length === 0 && vm.search !== ''">
    <div class="message">
     <md-icon class="message-icon s96" md-font-icon="icon-lightbulb"></md-icon>
     <div class="message-text" translate="NOTES.NO_RESULTS">No results...</div>

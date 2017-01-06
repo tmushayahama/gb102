@@ -46,12 +46,12 @@
    *
    * @returns promise of the deferred response
    */
-  function getComponents()
+  function getComponents(listFormat)
   {
    // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('explorer.components@get',
+   msApi.request('explorer.components@get', {listFormat: listFormat},
            function (response)
            {
             //service.data = response;

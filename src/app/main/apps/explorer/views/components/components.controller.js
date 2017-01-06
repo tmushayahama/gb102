@@ -7,12 +7,13 @@
          .controller('ExplorerComponentsController', ExplorerComponentsController);
 
  /** @ngInject */
- function ExplorerComponentsController(ExplorerComponentService, DialogService, $scope, $rootScope)
+ function ExplorerComponentsController(add_component_tabs, ExplorerComponentService, DialogService, $scope, $rootScope)
  {
   var vm = this;
 
   // Data
-  vm.boardList = [];
+  vm.components = [];
+  vm.tabs = add_component_tabs;
   /////////
 
   //Methods
@@ -26,19 +27,13 @@
 
   // Methods
   function init() {
-   ExplorerComponentService.getComponents().then(function (data) {
-    vm.boardList = data;
-    angular.forEach(vm.boardList.apps, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
-      }
-     });
-    });
-    angular.forEach(vm.boardList.activities, function (app, key) {
-     angular.forEach(app.components, function (component, key) {
-      if (component.component_picture_url || component.component_picture_url === 'default.png') {
-       component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
+   ExplorerComponentService.getComponents(5).then(function (data) {
+    vm.components = data;
+    // vm.displayComponents = shuffleSampleGroups();
+    angular.forEach(vm.components.recommendations, function (recommendation) {
+     angular.forEach(recommendation.recommendationComponents, function (recommendationComponent) {
+      if (recommendationComponent.component.component_picture_url || recommendationComponent.component.component_picture_url === 'default.png') {
+       recommendationComponent.component.component_placeholder_style = {background: $rootScope.generateBackgroundPattern()};
       }
      });
     });

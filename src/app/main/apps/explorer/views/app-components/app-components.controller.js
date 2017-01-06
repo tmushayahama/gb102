@@ -7,17 +7,24 @@
          .controller('AppExplorerComponentsController', AppExplorerComponentsController);
 
  /** @ngInject */
- function AppExplorerComponentsController($stateParams, ExplorerComponentService, $rootScope)
+ function AppExplorerComponentsController(add_component_tabs, $stateParams, ExplorerComponentService, DialogService, $rootScope)
  {
   var vm = this;
 
   // Data
+  vm.tabs = add_component_tabs;
+  /////////
+
+  //Methods
   vm.app = {};
   vm.appName = $stateParams.app_name;
 
   init();
 
   // Methods
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
+
+
   function init() {
    ExplorerComponentService.getComponentApp(vm.appName).then(function (data) {
     vm.app = data;

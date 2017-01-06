@@ -75,7 +75,7 @@
   function init() {
    WelcomeService.getComponents(5).then(function (data) {
     vm.components = data;
-    vm.displayComponents = shuffleSampleGroups();
+    // vm.displayComponents = shuffleSampleGroups();
     angular.forEach(vm.components.recommendations, function (recommendation) {
      angular.forEach(recommendation.recommendationComponents, function (recommendationComponent) {
       if (recommendationComponent.component.component_picture_url || recommendationComponent.component.component_picture_url === 'default.png') {

@@ -110,6 +110,10 @@
   .gb-right-nav{
    width: 200px;
    max-width: 200px;
+   @include respond-to (gb-xs) {
+    width: 100px;
+    max-width: 100px;
+   }
   }
 
   .md-button.md-icon-button {

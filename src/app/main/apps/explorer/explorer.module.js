@@ -21,16 +21,10 @@
           .state('app.explorer', {
            url: '/explorer',
            abstract: true,
-           resolve: {
-            BoardList: function (msApi)
-            {
-             return msApi.resolve('explorer.components@get');
-            }
-           },
            views: {
             'content@app': {
              templateUrl: 'src/app/main/apps/explorer/views/components/components.html',
-             controller: 'ExplorerComponentsController as vm'
+             controller: 'ExplorerComponentsController as componentsCtrl'
             }
            },
            bodyClass: 'explorer'
@@ -40,7 +34,7 @@
            views: {
             'tab': {
              templateUrl: 'src/app/main/apps/explorer/tabs/home/home.html',
-             controller: 'BoardsHomeTabController as vm'
+             controller: 'ExplorerComponentsHomeTabController as vm'
             }
            },
            data: {
@@ -52,7 +46,7 @@
            views: {
             'tab': {
              templateUrl: 'src/app/main/apps/explorer/tabs/swipe/swipe.html',
-             controller: 'BoardsSwipeTabController as vm'
+             controller: 'ExplorerComponentsSwipeTabController as vm'
             }
            },
            data: {
@@ -64,7 +58,7 @@
            views: {
             'tab': {
              templateUrl: 'src/app/main/apps/explorer/tabs/matcher/matcher.html',
-             controller: 'BoardsMatcherTabController as vm'
+             controller: 'ExplorerComponentsMatcherTabController as vm'
             }
            },
            data: {
@@ -76,7 +70,7 @@
            views: {
             'tab': {
              templateUrl: 'src/app/main/apps/explorer/tabs/business/business.html',
-             controller: 'BoardsBusinessTabController as vm'
+             controller: 'ExplorerComponentsBusinessTabController as vm'
             }
            },
            data: {
@@ -88,7 +82,7 @@
            views: {
             'tab': {
              templateUrl: 'src/app/main/apps/explorer/tabs/mentorship/mentorship.html',
-             controller: 'BoardsMentorshipTabController as vm'
+             controller: 'ExplorerComponentsMentorshipTabController as vm'
             }
            },
            data: {
@@ -290,7 +284,10 @@
   msApiProvider.register('explorer.updateComponentBackground', ['/api/components/:componentId/update/background', {
     componentId: "@componentId",
    }]);
-  msApiProvider.register('explorer.components', ['/api/components/listformat/2']);
+  msApiProvider.register('explorer.components', ['/api/components/listformat/:listFormat',
+   {
+    listFormat: "@listFormat"
+   }]);
   msApiProvider.register('explorer.componentApp', ['api/components/app/:appName',
    {
     appName: '@appName'

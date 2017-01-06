@@ -35,7 +35,7 @@
   // Api
   msApiProvider.register('welcome.components', ['/api/components/listformat/:listFormat',
    {
-    listformat: "@listformat"
+    listFormat: "@listFormat"
    }]);
  }
 

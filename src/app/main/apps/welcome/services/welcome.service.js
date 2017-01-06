@@ -13,7 +13,7 @@
    data: {},
    addNewBoard: addNewBoard,
    createComponent: createComponent,
-   getComponents: getComponents,
+   getComponents: getComponents
   };
 
   /**

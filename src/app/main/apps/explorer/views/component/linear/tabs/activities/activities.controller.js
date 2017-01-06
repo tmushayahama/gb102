@@ -13,7 +13,7 @@
 
   // Data
   vm.componentId = $stateParams.id;
-  vm.components = [];//NotesService.data;
+  vm.components = [];//ComponentsService.data;
   vm.labels = [];//LabelsService.data;
   vm.search = '';
   vm.searchToolbar = false;
@@ -21,7 +21,7 @@
    archive: false
   };
   vm.labelFilterIds = [];
-  vm.noteListType = 'notes';
+  vm.componentListType = 'components';
 
   // Methods
   vm.filterChange = filterChange;
@@ -40,14 +40,14 @@
   // ******************************
 
   /**
-   * Change Notes Filter
+   * Change Components Filter
    * @param type
    */
   function filterChange(type) {
 
-   vm.noteListType = type;
+   vm.componentListType = type;
 
-   if (type === 'notes')
+   if (type === 'components')
    {
     vm.labelFilterIds = [];
     vm.filters = {
@@ -108,7 +108,7 @@
 
    $timeout(function ()
    {
-    angular.element($document.find('#search-notes-input')).trigger('focus');
+    angular.element($document.find('#search-components-input')).trigger('focus');
 
    });
 
