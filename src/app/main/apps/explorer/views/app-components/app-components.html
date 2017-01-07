@@ -11,7 +11,7 @@
  </div>
  <div class="actions" layout="row" layout-align="end center">
   <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
-             ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.sections)"
+             ng-click="componentAppCtrl.openAddComponentDialog($event, null, componentAppCtrl.tabs.fillApps)"
              translate-attr-aria-label="explorer.add">Add
   </md-button>
   <md-button class="md-raised md-primary" translate="explorer.send_request_text"
@@ -77,4 +77,4 @@
   </md-tabs>
  </div>
 </div>
-<div ui-view="tab" class="" layout="column" layout-align="center center" flex></div>
+<div ui-view="tab" class="gb-bottom-gutter" layout="column" layout-align="center center" flex></div>

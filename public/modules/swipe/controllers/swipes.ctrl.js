@@ -70,7 +70,7 @@ var swipesCtrl = function (
 
  //--------init------
  //vm.componentsSrv.getSwipes(vm.swipeId);
- vm.constantsSrv.getLevel(level_categories.swipe).then(function (data) {
+ vm.constantsSrv.getSubLevels(level_categories.swipe).then(function (data) {
   vm.swipeLevels = data;
  });
 };

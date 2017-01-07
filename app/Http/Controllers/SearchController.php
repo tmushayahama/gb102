@@ -45,8 +45,8 @@ class SearchController extends Controller {
   return \Response::json($appType);
  }
 
- public function getLevel($category) {
-  $level = Level::getLevel($category);
+ public function getSubLevels($category) {
+  $level = Level::getSubLevels($category);
   return \Response::json($level);
  }
 

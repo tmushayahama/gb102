@@ -372,7 +372,9 @@ LINEAR VIEW HOME
  <div class="gb-card-content" flex>
   <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
-    <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
+    <input type="text" ng-model="component.title"
+           ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+           placeholder="Title" md-maxlength="250">
    </md-input-container>
    <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
     <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
@@ -404,7 +406,9 @@ LINEAR VIEW HOME
  <div class="gb-card-content" flex>
   <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
-    <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
+    <input type="text" ng-model="component.title"
+           ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+           placeholder="Title" md-maxlength="250">
    </md-input-container>
    <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
     <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>

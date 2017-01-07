@@ -35,7 +35,7 @@ var questionAnswersCtrl = function (
 
  vm.questionnaireSrv = new QuestionnaireSrv();
  vm.getQuestionAnswers();
- vm.constantsSrv.getLevel(11).then(function (data) {
+ vm.constantsSrv.getSubLevels(11).then(function (data) {
   vm.questionnaireLevels = data;
  });
 

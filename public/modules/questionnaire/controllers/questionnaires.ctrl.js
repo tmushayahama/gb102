@@ -68,7 +68,7 @@ var questionnairesCtrl = function (
 
  //--------init------
  //vm.componentsSrv.getQuestionnaires(vm.questionnaireId);
- vm.constantsSrv.getLevel(level_categories.questionnaire).then(function (data) {
+ vm.constantsSrv.getSubLevels(level_categories.questionnaire).then(function (data) {
   vm.questionnaireLevels = data;
  });
 };

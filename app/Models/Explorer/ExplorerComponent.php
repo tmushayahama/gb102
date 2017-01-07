@@ -64,7 +64,7 @@ class ExplorerComponent extends Model {
 
  public static function getExplorerComponentsByType($explorerId, $parentComponentId) {
   $result = array();
-  $componentTypes = Level::getLevel(Level::$level_categories['component_types']);
+  $componentTypes = Level::getSubLevels(Level::$level_categories['component_types']);
 
   $explorerComponents = ExplorerComponent::with('component')
           ->with('component.creator')
@@ -110,7 +110,7 @@ class ExplorerComponent extends Model {
 
  public static function getExplorerSubComponentsByTye($componentId) {
   $result = array();
-  $componentTypes = Level::getLevel(Level::$level_categories['component_types']);
+  $componentTypes = Level::getSubLevels(Level::$level_categories['component_types']);
 
   foreach ($componentTypes as $componentType) {
    $components = Component::with('creator')

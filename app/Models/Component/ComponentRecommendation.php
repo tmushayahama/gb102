@@ -47,7 +47,7 @@ class ComponentRecommendation extends Model {
   */
  public static function getComponentRecommendations() {
   $componentRecommendations = array();
-  $recommendationTypes = Level::getLevel(Level::$level_categories['recommendation']);
+  $recommendationTypes = Level::getSubLevels(Level::$level_categories['recommendation']);
   foreach ($recommendationTypes as $recommendationType) {
    $componentRecommendations[$recommendationType->id] = $recommendationType;
    $componentRecommendations[$recommendationType->id]["recommendationComponents"] = self::getComponentRecommendationByType($recommendationType->id);

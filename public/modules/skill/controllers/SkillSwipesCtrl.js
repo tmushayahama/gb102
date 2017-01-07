@@ -42,7 +42,7 @@ var skillSwipesCtrl = function (
 
  vm.skillSwipesSrv = new SkillSwipesSrv();
  vm.getSkillSwipe();
- vm.constantsSrv.getLevel(level_categories.skill_swipe).then(function (data) {
+ vm.constantsSrv.getSubLevels(level_categories.skill_swipe).then(function (data) {
   vm.skillSwipeLevels = data;
  });
 

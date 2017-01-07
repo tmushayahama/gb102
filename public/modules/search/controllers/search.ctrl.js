@@ -51,7 +51,7 @@ var searchCtrl = function (
  };
 
  vm.searchSrv = new SearchSrv();
- vm.constantsSrv.getLevel(11).then(function (data) {
+ vm.constantsSrv.getSubLevels(11).then(function (data) {
   vm.searchLevels = data;
  });
 

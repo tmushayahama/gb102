@@ -22,13 +22,13 @@ var createRequestExplorerCtrl = function (
  vm.constantsSrv = new ConstantsSrv();
 
  vm.getLevels = function (appId) {
-  vm.constantsSrv.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getSubLevels(appId).then(function (data) {
    vm.explorerLevels = data;
   });
  };
 
  vm.getRequestTypes = function (appId) {
-  vm.constantsSrv.getLevel(appId + level_categories.request_type_offset).then(function (data) {
+  vm.constantsSrv.getSubLevels(appId + level_categories.request_type_offset).then(function (data) {
    vm.requestTypes = [];
    angular.forEach(data, function (requestLevel) {
     vm.requestTypes.push(

@@ -96,6 +96,15 @@ class Level extends Model {
   */
  protected $fillable = ['title', 'description', 'level_id'];
 
+ public static function getLevel($id, $withCount = false) {
+  $levels = Level::find($id);
+
+  if ($withCount) {
+   $level["count"] = Component::where("type_id", $level->id)->count();
+  }
+  return $levels;
+ }
+
  public static function getLevels() {
   $levels = Level::orderBy('id', 'asc')
           ->get();
@@ -106,7 +115,7 @@ class Level extends Model {
   return $levelsArray;
  }
 
- public static function getLevel($parentId, $withCount = false) {
+ public static function getSubLevels($parentId, $withCount = false) {
   $levels = Level::orderBy('id', 'asc')
           ->where('parent_level_id', $parentId)
           ->get();
@@ -135,10 +144,10 @@ class Level extends Model {
 
  public static function getComponentTypes() {
   $result = array();
-  $result['apps'] = Level::getLevel(Level::$level_categories['apps'], true);
-  $result['activities'] = Level::getLevel(Level::$level_categories['component_types'], true);
-  $result['motives'] = Level::getLevel(Level::$level_categories['component_motives'], true);
-  $result['contributionTypes'] = Level::getLevel(Level::$level_categories['contribution_types'], true);
+  $result['apps'] = Level::getSubLevels(Level::$level_categories['apps'], true);
+  $result['activities'] = Level::getSubLevels(Level::$level_categories['component_types'], true);
+  $result['motives'] = Level::getSubLevels(Level::$level_categories['component_motives'], true);
+  $result['contributionTypes'] = Level::getSubLevels(Level::$level_categories['contribution_types'], true);
   return $result;
  }
 

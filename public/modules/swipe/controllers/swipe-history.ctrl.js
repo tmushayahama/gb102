@@ -35,7 +35,7 @@ var swipeHistoryCtrl = function (
 
  vm.swipeSrv = new SwipeSrv();
  vm.getSwipeHistory();
- vm.constantsSrv.getLevel(11).then(function (data) {
+ vm.constantsSrv.getSubLevels(11).then(function (data) {
   vm.swipeLevels = data;
  });
 

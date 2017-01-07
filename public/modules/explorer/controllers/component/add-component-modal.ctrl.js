@@ -26,19 +26,19 @@ var addComponentCtrl = function (
  vm.communitySrv = communitySrv;
 
  vm.getLevels = function (appId) {
-  vm.constantsSrv.getLevel(appId).then(function (data) {
+  vm.constantsSrv.getSubLevels(appId).then(function (data) {
    vm.componentLevels = data;
   });
  };
 
  vm.getUsers = function () {
-  vm.constantsSrv.getLevel().then(function (data) {
+  vm.constantsSrv.getSubLevels().then(function (data) {
    vm.componentLevels = data;
   });
  };
 
  vm.getRequestTypes = function (appId) {
-  vm.constantsSrv.getLevel(appId + level_categories.request_type_offset).then(function (data) {
+  vm.constantsSrv.getSubLevels(appId + level_categories.request_type_offset).then(function (data) {
    vm.requestTypes = [];
    angular.forEach(data, function (requestLevel) {
     vm.requestTypes.push(
@@ -57,7 +57,7 @@ var addComponentCtrl = function (
  };
 
  vm.getPrivacyTypes = function () {
-  vm.constantsSrv.getLevel(level_categories.privacy_type).then(function (data) {
+  vm.constantsSrv.getSubLevels(level_categories.privacy_type).then(function (data) {
    vm.privacyTypes = data;
    vm.component.privacy_id = level_categories.privacy.private;
   }

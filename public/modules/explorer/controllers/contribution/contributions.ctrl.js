@@ -154,7 +154,7 @@ var explorerContributionsCtrl = function (
   });
  };
  //--------init------
- vm.constantsSrv.getLevel(level_categories.contribution_types).then(function (data) {
+ vm.constantsSrv.getSubLevels(level_categories.contribution_types).then(function (data) {
   vm.explorerContributionTypes = data;
  });
 

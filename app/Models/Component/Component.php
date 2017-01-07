@@ -135,12 +135,12 @@ class Component extends Model {
     $components["samples"] = ComponentRecommendation::getComponentRecommendationByType(Level::$level_categories["recommendation_setup"]["samples"]);
     break;
    case Level::$componentJsonFormat["types"]:
-    $componentTypes = Level::getLevel(Level::$level_categories['apps']);
+    $componentTypes = Level::getSubLevels(Level::$level_categories['apps']);
     foreach ($componentTypes as $componentType) {
      $components["apps"][$componentType->id] = $componentType;
      $components["apps"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
     }
-    $componentTypes = Level::getLevel(Level::$level_categories['component_types']);
+    $componentTypes = Level::getSubLevels(Level::$level_categories['component_types']);
     foreach ($componentTypes as $componentType) {
      $components["activities"][$componentType->id] = $componentType;
      $components["activities"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
@@ -310,6 +310,7 @@ class Component extends Model {
   */
  public static function getComponentApp($typeId) {
   $component = array();
+  $component["appType"] = Level::getLevel($typeId);
   $component["components"] = Component::getComponentsByType($typeId);
   return $component;
  }
@@ -440,9 +441,9 @@ class Component extends Model {
   */
  private static function formatComponentByType($component) {
   $components = array();
-  $componentMotiveTypes = Level::getLevel(Level::$level_categories['component_motives']);
-  $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
-  $componentActivityTypes = Level::getLevel(Level::$level_categories['component_types']);
+  $componentMotiveTypes = Level::getSubLevels(Level::$level_categories['component_motives']);
+  $componentAppTypes = Level::getSubLevels(Level::$level_categories['apps']);
+  $componentActivityTypes = Level::getSubLevels(Level::$level_categories['component_types']);
 
   $component["apps"] = Component::getSubComponents($component->id, 1);
   $component["motives"] = self::formatSubComponentByType($component->id, $componentMotiveTypes);
@@ -456,9 +457,9 @@ class Component extends Model {
   * @param array $component the parent component to be formatted
   */
  private static function formatComponentByLinear($component) {
-  $componentMotiveTypes = Level::getLevel(Level::$level_categories['component_motives']);
-  $componentAppTypes = Level::getLevel(Level::$level_categories['apps']);
-  $componentActivityTypes = Level::getLevel(Level::$level_categories['component_types']);
+  $componentMotiveTypes = Level::getSubLevels(Level::$level_categories['component_motives']);
+  $componentAppTypes = Level::getSubLevels(Level::$level_categories['apps']);
+  $componentActivityTypes = Level::getSubLevels(Level::$level_categories['component_types']);
 
   $motives = collect(self::formatSubComponentByType($component->id, $componentMotiveTypes));
   $apps = collect(self::formatSubComponentByType($component->id, $componentAppTypes));
@@ -479,7 +480,7 @@ class Component extends Model {
   $component["apps"] = Component::getSubComponents($component->id, 1);
   $component["components"] = Component::getSubComponents($component->id, 2, 3);
 
-  $componentTypes = Level::getLevel(Level::$level_categories['component_motives']);
+  $componentTypes = Level::getSubLevels(Level::$level_categories['component_motives']);
   foreach ($componentTypes as $componentType) {
    $components[$componentType->id] = $componentType;
    $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);

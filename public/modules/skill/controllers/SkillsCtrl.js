@@ -145,7 +145,7 @@ var skillsCtrl = function (
 
  //--------init------
  //vm.skillsSrv.getSkills(vm.skillId);
- vm.constantsSrv.getLevel(level_categories.skill).then(function (data) {
+ vm.constantsSrv.getSubLevels(level_categories.skill).then(function (data) {
   vm.skillLevels = data;
  });
 };

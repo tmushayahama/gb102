@@ -22,7 +22,14 @@
   init();
 
   // Methods
-  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
+  vm.openAddComponentDialog = openAddComponentDialog;
+
+  function openAddComponentDialog(ev, componentId, startTabIndex) {
+   var preselectedData = {
+    selectedApp: vm.app.appType
+   };
+   DialogService.openAddComponentDialog(ev, componentId, startTabIndex, preselectedData);
+  }
 
 
   function init() {
