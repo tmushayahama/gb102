@@ -34,6 +34,8 @@
    //Component Contribution
    getContributionSuggestions: getContributionSuggestions,
    createComponentContributions: createComponentContributions,
+   //User Components
+   getUserComponents: getUserComponents,
   };
 
 
@@ -384,12 +386,37 @@
    * @param componentData
    * @returns promise of the deferred response
    */
-  function createComponentBookmark(componentData)
-  {
+  function createComponentBookmark(componentData) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.createComponentBookmark@save', componentData,
+           function (response)
+           {
+            deferred.resolve(response);
+           },
+           function (response)
+           {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get All components of a user
+   *
+   * @param {type} userId the user id
+   * @param {type} listFormat the list display format
+   * @returns {$q@call;defer.promise}
+   */
+  function getUserComponents(userId, listFormat)
+  {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('explorer.userComponents@get', {userId: userId, listFormat: listFormat},
            function (response)
            {
             deferred.resolve(response);

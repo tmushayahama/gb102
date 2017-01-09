@@ -1,3 +1,4 @@
+
 <div id="profile" class="page-layout simple tabbed">
  <!-- HEADER -->
  <div class="gb-header gb-header-1 md-accent-bg" layout="column" layout-align="space-between center" >
@@ -19,74 +20,61 @@
    </md-button>
   </div>
  </div>
- <div class="gb-row gb-spacing-1"></div>
  <!-- / HEADER -->
  <!-- CONTENT -->
  <div class="gb-tabs-1" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>
-   <md-tabs md-stretch-tabs="always" class="">
+   <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
     <md-tab>
      <md-tab-label>
-      <div class="gb-icon">
-       <i class="fa fa-list"></i>
-      </div>
-      <div class="gb-title">
-       Overview
+      <div class="gb-tab-button" ui-sref="app.profile.home">
+       <div class="gb-icon">
+        <i class="fa fa-home"></i>
+       </div>
+       <div class="gb-title">
+        Overview
+       </div>
       </div>
      </md-tab-label>
-     <md-tab-body>
-      <md-content class="overview-tab"
-                  ng-include="'src/app/main/profile/tabs/overview/overview.html'">
-      </md-content>
-     </md-tab-body>
     </md-tab>
     <md-tab>
      <md-tab-label>
-      <div class="gb-icon">
-       <i class="fa icon-gb-apps"></i>
-      </div>
-      <div class="gb-title">
-       Apps
+      <div class="gb-tab-button" ui-sref="app.profile.mentorship">
+       <div class="gb-icon">
+        <i class="fa fa-calendar"></i>
+       </div>
+       <div class="gb-title">
+        About
+       </div>
       </div>
      </md-tab-label>
-     <md-tab-body>
-      <md-content class="apps-tab"
-                  ng-include="'src/app/main/profile/tabs/apps/apps.html'">
-      </md-content>
-     </md-tab-body>
     </md-tab>
     <md-tab>
      <md-tab-label>
-      <div class="gb-icon">
-       <i class="fa fa-info"></i>
-      </div>
-      <div class="gb-title">
-       About
+      <div class="gb-tab-button" ui-sref="app.profile.swipe">
+       <div class="gb-icon">
+        <i class="fa icon-gb-swipe"></i>
+       </div>
+       <div class="gb-title">
+        App
+       </div>
       </div>
      </md-tab-label>
-     <md-tab-body>
-      <md-content class="about-tab"
-                  ng-include="'src/app/main/profile/tabs/about/about.html'">
-      </md-content>
-     </md-tab-body>
     </md-tab>
     <md-tab>
-     <md-tab-label>
-      <div class="gb-icon">
-       <i class="fa fa-cog"></i>
-      </div>
-      <div class="gb-title">
-       Settings
-      </div>
-     </md-tab-label>
-     <md-tab-body>
-      <md-content class="settings-tab"
-                  ng-include="'src/app/main/profile/tabs/settings/settings.html'">
-      </md-content>
-     </md-tab-body>
+     <div class="gb-tab-button" ui-sref="app.profile.matcher">
+      <md-tab-label>
+       <div class="gb-icon">
+        <i class="fa icon-gb-matcher"></i>
+       </div>
+       <div class="gb-title">
+        My Page
+       </div>
+      </md-tab-label>
+     </div>
     </md-tab>
    </md-tabs>
   </div>
  </div>
- <!-- / CONTENT -->
+ <div ui-view="tab" class="gb-bottom-gutter" layout="column" layout-align="center center" flex></div>
 </div>

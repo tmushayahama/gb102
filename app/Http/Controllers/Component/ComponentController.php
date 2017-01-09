@@ -42,8 +42,8 @@ class ComponentController extends Controller {
   * @param type $userId a specific user
   * @return json response of components
   */
- public function getUserComponents($userId) {
-  $components = Component::getUserComponents($userId);
+ public function getUserComponents($userId, $listFormat = 1) {
+  $components = Component::getUserComponents($userId, $listFormat);
   return \Response::json($components);
  }
 

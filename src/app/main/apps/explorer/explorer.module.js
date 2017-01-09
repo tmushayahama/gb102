@@ -318,7 +318,12 @@
     creatorId: "@creatorId"
    }]);
   msApiProvider.register('explorer.createComponentBookmark', ['/api/components/bookmarks/create']);
-
+  /*User Component*/
+  msApiProvider.register('explorer.userComponents', ['/api/components/user/:userId/listformat/:listFormat',
+   {
+    userId: "@userId",
+    listFormat: "@listFormat"
+   }]);
  }
 
 })();

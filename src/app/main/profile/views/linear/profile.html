@@ -1,0 +1,147 @@
+<!--
+LINEAR VIEW
+-->
+
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+ <div class="gb-cover-overlap" ></div>
+ <div class="gb-cover" ng-style="$root.headerStyle"></div>
+ <div class="gb-container user-info" layout="column" layout-align="center center">
+  <img class="profile-image avatar huge"
+       ng-src="src/assets/images/profile_pic/{{profileLinearCtrl.profile.avatar_url}}">
+  <div class="gb-title">
+   {{profileLinearCtrl.profile.firstname + ' ' + profileLinearCtrl.profile.lastname}}
+  </div>
+ </div>
+ <div class="actions" layout="row" layout-align="start stretch">
+  <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
+             ng-click="profileLinearCtrl.openAddComponentDialog($event, profileLinearCtrl.componentId, profileLinearCtrl.tabs.sections)"
+             translate-attr-aria-label="explorer.add_text">Add
+  </md-button>
+  <md-button class="md-raised md-primary" translate="explorer.contribute_text"
+             translate-attr-aria-label="explorer.contribute_text">Contribute
+  </md-button>
+  <md-menu class="">
+   <md-button class="md-raised md-primary" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
+    <b class="caret"></b>
+   </md-button>
+   <md-menu-content class="subscribe-menu-content" width="4">
+    <md-menu-item>
+     <md-button ng-click="profileLinearCtrl.subscribeComponent()" aria-label="Add Contribution">
+      Subscribe
+     </md-button>
+    </md-menu-item>
+    <md-menu-item>
+     <md-button ng-click="profileLinearCtrl.bookmarkComponent()" aria-label="Add Contribution">
+      Bookmark
+     </md-button>
+    </md-menu-item>
+    <md-menu-item>
+     <md-button ng-click="profileLinearCtrl.openAddComponentDialog($event, profileLinearCtrl.componentId, profileLinearCtrl.tabs.apps)" aria-label="Add Contribution">
+      Add Components
+     </md-button>
+    </md-menu-item>
+    <md-menu-item>
+     <md-button ng-click="profileLinearCtrl.openAddComponentDialog($event, profileLinearCtrl.componentId, profileLinearCtrl.tabs.activities)" aria-label="Add Contribution">
+      Add Activities
+     </md-button>
+    </md-menu-item>
+    <md-menu-item>
+     <md-button ng-click="profileLinearCtrl.openAddComponentDialog($event, profileLinearCtrl.componentId, profileLinearCtrl.tabs.motives)" aria-label="Add Contribution">
+      Add Background
+     </md-button>
+    </md-menu-item>
+   </md-menu-content>
+  </md-menu>
+ </div>
+</div>
+<div  class="gb-tabs-1 md-whiteframe-1dp" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="row" flex>
+  <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.home({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title">
+       Overview
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.activities({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa icon-gb-activity"></i>
+      </div>
+      <div class="gb-title">
+       Activities
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.timeline({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa icon-gb-timeline"></i>
+      </div>
+      <div class="gb-title">
+       Timeline
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.calendar({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-calendar"></i>
+      </div>
+      <div class="gb-title">
+       Calendar
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.discussions({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-comments-o"></i>
+      </div>
+      <div class="gb-title">
+       Discussion
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.graphs({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-bar-chart-o"></i>
+      </div>
+      <div class="gb-title">
+       Graphs
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.profileLinearView.settings({id: profileLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa fa-cog"></i>
+      </div>
+      <div class="gb-title">
+       Settings
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+  </md-tabs>
+ </div>
+</div>
+<div ui-view="tab" class="gb-bottom-gutter gb-component-tab" layout="column" layout-align="center center" flex></div>

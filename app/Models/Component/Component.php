@@ -159,9 +159,16 @@ class Component extends Model {
   * @param type $userId a specific user
   * @return components collection
   */
- public static function getUserComponents($userId) {
-  $component["apps"] = Component::getUserSubComponents($userId, 1);
-  $component["components"] = Component::getUserSubComponents($userId, 2, 3);
+ public static function getUserComponents($userId, $listFormat = 0) {
+  switch ($listFormat) {
+   case Level::$componentJsonFormat["types"]:
+    $component = self::formatUserComponentByType($userId);
+    break;
+   default:
+    $component["apps"] = Component::getUserSubComponents($userId, 1, 2);
+    $component["activities"] = Component::getUserSubComponents($userId, 2, 2);
+    break;
+  }
   return $component;
  }
 
@@ -174,6 +181,23 @@ class Component extends Model {
  public static function getComponentsByType($typeId) {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
+          ->with('creator')
+          ->take(20)
+          ->get();
+  return $components;
+ }
+
+ /**
+  * Get user components by type with their subcomponents recursively.
+  *
+  * @param userId the creator of the component
+  * @param type $typeId type of a the component
+  * @return components collection
+  */
+ public static function getUserComponentsByType($userId, $typeId) {
+  $components = Component::orderBy('order', 'desc')
+          ->where('type_id', $typeId)
+          ->where('creator_id', $userId)
           ->with('creator')
           ->take(20)
           ->get();
@@ -499,6 +523,37 @@ class Component extends Model {
   foreach ($componentTypes as $componentType) {
    $components[$componentType->id] = $componentType;
    $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
+  }
+  return $components;
+ }
+
+ //User
+ /**
+  * Format the results of the  user componet by Type
+  *
+  * @param $userId the parent component to be formatted
+  */
+ private static function formatUserComponentByType($userId) {
+  $componentAppTypes = Level::getSubLevels(Level::$level_categories['apps']);
+  $componentActivityTypes = Level::getSubLevels(Level::$level_categories['component_types']);
+
+  $component["apps"] = self::formatUserSubComponentByType($userId, $componentAppTypes);
+  $component["activities"] = self::formatUserSubComponentByType($userId, $componentActivityTypes);
+
+  return $component;
+ }
+
+ /**
+  * A helper function of format by type. It formats the results of the componet by Sub Type
+  *
+  * @param int $userId the parent userId
+  * @param array $componentTypes the types of component
+  */
+ private static function formatUserSubComponentByType($userId, $componentTypes) {
+  $components = array();
+  foreach ($componentTypes as $componentType) {
+   $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["components"] = Component::getUserComponentsByType($userId, $componentType->id);
   }
   return $components;
  }

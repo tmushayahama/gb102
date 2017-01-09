@@ -10,7 +10,8 @@
  function ProfileController(ProfileService, $stateParams, $rootScope)
  {
   var vm = this;
-  vm.profile;
+  vm.profile = {};
+  vm.components = [];
 
   init();
 
@@ -26,7 +27,8 @@
   // Methods
   function init() {
    ProfileService.getProfile($stateParams.user_id).then(function (data) {
-    vm.profile = data;
+    vm.profile = data.profile;
+    vm.components = data.components;
    });
 
    //////////

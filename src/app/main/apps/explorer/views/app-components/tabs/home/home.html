@@ -3,9 +3,9 @@
 -->
 <div class="" layout="column" layout-align="center center" flex>
  <div class="gb-container" layout="row" layout-align="start center" layout-wrap flex>
-  <div  ng-repeat="component in componentAppCtrl.app.components"
-        ui-sref="app.componentLinearView.home({id: component.id})"
-        layout-fill flex="25" layout-padding>
+  <div ng-repeat="component in componentAppCtrl.app.components"
+       ui-sref="app.componentLinearView.home({id: component.id})"
+       layout-fill flex="25" layout-padding>
    <div class="gb-card-component md-whiteframe-1dp" layout="column">
     <div class="gb-card-cover">
      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"

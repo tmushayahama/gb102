@@ -3,7 +3,11 @@
  'use strict';
 
  angular
-         .module('app.profile', [])
+         .module('app.profile', [
+          'ui.calendar',
+          'app.components',
+          'app.explorer'
+         ])
          .config(config);
 
  /** @ngInject */
@@ -17,21 +21,93 @@
      controller: 'ProfileController as vm'
     }
    },
-   resolve: {
-    Timeline: function (msApi)
-    {
-     return msApi.resolve('profile.timeline@get');
-    },
-    About: function (msApi)
-    {
-     return msApi.resolve('profile.about@get');
-    },
-    PhotosVideos: function (msApi)
-    {
-     return msApi.resolve('profile.photosVideos@get');
+   bodyClass: 'profile'
+  }).state('app.profileLinearView', {
+   url: '/linearview/:user_id',
+   abstract: true,
+   views: {
+    'content@app': {
+     templateUrl: 'src/app/main/profile/views/linear/profile.html',
+     controller: 'ProfileLinearController as profileLinearCtrl'
+    }
+   }
+  }).state('app.profileLinearView.home', {
+   url: '/overview',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/home/home.html',
+     controller: 'ProfileLinearHomeController as vm'
     }
    },
-   bodyClass: 'profile'
+   data: {
+    'selectedTab': 0
+   }
+  }).state('app.profileLinearView.activities', {
+   url: '/activities',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/activities/activities.html',
+     controller: 'ProfileLinearActivitiesController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 1
+   }
+  }).state('app.profileLinearView.timeline', {
+   url: '/timeline',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/timeline/timeline.html',
+     controller: 'ProfileLinearTimelineController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 2
+   }
+  }).state('app.profileLinearView.calendar', {
+   url: '/calendar',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/calendar/calendar.html',
+     controller: 'ProfileLinearCalendarController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 3
+   }
+  }).state('app.profileLinearView.discussions', {
+   url: '/discussion',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/discussions/discussions.html',
+     controller: 'ProfileLinearDiscussionsController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 4
+   }
+  }).state('app.profileLinearView.graphs', {
+   url: '/graphs',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/graphs/graphs.html',
+     controller: 'ProfileLinearGraphsController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 5
+   }
+  }).state('app.profileLinearView.settings', {
+   url: '/settings',
+   views: {
+    'tab': {
+     templateUrl: 'src/app/main/profile/views/linear/tabs/settings/settings.html',
+     controller: 'ProfileLinearSettingsController as vm'
+    }
+   },
+   data: {
+    'selectedTab': 6
+   }
   });
 
   // Translation

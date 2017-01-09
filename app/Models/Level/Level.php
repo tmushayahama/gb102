@@ -38,7 +38,7 @@ class Level extends Model {
      'group' => 10,
      'journal' => 11,
      'page' => 12,
-     'projece' => 13,
+     'project' => 13,
      'question' => 11100,
      'request_type_skill' => 1001,
      'request_type_goal' => 1002,

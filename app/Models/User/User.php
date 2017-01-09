@@ -11,6 +11,8 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Models\Component\Component;
+use App\Models\User\UserProfileSection;
 use Request;
 use DB;
 use JWTAuth;
@@ -65,19 +67,22 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
  }
 
  public static function getProfile($id) {
+  $result = array();
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $profile;
   if ($userId) {
    if ($userId == $id) {
     $profile = User::find($id);
    } else {
     $profile = User::find($id);
    }
-   return $profile;
+  } else {
+   $profile = User::find($id);
   }
-  $profile = User::find($id);
-  return $profile;
+  $result["components"] = Component::getUserComponents($userId);
+  $result["about"] = UserProfileSection::getUserProfileSections($userId);
+  $result["profile"] = $profile;
+  return $result;
  }
 
  public static function createUser() {

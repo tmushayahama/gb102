@@ -7,7 +7,7 @@
          .run(runBlock);
 
  /** @ngInject */
- function runBlock($rootScope, $timeout, $state, editableThemes, localStorageService)
+ function runBlock($rootScope, $timeout, $state, editableThemes, localStorageService, $mdDialog)
  {
   // 3rd Party Dependencies
   editableThemes.default.submitTpl = '<md-button class="md-icon-button" type="submit" aria-label="save"><md-icon md-font-icon="icon-checkbox-marked-circle" class="md-accent-fg md-hue-1"></md-icon></md-button>';
@@ -33,6 +33,7 @@
 
   // Cleanup
   $rootScope.$on('$stateChangeStart', function (event, toState) {
+   $mdDialog.cancel();
    var user = JSON.parse(localStorageService.get('user'));
    if (user) {
     $rootScope.authenticated = true;

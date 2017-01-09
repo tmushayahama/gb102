@@ -1,0 +1,150 @@
+<!--
+LINEAR PROFILE VIEW HOME
+-->
+<div class="gb-container widget-group gb-card-row" layout="row" flex>
+ <ms-widget class="gb-description-widget mt-10" layout="column" flex>
+  <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
+   <div layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading">
+     <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Description Icon">
+       <md-icon class="gb-title-icon" md-font-icon="fa fa-list"></md-icon>
+      </md-button>
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        SUMMARY
+       </span>
+      </div>
+      <span flex></span>
+     </div>
+    </md-toolbar>
+    <div class="gb-description">
+     <md-input-container class="md-block" md-no-float>
+      <textarea ng-model="profileLinearCtrl.profile.summary"
+                ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="profileLinearCtrl.updateComponentDescription(profileLinearCtrl.component)"
+                placeholder="Write a Summary" columns="1" md-maxlength="250" max-rows="15"></textarea>
+     </md-input-container>
+    </div>
+   </div>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa fa-user" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+</div>
+
+<div class="gb-container widget-group" layout="row" flex layout-nowrap>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::profileLinearCtrl.component.stats.contributors_count}}
+    </div>
+    <div class="gb-title">
+     CONTRIBUTION
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::profileLinearCtrl.components.stats.discussions_count}}
+    </div>
+    <div class="gb-title">
+     DISCUSSIONS
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa fa-comments-o" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::profileLinearCtrl.components.stats.activities_count}}
+    </div>
+    <div class="gb-title">
+     ACTIVITIES
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa icon-gb-apply" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+</div>
+
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
+ <md-toolbar class="gb-heading">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-activities"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Activities
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+ <div class="" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="row" layout-align="start center" layout-wrap flex>
+   <div ng-repeat="component in profileLinearCtrl.components.apps"
+        ui-sref="app.componentLinearView.home({id: component.id})"
+        layout-fill flex="25" layout-padding>
+    <div class="gb-card-component md-whiteframe-1dp" layout="column">
+     <div class="gb-card-cover">
+      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
+           class="gb-cover-image">
+       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
+      </div>
+      <div ng-if="component.component_placeholder_style"
+           class="gb-cover-image"
+           ng-style="component.component_placeholder_style">
+      </div>
+     </div>
+     <div class="gb-card-content">
+      <div class="gb-title">
+       <h3 class="gb-ellipsis">
+        {{component.title}}
+       </h3>
+      </div>
+      <div class="gb-name-badge-1">
+       <div class="gb-image">
+        <img data-ui-sref="apps.componentLinearView.home({componentId: component.id})"
+             ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+       </div>
+       <p class="gb-name gb-ellipsis">
+        {{ ::component.creator.firstname}}
+        {{ ::component.creator.lastname}}
+       </p>
+      </div>
+      <div class="gb-subdescription">
+       <p class="">
+        <span>
+         {{::component.description}}
+        </span>
+       </p>
+       <p ng-if="!component.description" class="gb-no-info">
+        No description to show
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <md-button ng-if="profileLinearCtrl.profile.components.apps.length > 10"
+            ui-sref="app.profileLinearView.activities({id: profileLinearCtrl.component.id})">
+  View More
+ </md-button>
+</div>
