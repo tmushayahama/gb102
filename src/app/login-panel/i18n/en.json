@@ -1,23 +1,20 @@
 {
-    "QUICKPANEL": {
-        "TODAY": "TODAY",
-        "CHAT": "CHAT",
-        "ACTIVITY": "ACTIVITY",
-        "FRIENDS": "Friends",
-        "APP_SERVERS": "Application Servers",
-        "USER_STATS": "User Stats",
-        "EVENTS": "Events",
-        "NOTES": "Notes",
-        "QUICK_SETTINGS": "Quick Settings",
-        "NOTIFICATIONS": "Notifications",
-        "CLOUD_SYNC": "Cloud Sync",
-        "RETRO_THRUSTERS": "Retro Thrusters",
-        "RECENT": "Recent",
-        "START_NEW_CHAT": "Start New Chat",
-        "BACK": "Back",
-        "CALL": "Call",
-        "MORE": "More",
-        "SEND_MESSAGE": "Send message",
-        "REPLY_PLACEHOLDER": "Type and hit enter to send message"
-    }
+ "login" :{
+  "title" :"Log in to your account" ,
+  "email" :"Email" ,
+  "password" :"Password" ,
+  "remember_me" :"Remember Me" ,
+  "forgot_password" :"Forgot Password?" ,
+  "log_in" :"Log In" ,
+  "or" :"or" ,
+  "with_google" :"log in with google" ,
+  "with_facebook" :"log in with facebook" ,
+  "dont_have_account" :"don't have an account?" ,
+  "create_account" :"create an account" ,
+  "errors" :{
+   "email_required" :"Email field is required" ,
+   "email_must_valid" :"Email must be a valid e-mail address" ,
+   "password_required" :"Eassword field is required"
+  }
+ }
 }

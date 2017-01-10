@@ -6,29 +6,29 @@
      <i class="fa icon-gb-logo"></i>
     </span>
    </div>
-   <div class="title" translate="LOGIN.TITLE">Log in to your account</div>
+   <div class="title" translate="login.title">Log in to your account</div>
 
    <form name="loginForm" novalidate ng-submit="vm.login()"">
     <md-input-container class="md-block" md-no-float>
      <input type="email" name="email" ng-model="vm.user.email" placeholder="Email"
-            translate translate-attr-placeholder="LOGIN.EMAIL"
+            translate translate-attr-placeholder="login.email"
             ng-pattern="/^.+@.+\..+$/" required>
      <div ng-messages="loginForm.email.$error" role="alert" multiple>
       <div ng-message="required">
-       <span translate="LOGIN.ERRORS.EMAIL_REQUIRED">Email field is required</span>
+       <span translate="login.errors.email_required">Email field is required</span>
       </div>
       <div ng-message="pattern">
-       <span translate="LOGIN.ERRORS.EMAIL_MUST_VALID">Email must be a valid e-mail address</span>
+       <span translate="login.errors.email_must_valid">Email must be a valid e-mail address</span>
       </div>
      </div>
     </md-input-container>
     <md-input-container class="md-block" md-no-float>
      <input type="password" name="password" ng-model="vm.user.password" placeholder="Password"
-            translate translate-attr-placeholder="LOGIN.PASSWORD"
+            translate translate-attr-placeholder="login.password"
             required>
      <div ng-messages="loginForm.password.$error" role="alert">
       <div ng-message="required">
-       <span translate="LOGIN.ERRORS.PASSWORD_REQUIRED">Password field is required</span>
+       <span translate="login.errors.password_required">Password field is required</span>
       </div>
      </div>
     </md-input-container>
@@ -36,46 +36,19 @@
     <div class="remember-forgot-password" layout="row" layout-xs="column"
          layout-align="space-between center">
      <md-checkbox class="remember-me" ng-model="data.cb1" aria-label="Remember Me">
-      <span translate="LOGIN.REMEMBER_ME">Remember Me</span>
+      <span translate="login.remember_me">Remember Me</span>
      </md-checkbox>
 
      <a ui-sref="app.pages_auth_forgot-password" class="forgot-password md-accent-color"
-        translate="LOGIN.FORGOT_PASSWORD">Forgot Password?</a>
+        translate="login.forgot_password">Forgot Password?</a>
     </div>
 
-    <md-button type="submit" class="md-raised md-accent submit-button" aria-label="LOG IN"
+    <md-button type="submit" class="md-raised md-accent submit-button" aria-label="log In"
                ng-disabled="loginForm.$invalid || loginForm.$pristine"
-               translate="LOGIN.LOG_IN" translate-attr-aria-label="LOGIN.LOG_IN">
-     LOG IN
+               translate="login.log_in" translate-attr-aria-label="login.log_in">
+     Log In
     </md-button>
    </form>
-
-   <div class="separator">
-    <span class="text" translate="LOGIN.OR">OR</span>
-   </div>
-
-   <md-button class="md-raised google">
-    <div layout="row" layout-align="center center">
-     <span>
-      <md-icon md-font-icon="icon-google-plus" class="s16"></md-icon>
-      <span translate="LOGIN.WITH_GOOGLE">Log in with Google</span>
-     </span>
-    </div>
-   </md-button>
-
-   <md-button class="md-raised facebook">
-    <div layout="row" layout-align="center center">
-     <span>
-      <md-icon md-font-icon="icon-facebook" class="s16"></md-icon>
-      <span translate="LOGIN.WITH_FACEBOOK">Log in with Facebook</span>
-     </span>
-    </div>
-   </md-button>
-
-   <div class="register" layout="row" layout-sm="column" layout-align="center center">
-    <span class="text" translate="LOGIN.DONT_HAVE_ACCOUNT">Don't have an account?</span>
-    <a class="link" ui-sref="app.pages_auth_register" translate="LOGIN.CREATE_ACCOUNT">Create an account</a>
-   </div>
   </div>
  </div>
 </md-content>

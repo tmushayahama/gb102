@@ -85,7 +85,24 @@ gulp.task('index-replace-css', function () {
          .pipe(gulp.dest(conf.paths.src + '/app/'));
 });
 
+//To replace app with src/app
+gulp.task('index-replace-html-dist', function () {
+ return gulp.src([conf.paths.src + '/index.html'])
+         .pipe(replace('scripts/', 'src/scripts/'))
+         .pipe(replace('styles/', 'src/styles/'))
+         .pipe(gulp.dest(''));
+});
+
+gulp.task('index-replace-css-dist', function () {
+ return gulp.src([conf.paths.src + '/index.css'])
+         .pipe(replace('', ''))
+         .pipe(gulp.dest(conf.paths.src + '/app/'));
+});
+
 gulp.task('index-replace', ['index-replace-html', 'index-replace-css']);
+
+gulp.task('index-replace-dist', ['index-replace-html-dist', 'index-replace-css-dist']);
+
 
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
