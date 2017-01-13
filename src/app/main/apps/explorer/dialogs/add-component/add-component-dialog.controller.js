@@ -7,26 +7,34 @@
          .controller('ExplorerAddComponentDialogController', ExplorerAddComponentDialogController);
 
  /** @ngInject */
- function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ExplorerComponentService, componentId, startTabIndex, preselectedData)
- {
+ function ExplorerAddComponentDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ComponentService, MentorshipService, componentId, startTabIndex, preselectedData) {
+
   var vm = this;
 
   // Data
-
-  vm.component = {};
   vm.formTabIndex = 0;
   vm.tabs = add_component_tabs;
+
   vm.selectedTabHistory = [];
   vm.selectedApp = [];
-  vm.privacy = level_categories.privacy;
-  vm.selectedPrivacy = {};
+  vm.mentorshipRequest = {
+   selected: {},
+   mentors: [],
+   suggestions: []
+  };
+
+  vm.privacy = {
+   value: level_categories.privacy,
+   selected: {}
+  };
 
   /* Contributions */
   vm.componentContribution = {};
 
   vm.submitType = {
    component: 0,
-   contribution: 1
+   contribution: 1,
+   mentorshipRequest: 2
   };
 
 
@@ -48,6 +56,10 @@
 
   vm.selectPrivacy = selectPrivacy;
   vm.createComponent = createComponent;
+
+  /* Mentorship */
+  vm.mentorshipRequestSuggestionsQuerySearch = mentorshipRequestSuggestionsQuerySearch;
+  vm.createMentorship = createMentorship;
 
   /* Contribution */
   vm.contributionSuggestionsQuerySearch = contributionSuggestionsQuerySearch;
@@ -101,6 +113,9 @@
     case vm.submitType.contribution:
      createComponentContributions();
      break;
+    case vm.submitType.mentorshipRequest:
+     createMentorship();
+     break;
     default:
    }
   }
@@ -144,6 +159,8 @@
    vm.selectedSubmitType = vm.submitType.component;
   }
 
+
+
   /**
    * Select to add sub components
    */
@@ -171,7 +188,7 @@
    vm.componentContribution.componentId = componentId;
    vm.componentContribution.description = "";
 
-   ExplorerComponentService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
+   ComponentService.getContributionSuggestions(componentId, contributionType.id).then(function (response) {
     vm.contributionSuggestions = response;
    });
 
@@ -185,9 +202,12 @@
    * @param {type} title thge label of the privacy
    */
   function selectPrivacy(id, title) {
-   vm.selectedPrivacy.id = id;
-   vm.selectedPrivacy.title = title;
+   vm.privacy.selected.id = id;
+   vm.privacy.selected.title = title;
   }
+
+
+
 
   /**
    * Add a new component
@@ -196,10 +216,67 @@
   function createComponent() {
    vm.component.parentComponentId = componentId;
    vm.component.typeId = vm.selectedApp.id;
-   vm.component.privacyId = vm.selectedPrivacy.id;
-   ExplorerComponentService.createComponent(vm.component).then(function (data) {
+   vm.component.privacyId = vm.privacy.selected.id;
+   ComponentService.createComponent(vm.component).then(function (data) {
     vm.closeDialog();
     $state.go('app.componentLinearView.home', {id: data.id});
+   });
+  }
+
+  //MENTORSHIP
+
+  /**
+   * Select the add mentorship
+   *
+   * @param {type} mentorshipRequest selected mentorship request
+   * @returns {undefined}
+   */
+  function selectAddMentorship(mentorshipRequest) {
+   vm.formTabIndex = vm.tabs.mentorshipRequest;
+   vm.mentorshipRequest.selected = mentorshipRequest;
+   vm.mentorshipRequest.form = {};
+
+   MentorshipService.getRequestSuggestions(componentId, mentorshipRequest.id).then(function (response) {
+    vm.mentorshipRequest.suggestions = response;
+   });
+   vm.selectedSubmitType = vm.submitType.mentorshipRequest;
+  }
+
+  /* Component Contribution */
+  /**
+   * Search for suggested contribution
+   *
+   * @param query search text
+   * @returns contributionSuggestions
+   */
+  function mentorshipRequestSuggestionsQuerySearch(query) {
+   var results = query ? vm.mentorshipRequest.suggestions.filter(createFilterFor(query)) : vm.mentorshipRequest.suggestions;
+   return results;
+  }
+
+  /**
+   * Add a new component
+   *
+   */
+  function createMentorship() {
+   if (!vm.mentorshipRequest.form.title) {
+    return;
+   }
+   var data = {
+    typeId: level_categories.mentorship,
+    parentComponentId: componentId,
+    title: vm.mentorshipRequest.form.title,
+    description: '',
+    mentorshipDescription: vm.mentorshipRequest.form.description,
+    mentorshipTypeId: vm.mentorshipRequest.selected.id,
+    privacyId: vm.privacy.selected.id,
+    mentorIds: vm.mentorshipRequest.mentors.map(function (mentor) {
+     return mentor.id;
+    })
+   };
+   MentorshipService.createMentorship(data).then(function (response) {
+    vm.closeDialog();
+    //$state.go('app.componentLinearView.home', {id: data.id});
    });
   }
 
@@ -224,12 +301,12 @@
     componentId: vm.componentContribution.componentId,
     description: vm.componentContribution.description,
     levelId: vm.componentContribution.contributorType.id,
-    privacyId: vm.selectedPrivacy.id,
+    privacyId: vm.privacy.selected.id,
     contributorIds: vm.componentContribution.selectedContributors.map(function (selectedContributor) {
      return selectedContributor.id;
     })
    };
-   ExplorerComponentService.createComponentContributions(data).then(function (response) {
+   ComponentService.createComponentContributions(data).then(function (response) {
     vm.closeDialog();
     //$state.go('app.componentLinearView.home', {id: data.id});
    });
@@ -539,11 +616,14 @@
   function init() {
    selectTab(startTabIndex);
    selectPrivacy(level_categories.privacy.public, "Public");
-   vm.component.description = "";
+   // vm.component.description = "";
    if (preselectedData) {
     switch (startTabIndex) {
      case vm.tabs.fillApps:
       selectApp(preselectedData.selectedApp);
+      break;
+     case vm.tabs.mentorshipRequest:
+      selectAddMentorship(preselectedData);
       break;
     }
    }

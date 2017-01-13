@@ -5,6 +5,8 @@
  angular
          .module('app.explorer',
                  [
+                  'app.components',
+                  'app.mentorship',
                   // 3rd Party Dependencies
                   'moment-picker',
                   'ui.calendar',
@@ -248,9 +250,9 @@
             }
            },
            resolve: {
-            BoardData: function ($stateParams, ExplorerComponentService)
+            BoardData: function ($stateParams, ComponentService)
             {
-             return ExplorerComponentService.addNewBoard();
+             return ComponentService.addNewBoard();
             }
            }
           }
@@ -271,59 +273,7 @@
   $translatePartialLoaderProvider.addPart('src/app/main/apps/explorer');
 
   // Api
-  msApiProvider.register('explorer.component', ['/api/components/:id/listformat/:listFormat',
-   {
-    id: "@id",
-    listformat: "@listformat"
-   }]);
-  msApiProvider.register('explorer.createComponent', ['/api/components/create']);
-  msApiProvider.register('explorer.updateComponent', ['/api/components/update']);
-  msApiProvider.register('explorer.updateComponentDescription', ['/api/components/:componentId/update/description', {
-    componentId: "@componentId",
-   }]);
-  msApiProvider.register('explorer.updateComponentBackground', ['/api/components/:componentId/update/background', {
-    componentId: "@componentId",
-   }]);
-  msApiProvider.register('explorer.components', ['/api/components/listformat/:listFormat',
-   {
-    listFormat: "@listFormat"
-   }]);
-  msApiProvider.register('explorer.componentApp', ['api/components/app/:appName',
-   {
-    appName: '@appName'
-   }]);
-  msApiProvider.register('explorer.componentsByType', ['api/components/listformat/1/type/:appName',
-   {
-    appName: '@appName'
-   }]);
-  msApiProvider.register('explorer.randomComponentByType', ['/api/components/random/type/:typeId',
-   {
-    typeId: '@typeId'
-   }
-  ]);
-  msApiProvider.register('explorer.randomComponent', ['/api/components/random']);
 
-  /*Component Contribution*/
-  msApiProvider.register('explorer.getContributionSuggestions', ['api/components/:componentId/contribution/type/:typeId/suggestions',
-   {
-    componentId: "@componentId",
-    typeId: "@typeId"
-   }]);
-  msApiProvider.register('explorer.createComponentContributions', ['/api/components/contributions/create']);
-
-
-  /*Component Bookmarks*/
-  msApiProvider.register('explorer.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',
-   {
-    creatorId: "@creatorId"
-   }]);
-  msApiProvider.register('explorer.createComponentBookmark', ['/api/components/bookmarks/create']);
-  /*User Component*/
-  msApiProvider.register('explorer.userComponents', ['/api/components/user/:userId/listformat/:listFormat',
-   {
-    userId: "@userId",
-    listFormat: "@listFormat"
-   }]);
  }
 
 })();

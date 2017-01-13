@@ -32,6 +32,7 @@
           'app.gantt-chart',
           'app.todo',
           'app.components',
+          "app.mentorship"
                   // Pages
                   //'app.pages',
                   // User Interface

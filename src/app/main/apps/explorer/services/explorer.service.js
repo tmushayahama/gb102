@@ -1,6 +1,6 @@
 /*
  *
- * This is a Skill Section ExplorerComponentService factory which
+ * This is a Skill Section ComponentService factory which
  * connects to the backend
  */
 
@@ -10,14 +10,13 @@
 
  angular
          .module('app.explorer')
-         .factory('ExplorerComponentService', ExplorerComponentService);
+         .factory('ExplorerService', ExplorerService);
 
  /** @ngInject */
- function ExplorerComponentService($q, msApi)
+ function ExplorerService($q, msApi)
  {
   var service = {
    data: {},
-   addNewComponent: addNewComponent,
    createComponent: createComponent,
    updateComponent: updateComponent,
    updateComponentDescription: updateComponentDescription,

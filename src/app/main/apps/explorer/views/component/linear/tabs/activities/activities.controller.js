@@ -7,13 +7,13 @@
          .controller('ComponentLinearActivitiesController', ComponentLinearActivitiesController);
 
  /** @ngInject */
- function ComponentLinearActivitiesController(ExplorerComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
+ function ComponentLinearActivitiesController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
  {
   var vm = this;
 
   // Data
   vm.componentId = $stateParams.id;
-  vm.components = [];//ComponentsService.data;
+  vm.components = [];//ComponentService.data;
   vm.labels = [];//LabelsService.data;
   vm.search = '';
   vm.searchToolbar = false;
@@ -171,7 +171,7 @@
    */
   function init()
   {
-   ExplorerComponentService.getComponent(vm.componentId, 0).then(function (data) {
+   ComponentService.getComponent(vm.componentId, 0).then(function (data) {
     vm.components = data.components;
     vm.components.newComponentData = angular.copy(vm.defaultComponentData);
    });

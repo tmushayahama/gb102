@@ -7,7 +7,7 @@
          .controller('ComponentLinearGraphsController', ComponentLinearGraphsController);
 
  /** @ngInject */
- function ComponentLinearGraphsController(ExplorerComponentService, $rootScope)
+ function ComponentLinearGraphsController(ComponentService, $rootScope)
  {
   var vm = this;
   //////////

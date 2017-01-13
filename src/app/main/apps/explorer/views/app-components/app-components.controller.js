@@ -7,7 +7,7 @@
          .controller('AppExplorerComponentsController', AppExplorerComponentsController);
 
  /** @ngInject */
- function AppExplorerComponentsController(add_component_tabs, $stateParams, ExplorerComponentService, DialogService, $rootScope)
+ function AppExplorerComponentsController(add_component_tabs, $stateParams, ComponentService, DialogService, $rootScope)
  {
   var vm = this;
 
@@ -33,7 +33,7 @@
 
 
   function init() {
-   ExplorerComponentService.getComponentApp(vm.appName).then(function (data) {
+   ComponentService.getComponentApp(vm.appName).then(function (data) {
     vm.app = data;
     angular.forEach(vm.app.components, function (component) {
      if (component.component_picture_url || component.component_picture_url === 'default.png') {

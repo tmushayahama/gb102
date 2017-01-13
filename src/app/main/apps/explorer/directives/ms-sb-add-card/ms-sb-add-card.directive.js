@@ -8,13 +8,13 @@
          .directive('msSbAddCard', msSbAddCardDirective);
 
  /** @ngInject */
- function msSbAddCardController($scope, $timeout, ExplorerComponentService, msUtils)
+ function msSbAddCardController($scope, $timeout, ComponentService, msUtils)
  {
   var vm = this;
 
   vm.newCardName = '';
   vm.listId = $scope.msListId;
-  vm.board = ExplorerComponentService.data;
+  vm.board = ComponentService.data;
   vm.cards = vm.board.cards;
   //vm.list = vm.board.lists.getById(vm.listId);
 

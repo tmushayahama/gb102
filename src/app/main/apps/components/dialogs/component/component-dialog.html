@@ -574,6 +574,37 @@
     </div>
    </div>
 
+
+   <div class="gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+        ng-repeat="section in vm.component.apps"
+        ng-if="section.components.length > 0">
+    <md-toolbar class="gb-heading" flex>
+     <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Description Icon">
+       <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+      </md-button>
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{section.title}}
+       </span>
+      </div>
+      <span flex></span>
+     </div>
+    </md-toolbar>
+    <div class="gb-card-content" flex>
+     <div ng-repeat="component in section.components" class="gb-title" ng-style="{
+    'background-color':component.background_color.title}">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" ng-model="component.title" placeholder="Title" md-maxlength="150">
+      </md-input-container>
+     </div>
+     <form ng-submit="vm.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
+    </div>
+   </div>
    <div class="gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
         ng-repeat="section in vm.component.activities"
         ng-if="section.components.length > 0">

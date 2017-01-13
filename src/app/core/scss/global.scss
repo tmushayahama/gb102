@@ -1310,7 +1310,9 @@ md-tabs {
 
  .gb-image {
   @include position(absolute, 14px null 14px 14px);
-  //position: relative;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 25px;
   height: 60px;
   width: 60px;
   border-radius: 50%;

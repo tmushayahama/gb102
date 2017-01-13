@@ -222,7 +222,6 @@ class Component extends Model {
   foreach ($components as $component) {
    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
   }
-
   return $components;
  }
 
@@ -249,6 +248,30 @@ class Component extends Model {
           })
           ->with('type')
           ->with('creator')
+          ->take(50)
+          ->get();
+
+  if ($depth > 0) {
+   foreach ($components as $component) {
+    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
+    $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
+   }
+  }
+  return $components;
+ }
+
+ public static function getSubComponentsTree($componentId, $appType, $depth = 0) {
+  $components = Component::orderBy('id', 'asc')
+          ->where('parent_component_id', $componentId)
+          ->whereHas('type', function($q) use($appType) {
+           if ($appType == 1) {
+            $q->where('parent_level_id', 1);
+           } else if ($appType == 2) {
+            $q->where('parent_level_id', Level::$level_categories['component_types']);
+           } else if ($appType == 3) {
+            $q->where('parent_level_id', Level::$level_categories['component_motives']);
+           }
+          })
           ->take(50)
           ->get();
 
@@ -317,6 +340,9 @@ class Component extends Model {
     break;
    case Level::$componentJsonFormat["linear"]:
     self::formatComponentByLinear($component);
+    break;
+   case Level::$componentJsonFormat["tree"]:
+    self::formatComponentByTree($component);
     break;
    default:
     $component["components"] = self::getSubComponents($componentId, null, 1);
@@ -510,6 +536,11 @@ class Component extends Model {
    $components[$componentType->id]["components"] = Component::getSubComponentsByType($component->id, $componentType->id);
   }
   $component["motives"] = $components;
+ }
+
+ private static function formatComponentByTree($component) {
+  $component["components"] = Component::getSubComponents($component->id, 8);
+  return $component;
  }
 
  /**

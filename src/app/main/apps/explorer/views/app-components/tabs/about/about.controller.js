@@ -7,7 +7,7 @@
          .controller('AppComponentsAboutTabController', AppComponentsAboutTabController);
 
  /** @ngInject */
- function AppComponentsAboutTabController(level_categories, ExplorerComponentService, $scope, $rootScope)
+ function AppComponentsAboutTabController(level_categories, ComponentService, $scope, $rootScope)
  {
   var vm = this;
 
@@ -33,7 +33,7 @@
    * @returns
    */
   function getMatcher() {
-   ExplorerComponentService.getRandomBoardByType(level_categories.component.question).then(function (response) {
+   ComponentService.getRandomBoardByType(level_categories.component.question).then(function (response) {
     vm.component = response;
     addComponentPlaceholderImage(vm.component);
    });
@@ -46,7 +46,7 @@
    */
   function getMatchers(creatorId) {
    if (creatorId) {
-    ExplorerComponentService.getComponentBookmarks(creatorId).then(function (response) {
+    ComponentService.getComponentBookmarks(creatorId).then(function (response) {
      vm.matchers = response;
      angular.forEach(vm.matchers, function (matcher) {
       addComponentPlaceholderImage(matcher.component);
@@ -67,7 +67,7 @@
     levelId: levelId
             // description: ""
    };
-   ExplorerComponentService.createComponentBookmark(data).then(function (response) {
+   ComponentService.createComponentBookmark(data).then(function (response) {
     getMatcher();
    });
   }

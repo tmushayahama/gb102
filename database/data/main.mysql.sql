@@ -110,7 +110,6 @@ CREATE TABLE `gb_component` (
   CONSTRAINT `component_privacy_id` FOREIGN KEY (`privacy_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_checklist`
 --
@@ -238,6 +237,43 @@ CREATE TABLE `gb_level` (
   PRIMARY KEY (`id`),
   KEY `level_parent_level_id` (`parent_level_id`),
   CONSTRAINT `level_parent_level_id` FOREIGN KEY (`parent_level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_mentorship`
+--
+
+DROP TABLE IF EXISTS `gb_mentorship`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_mentorship_id` int(11),
+  `component_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `mentor_id` int(11),
+  `mentee_id` int(11),
+  `type_id` int(11) NOT NULL,
+  `description` varchar(150), -- a note/message
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_parent_mentorship_id` (`parent_mentorship_id`),
+  KEY `mentorship_component_id` (`component_id`),
+  KEY `mentorship_type_id` (`type_id`),
+  KEY `mentorship_creator_id` (`creator_id`),
+  KEY `mentorship_mentor_id` (`mentor_id`),
+  KEY `mentorship_mentee_id` (`mentee_id`),
+  CONSTRAINT `mentorship_parent_mentorship_id` FOREIGN KEY (`parent_mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_component_id` FOREIGN KEY (`component_id`) REFERENCES `gb_component` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -390,7 +426,8 @@ CREATE TABLE `gb_user` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastname` varchar(100) NOT NULL DEFAULT '',
   `firstname` varchar(100) NOT NULL DEFAULT '',
-  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_avatar.png',
+  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb-avatar.jpg',
+  `theme_color` varchar(200) NOT NULL DEFAULT 'md-blue-400-bg',
   `gender` varchar(1) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL DEFAULT '',
@@ -488,7 +525,7 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user.tx
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
+    (`id`, `email`, `password`, `remember_token`, `lastname`, `firstname`, `avatar_url`, `theme_color`, `gender`, `birthdate`, `phone_number`, `address`, `superuser`, `status`);
 
 -- ----------- USER CONNECTION ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/user-connection.txt'

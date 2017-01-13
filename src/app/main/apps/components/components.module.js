@@ -9,42 +9,62 @@
  /** @ngInject */
  function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
  {
-  $stateProvider.state('app.components', {
-   url: '/components',
-   views: {
-    'content@app': {
-     templateUrl: 'src/app/main/apps/components/components.html',
-     controller: 'ComponentsController as vm'
-    }
-   },
-   resolve: {
-    Components: function (ComponentsService)
-    {
-     return ComponentsService.getData();
-    },
-    Labels: function (LabelsService)
-    {
-     return LabelsService.getData();
-    }
-   }
-  });
 
   // Translation
   $translatePartialLoaderProvider.addPart('src/app/main/apps/components');
 
   // Api
-  msApiProvider.register('components.getComponent', ['/api/components/:id/listformat/:listFormat',
+  msApiProvider.register('component.component', ['/api/components/:id/listformat/:listFormat',
    {
     id: "@id",
     listformat: "@listformat"
    }]);
-  msApiProvider.register('components.createComponent', ['/api/components/create']);
+  msApiProvider.register('component.createComponent', ['/api/components/create']);
   msApiProvider.register('component.updateComponent', ['/api/components/update']);
   msApiProvider.register('component.updateComponentDescription', ['/api/components/:componentId/update/description', {
-    componentId: "@componentId",
+    componentId: "@componentId"
    }]);
   msApiProvider.register('component.updateComponentBackground', ['/api/components/:componentId/update/background', {
+    componentId: "@componentId"
+   }]);
+  msApiProvider.register('component.components', ['/api/components/listformat/:listFormat',
+   {
+    listFormat: "@listFormat"
+   }]);
+  msApiProvider.register('component.componentApp', ['api/components/app/:appName',
+   {
+    appName: '@appName'
+   }]);
+  msApiProvider.register('component.componentsByType', ['api/components/listformat/1/type/:appName',
+   {
+    appName: '@appName'
+   }]);
+  msApiProvider.register('component.randomComponentByType', ['/api/components/random/type/:typeId',
+   {
+    typeId: '@typeId'
+   }
+  ]);
+  msApiProvider.register('component.randomComponent', ['/api/components/random']);
+
+  /*Component Contribution*/
+  msApiProvider.register('component.getContributionSuggestions', ['api/components/:componentId/contribution/type/:typeId/suggestions',
+   {
     componentId: "@componentId",
+    typeId: "@typeId"
+   }]);
+  msApiProvider.register('component.createComponentContributions', ['/api/components/contributions/create']);
+
+  /*Component Bookmarks*/
+  msApiProvider.register('component.getComponentBookmarks', ['/api/components/bookmarks/:creatorId',
+   {
+    creatorId: "@creatorId"
+   }]);
+  msApiProvider.register('component.createComponentBookmark', ['/api/components/bookmarks/create']);
+  /*User Component*/
+  msApiProvider.register('component.userComponents', ['/api/components/user/:userId/listformat/:listFormat',
+   {
+    userId: "@userId",
+    listFormat: "@listFormat"
    }]);
  }
 

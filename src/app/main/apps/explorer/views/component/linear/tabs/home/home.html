@@ -21,14 +21,16 @@ LINEAR VIEW HOME
     <div class="gb-title">
      <md-input-container class="md-block" md-no-float>
       <textarea ng-model="componentLinearCtrl.component.title"
-                ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
+                ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
                 placeholder="Title" columns="1" md-maxlength="150" max-rows="15"></textarea>
      </md-input-container>
     </div>
     <div class="gb-description">
      <md-input-container class="md-block" md-no-float>
       <textarea ng-model="componentLinearCtrl.component.description"
-                ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
+                ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
                 placeholder="Write a Description" columns="1" md-maxlength="250" max-rows="15"></textarea>
      </md-input-container>
     </div>
@@ -49,10 +51,11 @@ LINEAR VIEW HOME
       <div class="gb-description">
       </div>
      </div>
-     <div class="gb-image">
-      <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           src="public/img/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
+     <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
+      <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
+           src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
            class="gb-heading-pic" alt="">
+      {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
      </div>
     </div>
    </div>
@@ -62,7 +65,27 @@ LINEAR VIEW HOME
   </ms-widget-front>
  </ms-widget>
 </div>
-
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
+ <div class="widget-group gb-section-widget-group" flex="100"
+      layout="row" layout-align="start" layout-wrap flex>
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
+             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
+               layout="row" layout-align="start stretch" flex>
+     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{mentorshipRequestType.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+      <div class="gb-title">
+       {{mentorshipRequestType.description}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
+</div>
 <div class="gb-container widget-group" layout="row" flex layout-nowrap>
  <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
   <ms-widget-front class="p-8" layout="row" flex>
@@ -254,7 +277,7 @@ LINEAR VIEW HOME
    </div>
    <div class="gb-image">
     <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-         src="public/img/profile_pic/{{contribution.contributor.avatar_url}}"
+         src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
          class="gb-heading-pic" alt="">
    </div>
   </div>
@@ -299,7 +322,7 @@ LINEAR VIEW HOME
      <div class="gb-name-badge-1">
       <div class="gb-image">
        <img data-ui-sref="apps.component.overview({componentId: component.id})"
-            ng-src="public/img/profile_pic/{{ ::component.creator.avatar_url}}"
+            ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
             class="gb-heading-pic" alt="">
       </div>
       <p class="gb-name gb-ellipsis">
@@ -339,7 +362,8 @@ LINEAR VIEW HOME
   <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title"
-           ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
            placeholder="Title" md-maxlength="250">
    </md-input-container>
    <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
@@ -373,7 +397,8 @@ LINEAR VIEW HOME
   <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title"
-           ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
            placeholder="Title" md-maxlength="250">
    </md-input-container>
    <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
@@ -407,7 +432,8 @@ LINEAR VIEW HOME
   <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="component.title"
-           ng-model-options="{updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
            placeholder="Title" md-maxlength="250">
    </md-input-container>
    <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">

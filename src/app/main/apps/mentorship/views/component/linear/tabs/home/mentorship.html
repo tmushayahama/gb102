@@ -1,0 +1,448 @@
+<!--
+LINEAR VIEW HOME
+-->
+<div class="gb-container widget-group gb-card-row" layout="row" flex>
+ <ms-widget class="gb-description-widget mt-10" layout="column" flex>
+  <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
+   <div layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading">
+     <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Description Icon">
+       <md-icon class="gb-title-icon" md-font-icon="fa fa-list"></md-icon>
+      </md-button>
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        Description
+       </span>
+      </div>
+      <span flex></span>
+     </div>
+    </md-toolbar>
+    <div class="gb-title">
+     <md-input-container class="md-block" md-no-float>
+      <textarea ng-model="mentorshipLinearCtrl.mentorship.title"
+                ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="mentorshipLinearCtrl.updateMentorshipDescription(mentorshipLinearCtrl.mentorship)"
+                placeholder="Title" columns="1" md-maxlength="150" max-rows="15"></textarea>
+     </md-input-container>
+    </div>
+    <div class="gb-description">
+     <md-input-container class="md-block" md-no-float>
+      <textarea ng-model="mentorshipLinearCtrl.mentorship.description"
+                ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="mentorshipLinearCtrl.updateMentorshipDescription(mentorshipLinearCtrl.mentorship)"
+                placeholder="Write a Description" columns="1" md-maxlength="250" max-rows="15"></textarea>
+     </md-input-container>
+    </div>
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <h3 class="gb-ellipsis">
+        <a data-ui-sref="apps.profile.overview({profileId: mentorshipContribution.contribution.contributor_id})">
+         {{mentorshipLinearCtrl.mentorship.creator.firstname + ' ' + mentorshipLinearCtrl.mentorship.creator.lastname}}
+        </a>
+       </h3>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        CREATOR
+       </p>
+      </div>
+      <div class="gb-description">
+      </div>
+     </div>
+     <div class="gb-image">
+      <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
+           src="src/assets/images/profile_pic/{{mentorshipLinearCtrl.mentorship.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+     </div>
+    </div>
+   </div>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa icon-gb-{{mentorshipLinearCtrl.mentorship.type.title}}" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+</div>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
+ <div class="widget-group gb-section-widget-group" flex="100"
+      layout="row" layout-align="start" layout-wrap flex>
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
+             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
+               layout="row" layout-align="start stretch" flex>
+     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{mentorshipRequestType.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+      <div class="gb-title">
+       {{mentorshipRequestType.description}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
+</div>
+<div class="gb-container widget-group" layout="row" flex layout-nowrap>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::mentorshipLinearCtrl.mentorship.stats.contributors_count}}
+    </div>
+    <div class="gb-title">
+     CONTRIBUTORS
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa icon-users" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::mentorshipLinearCtrl.mentorship.stats.discussions_count}}
+    </div>
+    <div class="gb-title">
+     DISCUSSIONS
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa fa-comments-o" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     {{::mentorshipLinearCtrl.mentorship.stats.activities_count}}
+    </div>
+    <div class="gb-title">
+     ACTIVITIES
+    </div>
+   </div>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa icon-gb-apply" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+</div>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
+ <md-toolbar class="gb-heading">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Add More Sections
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+ <div class="" layout="column" layout-align="start stretch" flex>
+  <div class="widget-group gb-section-widget-group"
+       layout="row" layout-align="start" layout-wrap flex>
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.contributions)" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-deep-purple-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-users"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        REQUEST CONTRIBUTIONS
+       </div>
+       <div class="gb-description">
+        Invite people to take part.
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.apps)" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-lime-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-tree"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        ADD COMPONENTS
+       </div>
+       <div class="gb-description">
+        Break down into submentorships and related mentorships
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.motives)" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-green-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa fa-file-text-o"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        ADD BACKGROUND
+       </div>
+       <div class="gb-description">
+        Add any prerequisites, motivations, background information
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.activities)" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-indigo-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-gb-activity"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        ADD ACTIVITIES
+       </div>
+       <div class="gb-description">
+        Any actions like mentorships, exercises, steps, guidelines, questions
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
+</div>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
+ <md-toolbar class="gb-heading">
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Contributors
+    </span>
+   </div>
+  </div>
+ </md-toolbar>
+ <div class="widget-group gb-section-widget-group" flex="100"
+      layout="row" layout-align="start" layout-wrap flex>
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
+             ng-repeat="contributionType in $root.commonData.contributionTypes">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.contributors, contributionType)" class="gb-main-button"
+               layout="row" layout-align="start stretch" flex>
+     <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{contributionType.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+      <div class="gb-title">
+       REQUEST {{contributionType.title}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
+ <div ng-repeat="contribution in mentorshipLinearCtrl.mentorship.contributions" class="p-8" flex="33">
+  <div class="gb-card-profile md-whiteframe-1dp">
+   <div class="gb-box-content">
+    <div class="gb-title">
+     <h3 class="gb-ellipsis">
+      <a data-ui-sref="apps.profile.overview({profileId: mentorshipContribution.contribution.contributor_id})">
+       {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
+      </a>
+     </h3>
+    </div>
+    <div class="gb-subdescription">
+     <p class="gb-ellipsis">
+      {{contribution.level.title}} - {{contribution.status.title}}
+     </p>
+    </div>
+    <div class="gb-description">
+    </div>
+   </div>
+   <div class="gb-image">
+    <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
+         src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+         class="gb-heading-pic" alt="">
+   </div>
+  </div>
+ </div>
+</div>
+<div ng-if="false" class="gb-container gb-card-row gb-section-row" layout="column" layout-align="start center" flex>
+ <md-toolbar class="gb-heading" flex="100">
+  <div class="md-toolbar-tools">
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Related Topics
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-icon-button" aria-label="Add Contributors">
+    <md-icon md-font-icon="fa fa-plus"></md-icon>
+   </md-button>
+  </div>
+ </md-toolbar>
+ <div class="" layout="row" layout-wrap>
+  <div  ng-repeat="mentorship in mentorshipLinearCtrl.mentorship.apps"
+        layout-fill flex="25">
+   <div class="board-list-item"
+        ui-sref="app.mentorshipLinearView.home({id:mentorship.id})"
+        layout="column" layout-align="start">
+    <div class="gb-card-cover">
+     <div ng-if="mentorship.mentorship_picture_url && mentorship.mentorship_picture_url !== 'default.png'"
+          class="gb-cover-image">
+      <img ng-src="src/assets/images/mentorship/{{mentorship.mentorship_picture_url}}">
+     </div>
+     <div ng-if="mentorship.mentorship_placeholder_style"
+          class="gb-cover-image"
+          ng-style="mentorship.mentorship_placeholder_style">
+     </div>
+    </div>
+    <div class="gb-card-content">
+     <div class="gb-title">
+      <h3 class="gb-ellipsis">
+       {{mentorship.title}}
+      </h3>
+     </div>
+     <div class="gb-name-badge-1">
+      <div class="gb-image">
+       <img data-ui-sref="apps.mentorship.overview({mentorshipId: mentorship.id})"
+            ng-src="src/assets/images/profile_pic/{{ ::mentorship.creator.avatar_url}}"
+            class="gb-heading-pic" alt="">
+      </div>
+      <p class="gb-name gb-ellipsis">
+       {{ ::mentorship.creator.firstname}}
+       {{ ::mentorship.creator.lastname}}
+      </p>
+     </div>
+     <div class="gb-subdescription">
+      <p class="">
+       <span>
+        {{::mentorship.description}}
+       </span>
+      </p>
+      <p ng-if="!mentorship.description" class="gb-no-info">
+       No description to show
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="gb-container gb-editible-mentorship-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+     ng-repeat="section in mentorshipLinearCtrl.mentorship.motives"
+     ng-if="section.mentorships.length > 0">
+ <md-toolbar class="gb-heading" flex>
+  <div class="md-toolbar-tools">
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{section.title}}
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+ <div class="gb-card-content" flex>
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" ng-model="mentorship.title"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="mentorshipLinearCtrl.updateMentorshipDescription(mentorship)"
+           placeholder="Title" md-maxlength="250">
+   </md-input-container>
+   <md-button ng-click="mentorshipLinearCtrl.openMentorshipDialog($event, mentorship.id)" class="gb-action-btn md-icon-button" aria-label="open">
+    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+   </md-button>
+  </div>
+  <form ng-submit="mentorshipLinearCtrl.createMentorship(section)" class="gb-title">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" class="gb-add-mentorship-input" ng-model="section.newMentorship.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+   </md-input-container>
+  </form>
+ </div>
+</div>
+<div class="gb-container gb-editible-mentorship-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+     ng-repeat="section in mentorshipLinearCtrl.mentorship.mentorships"
+     ng-if="section.mentorships.length > 0">
+ <md-toolbar class="gb-heading" flex>
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{section.title}}
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+ <div class="gb-card-content" flex>
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" ng-model="mentorship.title"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="mentorshipLinearCtrl.updateMentorshipDescription(mentorship)"
+           placeholder="Title" md-maxlength="250">
+   </md-input-container>
+   <md-button ng-click="mentorshipLinearCtrl.openMentorshipDialog($event, mentorship.id)" class="gb-action-btn md-icon-button" aria-label="open">
+    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+   </md-button>
+  </div>
+  <form ng-submit="mentorshipLinearCtrl.createMentorship(section)" class="gb-title">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" class="gb-add-mentorship-input" ng-model="section.newMentorship.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+   </md-input-container>
+  </form>
+ </div>
+</div>
+<div class="gb-container gb-editible-mentorship-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
+     ng-repeat="section in mentorshipLinearCtrl.mentorship.activities"
+     ng-if="section.mentorships.length > 0">
+ <md-toolbar class="gb-heading" flex>
+  <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" aria-label="Description Icon">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{section.title}}
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+ <div class="gb-card-content" flex>
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" ng-model="mentorship.title"
+           ng-model-options="{
+                updateOn: 'blur', debounce: 1000}" ng-change="mentorshipLinearCtrl.updateMentorshipDescription(mentorship)"
+           placeholder="Title" md-maxlength="250">
+   </md-input-container>
+   <md-button ng-click="mentorshipLinearCtrl.openMentorshipDialog($event, mentorship.id)" class="gb-action-btn md-icon-button" aria-label="open">
+    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+   </md-button>
+  </div>
+  <form ng-submit="mentorshipLinearCtrl.createMentorship(section)" class="gb-title">
+   <md-input-container class="md-block" md-no-float>
+    <input type="text" class="gb-add-mentorship-input" ng-model="section.newMentorship.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+   </md-input-container>
+  </form>
+ </div>
+</div>

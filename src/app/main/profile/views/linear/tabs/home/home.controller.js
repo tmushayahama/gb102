@@ -7,7 +7,7 @@
          .controller('ProfileLinearHomeController', ProfileLinearHomeController);
 
  /** @ngInject */
- function ProfileLinearHomeController(add_component_tabs, ExplorerComponentService, DialogService, $stateParams, $rootScope)
+ function ProfileLinearHomeController(add_component_tabs, ComponentService, DialogService, $stateParams, $rootScope)
  {
   var vm = this;
   //////////

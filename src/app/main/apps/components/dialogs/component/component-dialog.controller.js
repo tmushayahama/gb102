@@ -7,7 +7,7 @@
          .controller('ComponentDialogController', ComponentDialogController);
 
  /** @ngInject */
- function ComponentDialogController(add_component_tabs, level_categories, $scope, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ComponentsService, componentId)
+ function ComponentDialogController(add_component_tabs, level_categories, $scope, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ComponentService, componentId)
  {
   var vm = this;
 
@@ -72,7 +72,7 @@
     typeId: component.id,
     privacyId: vm.privacy.public
    };
-   ComponentsService.createComponent(data).then(function (response) {
+   ComponentService.createComponent(data).then(function (response) {
     component.components.push(response);
     component.newComponent.title = "";
    });
@@ -92,7 +92,7 @@
     title: component.title,
     description: component.description
    };
-   ComponentsService.updateComponentDescription(data).then(function (response) {
+   ComponentService.updateComponentDescription(data).then(function (response) {
     // component.components.push(response);
    });
   }
@@ -107,7 +107,7 @@
     componentId: component.id,
     backgroundColor: component.background_color
    };
-   ComponentsService.updateComponentBackground(data).then(function (response) {
+   ComponentService.updateComponentBackground(data).then(function (response) {
     // component.components.push(response);
    });
   }
@@ -418,7 +418,7 @@
   }
 
   function init() {
-   ComponentsService.getComponent(componentId, 2).then(function (data) {
+   ComponentService.getComponent(componentId, 2).then(function (data) {
     vm.component = data;
    });
   }

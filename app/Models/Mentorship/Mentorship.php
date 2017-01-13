@@ -3,8 +3,9 @@
 namespace App\Models\Mentorship;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\AppType\AppType;
-use App\Models\Explorer\Explorer;
+use App\Models\Level\Level;
+use App\Models\Component\Component;
+use App\Models\User\User;
 use Request;
 use DB;
 use JWTAuth;
@@ -22,8 +23,8 @@ class Mentorship extends Model {
   return $this->belongsTo('App\Models\AppType\AppType', 'type_id');
  }
 
- public function explorer() {
-  return $this->belongsTo('App\Models\Explorer\Explorer', 'explorer_id');
+ public function component() {
+  return $this->belongsTo('App\Models\Component\Component', 'component_id');
  }
 
  public function creator() {
@@ -47,14 +48,14 @@ class Mentorship extends Model {
 
  public static function getMentorshipsAll() {
   $mentorships = Mentorship::orderBy('id', 'desc')
-          ->with('explorer')
+          ->with('component')
           ->with('creator')
-          ->whereHas('explorer', function($q) {
-           $q->whereNull('parent_explorer_id');
+          ->whereHas('component', function($q) {
+           $q->whereNull('parent_component_id');
           })
-          ->with('explorer.app_type')
-          ->with('explorer.icon')
-          ->with('explorer.level')
+          ->with('component.app_type')
+          ->with('component.icon')
+          ->with('component.level')
           ->take(100)
           ->get();
   return $mentorships;
@@ -62,16 +63,16 @@ class Mentorship extends Model {
 
  public static function getSubMentorships($mentorshipId) {
   $mentorships = Mentorship::orderBy('id', 'desc')
-          ->with('explorer')
+          ->with('component')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('explorer', function($q) use ($mentorshipId) {
-           $q->where('parent_explorer_id', $mentorshipId);
+          ->whereHas('component', function($q) use ($mentorshipId) {
+           $q->where('parent_component_id', $mentorshipId);
           })
-          ->with('explorer.app_type')
-          ->with('explorer.creator')
-          ->with('explorer.icon')
-          ->with('explorer.level')
+          ->with('component.app_type')
+          ->with('component.creator')
+          ->with('component.icon')
+          ->with('component.level')
           ->take(100)
           ->get();
   return $mentorships;
@@ -82,16 +83,16 @@ class Mentorship extends Model {
   if ($appId) {
    $mentorships = Mentorship::where('type_id', $appId->id)
            /*
-             ->whereHas('explorer', function($q) use ($mentorshipId) {
-             $q->where('parent_explorer_id', $mentorshipId);
+             ->whereHas('component', function($q) use ($mentorshipId) {
+             $q->where('parent_component_id', $mentorshipId);
              })
             */
            ->orderBy('id', 'desc')
-           ->with('explorer')
-           ->with('explorer.app_type')
-           ->with('explorer.creator')
-           ->with('explorer.icon')
-           ->with('explorer.level')
+           ->with('component')
+           ->with('component.app_type')
+           ->with('component.creator')
+           ->with('component.icon')
+           ->with('component.level')
            ->take(100)
            ->get();
   }
@@ -116,11 +117,11 @@ class Mentorship extends Model {
   $mentorship = Mentorship::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('explorer')
-          ->with('explorer.app_type')
-          ->with('explorer.creator')
-          ->with('explorer.icon')
-          ->with('explorer.level')
+          ->with('component')
+          ->with('component.app_type')
+          ->with('component.creator')
+          ->with('component.icon')
+          ->with('component.level')
           ->find($id);
   //$user = JWTAuth::parseToken()->toUser();
   //$userId = $user->id;
@@ -130,21 +131,29 @@ class Mentorship extends Model {
  public static function createMentorship() {
   $user = JWTAuth::parseToken()->toUser();
   $userId = $user->id;
-  $appTypeId = Request::get("type_id");
-  $title = Request::get("title");
-  $description = Request::get("description");
-  $levelId = Request::get("level");
+  $mentorshipTypeId = Request::get("mentorshipTypeId");
+  $mentorshipDescription = Request::get("mentorshiDescription");
+  $mentorIds = Request::get("mentorIds");
 
   $mentorship = new Mentorship;
   $mentorship->creator_id = $userId;
-  $mentorship->type_id = $appTypeId;
-  $mentorship->title = $title;
-  $mentorship->description = $description;
-  $mentorship->level_id = $levelId;
+  $mentorship->type_id = $mentorshipTypeId;
+  $mentorship->description = $mentorshipDescription;
 
   DB::beginTransaction();
   try {
-   $mentorship->save();
+   foreach ($mentorIds as $mentorId) {
+    $component = Component::createComponent();
+    $mentorship->component_id = $component->id;
+    if ($mentorshipTypeId == Level::$level_categories["mentorship_request_type"]["mentor"]) {
+     $mentorship->mentor_id = $mentorId;
+     $mentorship->mentee_id = $userId;
+    } else {
+     $mentorship->mentor_id = $userId;
+     $mentorship->mentee_id = $mentorId;
+    }
+    $mentorship->save();
+   }
   } catch (\Exception $e) {
    //failed logic here
    DB::rollback();
@@ -174,6 +183,19 @@ class Mentorship extends Model {
   }
   DB::commit();
   return $mentorship;
+ }
+
+ /**
+  * Get Request Suggestions of a mentorship
+  *
+  * @param type $mentorshipId
+  * @param type $typeId the request type id
+  * @return type json of request suggesstions
+  */
+ public static function getRequestSuggestions($mentorshipId, $typeId) {
+  //placeholder functions
+  $users = User::get();
+  return $users;
  }
 
  public function scopeSearchByKeyword($query, $keyword) {

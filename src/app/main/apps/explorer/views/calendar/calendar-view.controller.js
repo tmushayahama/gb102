@@ -7,12 +7,12 @@
         .controller('CalendarViewController', CalendarViewController);
 
     /** @ngInject */
-    function CalendarViewController($scope, $document, $mdDialog, $mdSidenav, ExplorerComponentService, DialogService)
+    function CalendarViewController($scope, $document, $mdDialog, $mdSidenav, ComponentService, DialogService)
     {
         var vm = this;
 
         // Data
-        vm.board = ExplorerComponentService.data;
+        vm.board = ComponentService.data;
         vm.eventSources = [];
 
         vm.calendarUiConfig = {

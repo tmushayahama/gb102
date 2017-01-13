@@ -7,7 +7,7 @@
          .controller('BoardsBusinessTabController', BoardsBusinessTabController);
 
  /** @ngInject */
- function BoardsBusinessTabController(ExplorerComponentService, $rootScope)
+ function BoardsBusinessTabController(ComponentService, $rootScope)
  {
   var vm = this;
 
@@ -22,7 +22,7 @@
 
   // Methods
   function init() {
-   ExplorerComponentService.getComponents().then(function (data) {
+   ComponentService.getComponents().then(function (data) {
     vm.boardList = data;
     angular.forEach(vm.boardList.apps, function (app, key) {
      angular.forEach(app.components, function (component, key) {

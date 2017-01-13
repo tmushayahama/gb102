@@ -7,7 +7,7 @@
          .controller('ProfileLinearSettingsController', ProfileLinearSettingsController);
 
  /** @ngInject */
- function ProfileLinearSettingsController(ExplorerComponentService, $rootScope)
+ function ProfileLinearSettingsController(ComponentService, $rootScope)
  {
   var vm = this;
   //////////

@@ -7,7 +7,7 @@
          .controller('ComponentLinearHomeController', ComponentLinearHomeController);
 
  /** @ngInject */
- function ComponentLinearHomeController(add_component_tabs, ExplorerComponentService, DialogService, $stateParams, $rootScope)
+ function ComponentLinearHomeController(add_component_tabs, ComponentService, DialogService, $stateParams, $rootScope)
  {
   var vm = this;
   //////////

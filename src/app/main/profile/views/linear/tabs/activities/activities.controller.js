@@ -7,13 +7,13 @@
          .controller('ProfileLinearActivitiesController', ProfileLinearActivitiesController);
 
  /** @ngInject */
- function ProfileLinearActivitiesController(ExplorerComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
+ function ProfileLinearActivitiesController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog)
  {
   var vm = this;
 
   // Data
   vm.userId = $stateParams.user_id;
-  vm.components = [];//ComponentsService.data;
+  vm.components = [];//ComponentService.data;
   vm.labels = [];//LabelsService.data;
   vm.search = '';
   vm.searchToolbar = false;
@@ -171,7 +171,7 @@
    */
   function init()
   {
-   ExplorerComponentService.getUserComponents(vm.userId, 2).then(function (data) {
+   ComponentService.getUserComponents(vm.userId, 2).then(function (data) {
     vm.components = data;
     //vm.components.newComponentData = angular.copy(vm.defaultComponentData);
    });

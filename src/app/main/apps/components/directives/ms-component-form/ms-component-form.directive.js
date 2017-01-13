@@ -8,15 +8,17 @@
          .directive('msComponentForm', msComponentFormDirective);
 
  /** @ngInject */
- function msComponentFormController(level_categories, $scope, $rootScope, ComponentsService, msUtils, $mdDialog, $timeout, LabelsService)
+ function msComponentFormController(level_categories, $scope, $rootScope, ComponentService, msUtils, $mdDialog, $timeout, LabelsService)
  {
   var MsComponentForm = this;
-  var components = ComponentsService.data;
+  var components = ComponentService.data;
 
   //Data
   MsComponentForm.selectedApp = [];
-  MsComponentForm.privacy = level_categories.privacy;
-  MsComponentForm.selectedPrivacy = {};
+  MsComponentForm.privacy = {
+   value: level_categories.privacy,
+   selected: {}
+  }
   MsComponentForm.type = '';
   MsComponentForm.defaultComponent = {
    'id': '',
@@ -106,8 +108,8 @@
    * @param {type} title thge label of the privacy
    */
   function selectPrivacy(id, title) {
-   MsComponentForm.selectedPrivacy.id = id;
-   MsComponentForm.selectedPrivacy.title = title;
+   MsComponentForm.privacy.selected.id = id;
+   MsComponentForm.privacy.selected.title = title;
   }
 
   /**
@@ -157,10 +159,10 @@
    // Set default values
    MsComponentForm.component.parentComponentId = $scope.parentComponentId;
    MsComponentForm.component.typeId = MsComponentForm.selectedApp.id;
-   MsComponentForm.component.privacyId = MsComponentForm.selectedPrivacy.id;
+   MsComponentForm.component.privacyId = MsComponentForm.privacy.selected.id;
 
    // Add the component
-   ComponentsService.createComponent(angular.copy(MsComponentForm.component)).then(function (response) {
+   ComponentService.createComponent(angular.copy(MsComponentForm.component)).then(function (response) {
     $scope.components.unshift(response);
    });
 
@@ -181,7 +183,7 @@
    }
 
    // Update the component
-   ComponentsService.updateComponent(MsComponentForm.component);
+   ComponentService.updateComponent(MsComponentForm.component);
 
    // Hide the dialog
    $mdDialog.hide();
@@ -236,7 +238,7 @@
 
    $mdDialog.show(confirm).then(function ()
    {
-    ComponentsService.deleteComponent(MsComponentForm.component);
+    ComponentService.deleteComponent(MsComponentForm.component);
    });
   }
 

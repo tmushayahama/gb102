@@ -7,7 +7,7 @@
          .controller('ExplorerComponentsHomeTabController', ExplorerComponentsHomeTabController);
 
  /** @ngInject */
- function ExplorerComponentsHomeTabController(ExplorerComponentService, $rootScope)
+ function ExplorerComponentsHomeTabController(ComponentService, $rootScope)
  {
   var vm = this;
 

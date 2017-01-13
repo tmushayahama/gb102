@@ -7,7 +7,7 @@
          .controller('ExplorerComponentsController', ExplorerComponentsController);
 
  /** @ngInject */
- function ExplorerComponentsController(add_component_tabs, ExplorerComponentService, DialogService, $scope, $rootScope)
+ function ExplorerComponentsController(add_component_tabs, ComponentService, DialogService, $scope, $rootScope)
  {
   var vm = this;
 
@@ -27,7 +27,7 @@
 
   // Methods
   function init() {
-   ExplorerComponentService.getComponents(5).then(function (data) {
+   ComponentService.getComponents(5).then(function (data) {
     vm.components = data;
     // vm.displayComponents = shuffleSampleGroups();
     angular.forEach(vm.components.recommendations, function (recommendation) {

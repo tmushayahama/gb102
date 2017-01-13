@@ -7,7 +7,7 @@
          .controller('BoardViewController', BoardViewController);
 
  /** @ngInject */
- function BoardViewController($stateParams, $document, $window, $timeout, $mdDialog, msUtils, ExplorerComponentService, CardFilters, DialogService)
+ function BoardViewController($stateParams, $document, $window, $timeout, $mdDialog, msUtils, ComponentService, CardFilters, DialogService)
  {
   var vm = this;
 
@@ -134,7 +134,7 @@
    */
   function init()
   {
-   ExplorerComponentService.getComponent($stateParams.id, 3).then(function (data) {
+   ComponentService.getComponent($stateParams.id, 3).then(function (data) {
     vm.board = data;
    });
    $timeout(function ()
@@ -191,7 +191,7 @@
    }
    parentComponent.newComponentData.parentComponentId = parentComponent.id;
    parentComponent.newComponentData.typeId = 11001;
-   ExplorerComponentService.createComponent().then(function (response) {
+   ComponentService.createComponent().then(function (response) {
     parentComponent.components.push(response);
     parentComponent.newComponentData = angular.copy(vm.defaultComponentData);
 

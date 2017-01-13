@@ -7,12 +7,12 @@
         .controller('SettingsSidenavController', SettingsSidenavController);
 
     /** @ngInject */
-    function SettingsSidenavController($mdColorPalette, ExplorerComponentService)
+    function SettingsSidenavController($mdColorPalette, ComponentService)
     {
         var vm = this;
 
         // Data
-        vm.board = ExplorerComponentService.data;
+        vm.board = ComponentService.data;
         vm.palettes = $mdColorPalette;
         vm.selectedMenu = 'Settings';
 

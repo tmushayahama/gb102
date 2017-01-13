@@ -7,12 +7,12 @@
          .controller('FiltersSidenavController', FiltersSidenavController);
 
  /** @ngInject */
- function FiltersSidenavController(msUtils, ExplorerComponentService, CardFilters)
+ function FiltersSidenavController(msUtils, ComponentService, CardFilters)
  {
   var vm = this;
 
   // Data
-  vm.board = ExplorerComponentService.data;
+  vm.board = ComponentService.data;
   vm.cardFilters = CardFilters;
   // vm.labels = vm.board.labels;
   //vm.members = vm.board.members;

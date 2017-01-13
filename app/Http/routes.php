@@ -79,6 +79,14 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('components/{componentId}/contribution/type/{typeId}/suggestions', 'Component\ComponentController@getContributionSuggestions');
  Route::post('components/contributions/create', 'Component\ComponentController@createComponentContributions');
 
+ //Mentorship
+ Route::get('components/{componentId}/mentorships', 'Mentorship\MentorshipController@getMentorship');
+ Route::post('mentorships/create', 'Mentorship\MentorshipController@createMentorship');
+ //Mentorship Request
+ Route::get('mentorships/{componentId}/request/type/{typeId}/suggestions', 'Mentorship\MentorshipController@getRequestSuggestions');
+
+
+
  //Component Bookmarks
  Route::get('components/bookmarks/{creatorId}', 'Component\ComponentController@getComponentBookmarks');
  Route::post('components/bookmarks/create', 'Component\ComponentController@createComponentBookmark');

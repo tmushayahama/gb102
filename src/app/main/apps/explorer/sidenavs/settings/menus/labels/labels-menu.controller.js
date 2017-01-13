@@ -7,12 +7,12 @@
         .controller('LabelsMenuController', LabelsMenuController);
 
     /** @ngInject */
-    function LabelsMenuController($document, $mdColorPalette, $mdDialog, fuseGenerator, msUtils, ExplorerComponentService)
+    function LabelsMenuController($document, $mdColorPalette, $mdDialog, fuseGenerator, msUtils, ComponentService)
     {
         var vm = this;
 
         // Data
-        vm.board = ExplorerComponentService.data;
+        vm.board = ComponentService.data;
         vm.palettes = $mdColorPalette;
         vm.rgba = fuseGenerator.rgba;
         vm.hue = 500;

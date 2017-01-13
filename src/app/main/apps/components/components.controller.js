@@ -7,12 +7,12 @@
         .controller('ComponentsController', ComponentsController);
 
     /** @ngInject */
-    function ComponentsController($document, $timeout, $scope, $mdSidenav, ComponentsService, LabelsService, $mdDialog)
+    function ComponentsController($document, $timeout, $scope, $mdSidenav, ComponentService, LabelsService, $mdDialog)
     {
         var vm = this;
 
         // Data
-        vm.components = ComponentsService.data;
+        vm.components = ComponentService.data;
         vm.labels = LabelsService.data;
         vm.search = '';
         vm.searchToolbar = false;

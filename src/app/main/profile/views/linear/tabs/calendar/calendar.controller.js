@@ -7,12 +7,12 @@
          .controller('ProfileLinearCalendarController', ProfileLinearCalendarController);
 
  /** @ngInject */
- function ProfileLinearCalendarController(ExplorerComponentService, DialogService, $document, $mdDialog, $mdSidenav, $scope, $rootScope)
+ function ProfileLinearCalendarController(ComponentService, DialogService, $document, $mdDialog, $mdSidenav, $scope, $rootScope)
  {
   var vm = this;
 
   // Data
-  vm.board = ExplorerComponentService.data;
+  vm.board = ComponentService.data;
   vm.eventSources = [];
 
   vm.calendarUiConfig = {

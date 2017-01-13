@@ -7,7 +7,7 @@
          .controller('ComponentLinearSettingsController', ComponentLinearSettingsController);
 
  /** @ngInject */
- function ComponentLinearSettingsController(ExplorerComponentService, $rootScope)
+ function ComponentLinearSettingsController(ComponentService, $rootScope)
  {
   var vm = this;
   //////////

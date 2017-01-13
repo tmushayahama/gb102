@@ -7,12 +7,12 @@
         .controller('ColorMenuController', ColorMenuController);
 
     /** @ngInject */
-    function ColorMenuController($mdColorPalette, ExplorerComponentService)
+    function ColorMenuController($mdColorPalette, ComponentService)
     {
         var vm = this;
 
         // Data
-        vm.board = ExplorerComponentService.data;
+        vm.board = ComponentService.data;
         vm.palettes = $mdColorPalette;
 
         // Methods

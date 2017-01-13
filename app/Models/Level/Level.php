@@ -75,18 +75,24 @@ class Level extends Model {
      "recommendation_setup" => array(
          "samples" => 13001
      ),
+     "mentorship_request_type" => array(
+         "mentor" => 17001,
+         "mentee" => 17001,
+     ),
      'template_type' => 7000,
      'component_types' => 11000,
      'recommendation' => 12000,
      'default_component_background_color' => 13001,
      "component_motives" => 14000,
+     "mentorship_request_types" => 17000
  );
  public static $componentJsonFormat = array(
      "subcomponents" => 1,
      "types" => 2,
      "columns" => 3,
      "linear" => 4,
-     "recommendations" => 5
+     "recommendations" => 5,
+     "tree" => 4
  );
 
  /**
@@ -147,6 +153,7 @@ class Level extends Model {
   $result['apps'] = Level::getSubLevels(Level::$level_categories['apps'], true);
   $result['activities'] = Level::getSubLevels(Level::$level_categories['component_types'], true);
   $result['motives'] = Level::getSubLevels(Level::$level_categories['component_motives'], true);
+  $result['mentorshipRequestTypes'] = Level::getSubLevels(Level::$level_categories['mentorship_request_types'], true);
   $result['contributionTypes'] = Level::getSubLevels(Level::$level_categories['contribution_types'], true);
   return $result;
  }

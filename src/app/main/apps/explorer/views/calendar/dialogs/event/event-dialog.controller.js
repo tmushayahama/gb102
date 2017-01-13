@@ -7,12 +7,12 @@
         .controller('ExplorerCalendarEventDialogController', ExplorerCalendarEventDialogController);
 
     /** @ngInject */
-    function ExplorerCalendarEventDialogController($mdDialog, dueDate, ExplorerComponentService, msUtils)
+    function ExplorerCalendarEventDialogController($mdDialog, dueDate, ComponentService, msUtils)
     {
         var vm = this;
 
         // Data
-        vm.board = ExplorerComponentService.data;
+        vm.board = ComponentService.data;
         vm.dueDate = dueDate;
         vm.newCard = {
             name  : '',

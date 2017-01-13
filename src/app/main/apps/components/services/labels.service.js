@@ -7,7 +7,7 @@
         .factory('LabelsService', LabelsService);
 
     /** @ngInject */
-    function LabelsService(msUtils, ComponentsService, msApi, $q)
+    function LabelsService(msUtils, ComponentService, msApi, $q)
     {
         var service = {
             data       : [],
@@ -56,7 +56,7 @@
          */
         function deleteLabel(label)
         {
-            var components = ComponentsService.data;
+            var components = ComponentService.data;
 
             // Look for all components if they have the labels
             for ( var j = 0; j < components.length; j++ )

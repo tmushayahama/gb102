@@ -7,7 +7,7 @@
          .controller('ProfileLinearDiscussionsController', ProfileLinearDiscussionsController);
 
  /** @ngInject */
- function ProfileLinearDiscussionsController(ExplorerComponentService, $rootScope)
+ function ProfileLinearDiscussionsController(ComponentService, $rootScope)
  {
   var vm = this;
   //////////

@@ -7,7 +7,7 @@
          .controller('ProfileLinearGraphsController', ProfileLinearGraphsController);
 
  /** @ngInject */
- function ProfileLinearGraphsController(ExplorerComponentService, $rootScope)
+ function ProfileLinearGraphsController(ComponentService, $rootScope)
  {
   var vm = this;
   //////////
