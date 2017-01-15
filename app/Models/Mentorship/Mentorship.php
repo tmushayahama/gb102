@@ -19,8 +19,8 @@ class Mentorship extends Model {
   */
  protected $table = 'gb_mentorship';
 
- public function app_type() {
-  return $this->belongsTo('App\Models\AppType\AppType', 'type_id');
+ public function type() {
+  return $this->belongsTo('App\Models\Level\Level', 'type_id');
  }
 
  public function component() {
@@ -37,6 +37,10 @@ class Mentorship extends Model {
 
  public function mentee() {
   return $this->belongsTo('App\Models\User\User', 'mentee_id');
+ }
+
+ public function status() {
+  return $this->belongsTo('App\Models\Level\Level', 'status_id');
  }
 
  /**
@@ -61,54 +65,24 @@ class Mentorship extends Model {
   return $mentorships;
  }
 
- public static function getSubMentorships($mentorshipId) {
+ /**
+  * Ge mentorship of a given component
+  *
+  * @param type $componentId
+  * @return mentorships
+  */
+ public static function getMentorships($componentId) {
   $mentorships = Mentorship::orderBy('id', 'desc')
           ->with('component')
           ->with('mentor')
           ->with('mentee')
-          ->whereHas('component', function($q) use ($mentorshipId) {
-           $q->where('parent_component_id', $mentorshipId);
-          })
-          ->with('component.app_type')
-          ->with('component.creator')
-          ->with('component.icon')
-          ->with('component.level')
-          ->take(100)
-          ->get();
-  return $mentorships;
- }
-
- public static function getMentorships($levelId) {
-  $appId = AppType::where('name', $appName)->first();
-  if ($appId) {
-   $mentorships = Mentorship::where('type_id', $appId->id)
-           /*
-             ->whereHas('component', function($q) use ($mentorshipId) {
-             $q->where('parent_component_id', $mentorshipId);
-             })
-            */
-           ->orderBy('id', 'desc')
-           ->with('component')
-           ->with('component.app_type')
-           ->with('component.creator')
-           ->with('component.icon')
-           ->with('component.level')
-           ->take(100)
-           ->get();
-  }
-  return $mentorships;
- }
-
- public static function getMentorshipsMine() {
-  $user = JWTAuth::parseToken()->toUser();
-  $userId = $user->id;
-  $mentorships = Mentorship::orderBy('id', 'desc')
-          ->where('creator_id', $userId)
-          ->with('app_type')
-          ->with('icon')
           ->with('creator')
-          ->with('level')
-          ->take(50)
+          ->with('status')
+          ->whereHas('component', function($q) use ($componentId) {
+           $q->where('parent_component_id', $componentId);
+          })
+          ->with('component.type')
+          ->take(20)
           ->get();
   return $mentorships;
  }
@@ -118,14 +92,9 @@ class Mentorship extends Model {
           ->with('mentor')
           ->with('mentee')
           ->with('component')
-          ->with('component.app_type')
           ->with('component.creator')
-          ->with('component.icon')
-          ->with('component.level')
           ->find($id);
-  //$user = JWTAuth::parseToken()->toUser();
-  //$userId = $user->id;
-  return $mentorship; //$mentorship;
+  return $mentorship;
  }
 
  public static function createMentorship() {
@@ -134,16 +103,16 @@ class Mentorship extends Model {
   $mentorshipTypeId = Request::get("mentorshipTypeId");
   $mentorshipDescription = Request::get("mentorshiDescription");
   $mentorIds = Request::get("mentorIds");
-
-  $mentorship = new Mentorship;
-  $mentorship->creator_id = $userId;
-  $mentorship->type_id = $mentorshipTypeId;
-  $mentorship->description = $mentorshipDescription;
-
+  $result = array();
   DB::beginTransaction();
   try {
    foreach ($mentorIds as $mentorId) {
+    $mentorship = new Mentorship;
     $component = Component::createComponent();
+    $mentorship->creator_id = $userId;
+    $mentorship->type_id = $mentorshipTypeId;
+    $mentorship->status_id = Level::$level_categories["mentorship_status"]["pending"];
+    $mentorship->description = $mentorshipDescription;
     $mentorship->component_id = $component->id;
     if ($mentorshipTypeId == Level::$level_categories["mentorship_request_type"]["mentor"]) {
      $mentorship->mentor_id = $mentorId;
@@ -153,14 +122,14 @@ class Mentorship extends Model {
      $mentorship->mentee_id = $mentorId;
     }
     $mentorship->save();
+    array_push($result, $mentorship);
    }
   } catch (\Exception $e) {
-   //failed logic here
    DB::rollback();
    throw $e;
   }
   DB::commit();
-  return $mentorship;
+  return array("mentorships" => $result);
  }
 
  public static function editMentorship() {

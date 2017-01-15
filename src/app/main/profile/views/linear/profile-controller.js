@@ -138,7 +138,7 @@
    */
   function init()
   {
-   ProfileService.getProfile($stateParams.user_id).then(function (data) {
+   ProfileService.getProfile($stateParams.userId).then(function (data) {
     vm.profile = data.profile;
     vm.components = data.components;
    });

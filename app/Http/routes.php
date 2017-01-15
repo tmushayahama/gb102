@@ -48,14 +48,6 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('profile/{id}', 'Profile\ProfileController@getProfile');
  Route::post('user/request/create', 'Community\CommunityController@createRequest');
 
- //Activity
- Route::get('activity/{activityId}/activities', 'Activity\ActivityController@getSubActivities');
- Route::get('activity/{activityId}/questions', 'Activity\ActivityController@getActivityQuestions');
- Route::post('activity/editstatus', 'Activity\ActivityController@editActivityStatus');
- Route::get('activity/{activityId}/checklist/data', 'Activity\ActivityController@activityChecklistStatusData');
- Route::get('activity/{activityId}/checklist', 'Explorer\ExplorerController@getExplorerActivityChecklist');
- Route::post('activity/checklist/create', 'Explorer\ExplorerController@createExplorerActivityChecklist');
- Route::post('activity/checklist/edit', 'Explorer\ExplorerController@editExplorerActivityChecklist');
 
  //Component
  Route::get('components/listformat/{listFormat}', 'Component\ComponentController@getAllComponents');
@@ -84,33 +76,11 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('mentorships/create', 'Mentorship\MentorshipController@createMentorship');
  //Mentorship Request
  Route::get('mentorships/{componentId}/request/type/{typeId}/suggestions', 'Mentorship\MentorshipController@getRequestSuggestions');
+ Route::get('mentorship/{mentorshipId}/listformat/{listFormat}', 'Mentorship\MentorshipController@getMentorship');
 
 
 
  //Component Bookmarks
  Route::get('components/bookmarks/{creatorId}', 'Component\ComponentController@getComponentBookmarks');
  Route::post('components/bookmarks/create', 'Component\ComponentController@createComponentBookmark');
-
- //Guideline
- Route::get('guideline/{guidelineId}/guidelines', 'Guideline\GuidelineController@getSubGuidelines');
- Route::post('guideline/editstatus', 'Guideline\GuidelineController@editGuidelineStatus');
- Route::get('guideline/{guidelineId}/checklist/data', 'Guideline\GuidelineController@guidelineChecklistStatusData');
- Route::get('guideline/{guidelineId}/checklist', 'Explorer\ExplorerController@getExplorerGuidelineChecklist');
- Route::post('guideline/checklist/create', 'Explorer\ExplorerController@createExplorerGuidelineChecklist');
- Route::post('guideline/checklist/edit', 'Explorer\ExplorerController@editExplorerGuidelineChecklist');
-
- //Plan
- Route::post('plan/editstatus', 'Plan\PlanController@editPlanStatus');
- Route::get('plan/{planId}/checklist/data', 'Plan\PlanController@planChecklistStatusData');
- Route::get('plan/{planId}/checklist', 'Explorer\ExplorerController@getExplorerPlanChecklist');
- Route::post('plan/checklist/create', 'Explorer\ExplorerController@createExplorerPlanChecklist');
- Route::post('plan/checklist/edit', 'Explorer\ExplorerController@editExplorerPlanChecklist');
-
- //Todos
- Route::post('todo/editstatus', 'Todo\TodoController@editTodoStatus');
- Route::get('todo/{todoId}/checklist/data', 'Todo\TodoController@todoChecklistStatusData');
- Route::get('todo/{todoId}/checklist', 'Skill\SkillController@getSkillTodoChecklist');
- Route::post('todo/checklist/create', 'Skill\SkillController@createSkillTodoChecklist');
- Route::post('todo/checklist/edit', 'Skill\SkillController@editSkillTodoChecklist');
- Route::post('checklist/editstatus', 'Todo\TodoController@editChecklistStatus');
 });

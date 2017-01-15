@@ -110,7 +110,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/mentorship.html',
+             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/mentorship.html',
              controller: 'MentorshipLinearController as mentorshipLinearCtrl'
             }
            }
@@ -119,7 +119,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/home/home.html',
+             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/home/home.html',
              controller: 'MentorshipLinearHomeController as vm'
             }
            },
@@ -217,7 +217,7 @@
   $translatePartialLoaderProvider.addPart('src/app/main/apps/mentorship');
 
   // Api
-  msApiProvider.register('mentorship.mentorship', ['/api/mentorships/:id/listformat/:listFormat',
+  msApiProvider.register('mentorship.mentorship', ['/api/mentorship/:id/listformat/:listFormat',
    {
     id: "@id",
     listformat: "@listformat"

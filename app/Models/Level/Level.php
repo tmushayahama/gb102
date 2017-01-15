@@ -77,7 +77,12 @@ class Level extends Model {
      ),
      "mentorship_request_type" => array(
          "mentor" => 17001,
-         "mentee" => 17001,
+         "mentee" => 17002,
+     ),
+     "mentorship_status" => array(
+         "pending" => 18001,
+         "active" => 18002,
+         "inactive" => 18003
      ),
      'template_type' => 7000,
      'component_types' => 11000,

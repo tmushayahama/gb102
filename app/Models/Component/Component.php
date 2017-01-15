@@ -5,7 +5,7 @@ namespace App\Models\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Component\ComponentContribution;
-use App\Models\Component\ComponentRecommended;
+use App\Models\Mentorship\Mentorship;
 use App\Models\Level\Level;
 use App\Models\User\User;
 use Request;
@@ -219,6 +219,7 @@ class Component extends Model {
           ->take(20)
           ->get();
 
+
   foreach ($components as $component) {
    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
   }
@@ -330,6 +331,7 @@ class Component extends Model {
           ->find($componentId);
   $component["stats"] = self::getComponentStats($componentId);
   $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
+  $component["mentorships"] = Mentorship::getMentorships($componentId);
 
   switch ($listFormat) {
    case Level::$componentJsonFormat["types"]:

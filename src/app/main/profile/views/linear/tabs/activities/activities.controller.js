@@ -12,7 +12,7 @@
   var vm = this;
 
   // Data
-  vm.userId = $stateParams.user_id;
+  vm.userId = $stateParams.userId;
   vm.components = [];//ComponentService.data;
   vm.labels = [];//LabelsService.data;
   vm.search = '';

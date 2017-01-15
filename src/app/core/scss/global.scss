@@ -1103,6 +1103,192 @@ md-tabs {
  }
 }
 
+.gb-mentorship-widget {
+ ms-widget-front {
+  height: 195px;
+  min-height: 195px;
+  background-color: #FAFAFA;
+  .gb-main-button {
+   height: 200px;
+   min-height: 200px;
+   overflow: hidden;
+  }
+  .gb-main-button {
+   padding: 0;
+   margin: 0;
+  }
+  .gb-widget-header {
+   padding: 14px;
+   height: 75px;
+   min-height: 75px;
+   max-height:75px;
+   width: 100%;
+   color: #444;
+   text-align: left;
+   text-transform: none;
+   font-size: 16px;
+   white-space: normal;
+   line-height: 25px;
+   overflow: hidden;
+   border-bottom: #DDD solid 1px;
+   .gb-title {
+    font-size: 20px;
+   }
+   .gb-subtitle {
+    font-size: 14px;
+    color: #777;
+   }
+  }
+  .gb-widget-content {
+   padding:  0 14px;
+  }
+  .gb-card-profile {
+   height: 60px;
+   min-height: 60px;
+   max-height: 60px;
+   background-color: transparent;
+   border-radius: 0;
+   border-top: #DDD solid 1px;
+
+   .gb-image {
+    @include position(absolute, 10px null 10px 0);
+    padding-top: 3px;
+    text-align: center;
+    font-size: 16px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    .gb-heading-pic {
+     @include position(absolute, 0 0 0 0);
+     height: 100%;
+     width: 100%;
+     border-radius: 50%;
+    }
+   }
+   .gb-box-content {
+    @include position(absolute, 0 0 0 40px);
+    padding: 14px 8px;
+    line-height: 16px;
+    z-index: 0;
+    .gb-title {
+     text-align: left;
+     padding: 0;
+     h3 {
+      text-transform: none;
+      font-size: 14px;
+      font-weight: 400;
+      //line-height: 32px;
+      margin-bottom: 5px;
+     }
+    }
+
+    .gb-subdescription {
+     text-transform: none;
+     text-align: left;
+     font-size: 12px;
+    }
+   }
+   &:first-child {
+    border: none;
+   }
+  }
+
+  md-icon {
+   &.gb-background-icon {
+    color: #EEE;
+    font-size: 150px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+   }
+  }
+  .gb-add-section-button {
+   height: 40px;
+   background-color: rgba(#000, 0.1);
+   &:hover {
+    background-color: rgba(#000, 0.3);
+   }
+  }
+ }
+
+ &.gb-widget-sm {
+  ms-widget-front {
+   height: 100px;
+   min-height: 100px;
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 100px;
+    min-height: 100px;
+   }
+   .gb-widget-content {
+    padding: 14px;
+   }
+   .gb-title-icon {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    i{
+     font-size: 50px;
+    }
+   }
+   .gb-title {
+    font-size: 18px;
+   }
+  }
+  @include respond-to (gb-sm) {
+   ms-widget-front {
+    height: 70px;
+    min-height: 70px;
+    .gb-main-button, .gb-widget-content, .gb-title-icon {
+     height: 70px;
+     min-height: 70px;
+    }
+    .gb-widget-content {
+     padding: 10px;
+     line-height: 25px;
+    }
+    .gb-title-icon {
+     width: 70px;
+     min-width: 70px;
+     max-width: 70px;
+     i{
+      font-size: 30px;
+     }
+    }
+    .gb-title {
+     font-size: 14px;
+    }
+   }
+  }
+  @include respond-to (gb-xs) {
+   ms-widget-front {
+    height: 40px;
+    min-height: 40px;
+    .gb-main-button, .gb-widget-content, .gb-title-icon {
+     height: 40px;
+     min-height: 40px;
+    }
+    .gb-widget-content {
+     padding: 5px;
+     line-height: 14px;
+    }
+    .gb-title-icon {
+     width: 40px;
+     min-width: 40px;
+     max-width: 40px;
+     i{
+      font-size: 20px;
+     }
+    }
+    .gb-title {
+     font-size: 12px;
+    }
+   }
+  }
+ }
+}
+
+
 
 
 .gb-swipe-widget {

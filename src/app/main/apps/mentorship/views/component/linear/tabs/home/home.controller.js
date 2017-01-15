@@ -7,13 +7,13 @@
          .controller('MentorshipLinearHomeController', MentorshipLinearHomeController);
 
  /** @ngInject */
- function MentorshipLinearHomeController(add_mentorship_tabs, MentorshipService, DialogService, $stateParams, $rootScope)
+ function MentorshipLinearHomeController(add_component_tabs, MentorshipService, DialogService, $stateParams, $rootScope)
  {
   var vm = this;
   //////////
   //
   ////Data
-  vm.tabs = add_mentorship_tabs;
+  vm.tabs = add_component_tabs;
   vm.mentorshipId = $stateParams.id;
   ///////////
 

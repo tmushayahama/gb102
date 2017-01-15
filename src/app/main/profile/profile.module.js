@@ -14,7 +14,7 @@
  function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
  {
   $stateProvider.state('app.profile', {
-   url: '/profile/{user_id}',
+   url: '/profile/{userId}',
    views: {
     'content@app': {
      templateUrl: 'src/app/main/profile/profile.html',
@@ -23,7 +23,7 @@
    },
    bodyClass: 'profile'
   }).state('app.profileLinearView', {
-   url: '/linearview/:user_id',
+   url: '/linearview/:userId',
    abstract: true,
    views: {
     'content@app': {

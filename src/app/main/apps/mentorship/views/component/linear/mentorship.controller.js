@@ -7,12 +7,12 @@
          .controller('MentorshipLinearController', MentorshipLinearController);
 
  /** @ngInject */
- function MentorshipLinearController(add_mentorship_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, MentorshipService, CardFilters, DialogService)
+ function MentorshipLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, MentorshipService, CardFilters, DialogService)
  {
   var vm = this;
 
   // Data
-  vm.tabs = add_mentorship_tabs;
+  vm.tabs = add_component_tabs;
   vm.mentorshipId = $stateParams.id;
   vm.privacy = level_categories.privacy;
   vm.currentView = 'board';
