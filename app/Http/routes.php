@@ -29,8 +29,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('constants/componenttypes', 'ConstantsController@getComponentTypes');
 
  //Search
- Route::post('search/simple', 'SearchController@simpleSearch');
- Route::post('search/suggestion', 'SearchController@suggestionSearch');
+ Route::get('search/keyword/{keyword}', 'SearchController@keywordSearch');
+ Route::get('search/suggestion/keyword/{keyword}', 'SearchController@suggestionSearch');
 
  //Answers
  Route::get('answers/{questionId}/explorer/{explorerId}/preview', 'Explorer\ExplorerController@getExplorerSectionAnswersPreview');

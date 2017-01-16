@@ -318,8 +318,7 @@
    * @param query
    * @returns {filterFn}
    */
-  function createFilterFor(query)
-  {
+  function createFilterFor(query) {
    var lowercaseQuery = angular.lowercase(query);
    return function filterFn(item)
    {

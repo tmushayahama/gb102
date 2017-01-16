@@ -1,0 +1,78 @@
+<!--
+SWIPE TAB VIEW
+-->
+<div class="mt-10" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <div class="" layout="column" layout-align="center center" flex>
+   <div class="text-center">
+    <h2 class="gb-title">
+     Explore Quickly
+    </h2>
+    <p class="gb-description">
+     A random skill will appear. Choose "Interested" to bookmark it or "Not Now" to skip. Stay tuned for search
+     gestures
+    </p>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
+ <ms-widget flippable="true" class="gb-search-widget" layout="column" flex-gt-sm="60" flex-gt-xs="80" flex="95">
+  <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-type-title">
+     {{vm.component.type.title}}
+    </div>
+    <div class="gb-title">
+     {{vm.component.title}}
+    </div>
+    <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+     Details
+    </md-button>
+   </div>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa {{vm.component.type.icon}}" class="gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+  <ms-widget-back class="grey-50-bg">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
+     </md-button>
+     <div class="gb-heading-title">
+      <span class="ellipsis">
+       Description
+      </span>
+     </div>
+     <span flex></span>
+     <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
+     </md-button>
+    </div>
+   </md-toolbar>
+   <div class="gb-type-title">
+    {{vm.component.type.title}}
+   </div>
+   <div class="gb-title">
+    {{vm.component.title}}
+   </div>
+   <div class="gb-description">
+    {{vm.component.description}}
+    <span ng-if="!vm.component.description">
+     No description yet.
+    </span>
+   </div>
+  </ms-widget-back>
+ </ms-widget>
+</div>
+<div class="gb-container gb-answer-btn-row" layout-align="center center" layout="row" flex>
+ <md-button type="button" ng-click="vm.createSearch(vm.searchTypes.notnow)"
+            class="md-raised">
+  Not Now
+ </md-button>
+ <md-button type="button" ng-click="vm.createSearch(vm.searchTypes.explore)"
+            class="md-primary md-raised">
+  Interested
+ </md-button>
+</div>

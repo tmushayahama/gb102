@@ -602,4 +602,21 @@ class Component extends Model {
   return $components;
  }
 
+ /**
+  * Keyword search querybuilder
+  *
+  * @param type $query
+  * @param type $keyword
+  * @return type
+  */
+ public function scopeSearchByKeyword($query, $keyword) {
+  if ($keyword != '') {
+   $query->where(function ($query) use ($keyword) {
+    $query->where("title", "LIKE", "%$keyword%")
+            ->orWhere("description", "LIKE", "%$keyword%");
+   });
+  }
+  return $query;
+ }
+
 }

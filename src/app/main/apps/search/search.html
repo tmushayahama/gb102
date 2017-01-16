@@ -1,0 +1,81 @@
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+ <div class="gb-cover-overlap" ></div>
+ <div class="gb-cover" ng-style="$root.headerStyle"></div>
+ <div class="gb-container user-info" layout="column" layout-align="center center">
+  <div class="gb-header-icon">
+   <i class="fa" ng-class="'fa icon-gb-' + $root.appName.toLowerCase()"></i>
+  </div>
+  <div class="gb-title">
+   {{$root.appName}}
+  </div>
+ </div>
+</div>
+<!-- / HEADER -->
+<!-- CONTENT -->
+<div class="gb-tabs-1" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.search.home">
+      <div class="gb-icon">
+       <i class="fa fa-home"></i>
+      </div>
+      <div class="gb-title">
+       Search
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.search.history">
+      <div class="gb-icon">
+       <i class="fa fa-history"></i>
+      </div>
+      <div class="gb-title">
+       History
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <div class="gb-tab-button" ui-sref="app.search.compare">
+     <md-tab-label>
+      <div class="gb-icon">
+       <i class="fa icon-gb-matcher"></i>
+      </div>
+      <div class="gb-title">
+       Compare
+      </div>
+     </md-tab-label>
+    </div>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.search.business">
+      <div class="gb-icon">
+       <i class="fa fa-briefcase"></i>
+      </div>
+      <div class="gb-title">
+       For Business
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.search.about">
+      <div class="gb-icon">
+       <i class="fa fa-calendar"></i>
+      </div>
+      <div class="gb-title">
+       About
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+  </md-tabs>
+ </div>
+</div>
+<div ui-view="tab" class="" layout="column" layout-align="start center" flex></div>

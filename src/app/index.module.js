@@ -13,6 +13,7 @@
           'xeditable',
           // Core
           'app.core',
+          'app.search',
           'app.profile',
           'app.explorer',
           'app.swipe',

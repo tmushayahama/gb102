@@ -7,7 +7,7 @@
          .controller('LoginPanelController', LoginPanelController);
 
  /** @ngInject */
- function LoginPanelController(msApi, $http, $auth, $rootScope, $state, localStorageService)
+ function LoginPanelController(msApi, $mdSidenav, $http, $auth, $rootScope, $state, localStorageService)
  {
   var vm = this;
 
@@ -26,6 +26,7 @@
     localStorageService.set('user', user);
     $rootScope.authenticated = true;
     $rootScope.user = response.data.user;
+    $mdSidenav("login-panel").close();
     $state.go('app.profileLinearView.home', {userId: $rootScope.user.id});
    });
   };

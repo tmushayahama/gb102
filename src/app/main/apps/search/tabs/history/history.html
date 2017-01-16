@@ -1,0 +1,69 @@
+<!--
+SWIPE HISTORY TAB VIEW
+-->
+
+<div class="gb-container gb-card-row mt-10" layout="column" layout-align="start center" flex="100">
+ <md-toolbar class="gb-heading">
+  <div class="md-toolbar-tools">
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     Search History
+    </span>
+   </div>
+   <span flex></span>
+  </div>
+ </md-toolbar>
+</div>
+<div class="gb-container">
+ <div class="gb-card-3 md-whiteframe-1dp" ng-repeat="search in vm.searchs"
+      ui-sref="app.componentLinearView.home({id:search.component.id})">
+  <div class="gb-card-cover">
+   <div ng-if="search.component.component_picture_url && search.component.component_picture_url !== 'default.png'"
+        class="gb-cover-image">
+    <img ng-src="src/assets/images/search/{{search.component.component_picture_url}}">
+   </div>
+   <div ng-if="search.component.component_placeholder_style"
+        class="gb-cover-image"
+        ng-style="search.component.component_placeholder_style">
+   </div>
+  </div>
+
+  <div class="gb-card-content">
+   <div class="gb-type-title">
+    {{search.level.title}}
+   </div>
+   <div class="gb-title">
+    {{search.component.title}}
+   </div>
+   <div class="gb-description">
+    <p class="gb-ellipsis">
+     {{::search.component.description}}
+    </p>
+   </div>
+   <div class="gb-contributors" hide-xs>
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+        {{search.component.creator.firstname + ' ' + search.component.creator.lastname}}
+       </a>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        CREATOR
+       </p>
+      </div>
+      <div class="gb-description">
+      </div>
+     </div>
+     <div class="gb-image" ng-class="search.component.creator.theme_color">
+      <img ng-if="search.component.creator.avatar_url !== 'gb-avatar.jpg'"
+           src="src/assets/images/profile_pic/{{search.component.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+      {{search.component.creator.firstname.substring(0, 1) + search.component.creator.lastname.substring(0, 1)}}
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
