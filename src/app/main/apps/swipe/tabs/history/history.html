@@ -14,14 +14,11 @@ SWIPE HISTORY TAB VIEW
     </span>
    </div>
    <span flex></span>
-   <md-button class="md-raised" aria-label="Filter Swipe Results">
-    Filter
-   </md-button>
   </div>
  </md-toolbar>
 </div>
 <div class="gb-container">
- <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="swipe in vm.swipes"
+ <div class="gb-card-3 md-whiteframe-1dp" ng-repeat="swipe in vm.swipes"
       ui-sref="app.componentLinearView.home({id:swipe.component.id})">
   <div class="gb-card-cover">
    <div ng-if="swipe.component.component_picture_url && swipe.component.component_picture_url !== 'default.png'"
@@ -33,30 +30,40 @@ SWIPE HISTORY TAB VIEW
         ng-style="swipe.component.component_placeholder_style">
    </div>
   </div>
+
   <div class="gb-card-content">
+   <div class="gb-type-title">
+    {{swipe.level.title}}
+   </div>
    <div class="gb-title">
     {{swipe.component.title}}
    </div>
-   <div class="gb-name-badge-1">
-    <div class="gb-image">
-     <img data-ui-sref="apps.component.overview({componentId: component.id})"
-          ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-          class="gb-heading-pic" alt="">
-    </div>
-    <p class="gb-name gb-ellipsis">
-     {{ ::swipe.component.creator.firstname}}
-     {{ ::swipe.component.creator.lastname}}
+   <div class="gb-description">
+    <p class="gb-ellipsis">
+     {{::swipe.component.description}}
     </p>
    </div>
-   <div class="gb-subdescription">
-    <p class="">
-     <span>
-      {{::swipe.component.description}}
-     </span>
-    </p>
-    <p ng-if="!swipe.component.description" class="gb-no-info">
-     No description to show
-    </p>
+   <div class="gb-creator gb-card-profile">
+    <div class="gb-box-content">
+     <div class="gb-title">
+      <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+       {{swipe.component.creator.firstname + ' ' + swipe.component.creator.lastname}}
+      </a>
+     </div>
+     <div class="gb-subdescription">
+      <p class="gb-ellipsis">
+       CREATOR
+      </p>
+     </div>
+     <div class="gb-description">
+     </div>
+    </div>
+    <div class="gb-image" ng-class="swipe.component.creator.theme_color">
+     <img ng-if="swipe.component.creator.avatar_url !== 'gb-avatar.jpg'"
+          src="src/assets/images/profile_pic/{{swipe.component.creator.avatar_url}}"
+          class="gb-heading-pic" alt="">
+     {{swipe.component.creator.firstname.substring(0, 1) + swipe.component.creator.lastname.substring(0, 1)}}
+    </div>
    </div>
   </div>
  </div>

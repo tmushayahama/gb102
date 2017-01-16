@@ -51,6 +51,21 @@ class ComponentBookmark extends Model {
   $componentBookmarks = ComponentBookmark::
           where('creator_id', $userId)
           ->with('component')
+          ->with('component.creator')
+          ->with('level')
+          ->with('status')
+          ->orderBy('id', 'DESC')
+          ->get();
+  return $componentBookmarks;
+ }
+
+ public static function getComponentBookmarksByType($typeId) {
+  $user = JWTAuth::parseToken()->toUser();
+  $userId = $user->id;
+  $componentBookmarks = ComponentBookmark::
+          where('creator_id', $userId)
+          ->where('type_id', $typeId)
+          ->with('component')
           ->with('creator')
           ->with('level')
           ->with('status')

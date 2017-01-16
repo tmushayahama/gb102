@@ -34,28 +34,56 @@ LINEAR VIEW HOME
                 placeholder="Write a Description" columns="1" md-maxlength="250" max-rows="15"></textarea>
      </md-input-container>
     </div>
-    <div class="gb-card-profile">
-     <div class="gb-box-content">
-      <div class="gb-title">
-       <h3 class="gb-ellipsis">
-        <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-         {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
-        </a>
-       </h3>
-      </div>
-      <div class="gb-subdescription">
-       <p class="gb-ellipsis">
-        CREATOR
-       </p>
-      </div>
-      <div class="gb-description">
+    <div layout="row" layout-align="start start" flex layout-wrap>
+     <div class="p-8" flex="25">
+      <div class="gb-card-profile md-whiteframe-1dp">
+       <div class="gb-box-content">
+        <div class="gb-title">
+         <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+          {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
+         </a>
+        </div>
+        <div class="gb-subdescription">
+         <p class="gb-ellipsis">
+          CREATOR
+         </p>
+        </div>
+        <div class="gb-description">
+        </div>
+       </div>
+       <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
+        <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
+             src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+        {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
+       </div>
       </div>
      </div>
-     <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
-      <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
-           src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
-           class="gb-heading-pic" alt="">
-      {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
+     <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="25">
+      <div class="gb-card-profile md-whiteframe-1dp">
+       <div class="gb-box-content">
+        <div class="gb-title">
+         <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+          {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
+         </a>
+        </div>
+        <div class="gb-subdescription">
+         <p class="gb-ellipsis">
+          {{contribution.level.title}} - {{contribution.status.title}}
+         </p>
+        </div>
+        <div class="gb-description">
+        </div>
+       </div>
+       <div class="gb-image" ng-class="contribution.contributor.theme_color">
+        <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
+             data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+             src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+             class="gb-heading-pic" alt="">
+        {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
+
+       </div>
+      </div>
      </div>
     </div>
    </div>
@@ -64,27 +92,6 @@ LINEAR VIEW HOME
    </div>
   </ms-widget-front>
  </ms-widget>
-</div>
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
- <div class="widget-group gb-section-widget-group" flex="100"
-      layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
-             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
-   <ms-widget-front layout="row" layout-fill flex>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
-               layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-      <i class="fa {{mentorshipRequestType.icon}}"></i>
-     </div>
-     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-      <div class="gb-title">
-       {{mentorshipRequestType.description}}
-      </div>
-     </div>
-    </md-button>
-   </ms-widget-front>
-  </ms-widget>
- </div>
 </div>
 <div class="gb-container widget-group" layout="row" flex layout-nowrap>
  <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="33">
@@ -257,33 +264,28 @@ LINEAR VIEW HOME
    </ms-widget-front>
   </ms-widget>
  </div>
- <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="33">
-  <div class="gb-card-profile md-whiteframe-1dp">
-   <div class="gb-box-content">
-    <div class="gb-title">
-     <h3 class="gb-ellipsis">
-      <a data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-       {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
-      </a>
-     </h3>
-    </div>
-    <div class="gb-subdescription">
-     <p class="gb-ellipsis">
-      {{contribution.level.title}} - {{contribution.status.title}}
-     </p>
-    </div>
-    <div class="gb-description">
-    </div>
-   </div>
-   <div class="gb-image">
-    <img data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-         src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
-         class="gb-heading-pic" alt="">
-   </div>
-  </div>
+</div>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
+ <div class="widget-group gb-section-widget-group" flex="100"
+      layout="row" layout-align="start" layout-wrap flex>
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="33"
+             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
+               layout="row" layout-align="start stretch" flex>
+     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{mentorshipRequestType.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+      <div class="gb-title">
+       {{mentorshipRequestType.description}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
  </div>
 </div>
-
 <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">

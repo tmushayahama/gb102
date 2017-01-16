@@ -718,6 +718,70 @@ ADD COMPONENT DIALOG
      </div>
     </md-tab-body>
    </md-tab>
+   <!-- MENTORSHIP  SUGGESTION-->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content">
+      <div class="gb-dialog-header">
+       <div layout="column" layout-align="start start" flex>
+        <md-toolbar class="gb-heading">
+         <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" md-prevent-menu-close
+                     ng-click="vm.tabBack()" aria-label="Back"
+                     ng-if="vm.selectedTabHistory.length > 1"
+                     translate translate-attr-aria-label="explorer.back_text">
+           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
+          </md-button>
+          <div class="gb-heading-title">
+           <span class="ellipsis">
+            {{vm.mentorshipRequest.selected.description}}
+           </span>
+          </div>
+          <span flex></span>
+         </div>
+        </md-toolbar>
+       </div>
+      </div>
+      <form class="gb-dialog-body" ms-scroll>
+       <div class="gb-members" flex>
+        <div class="section-content">
+         <md-chips class="gb-member-chips" ng-model="vm.mentorshipRequest.mentors" md-autocomplete-snap
+                   md-require-match="true" md-transform-chip="$chip">
+          <md-autocomplete
+           md-selected-item="vm.mentorshipRequest.mentor"
+           md-search-text="vm.searchMentorText"
+           md-items="member in vm.mentorshipRequestSuggestionsQuerySearch(vm.searchMentorText)"
+           md-item-text="member.firstname+' '+member.lastname"
+           placeholder="Search for a member">
+           <span md-highlight-text="vm.searchMentorText">
+            {{member.firstname + ' ' + member.lastname}}
+           </span>
+          </md-autocomplete>
+          <md-chip-template class="gb-member-chip">
+           <img class="gb-member-chip-avatar" src="src/assets/images/profile_pic/{{$chip.avatar_url}}" alt="">
+           <strong>{{$chip.firstname + ' ' + $chip.lastname}}</strong>
+          </md-chip-template>
+          <button md-chip-remove class="md-primary">
+           <md-icon md-font-icon="icon-close" class="s18"></md-icon>
+          </button>
+         </md-chips>
+        </div>
+       </div>
+       <div class="description">
+        <md-input-container class="md-block">
+         <textarea ng-model="vm.mentorshipRequest.form.title" placeholder="Title" md-required columns="1" md-maxlength="150" max-rows="4"></textarea>
+        </md-input-container>
+       </div>
+       <div class="description">
+        <md-input-container class="md-block">
+         <label>Personalize the invite with a note</label>
+         <textarea ng-model="vm.mentorshipRequest.form.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
+        </md-input-container>
+       </div>
+      </form>
+     </div>
+    </md-tab-body>
+   </md-tab>
    <!-- FILL -->
    <md-tab>
     <md-tab-body>

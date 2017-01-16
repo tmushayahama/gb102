@@ -1,8 +1,22 @@
 <!--
-SWIPE TAB VIEW
+MATCHER TAB VIEW
 -->
+<div class="" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <div class="" layout="column" layout-align="center center" flex>
+   <div class="text-center">
+    <h2 class="gb-title">
+     Random Questions Explorer
+    </h2>
+    <p class="gb-description">
+     Answer random questions to match you with skill. Press "Not Now" to skip.
+    </p>
+   </div>
+  </div>
+ </div>
+</div>
 <div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
- <ms-widget flippable="true" class="gb-matcher-widget" layout="column" flex="60">
+ <ms-widget flippable="true" class="gb-matcher-widget" layout="column" layout="column" flex-gr-sm="60" flex-gr-xs="80">
   <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-type-title">
@@ -15,8 +29,8 @@ SWIPE TAB VIEW
      Details
     </md-button>
    </div>
-   <div class="background-image-center" layout-align="center center"  flex>
-    <md-icon md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}" class="gb-app-icon"></md-icon>
+   <div class="background-image-center" layout-align="center center" flex>
+    <md-icon md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
   <ms-widget-back class="grey-50-bg">
@@ -58,7 +72,7 @@ SWIPE TAB VIEW
   </ms-widget-back>
  </ms-widget>
 </div>
-<div class="" layout="row" flex="40">
+<div class="gb-container gb-answer-btn-row" layout-align="center center" layout="row" flex>
  <md-button type="button" ng-click="vm.createMatcher(vm.matcherTypes.notnow)"
             class="md-raised">
   Not Now
@@ -128,3 +142,4 @@ SWIPE TAB VIEW
   </div>
  </div>
 </div>
+

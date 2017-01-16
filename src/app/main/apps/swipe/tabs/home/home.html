@@ -1,9 +1,24 @@
 <!--
 SWIPE TAB VIEW
 -->
+<div class="" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="" flex>
+  <div class="" layout="column" layout-align="center center" flex>
+   <div class="text-center">
+    <h2 class="gb-title">
+     Explore Quickly
+    </h2>
+    <p class="gb-description">
+     A random skill will appear. Choose "Explore" to bookmark it or "Not Now" to skip. Stay tuned for swipe
+     gestures
+    </p>
+   </div>
+  </div>
+ </div>
+</div>
 <div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
- <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex="60">
-  <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
+ <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex-gr-sm="60" flex-gr-xs="80" flex="95">
+  <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-type-title">
      {{vm.component.type.title}}
@@ -16,7 +31,7 @@ SWIPE TAB VIEW
     </md-button>
    </div>
    <div class="background-image-center" layout-align="center center"  flex>
-    <md-icon md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}" class="gb-app-icon"></md-icon>
+    <md-icon md-font-icon="fa {{vm.component.type.icon}}" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
   <ms-widget-back class="grey-50-bg">
@@ -51,8 +66,7 @@ SWIPE TAB VIEW
   </ms-widget-back>
  </ms-widget>
 </div>
-
-<div class="" layout="row" flex="40">
+<div class="gb-container gb-answer-btn-row" layout-align="center center" layout="row" flex>
  <md-button type="button" ng-click="vm.createSwipe(vm.swipeTypes.notnow)"
             class="md-raised">
   Not Now

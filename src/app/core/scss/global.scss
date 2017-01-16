@@ -206,15 +206,33 @@ md-dialog {
  background-size: auto 100%!important;
 
  &.gb-header-1 {
-  height: 320px;
-  min-height: 320px;
-  max-height: 320px;
- }
-
- &.gb-header-2 {
   height: 250px;
   min-height: 250px;
   max-height: 250px;
+  .gb-header-icon, .profile-image {
+   margin-bottom: 10px;
+  }
+  .gb-title {
+   text-transform: capitalize;
+  }
+ }
+
+ &.gb-header-2 {
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  .profile-image {
+   width: 50px;
+   min-width: 50px;
+   height: 50px;
+   line-height: 50px;
+   border-radius: 50%;
+   img {
+    height: 100%;
+    min-width: 50px;
+    border-radius: 50%;
+   }
+  }
  }
 
  .gb-cover {
@@ -235,18 +253,31 @@ md-dialog {
   z-index: 0;
  }
 
- .profile-image {
-  //margin-right: 24px;
+ .gb-header-info {
+  height: 100%;
  }
-
  .gb-header-icon {
   color: #EEE;
   font-size: 70px;
   border-radius: 50%;
  }
  .gb-title {
-  font-size: 34px;
-  text-transform: capitalize;
+  text-align: center;
+  font-size: 30px;
+  .gb-title-1 {
+   font-size: 12px;
+   color: #EEE;
+  }
+  .gb-title-2 {
+   font-size: 30px;
+  }
+  .gb-title-arrow {
+   height: 20px;
+   max-height: 20px;
+   line-height: 20px;
+   font-size: 20px;
+   color: #EEE;
+  }
  }
 
  .actions {
@@ -586,7 +617,6 @@ md-tabs {
  width: 100%;
  padding: 0 0 0 0;
  margin: 15px 0;
- border-radius: 2px;
  background-color: #FAFAFA;
  color: #555;
 
@@ -609,10 +639,27 @@ md-tabs {
   @include position(absolute, 0 0 0 250px);
   padding: 14px 16px 14px 16px;
 
+  .gb-type-title {
+   text-transform: uppercase;
+   margin-bottom: 14px;
+   color: #777;
+   font-size: 12px;
+  }
   .gb-title {
    font-size:18px;
    color: #555;
    font-weight: 400;
+   height: 25px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
   }
 
   .gb-description {
@@ -1153,14 +1200,12 @@ md-tabs {
    .gb-image {
     @include position(absolute, 10px null 10px 0);
     padding-top: 3px;
-    text-align: center;
     font-size: 16px;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     overflow: hidden;
     .gb-heading-pic {
-     @include position(absolute, 0 0 0 0);
      height: 100%;
      width: 100%;
      border-radius: 50%;
@@ -1170,17 +1215,9 @@ md-tabs {
     @include position(absolute, 0 0 0 40px);
     padding: 14px 8px;
     line-height: 16px;
-    z-index: 0;
     .gb-title {
      text-align: left;
      padding: 0;
-     h3 {
-      text-transform: none;
-      font-size: 14px;
-      font-weight: 400;
-      //line-height: 32px;
-      margin-bottom: 5px;
-     }
     }
 
     .gb-subdescription {
@@ -1288,7 +1325,11 @@ md-tabs {
  }
 }
 
-
+.gb-answer-btn-row {
+ height: 50px;
+ min-height: 50px;
+ max-height: 50px;
+}
 
 
 .gb-swipe-widget {
@@ -1309,14 +1350,14 @@ md-tabs {
   }
  }
  .gb-type-title {
-  padding: 0 10px;
+  padding: 0px 10px;
   color: #AAA;
   font-size: 12px;
   text-transform: uppercase;
  }
  .gb-title {
   text-align: center;
-  padding: 0 10px;
+  padding: 10px 10px;
   font-size: 25px;
  }
  .gb-description {
@@ -1326,10 +1367,10 @@ md-tabs {
  md-icon {
   &.gb-background-icon {
    color: #EEE;
-   font-size: 150px;
-   width: 150px;
-   min-width: 150px;
-   max-width: 150px;
+   font-size: 250px;
+   width: 250px;
+   min-width: 250px;
+   max-width: 250px;
   }
  }
  @mixin apps-widget-background {
@@ -1481,13 +1522,13 @@ md-tabs {
 }
 
 .gb-card-profile {
- padding: 0 0 0 0;
  overflow: hidden;
  position: relative;
- height: 90px;
+ height: 60px;
+ min-height: 60px;
+ max-height: 60px;
  width: 100%;
  background-color: #FAFAFA;
- border-radius: 2px;
  .gb-indicator {
   @include position(absolute, 5px  null null 5px);
   height: 5px;
@@ -1495,39 +1536,36 @@ md-tabs {
  }
 
  .gb-image {
-  @include position(absolute, 14px null 14px 14px);
-  padding-top: 14px;
+  @include position(absolute, 10px null 10px 10px);
+  padding-top: 10px;
   text-align: center;
-  font-size: 25px;
-  height: 60px;
-  width: 60px;
+  font-size: 15px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   overflow: hidden;
   .gb-heading-pic {
+   @include position(absolute, 0 0 0 0);
    height: 100%;
    width: 100%;
    border-radius: 50%;
   }
  }
  .gb-box-content {
-  @include position(absolute, 0 0 0 74px);
+  @include position(absolute, 0 0 0 50px);
   height: auto;
-  padding: 14px 14px 14px 14px;
-  z-index: 2;
+  padding: 12px 8px;
+  line-height: 18px;
   .gb-title {
    color: #555;
    text-decoration: none;
    //font-size:18px;
    //margin-top: 5px;
    padding: 0;
-   h3 {
+   a {
+    cursor: pointer;
     font-size: 14px;
     font-weight: 400;
-    //line-height: 32px;
-    margin-bottom: 5px;
-    a {
-
-    }
    }
   }
 

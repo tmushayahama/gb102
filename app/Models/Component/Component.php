@@ -73,6 +73,15 @@ class Component extends Model {
  }
 
  /**
+  * Defines the creator's many to one relationship with it's parent component
+  *
+  * @return type creator relationship
+  */
+ public function parentComponent() {
+  return $this->belongsTo('App\Models\Component\Component', 'parent_component_id');
+ }
+
+ /**
   * Defines the level type's many to one relationship with a component
   *
   * @return type level type relationship
@@ -328,6 +337,7 @@ class Component extends Model {
   $component = Component::orderBy('id', 'asc')
           ->with('type')
           ->with('creator')
+          ->with('parentComponent')
           ->find($componentId);
   $component["stats"] = self::getComponentStats($componentId);
   $component["contributions"] = ComponentContribution::getComponentContribution($componentId);

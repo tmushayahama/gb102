@@ -2,57 +2,62 @@
 LINEAR VIEW
 -->
 
-<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="center center" >
  <div class="gb-cover-overlap" ></div>
  <div class="gb-cover" ng-style="$root.headerStyle"></div>
- <div class="gb-container user-info" layout="column" layout-align="center center">
-  <img class="profile-image avatar huge" ng-src="src/assets/images/explorer/{{componentLinearCtrl.component.component_picture_url}}">
-  <div class="gb-title">
-   <p class="gb-ellipsis">
+ <div class="gb-container gb-header-info" layout="column" layout-align="space-between center">
+  <div class="gb-title" layout="column" layout-align="center center" flex>
+   <a ui-sref="app.componentLinearView.home({id:componentLinearCtrl.component.parent_component_id})"
+      class="gb-title-1 gb-ellipsis">
+    {{componentLinearCtrl.component.parent_component.title}}
+   </a>
+   <div ng-if="componentLinearCtrl.component.parent_component_id" class="gb-title-arrow">
+    <i class="fa fa-caret-down"></i></div>
+   <p class="gb-title-2 gb-ellipsis">
     {{componentLinearCtrl.component.title}}
    </p>
   </div>
- </div>
- <div class="actions" layout="row" layout-align="start stretch">
-  <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
-             ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.sections)"
-             translate-attr-aria-label="explorer.add_text">Add
-  </md-button>
-  <md-button class="md-raised md-primary" translate="explorer.contribute_text"
-             translate-attr-aria-label="explorer.contribute_text">Contribute
-  </md-button>
-  <md-menu class="">
-   <md-button class="md-raised md-primary" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
-    <b class="caret"></b>
+  <div class="actions" layout="row" layout-align="start stretch">
+   <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
+              ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.sections)"
+              translate-attr-aria-label="explorer.add_text">Add
    </md-button>
-   <md-menu-content class="subscribe-menu-content" width="4">
-    <md-menu-item>
-     <md-button ng-click="componentLinearCtrl.subscribeComponent()" aria-label="Add Contribution">
-      Subscribe
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="componentLinearCtrl.bookmarkComponent()" aria-label="Add Contribution">
-      Bookmark
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.apps)" aria-label="Add Contribution">
-      Add Components
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.activities)" aria-label="Add Contribution">
-      Add Activities
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.motives)" aria-label="Add Contribution">
-      Add Background
-     </md-button>
-    </md-menu-item>
-   </md-menu-content>
-  </md-menu>
+   <md-button class="md-raised md-primary" translate="explorer.contribute_text"
+              translate-attr-aria-label="explorer.contribute_text">Contribute
+   </md-button>
+   <md-menu class="">
+    <md-button class="md-raised md-primary" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
+     <b class="caret"></b>
+    </md-button>
+    <md-menu-content class="subscribe-menu-content" width="4">
+     <md-menu-item>
+      <md-button ng-click="componentLinearCtrl.subscribeComponent()" aria-label="Add Contribution">
+       Subscribe
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="componentLinearCtrl.bookmarkComponent()" aria-label="Add Contribution">
+       Bookmark
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.apps)" aria-label="Add Contribution">
+       Add Components
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.activities)" aria-label="Add Contribution">
+       Add Activities
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.motives)" aria-label="Add Contribution">
+       Add Background
+      </md-button>
+     </md-menu-item>
+    </md-menu-content>
+   </md-menu>
+  </div>
  </div>
 </div>
 <div  class="gb-tabs-1 md-whiteframe-1dp" layout="column" layout-align="center center" flex>
