@@ -1,124 +1,33 @@
-<!--
-SWIPE TAB VIEW
--->
-<div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
- <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex="60">
-  <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
+
+<div class="gb-container widget-group mt-10" layout="row" flex layout-nowrap>
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="50">
+  <ms-widget-front class="p-8" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
-    <div class="gb-type-title">
-     {{vm.component.type.title}}
+    <div class="gb-count">
+     0.0.0.1
     </div>
     <div class="gb-title">
-     {{vm.component.title}}
+     VERSION
     </div>
-    <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-     Details
-    </md-button>
    </div>
-   <div class="background-image-center" layout-align="center center"  flex>
-    <md-icon md-font-icon="fa icon-gb-{{vm.component.type.title.toLowerCase()}}" class="gb-app-icon"></md-icon>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa fa-history" class="gb-background-icon"></md-icon>
    </div>
   </ms-widget-front>
-  <ms-widget-back class="grey-50-bg">
-   <md-toolbar class="gb-heading">
-    <div class="md-toolbar-tools">
-     <md-button class="md-icon-button" aria-label="Description Icon">
-      <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-     </md-button>
-     <div class="gb-heading-title">
-      <span class="ellipsis">
-       Description
-      </span>
-     </div>
-     <span flex></span>
-     <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
-     </md-button>
-    </div>
-   </md-toolbar>
-   <div class="gb-type-title">
-    {{vm.component.type.title}}
-   </div>
-   <div class="gb-title">
-    {{vm.component.title}}
-   </div>
-   <div class="gb-description">
-    {{vm.component.description}}
-    <span ng-if="!vm.component.description">
-     No description yet.
-    </span>
-   </div>
-  </ms-widget-back>
  </ms-widget>
-</div>
-
-<div class="" layout="row" flex="40">
- <md-button type="button" ng-click="vm.createSwipe(vm.swipeTypes.notnow)"
-            class="md-raised">
-  Not Now
- </md-button>
- <md-button type="button" ng-click="vm.createSwipe(vm.swipeTypes.explore)"
-            class="md-primary md-raised">
-  Explore
- </md-button>
-</div>
-<br>
-<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Swipe Results
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Filter Swipe Results">
-    Filter
-   </md-button>
-  </div>
- </md-toolbar>
-</div>
-<div class="gb-container">
- <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="swipe in vm.swipes"
-      ui-sref="app.componentLinearView.home({id:swipe.component.id})">
-  <div class="gb-card-cover">
-   <div ng-if="swipe.component.component_picture_url && swipe.component.component_picture_url !== 'default.png'"
-        class="gb-cover-image">
-    <img ng-src="src/assets/images/swipe/{{swipe.component.component_picture_url}}">
-   </div>
-   <div ng-if="swipe.component.component_placeholder_style"
-        class="gb-cover-image"
-        ng-style="swipe.component.component_placeholder_style">
-   </div>
-  </div>
-  <div class="gb-card-content">
-   <div class="gb-title">
-    {{swipe.component.title}}
-   </div>
-   <div class="gb-name-badge-1">
-    <div class="gb-image">
-     <img data-ui-sref="apps.component.overview({componentId: component.id})"
-          ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-          class="gb-heading-pic" alt="">
+ <ms-widget flippable="true" class="p-8 gb-count-widget" layout="column" flex="50">
+  <ms-widget-front class="p-8" layout="row" flex>
+   <div layout="column" layout-align="center center" flex>
+    <div class="gb-count">
+     January 15, 2017
     </div>
-    <p class="gb-name gb-ellipsis">
-     {{ ::swipe.component.creator.firstname}}
-     {{ ::swipe.component.creator.lastname}}
-    </p>
+    <div class="gb-title">
+     LAST UPDATED
+    </div>
    </div>
-   <div class="gb-subdescription">
-    <p class="">
-     <span>
-      {{::swipe.component.description}}
-     </span>
-    </p>
-    <p ng-if="!swipe.component.description" class="gb-no-info">
-     No description to show
-    </p>
+   <div class="background-image-center">
+    <md-icon md-font-icon="fa fa-calendar" class="gb-background-icon"></md-icon>
    </div>
-  </div>
- </div>
+  </ms-widget-front>
+ </ms-widget>
 </div>

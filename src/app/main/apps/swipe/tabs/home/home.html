@@ -1,7 +1,7 @@
 <!--
 SWIPE TAB VIEW
 -->
-<div class="" layout="column" layout-align="center center" flex>
+<div class="mt-10" layout="column" layout-align="center center" flex>
  <div class="gb-container" layout="column" layout-align="" flex>
   <div class="" layout="column" layout-align="center center" flex>
    <div class="text-center">
@@ -9,7 +9,7 @@ SWIPE TAB VIEW
      Explore Quickly
     </h2>
     <p class="gb-description">
-     A random skill will appear. Choose "Explore" to bookmark it or "Not Now" to skip. Stay tuned for swipe
+     A random skill will appear. Choose "Interested" to bookmark it or "Not Now" to skip. Stay tuned for swipe
      gestures
     </p>
    </div>
@@ -17,7 +17,7 @@ SWIPE TAB VIEW
  </div>
 </div>
 <div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
- <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex-gr-sm="60" flex-gr-xs="80" flex="95">
+ <ms-widget flippable="true" class="gb-swipe-widget" layout="column" flex-gt-sm="60" flex-gt-xs="80" flex="95">
   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-type-title">
@@ -73,6 +73,6 @@ SWIPE TAB VIEW
  </md-button>
  <md-button type="button" ng-click="vm.createSwipe(vm.swipeTypes.explore)"
             class="md-primary md-raised">
-  Explore
+  Interested
  </md-button>
 </div>

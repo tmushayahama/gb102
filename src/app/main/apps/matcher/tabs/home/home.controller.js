@@ -12,8 +12,8 @@
   var vm = this;
 
   //Data
-  vm.matcherTypes = level_categories.matcher;
   vm.component;
+  vm.matcherAnswerForm = {};
   vm.matchers;
   ////////
 
@@ -43,14 +43,20 @@
    * @param {type} levelId matcher type id
    * @returns {undefined}
    */
-  function createMatcher(levelId) {
+  function createMatcher() {
+   if (!vm.matcherAnswerForm.title) {
+    return;
+   }
    var data = {
-    componentId: vm.component.id,
-    levelId: levelId
-            // description: ""
+    title: vm.matcherAnswerForm.title,
+    description: "",
+    parentComponentId: vm.component.id, //parent component
+    typeId: level_categories.matcher_answer.answer,
+    privacyId: level_categories.privacy.public
    };
    MatcherService.createMatcher(data).then(function (response) {
     getMatcher();
+    vm.matcherAnswerForm.title = "";
    });
   }
 

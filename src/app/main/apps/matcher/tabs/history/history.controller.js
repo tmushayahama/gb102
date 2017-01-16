@@ -7,14 +7,13 @@
          .controller('MatcherHistoryTabController', MatcherHistoryTabController);
 
  /** @ngInject */
- function MatcherHistoryTabController(level_categories, MatcherService, $scope, $rootScope)
+ function MatcherHistoryTabController(level_categories, ComponentService, MatcherService, $scope, $rootScope)
  {
   var vm = this;
 
   //Data
   vm.matcherTypes = level_categories.matcher;
-  vm.component;
-  vm.matchers;
+  vm.components = [];
   ////////
 
   //Methods
@@ -33,10 +32,10 @@
    */
   function getMatchers(creatorId) {
    if (creatorId) {
-    MatcherService.getMatchers(creatorId).then(function (response) {
-     vm.matchers = response;
-     angular.forEach(vm.matchers, function (matcher) {
-      addComponentPlaceholderImage(matcher.component);
+    ComponentService.getUserComponentsByType(creatorId, level_categories.matcher_answer.answer).then(function (response) {
+     vm.components = response;
+     angular.forEach(vm.components, function (component) {
+      addComponentPlaceholderImage(component);
      });
     });
    }

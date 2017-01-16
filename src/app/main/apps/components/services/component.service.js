@@ -28,6 +28,7 @@
    createComponentBookmark: createComponentBookmark,
    //User Components
    getUserComponents: getUserComponents,
+   getUserComponentsByType: getUserComponentsByType
   };
 
 
@@ -388,6 +389,29 @@
    var deferred = $q.defer();
 
    msApi.request('component.userComponents@get', {userId: userId, listFormat: listFormat},
+           function (response) {
+            deferredHandler(response, deferred);
+           },
+           function (response) {
+            deferred.reject(response);
+           }
+   );
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get All components of a user by type
+   *
+   * @param {type} userId the user id
+   * @param {type} typeId the type of the component
+   * @returns {$q@call;defer.promise}
+   */
+  function getUserComponentsByType(userId, typeId) {
+   // Create a new deferred object
+   var deferred = $q.defer();
+
+   msApi.request('component.userComponentsByType@query', {userId: userId, typeId: typeId},
            function (response) {
             deferredHandler(response, deferred);
            },

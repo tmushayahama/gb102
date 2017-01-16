@@ -207,6 +207,7 @@ class Component extends Model {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->where('creator_id', $userId)
+          ->with("parentComponent")
           ->with('creator')
           ->take(20)
           ->get();

@@ -315,6 +315,7 @@ md-dialog {
   md-tab-item {
    padding: 0;
    height: 80px;
+   min-width: 120px;
    .gb-icon {
     height: 25px;
     max-height: 25px;
@@ -637,24 +638,27 @@ md-tabs {
 
  .gb-card-content {
   @include position(absolute, 0 0 0 250px);
-  padding: 14px 16px 14px 16px;
+  padding: 14px 16px 14px 0px;
 
   .gb-type-title {
+   padding-left: 16px;
    text-transform: uppercase;
    margin-bottom: 14px;
    color: #777;
    font-size: 12px;
   }
   .gb-title {
+   margin-bottom: 5px;
+   padding-left: 16px;
    font-size:18px;
    color: #555;
    font-weight: 400;
-   height: 25px;
+   max-height: 50px;
    display: block;
    /* Fallback for non-webkit */
    display: -webkit-box;
    /* Fallback for non-webkit */
-   line-height: 1.2;
+   line-height: 20px;
    -webkit-line-clamp: 2;
    -webkit-box-orient: vertical;
    overflow: hidden;
@@ -663,73 +667,62 @@ md-tabs {
   }
 
   .gb-description {
-   //@include position(absolute, 23px 0 50px 0);
-   //margin-bottom: 0px;
+   margin-bottom: 5px;
+   padding-left: 16px;
    font-size: 12px;
    p {
-    text-transform: uppercase;
-    color: #777;
-    font-size: 8px;
+    color: #555;
    }
   }
 
-  .gb-subdescription {
-   //@include position(absolute, 23px 0 50px 0);
-   font-size: 10px;
-   height: 25px;
-   display: block;
-   /* Fallback for non-webkit */
-   display: -webkit-box;
-   /* Fallback for non-webkit */
-   line-height: 1.2;
-   -webkit-line-clamp: 2;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   p {
-    font-size: 10px;
-    line-height: 12px;
-   }
-   .gb-no-info {
-    padding: 12px 5px;
-    color: #BBB;
-    font-size: 10px;
-   }
-  }
-
- }
-
- .gb-name-badge-1 {
-  margin-bottom: 8px;
-  position: relative;
-  //float: right;
-  height: 20px;
-  padding-left: 20px;
-  font-size: 9px;
-  .gb-name {
-   font-size: 12px;
-   padding-top: 0px;
-   padding-left: 5px;
-  }
-  .gb-image {
-   @include position(absolute, 0 null 0 0);
-   border: none;
-   right: auto;
-   height: 20px;
-   width: 20px;
-   img {
-    border-radius: 50%;
-    min-height: 20px;
-    height: 20px;
-    width: 20px;
-   }
+  .gb-contributors {
+   padding-left: 6px;
   }
  }
-
- .board-name {
-  padding-top: 16px;
-  font-weight: 500;
+ @include respond-to (gb-sm) {
+  height: 200px;
+  margin: 10px 0;
+  .gb-card-cover {
+   width: 200px;
+   .gb-cover-image {
+    img {
+     min-width: 200px;
+    }
+   }
+  }
+  .gb-card-content {
+   @include position(absolute, 0 0 0 200px);
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 100px;
+  margin: 8px 0;
+  .gb-card-cover {
+   width: 100px;
+   .gb-cover-image {
+    img {
+     min-width: 100px;
+    }
+   }
+  }
+  .gb-card-content {
+   @include position(absolute, 0 0 0 100px);
+   padding: 10px 10px 10px 0px;
+   .gb-type-title {
+    padding-left: 10px;
+    margin-bottom: 0;
+   }
+   .gb-title {
+    padding-left: 10px;
+    font-size:14px;
+    .gb-contributors {
+     padding-left: 0px;
+    }
+   }
+   .gb-description {
+    padding-left: 10px;
+   }
+  }
  }
 }
 

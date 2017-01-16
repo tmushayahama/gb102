@@ -16,7 +16,7 @@ MATCHER TAB VIEW
  </div>
 </div>
 <div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
- <ms-widget flippable="true" class="gb-matcher-widget" layout="column" layout="column" flex-gr-sm="60" flex-gr-xs="80">
+ <ms-widget flippable="true" class="gb-matcher-widget" layout="column" layout="column" flex-gt-sm="60" flex-gt-xs="80" flex="95">
   <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
    <div layout="column" layout-align="center center" flex>
     <div class="gb-type-title">
@@ -58,88 +58,27 @@ MATCHER TAB VIEW
    </div>
    <div class="gb-description">
     {{vm.component.description}}
-    <span ng-if="!vm.component.description">
-     No description yet.
-    </span>
    </div>
-   <form name="matcherAnswerForm" novalidate>
-    <md-input-container class="md-block">
-     <textarea name="title" ng-model="vm.matcherAnswerForm.title"
-               placeholder="Your Answer"
-               required md-maxlength="150" max-rows="2"></textarea>
-    </md-input-container>
-   </form>
   </ms-widget-back>
  </ms-widget>
 </div>
-<div class="gb-container gb-answer-btn-row" layout-align="center center" layout="row" flex>
- <md-button type="button" ng-click="vm.createMatcher(vm.matcherTypes.notnow)"
+<div class="gb-container mt-10" layout-align="center center" layout="row">
+ <form name="matcherAnswerForm" novalidate flex-gt-sm="60" flex-gt-xs="80" flex="95">
+  <md-input-container class="md-block">
+   <textarea name="title" ng-model="vm.matcherAnswerForm.title"
+             placeholder="Your Answer"
+             md-maxlength="150" max-rows="5"></textarea>
+  </md-input-container>
+ </form>
+</div>
+<div class="gb-container gb-answer-btn-row mt-10" layout-align="center center" layout="row" flex>
+ <md-button type="button" ng-click="vm.getMatcher()"
             class="md-raised">
   Not Now
  </md-button>
- <md-button type="button" ng-click="vm.createMatcher(vm.matcherTypes.explore)"
+ <md-button type="button" ng-click="vm.createMatcher()"
             class="md-primary md-raised">
   Answer
  </md-button>
-</div>
-<br>
-<div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Matcher Results
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Filter Matcher Results">
-    Filter
-   </md-button>
-  </div>
- </md-toolbar>
-</div>
-<div class="gb-container">
- <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="matcher in vm.matchers"
-      ui-sref="app.componentLinearView.home({id:matcher.component.id})">
-  <div class="gb-card-cover">
-   <div ng-if="matcher.component.component_picture_url && matcher.component.component_picture_url !== 'default.png'"
-        class="gb-cover-image">
-    <img ng-src="src/assets/images/explorer/{{matcher.component.component_picture_url}}">
-   </div>
-   <div ng-if="matcher.component.component_placeholder_style"
-        class="gb-cover-image"
-        ng-style="matcher.component.component_placeholder_style">
-   </div>
-  </div>
-  <div class="gb-card-content">
-   <div class="gb-title">
-    {{matcher.component.title}}
-   </div>
-   <div class="gb-name-badge-1">
-    <div class="gb-image">
-     <img data-ui-sref="apps.component.overview({componentId: component.id})"
-          ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-          class="gb-heading-pic" alt="">
-    </div>
-    <p class="gb-name gb-ellipsis">
-     {{ ::matcher.component.creator.firstname}}
-     {{ ::matcher.component.creator.lastname}}
-    </p>
-   </div>
-   <div class="gb-subdescription">
-    <p class="">
-     <span>
-      {{::matcher.component.description}}
-     </span>
-    </p>
-    <p ng-if="!matcher.component.description" class="gb-no-info">
-     No description to show
-    </p>
-   </div>
-  </div>
- </div>
 </div>
 

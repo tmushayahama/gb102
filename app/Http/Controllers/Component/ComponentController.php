@@ -48,6 +48,17 @@ class ComponentController extends Controller {
  }
 
  /**
+  * Get a specific user components by type
+  *
+  * @param type $userId a specific user
+  * @return json response of components
+  */
+ public function getUserComponentsByType($userId, $typeId) {
+  $components = Component::getUserComponentsByType($userId, $typeId);
+  return \Response::json($components);
+ }
+
+ /**
   * Get a specific component with its subcomponents recursively.
   *
   * @param $componentId a specific component

@@ -84,6 +84,9 @@ class Level extends Model {
          "active" => 18002,
          "inactive" => 18003
      ),
+     "matcher_answer" => array(
+         "normal" => 19001,
+     ),
      'template_type' => 7000,
      'component_types' => 11000,
      'recommendation' => 12000,

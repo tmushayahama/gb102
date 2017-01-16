@@ -5,6 +5,7 @@
  angular
          .module('app.matcher',
                  [
+                  "app.components",
                   // 3rd Party Dependencies
                   'moment-picker',
                   'ui.calendar',
@@ -74,6 +75,18 @@
             }
            },
            data: {
+            'selectedTab': 4
+           }
+          })
+          .state('app.matcher.business', {
+           url: '/business',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/matcher/tabs/business/business.html',
+             controller: 'MatcherBusinessTabController as vm'
+            }
+           },
+           data: {
             'selectedTab': 3
            }
           });
@@ -92,7 +105,7 @@
    {
     creatorId: "@creatorId"
    }]);
-  msApiProvider.register('matcher.createMatcher', ['/api/components/bookmarks/create']);
+  msApiProvider.register('matcher.createMatcher', ['/api/components/create']);
 
  }
 

@@ -5,58 +5,33 @@ SWIPE HISTORY TAB VIEW
 <div class="gb-container gb-card-row" layout="column" layout-align="start center" flex="100">
  <md-toolbar class="gb-heading" flex="100">
   <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-apply"></md-icon>
-   </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
-     Matcher Results
+     Matcher History
     </span>
    </div>
-   <span flex></span>
-   <md-button class="md-raised" aria-label="Filter Matcher Results">
-    Filter
-   </md-button>
   </div>
  </md-toolbar>
 </div>
 <div class="gb-container">
- <div class="gb-card-3 md-whiteframe-2dp" ng-repeat="matcher in vm.matchers"
-      ui-sref="app.componentLinearView.home({id:matcher.component.id})">
+ <div class="gb-card-3 md-whiteframe-1dp" ng-repeat="component in vm.components"
+      ui-sref="app.componentLinearView.home({id:component.id})">
   <div class="gb-card-cover">
-   <div ng-if="matcher.component.component_picture_url && matcher.component.component_picture_url !== 'default.png'"
+   <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
         class="gb-cover-image">
-    <img ng-src="src/assets/images/matcher/{{matcher.component.component_picture_url}}">
+    <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
    </div>
-   <div ng-if="matcher.component.component_placeholder_style"
+   <div ng-if="component.component_placeholder_style"
         class="gb-cover-image"
-        ng-style="matcher.component.component_placeholder_style">
+        ng-style="component.component_placeholder_style">
    </div>
   </div>
   <div class="gb-card-content">
+   <div class="gb-description">
+    {{component.parent_component.title}}
+   </div>
    <div class="gb-title">
-    {{matcher.component.title}}
-   </div>
-   <div class="gb-name-badge-1">
-    <div class="gb-image">
-     <img data-ui-sref="apps.component.overview({componentId: component.id})"
-          ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-          class="gb-heading-pic" alt="">
-    </div>
-    <p class="gb-name gb-ellipsis">
-     {{ ::matcher.component.creator.firstname}}
-     {{ ::matcher.component.creator.lastname}}
-    </p>
-   </div>
-   <div class="gb-subdescription">
-    <p class="">
-     <span>
-      {{::matcher.component.description}}
-     </span>
-    </p>
-    <p ng-if="!matcher.component.description" class="gb-no-info">
-     No description to show
-    </p>
+    {{component.title}}
    </div>
   </div>
  </div>

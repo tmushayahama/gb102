@@ -66,6 +66,11 @@
     userId: "@userId",
     listFormat: "@listFormat"
    }]);
+  msApiProvider.register('component.userComponentsByType', ['/api/components/user/:userId/type/:typeId',
+   {
+    userId: "@userId",
+    typeId: '@typeId',
+   }]);
  }
 
 })();

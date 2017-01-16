@@ -5,6 +5,7 @@
  angular
          .module('app.swipe',
                  [
+                  "app.components",
                   // 3rd Party Dependencies
                   'moment-picker',
                   'ui.calendar',
@@ -71,6 +72,18 @@
             'tab': {
              templateUrl: 'src/app/main/apps/swipe/tabs/about/about.html',
              controller: 'SwipeAboutTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 4
+           }
+          })
+          .state('app.swipe.business', {
+           url: '/business',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/swipe/tabs/business/business.html',
+             controller: 'SwipeBusinessTabController as vm'
             }
            },
            data: {
