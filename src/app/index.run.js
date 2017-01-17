@@ -34,7 +34,7 @@
   // Cleanup
   $rootScope.$on('$stateChangeStart', function (event, toState) {
    $mdDialog.cancel();
-   //$mdSidenav.close();
+   $mdSidenav("navigation").close();
    var user = JSON.parse(localStorageService.get('user'));
    if (user) {
     $rootScope.authenticated = true;

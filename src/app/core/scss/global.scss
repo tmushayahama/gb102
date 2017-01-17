@@ -66,11 +66,6 @@ body {
 }
 
 
-#toolbar {
- background-color: rgba(nth($apps-colors, 1), 0.9);
- color: #F2F2F2;
-}
-
 md-sidenav {
  //background-color: transparent!important;
 }
@@ -195,7 +190,6 @@ md-dialog {
  }
 }
 
-
 .gb-header {
  padding: 20px 10px;
  position: relative;
@@ -237,7 +231,7 @@ md-dialog {
 
  .gb-cover {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(nth($apps-colors, 1), 0.5);
+  background-color: rgba(material-color('blue', '900'), 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: 0;
@@ -249,7 +243,7 @@ md-dialog {
 
  .gb-cover-overlap {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(nth($apps-colors, 1), 0.5);
+  background-color: rgba(material-color('blue', '900'), 0.5);
   z-index: 0;
  }
 
@@ -292,12 +286,65 @@ md-dialog {
    margin: 0 0 0 5px;
   }
  }
+
+ @include respond-to (gb-xs) {
+  padding: 10px;
+  &.gb-header-1 {
+   height: 150px;
+   min-height: 150px;
+   max-height: 150px;
+
+  }
+  &.gb-header-2 {
+   height: 120px;
+   min-height: 120px;
+   max-height: 120px;
+   .profile-image {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    img {
+     height: 100%;
+     min-width: 40px;
+     border-radius: 50%;
+    }
+   }
+  }
+  .gb-header-icon, .profile-image {
+   margin-bottom: 5px!important;
+  }
+  .gb-header-icon {
+   color: #EEE;
+   font-size: 35px;
+   border-radius: 50%;
+  }
+
+  .gb-title {
+   text-align: center;
+   font-size: 20px;
+   .gb-title-1 {
+    font-size: 12px;
+    color: #EEE;
+   }
+   .gb-title-2 {
+    font-size: 20px;
+   }
+   .gb-title-arrow {
+    height: 15px;
+    max-height: 15px;
+    line-height: 15px;
+    font-size: 15px;
+    color: #EEE;
+   }
+  }
+ }
 }
 
 .gb-tabs-1 {
  background-color: #F2F2F2;
  position: relative;
- //margin-top: -80px;
  md-tabs {
   height: 100%;
   width: 100%;
@@ -360,6 +407,37 @@ md-dialog {
      md-list-item {
      }
     }
+   }
+  }
+ }
+
+ @include respond-to (gb-xs) {
+  md-tabs {
+
+   .gb-tab-button {
+    padding: 5px 5px;
+   }
+
+   md-tabs-canvas,
+   md-pagination-wrapper {
+    height: 48px;
+   }
+   md-tab-item {
+    padding: 0;
+    height: 50px;
+    min-width: 60px;
+    .gb-icon {
+     height: 15px;
+     max-height: 15px;
+     font-size: 15px;
+     margin-bottom: 2px;
+    }
+    .gb-title {
+     font-size: 8px;
+    }
+   }
+   md-tabs-content-wrapper {
+    top: 50px;
    }
   }
  }
@@ -763,15 +841,15 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 0 auto 5px auto;
-  //background-color: rgba(rgba(nth($apps-colors, 1), 0.2);
+  //background-color: rgba(rgba(material-color('blue', '900'), 0.2);
   line-height: 60px;
   min-width: 0;
   width: 150px;
   height: 60px;
-  // box-shadow: 0 2px 5px 0 rgba(rgba(nth($apps-colors, 1), 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba(material-color('blue', '900'), 0.8);
   //border-radius: 50%;
   font-size: 60px;
-  //color: darken(rgba(nth($apps-colors, 1), 5%);
+  //color: darken(rgba(material-color('blue', '900'), 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;
@@ -1008,6 +1086,53 @@ md-tabs {
   overflow: hidden;
  }
 }
+
+.gb-result-widget {
+ ms-widget-front {
+  height: 75px;
+  min-height: 75px;
+  background-color: #FAFAFA;
+  .gb-widget-content, .gb-title-icon {
+   height: 75px;
+   min-height: 75px;
+   overflow: hidden;
+  }
+  .gb-widget-content {
+   padding: 10px;
+  }
+  .gb-title-icon {
+   text-align: center;
+   width: 75px;
+   min-width: 75px;
+   max-width: 75px;
+   i{
+    color: #EEE;
+    font-size: 40px;
+   }
+  }
+  .gb-type-title {
+   color: #777;
+   text-align: left;
+   font-size: 12px;
+   text-transform: uppercase;
+  }
+  .gb-title {
+   color: #555;
+   font-size: 14px;
+   strong {
+    font-weight: 700;
+   }
+  }
+  .gb-description {
+   color: #656565;
+   text-transform: none;
+   font-size: 12px;
+   white-space: normal;
+   line-height: 20px;
+  }
+ }
+}
+
 .gb-section-widget {
  ms-widget-front {
   height: 120px;
@@ -1063,6 +1188,35 @@ md-tabs {
    background-color: rgba(#000, 0.1);
    &:hover {
     background-color: rgba(#000, 0.3);
+   }
+  }
+ }
+
+ @include respond-to (gb-xs) {
+  ms-widget-front {
+   height: 80px;
+   min-height: 80px;
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 80px;
+    min-height: 80px;
+   }
+   .gb-widget-content {
+    padding: 8px;
+   }
+   .gb-title-icon {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    i{
+     font-size: 40px;
+    }
+   }
+   .gb-title {
+    font-size: 14px;
+   }
+   .gb-description {
+    font-size: 14px;
+    line-height: 15px;
    }
   }
  }
@@ -1136,8 +1290,39 @@ md-tabs {
      }
     }
     .gb-title {
-     font-size: 12px;
+     color: #111;
+     font-size: 10px;
     }
+    .gb-description {
+     color: #111;
+     font-size: 10px;
+     line-height: 18px;
+    }
+   }
+  }
+ }
+ &.gb-widget-xs {
+  padding: 3px 5px;
+  ms-widget-front {
+   height: 40px;
+   min-height: 40px;
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 40px;
+    min-height: 40px;
+   }
+   .gb-widget-content {
+    padding: 3px 8px;
+   }
+   .gb-title-icon {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    i{
+     font-size: 20px;
+    }
+   }
+   .gb-title {
+    font-size: 12px;
    }
   }
  }
@@ -1473,7 +1658,23 @@ md-tabs {
    max-width: 120px;
   }
  }
-
+ @include respond-to (gb-xs) {
+  height: 100px;
+  .gb-count {
+   font-size: 22px;
+  }
+  .gb-title {
+   font-size: 9px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    font-size: 80px;
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+   }
+  }
+ }
 }
 
 
@@ -1632,13 +1833,13 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 10px auto 5px auto;
-  //background-color: rgba(rgba(nth($apps-colors, 1), 0.2);
+  //background-color: rgba(rgba(material-color('blue', '900'), 0.2);
   line-height: 40px;
   min-width: 0;
-  // box-shadow: 0 2px 5px 0 rgba(rgba(nth($apps-colors, 1), 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba(material-color('blue', '900'), 0.8);
   //border-radius: 50%;
   font-size: 40px;
-  //color: darken(rgba(nth($apps-colors, 1), 5%);
+  //color: darken(rgba(material-color('blue', '900'), 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;
@@ -1844,7 +2045,7 @@ md-tabs {
  width: 100%;
  list-style: none;
  color: #EEE;
- //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
+ //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
  margin: 0;
  z-index: 1;
 
@@ -1862,7 +2063,7 @@ md-tabs {
 
  .gb-cover {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(nth($apps-colors, 1), 0.5);
+  background-color: rgba(material-color('blue', '900'), 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: -1;
@@ -1873,7 +2074,7 @@ md-tabs {
 
  .gb-cover-overlap {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(nth($apps-colors, 1), 0.5);
+  background-color: rgba(material-color('blue', '900'), 0.5);
   z-index: 0;
  }
  .gb-heading-row-1 {
@@ -1887,8 +2088,8 @@ md-tabs {
    height: 150px;
    display: block;
    color: #FAFAFA;
-   @include linear-gradient(70deg, nth($apps-colors, 1) 0%, rgba(#FAFAFA, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(nth($apps-colors, 1), 0.6) 100%);
-   //background-color: rgba(nth($apps-colors, 1), 0.6);
+   @include linear-gradient(70deg, material-color('blue', '900') 0%, rgba(#FAFAFA, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(material-color('blue', '900'), 0.6) 100%);
+   //background-color: rgba(material-color('blue', '900'), 0.6);
    font-size: 90px;
    line-height: 160px;
    text-align: center;

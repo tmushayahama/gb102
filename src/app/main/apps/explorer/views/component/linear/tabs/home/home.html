@@ -35,7 +35,7 @@ LINEAR VIEW HOME
      </md-input-container>
     </div>
     <div layout="row" layout-align="start start" flex layout-wrap>
-     <div class="p-8" flex="25">
+     <div class="p-8" flex-gt-sm="25" flex-gt-xs="33" flex="100">
       <div class="gb-card-profile md-whiteframe-1dp">
        <div class="gb-box-content">
         <div class="gb-title">
@@ -59,7 +59,8 @@ LINEAR VIEW HOME
        </div>
       </div>
      </div>
-     <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8" flex="25">
+     <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
+          flex-gt-sm="25" flex-gt-xs="33" flex="100">
       <div class="gb-card-profile md-whiteframe-1dp">
        <div class="gb-box-content">
         <div class="gb-title">
@@ -157,7 +158,7 @@ LINEAR VIEW HOME
  <div class="" layout="column" layout-align="start stretch" flex>
   <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)" class="gb-main-button"
                 layout="row" layout-align="start stretch" flex>
@@ -175,7 +176,7 @@ LINEAR VIEW HOME
      </md-button>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
                 layout="row" layout-align="start stretch" flex>
@@ -193,7 +194,7 @@ LINEAR VIEW HOME
      </md-button>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
                 layout="row" layout-align="start stretch" flex>
@@ -211,7 +212,7 @@ LINEAR VIEW HOME
      </md-button>
     </ms-widget-front>
    </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
+   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.activities)" class="gb-main-button"
                 layout="row" layout-align="start stretch" flex>
@@ -247,7 +248,7 @@ LINEAR VIEW HOME
  </md-toolbar>
  <div class="widget-group gb-section-widget-group" flex="100"
       layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="50"
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex-gt-xs="50" flex="100"
              ng-repeat="contributionType in $root.commonData.contributionTypes">
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributors, contributionType)" class="gb-main-button"
@@ -268,7 +269,7 @@ LINEAR VIEW HOME
 <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
  <div class="widget-group gb-section-widget-group" flex="100"
       layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex="33"
+  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex-gt-xs="33" flex="100"
              ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"

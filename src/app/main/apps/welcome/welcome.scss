@@ -37,7 +37,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(nth($apps-colors, 1), 0.8);
+    color: rgba(material-color('blue', '900'), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -94,7 +94,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(nth($apps-colors, 1), 0.8);
+    color: rgba(material-color('blue', '900'), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -154,7 +154,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
+  //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
   //background-color: rgba(#000, 0.2);
   // color: #555;
   .gb-action {
@@ -519,7 +519,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: nth($apps-colors, 1);
+  color: material-color('blue', '900');
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -542,7 +542,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: nth($apps-colors, 1);
+  color: material-color('blue', '900');
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -574,7 +574,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
+    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -999,7 +999,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(nth($apps-colors, 1), 0.8);
+    color: rgba(material-color('blue', '900'), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1056,7 +1056,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(nth($apps-colors, 1), 0.8);
+    color: rgba(material-color('blue', '900'), 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1116,7 +1116,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba(nth($apps-colors, 1), 0.8) solid 3px;
+  //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
   // background-color: rgba(#FFF, 0.9);
   // color: #555;
   .gb-action {
@@ -1144,7 +1144,7 @@ $color-6: #077568;
   position: relative;
   height: 550px;
   text-align: center;
-  background-color: nth($apps-colors, 1);
+  background-color: material-color('blue', '900');
   overflow: hidden;
   .gb-intro-message {
    @include position(absolute, 50% null null 50%);
@@ -1162,7 +1162,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
+    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -1398,7 +1398,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: nth($apps-colors, 1);
+  color: material-color('blue', '900');
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1421,7 +1421,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: nth($apps-colors, 1);
+  color: material-color('blue', '900');
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1451,7 +1451,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(nth($apps-colors, 1), 15%), 0.6);
+    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;

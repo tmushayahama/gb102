@@ -1,99 +1,76 @@
 
 <div class="scrollable" folded="vm.folded" ms-scroll="vm.msScrollOptions">
- <ul class="gb-nav gb-vertical-nav-1">
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa fa-home"></i>
-   </md-icon> Home
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-explorer"></i>
-   </md-icon> Explorer
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-swipe"></i>
-   </md-icon> Swipe
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-matcher"></i>
-   </md-icon> Matcher
-  </md-button>
-  </li>
- </ul>
- <h2 class="gb-nav-heading">
+ <div class="" layout="column" layout-align="start stretch" flex>
+  <div class="widget-group gb-section-widget-group"
+       layout="row" layout-align="start" layout-wrap flex>
+   <ms-widget class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.explorer.home" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-deep-orange-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-gb-explorer"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        Explorer
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+   <ms-widget class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.swipe.home" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-blue-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-gb-swipe"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        Swipe
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+   <ms-widget class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.matcher.home" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon md-teal-400-bg" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa icon-gb-matcher"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        Matcher
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
+ <h4 class="gb-nav-heading">
   COMPONENTS
- </h2>
- <ul class="gb-nav gb-vertical-nav-1">
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-skills"></i>
-   </md-icon> Skills
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-goals"></i>
-   </md-icon> Goals
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-hobbies"></i>
-   </md-icon> Hobbies
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-promises"></i>
-   </md-icon> Promises
-  </md-button>
-  </li>
- </ul>
- <h2 class="gb-nav-heading">
-  APPLICATIONS
- </h2>
- <ul class="gb-nav gb-vertical-nav-1">
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-mentorships"></i>
-   </md-icon> Mentorship
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-advices"></i>
-   </md-icon> Advice
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-collaborations"></i>
-   </md-icon> Collaboration
-  </md-button>
-  </li>
-  <li>
-  <md-button>
-   <md-icon class="">
-    <i class="fa icon-gb-journals"></i>
-   </md-icon> Journal
-  </md-button>
-  </li>
- </ul>
+ </h4>
+ <div class="" layout="column" layout-align="start stretch" flex>
+  <div class="widget-group gb-section-widget-group"
+       layout="row" layout-align="start" layout-wrap flex>
+   <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+                layout="row" layout-align="start stretch" flex>
+      <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa {{app.icon}}"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        {{app.title}}
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
 </div>
