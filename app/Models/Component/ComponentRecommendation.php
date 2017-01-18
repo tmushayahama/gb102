@@ -66,6 +66,7 @@ class ComponentRecommendation extends Model {
           ->orderBy('importance', 'DESC')
           ->with('component')
           ->with('component.creator')
+          ->with('component.type')
           ->get();
   return $componentRecommendation;
  }

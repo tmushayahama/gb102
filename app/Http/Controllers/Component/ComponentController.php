@@ -77,10 +77,10 @@ class ComponentController extends Controller {
   *
   * @return json response of a component
   */
- public function getComponentApp($type) {
+ public function getComponentApp($type, $page = 0) {
   $typeId = Level::$level_categories[$type];
   if ($typeId) {
-   $component = Component::getComponentApp($typeId);
+   $component = Component::getComponentApp($typeId, $page);
    return \Response::json($component);
   }
   return '';

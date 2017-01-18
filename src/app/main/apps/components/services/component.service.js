@@ -105,12 +105,22 @@
    * Get component app and its subcomponents
    *
    * @param appName
+   * @param page the page number
    * @returns promise of the deferred response
    */
-  function getComponentApp(appName) {
+  function getComponentApp(appName, page) {
    var deferred = $q.defer();
+   var url = {
+    name: 'component.componentApp@get',
+    params: {appName: appName}
+   };
 
-   msApi.request('component.componentApp@get', {appName: appName},
+   if (page > 0) {
+    url.name = 'component.componentAppPage@get';
+    url.params.page = page;
+   }
+
+   msApi.request(url.name, url.params,
            function (response) {
             deferredHandler(response, deferred);
            },
@@ -129,8 +139,7 @@
    * @param listFormat
    * @returns promise of the deferred response
    */
-  function getComponent(componentId, listFormat) {
-   // Create a new deferred object
+  function getComponent(componentId, listFormat, page) {
    var deferred = $q.defer();
 
    msApi.request('component.component@get',

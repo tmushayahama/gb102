@@ -35,6 +35,11 @@
    {
     appName: '@appName'
    }]);
+  msApiProvider.register('component.componentAppPage', ['api/components/app/:appName/page/:page',
+   {
+    appName: '@appName',
+    page: '@page'
+   }]);
   msApiProvider.register('component.componentsByType', ['api/components/listformat/1/type/:appName',
    {
     appName: '@appName'

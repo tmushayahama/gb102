@@ -157,7 +157,7 @@ md-dialog {
 .gb-horizontal-scroll {
  position:relative;
  &.gb-apps-scroll {
-  min-height: 236px
+  min-height: 226px
  }
  .gb-left-scroll,
  .gb-right-scroll {
@@ -179,10 +179,6 @@ md-dialog {
  .gb-left-scroll {
   @include position(absolute, 0 null 0 0);
   width: 32px;
- }
- .board-list {
-  padding: 0 35px 0 0;
-  //@include position(absolute, 0 40px 0 40px);
  }
  .gb-right-scroll {
   @include position(absolute, 0 0 0 null);
@@ -896,15 +892,22 @@ md-tabs {
  }
 }
 
+.gb-card-component-p {
+ padding: 8px;
+ @include respond-to (gb-xs) {
+  padding: 5px;
+ }
+}
+
 .gb-card-component {
- height: 230px;
- min-width: 210px;
+ position: relative;
+ height: 210px;
+ min-width: 200px;
  padding: 0 0 0 0;
  border-radius: 2px;
  background-color: #FAFAFA;
  color: #555;
  cursor: pointer;
- @include shadow(1);
 
  &:hover {
   box-shadow: $whiteframe-shadow-4dp;
@@ -912,7 +915,8 @@ md-tabs {
 
  .gb-card-cover {
   height: 110px;
-  border-bottom: transparent solid 2px;
+  min-height: 110px;
+  max-height: 110px;
   overflow: hidden;
   .gb-cover-image {
    height: 100%;
@@ -924,36 +928,83 @@ md-tabs {
    }
   }
  }
+ .gb-opacity-content {
+  @include position(absolute, 80px 0 null 0);
+  background-color: rgba(#000, 0.3);
+  height: 30px;
+ }
+ .gb-card-profile {
+  @include position(absolute, 80px  0 null 0);
+  background-color: transparent;
+  overflow: hidden;
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  width: 100%;
+
+  .gb-image {
+   @include position(absolute, 10px null 10px 10px);
+   padding-top: 7px;
+   text-align: center;
+   font-size: 15px;
+   height: 40px;
+   width: 40px;
+   border-radius: 50%;
+   border: #FAFAFA solid 3px;
+   overflow: hidden;
+   .gb-heading-pic {
+    @include position(absolute, 0 0 0 0);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+   }
+  }
+  .gb-box-content {
+   @include position(absolute, 0 0 0 50px);
+   height: auto;
+   padding: 8px 5px;
+   line-height: 18px;
+   .gb-title {
+    color: #555;
+    padding: 0;
+    a {
+     color: #FFF;
+     cursor: pointer;
+     font-size: 14px;
+     font-weight: 400;
+    }
+   }
+   .gb-subdescription {
+    text-transform: uppercase;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+   }
+  }
+ }
 
  .gb-card-content {
-  padding: 14px 6px 14px 6px;
+  padding: 30px 6px 14px 6px;
 
   .gb-title {
    //font-size:18px;
-   color: #555;
+   color: #000;
    h3 {
-    font-size: 12px;
-    font-weight: 400;
-    //line-height: 32px;
+    font-size: 13px;
+    font-weight: 600;
     margin-bottom: 8px;
    }
+  }
+  .gb-app-title {
+   text-transform: uppercase;
+   color: #777;
+   font-size: 10px;
   }
 
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
-   //margin-bottom: 0px;
    font-size: 12px;
-   p {
-    text-transform: uppercase;
-    color: #777;
-    font-size: 8px;
-   }
-  }
-
-  .gb-subdescription {
-   //@include position(absolute, 23px 0 50px 0);
-   font-size: 10px;
-   height: 25px;
+   height: 32px;
    display: block;
    /* Fallback for non-webkit */
    display: -webkit-box;
@@ -965,41 +1016,12 @@ md-tabs {
    text-overflow: ellipsis;
    overflow: hidden;
    p {
-    font-size: 10px;
-    line-height: 12px;
-   }
-   .gb-no-info {
-    padding: 12px 5px;
-    color: #BBB;
-    font-size: 10px;
-   }
-  }
-
- }
-
- .gb-name-badge-1 {
-  margin-bottom: 8px;
-  position: relative;
-  //float: right;
-  height: 20px;
-  padding-left: 20px;
-  font-size: 9px;
-  .gb-name {
-   font-size: 12px;
-   padding-top: 0px;
-   padding-left: 5px;
-  }
-  .gb-image {
-   @include position(absolute, 0 null 0 0);
-   border: none;
-   right: auto;
-   height: 20px;
-   width: 20px;
-   img {
-    border-radius: 50%;
-    min-height: 20px;
-    height: 20px;
-    width: 20px;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+    &.gb-no-info {
+     color: #BBB;
+    }
    }
   }
  }
@@ -1007,6 +1029,101 @@ md-tabs {
  .board-name {
   padding-top: 16px;
   font-weight: 500;
+ }
+
+ @include respond-to (gb-xs) {
+  &.gb-responsive-xs {
+   height: 85px;
+   min-width: 85px;
+   max-height: 85px;
+
+   .gb-card-cover {
+    height: 85px;
+    min-height: 85px;
+    max-height: 85px;
+    width: 85px;
+    min-width: 85px;
+    max-width: 85px;
+    border-bottom: none;
+    overflow: hidden;
+    .gb-cover-image {
+     height: 100%;
+     width: 100%;
+     overflow: hidden;
+     img {
+      width: 100%;
+      min-height: 85px;
+     }
+    }
+   }
+   .gb-card-profile {
+    @include position(absolute, 38px 0 null 60px);
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+
+    .gb-image {
+     padding-top: 5px;
+     text-align: center;
+     font-size: 12px;
+     height: 30px;
+     width: 30px;
+     border: #FAFAFA solid 2px;
+     overflow: hidden;
+     .gb-heading-pic {
+      @include position(absolute, 0 0 0 0);
+     }
+    }
+    .gb-box-content {
+     @include position(absolute, 0 0 0 38px);
+     padding: 10px 5px;
+     line-height: 15px;
+     .gb-title {
+      color: #555;
+      padding: 0;
+      a {
+       color: #555;
+       cursor: pointer;
+       font-size: 10px;
+       font-weight: 400;
+      }
+     }
+     .gb-subdescription {
+      margin-top: 0px;
+      font-size: 10px;
+      color: #888;
+     }
+    }
+   }
+
+   .gb-card-content {
+    padding: 8px 6px 5px 6px;
+
+    .gb-title {
+     //font-size:18px;
+     color: #555;
+     h3 {
+      font-size: 12px;
+      margin-bottom: 5px;
+     }
+    }
+
+    .gb-description {
+     font-size: 10px;
+     height: 15px;
+     display: block;
+     /* Fallback for non-webkit */
+     display: -webkit-box;
+     /* Fallback for non-webkit */
+     line-height: 1.2;
+     -webkit-line-clamp: 1;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+     text-overflow: ellipsis;
+    }
+
+   }
+  }
  }
 }
 
@@ -2180,124 +2297,6 @@ md-tabs {
  }
  &.gb-guest {
 
- }
-}
-
-
-
-.board-list-item {
- height: 230px;
- min-width: 210px;
- width: 210px;
- padding: 0 0 0 0;
- margin: 8px;
- border-radius: 2px;
- background-color: #FAFAFA;
- color: #555;
- cursor: pointer;
- @include shadow(1);
-
- &:hover {
-  box-shadow: $whiteframe-shadow-4dp;
- }
-
- .gb-card-cover {
-  height: 110px;
-  border-bottom: transparent solid 2px;
-  overflow: hidden;
-  .gb-cover-image {
-   height: 100%;
-   width: 100%;
-   overflow: hidden;
-   img {
-    width: 100%;
-    min-height: 110px;
-   }
-  }
- }
-
- .gb-card-content {
-  padding: 14px 6px 14px 6px;
-
-  .gb-title {
-   //font-size:18px;
-   color: #555;
-   h3 {
-    font-size: 12px;
-    font-weight: 400;
-    //line-height: 32px;
-    margin-bottom: 8px;
-   }
-  }
-
-  .gb-description {
-   //@include position(absolute, 23px 0 50px 0);
-   //margin-bottom: 0px;
-   font-size: 12px;
-   p {
-    text-transform: uppercase;
-    color: #777;
-    font-size: 8px;
-   }
-  }
-
-  .gb-subdescription {
-   //@include position(absolute, 23px 0 50px 0);
-   font-size: 10px;
-   height: 25px;
-   display: block;
-   /* Fallback for non-webkit */
-   display: -webkit-box;
-   /* Fallback for non-webkit */
-   line-height: 1.2;
-   -webkit-line-clamp: 2;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   p {
-    font-size: 10px;
-    line-height: 12px;
-   }
-   .gb-no-info {
-    padding: 12px 5px;
-    color: #BBB;
-    font-size: 10px;
-   }
-  }
-
- }
-
- .gb-name-badge-1 {
-  margin-bottom: 8px;
-  position: relative;
-  //float: right;
-  height: 20px;
-  padding-left: 20px;
-  font-size: 9px;
-  .gb-name {
-   font-size: 12px;
-   padding-top: 0px;
-   padding-left: 5px;
-  }
-  .gb-image {
-   @include position(absolute, 0 null 0 0);
-   border: none;
-   right: auto;
-   height: 20px;
-   width: 20px;
-   img {
-    border-radius: 50%;
-    min-height: 20px;
-    height: 20px;
-    width: 20px;
-   }
-  }
- }
-
- .board-name {
-  padding-top: 16px;
-  font-weight: 500;
  }
 }
 

@@ -4,10 +4,12 @@
 <div class="" layout="column" layout-align="center center" flex>
  <div class="gb-container" layout="row" layout-align="start center" layout-wrap flex>
   <div ng-repeat="component in componentAppCtrl.app.components"
+       class="gb-card-component-p"
        ui-sref="app.componentLinearView.home({id: component.id})"
-       layout-fill flex-gt-sm="25" flex-gt-xs="33" flex="100" layout-padding>
-   <div class="gb-card-component md-whiteframe-1dp" layout="column">
-    <div class="gb-card-cover"> 
+       layout-fill flex-gt-sm="25" flex-gt-xs="33" flex="100" >
+   <div class="gb-card-component gb-responsive-xs md-whiteframe-1dp"
+        layout="column" layout-xs="row" layout-align-xs="start">
+    <div class="gb-card-cover" flex>
      <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
           class="gb-cover-image">
       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
@@ -17,24 +19,34 @@
           ng-style="component.component_placeholder_style">
      </div>
     </div>
-    <div class="gb-card-content">
+    <div class="gb-opacity-content" hide-xs></div>
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+        {{component.creator.firstname + ' ' + component.creator.lastname}}
+       </a>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        {{component.type.title}}
+       </p>
+      </div>
+     </div>
+     <div class="gb-image" ng-class="component.creator.theme_color">
+      <img ng-if="component.creator.avatar_url !== 'gb-avatar.jpg'"
+           src="src/assets/images/profile_pic/{{component.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+      {{component.creator.firstname.substring(0, 1) + component.creator.lastname.substring(0, 1)}}
+     </div>
+    </div>
+    <div class="gb-card-content" flex>
      <div class="gb-title">
       <h3 class="gb-ellipsis">
        {{component.title}}
       </h3>
      </div>
-     <div class="gb-name-badge-1">
-      <div class="gb-image">
-       <img data-ui-sref="apps.componentLinearView.home({componentId: component.id})"
-            ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-            class="gb-heading-pic" alt="">
-      </div>
-      <p class="gb-name gb-ellipsis">
-       {{ ::component.creator.firstname}}
-       {{ ::component.creator.lastname}}
-      </p>
-     </div>
-     <div class="gb-subdescription">
+     <div class="gb-description">
       <p class="">
        <span>
         {{::component.description}}
@@ -48,4 +60,7 @@
    </div>
   </div>
  </div>
+ <md-button ng-click="vm.loadMore(componentAppCtrl.appName, componentAppCtrl.app.components)">
+  Load More
+ </md-button>
 </div>

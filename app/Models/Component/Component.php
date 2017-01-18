@@ -187,10 +187,12 @@ class Component extends Model {
   * @param type $typeId type of a the component
   * @return components collection
   */
- public static function getComponentsByType($typeId) {
+ public static function getComponentsByType($typeId, $page = 0) {
   $components = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')
+          ->with('type')
+          ->offset($page * 20)
           ->take(20)
           ->get();
   return $components;
@@ -371,10 +373,10 @@ class Component extends Model {
   *
   * @return json response of a component
   */
- public static function getComponentApp($typeId) {
+ public static function getComponentApp($typeId, $page) {
   $component = array();
   $component["appType"] = Level::getLevel($typeId);
-  $component["components"] = Component::getComponentsByType($typeId);
+  $component["components"] = Component::getComponentsByType($typeId, $page);
   return $component;
  }
 
