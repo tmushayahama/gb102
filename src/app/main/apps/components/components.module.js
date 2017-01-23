@@ -40,9 +40,10 @@
     appName: '@appName',
     page: '@page'
    }]);
-  msApiProvider.register('component.componentsByType', ['api/components/listformat/1/type/:appName',
+  msApiProvider.register('component.componentsByType', ['api/components/:componentId/type/:typeId',
    {
-    appName: '@appName'
+    componentId: '@componentId',
+    typeId: '@typeId'
    }]);
   msApiProvider.register('component.randomComponentByType', ['/api/components/random/type/:typeId',
    {

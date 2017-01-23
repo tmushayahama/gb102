@@ -48,8 +48,7 @@ LINEAR VIEW HOME
           CREATOR
          </p>
         </div>
-        <div class="gb-description">
-        </div>
+        <div class="gb-description"></div>
        </div>
        <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
         <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
@@ -287,7 +286,8 @@ LINEAR VIEW HOME
   </ms-widget>
  </div>
 </div>
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
+<div ng-if="componentLinearCtrl.component.mentorships.length > 0"
+     class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -305,7 +305,7 @@ LINEAR VIEW HOME
   <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
    <ms-widget ng-repeat="mentorship in componentLinearCtrl.component.mentorships"
-              class="p-8 gb-mentorship-widget" layout="column" flex="50" flex-sm="100">
+              class="p-8 gb-mentorship-widget" layout="column" flex="50" flex-xs="100">
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ui-sref="app.mentorshipLinearView.home({id: mentorship.id})" class="gb-main-button"
                 layout="column" layout-align="start stretch">
@@ -375,167 +375,116 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
-<div ng-if="false" class="gb-container gb-card-row gb-section-row" layout="column" layout-align="start center" flex>
- <md-toolbar class="gb-heading" flex="100">
-  <div class="md-toolbar-tools">
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Related Topics
-    </span>
-   </div>
-   <span flex></span>
-   <md-button class="md-icon-button" aria-label="Add Contributors">
-    <md-icon md-font-icon="fa fa-plus"></md-icon>
-   </md-button>
-  </div>
- </md-toolbar>
- <div class="" layout="row" layout-wrap>
-  <div  ng-repeat="component in componentLinearCtrl.component.apps"
-        layout-fill flex="25">
-   <div class="board-list-item"
-        ui-sref="app.componentLinearView.home({id:component.id})"
-        layout="column" layout-align="start">
-    <div class="gb-card-cover">
-     <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
-          class="gb-cover-image">
-      <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
-     </div>
-     <div ng-if="component.component_placeholder_style"
-          class="gb-cover-image"
-          ng-style="component.component_placeholder_style">
-     </div>
-    </div>
-    <div class="gb-card-content">
-     <div class="gb-title">
-      <h3 class="gb-ellipsis">
-       {{component.title}}
-      </h3>
-     </div>
-     <div class="gb-name-badge-1">
-      <div class="gb-image">
-       <img data-ui-sref="apps.component.overview({componentId: component.id})"
-            ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
-            class="gb-heading-pic" alt="">
-      </div>
-      <p class="gb-name gb-ellipsis">
-       {{ ::component.creator.firstname}}
-       {{ ::component.creator.lastname}}
-      </p>
-     </div>
-     <div class="gb-subdescription">
-      <p class="">
-       <span>
-        {{::component.description}}
+<div class="gb-container" layout="row" layout-align="start" layout-wrap>
+ <ms-masonry class="components" options='{"columnCount":3, "respectItemOrder": true}'>
+  <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.motives">
+   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading" flex>
+     <div class="md-toolbar-tools">
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{section.title}}
        </span>
-      </p>
-      <p ng-if="!component.description" class="gb-no-info">
-       No description to show
-      </p>
+      </div>
+      <span flex></span>
+      <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+                 class="gb-action-btn">
+       <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
+      </md-button>
+     </div>
+    </md-toolbar>
+    <div class="gb-card-content" flex>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" ng-model="component.title" ng-model-options="{updateOn: 'blur', debounce: 1000}"
+              class="gb-ellipsis" placeholder="Title" md-maxlength="250"
+              ng-change="componentLinearCtrl.updateComponentDescription(component)">
+      </md-input-container>
+      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
+       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+      </md-button>
      </div>
     </div>
    </div>
-  </div>
- </div>
-</div>
-<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
-     ng-repeat="section in componentLinearCtrl.component.motives"
-     ng-if="section.components.length > 0">
- <md-toolbar class="gb-heading" flex>
-  <div class="md-toolbar-tools">
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     {{section.title}}
-    </span>
+  </ms-masonry-item>
+  <ms-masonry-item class="p-8"
+                   ng-repeat="section in componentLinearCtrl.component.components">
+   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading" flex>
+     <div class="md-toolbar-tools">
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{section.title}}
+       </span>
+      </div>
+      <span flex></span>
+      <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+                 class="gb-action-btn" aria-label="View Section Fullscreen">
+       <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
+      </md-button>
+     </div>
+    </md-toolbar>
+    <div class="gb-card-content" flex>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" ng-model="component.title"
+              ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+              placeholder="Title" md-maxlength="250">
+      </md-input-container>
+      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
+       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+      </md-button>
+     </div>
+    </div>
    </div>
-   <span flex></span>
-  </div>
- </md-toolbar>
- <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" ng-model="component.title"
-           ng-model-options="{
-                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
-           placeholder="Title" md-maxlength="250">
-   </md-input-container>
-   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-   </md-button>
-  </div>
-  <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-   </md-input-container>
-  </form>
- </div>
-</div>
-<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
-     ng-repeat="section in componentLinearCtrl.component.components"
-     ng-if="section.components.length > 0">
- <md-toolbar class="gb-heading" flex>
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     {{section.title}}
-    </span>
+  </ms-masonry-item>
+  <ms-masonry-item class="p-8"
+                   ng-repeat="section in componentLinearCtrl.component.activities">
+   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading" flex>
+     <div class="md-toolbar-tools">
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{section.title}}
+       </span>
+      </div>
+      <span flex></span>
+      <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+                 class="gb-action-btn">
+       <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
+      </md-button>
+     </div>
+    </md-toolbar>
+    <div class="gb-card-content" flex>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" ng-model="component.title"
+              ng-model-options="{
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
+              placeholder="Title" md-maxlength="250">
+      </md-input-container>
+      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
+       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+      </md-button>
+     </div>
+    </div>
    </div>
-   <span flex></span>
-  </div>
- </md-toolbar>
- <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" ng-model="component.title"
-           ng-model-options="{
-                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
-           placeholder="Title" md-maxlength="250">
-   </md-input-container>
-   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-   </md-button>
-  </div>
-  <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-   </md-input-container>
-  </form>
- </div>
-</div>
-<div class="gb-container gb-editible-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex
-     ng-repeat="section in componentLinearCtrl.component.activities"
-     ng-if="section.components.length > 0">
- <md-toolbar class="gb-heading" flex>
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-{{section.title}}"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     {{section.title}}
-    </span>
-   </div>
-   <span flex></span>
-  </div>
- </md-toolbar>
- <div class="gb-card-content" flex>
-  <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" ng-model="component.title"
-           ng-model-options="{
-                updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
-           placeholder="Title" md-maxlength="250">
-   </md-input-container>
-   <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-    <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-   </md-button>
-  </div>
-  <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
-   <md-input-container class="md-block" md-no-float>
-    <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-   </md-input-container>
-  </form>
- </div>
+  </ms-masonry-item>
+ </ms-masonry>
 </div>

@@ -109,17 +109,13 @@ class ComponentController extends Controller {
  /**
   * Get components by type with their subcomponents recursively.
   *
-  * @param type $listFormat column, row or linear
-  * @param type $type type of a the component
+  * @param type $componentId
+  * @param type $typeId type id of a the component
   * @return string
   */
- public function getComponentsByType($listFormat, $type) {
-  $typeId = Level::$level_categories[$type];
-  if ($typeId) {
-   $component = Component::getComponentsByType($typeId, $listFormat);
-   return \Response::json($component);
-  }
-  return '';
+ public function getComponentsByType($componentId = null, $typeId) {
+  $component = Component::getComponentsByType($componentId, $typeId);
+  return \Response::json($component);
  }
 
  /**

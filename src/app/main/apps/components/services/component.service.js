@@ -81,15 +81,16 @@
   /**
    * Get component data from the server
    *
-   * @param appName
+   * @param componentId
+   * @param typeId
    * @returns promise of the deferred response
    */
-  function getComponentsByType(appName) {
+  function getComponentsByType(componentId, typeId) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('component.componentsByType@query',
-           {appName: appName},
+           {componentId: componentId, typeId: typeId},
            function (response) {
             deferredHandler(response, deferred);
            },

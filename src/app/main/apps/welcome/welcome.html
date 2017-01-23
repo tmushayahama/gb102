@@ -86,12 +86,12 @@
    <div ng-repeat="recommendation in vm.components.recommendations"
         class="gb-card-row mb-10"
         layout="column">
-    <md-toolbar class="gb-heading" flex="100">
+    <md-toolbar class="gb-heading">
      <div class="md-toolbar-tools">
       <div class="gb-heading-title">
-       <span class="ellipsis">
+       <div class="ellipsis">
         {{::recommendation.title}}
-       </span>
+       </div>
       </div>
      </div>
     </md-toolbar>

@@ -12,7 +12,8 @@
   var service = {
    openCardDialog: openCardDialog,
    openAddComponentDialog: openAddComponentDialog,
-   openComponentDialog: openComponentDialog
+   openComponentDialog: openComponentDialog,
+   openComponentSectionDialog: openComponentSectionDialog
   };
 
   //////////
@@ -84,6 +85,29 @@
     escapeToClose: true,
     locals: {
      componentId: componentId
+    }
+   });
+  }
+
+  /**
+   * Open component section for editing purposes
+   *
+   * @param ev  the event which triggered the dialog
+   * @param componentId the component Id
+   * @param section the section
+   */
+  function openComponentSectionDialog(ev, componentId, section) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/components/dialogs/component-section/component-section-dialog.html',
+    //parent: $document.find('#components'),
+    controller: 'ComponentSectionDialogController',
+    controllerAs: 'vm',
+    targetEvent: ev,
+    clickOutsideToClose: true,
+    escapeToClose: true,
+    locals: {
+     componentId: componentId,
+     section: section
     }
    });
   }

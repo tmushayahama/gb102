@@ -37,7 +37,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(material-color('blue', '900'), 0.8);
+    color: rgba($gb-primary-color, 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -94,7 +94,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(material-color('blue', '900'), 0.8);
+    color: rgba($gb-primary-color, 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -154,7 +154,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
+  //border-bottom: rgba($gb-primary-color, 0.8) solid 3px;
   //background-color: rgba(#000, 0.2);
   // color: #555;
   .gb-action {
@@ -342,10 +342,10 @@ $color-6: #077568;
    }
   }
   &:after {
-   // content: "";
-   // @include position(absolute, 0 0 0 0);
-   // background-color: rgba(#000, 0.75);
-   // z-index: 1;
+   content: "";
+   @include position(absolute, 0 0 0 0);
+   background-color: rgba(material-color('light-blue', '400'), 0.1);
+   z-index: 0;
   }
  }
 
@@ -519,7 +519,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: material-color('blue', '900');
+  color: $gb-primary-color;
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -542,7 +542,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: material-color('blue', '900');
+  color: $gb-primary-color;
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -574,7 +574,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
+    background-color: rgba(darken($gb-primary-color, 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -999,7 +999,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(material-color('blue', '900'), 0.8);
+    color: rgba($gb-primary-color, 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1056,7 +1056,7 @@ $color-6: #077568;
    .gb-icon {
     font-size: 50px;
     text-align: center;
-    color: rgba(material-color('blue', '900'), 0.8);
+    color: rgba($gb-primary-color, 0.8);
    }
    .gb-profile-img {
     margin: 0 auto;
@@ -1116,7 +1116,7 @@ $color-6: #077568;
   //padding: 1px 5px 5px 20px;
   //@include position(fixed, 0 0 null 0);
   //height: 41px;
-  //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
+  //border-bottom: rgba($gb-primary-color, 0.8) solid 3px;
   // background-color: rgba(#FFF, 0.9);
   // color: #555;
   .gb-action {
@@ -1144,7 +1144,7 @@ $color-6: #077568;
   position: relative;
   height: 550px;
   text-align: center;
-  background-color: material-color('blue', '900');
+  background-color: $gb-primary-color;
   overflow: hidden;
   .gb-intro-message {
    @include position(absolute, 50% null null 50%);
@@ -1162,7 +1162,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
+    background-color: rgba(darken($gb-primary-color, 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;
@@ -1398,7 +1398,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: material-color('blue', '900');
+  color: $gb-primary-color;
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1421,7 +1421,7 @@ $color-6: #077568;
 
  .gb-icon-service {
   font-size: 70px;
-  color: material-color('blue', '900');
+  color: $gb-primary-color;
   @include respond-to (gb-xs) {
    font-size: 40px;
   }
@@ -1451,7 +1451,7 @@ $color-6: #077568;
     margin-top: 30px;
     display: inline-block;
     border: #888 solid 1px;
-    background-color: rgba(darken(material-color('blue', '900'), 15%), 0.6);
+    background-color: rgba(darken($gb-primary-color, 15%), 0.6);
     padding: 10px;
     .btn {
      border-radius: 0;

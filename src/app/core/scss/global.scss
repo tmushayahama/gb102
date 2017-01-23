@@ -27,6 +27,8 @@
 @import 'partials/helpers';
 @import 'partials/print';
 
+$gb-primary-color: material-color('light-blue', '800');
+
 * {
  -ms-word-break: break-all;
  word-break: break-all;
@@ -157,7 +159,10 @@ md-dialog {
 .gb-horizontal-scroll {
  position:relative;
  &.gb-apps-scroll {
-  min-height: 226px
+  min-height: 226px;
+  .gb-card-component {
+   max-width: 200px;
+  }
  }
  .gb-left-scroll,
  .gb-right-scroll {
@@ -201,6 +206,10 @@ md-dialog {
   max-height: 250px;
   .gb-header-icon, .profile-image {
    margin-bottom: 10px;
+   width: 85px;
+   min-width: 85px;
+   height: 85px;
+   line-height: 85px;
   }
   .gb-title {
    text-transform: capitalize;
@@ -227,7 +236,7 @@ md-dialog {
 
  .gb-cover {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(material-color('blue', '900'), 0.5);
+  background-color: rgba($gb-primary-color, 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: 0;
@@ -239,7 +248,7 @@ md-dialog {
 
  .gb-cover-overlap {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(material-color('blue', '900'), 0.5);
+  background-color: rgba($gb-primary-color, 0.5);
   z-index: 0;
  }
 
@@ -289,7 +298,13 @@ md-dialog {
    height: 150px;
    min-height: 150px;
    max-height: 150px;
-
+   .gb-header-icon, .profile-image {
+    margin-bottom: 10px;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+   }
   }
   &.gb-header-2 {
    height: 120px;
@@ -455,16 +470,20 @@ md-dialog {
    padding: 0 10px 0 5px;
   }
   .gb-heading-title {
-   color: #999;
+   color: #000;
+   font-weight: 500;
    font-size: 15px;
+   width: 100%;
+  }
+  .gb-action-btn {
+   color: $gb-primary-color;
+   margin-right: 0px;
+   md-icon {
+    color: $gb-primary-color;
+   }
   }
  }
 
- .gb-no-info {
-  padding: 12px 5px;
-  color: #BBB;
-  font-size: 10px;
- }
  .gb-view-more-button {
   margin: 0;
   height: 50px;
@@ -651,11 +670,6 @@ md-tabs {
     overflow: hidden;
     text-overflow: ellipsis;
     overflow: hidden;
-    .gb-no-info {
-     padding: 12px 5px;
-     color: #BBB;
-     font-size: 18px;
-    }
    }
   }
 
@@ -837,15 +851,15 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 0 auto 5px auto;
-  //background-color: rgba(rgba(material-color('blue', '900'), 0.2);
+  //background-color: rgba(rgba($gb-primary-color, 0.2);
   line-height: 60px;
   min-width: 0;
   width: 150px;
   height: 60px;
-  // box-shadow: 0 2px 5px 0 rgba(rgba(material-color('blue', '900'), 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba($gb-primary-color, 0.8);
   //border-radius: 50%;
   font-size: 60px;
-  //color: darken(rgba(material-color('blue', '900'), 5%);
+  //color: darken(rgba($gb-primary-color, 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;
@@ -1055,6 +1069,10 @@ md-tabs {
       min-height: 85px;
      }
     }
+   }
+   .gb-opacity-content {
+    display: none;
+    visibility: hidden;
    }
    .gb-card-profile {
     @include position(absolute, 38px 0 null 60px);
@@ -1508,8 +1526,8 @@ md-tabs {
    }
    .gb-box-content {
     @include position(absolute, 0 0 0 40px);
-    padding: 14px 8px;
-    line-height: 16px;
+    padding: 5px 8px;
+    line-height: 23px;
     .gb-title {
      text-align: left;
      padding: 0;
@@ -1912,12 +1930,6 @@ md-tabs {
      }
     }
    }
-
-   .gb-no-info {
-    padding: 12px 5px;
-    color: #BBB;
-    font-size: 10px;
-   }
   }
  }
 }
@@ -1950,13 +1962,13 @@ md-tabs {
  .gb-icon {
   display: block;
   margin: 10px auto 5px auto;
-  //background-color: rgba(rgba(material-color('blue', '900'), 0.2);
+  //background-color: rgba(rgba($gb-primary-color, 0.2);
   line-height: 40px;
   min-width: 0;
-  // box-shadow: 0 2px 5px 0 rgba(rgba(material-color('blue', '900'), 0.8);
+  // box-shadow: 0 2px 5px 0 rgba(rgba($gb-primary-color, 0.8);
   //border-radius: 50%;
   font-size: 40px;
-  //color: darken(rgba(material-color('blue', '900'), 5%);
+  //color: darken(rgba($gb-primary-color, 5%);
   //color: #
   @include respond-to (gb-sm) {
    //font-size: 18px;
@@ -1983,8 +1995,7 @@ md-tabs {
 
  @include shadow(1);
 }
-.gb-editible-component-card {
- margin-bottom: 10px;
+.gb-editable-component-card {
  position: relative;
  background-color: #FAFAFA;
  md-toolbar {
@@ -2002,12 +2013,13 @@ md-tabs {
     padding: 0;
     input {
      height: 40px;
-     padding: 14px 12px;
+     padding: 14px 35px 14px 12px;
      background-color: transparent;
      border: none;
      border-bottom: #CCC solid 1px;
      &:hover, &:focus {
-      border: #CCC solid 1px;
+      border-top: rgba($gb-primary-color, 0.3) solid 1px;
+      border-bottom: rgba($gb-primary-color, 0.3) solid 1px;
      }
      &.gb-add-component-input {
       min-height: 60px;
@@ -2027,6 +2039,7 @@ md-tabs {
    }
    .gb-action-btn {
     @include position(absolute, 0 0 0 null);
+    margin: 0;
     md-icon {
      font-size: 14px;
      color: rgba(#000, 0.4);
@@ -2162,7 +2175,7 @@ md-tabs {
  width: 100%;
  list-style: none;
  color: #EEE;
- //border-bottom: rgba(material-color('blue', '900'), 0.8) solid 3px;
+ //border-bottom: rgba($gb-primary-color, 0.8) solid 3px;
  margin: 0;
  z-index: 1;
 
@@ -2180,7 +2193,7 @@ md-tabs {
 
  .gb-cover {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(material-color('blue', '900'), 0.5);
+  background-color: rgba($gb-primary-color, 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: -1;
@@ -2191,7 +2204,7 @@ md-tabs {
 
  .gb-cover-overlap {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba(material-color('blue', '900'), 0.5);
+  background-color: rgba($gb-primary-color, 0.5);
   z-index: 0;
  }
  .gb-heading-row-1 {
@@ -2205,8 +2218,8 @@ md-tabs {
    height: 150px;
    display: block;
    color: #FAFAFA;
-   @include linear-gradient(70deg, material-color('blue', '900') 0%, rgba(#FAFAFA, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba(material-color('blue', '900'), 0.6) 100%);
-   //background-color: rgba(material-color('blue', '900'), 0.6);
+   @include linear-gradient(70deg, $gb-primary-color 0%, rgba(#FAFAFA, 0.6) 50%, rgba(#EEE, 0.3) 51%, rgba($gb-primary-color, 0.6) 100%);
+   //background-color: rgba($gb-primary-color, 0.6);
    font-size: 90px;
    line-height: 160px;
    text-align: center;

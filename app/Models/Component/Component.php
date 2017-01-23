@@ -147,12 +147,12 @@ class Component extends Model {
     $componentTypes = Level::getSubLevels(Level::$level_categories['apps']);
     foreach ($componentTypes as $componentType) {
      $components["apps"][$componentType->id] = $componentType;
-     $components["apps"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
+     $components["apps"][$componentType->id]["components"] = Component::getComponentsByType(null, $componentType->id);
     }
     $componentTypes = Level::getSubLevels(Level::$level_categories['component_types']);
     foreach ($componentTypes as $componentType) {
      $components["activities"][$componentType->id] = $componentType;
-     $components["activities"][$componentType->id]["components"] = Component::getComponentsByType($componentType->id);
+     $components["activities"][$componentType->id]["components"] = Component::getComponentsByType(null, $componentType->id);
     }
     break;
    default:
@@ -187,14 +187,19 @@ class Component extends Model {
   * @param type $typeId type of a the component
   * @return components collection
   */
- public static function getComponentsByType($typeId, $page = 0) {
-  $components = Component::orderBy('order', 'desc')
+ public static function getComponentsByType($componentId, $typeId, $page = 0) {
+  $query = Component::orderBy('order', 'desc')
           ->where('type_id', $typeId)
           ->with('creator')
           ->with('type')
           ->offset($page * 20)
-          ->take(20)
-          ->get();
+          ->take(20);
+  if ($componentId) {
+   $query->where('parent_component_id', $componentId);
+  }
+
+  $components = $query->get();
+
   return $components;
  }
 
@@ -228,7 +233,7 @@ class Component extends Model {
           ->where('parent_component_id', $componentId)
           ->where('type_id', $typeId)
           ->with('creator')
-          ->take(20)
+          ->take(10)
           ->get();
 
 
@@ -376,7 +381,7 @@ class Component extends Model {
  public static function getComponentApp($typeId, $page) {
   $component = array();
   $component["appType"] = Level::getLevel($typeId);
-  $component["components"] = Component::getComponentsByType($typeId, $page);
+  $component["components"] = Component::getComponentsByType(null, $typeId, $page);
   return $component;
  }
 

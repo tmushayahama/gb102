@@ -19,7 +19,7 @@ id	email	password	remember_token	lastname	firstname	avatar_url	theme_color	gende
 18	carloso@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Ocasio	Carlos	gb-avatar.jpg	md-yellow-400-bg	M	0000-00-00		"Cleveland, OH, United States"	0	1
 19	artw@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Wells	Art	gb-avatar.jpg	md-cyan-400-bg	M	0000-00-00		"Cleveland, OH, United States"	0	1
 20	kristenw@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Wells	Kristen	gb-avatar.jpg	md-purple-400-bg	F	0000-00-00		"Cleveland, OH, United States"	0	1
-21	brittanyt@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Testing	Brittany	gb-avatar.jpg	md-green-400-bg	F	0000-00-01		"Irvine, CA, United States"	0	1
+21	brit@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Testing	Bri	gb-avatar.jpg	md-green-400-bg	F	0000-00-01		"Irvine, CA, United States"	0	1
 22	nyashan@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Nemutamnwe	Nyasha	gb-avatar.jpg	md-teal-400-bg	M	0000-00-02		"Cleveland, OH, United States"	0	1
 23	emmanuelh@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Hlupho	Emmanuel	gb-avatar.jpg	md-blue-400-bg	M	0000-00-03			0	1
 24	shingid@testing.com	$2y$10$ejdnB3GC4KFYfLNBkp5QT.nxOywENtDbx/Wi746L6HyRJqt/ldYXm	9a24eff8c15a6a141ece27eb6947da0f	Dzimwasha	Shingi	gb-avatar.jpg	md-light-green-400-bg	M	0000-00-04			0	1
