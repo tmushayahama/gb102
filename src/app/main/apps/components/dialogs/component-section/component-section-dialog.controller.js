@@ -69,7 +69,7 @@
    var data = {
     title: component.newComponent.title,
     description: "",
-    parentComponentId: vm.component.id, //parent component
+    parentComponentId: componentId, //parent component
     typeId: component.id,
     privacyId: vm.privacy.public
    };

@@ -113,8 +113,18 @@
             'selectedTab': 0
            }
           })
-
-
+          .state('app.apps.app', {
+           url: '/home',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/app-components/tabs/app/app.html',
+             controller: 'AppComponentsHomeTabController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 1
+           }
+          })
           .state('app.componentColumnView', {
            url: '/component/boardview/:id',
            views: {
@@ -162,6 +172,18 @@
             'selectedTab': 1
            }
           })
+          .state('app.componentLinearView.story', {
+           url: '/story',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/story/story.html',
+             controller: 'ComponentLinearStoryController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 2
+           }
+          })
           .state('app.componentLinearView.timeline', {
            url: '/timeline',
            views: {
@@ -171,7 +193,7 @@
             }
            },
            data: {
-            'selectedTab': 2
+            'selectedTab': 3
            }
           })
           .state('app.componentLinearView.calendar', {
@@ -183,7 +205,7 @@
             }
            },
            data: {
-            'selectedTab': 3
+            'selectedTab': 4
            }
           })
           .state('app.componentLinearView.discussions', {
@@ -195,7 +217,7 @@
             }
            },
            data: {
-            'selectedTab': 4
+            'selectedTab': 5
            }
           })
           .state('app.componentLinearView.graphs', {
@@ -207,7 +229,7 @@
             }
            },
            data: {
-            'selectedTab': 5
+            'selectedTab': 6
            }
           })
           .state('app.componentLinearView.settings', {
@@ -219,7 +241,7 @@
             }
            },
            data: {
-            'selectedTab': 6
+            'selectedTab': 7
            }
           })
           .state('app.componentRowView', {

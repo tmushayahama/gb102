@@ -72,7 +72,7 @@ MENTORSHIP LINEAR VIEW HOME
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
                layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+     <div class="gb-title-icon {{'md-' + mentorshipRequestType.background_color + '-400-bg'}}" layout-fill layout="row" layout-align="center center" flex>
       <i class="fa {{mentorshipRequestType.icon}}"></i>
      </div>
      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
@@ -244,7 +244,7 @@ MENTORSHIP LINEAR VIEW HOME
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddMentorshipDialog($event, vm.mentorshipId, vm.tabs.contributors, contributionType)" class="gb-main-button"
                layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+     <div class="gb-title-icon {{'md-' + contributionType.background_color + '-400-bg'}}" layout-fill layout="row" layout-align="center center" flex>
       <i class="fa {{contributionType.icon}}"></i>
      </div>
      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
@@ -358,7 +358,7 @@ MENTORSHIP LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="'md-' + mentorship.background_color + '-400-bg'">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="mentorship.title"
            ng-model-options="{
@@ -393,7 +393,7 @@ MENTORSHIP LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="'md-' + mentorship.background_color + '-400-bg'">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="mentorship.title"
            ng-model-options="{
@@ -428,7 +428,7 @@ MENTORSHIP LINEAR VIEW HOME
   </div>
  </md-toolbar>
  <div class="gb-card-content" flex>
-  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="mentorship.background_color">
+  <div ng-repeat="mentorship in section.mentorships" class="gb-title" ng-class="'md-' + mentorship.background_color + '-400-bg'">
    <md-input-container class="md-block" md-no-float>
     <input type="text" ng-model="mentorship.title"
            ng-model-options="{

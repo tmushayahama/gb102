@@ -13,5 +13,6 @@
   $translatePartialLoaderProvider.addPart('src/app/registration-panel');
 
   // Api
+  msApiProvider.register('user.createInvite', ['/api/user/invite']);
  }
 })();

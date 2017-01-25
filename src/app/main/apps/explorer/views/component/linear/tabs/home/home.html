@@ -34,58 +34,6 @@ LINEAR VIEW HOME
                 placeholder="Write a Description" columns="1" md-maxlength="250" max-rows="15"></textarea>
      </md-input-container>
     </div>
-    <div layout="row" layout-align="start start" flex layout-wrap>
-     <div class="p-8" flex-gt-sm="25" flex-gt-xs="33" flex="100">
-      <div class="gb-card-profile md-whiteframe-1dp">
-       <div class="gb-box-content">
-        <div class="gb-title">
-         <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-          {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
-         </a>
-        </div>
-        <div class="gb-subdescription">
-         <p class="gb-ellipsis">
-          CREATOR
-         </p>
-        </div>
-        <div class="gb-description"></div>
-       </div>
-       <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
-        <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
-             src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
-             class="gb-heading-pic" alt="">
-        {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
-       </div>
-      </div>
-     </div>
-     <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
-          flex-gt-sm="25" flex-gt-xs="33" flex="100">
-      <div class="gb-card-profile md-whiteframe-1dp">
-       <div class="gb-box-content">
-        <div class="gb-title">
-         <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-          {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
-         </a>
-        </div>
-        <div class="gb-subdescription">
-         <p class="gb-ellipsis">
-          {{contribution.level.title}} - {{contribution.status.title}}
-         </p>
-        </div>
-        <div class="gb-description">
-        </div>
-       </div>
-       <div class="gb-image" ng-class="contribution.contributor.theme_color">
-        <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
-             data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-             src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
-             class="gb-heading-pic" alt="">
-        {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
-
-       </div>
-      </div>
-     </div>
-    </div>
    </div>
    <div class="background-image-center" layout-align="center center"  flex>
     <md-icon md-font-icon="fa icon-gb-{{componentLinearCtrl.component.type.title}}" class="gb-background-icon"></md-icon>
@@ -140,99 +88,7 @@ LINEAR VIEW HOME
   </ms-widget-front>
  </ms-widget>
 </div>
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
- <md-toolbar class="gb-heading">
-  <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
-   </md-button>
-   <div class="gb-heading-title">
-    <span class="ellipsis">
-     Add More Sections
-    </span>
-   </div>
-   <span flex></span>
-  </div>
- </md-toolbar>
- <div class="" layout="column" layout-align="start stretch" flex>
-  <div class="widget-group gb-section-widget-group"
-       layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)" class="gb-main-button"
-                layout="row" layout-align="start stretch" flex>
-      <div class="gb-title-icon md-deep-purple-400-bg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-users"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        REQUEST CONTRIBUTIONS
-       </div>
-       <div class="gb-description">
-        Invite people to take part.
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
-                layout="row" layout-align="start stretch" flex>
-      <div class="gb-title-icon md-lime-400-bg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-tree"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        ADD COMPONENTS
-       </div>
-       <div class="gb-description">
-        Break down into subcomponents and related components
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-                layout="row" layout-align="start stretch" flex>
-      <div class="gb-title-icon md-green-400-bg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa fa-file-text-o"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        ADD BACKGROUND
-       </div>
-       <div class="gb-description">
-        Add any prerequisites, motivations, background information
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="p-8 gb-section-widget" layout="column" flex-gt-xs="50" flex="100">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.activities)" class="gb-main-button"
-                layout="row" layout-align="start stretch" flex>
-      <div class="gb-title-icon md-indigo-400-bg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-gb-activity"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        ADD ACTIVITIES
-       </div>
-       <div class="gb-description">
-        Any actions like components, exercises, steps, guidelines, questions
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-  </div>
- </div>
-</div>
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -243,51 +99,105 @@ LINEAR VIEW HOME
      Contributors
     </span>
    </div>
+   <span flex></span>
+   <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
+              class="gb-action-btn">
+    <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
+   </md-button>
   </div>
  </md-toolbar>
- <div class="widget-group gb-section-widget-group" flex="100"
+ <div ng-if="false" class="widget-group gb-section-widget-group"
       layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex-gt-xs="50" flex="100"
-             ng-repeat="contributionType in $root.commonData.contributionTypes">
+  <ms-widget ng-repeat="contributionTypes in $root.commonData.contributionTypes" class="gb-section-widget gb-widget-xs" layout="column" 	flex-xs="50" flex="25">
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributors, contributionType)" class="gb-main-button"
-               layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-      <i class="fa {{contributionType.icon}}"></i>
+               layout="row" layout-align="start center" flex>
+     <div class="gb-title-icon md-whiteframe-1dp {{'md-' + contributionTypes.background_color + '-400-bg'}}" layout="column" layout-fill layout-align="center center" flex>
+      <i class="fa {{contributionTypes.icon}}"></i>
      </div>
      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
       <div class="gb-title">
-       REQUEST {{contributionType.title}}
+       {{contributionTypes.title}}
       </div>
      </div>
     </md-button>
    </ms-widget-front>
   </ms-widget>
  </div>
-</div>
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="row" layout-align="start center" layout-wrap>
- <div class="widget-group gb-section-widget-group" flex="100"
-      layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="p-8 gb-section-widget gb-widget-sm" layout="column" flex-gt-xs="33" flex="100"
-             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
-   <ms-widget-front layout="row" layout-fill flex>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
-               layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{mentorshipRequestType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-      <i class="fa {{mentorshipRequestType.icon}}"></i>
+ <div layout="row" layout-align="start start" flex layout-wrap>
+  <div class="p-8" flex-gt-sm="25" flex-gt-xs="33" flex="100">
+   <div class="gb-card-profile md-whiteframe-1dp">
+    <div class="gb-box-content">
+     <div class="gb-title">
+      <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+       {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
+      </a>
      </div>
-     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-      <div class="gb-title">
-       {{mentorshipRequestType.description}}
-      </div>
+     <div class="gb-subdescription">
+      <p class="gb-ellipsis">
+       CREATOR
+      </p>
      </div>
-    </md-button>
-   </ms-widget-front>
-  </ms-widget>
+     <div class="gb-description"></div>
+    </div>
+    <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
+     <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
+          src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
+          class="gb-heading-pic" alt="">
+     {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
+    </div>
+   </div>
+  </div>
+  <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
+       flex-gt-sm="25" flex-gt-xs="33" flex="100">
+   <div class="gb-card-profile md-whiteframe-1dp">
+    <div class="gb-box-content">
+     <div class="gb-title">
+      <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+       {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
+      </a>
+     </div>
+     <div class="gb-subdescription">
+      <p class="gb-ellipsis">
+       {{contribution.level.title}} - {{contribution.status.title}}
+      </p>
+     </div>
+     <div class="gb-description">
+     </div>
+    </div>
+    <div class="gb-image" ng-class="contribution.contributor.theme_color">
+     <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
+          data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+          src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+          class="gb-heading-pic" alt="">
+     {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
+
+    </div>
+   </div>
+  </div>
  </div>
 </div>
-<div ng-if="componentLinearCtrl.component.mentorships.length > 0"
-     class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
+
+<div class="gb-container gb-section-row widget-group gb-section-widget-group md-whiteframe-1dp" flex
+     layout="row" layout-align="start" flex>
+ <ms-widget class="gb-add-component-widget" layout="column" flex="33"
+            ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
+  <ms-widget-front layout="row" layout-fill flex>
+   <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
+              layout="row" layout-align="start stretch" flex>
+    <div class="gb-title-icon {{mentorshipRequestType.background_color + '-400-fg'}}" layout-fill layout="row" layout-align="center center" flex>
+     <i class="fa {{mentorshipRequestType.icon}}"></i>
+    </div>
+    <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+     <div class="gb-title">
+      {{mentorshipRequestType.description}}
+     </div>
+    </div>
+   </md-button>
+  </ms-widget-front>
+ </ms-widget>
+</div>
+<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
@@ -301,6 +211,9 @@ LINEAR VIEW HOME
    <span flex></span>
   </div>
  </md-toolbar>
+ <div ng-if="componentLinearCtrl.component.mentorships.length === 0" class='gb-section-no-info' flex='100'>
+  No mentorships yet.
+ </div>
  <div class="" layout="column" layout-align="start stretch" flex>
   <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
@@ -309,7 +222,7 @@ LINEAR VIEW HOME
     <ms-widget-front layout="row" layout-fill flex>
      <md-button ui-sref="app.mentorshipLinearView.home({id: mentorship.id})" class="gb-main-button"
                 layout="column" layout-align="start stretch">
-      <div class="gb-widget-header" ng-class="mentorship.component.background_color">
+      <div class="gb-widget-header" ng-class="'md-' + mentorship.component.background_color + '-400-bg'">
        <div class="gb-title">
         {{mentorship.component.title}}
        </div>
@@ -375,9 +288,67 @@ LINEAR VIEW HOME
   </div>
  </div>
 </div>
+<div class="gb-container gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
+     layout="row" layout-align="start" layout-wrap flex>
+ <ms-widget class="gb-add-component-widget" layout="column" flex="33">
+  <ms-widget-front layout="row" layout-fill flex>
+   <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
+              layout="row" layout-align="start stretch" flex>
+    <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+     <i class="fa icon-tree"></i>
+    </div>
+    <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+     <div class="gb-title">
+      ADD COMPONENTS
+     </div>
+     <div class="gb-description" hide>
+      Break down into subcomponents and related components
+     </div>
+    </div>
+   </md-button>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget class="gb-add-component-widget" layout="column" flex="33">
+  <ms-widget-front layout="row" layout-fill flex>
+   <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+              layout="row" layout-align="start stretch" flex>
+    <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+     <i class="fa fa-file-text-o"></i>
+    </div>
+    <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+     <div class="gb-title">
+      ADD BACKGROUND
+     </div>
+     <div class="gb-description" hide>
+      Add any prerequisites, motivations, background information
+     </div>
+    </div>
+   </md-button>
+  </ms-widget-front>
+ </ms-widget>
+ <ms-widget class="gb-add-component-widget" layout="column" flex="33">
+  <ms-widget-front layout="row" layout-fill flex>
+   <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.activities)" class="gb-main-button"
+              layout="row" layout-align="start stretch" flex>
+    <div class="gb-title-icon indigo-400-fg" layout-fill layout="row" layout-align="center center" flex>
+     <i class="fa icon-gb-activity"></i>
+    </div>
+    <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+     <div class="gb-title">
+      ADD ACTIVITIES
+     </div>
+     <div class="gb-description" hide>
+      Any actions like components, exercises, steps, guidelines, questions
+     </div>
+    </div>
+   </md-button>
+  </ms-widget-front>
+ </ms-widget>
+</div>
 <div class="gb-container" layout="row" layout-align="start" layout-wrap>
  <ms-masonry class="components" options='{"columnCount":3, "respectItemOrder": true}'>
-  <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.motives">
+  <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.motives"
+                   ng-if="section.components.length > 0">
    <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
@@ -394,14 +365,10 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
       <md-input-container class="md-block" md-no-float>
-       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-      </md-input-container>
-     </form>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" ng-model="component.title" ng-model-options="{updateOn: 'blur', debounce: 1000}"
+       <input type="text" ng-model="component.title" ng-model-options="{
+            updateOn: 'blur', debounce: 1000}"
               class="gb-ellipsis" placeholder="Title" md-maxlength="250"
               ng-change="componentLinearCtrl.updateComponentDescription(component)">
       </md-input-container>
@@ -409,11 +376,16 @@ LINEAR VIEW HOME
        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
       </md-button>
      </div>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
     </div>
    </div>
   </ms-masonry-item>
-  <ms-masonry-item class="p-8"
-                   ng-repeat="section in componentLinearCtrl.component.components">
+  <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.components"
+                   ng-if="section.components.length > 0">
    <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
@@ -430,12 +402,7 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-      </md-input-container>
-     </form>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
       <md-input-container class="md-block" md-no-float>
        <input type="text" ng-model="component.title"
               ng-model-options="{
@@ -446,11 +413,16 @@ LINEAR VIEW HOME
        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
       </md-button>
      </div>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
     </div>
    </div>
   </ms-masonry-item>
-  <ms-masonry-item class="p-8"
-                   ng-repeat="section in componentLinearCtrl.component.activities">
+  <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.activities"
+                   ng-if="section.components.length > 0">
    <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
@@ -467,12 +439,7 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
-      </md-input-container>
-     </form>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="component.background_color">
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
       <md-input-container class="md-block" md-no-float>
        <input type="text" ng-model="component.title"
               ng-model-options="{
@@ -483,6 +450,11 @@ LINEAR VIEW HOME
        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
       </md-button>
      </div>
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
     </div>
    </div>
   </ms-masonry-item>

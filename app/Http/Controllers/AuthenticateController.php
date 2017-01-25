@@ -17,7 +17,7 @@ class AuthenticateController extends Controller {
   // Apply the jwt.auth middleware to all methods in this controller
   // except for the authenticate method. We don't want to prevent
   // the user from retrieving their token if they don't already have it
-  $this->middleware('jwt.auth', ['except' => ['authenticate', 'register']]);
+  $this->middleware('jwt.auth', ['except' => ['authenticate', 'register', 'invite']]);
  }
 
  public function index() {
@@ -80,6 +80,25 @@ class AuthenticateController extends Controller {
   }
 
   return User::createUser();
+ }
+
+ public function invite() {
+
+  //$newuser = $request->all();
+  //$password = Hash::make($request->input('password'));
+  //$newuser['password'] = $password;
+
+  $validator = Validator::make(Input::all(), User::$rules, User::$messages);
+
+  if ($validator->fails()) {
+   $errors = $validator->errors()->first();
+   //$errors = json_decode($errors);
+   return response()->json([
+               'message' => $errors
+                   ], 422);
+  }
+
+  return User::createInvite();
  }
 
  public function logout() {

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?3u3nxh');
-  src:  url('fonts/icomoon.eot?3u3nxh#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?3u3nxh') format('truetype'),
-    url('fonts/icomoon.woff?3u3nxh') format('woff'),
-    url('fonts/icomoon.svg?3u3nxh#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?pc2dwf');
+  src:  url('fonts/icomoon.eot?pc2dwf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?pc2dwf') format('truetype'),
+    url('fonts/icomoon.woff?pc2dwf') format('woff'),
+    url('fonts/icomoon.svg?pc2dwf#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -139,29 +139,38 @@
 .icon-gb-question:before {
   content: "\ea95";
 }
-.icon-gb-skill:before {
+.icon-gb-request-mentee:before {
   content: "\ea96";
 }
-.icon-gb-step:before {
+.icon-gb-request-mentor:before {
   content: "\ea97";
 }
-.icon-gb-swipe:before {
+.icon-gb-request-mentorship-suggest:before {
   content: "\ea98";
 }
-.icon-gb-teach:before {
+.icon-gb-skill:before {
   content: "\ea99";
 }
-.icon-gb-timeline:before {
+.icon-gb-step:before {
   content: "\ea9a";
 }
-.icon-gb-todo:before {
+.icon-gb-swipe:before {
   content: "\ea9b";
 }
-.icon-gb-weblink:before {
+.icon-gb-teach:before {
   content: "\ea9c";
 }
-.icon-gb-wrenches:before {
+.icon-gb-timeline:before {
   content: "\ea9d";
+}
+.icon-gb-todo:before {
+  content: "\ea9e";
+}
+.icon-gb-weblink:before {
+  content: "\ea9f";
+}
+.icon-gb-wrenches:before {
+  content: "\eaa0";
 }
 .icon-telescope:before {
   content: "\e02a";

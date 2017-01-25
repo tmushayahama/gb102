@@ -52,6 +52,7 @@
   // Push the new factory onto the $http interceptor array
   //$httpProvider.interceptors.push('redirectWhenLoggedOut');
   $authProvider.loginUrl = '/api/authenticate';
+  $authProvider.signupUrl = '/api/user/invite';
   //$urlRouterProvider.otherwise('/');
 
   // angular-translate configuration

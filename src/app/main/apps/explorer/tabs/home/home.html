@@ -19,11 +19,11 @@ Components Home
  <div class="gb-container" layout="column" layout-align="start stretch" flex>
   <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget gb-widget-sm" layout="column" 	flex-xs="50" flex="33">
+   <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-app-widget" layout="column" 	flex-xs="33" flex="25">
     <ms-widget-front layout="row" layout-fill flex>
-     <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
-                layout="row" layout-align="start stretch" flex>
-      <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+     <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+          layout="column" layout-align="start center" flex>
+      <div class="gb-title-icon md-whiteframe-1dp {{'md-' + app.background_color + '-400-bg'}}" layout="column" layout-fill layout-align="center center" flex>
        <i class="fa {{app.icon}}"></i>
       </div>
       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
@@ -34,7 +34,7 @@ Components Home
         {{app.count}} Entries
        </div>
       </div>
-     </md-button>
+     </div>
     </ms-widget-front>
    </ms-widget>
   </div>

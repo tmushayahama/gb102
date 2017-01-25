@@ -20,14 +20,12 @@
   </md-button>
  </div>
 </div>
-<!-- / HEADER -->
-<!-- CONTENT -->
 <div class="gb-tabs-1" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
+ <div class="gb-container" layout="row" flex>
   <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.explorer.home">
+     <div class="gb-tab-button" ui-sref="app.apps.home">
       <div class="gb-icon">
        <i class="fa fa-home"></i>
       </div>
@@ -37,11 +35,11 @@
      </div>
     </md-tab-label>
    </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.explorer.swipe">
       <div class="gb-icon">
-       <i class="fa icon-gb-swipe"></i>
+       <i class="fa icon-gb-apps"></i>
       </div>
       <div class="gb-title">
        App
@@ -49,11 +47,11 @@
      </div>
     </md-tab-label>
    </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <div class="gb-tab-button" ui-sref="app.explorer.matcher">
      <md-tab-label>
       <div class="gb-icon">
-       <i class="fa icon-gb-matcher"></i>
+       <i class="fa icon-user"></i>
       </div>
       <div class="gb-title">
        My Page
@@ -61,11 +59,11 @@
      </md-tab-label>
     </div>
    </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.explorer.mentorship">
       <div class="gb-icon">
-       <i class="fa fa-calendar"></i>
+       <i class="fa fa-info"></i>
       </div>
       <div class="gb-title">
        About

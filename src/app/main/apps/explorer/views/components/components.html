@@ -23,7 +23,7 @@
 <!-- / HEADER -->
 <!-- CONTENT -->
 <div class="gb-tabs-1" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
+ <div class="gb-container" layout="row" flex>
   <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
@@ -37,31 +37,19 @@
      </div>
     </md-tab-label>
    </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.explorer.swipe">
       <div class="gb-icon">
-       <i class="fa icon-gb-swipe"></i>
+       <i class="fa fa-bookmark-o"></i>
       </div>
       <div class="gb-title">
-       Swipe
+       Bookmarks
       </div>
      </div>
     </md-tab-label>
    </md-tab>
-   <md-tab>
-    <div class="gb-tab-button" ui-sref="app.explorer.matcher">
-     <md-tab-label>
-      <div class="gb-icon">
-       <i class="fa icon-gb-matcher"></i>
-      </div>
-      <div class="gb-title">
-       Matcher
-      </div>
-     </md-tab-label>
-    </div>
-   </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.explorer.mentorship">
       <div class="gb-icon">
@@ -73,7 +61,7 @@
      </div>
     </md-tab-label>
    </md-tab>
-   <md-tab>
+   <md-tab ng-disabled="true">
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.explorer.business">
       <div class="gb-icon">
@@ -88,4 +76,4 @@
   </md-tabs>
  </div>
 </div>
-<div id="boards" ui-view="tab" class="gb-bottom-gutter" layout="column" layout-align="center center" flex></div>
+<div  ui-view="tab" class="gb-bottom-gutter" layout="column" layout-align="center center" flex></div>

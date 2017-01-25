@@ -615,7 +615,9 @@
   function init() {
    selectTab(startTabIndex);
    selectPrivacy(level_categories.privacy.public, "Public");
-   // vm.component.description = "";
+   vm.component = {
+    description: ""
+   };
    if (preselectedData) {
     switch (startTabIndex) {
      case vm.tabs.fillApps:

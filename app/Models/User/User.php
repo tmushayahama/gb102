@@ -116,6 +116,30 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
   return array("message" => "Please check your email, an invitation message has been sent");
  }
 
+ public static function createInvite() {
+  $firstname = Request::get("firstname");
+  $lastname = Request::get("lastname");
+  $email = Request::get("email");
+
+  $user = new User;
+  $user->firstname = $firstname;
+  $user->lastname = $lastname;
+  $user->email = $email;
+  // $user->avatar_url = 'gb_default_avatar.png';
+  $user->password = Hash::make($lastname . 'apples');
+
+  DB::beginTransaction();
+  try {
+   $user->save();
+  } catch (\Exception $e) {
+//failed logic here
+   DB::rollback();
+   throw $e;
+  }
+  DB::commit();
+  return array("message" => "Invite information submitted successfully. We will send you an email with more details to get started with the Beta testing");
+ }
+
  /**
   * The attributes that are mass assignable.
   *

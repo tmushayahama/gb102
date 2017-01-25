@@ -41,6 +41,11 @@ $gb-primary-color: material-color('light-blue', '800');
  hyphens: auto;
 }
 
+.gb-disabled-1ight {
+ opacity: 0.4;
+ pointer-events: none;
+}
+
 .gb-bottom-gutter {
  padding-bottom: 600px;
 }
@@ -78,7 +83,7 @@ md-sidenav {
  &.gb-section-row {
   width: 1084px;
   margin: 8px 0;
-  background-color: #F2F2F2;
+  background-color: #F7F7F7;
  }
  @include respond-to (gb-md) {
   width: 80%;
@@ -1222,6 +1227,15 @@ md-tabs {
  }
 }
 
+.gb-section-no-info {
+ text-align: center;
+ height: 100px;
+ min-height: 100px;
+ max-height: 100px;
+ line-height: 100px;
+ color: #999;
+}
+
 .gb-result-widget {
  ms-widget-front {
   height: 75px;
@@ -1267,6 +1281,196 @@ md-tabs {
   }
  }
 }
+
+.gb-app-widget {
+ ms-widget-front {
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  box-shadow: none!important;
+  .gb-main-button {
+   background-color: transparent;
+  }
+  .gb-widget-content, .gb-title-icon {
+   height: 100px;
+   min-height: 100px;
+   overflow: hidden;
+  }
+  .gb-main-button {
+   padding: 0;
+   margin: 0;
+  }
+  .gb-widget-content {
+   padding: 14px;
+  }
+  .gb-title-icon {
+   text-align: center;
+   width: 100px;
+   min-width: 100px;
+   max-width: 100px;
+   border-radius: 50%;
+   i{
+    color: #EEE;
+    font-size: 60px;
+   }
+  }
+  .gb-title {
+   color: #222;
+   text-align: center;
+   font-size: 14px;
+   text-transform: uppercase;
+  }
+  .gb-description {
+   color: #656565;
+   text-align: center;
+   text-transform: none;
+   font-size: 14px;
+   white-space: normal;
+   line-height: 20px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    color: #EEE;
+    font-size: 150px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+   }
+  }
+  .gb-add-section-button {
+   height: 40px;
+   background-color: rgba(#000, 0.1);
+   &:hover {
+    background-color: rgba(#000, 0.3);
+   }
+  }
+ }
+
+ @include respond-to (gb-xs) {
+  ms-widget-front {
+   height: 115px;
+   min-height: 115px;
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 70px;
+    min-height: 70px;
+   }
+   .gb-widget-content {
+    padding: 8px;
+   }
+   .gb-title-icon {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    i{
+     font-size: 40px;
+    }
+   }
+   .gb-title {
+    color: #000;
+    font-weight: 800;
+    font-size: 8px;
+   }
+   .gb-description {
+    font-size: 8px;
+    line-height: 12px;
+   }
+  }
+ }
+}
+
+.gb-add-component-widget {
+ padding:0!important;
+ border-right: #CCC solid 1px;
+ ms-widget-front {
+  height: 60px;
+  min-height: 60px;
+  background-color: #F7F7F7;
+  box-shadow: none!important;
+  .gb-main-button, .gb-widget-content, .gb-title-icon {
+   height: 60px;
+   min-height: 60px;
+   overflow: hidden;
+  }
+  .gb-main-button {
+   padding: 0;
+   margin: 0;
+  }
+  .gb-widget-content {
+   padding: 14px;
+  }
+  .gb-title-icon {
+   text-align: center;
+   width: 60px;
+   min-width: 60px;
+   max-width: 60px;
+   i{
+    font-size: 35px;
+   }
+  }
+  .gb-title {
+   white-space: normal;
+   color: #222;
+   text-align: left;
+   font-size: 14px;
+   text-transform: uppercase;
+  }
+  .gb-description {
+   color: #656565;
+   text-align: left;
+   text-transform: none;
+   font-size: 14px;
+   white-space: normal;
+   line-height: 20px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    color: #EEE;
+    font-size: 150px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+   }
+  }
+  .gb-add-section-button {
+   height: 40px;
+   background-color: rgba(#000, 0.1);
+   &:hover {
+    background-color: rgba(#000, 0.3);
+   }
+  }
+ }
+ @include respond-to (gb-xs) {
+  ms-widget-front {
+   height: 40px;
+   min-height: 40px;
+   .gb-main-button, .gb-widget-content, .gb-title-icon {
+    height: 40px;
+    min-height: 40px;
+   }
+   .gb-widget-content {
+    padding: 2px;
+   }
+   .gb-title-icon {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    i{
+     font-size: 20px;
+    }
+   }
+   .gb-title {
+    font-size: 8px;
+    line-height: 14px;
+   }
+   .gb-description {
+    font-size: 14px;
+    line-height: 15px;
+   }
+  }
+ }
+}
+
+
 
 .gb-section-widget {
  ms-widget-front {
@@ -2018,8 +2222,8 @@ md-tabs {
      border: none;
      border-bottom: #CCC solid 1px;
      &:hover, &:focus {
-      border-top: rgba($gb-primary-color, 0.3) solid 1px;
-      border-bottom: rgba($gb-primary-color, 0.3) solid 1px;
+      border-top: rgba($gb-primary-color, 0.5) solid 1px;
+      border-bottom: rgba($gb-primary-color, 0.5) solid 1px;
      }
      &.gb-add-component-input {
       min-height: 60px;
