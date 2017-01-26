@@ -100,7 +100,7 @@ class Level extends Model {
      "columns" => 3,
      "linear" => 4,
      "recommendations" => 5,
-     "tree" => 4
+     "tree" => 6
  );
 
  /**

@@ -11,6 +11,7 @@
           'uiGmapgoogle-maps',
           'textAngular',
           'xeditable',
+          'ui.tree',
           // Core
           'app.core',
           'app.search',
@@ -18,11 +19,8 @@
           'app.explorer',
           'app.swipe',
           'app.matcher',
-          // Navigation
           'app.navigation',
-          // Toolbar
           'app.toolbar',
-          // Quick Panel
           'app.quick-panel',
           'app.login-panel',
           'app.registration-panel',
@@ -33,12 +31,6 @@
           'app.gantt-chart',
           'app.todo',
           'app.components',
-          "app.mentorship"
-                  // Pages
-                  //'app.pages',
-                  // User Interface
-                  //'app.ui',
-                  // Components
-                  //'app.components'
+          'app.mentorship'
          ]);
 })();

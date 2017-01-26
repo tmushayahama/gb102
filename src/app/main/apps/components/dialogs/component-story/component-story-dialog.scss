@@ -1,29 +1,18 @@
 md-dialog {
- .autocompletedemoCustomTemplate .autocomplete-custom-template li {
-  border-bottom: 1px solid #ccc;
-  height: auto;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  white-space: normal; }
 
- .autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
-  border-bottom-width: 0; }
-
- .autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
- .autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
-  display: block;
-  line-height: 2; }
-
- .autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
-  height: 18px;
-  width: 18px; }
-
- &.add-component-dialog {
-  width: 90%;
-  max-width: 800px;
+ &.gb-component-story-dialog {
+  @include position(absolute, 40px 0 0 0);
+  background-color: #ECEFF1;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   overflow: hidden;
 
   md-toolbar {
+   height: 50px;
+   min-height: 50px;
+   max-height: 50px;
+   b//ackground-color: $gb-secondary-color;
 
    .md-toolbar-tools {
 
@@ -50,672 +39,151 @@ md-dialog {
   }
 
   md-dialog-content {
-   height: 350px;
    position: relative;
    background-color: #F5F5F5;
-   overflow: hidden;
-
-   .due-date {
-    .moment-picker {
-     .picker {
-      background: material-color('grey', '200');
-      padding: 8px 10px;
-
-      &:hover {
-       background: material-color('grey', '300');
-      }
-
-      i {
-       margin-right: 8px;
-      }
-     }
-
-     .moment-picker-container {
-      margin-top: 8px;
-      right: 0;
-
-      &:before, &:after {
-       right: 15px;
-       left: auto;
-      }
+   .gb-arrow-container {
+    &.gb-up-arrow,
+    &.gb-down-arrow{
+     height: 40px;
+     min-height: 40px;
+     max-height: 40px;
+     .md-button {
+      height: 30px;
+      min-height: 30px;
+      max-height: 30px;
+      line-height: 30px;
+      width: 80px;
+      min-width: 80px;
+      max-width: 80px;
      }
     }
-
-    .remove-due-date {
-     background: material-color('grey', '200');
-     padding: 9px;
-     cursor: pointer;
-
-     &:hover {
-      background: material-color('grey', '300');
+    &.gb-left-arrow,
+    &.gb-right-arrow{
+     width: 40px;
+     min-width: 30px;
+     max-width: 30px;
+     .md-button {
+      padding: 0 3px;
+      width: 30px;
+      min-width: 30px;
+      max-width: 30px;
+      height: 100px;
+      min-height: 100px;
+      max-height: 100px;
+     }
+    }
+    .md-button {
+     background-color: $gb-secondary-color;
+     &:hover, &:focus {
+      background-color: rgba($gb-secondary-color, 0.5)!important;
+     }
+     &.gb-disabled {
+      background-color: #CCC;
+      pointer-events: none;
+      opacity: 0.2;
      }
     }
    }
-
-   .gb-app-tabs {
-
-    md-tabs-wrapper {
-     height: 0;
-     overflow: hidden;
-     display: none;
-    }
-    md-tabs-content-wrapper {
-     top: 0;
-    }
-    .gb-app-tab-content {
+   md-tabs {
+    &.gb-story-tabs {
+     background-color: #F5F5F5;
      position: relative;
-     padding: 4px 0;
      height: 100%;
      width: 100%;
-     max-height: 500px;
-     .gb-dialog-header {
-      @include position(absolute, 0 0 null 0);
-      height: 40px;
 
-      md-toolbar {
-       background-color: transparent;
-       text-transform: capitalize;
-       md-icon {
-        color: #555;
-        &.gb-title-icon {
-         color: #555;
+     .gb-tab-button {
+      padding: 12px 24px;
+      height: 100%;
+      width: 100%;
+     }
+
+     md-tabs-canvas,
+     md-tabs-wrapper,
+     md-pagination-wrapper {
+      height: 78px!important;
+     }
+     md-tab-item {
+      padding: 0;
+      height: 80px;
+      min-width: 120px;
+      max-width: 200px;
+      .gb-icon {
+       height: 25px;
+       max-height: 25px;
+       font-size: 25px;
+       margin-bottom: 8px;
+       color: #999;
+      }
+      .gb-title {
+       font-size: 10px;
+       color: 000;
+      }
+     }
+
+     md-tabs-wrapper {
+      background-color: #EEE;
+      border: none;
+
+      .md-tab {
+       max-width: none !important;
+      }
+     }
+
+     md-tabs-content-wrapper {
+      bottom: 80px!important;
+
+      md-tab-content {
+       height: 100%;
+       overflow: hidden;
+
+       > div {
+        overflow: hidden;
+        height: 100%;
+       }
+
+       md-list {
+
+        .md-subheader {
+
         }
-       }
-       .md-toolbar-tools {
-        height: 40px;
-        padding: 0;
-       }
-       .gb-heading-title {
-        color: #555;
-        font-size: 25px;
-        padding-top: 3px;
-       }
-      }
-     }
-     .gb-dialog-body {
-      @include position(absolute, 41px 0 0 0);
-      padding-top: 20px;
-     }
-    }
-   }
 
-  }
-
-  .gb-apps-widget {
-   height: 140px;
-   max-height: 140px;
-   .gb-title {
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: uppercase;
-   }
-   md-icon {
-    &.gb-app-icon {
-     color: #CCC;
-     font-size: 100px;
-     width: 100px;
-     min-width: 100px;
-     max-width: 100px;
-    }
-   }
-   @mixin apps-widget-background {
-    @for $i from 1 through length($apps-colors){
-     .gb-app-type-#{$i}
-     {
-      background-color: rgba(nth($apps-colors, $i), 0.1);
-      color: darken(nth($apps-colors, $i), 15%);
-      &:hover {
-       background-color: rgba(nth($apps-colors, $i), 0.4);
-       color: darken(nth($apps-colors, $i), 25%);
-      }
-     }
-    }
-   }
-
-   @include apps-widget-background;
-
-   ms-widget-back {
-    background-color: #F5F5F5;
-    padding: 0 8px;
-    .gb-title {
-     text-align: left;
-     padding: 0 10px;
-     font-size: 15px;
-     font-weight: bold;
-    }
-    .gb-description {
-     text-align: left;
-     padding: 0 10px;
-     font-size: 12px;
-    }
-   }
-
-  }
-
- }
- &.card-dialog {
-  width: 90%;
-  max-width: 800px;
-  overflow: hidden;
-
-  md-toolbar {
-
-   .md-toolbar-tools {
-
-    > .md-menu {
-     display: flex;
-     align-items: center;
-     height: 100%;
-
-     .md-button {
-
-     }
-    }
-
-    .due-date {
-
-     .moment-picker {
-
-      .moment-picker-container {
-       font-size: 13px;
-      }
-     }
-    }
-   }
-  }
-
-  md-dialog-content {
-   position: relative;
-   background-color: #F5F5F5;
-
-   .card-breadcrumb {
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 12px;
-   }
-
-   .card-subscribe {
-    margin-right: 8px;
-    color: rgba(0, 0, 0, 0.6);
-   }
-
-   .card-name {
-    width: 100%;
-    font-size: 24px;
-
-    .editable-input {
-     font-size: 24px;
-    }
-   }
-
-   .due-date {
-
-    .moment-picker {
-
-     .picker {
-      background: material-color('grey', '200');
-      padding: 8px 10px;
-
-      &:hover {
-       background: material-color('grey', '300');
-      }
-
-      i {
-       margin-right: 8px;
-      }
-     }
-
-     .moment-picker-container {
-      margin-top: 8px;
-      right: 0;
-
-      &:before, &:after {
-       right: 15px;
-       left: auto;
-      }
-     }
-    }
-
-    .remove-due-date {
-     background: material-color('grey', '200');
-     padding: 9px;
-     cursor: pointer;
-
-     &:hover {
-      background: material-color('grey', '300');
-     }
-    }
-   }
-
-   .description {
-    padding-bottom: 16px;
-   }
-
-   .sections {
-
-    .section {
-     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-     margin-bottom: 32px;
-
-     &:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-
-      .section-content {
-       padding-bottom: 0;
-      }
-     }
-
-     .section-header {
-      font-size: 16px;
-
-      i {
-       margin-right: 8px;
-       color: rgba(0, 0, 0, 0.6);
-      }
-
-      .section-title {
-       font-weight: 500;
-      }
-     }
-
-     .section-content {
-      padding: 24px 0 32px 0;
-     }
-
-     .labels {
-
-      .section-content {
-       padding: 8px 0 32px 0;
-      }
-
-      .label-chips {
-
-       .md-chips {
-        box-shadow: none;
-        padding: 0;
-
-        md-chip {
-         background: transparent;
-         padding-right: 0 !important;
-         padding-left: 0 !important;
-
-         .label-chip {
-          padding: 0 32px 0 12px;
-          border-radius: 16px;
-          display: block;
-          height: 32px;
-          line-height: 32px;
-          font-size: 14px;
-         }
-
-         .md-chip-remove-container {
-          right: 12px;
-          line-height: 30px;
-         }
+        md-list-item {
         }
        }
       }
      }
+    }
 
-     .members {
+    @include respond-to (gb-xs) {
+     md-tabs {
 
-      .section-content {
-       padding: 8px 0 32px 0;
+      .gb-tab-button {
+       padding: 5px 5px;
       }
 
-      .member-chips {
-
-       .md-chips {
-        box-shadow: none;
-        padding: 0;
-
-        md-chip {
-         padding-left: 0;
-
-         .member-chip {
-
-          .member-chip-avatar {
-           width: 32px;
-           border-radius: 50%;
-          }
-         }
-
-         .md-chip-remove-container {
-          right: 6px;
-          line-height: 30px;
-         }
-        }
+      md-tabs-canvas,
+      md-pagination-wrapper {
+       height: 48px;
+      }
+      md-tab-item {
+       padding: 0;
+       height: 50px;
+       min-width: 60px;
+       .gb-icon {
+        height: 15px;
+        max-height: 15px;
+        font-size: 15px;
+        margin-bottom: 2px;
+       }
+       .gb-title {
+        font-size: 8px;
        }
       }
-     }
-
-     .attachments {
-
-      .attachment {
-       margin-bottom: 16px;
-
-       .attachment-preview {
-        background-color: #EEF0F2;
-        width: 160px;
-        height: 128px;
-        background-size: contain;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        margin-right: 24px;
-        font-weight: 500;
-        color: rgba(0, 0, 0, 0.6);
-       }
-
-       .attachment-content {
-
-        .attachment-url,
-        .attachment-name {
-         font-weight: 500;
-         font-size: 16px;
-        }
-
-        .attachment-is-cover {
-         margin-left: 6px;
-        }
-
-        .attachment-time {
-         color: rgba(0, 0, 0, 0.6);
-        }
-
-        .attachment-actions-button {
-         background-color: white;
-         text-transform: capitalize;
-         margin: 12px 0 0 0;
-         padding-left: 12px;
-
-         i {
-          margin-left: 8px;
-          color: rgba(0, 0, 0, 0.6);
-         }
-        }
-       }
-      }
-
-      .add-attachment-button {
-       margin: 0;
-
-       i {
-        color: rgba(0, 0, 0, 0.6);
-        margin-right: 8px;
-       }
-
-       span {
-        font-weight: 500;
-        text-transform: capitalize;
-       }
-      }
-     }
-
-     .checklist {
-
-      .checklist-progress {
-       margin-bottom: 16px;
-
-       .checklist-progress-value {
-        margin-right: 12px;
-        font-weight: 500;
-        white-space: nowrap;
-        font-size: 14px;
-       }
-
-       .checklist-progressbar {
-       }
-      }
-
-      .editable-wrap {
-       flex: 1
-      }
-
-      .check-items {
-
-       .check-item {
-
-        md-checkbox {
-         margin-bottom: 0;
-
-         .md-label {
-          font-size: 14px;
-         }
-
-         &.md-checked {
-
-          .md-label {
-           text-decoration: line-through;
-           color: rgba(0, 0, 0, 0.6);
-          }
-         }
-        }
-       }
-      }
-
-      .new-check-item-form {
-       padding-top: 16px;
-
-       md-input-container {
-        margin: 0;
-       }
-
-       .md-button {
-        margin: 0 0 0 16px;
-       }
-      }
-     }
-
-     .comments {
-
-      .comment {
-       margin-bottom: 16px;
-
-       .comment-member-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        margin-right: 16px;
-       }
-
-       .comment-member-name {
-        font-size: 14px;
-        font-weight: 500;
-       }
-
-       .comment-time {
-        font-size: 12px;
-       }
-
-       .comment-bubble {
-        position: relative;
-        padding: 8px;
-        background-color: white;
-        border: 1px solid rgb(220, 223, 225);
-        font-size: 14px;
-        margin: 4px 0;
-
-        &:after,
-         &:before {
-         content: ' ';
-         position: absolute;
-         width: 0;
-         height: 0;
-        }
-
-        &:after {
-         left: -7px;
-         right: auto;
-         top: 0px;
-         bottom: auto;
-         border: 11px solid;
-         border-color: white transparent transparent transparent;
-        }
-
-        &:before {
-         left: -9px;
-         right: auto;
-         top: -1px;
-         bottom: auto;
-         border: 8px solid;
-         border-color: rgb(220, 223, 225) transparent transparent transparent;
-        }
-       }
-
-       &.new-comment {
-
-        md-input-container {
-         margin: 0;
-        }
-       }
-      }
-     }
-
-     .activities {
-
-      .activity {
-       margin-bottom: 12px;
-
-       .activity-member-avatar {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        margin-right: 16px;
-       }
-
-       .activity-member-name {
-        font-size: 14px;
-        font-weight: 500;
-        margin-right: 8px;
-       }
-
-       .activity-message {
-        font-size: 14px;
-        margin-right: 8px;
-       }
-
-       .activity-time {
-        font-size: 12px;
-       }
+      md-tabs-content-wrapper {
+       bottom: 50px;
       }
      }
     }
-   }
-  }
- }
-
-}
-
-.checklist-menu-content {
- padding: 8px 16px 16px 16px;
-
- md-input-container {
-  width: 100%;
-  margin: 8px 0 8px 0;
- }
-
- .md-button {
-  margin: 8px 0 0 0;
- }
-}
-
-.labels-menu-content {
- position: relative;
- padding: 4px 0;
- max-height: 400px;
-
- md-tabs-wrapper {
-  height: 0;
-  overflow: hidden;
- }
-
- md-tabs-content-wrapper {
-  top: 0;
- }
-
- md-input-container {
-
-  input {
-   font-size: 16px;
-  }
- }
-
- .label {
-  padding: 4px 16px;
-
-  .label-toggle-button {
-   font-size: 13px;
-  }
-
-  .label-edit-button {
-   margin: 0 0 0 8px;
-   padding: 0;
-
-   md-icon {
-    margin: 0 auto;
-   }
-  }
- }
-
- md-menu-divider {
-  display: block;
- }
-
- .add-label-tab-content,
- .edit-label-tab-content {
-
-  .header {
-   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  }
-
-  .content {
-   padding: 0 16px 8px 16px;
-
-   .label-color-picker {
-    width: 240px;
-    margin: 0 -4px 0 2px;
-
-    .color {
-     width: 24px;
-     height: 24px;
-     margin: 0 6px 6px 0;
-     cursor: pointer;
-    }
-   }
-
-   .create-button {
-    margin: 16px 0 8px 0;
-   }
-  }
- }
-}
-
-.members-menu-content {
- position: relative;
- padding: 4px 0;
- max-height: 400px;
-
- md-input-container {
-
-  input {
-   font-size: 16px;
-  }
- }
-
- .member {
-
-  .md-button {
-
-   .avatar {
-    margin-right: 16px;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-   }
-
-   .member-name {
-    font-size: 13px;
    }
   }
  }

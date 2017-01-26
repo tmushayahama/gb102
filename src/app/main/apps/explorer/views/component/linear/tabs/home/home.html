@@ -101,7 +101,7 @@ LINEAR VIEW HOME
    </div>
    <span flex></span>
    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-              class="gb-action-btn">
+              class="gb-action-btn" aria-label="Add Contributions">
     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
    </md-button>
   </div>
@@ -111,7 +111,7 @@ LINEAR VIEW HOME
   <ms-widget ng-repeat="contributionTypes in $root.commonData.contributionTypes" class="gb-section-widget gb-widget-xs" layout="column" 	flex-xs="50" flex="25">
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributors, contributionType)" class="gb-main-button"
-               layout="row" layout-align="start center" flex>
+               layout="row" layout-align="start center">
      <div class="gb-title-icon md-whiteframe-1dp {{'md-' + contributionTypes.background_color + '-400-bg'}}" layout="column" layout-fill layout-align="center center" flex>
       <i class="fa {{contributionTypes.icon}}"></i>
      </div>
@@ -142,7 +142,7 @@ LINEAR VIEW HOME
     </div>
     <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
      <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
-          src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
+          ng-src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
           class="gb-heading-pic" alt="">
      {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
     </div>
@@ -168,7 +168,7 @@ LINEAR VIEW HOME
     <div class="gb-image" ng-class="contribution.contributor.theme_color">
      <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
           data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-          src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+          ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
           class="gb-heading-pic" alt="">
      {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
 
@@ -184,7 +184,7 @@ LINEAR VIEW HOME
             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
   <ms-widget-front layout="row" layout-fill flex>
    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
-              layout="row" layout-align="start stretch" flex>
+              layout="row" layout-align="start stretch">
     <div class="gb-title-icon {{mentorshipRequestType.background_color + '-400-fg'}}" layout-fill layout="row" layout-align="center center" flex>
      <i class="fa {{mentorshipRequestType.icon}}"></i>
     </div>
@@ -251,7 +251,7 @@ LINEAR VIEW HOME
         </div>
         <div class="gb-image" ng-class="mentorship.mentor.theme_color">
          <img ng-if="mentorship.mentor.avatar_url !== 'gb-avatar.jpg'"
-              src="src/assets/images/profile_pic/{{mentorship.mentor.avatar_url}}"
+              ng-src="src/assets/images/profile_pic/{{mentorship.mentor.avatar_url}}"
               class="gb-heading-pic" alt="">
          {{mentorship.mentor.firstname.substring(0, 1) + mentorship.mentor.lastname.substring(0, 1)}}
         </div>
@@ -276,7 +276,7 @@ LINEAR VIEW HOME
         </div>
         <div class="gb-image" ng-class="mentorship.mentee.theme_color">
          <img ng-if="mentorship.mentee.avatar_url !== 'gb-avatar.jpg'"
-              src="src/assets/images/profile_pic/{{mentorship.mentee.avatar_url}}"
+              ng-src="src/assets/images/profile_pic/{{mentorship.mentee.avatar_url}}"
               class="gb-heading-pic" alt="">
          {{mentorship.mentee.firstname.substring(0, 1) + mentorship.mentee.lastname.substring(0, 1)}}
         </div>
@@ -293,7 +293,7 @@ LINEAR VIEW HOME
  <ms-widget class="gb-add-component-widget" layout="column" flex="33">
   <ms-widget-front layout="row" layout-fill flex>
    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
-              layout="row" layout-align="start stretch" flex>
+              layout="row" layout-align="start stretch">
     <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
      <i class="fa icon-tree"></i>
     </div>
@@ -311,7 +311,7 @@ LINEAR VIEW HOME
  <ms-widget class="gb-add-component-widget" layout="column" flex="33">
   <ms-widget-front layout="row" layout-fill flex>
    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-              layout="row" layout-align="start stretch" flex>
+              layout="row" layout-align="start stretch">
     <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
      <i class="fa fa-file-text-o"></i>
     </div>
@@ -329,7 +329,7 @@ LINEAR VIEW HOME
  <ms-widget class="gb-add-component-widget" layout="column" flex="33">
   <ms-widget-front layout="row" layout-fill flex>
    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.activities)" class="gb-main-button"
-              layout="row" layout-align="start stretch" flex>
+              layout="row" layout-align="start stretch">
     <div class="gb-title-icon indigo-400-fg" layout-fill layout="row" layout-align="center center" flex>
      <i class="fa icon-gb-activity"></i>
     </div>
@@ -359,7 +359,7 @@ LINEAR VIEW HOME
       </div>
       <span flex></span>
       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
-                 class="gb-action-btn">
+                 class="gb-action-btn" aria-label="Add Section Item">
        <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
       </md-button>
      </div>
@@ -433,7 +433,7 @@ LINEAR VIEW HOME
       </div>
       <span flex></span>
       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
-                 class="gb-action-btn">
+                 class="gb-action-btn" aria-label="Add Section Item">
        <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
       </md-button>
      </div>

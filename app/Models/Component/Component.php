@@ -252,7 +252,7 @@ class Component extends Model {
   *
   * @return type components collection
   */
- public static function getSubComponents($componentId, $appType, $depth = 0) {
+ public static function getSubComponents($componentId, $appType, $depth = 1) {
   $components = Component::orderBy('id', 'asc')
           ->where('parent_component_id', $componentId)
           ->whereHas('type', function($q) use($appType) {
@@ -269,7 +269,7 @@ class Component extends Model {
           ->take(50)
           ->get();
 
-  if ($depth > 0) {
+  if ($depth > 1) {
    foreach ($components as $component) {
     $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
     $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
@@ -341,7 +341,7 @@ class Component extends Model {
   * @param type $listFormat column, row or linear. Default column view
   * @return component
   */
- public static function getComponent($componentId, $listFormat) {
+ public static function getComponent($componentId, $listFormat, $depth) {
   $component = Component::orderBy('id', 'asc')
           ->with('type')
           ->with('creator')
@@ -362,7 +362,7 @@ class Component extends Model {
     self::formatComponentByLinear($component);
     break;
    case Level::$componentJsonFormat["tree"]:
-    self::formatComponentByTree($component);
+    self::formatComponentByTree($component, $depth);
     break;
    default:
     $component["components"] = self::getSubComponents($componentId, null, 1);
@@ -558,8 +558,8 @@ class Component extends Model {
   $component["motives"] = $components;
  }
 
- private static function formatComponentByTree($component) {
-  $component["components"] = Component::getSubComponents($component->id, 8);
+ private static function formatComponentByTree($component, $depth) {
+  $component["components"] = Component::getSubComponents($component->id, null, $depth);
   return $component;
  }
 

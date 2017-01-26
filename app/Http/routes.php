@@ -59,6 +59,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('components/user/{userId}/listformat/{listFormat}', 'Component\ComponentController@getUserComponents');
  Route::get('components/user/{userId}/type/{typeId}', 'Component\ComponentController@getUserComponentsByType');
  Route::get('components/{componentId}/listformat/{listFormat}', 'Component\ComponentController@getComponent');
+ Route::get('components/{componentId}/listformat/{listFormat}/depth/{depth}', 'Component\ComponentController@getComponent');
+
  Route::get('component/{componentId}/questions', 'Component\ComponentController@getComponentQuestions');
  Route::post('components/create', 'Component\ComponentController@createComponent');
  Route::post('components/editstatus', 'Component\ComponentController@editComponentStatus');

@@ -1,4 +1,5 @@
-﻿1	NULL	2	Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	0000-00-00 00:00:00	7001	2	apartment-1.jpg		41979.90486	42463.42708	2	10001	10001	0
+id	parent_level_id	title	code	description	long_description	icon	background_color								
+1	NULL	2	Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	0000-00-00 00:00:00	7001	2	apartment-1.jpg		41979.90486	42463.42708	2	10001	10001	0
 2	NULL	6	Learning Spanish		0000-00-00 00:00:00	7001	18	spanish.jpg		41687.63419	42462.5713	13	10001	1	0
 3	NULL	9	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	0000-00-00 00:00:00	7001	4	800201.png		41735.66944	42460.90139	1	10001	10001	0
 4	62	2	Learn Spanish		0000-00-00 00:00:00	7001	2	spanish.jpg		41687.63425	42460.90069	3	10001	10011	0
@@ -8171,7 +8172,7 @@
 8182	8168	2	Decide what needs to be measured and calculated		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
 8183	8168	2	"Observe and record data using appropriate methods, tools and technology"		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
 8184	8168	2	Make estimates and verify calculations		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
-8185	NULL	13	Web Development Interview Preparation		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
+8185	8456	13	Web Development Interview Preparation		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
 8186	8185	2	Web related Programming Languages		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
 8187	8186	2	PhP		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
 8188	8186	2	JavaScript		NULL	7001	2	default.png		41976.12355	42004.75758	0	10002	1	0
@@ -8461,7 +8462,7 @@ http://www.example.com/foo.html - subdomain"	NULL	7001	2	default.png		41976.1235
 8453	8450	11001	Noone feels just as you do		NULL	7001	2	default.png		42755.94383	42755.94383	NULL	10002	1	0
 8454	8439	11005	Save lots of time on unimportant decisions 	 	NULL	7001	2	default.png		42755.94517	42755.94517	NULL	10002	1	0
 8455	8454	11100	Which movie should I watch 	 	NULL	7001	2	default.png		42755.94627	42755.94627	NULL	10002	1	0
-8456	NULL	13	Software Engineering Interview Practise	This is to keep on practicing and staying uptodate	NULL	7001	2	default.png		42758.00243	42758.00243	NULL	10002	1	0
+8456	46	13	Software Engineering Interview Practise	This is to keep on practicing and staying uptodate	NULL	7001	2	default.png		42758.00243	42758.00243	NULL	10002	1	0
 8457	8456	2	Technical Interview	 	NULL	7001	2	default.png		42758.0036	42758.17066	NULL	10002	1	0
 8458	8457	2	Coding	 	NULL	7001	2	default.png		42758.00381	42758.00381	NULL	10002	1	0
 8459	8457	2	Algorithms		NULL	7001	2	default.png		42758.00394	42758.00394	NULL	10002	1	0
@@ -8543,7 +8544,7 @@ http://www.example.com/foo.html - subdomain"	NULL	7001	2	default.png		41976.1235
 8535	8532	11001	Linear array: n/a Dynamic array: O(n)	 	NULL	7001	2	default.png		42758.93476	42758.93476	NULL	10002	1	0
 8536	8512	11001	Linked List		NULL	7001	2	default.png		42758.93552	42758.93552	NULL	10002	1	0
 8537	8512	11001	Hash Table or Hash Map		NULL	7001	2	default.png		42758.93568	42758.93568	NULL	10002	1	0
-8538	8512	11001	Binary Tree		NULL	7001	2	default.png		42758.93583	42758.93583	NULL	10002	1	0
+8538	8512	11001	Trees		NULL	7001	2	default.png		42758.93583	42760.25431	NULL	10002	1	0
 8539	8512	11001	Search Basics		NULL	7001	2	default.png		42758.9364	42758.9364	NULL	10002	1	0
 8540	8536	11001	Stores data with nodes that point to other nodes	 	NULL	7001	2	default.png		42758.96226	42758.96226	NULL	10002	1	0
 8541	8536	11001	"Nodes, at its most basic it has one datum and one reference to another node"		NULL	7001	2	default.png		42758.96291	42758.96291	NULL	10002	1	0
@@ -8573,3 +8574,14 @@ http://www.example.com/foo.html - subdomain"	NULL	7001	2	default.png		41976.1235
 8565	8560	11002	"Have less spare time, schedule your day with activities that nourish you  "		NULL	7001	2	default.png		42759.00469	42759.00488	NULL	10002	1	0
 8566	8560	11002	"Read or write a book, "		NULL	7001	2	default.png		42759.00582	42759.00582	NULL	10002	1	0
 8567	8566	11005	What to do while waiting for the train	 	NULL	7001	2	default.png		42759.00657	42759.00657	NULL	10002	1	0
+8568	8560	11002	Get Active		NULL	7001	2	default.png		42759.72731	42759.72731	NULL	10002	1	0
+8569	8538	11003	Binary Tree vs Binary Search Tree	 	NULL	7001	2	default.png		42760.25486	42760.25486	NULL	10002	1	0
+8570	8569	11001	Binary Search Tree	 	NULL	7001	2	default.png		42760.25801	42760.25801	NULL	10002	1	0
+8571	8570	11001	"The key in each node must be greater than all keys stored in the left sub-tree, and not greater than any key in the right sub-tree"	 	NULL	7001	2	default.png		42760.25883	42760.25883	NULL	10002	1	0
+8572	8538	11003	Balanced vs Unbalanced Trees		NULL	7001	2	default.png		42760.2595	42760.2595	NULL	10002	1	0
+8573	8572	11001	Discuss average case and worst case scenario	 	NULL	7001	2	default.png		42760.26061	42760.26061	NULL	10002	1	0
+8574	8188	11100	Event Delegation?	 	NULL	7001	2	default.png		42760.39655	42760.39655	NULL	10002	1	0
+8575	8574	11001	"JS events listeners fire not only on singles DOM elements, but on all its descendants "	 	NULL	7001	2	default.png		42760.39745	42760.39745	NULL	10002	1	0
+8576	8188	11100	Event Bubbling?		NULL	7001	2	default.png		42760.39771	42760.39771	NULL	10002	1	0
+8577	8576	11001	"Inverse of delegation, up "	 	NULL	7001	2	default.png		42760.39839	42760.39839	NULL	10002	1	0
+8578	8188	11001	IIFE	Immediately invoked function expression	NULL	7001	2	default.png		42760.40081	42760.40125	NULL	10002	1	0

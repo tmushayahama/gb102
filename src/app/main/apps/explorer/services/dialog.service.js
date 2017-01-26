@@ -12,8 +12,10 @@
   var service = {
    openCardDialog: openCardDialog,
    openAddComponentDialog: openAddComponentDialog,
+   openAddComponentsDialog: openAddComponentsDialog,
    openComponentDialog: openComponentDialog,
-   openComponentSectionDialog: openComponentSectionDialog
+   openComponentSectionDialog: openComponentSectionDialog,
+   startComponentStoryDialog: startComponentStoryDialog,
   };
 
   //////////
@@ -56,13 +58,35 @@
     templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
     controllerAs: 'vm',
-    parent: $document.find('#explorer'),
+    // parent: $document.find('#explorer'),
     targetEvent: ev,
     clickOutsideToClose: false,
     escapeToClose: true,
     locals: {
      startTabIndex: startTabIndex,
      preselectedData: preselectedData,
+     componentId: componentId
+    }
+   });
+  }
+
+  /**
+   *  Adds components in bulk
+   *
+   * @param {type} ev event of the dialog
+   * @param {type} componentId the starting parent component id
+   * @returns {undefined}
+   */
+  function openAddComponentsDialog(ev, componentId) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
+    controller: 'ExplorerAddComponentsDialogController',
+    controllerAs: 'vm',
+    // parent: $document.find('#explorer'),
+    targetEvent: ev,
+    clickOutsideToClose: false,
+    escapeToClose: true,
+    locals: {
      componentId: componentId
     }
    });
@@ -108,6 +132,28 @@
     locals: {
      componentId: componentId,
      section: section
+    }
+   });
+  }
+
+  /**
+   * Starts a story slide from componentId
+   *
+   * @param {type} ev
+   * @param {type} componentId
+   * @returns {undefined}
+   */
+  function startComponentStoryDialog(ev, componentId) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/components/dialogs/component-story/component-story-dialog.html',
+    controller: 'ComponentStoryDialogController',
+    controllerAs: 'vm',
+    // parent: $document.find('#explorer'),
+    targetEvent: ev,
+    clickOutsideToClose: false,
+    escapeToClose: true,
+    locals: {
+     componentId: componentId
     }
    });
   }

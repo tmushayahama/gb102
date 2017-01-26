@@ -65,8 +65,8 @@ class ComponentController extends Controller {
   * @param type $listFormat column, row or linear. Default column view
   * @return json response of a components
   */
- public function getComponent($componentId, $listFormat = 1) {
-  $component = Component::getComponent($componentId, $listFormat);
+ public function getComponent($componentId, $listFormat = 1, $depth = 1) {
+  $component = Component::getComponent($componentId, $listFormat, $depth);
   return \Response::json($component);
  }
 

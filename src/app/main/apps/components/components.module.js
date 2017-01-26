@@ -19,6 +19,12 @@
     id: "@id",
     listformat: "@listformat"
    }]);
+  msApiProvider.register('component.componentWithDepth', ['/api/components/:id/listformat/:listFormat/depth/:depth',
+   {
+    id: "@id",
+    listformat: "@listformat",
+    depth: "@depth"
+   }]);
   msApiProvider.register('component.createComponent', ['/api/components/create']);
   msApiProvider.register('component.updateComponent', ['/api/components/update']);
   msApiProvider.register('component.updateComponentDescription', ['/api/components/:componentId/update/description', {

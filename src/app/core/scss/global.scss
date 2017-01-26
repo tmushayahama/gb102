@@ -28,6 +28,7 @@
 @import 'partials/print';
 
 $gb-primary-color: material-color('light-blue', '800');
+$gb-secondary-color: material-color('orange', '300');
 
 * {
  -ms-word-break: break-all;
@@ -1377,6 +1378,97 @@ md-tabs {
   }
  }
 }
+
+.gb-story-entry-widget {
+ padding: 0;
+ //height: 300px;
+ ms-widget-front {
+  padding: 0 8px;
+  background-color: #F2F2F2;
+ }
+ ms-widget-back {
+  background-color: #F2F2F2;
+  padding: 0 8px;
+  .gb-title {
+   text-align: left;
+   padding: 0 10px;
+   font-size: 15px;
+   font-weight: bold;
+  }
+ }
+ .gb-type-title {
+  padding: 0px 10px;
+  color: #AAA;
+  font-size: 12px;
+  text-transform: uppercase;
+ }
+ .gb-title {
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 25px;
+ }
+ .gb-description {
+  padding: 0 10px;
+  font-size: 15px;
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #EEE;
+   font-size: 250px;
+   width: 250px;
+   min-width: 250px;
+   max-width: 250px;
+  }
+ }
+
+ .gb-card-profile {
+  background-color: transparent;
+ }
+}
+
+.gb-component-story-widget {
+ height: 250px;
+ ms-widget-front {
+  background-color: #F2F2F2;
+ }
+ .gb-count {
+  font-size: 40px;
+ }
+ .gb-title {
+  font-size: 18px;
+  text-transform: uppercase;
+ }
+ .gb-details-btn {
+  @include position(absolute, 5px  5px null null);
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #E2E5E5;
+   font-size: 120px;
+   width: 120px;
+   min-width: 120px;
+   max-width: 120px;
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 100px;
+  .gb-count {
+   font-size: 22px;
+  }
+  .gb-title {
+   font-size: 9px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    font-size: 80px;
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+   }
+  }
+ }
+}
+
 
 .gb-add-component-widget {
  padding:0!important;

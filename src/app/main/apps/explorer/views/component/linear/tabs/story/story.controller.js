@@ -18,7 +18,7 @@
   ///////////
 
   //Methods
-  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
+  vm.startComponentStoryDialog = DialogService.startComponentStoryDialog;
 
 
  }

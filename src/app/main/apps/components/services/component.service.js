@@ -138,13 +138,23 @@
    *
    * @param componentId
    * @param listFormat
+   * @param depth if a tree then depth is needed, default is 1
    * @returns promise of the deferred response
    */
-  function getComponent(componentId, listFormat, page) {
+  function getComponent(componentId, listFormat, depth) {
    var deferred = $q.defer();
 
-   msApi.request('component.component@get',
-           {id: componentId, listFormat: listFormat},
+   var url = {
+    name: 'component.component@get',
+    params: {id: componentId, listFormat: listFormat}
+   };
+
+   if (depth) {
+    url.name = 'component.componentWithDepth@get';
+    url.params.depth = depth;
+   }
+
+   msApi.request(url.name, url.params,
            function (response) {
             deferredHandler(response, deferred);
            },
