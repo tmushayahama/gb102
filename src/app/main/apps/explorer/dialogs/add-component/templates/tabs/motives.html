@@ -1,0 +1,44 @@
+<!-- MOTIVE -->
+<div class="gb-dialog-header">
+ <div layout="column" layout-align="start start" flex>
+  <md-toolbar class="gb-heading">
+   <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" md-prevent-menu-close
+               ng-click="vm.tabBack()" aria-label="Back"
+               ng-if="vm.selectedTabHistory.length > 1"
+               translate translate-attr-aria-label="explorer.back_text">
+     <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
+    </md-button>
+    <div class="gb-heading-title">
+     <span class="ellipsis">
+      Create {{vm.selectedApp.title}}
+     </span>
+    </div>
+    <span flex></span>
+   </div>
+  </md-toolbar>
+ </div>
+</div>
+<div class="gb-dialog-body" ms-scroll>
+ <div class="widget-group" layout="row" flex="100" layout-wrap>
+  <ms-widget ng-repeat="app in $root.commonData.motives" class="p-8 gb-section-widget"
+             ng-click="vm.selectApp(app)" layout="column" flex="100">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
+               layout="row" layout-align="start stretch" flex>
+     <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{app.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+      <div class="gb-title">
+       {{app.title}}
+      </div>
+      <div class="gb-description">
+       {{app.long_description}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
+</div>

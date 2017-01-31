@@ -13,8 +13,10 @@
 
 //Data
   vm.storyTabIndex = 0;
+  vm.startIndices = [];
   vm.component = [];
   vm.currentComponent = [];
+  vm.downDisabled = false;
 //Method
   vm.closeDialog = closeDialog;
   vm.getComponents = getComponents;
@@ -33,19 +35,30 @@
    $mdDialog.hide();
   }
 
-  function getComponents(id, listType, depth) {
+  function getComponents(id, listType, depth, up) {
    ComponentService.getComponent(id, listType, depth).then(function (data) {
-    vm.component = data;
-    vm.currentComponent = vm.component.components ? vm.component.components[0] : vm.component;
+    if (data.components.length > 0) {
+     vm.component = data;
+     if (up) {
+      vm.storyTabIndex = vm.startIndices.length > 0 ? vm.startIndices.pop() : 0;
+     } else {
+      vm.startIndices.push(vm.storyTabIndex);
+      vm.storyTabIndex = 0;
+     }
+     vm.currentComponent = vm.component.components[vm.storyTabIndex];
+     vm.downDisabled = false;
+    } else {
+     vm.downDisabled = true;
+    }
    });
   }
 
   function goUp() {
    var id = vm.component.parent_component_id;
    if (id) {
-    getComponents(id, 6, 1);
+    getComponents(id, 6, 1, true);
    }
-   vm.storyTabIndex = 0;
+   // vm.storyTabIndex = 0;
   }
 
   function goDown() {
@@ -54,7 +67,7 @@
     if (id) {
      getComponents(id, 6, 1);
     }
-    vm.storyTabIndex = 0;
+    // vm.storyTabIndex = 0;
    }
   }
 
@@ -62,6 +75,7 @@
    if (vm.storyTabIndex !== 0) {
     vm.storyTabIndex--;
     vm.currentComponent = vm.component.components[vm.storyTabIndex];
+    vm.downDisabled = false;
    }
   }
 
@@ -69,6 +83,7 @@
    if (vm.storyTabIndex < vm.component.components.length) {
     vm.storyTabIndex++;
     vm.currentComponent = vm.component.components[vm.storyTabIndex];
+    vm.downDisabled = false;
    }
   }
 

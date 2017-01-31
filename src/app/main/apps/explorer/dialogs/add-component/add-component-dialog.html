@@ -290,500 +290,111 @@ ADD COMPONENT DIALOG
  </md-toolbar>
  <md-dialog-content layout="row" layout-fill>
   <md-tabs class="gb-app-tabs" md-selected="vm.formTabIndex" flex>
+   <!-- SECTIONS-->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group"
-            layout="row" layout-align="start" layout-wrap flex>
-        <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectTab(vm.tabs.contributions)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon md-deep-purple-400-bg" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa icon-users"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             REQUEST CONTRIBUTIONS
-            </div>
-            <div class="gb-description">
-             Lists all users who have contributed to this skill.
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-        <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectTab(vm.tabs.apps)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon md-lime-400-bg" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa icon-tree"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             ADD COMPONENTS
-            </div>
-            <div class="gb-description">
-             Lists all users who have contributed to this skill.
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-        <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectTab(vm.tabs.motives)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon md-green-400-bg" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa fa-file-text-o"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             ADD BACKGROUND
-            </div>
-            <div class="gb-description">
-             Lists all users who have contributed to this skill.
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-        <ms-widget class="p-8 gb-section-widget" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectTab(vm.tabs.activities)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon md-indigo-400-bg" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa icon-gb-activity"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             ADD ACTIVITIES
-            </div>
-            <div class="gb-description">
-             Lists all users who have contributed to this skill.
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-       </div>
-      </div>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- APP -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group" layout="row" layout-wrap>
-        <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-section-widget"
-                   ng-click="vm.selectApp(app)" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa {{app.icon}}"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             {{app.title}}
-            </div>
-            <div class="gb-description">
-             {{app.long_description}}
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-       </div>
-      </div>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- ACTIVITY -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group" layout="row" layout-wrap>
-        <ms-widget ng-repeat="app in $root.commonData.activities" class="p-8 gb-section-widget"
-                   ng-click="vm.selectApp(app)" layout="column" flex="50">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa {{app.icon}}"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             {{app.title}}
-            </div>
-            <div class="gb-description">
-             {{app.long_description}}
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-       </div>
-      </div>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- MOTIVE -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group" layout="row" flex="100" layout-wrap>
-        <ms-widget ng-repeat="app in $root.commonData.motives" class="p-8 gb-section-widget"
-                   ng-click="vm.selectApp(app)" layout="column" flex="100">
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon {{app.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa {{app.icon}}"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             {{app.title}}
-            </div>
-            <div class="gb-description">
-             {{app.long_description}}
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-       </div>
-      </div>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- CONTRIBUTION TYPES -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <div class="gb-dialog-body" ms-scroll>
-       <div class="widget-group"
-            layout="row" layout-align="start" layout-wrap flex>
-        <ms-widget class="p-8 gb-section-widget" layout="column" flex="50"
-                   ng-repeat="contributionType in $root.commonData.contributionTypes">
-
-         <ms-widget-front layout="row" layout-fill flex>
-          <md-button ng-click="vm.selectAddContributors(contributionType)" class="gb-main-button"
-                     layout="row" layout-align="start stretch" flex>
-           <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
-            <i class="fa {{contributionType.icon}}"></i>
-           </div>
-           <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-            <div class="gb-title">
-             REQUEST {{contributionType.title}}
-            </div>
-            <div class="gb-description">
-             {{contributionType.long_description}}
-            </div>
-           </div>
-          </md-button>
-         </ms-widget-front>
-        </ms-widget>
-       </div>
-      </div>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- CONTRIBUTION -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Add {{vm.componentContribution.contributorType.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <form class="gb-dialog-body" ms-scroll>
-       <div class="gb-members" flex>
-        <div class="section-content">
-         <md-chips class="gb-member-chips" ng-model="vm.componentContribution.selectedContributors" md-autocomplete-snap
-                   md-require-match="true" md-transform-chip="$chip">
-          <md-autocomplete
-           md-selected-item="vm.componentContribution.selectedContributor"
-           md-search-text="vm.searchContributorText"
-           md-items="member in vm.contributionSuggestionsQuerySearch(vm.searchContributorText)"
-           md-item-text="member.firstname+' '+member.lastname"
-           placeholder="Search for a member">
-           <span md-highlight-text="vm.searchContributorText">
-            {{member.firstname + ' ' + member.lastname}}
-           </span>
-          </md-autocomplete>
-          <md-chip-template class="gb-member-chip">
-           <img class="gb-member-chip-avatar" src="src/assets/images/profile_pic/{{$chip.avatar_url}}" alt="">
-           <strong>{{$chip.firstname + ' ' + $chip.lastname}}</strong>
-          </md-chip-template>
-          <button md-chip-remove class="md-primary">
-           <md-icon md-font-icon="icon-close" class="s18"></md-icon>
-          </button>
-         </md-chips>
-        </div>
-       </div>
-       <div class="description">
-        <md-input-container class="md-block">
-         <label>Personalize the invite with a note</label>
-         <textarea ng-model="vm.componentContribution.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
-        </md-input-container>
-       </div>
-      </form>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- MENTORSHIP  -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            {{vm.mentorshipRequest.selected.description}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <form class="gb-dialog-body" ms-scroll>
-       <div class="gb-members" flex>
-        <div class="section-content">
-         <md-chips class="gb-member-chips" ng-model="vm.mentorshipRequest.mentors" md-autocomplete-snap
-                   md-require-match="true" md-transform-chip="$chip">
-          <md-autocomplete
-           md-selected-item="vm.mentorshipRequest.mentor"
-           md-search-text="vm.searchMentorText"
-           md-items="member in vm.mentorshipRequestSuggestionsQuerySearch(vm.searchMentorText)"
-           md-item-text="member.firstname+' '+member.lastname"
-           placeholder="Search for a member">
-           <span md-highlight-text="vm.searchMentorText">
-            {{member.firstname + ' ' + member.lastname}}
-           </span>
-          </md-autocomplete>
-          <md-chip-template class="gb-member-chip">
-           <img class="gb-member-chip-avatar" src="src/assets/images/profile_pic/{{$chip.avatar_url}}" alt="">
-           <strong>{{$chip.firstname + ' ' + $chip.lastname}}</strong>
-          </md-chip-template>
-          <button md-chip-remove class="md-primary">
-           <md-icon md-font-icon="icon-close" class="s18"></md-icon>
-          </button>
-         </md-chips>
-        </div>
-       </div>
-       <div class="description">
-        <md-input-container class="md-block">
-         <textarea ng-model="vm.mentorshipRequest.form.title" placeholder="Title" md-required columns="1" md-maxlength="150" max-rows="4"></textarea>
-        </md-input-container>
-       </div>
-       <div class="description">
-        <md-input-container class="md-block">
-         <label>Personalize the invite with a note</label>
-         <textarea ng-model="vm.mentorshipRequest.form.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
-        </md-input-container>
-       </div>
-      </form>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests.html'"></div>
     </md-tab-body>
    </md-tab>
    <!-- FILL -->
    <md-tab>
     <md-tab-body>
-     <div class="gb-app-tab-content">
-      <div class="gb-dialog-header">
-       <div layout="column" layout-align="start start" flex>
-        <md-toolbar class="gb-heading">
-         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" md-prevent-menu-close
-                     ng-click="vm.tabBack()" aria-label="Back"
-                     ng-if="vm.selectedTabHistory.length > 1"
-                     translate translate-attr-aria-label="explorer.back_text">
-           <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-          </md-button>
-          <div class="gb-heading-title">
-           <span class="ellipsis">
-            Create {{vm.selectedApp.title}}
-           </span>
-          </div>
-          <span flex></span>
-         </div>
-        </md-toolbar>
-       </div>
-      </div>
-      <form class="gb-dialog-body" ms-scroll>
-       <div layout="row" layout-align="space-between start">
-        <div ng-if="vm.component.due" class="due-date" layout="row" layout-align="start center">
-         <div class="picker day-picker" moment-picker="vm.component.due" format="x" min-view="year" max-view="month"
-              start-view="month">
-          <div layout="row" layout-align="start center">
-           <i class="s18 icon icon-calendar"></i>
-           <span>{{vm.component.due| date:'mediumDate'}}</span>
-          </div>
-         </div>
-         <div class="picker hour-picker" moment-picker="vm.component.due" format="x" min-view="day" max-view="hour"
-              start-view="day">
-          <div layout="row" layout-align="start center">
-           <i class="s18 icon icon-clock"></i>
-           <span>{{vm.component.due| date:'shortTime'}}</span>
-          </div>
-         </div>
-         <div class="remove-due-date" layout="row" layout-align="center center" ng-click="vm.component.due = ''">
-          <i class="s16 icon icon-close"></i>
-         </div>
-        </div>
-        <!-- / DUE DATE -->
-       </div>
-       <div class="gb-title">
-        <md-input-container class="md-block">
-         <label translate="explorer.title_text">Title</label>
-         <textarea ng-model="vm.component.title" columns="1" md-maxlength="150" max-rows="2"></textarea>
-        </md-input-container>
-       </div>
-       <div class="description">
-        <md-input-container class="md-block">
-         <label translate="explorer.description_text">Description</label>
-         <textarea ng-model="vm.component.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
-        </md-input-container>
-       </div>
-      </form>
-     </div>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- BULK ADD -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mass-addition.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- MASS ADD SELECT COMPONENT TYPE -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- APP -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- ACTIVITY -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- MOTIVE -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- CONTRIBUTION TYPES -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- CONTRIBUTION -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- MENTORSHIP  -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests-step.html'"></div>
+    </md-tab-body>
+   </md-tab>
+   <!-- FILL -->
+   <md-tab>
+    <md-tab-body>
+     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps-step.html'"></div>
     </md-tab-body>
    </md-tab>
   </md-tabs>
  </md-dialog-content>
- <md-dialog-actions layout="row">
+ <md-dialog-actions ng-if="vm.submitType.showButtons === vm.submitType.showButtonsType.create" layout="row">
   <span flex></span>
   <md-button class="md-raised" ng-click="vm.closeDialog()">
    Cancel
@@ -809,6 +420,21 @@ ADD COMPONENT DIALOG
   </md-menu>
   <md-button class="md-raised md-accent" ng-click="vm.submit()">
    Create
+  </md-button>
+ </md-dialog-actions>
+ <md-dialog-actions ng-if="vm.submitType.showButtons === vm.submitType.showButtonsType.next" layout="row">
+  <span flex></span>
+  <md-button class="md-raised" ng-click="vm.closeDialog()">
+   Done
+  </md-button>
+  <md-button class="md-raised md-accent" ng-click="vm.submit()">
+   Continue
+  </md-button>
+ </md-dialog-actions>
+ <md-dialog-actions ng-if="vm.submitType.showButtons === vm.submitType.showButtonsType.finish" layout="row">
+  <span flex></span>
+  <md-button class="md-raised md-accent" ng-click="vm.closeDialog()">
+   Done
   </md-button>
  </md-dialog-actions>
 </md-dialog>

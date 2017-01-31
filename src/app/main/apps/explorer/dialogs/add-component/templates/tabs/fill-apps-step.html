@@ -1,0 +1,58 @@
+
+<!-- FILL -->
+<div class="gb-dialog-header">
+ <div layout="column" layout-align="start start" flex>
+  <md-toolbar class="gb-heading">
+   <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" md-prevent-menu-close
+               ng-click="vm.tabBack()" aria-label="Back"
+               ng-if="vm.selectedTabHistory.length > 1"
+               translate translate-attr-aria-label="explorer.back_text">
+     <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
+    </md-button>
+    <div class="gb-heading-title">
+     <span class="ellipsis">
+      Create {{vm.selectedApp.title}}
+     </span>
+    </div>
+    <span flex></span>
+   </div>
+  </md-toolbar>
+ </div>
+</div>
+<form class="gb-dialog-body" ms-scroll>
+ <div layout="row" layout-align="space-between start">
+  <div ng-if="vm.component.due" class="due-date" layout="row" layout-align="start center">
+   <div class="picker day-picker" moment-picker="vm.component.due" format="x" min-view="year" max-view="month"
+        start-view="month">
+    <div layout="row" layout-align="start center">
+     <i class="s18 icon icon-calendar"></i>
+     <span>{{vm.component.due| date:'mediumDate'}}</span>
+    </div>
+   </div>
+   <div class="picker hour-picker" moment-picker="vm.component.due" format="x" min-view="day" max-view="hour"
+        start-view="day">
+    <div layout="row" layout-align="start center">
+     <i class="s18 icon icon-clock"></i>
+     <span>{{vm.component.due| date:'shortTime'}}</span>
+    </div>
+   </div>
+   <div class="remove-due-date" layout="row" layout-align="center center" ng-click="vm.component.due = ''">
+    <i class="s16 icon icon-close"></i>
+   </div>
+  </div>
+  <!-- / DUE DATE -->
+ </div>
+ <div class="gb-title">
+  <md-input-container class="md-block">
+   <label translate="explorer.title_text">Title</label>
+   <textarea ng-model="vm.component.title" columns="1" md-maxlength="150" max-rows="2"></textarea>
+  </md-input-container>
+ </div>
+ <div class="description">
+  <md-input-container class="md-block">
+   <label translate="explorer.description_text">Description</label>
+   <textarea ng-model="vm.component.description" columns="1" md-maxlength="150" max-rows="4"></textarea>
+  </md-input-container>
+ </div>
+</form>

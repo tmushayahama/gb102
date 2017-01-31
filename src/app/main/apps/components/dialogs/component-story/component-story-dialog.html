@@ -33,8 +33,8 @@ COMPONENT STORY DIALOG
      <i class="fa fa-chevron-left"></i>
     </md-button>
    </div>
-   <div class="widget-group gb-card-row" layout-fill layout-align="center center" layout="row" flex="100">
-    <ms-widget flippable="true" class="gb-story-entry-widget" layout="column" layout-fill>
+   <div class="widget-group gb-card-row" layout="column" layout-align="start stretch" flex="100">
+    <ms-widget flippable="true" class="gb-story-entry-widget" layout="column" layout-align="start stretch" flex="100">
      <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
       <div layout="column" layout-align="center center" flex>
        <div class="gb-type-title">
@@ -44,6 +44,9 @@ COMPONENT STORY DIALOG
         <a ui-sref="app.componentLinearView.home({id:vm.currentComponent.id})">
          {{vm.currentComponent.title}}
         </a>
+       </div>
+       <div class="gb-description">
+        {{vm.currentComponent.description}}
        </div>
        <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
         Details
@@ -89,7 +92,7 @@ COMPONENT STORY DIALOG
    </div>
   </div>
   <div class="gb-container gb-arrow-container gb-down-arrow" layout="column" layout-align="start center" flex>
-   <md-button class="md-raised" ng-class="{'gb-disabled':vm.component.components.length === 0}"
+   <md-button class="md-raised" ng-class="{'gb-disabled':vm.downDisabled}"
               ng-click="vm.goDown()">
     <i class="fa fa-chevron-down"></i>
    </md-button>

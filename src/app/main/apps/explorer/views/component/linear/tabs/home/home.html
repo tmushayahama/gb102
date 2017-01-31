@@ -201,7 +201,7 @@ LINEAR VIEW HOME
  <md-toolbar class="gb-heading">
   <div class="md-toolbar-tools">
    <md-button class="md-icon-button" aria-label="Description Icon">
-    <md-icon class="gb-title-icon" md-font-icon="fa icon-users"></md-icon>
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-mentorship"></md-icon>
    </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
@@ -211,7 +211,7 @@ LINEAR VIEW HOME
    <span flex></span>
   </div>
  </md-toolbar>
- <div ng-if="componentLinearCtrl.component.mentorships.length === 0" class='gb-section-no-info' flex='100'>
+ <div ng-if="componentLinearCtrl.component.mentorships.length === 0" class='gb-section-no-info' flex>
   No mentorships yet.
  </div>
  <div class="" layout="column" layout-align="start stretch" flex>
@@ -349,7 +349,7 @@ LINEAR VIEW HOME
  <ms-masonry class="components" options='{"columnCount":3, "respectItemOrder": true}'>
   <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.motives"
                    ng-if="section.components.length > 0">
-   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <div class="gb-motive-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
       <div class="gb-heading-title">
@@ -365,13 +365,16 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" ng-model="component.title" ng-model-options="{
-            updateOn: 'blur', debounce: 1000}"
-              class="gb-ellipsis" placeholder="Title" md-maxlength="250"
-              ng-change="componentLinearCtrl.updateComponentDescription(component)">
-      </md-input-container>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
+          layout="row" layout-align="start center">
+      <a class="" ui-sref="app.componentLinearView.home({id:component.id})" flex >
+       <div class="gb-ellipsis">
+        {{component.title}}
+       </div>
+      </a>
+      <div class="" flex>
+       {{component.stats.activities_count}}
+      </div>
       <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
       </md-button>

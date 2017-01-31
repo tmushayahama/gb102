@@ -14,7 +14,17 @@
                   "contributions": 4,
                   "contributors": 5,
                   "mentorshipRequest": 6,
-                  "fillApps": 7
+                  "fillApps": 7,
+                  "massAddition": 8,
+                  "sectionsStep": 9,
+                  "appsStep": 10,
+                  "activitiesStep": 11,
+                  "motivesStep": 12,
+                  "contributionsStep": 13,
+                  "contributorsStep": 14,
+                  "mentorshipRequestStep": 15,
+                  "fillAppsStep": 16,
+                  "finish": 17
                  })
          .constant('level_categories',
                  {

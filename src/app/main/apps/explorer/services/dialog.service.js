@@ -77,7 +77,7 @@
    * @param {type} componentId the starting parent component id
    * @returns {undefined}
    */
-  function openAddComponentsDialog(ev, componentId) {
+  function openAddComponentsDialog(ev, componentId, contents) {
    $mdDialog.show({
     templateUrl: 'src/app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
     controller: 'ExplorerAddComponentsDialogController',
@@ -87,7 +87,8 @@
     clickOutsideToClose: false,
     escapeToClose: true,
     locals: {
-     componentId: componentId
+     componentId: componentId,
+     contents: contents
     }
    });
   }
