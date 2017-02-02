@@ -2,7 +2,6 @@
 /*  ms-search-bar
 /*----------------------------------------------------------------*/
 .ms-search-bar {
- background-color: $gb-primary-color;
  height: $toolbarHeight;
  font-size: 13px;
  color: #FFF;
@@ -115,9 +114,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  //background: #FFFFFF;
+  color: #000;
+  background-color: #FFF;
   z-index: 10;
-
+  md-icon {
+   color: #999!important;
+  }
   #ms-search-bar-input {
    display: block;
   }

@@ -28,7 +28,7 @@
    <ms-widget-front layout="row" layout-fill flex>
     <md-button ng-click="vm.selectAddContributors(contributionType)" class="gb-main-button"
                layout="row" layout-align="start stretch" flex>
-     <div class="gb-title-icon {{contributionType.background_color}}" layout-fill layout="row" layout-align="center center" flex>
+     <div class="gb-title-icon" ng-class="'md-' + contributionType.background_color + '-400-bg'" layout-fill layout="row" layout-align="center center" flex>
       <i class="fa {{contributionType.icon}}"></i>
      </div>
      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>

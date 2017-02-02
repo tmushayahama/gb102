@@ -2,6 +2,10 @@
 <md-dialog class="gb-component-dialog" aria-label="Card Dialog" ng-cloak>
  <md-toolbar class="" ng-class="vm.component.background_color">
   <div class="md-toolbar-tools">
+   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+              translate translate-attr-aria-label="SB.CLOSE_DIALOG">
+    <md-icon md-font-icon="fa fa-arrow-left"></md-icon>
+   </md-button>
    <div class="due-date">
     <div ng-if="!vm.component.due" moment-picker="vm.component.due" format="x" min-view="year"
          max-view="hour"
@@ -32,7 +36,6 @@
      <md-icon md-font-icon="fa icon-paint-format" class="s20"></md-icon>
     </md-button>
    </ms-material-color-picker>
-   <!-- LABELS -->
    <md-menu md-offset="0 48" class="labels">
     <md-button class="md-icon-button" aria-label="Label" translate translate-attr-aria-label="SB.LABEL"
                ng-click="vm.labelTabIndex = 0; $mdOpenMenu($event)">
@@ -40,7 +43,6 @@
     </md-button>
     <md-menu-content class="labels-menu-content" width="4" ms-scroll>
      <md-tabs md-selected="vm.labelTabIndex" md-dynamic-height>
-      <!-- SELECT LABEL -->
       <md-tab>
        <md-tab-body>
         <md-menu-item>
@@ -81,9 +83,6 @@
         </md-menu-item>
        </md-tab-body>
       </md-tab>
-      <!-- / SELECT LABEL -->
-
-      <!-- ADD LABEL -->
       <md-tab>
        <md-tab-body>
         <div class="add-label-tab-content">
@@ -95,7 +94,6 @@
           </md-button>
           <span flex translate="SB.CREATE_LABEL">Create Label</span>
          </div>
-
          <div class="content" layout="column" layout-align="start stretch">
           <form ng-submit="vm.addNewLabel(); vm.labelTabIndex = 0" layout="column">
            <md-input-container class="no-errors-spacer" md-no-float>
@@ -125,8 +123,6 @@
         </div>
        </md-tab-body>
       </md-tab>
-      <!-- / ADD LABEL -->
-      <!-- EDIT LABEL -->
       <md-tab>
        <md-tab-body>
         <div class="edit-label-tab-content">
@@ -157,7 +153,6 @@
                class="icon-check s18"></i>
            </label>
           </div>
-
           <div layout="row" layout-align="end center" flex>
            <md-button class="remove-button md-icon-button"
                       type="submit" md-prevent-menu-close
@@ -169,61 +164,16 @@
           </div>
          </div>
         </div>
-
        </md-tab-body>
       </md-tab>
-      <!-- / EDIT LABEL -->
-
      </md-tabs>
     </md-menu-content>
    </md-menu>
-   <!-- / LABELS -->
-
-   <!-- MEMBERS -->
-   <md-menu md-offset="0 48" class="members">
-    <md-button class="md-icon-button" aria-label="Members" ng-click="$mdOpenMenu($event)">
-     <md-icon md-menu-origin md-font-icon="icon-account-multiple"></md-icon>
-    </md-button>
-
-    <md-menu-content class="members-menu-content" width="4" ms-scroll>
-     <md-menu-item>
-      <md-input-container class="no-errors-spacer" md-no-float>
-       <input placeholder="Search members..." autocomplete="off" type="text"
-              ng-model="vm.memberSearchText" translate
-              translate-attr-placeholder="SB.SEARCH_MEMBERS">
-      </md-input-container>
-     </md-menu-item>
-
-     <md-menu-item class="member" ng-repeat="member in vm.members| filter: vm.filterMember">
-      <md-button ng-click="vm.toggleInArray(member.id, vm.component.idMembers)" md-prevent-menu-close
-                 aria-label="toggle member" translate translate-attr-aria-label="SB.TOGGLE_MEMBER">
-       <div layout="row" layout-align="space-between center" flex>
-        <div layout="row" layout-align="start center">
-         <img alt="{{ member.name}}" ng-src="{{ member.avatar}}" class="avatar"/>
-         <p class="member-name">{{ member.name}}</p>
-        </div>
-        <i class="icon-check s16" ng-if="vm.exists(member.id, vm.component.idMembers)"></i>
-       </div>
-      </md-button>
-     </md-menu-item>
-    </md-menu-content>
-   </md-menu>
-   <!-- / MEMBERS -->
-
-   <!-- ATTACHMENT -->
-   <md-button class="md-icon-button" ng-click="" aria-label="Attachment"
-              translate translate-attr-aria-label="SB.ATTACHMENT">
-    <md-icon md-font-icon="icon-attachment"></md-icon>
-   </md-button>
-   <!-- / ATTACHMENT -->
-
-   <!-- CHECKLIST -->
    <md-menu md-offset="0 48px" class="checklist">
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="checklist"
                translate translate-attr-aria-label="SB.CHECKLIST">
      <md-icon md-menu-origin md-font-icon="icon-checkbox-marked"></md-icon>
     </md-button>
-
     <md-menu-content class="checklist-menu-content" width="4">
      <form ng-submit="vm.createCheckList()" layout="column" layout-align="start end">
       <md-input-container class="no-errors-spacer" md-no-float>
@@ -239,29 +189,6 @@
      </form>
     </md-menu-content>
    </md-menu>
-   <!-- / CHECKLIST -->
-
-   <!-- SUBSCRIBE -->
-   <md-menu md-offset="0 48px" class="subscribe">
-    <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="Subscribe"
-               translate translate-attr-aria-label="SB.SUBSCRIBE">
-     <md-icon md-menu-origin ng-if="vm.component.subscribed" md-font-icon="icon-eye"></md-icon>
-     <md-icon md-menu-origin ng-if="!vm.component.subscribed" md-font-icon="icon-eye-off"></md-icon>
-    </md-button>
-
-    <md-menu-content class="subscribe-menu-content" width="4">
-     <md-menu-item>
-      <md-button ng-click="vm.component.subscribed = !vm.component.subscribed" aria-label="Subscribed"
-                 translate translate-attr-aria-label="SB.SUBSCRIBED">
-       <span ng-if="!vm.component.subscribed" translate="SB.SUBSCRIBE">Subscribe</span>
-       <span ng-if="vm.component.subscribed" translate="SB.UNSUBSCRIBE">Unsubscribe</span>
-      </md-button>
-     </md-menu-item>
-    </md-menu-content>
-   </md-menu>
-   <!-- / SUBSCRIBE -->
-
-   <!-- OPTIONS -->
    <md-menu md-offset="0 48px" class="options">
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="Options"
                translate translate-attr-aria-label="SB.OPTIONS">
@@ -277,30 +204,21 @@
      </md-menu-item>
     </md-menu-content>
    </md-menu>
-   <!-- / OPTIONS -->
-
    <span flex></span>
-
    <md-button ui-sref="app.componentLinearView.home({id:vm.component.id})"
               class="md-icon-button"
               aria-label="Full Screen Componet">
     <md-icon md-font-icon="icon-fullscreen"></md-icon>
    </md-button>
-   <!-- CLOSE DIALOG BUTTON -->
    <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
               translate translate-attr-aria-label="SB.CLOSE_DIALOG">
     <md-icon md-font-icon="icon-close"></md-icon>
    </md-button>
-   <!-- / CLOSE DIALOG BUTTON -->
-
   </div>
  </md-toolbar>
-
- <!-- DIALOG CONTENT -->
  <md-dialog-content ms-scroll>
   <div layout="row" layout-align="space-between start">
    <div layout="column" layout-align="start stretch" flex>
-
    </div>
    <div ng-if="vm.component.due" class="due-date" layout="row" layout-align="start center">
     <div class="picker day-picker" moment-picker="vm.component.due" format="x" min-view="year" max-view="month"

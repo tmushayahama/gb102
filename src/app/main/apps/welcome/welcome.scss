@@ -355,8 +355,13 @@ $color-6: #077568;
  }
 
  .gb-welcome-section-2 {
+  position: relative;
   padding: 20px 0;
   background-color: #F0F0F0;
+  .gb-house-background-icon {
+   //@include position(absolute, 0 0 0 0);
+   font-size: 502px;
+  }
  }
 
  .gb-title {

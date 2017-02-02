@@ -7,9 +7,15 @@
          .run(runBlock);
 
  /** @ngInject */
- function runBlock($rootScope, $timeout, $state, editableThemes, localStorageService, $mdDialog, $mdSidenav)
+ function runBlock($rootScope, $timeout, $state, editableThemes, localStorageService, $mdTheming, $mdDialog, $mdSidenav)
  {
-  // 3rd Party Dependencies
+
+  var removeFunction = $mdTheming.setBrowserColor({
+   theme: 'default',
+   palette: 'accent',
+   hue: '200' // Default is '800'
+  });
+
   editableThemes.default.submitTpl = '<md-button class="md-icon-button" type="submit" aria-label="save"><md-icon md-font-icon="icon-checkbox-marked-circle" class="md-accent-fg md-hue-1"></md-icon></md-button>';
   editableThemes.default.cancelTpl = '<md-button class="md-icon-button" ng-click="$form.$cancel()" aria-label="cancel"><md-icon md-font-icon="icon-close-circle" class="icon-cancel"></md-icon></md-button>';
 
@@ -59,6 +65,7 @@
   {
    stateChangeStartEvent();
    stateChangeSuccessEvent();
+   removeFunction();
   });
  }
 })();

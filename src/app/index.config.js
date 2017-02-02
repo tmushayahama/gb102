@@ -7,16 +7,7 @@
          .config(config);
 
  /** @ngInject */
- function config(uiGmapGoogleMapApiProvider, $translateProvider, $provide, $authProvider, localStorageServiceProvider)
- {
-  // Put your common app configurations here
-
-  // uiGmapgoogle-maps configuration
-  uiGmapGoogleMapApiProvider.configure({
-   //    key: 'your api key',
-   v: '3.exp',
-   libraries: 'weather,geometry,visualization'
-  });
+ function config($mdThemingProvider, $translateProvider, $provide, $authProvider, localStorageServiceProvider) {
 
   localStorageServiceProvider
           .setPrefix('gb102')

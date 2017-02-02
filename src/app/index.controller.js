@@ -12,9 +12,8 @@
   var vm = this;
 
   // Data
+  fuseTheming.setActiveTheme("lightBlueTheme");
   vm.themes = fuseTheming.themes;
-
-
 
   api.config.apps.get({},
           function (data)

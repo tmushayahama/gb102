@@ -171,13 +171,11 @@ LINEAR VIEW HOME
           ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
           class="gb-heading-pic" alt="">
      {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
-
     </div>
    </div>
   </div>
  </div>
 </div>
-
 <div class="gb-container gb-section-row widget-group gb-section-widget-group md-whiteframe-1dp" flex
      layout="row" layout-align="start" flex>
  <ms-widget class="gb-add-component-widget" layout="column" flex="33"
@@ -349,7 +347,7 @@ LINEAR VIEW HOME
  <ms-masonry class="components" options='{"columnCount":3, "respectItemOrder": true}'>
   <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.motives"
                    ng-if="section.components.length > 0">
-   <div class="gb-motive-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <div class="gb-component-row-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
       <div class="gb-heading-title">
@@ -367,19 +365,22 @@ LINEAR VIEW HOME
     <div class="gb-card-content" flex>
      <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
           layout="row" layout-align="start center">
-      <a class="" ui-sref="app.componentLinearView.home({id:component.id})" flex >
+      <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
        <div class="gb-ellipsis">
         {{component.title}}
        </div>
       </a>
-      <div class="" flex>
+      <div ng-if="component.stats.activities_count > 0" class="gb-label-stats" flex>
        {{component.stats.activities_count}}
+       <i class="fa icon-gb-apply"></i>
       </div>
-      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-      </md-button>
+      <div class="gb-action-btn" flex>
+       <md-button ui-sref="app.componentLinearView.home({id:component.id})" class="md-icon-button" aria-label="open">
+        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+       </md-button>
+      </div>
      </div>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-add-component-form">
       <md-input-container class="md-block" md-no-float>
        <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
       </md-input-container>
@@ -389,7 +390,7 @@ LINEAR VIEW HOME
   </ms-masonry-item>
   <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.components"
                    ng-if="section.components.length > 0">
-   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <div class="gb-component-row-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
       <div class="gb-heading-title">
@@ -405,18 +406,24 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" ng-model="component.title"
-              ng-model-options="{
-                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
-              placeholder="Title" md-maxlength="250">
-      </md-input-container>
-      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-      </md-button>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
+          layout="row" layout-align="start center">
+      <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <div class="gb-ellipsis">
+        {{component.title}}
+       </div>
+      </a>
+      <div ng-if="component.stats.activities_count > 0" class="gb-label-stats" flex>
+       {{component.stats.activities_count}}
+       <i class="fa icon-gb-apply"></i>
+      </div>
+      <div class="gb-action-btn" flex>
+       <md-button ui-sref="app.componentLinearView.home({id:component.id})" class="md-icon-button" aria-label="open">
+        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+       </md-button>
+      </div>
      </div>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-add-component-form">
       <md-input-container class="md-block" md-no-float>
        <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
       </md-input-container>
@@ -426,7 +433,7 @@ LINEAR VIEW HOME
   </ms-masonry-item>
   <ms-masonry-item class="p-8" ng-repeat="section in componentLinearCtrl.component.activities"
                    ng-if="section.components.length > 0">
-   <div class="gb-editable-component-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <div class="gb-component-row-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
     <md-toolbar class="gb-heading" flex>
      <div class="md-toolbar-tools">
       <div class="gb-heading-title">
@@ -442,18 +449,24 @@ LINEAR VIEW HOME
      </div>
     </md-toolbar>
     <div class="gb-card-content" flex>
-     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'">
-      <md-input-container class="md-block" md-no-float>
-       <input type="text" ng-model="component.title"
-              ng-model-options="{
-                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(component)"
-              placeholder="Title" md-maxlength="250">
-      </md-input-container>
-      <md-button ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" class="gb-action-btn md-icon-button" aria-label="open">
-       <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
-      </md-button>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
+          layout="row" layout-align="start center">
+      <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <div class="gb-ellipsis">
+        {{component.title}}
+       </div>
+      </a>
+      <div ng-if="component.stats.activities_count > 0" class="gb-label-stats" flex>
+       {{component.stats.activities_count}}
+       <i class="fa icon-gb-apply"></i>
+      </div>
+      <div class="gb-action-btn" flex>
+       <md-button ui-sref="app.componentLinearView.home({id:component.id})" class="md-icon-button" aria-label="open">
+        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+       </md-button>
+      </div>
      </div>
-     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-title">
+     <form ng-submit="componentLinearCtrl.createComponent(section)" class="gb-add-component-form">
       <md-input-container class="md-block" md-no-float>
        <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
       </md-input-container>

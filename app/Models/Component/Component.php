@@ -236,8 +236,8 @@ class Component extends Model {
           ->take(10)
           ->get();
 
-
   foreach ($components as $component) {
+   $component["stats"] = self::getComponentStats($component->id);
    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
   }
   return $components;
@@ -272,6 +272,7 @@ class Component extends Model {
   if ($depth > 1) {
    foreach ($components as $component) {
     $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
+    $component["stats"] = self::getComponentStats($component->id);
     $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
    }
   }
