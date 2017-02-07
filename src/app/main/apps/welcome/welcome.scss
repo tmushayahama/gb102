@@ -15,185 +15,58 @@ $color-6: #077568;
 
 #gb-welcome {
 
- .gb-background-color-3 {
-  background-color: #DDD;
+ .gb-wall-h,
+ .gb-wall-v {
+  background-color: silver;
+  background-image: linear-gradient(335deg, material-color('brown', '800') 10px, transparent 10px),
+   linear-gradient(155deg, material-color('brown', '600') 10px, transparent 10px),
+   linear-gradient(335deg, material-color('brown', '800') 10px, transparent 10px),
+   linear-gradient(155deg, material-color('brown', '600') 10px, transparent 10px);
+  background-size: 26px 27px;
+  background-position: 0px 30px, 1px 46px, 39px 44px, 14px 6px;
+  //background-color: #F2F2F2;
  }
- .gb-lp-box-2 {
-  text-align: center;
-  position: relative;
-  margin: 0;
-  height: 200px;
+ .gb-wall-h {
+  @include position(absolute, null 0 0 0);
   width: 100%;
-  background-color: #FFF;
-  padding: 20px 5px;
-  overflow: hidden;
+  height:28px;
+  border-top: #777 solid 1px;
+  border-bottom: #777 solid 1px;
+  z-index: 1;
+ }
 
-
-  .gb-icon-image {
-   height: 70px;
-   position: relative;
-   padding: 10px 0 0 0;
-   overflow: hidden;
-   .gb-icon {
-    font-size: 50px;
-    text-align: center;
-    color: rgba($gb-primary-color, 0.8);
-   }
-   .gb-profile-img {
-    margin: 0 auto;
-    width: 55px;
-    height: 55px;
-   }
-  }
+ .gb-door {
+  @include position(absolute, null null 0 50%);
+  transform: translateX(-50%);
+  border: #555 solid 2px;
+  border-bottom: transparent solid 2px;
+  height:200px;
+  width: 200px;
+  -moz-border-radius: 0 200px 0 0;
+  border-radius: 0 200px 0 0;
+  text-align: center;
   .gb-title {
-   margin: 5px 0;
-   //color: #888;
-   font-size:16px;
-   text-transform: uppercase;
+   font-size: 14px;
+   margin-bottom: 10px;
   }
-
-  .gb-description {
-   //@include position(absolute, 23px 0 50px 0);
-   padding: 4px 10px 4px 0px;
-   display: block;
-   /* Fallback for non-webkit */
-   display: -webkit-box;
-   /* Fallback for non-webkit */
-   line-height: 1.2;
-   -webkit-line-clamp: 3;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   overflow: hidden;
-  }
-
-  @include respond-to (gb-sm) {
-   .gb-description {
-    line-height: 18px;
-    font-size: 12px;
-   }
-  }
-
-
- }
-
- .gb-lp-box-3 {
-  position: relative;
-  text-align: center;
-  margin: 0;
-  height: 105px;
-  width: 100%;
-  padding: 5px 5px;
-  overflow: hidden;
-
-  .gb-icon-image {
-   height: 70px;
-   position: relative;
-   padding: 10px 0 0 0;
-   overflow: hidden;
-   .gb-icon {
-    font-size: 50px;
-    text-align: center;
-    color: rgba($gb-primary-color, 0.8);
-   }
-   .gb-profile-img {
-    margin: 0 auto;
-    width: 55px;
-    height: 55px;
-   }
-  }
-  .gb-box-body {
-   padding: 5px 5px 10px 5px;
-   border-left: #999 solid 1px;
-   .gb-heading {
-    //@include position(absolute, 0 0 null 0);
-    padding: 15px 5px 0 10px;
-    margin-bottom: 10px;
-    height: 30px;
-    .gb-title {
-     color: #888;
-     font-size:10px;
-     text-transform: uppercase;
-    }
-   }
-
-   .gb-description {
-    //@include position(absolute, 23px 0 50px 0);
-    padding: 2px 10px 2px 10px;
-    overflow: hidden;
-   }
-   .gb-footer {
-    //@include position(absolute, null 0 0 0);
-    padding: 8px 3px 0 10px;
-    .gb-profile-pic {
-     margin-left: 5px;
-     height: 35px;
-     width: 35px;
-    }
-    .gb-summary-bar {
-     margin-top: 5px;
-     background-color: transparent;
-     .btn {
-      min-width: 50px;
-      color: #999;
-      text-decoration: none;
-     }
-     .gb-icon {
-      color: #777;
-     }
-    }
-    .gb-footer-content {
-     padding: 10px 0 0 0;
-    }
-   }
-  }
- }
-
-
- &.gb-top-nav-1 {
-  //padding: 1px 5px 5px 20px;
-  //@include position(fixed, 0 0 null 0);
-  //height: 41px;
-  //border-bottom: rgba($gb-primary-color, 0.8) solid 3px;
-  //background-color: rgba(#000, 0.2);
-  // color: #555;
-  .gb-action {
-   padding-top: 0px;
-   button, a {
-    color: #EEE;
-    margin: 0;
-    line-height: 44px;
-    font-size: 10px;
-    i {
-     color: #EEE;
-     font-size: 20px;
-     margin: 10px 5px;
-    }
-   }
-  }
-  &:hover {
-   // background-color: rgba(#000, 0.5);
-  }
- }
-
- .gb-icon-nav-1{
-  //padding-right: 0px!important;
-  @include respond-to (gb-sm) {
+  .gb-icon {
+   font-size: 25px;
   }
   @include respond-to (gb-xs) {
-  }
-  .gb-body {
-   padding: 0px 0 0px 0;
-   height: 300px;
-   width: 100%;
-   //@include position(absolute, -10px 0 0 0);
-   overflow: visible;
-   -webkit-overflow-scrolling: touch;
-  }
+   height:120px;
+   width: 120px;
+   -moz-border-radius: 0 120px 0 0;
+   border-radius: 0 120px 0 0;
 
+   .gb-title {
+    font-size: 12px;
+    margin-bottom: 5px;
+   }
+   .gb-icon {
+    font-size: 18px;
+   }
+  }
  }
-
-
 
  #gb-intro-section {
   //background: -moz-radial-gradient(center, ellipse cover,  #ceda2e 0%, #875a9d 100%); /* FF3.6+ */
@@ -211,10 +84,29 @@ $color-6: #077568;
   // background-size: 100%!important;
   position: relative;
   //margin-bottom: 30px;
-  height: 550px;
+  height: 500px;
   text-align: center;
   background-color: #FFF;
-  overflow: hidden;
+  //overflow: hidden;
+
+  .gb-door {
+   padding-top: 150px;
+   border: material-color('blue-grey', '100') solid 1px;
+   border-left: material-color('blue-grey', '100') solid 10px;
+   border-bottom: material-color('blue-grey', '100') solid 30px;
+   z-index: 2;
+   .gb-title {
+    font-size: 12px;
+    color: #EEE;
+   }
+   .gb-icon {
+    font-size: 40px;
+    color: #555;
+   }
+   @include respond-to (gb-xs) {
+    padding-top:90px;
+   }
+  }
 
   .gb-intro-message {
    @include position(absolute, 50px null 0 0);
@@ -222,18 +114,18 @@ $color-6: #077568;
    height: 200px;
    z-index: 1;
    .intro-lead-in {
-    color: #777;
+    color: #FFF;
     margin-bottom: 15px;
     font-size: 20px;
     //font-weight: bold;
-    line-height: 20px;
+    line-height: 30px;
    }
    .intro-heading {
-    color: #333;
+    color: #FFF;
     margin-bottom: 0px;
-    font-size: 60px;
-    font-weight: bold;
-    line-height: 30px;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 40px;
    }
   }
 
@@ -245,7 +137,7 @@ $color-6: #077568;
    -o-background-size: auto 100%!important;
    background-size: auto 100%!important;
    width: 100%;
-   height: 400px;
+   height: 350px;
    z-index: 0;
   }
 
@@ -282,7 +174,7 @@ $color-6: #077568;
     }
    }
    .gb-intro-img {
-    height: 300px;
+    height: 250px;
     .gb-image-card{
      height: 50px;
      min-width: 40px;
@@ -322,7 +214,7 @@ $color-6: #077568;
     }
    }
    .gb-intro-img {
-    height: 200px;
+    height: 150px;
     .gb-image-card{
      height: 50px;
      min-width: 40px;
@@ -344,7 +236,7 @@ $color-6: #077568;
   &:after {
    content: "";
    @include position(absolute, 0 0 0 0);
-   background-color: rgba(#000, 0.05);
+   background-color: rgba($gb-primary-color, 0.8);
    z-index: 0;
   }
  }
@@ -354,13 +246,116 @@ $color-6: #077568;
   background-color: #FFF;
  }
 
+ .gb-welcome-section-3,
+ .gb-welcome-section-4,
+ .gb-welcome-section-5,
+ .gb-welcome-section-6 {
+  position: relative;
+  padding: 30px 0 160px 0;
+  .gb-wall-h {
+   background: repeating-linear-gradient(
+    55deg,
+    #777 1px,
+    transparent 4px,
+    transparent 8px,
+    transparent 10px
+    );
+   background-color: #FFF;
+   height:10px;
+  }
+  .gb-door {
+   padding-top: 90px;
+   height:120px;
+   width: 120px;
+   -moz-border-radius: 120px 0 0 0;
+   border-radius: 120px 0 0 0;
+   z-index: 2;
+   .gb-title {
+    font-size: 12px;
+    color:  material-color('blue-grey', '600');
+   }
+   .gb-icon {
+    font-size: 30px;
+    color:  material-color('blue-grey', '600');
+   }
+   @include respond-to (gb-xs) {
+    padding-top: 60px;
+    height:90px;
+    width: 90px;
+    -moz-border-radius: 0 90px 0 0;
+    border-radius: 0 90px 0 0;
+
+    .gb-title {
+     font-size: 12px;
+     margin-bottom: 5px;
+    }
+    .gb-icon {
+     font-size: 18px;
+    }
+   }
+  }
+  .gb-app-widget {
+   //border: material-color('blue-grey', '200') solid 1px;
+  }
+  .gb-card-heading-1 {
+   .gb-title {
+    // color: #FFF;
+   }
+   .gb-description {
+    // color: #EEE;
+   }
+  }
+  @include respond-to (gb-xs) {
+   padding-bottom: 90px;
+  }
+ }
+
+ .gb-welcome-section-3 {
+  background-color: material-color('blue-grey', '100');
+  .gb-door {
+   border: material-color('blue-grey', '600') solid 1px;
+   border-right: material-color('blue-grey', '600') solid 5px;
+   border-bottom: material-color('blue-grey', '50') solid 10px;
+  }
+  .gb-app-widget {
+   // border: material-color('blue-grey', '300') solid 1px;
+  }
+ }
+
+ .gb-welcome-section-4 {
+  background-color: material-color('blue-grey', '50');
+  .gb-door {
+   border: material-color('blue-grey', '500') solid 1px;
+   border-right: material-color('blue-grey', '500') solid 5px;
+   border-bottom: #F2F2F2 solid 10px;
+  }
+ }
+
+ .gb-welcome-section-5 {
+  background-color: #F2F2F2;
+  .gb-door {
+   -moz-border-radius: 0 120px 0 0;
+   border-radius: 0 200px 0 0;
+   border: material-color('blue-grey', '500') solid 1px;
+   border-left: material-color('blue-grey', '500') solid 5px;
+   border-bottom: #FFF solid 10px;
+  }
+ }
+ .gb-welcome-section-6 {
+  background-color: #FFF;
+ }
+
  .gb-welcome-section-2 {
   position: relative;
   padding: 20px 0;
   background-color: #F0F0F0;
+  .gb-house-tools {
+   z-index: 1;
+  }
   .gb-house-background-icon {
    //@include position(absolute, 0 0 0 0);
-   font-size: 502px;
+   font-size: 5002px;
+   z-index:0;
   }
  }
 

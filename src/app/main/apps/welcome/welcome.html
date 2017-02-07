@@ -2,47 +2,87 @@
  <header id="gb-intro-section" class="">
   <div class="gb-intro-message">
    <h1 class="intro-heading">
-    Do more with your skills
+    House of Skills
    </h1>
    <h2 class="intro-lead-in">
-    Applications like mentorship, advice, goal setting... all in one app
+    <strong>
+     A new and fun kind of skill exploration
+    </strong><br>
+    Applications like mentorship, advice, goal setting... all in one house
    </h2>
   </div>
-  <div class="gb-intro-img">
-
+  <div class="gb-intro-img"></div>
+  <div class="gb-door">
+   <div class="gb-title">Enter House</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
   </div>
+  <div class="gb-wall-h"></div>
  </header>
- <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
-  <div class="gb-container" layout="column" layout-align="" flex>
-   <div class="" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-3" layout="column" layout-align="center center" flex>
+  <div class="gb-container mb-20" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
-      Apply your skills
+      The Garage: Find tools to explore and discover skills
      </h2>
      <p class="gb-description">
-      Check out these apps and what others are doing with their skills
+      Take a tour of the house
      </p>
     </div>
    </div>
   </div>
- </div>
- <div class="gb-welcome-section-2" layout="column" layout-align="start center" flex>
-  <div class="gb-container" layout="column" layout-align="start stretch" flex>
+  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-app-widget" layout="column" 	flex-xs="33" flex="25">
+    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
      <ms-widget-front layout="row" layout-fill flex>
-      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+      <div ui-sref="app.explorer.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
-       <div class="gb-title-icon md-whiteframe-1dp {{'md-' + app.background_color + '-400-bg'}}" layout="column" layout-fill layout-align="center center" flex>
-        <i class="fa {{app.icon}}"></i>
+       <div class="gb-title-icon md-whiteframe-1dp md-deep-orange-400-bg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-explorer"></i>
        </div>
        <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
         <div class="gb-title">
-         {{app.title}}
+         Explorer
         </div>
         <div class="gb-description">
-         {{app.count}} Entries
+
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
+     <ms-widget-front layout="row" layout-fill flex>
+      <div ui-sref="app.swipe.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon md-whiteframe-1dp md-blue-400-bg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-swipe"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Swipe
+        </div>
+        <div class="gb-description">
+
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
+     <ms-widget-front layout="row" layout-fill flex>
+      <div ui-sref="app.matcher.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon md-whiteframe-1dp md-teal-400-bg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-matcher"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Matcher
+        </div>
+        <div class="gb-description">
+
         </div>
        </div>
       </div>
@@ -50,18 +90,65 @@
     </ms-widget>
    </div>
   </div>
-  <div class="background-image-center gb-house-background-icon" layout-align="center center" flex>
-   <div class="gb-container" layout="column" layout-align="center center" flex>
-    <i class="fa fa-home"></i>
+  <div class="gb-door">
+   <div class="gb-title">Enter Lobby</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
+  </div>
+  <div class="gb-wall-h"></div>
+ </div>
+ <div class="gb-welcome-section-4" layout="column" layout-align="center center" flex>
+  <div class="gb-container mb-20" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Room Types: Apply your skills
+     </h2>
+     <p class="gb-description">
+      Check out the applications of each room type and see what others are doing with their skills
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-app-widget" layout="column" 	flex-xs="33" flex="25">
+     <ms-widget-front layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon md-whiteframe-1dp {{'md-' + app.background_color + '-300-bg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+  </div>
+  <div class="gb-door">
+   <div class="gb-title">Room Preview</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
+  </div>
+  <div class="gb-wall-h"></div>
+  <div ng-if="false" class="background-image-center gb-house-background-icon" layout-align="center center" flex>
+   <div class="" layout="column" layout-align="center center" flex>
+    <i class="fa icon-home3"></i>
    </div>
   </div>
  </div>
- <div class="gb-welcome-section-1" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>
    <div class="" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
-      Skill Profile Pages
+      Skill Rooms
      </h2>
      <p class="gb-description">
       Track and manage skills.
@@ -72,17 +159,22 @@
   <div class="gb-container" layout="column" layout-align="start center" flex>
    <img src="src/assets/images/landing-page/screenshot-1.png" alt="screenshot">
   </div>
+  <div class="gb-door">
+   <div class="gb-title">Back To Lobby</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
+  </div>
+  <div class="gb-wall-h"></div>
  </div>
- <div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-6" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>
    <div class="" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
-      Explore and discover
+      Rooms: Explore and discover skills
      </h2>
      <p class="gb-description">
       <strong>Find inspiration. Cheer someone</strong><br>
-      Browse through the skill bank
+      Browse through the rooms
      </p>
     </div>
    </div>
@@ -171,178 +263,6 @@
    </div>
   </div>
  </div>
- <section ng-if="false" class="gb-explorer-row row">
-  <div class="container">
-   <div class="row gb-card-row">
-    <div class="row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="gb-heading-row-4 row">
-       <div class="gb-heading-icon">
-        <i class="fa icon-gb-apply"></i>
-       </div>
-       <div class="gb-title">
-        <p class="gb-ellipsis">
-         Applications
-        </p>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="gb-horizontal-scroll gb-apps-scroll row">
-     <div class="gb-left-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', -200)" aria-label="scroll left">
-       <i class="fa fa-chevron-left"></i>
-      </md-button>
-     </div>
-     <ul id="gb-featured-apps" class="gb-body-row-4 gb-inline">
-      <li ng-repeat="app in $root.apps track by $index"
-          class="gb-card-holder gb-card-md gb-padding-medium">
-      <md-button class="gb-card-apps gb-app-type-{{::app.id}}"
-                 ui-sref="apps.app({'app_name': '{{::app.title}}'})">
-       <i class="gb-icon fa {{::app.icon}}"></i>
-       <div class="gb-title">
-        {{::app.title}}
-       </div>
-       <p class="gb-description">
-        {{::app.long_description}}
-       </p>
-       <div class="gb-learn-more-btn">
-        Explore More
-       </div>
-      </md-button>
-      </li>
-     </ul>
-     <div class="gb-right-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-apps', 200)" aria-label="scroll right">
-       <i class="fa fa-chevron-right"></i>
-      </md-button>
-     </div>
-    </div>
-   </div>
-   <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-     <div class="gb-card-row-2">
-      <div class="row">
-       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
-        <h2 class="gb-title">
-         Start by exploring skills
-        </h2>
-        <p class="gb-description">
-         <strong>Find inspiration. Cheer someone</strong><br>
-         Browse through the skill bank and see what others are doing with their skills
-        </p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="row gb-card-row" ng-repeat="(id, component) in explorersCtrl.components.apps track by $index">
-    <div class="row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="gb-heading-row-4 row">
-       <div class="gb-heading-icon">
-        <i class="fa {{::component.icon}}"></i>
-       </div>
-       <div class="gb-title">
-        <p class="gb-ellipsis">
-         {{component.title}}
-        </p>
-       </div>
-       <div class="gb-action">
-        <md-button>
-         Add
-        </md-button>
-        <md-button ui-sref="apps.app({'app_name': '{{::component.title}}'})">
-         More
-        </md-button>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="gb-card-load-container">
-     <div class="gb-card-load-inner">
-      <div class="gb-card-load"></div>
-     </div>
-    </div>
-    <div class="gb-horizontal-scroll gb-apps-scroll row">
-     <div class="gb-left-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
-       <i class="fa fa-chevron-left"></i>
-      </md-button>
-     </div>
-     <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
-      <div ng-repeat="component in component.components"
-           class="gb-card-holder gb-card-sm gb-padding-medium"
-           gb-explorer-box component="component"
-           template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
-      </div>
-     </div>
-     <div class="gb-right-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 200)" aria-label="scroll right">
-       <i class="fa fa-chevron-right"></i>
-      </md-button>
-     </div>
-    </div>
-   </div>
-   <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-     <div class="gb-card-row-2">
-      <div class="row">
-       <div class="text-center col-lg-offset-2 col-md-offset-1 col-sm-offset-1 col-lg-8 col-md-8 col-sm-10 col-xs-12">
-        <h2 class="gb-title">
-         Check some activities in skills
-        </h2>
-        <p class="gb-description">
-         <strong>Find inspiration. Cheer someone</strong><br>
-         Browse through the skill bank and see what others are doing with their skills
-        </p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div class="row" ng-repeat="(id, component) in explorersCtrl.components.activities track by $index">
-    <div class="row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="gb-heading-row-4 row">
-       <div class="gb-heading-icon">
-        <i class="fa {{::component.icon}}"></i>
-       </div>
-       <div class="gb-title">
-        <p class="gb-ellipsis">
-         {{component.title}}
-        </p>
-       </div>
-      </div>
-     </div>
-    </div>
-    <div class="gb-card-load-container">
-     <div class="gb-card-load-inner">
-      <div class="gb-card-load"></div>
-     </div>
-    </div>
-    <div class="gb-horizontal-scroll row">
-     <div class="gb-left-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -200)" aria-label="scroll left">
-       <i class="fa fa-chevron-left"></i>
-      </md-button>
-     </div>
-     <div id="gb-featured-{{$index}}" class='gb-body-row-4 gb-inline'>
-      <div ng-repeat="component in component.components"
-           class="gb-card-holder gb-card-sm gb-padding-medium"
-           gb-explorer-box component="component"
-           template-url="{{appsCtrl.getTemplateUrl(component, '-sm')}}">
-      </div>
-     </div>
-     <div class="gb-right-scroll">
-      <md-button ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 200)" aria-label="scroll right">
-       <i class="fa fa-chevron-right"></i>
-      </md-button>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
  <section class='gb-get-started'>
   <div class="container">
    <div class="row">

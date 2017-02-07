@@ -7,9 +7,9 @@
    primary: {
     name: 'light-blue',
     hues: {
-     'default': '700',
-     'hue-1': '500',
-     'hue-2': '600',
+     'default': '800',
+     'hue-1': '700',
+     'hue-2': '500',
      'hue-3': '400'
     }
    },
@@ -37,18 +37,18 @@
   },
   "lightBlueTheme": {
    primary: {
-    name: 'light-blue',
+    name: 'blue-grey',
     hues: {
-     'default': '800',
-     'hue-1': '500',
-     'hue-2': '600',
-     'hue-3': '400'
+     'default': '500',
+     'hue-1': '900',
+     'hue-2': '800',
+     'hue-3': '500'
     }
    },
    accent: {
     name: 'light-blue',
     hues: {
-     'default': '900',
+     'default': '800',
      'hue-1': '400',
      'hue-2': '700',
      'hue-3': 'A100'

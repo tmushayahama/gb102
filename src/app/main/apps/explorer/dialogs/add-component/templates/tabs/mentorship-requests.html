@@ -1,26 +1,6 @@
 
 <!-- MENTORSHIP  -->
-<div class="gb-dialog-header">
- <div layout="column" layout-align="start start" flex>
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" md-prevent-menu-close
-               ng-click="vm.tabBack()" aria-label="Back"
-               ng-if="vm.selectedTabHistory.length > 1"
-               translate translate-attr-aria-label="explorer.back_text">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-    </md-button>
-    <div class="gb-heading-title">
-     <span class="ellipsis">
-      {{vm.mentorshipRequest.selected.description}}
-     </span>
-    </div>
-    <span flex></span>
-   </div>
-  </md-toolbar>
- </div>
-</div>
-<form class="gb-dialog-body" ms-scroll>
+<form class="">
  <div class="gb-members" flex>
   <div class="section-content">
    <md-chips class="gb-member-chips" ng-model="vm.mentorshipRequest.mentors" md-autocomplete-snap

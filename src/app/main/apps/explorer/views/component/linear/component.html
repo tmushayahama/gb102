@@ -4,7 +4,7 @@ LINEAR VIEW
 
 <div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="center center" >
  <div class="gb-cover-overlap" ></div>
- <div class="gb-cover" ng-style="$root.headerStyle"></div>
+ <div class="gb-cover md-primary"></div>
  <div class="gb-container gb-header-info" layout="column" layout-align="space-between center">
   <div class="gb-title" layout="column" layout-align="center center" flex>
    <a ui-sref="app.componentLinearView.home({id:componentLinearCtrl.component.parent_component_id})"
@@ -22,7 +22,7 @@ LINEAR VIEW
               ng-click="componentLinearCtrl.openAddComponentDialog($event, componentLinearCtrl.componentId, componentLinearCtrl.tabs.sections)"
               translate-attr-aria-label="explorer.add_text">Add
    </md-button>
-   <md-button class="md-raised md-primary" translate="explorer.contribute_text"
+   <md-button class="md-raised md-accent" translate="explorer.contribute_text"
               translate-attr-aria-label="explorer.contribute_text">Contribute
    </md-button>
    <md-menu class="">
@@ -61,16 +61,16 @@ LINEAR VIEW
  </div>
 </div>
 <div class="gb-tabs-1 md-whiteframe-1dp" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="row" flex>
+ <div class="gb-tabs-len-4" layout="row" flex>
   <md-tabs md-swipe-content md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.componentLinearView.home({id: componentLinearCtrl.component.id})">
       <div class="gb-icon">
-       <i class="fa fa-home"></i>
+       <i class="fa icon-tab"></i>
       </div>
       <div class="gb-title">
-       Overview
+       Wall
       </div>
      </div>
     </md-tab-label>
@@ -82,7 +82,7 @@ LINEAR VIEW
        <i class="fa icon-gb-activity"></i>
       </div>
       <div class="gb-title">
-       Activities
+       Activity
       </div>
      </div>
     </md-tab-label>
@@ -94,7 +94,7 @@ LINEAR VIEW
        <i class="fa icon-book"></i>
       </div>
       <div class="gb-title">
-       Stories
+       Tours
       </div>
      </div>
     </md-tab-label>
@@ -103,10 +103,10 @@ LINEAR VIEW
     <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.componentLinearView.discussions({id: componentLinearCtrl.component.id})">
       <div class="gb-icon">
-       <i class="fa fa-comments-o"></i>
+       <i class="fa icon-drawer2"></i>
       </div>
       <div class="gb-title">
-       Discussion
+       Furniture
       </div>
      </div>
     </md-tab-label>

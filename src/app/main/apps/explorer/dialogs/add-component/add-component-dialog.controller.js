@@ -12,8 +12,9 @@
   var vm = this;
 
   // Data
-  vm.formTabIndex = 0;
   vm.tabs = add_component_tabs;
+  vm.formTabIndex = 0;
+  vm.dialogTitle = "Add Item";
 
   vm.selectedTabHistory = [];
   vm.selectedApp = [];
@@ -155,6 +156,7 @@
    vm.selectedTabHistory.push(vm.tabs.fillApps);
    vm.selectedApp = app;
    vm.selectedSubmitType = vm.submitType.component;
+   vm.dialogTitle = "Create " + vm.selectedApp.title;
   }
 
 

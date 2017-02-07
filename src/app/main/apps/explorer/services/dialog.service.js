@@ -58,10 +58,11 @@
     templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
     controllerAs: 'vm',
-    // parent: $document.find('#explorer'),
+    parent: angular.element($document.body),
     targetEvent: ev,
     clickOutsideToClose: false,
     escapeToClose: true,
+    //disableParentScroll: false,
     locals: {
      startTabIndex: startTabIndex,
      preselectedData: preselectedData,

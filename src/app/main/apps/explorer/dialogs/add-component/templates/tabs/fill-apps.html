@@ -1,26 +1,6 @@
 
 <!-- FILL -->
-<div class="gb-dialog-header">
- <div layout="column" layout-align="start start" flex>
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" md-prevent-menu-close
-               ng-click="vm.tabBack()" aria-label="Back"
-               ng-if="vm.selectedTabHistory.length > 1"
-               translate translate-attr-aria-label="explorer.back_text">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-arrow-left"></md-icon>
-    </md-button>
-    <div class="gb-heading-title">
-     <span class="ellipsis">
-      Create {{vm.selectedApp.title}}
-     </span>
-    </div>
-    <span flex></span>
-   </div>
-  </md-toolbar>
- </div>
-</div>
-<form class="gb-dialog-body" ms-scroll>
+<form class="">
  <div layout="row" layout-align="space-between start">
   <div ng-if="vm.component.due" class="due-date" layout="row" layout-align="start center">
    <div class="picker day-picker" moment-picker="vm.component.due" format="x" min-view="year" max-view="month"

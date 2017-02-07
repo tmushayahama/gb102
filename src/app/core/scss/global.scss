@@ -27,8 +27,12 @@
 @import 'partials/helpers';
 @import 'partials/print';
 
-$gb-primary-color: material-color('light-blue', '800');
+$gb-primary-color: material-color('blue-grey', '800');
 $gb-secondary-color: material-color('orange', '300');
+
+$gb-themes-primary-color:
+material-color('blue-grey', '500'),
+material-color('blue', '500');
 
 * {
  -ms-word-break: break-all;
@@ -242,7 +246,7 @@ md-dialog {
 
  .gb-cover {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba($gb-primary-color, 0.5);
+  background-color: rgba(nth($gb-themes-primary-color, 1), 0.5);
   padding: 5px;
   overflow: hidden;
   z-index: 0;
@@ -254,7 +258,7 @@ md-dialog {
 
  .gb-cover-overlap {
   @include position(absolute, 0 0 0 0);
-  background-color: rgba($gb-primary-color, 0.5);
+  background-color: rgba(nth($gb-themes-primary-color, 1), 0.5);
   z-index: 0;
  }
 
@@ -362,6 +366,12 @@ md-dialog {
 .gb-tabs-1 {
  background-color: #F2F2F2;
  position: relative;
+ .gb-tabs-len-4 {
+  width: 400px;
+  @include respond-to (gb-xs) {
+   width: 100%;
+  }
+ }
  md-tabs {
   height: 100%;
   width: 100%;
@@ -912,6 +922,23 @@ md-tabs {
  }
 }
 
+.gb-card-heading-1 {
+ .gb-title {
+  font-size: 24px;
+ }
+ .gb-description {
+  font-size: 16px;
+ }
+ @include respond-to (gb-xs) {
+  .gb-title {
+   font-size: 14px;
+  }
+  .gb-description {
+   font-size: 12px;
+  }
+ }
+}
+
 .gb-card-component-p {
  padding: 8px;
  @include respond-to (gb-xs) {
@@ -1285,6 +1312,7 @@ md-tabs {
 
 .gb-app-widget {
  ms-widget-front {
+  padding-top: 25px;
   height: 200px;
   min-height: 200px;
   max-height: 200px;
@@ -1292,7 +1320,7 @@ md-tabs {
   .gb-main-button {
    background-color: transparent;
   }
-  .gb-widget-content, .gb-title-icon {
+  .gb-title-icon {
    height: 100px;
    min-height: 100px;
    overflow: hidden;
@@ -2070,7 +2098,9 @@ md-tabs {
 }
 
 .gb-count-widget {
+ padding:0!important;
  height: 150px;
+ border-right: #CCC solid 1px;
  ms-widget-front {
   background-color: #F2F2F2;
  }

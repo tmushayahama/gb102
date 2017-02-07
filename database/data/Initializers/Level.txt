@@ -87,10 +87,10 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 3001		later					blue
 3002		done					blue
 4000	\N	Contribution Type	contribution_type				blue
-4001	4000	Follower				icon-gb-follower	blue
+4001	4000	Member				icon-gb-follower	blue
 4002	4000	Observer				icon-gb-observer	pink
-4003	4000	Judge				icon-gb-judge	teal
-4004	4000	Admin				icon-gb-admin	green
+4003	4000	Keeper				icon-gb-judge	teal
+4004	4000	Host				icon-gb-admin	green
 5000	\N	Request	request				blue
 5001	5000	pending					blue
 5002	5000	accepted					blue
@@ -118,14 +118,14 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 11007	11000	weblink				icon-gb-weblink	deep-purple
 11100	11000	question				icon-gb-question	indigo
 12000	\N	Recommended					blue
-12002	12000	Discover: For the curious					
-12003	12000	For your personal development					
+12002	12000	Discover Rooms: For the curious					
+12003	12000	Rooms for your personal development					
 12004	12000	Inspiring mentorhips					
-12005	12000	Pretty good advice					
-12006	12000	Students are Viewing					
-12007	12000	Companies are viewing 					
-12008	12000	Interesting hobbies					
-12009	12000	Teams are viewing					
+12005	12000	Rooms with pretty good advice					
+12006	12000	Students are viewing these rooms					
+12007	12000	Companies are viewing these rooms					
+12008	12000	Interesting rooms for hobbies					
+12009	12000	Good rooms for teams					
 13000	\N	Recommended Setup					blue
 13001	13000	welcome page		Normal Bucket			blue
 14000	\N	Component Motive					blue

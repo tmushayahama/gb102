@@ -4,7 +4,17 @@ ADD COMPONENT DIALOG
 <md-dialog class="add-component-dialog" aria-label="Add Component Dialog">
  <md-toolbar class="">
   <div class="md-toolbar-tools">
-   Add Components
+   <md-button class="md-icon-button" md-prevent-menu-close
+              ng-if="vm.selectedTabHistory.length > 1"
+              ng-click="vm.tabBack()" aria-label="Back"
+              translate translate-attr-aria-label="explorer.back_text">
+    <md-icon class="gb-title-icon" md-font-icon="fa icon-arrow-left"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{vm.dialogTitle}}
+    </span>
+   </div>
    <span flex></span>
    <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
               translate translate-attr-aria-label="SB.CLOSE_DIALOG">
@@ -12,110 +22,112 @@ ADD COMPONENT DIALOG
    </md-button>
   </div>
  </md-toolbar>
- <md-dialog-content layout="row" layout-fill>
-  <md-tabs class="gb-app-tabs" md-selected="vm.formTabIndex" flex>
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- APP -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- ACTIVITY -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- MOTIVE -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- CONTRIBUTION TYPES -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- CONTRIBUTION -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- MENTORSHIP  -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- FILL -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- BULK ADD -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mass-addition.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- MASS ADD SELECT COMPONENT TYPE -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- APP -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- ACTIVITY -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- MOTIVE -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- CONTRIBUTION TYPES -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- CONTRIBUTION -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- MENTORSHIP  -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-   <!-- FILL -->
-   <md-tab>
-    <md-tab-body>
-     <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps-step.html'"></div>
-    </md-tab-body>
-   </md-tab>
-  </md-tabs>
+ <md-dialog-content ms-scroll>
+  <div class="">
+   <md-tabs class="gb-app-tabs" md-selected="vm.formTabIndex" md-dynamic-height>
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- APP -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- ACTIVITY -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- MOTIVE -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- CONTRIBUTION TYPES -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- CONTRIBUTION -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- MENTORSHIP  -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- FILL -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- BULK ADD -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mass-addition.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- MASS ADD SELECT COMPONENT TYPE -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/sections-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- APP -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/apps-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- ACTIVITY -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/activities-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- MOTIVE -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/motives-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- CONTRIBUTION TYPES -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributor-types-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- CONTRIBUTION -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/contributions-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- MENTORSHIP  -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/mentorship-requests-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+    <!-- FILL -->
+    <md-tab>
+     <md-tab-body>
+      <div class="gb-app-tab-content" ng-include="'src/app/main/apps/explorer/dialogs/add-component/templates/tabs/fill-apps-step.html'"></div>
+     </md-tab-body>
+    </md-tab>
+   </md-tabs>
+  </div>
  </md-dialog-content>
  <md-dialog-actions ng-if="vm.submitType.showButtons === vm.submitType.showButtonsType.create" layout="row">
   <span flex></span>
