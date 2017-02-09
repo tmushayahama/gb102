@@ -5,7 +5,7 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 4	1	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	teal
 5	1	promise		Add a Promise	Add a Promise	icon-gb-promise	green
 6	1	mentorship		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorship	deep-purple
-7	1	collaboration		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	lime
+7	1	collabo		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	lime
 8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach	cyan
 9	1	advice		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advice	indigo
 10	1	group		Create A Group	Create A Group	icon-gb-group	light-green

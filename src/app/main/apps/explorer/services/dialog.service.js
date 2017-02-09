@@ -15,7 +15,8 @@
    openAddComponentsDialog: openAddComponentsDialog,
    openComponentDialog: openComponentDialog,
    openComponentSectionDialog: openComponentSectionDialog,
-   startComponentStoryDialog: startComponentStoryDialog,
+   openComponentNotesDialog: openComponentNotesDialog,
+   startComponentStoryDialog: startComponentStoryDialog
   };
 
   //////////
@@ -134,6 +135,29 @@
     locals: {
      componentId: componentId,
      section: section
+    }
+   });
+  }
+
+  /**
+   * Open component note for editing purposes
+   *
+   * @param ev  the event which triggered the dialog
+   * @param componentId the component Id
+   * @param note the note
+   */
+  function openComponentNotesDialog(ev, componentId, notes) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/components/dialogs/component-notes/component-notes-dialog.html',
+    //parent: $document.find('#components'),
+    controller: 'ComponentNotesDialogController',
+    controllerAs: 'vm',
+    targetEvent: ev,
+    clickOutsideToClose: true,
+    escapeToClose: true,
+    locals: {
+     componentId: componentId,
+     notes: notes
     }
    });
   }

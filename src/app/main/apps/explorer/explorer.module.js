@@ -160,88 +160,29 @@
             'selectedTab': 0
            }
           })
-          .state('app.componentLinearView.activities', {
-           url: '/activities',
+          .state('app.componentLinearView.furniture', {
+           url: '/furniture',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/activities/activities.html',
-             controller: 'ComponentLinearActivitiesController as vm'
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/furniture/furniture.html',
+             controller: 'ComponentLinearFurnitureController as vm'
             }
            },
            data: {
             'selectedTab': 1
            }
           })
-          .state('app.componentLinearView.story', {
-           url: '/story',
+
+          .state('app.componentLinearView.tour', {
+           url: '/tour',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/story/story.html',
-             controller: 'ComponentLinearStoryController as vm'
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/tour/tour.html',
+             controller: 'ComponentLinearTourController as vm'
             }
            },
            data: {
             'selectedTab': 2
-           }
-          })
-          .state('app.componentLinearView.timeline', {
-           url: '/timeline',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/timeline/timeline.html',
-             controller: 'ComponentLinearTimelineController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 3
-           }
-          })
-          .state('app.componentLinearView.calendar', {
-           url: '/calendar',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/calendar/calendar.html',
-             controller: 'ComponentLinearCalendarController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 4
-           }
-          })
-          .state('app.componentLinearView.discussions', {
-           url: '/discussion',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/discussions/discussions.html',
-             controller: 'ComponentLinearDiscussionsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 5
-           }
-          })
-          .state('app.componentLinearView.graphs', {
-           url: '/graphs',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/graphs/graphs.html',
-             controller: 'ComponentLinearGraphsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 6
-           }
-          })
-          .state('app.componentLinearView.settings', {
-           url: '/settings',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/settings/settings.html',
-             controller: 'ComponentLinearSettingsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 7
            }
           })
           .state('app.componentRowView', {

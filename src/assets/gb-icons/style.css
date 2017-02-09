@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?pc2dwf');
-  src:  url('fonts/icomoon.eot?pc2dwf#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?pc2dwf') format('truetype'),
-    url('fonts/icomoon.woff?pc2dwf') format('woff'),
-    url('fonts/icomoon.svg?pc2dwf#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?m07ame');
+  src:  url('fonts/icomoon.eot?m07ame#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?m07ame') format('truetype'),
+    url('fonts/icomoon.woff?m07ame') format('woff'),
+    url('fonts/icomoon.svg?m07ame#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -42,135 +42,147 @@
 .icon-gb-apps:before {
   content: "\ea77";
 }
-.icon-gb-checklist:before {
+.icon-gb-arrow-left-thin:before {
   content: "\ea78";
 }
-.icon-gb-collaboration:before {
+.icon-gb-arrow-right-thin:before {
   content: "\ea79";
 }
-.icon-gb-community:before {
+.icon-gb-checklist:before {
   content: "\ea7a";
 }
-.icon-gb-component:before {
+.icon-gb-collaboration:before {
   content: "\ea7b";
 }
-.icon-gb-discover:before {
+.icon-gb-community:before {
   content: "\ea7c";
 }
-.icon-gb-explorer:before {
+.icon-gb-component:before {
   content: "\ea7d";
 }
-.icon-gb-follower:before {
+.icon-gb-discover:before {
   content: "\ea7e";
 }
-.icon-gb-goal:before {
+.icon-gb-explorer:before {
   content: "\ea7f";
 }
-.icon-gb-group:before {
+.icon-gb-follower:before {
   content: "\ea80";
 }
-.icon-gb-guideline:before {
+.icon-gb-goal:before {
   content: "\ea81";
 }
-.icon-gb-handpicked:before {
+.icon-gb-group:before {
   content: "\ea82";
 }
-.icon-gb-hobby:before {
+.icon-gb-guideline:before {
   content: "\ea83";
 }
-.icon-gb-journal:before {
+.icon-gb-handpicked:before {
   content: "\ea84";
 }
-.icon-gb-judge:before {
+.icon-gb-hobby:before {
   content: "\ea85";
 }
-.icon-gb-logo:before {
+.icon-gb-journal:before {
   content: "\ea86";
 }
-.icon-gb-matcher:before {
+.icon-gb-judge:before {
   content: "\ea87";
 }
-.icon-gb-mentorship:before {
+.icon-gb-logo:before {
   content: "\ea88";
 }
-.icon-gb-note:before {
+.icon-gb-matcher:before {
   content: "\ea89";
 }
-.icon-gb-objective:before {
+.icon-gb-mentorship:before {
   content: "\ea8a";
 }
-.icon-gb-observer:before {
+.icon-gb-note:before {
   content: "\ea8b";
 }
-.icon-gb-organize:before {
+.icon-gb-objective:before {
   content: "\ea8c";
 }
-.icon-gb-page:before {
+.icon-gb-observer:before {
   content: "\ea8d";
 }
-.icon-gb-plan:before {
+.icon-gb-organize:before {
   content: "\ea8e";
 }
-.icon-gb-project:before {
+.icon-gb-page:before {
   content: "\ea8f";
 }
-.icon-gb-promise:before {
+.icon-gb-plan:before {
   content: "\ea90";
 }
-.icon-gb-promise-2 .path1:before {
+.icon-gb-project:before {
   content: "\ea91";
+}
+.icon-gb-promise:before {
+  content: "\ea92";
+}
+.icon-gb-promise-2 .path1:before {
+  content: "\ea93";
   color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path2:before {
-  content: "\ea92";
+  content: "\ea94";
   margin-left: -1.1435546875em;
   color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path3:before {
-  content: "\ea93";
+  content: "\ea95";
   margin-left: -1.1435546875em;
   color: rgb(0, 0, 0);
 }
 .icon-gb-promise-2 .path4:before {
-  content: "\ea94";
+  content: "\ea96";
   margin-left: -1.1435546875em;
   color: rgb(255, 255, 255);
 }
 .icon-gb-question:before {
-  content: "\ea95";
-}
-.icon-gb-request-mentee:before {
-  content: "\ea96";
-}
-.icon-gb-request-mentor:before {
   content: "\ea97";
 }
-.icon-gb-request-mentorship-suggest:before {
+.icon-gb-request-mentee:before {
   content: "\ea98";
 }
-.icon-gb-skill:before {
+.icon-gb-request-mentor:before {
   content: "\ea99";
 }
-.icon-gb-step:before {
+.icon-gb-request-mentorship-suggest:before {
   content: "\ea9a";
 }
-.icon-gb-swipe:before {
+.icon-gb-skill:before {
   content: "\ea9b";
 }
-.icon-gb-teach:before {
+.icon-gb-step:before {
   content: "\ea9c";
 }
-.icon-gb-timeline:before {
+.icon-gb-swipe:before {
   content: "\ea9d";
 }
-.icon-gb-todo:before {
+.icon-gb-table:before {
   content: "\ea9e";
 }
-.icon-gb-weblink:before {
+.icon-gb-teach:before {
   content: "\ea9f";
 }
-.icon-gb-wrenches:before {
+.icon-gb-timeline:before {
   content: "\eaa0";
+}
+.icon-gb-todo:before {
+  content: "\eaa1";
+}
+.icon-gb-wall:before {
+  content: "\eaa2";
+}
+.icon-gb-weblink:before {
+  content: "\eaa3";
+}
+.icon-gb-wrenches:before {
+  content: "\eaa4";
 }
 .icon-telescope:before {
   content: "\e02a";

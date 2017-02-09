@@ -77,6 +77,9 @@ body {
  //@include position(fixed, 0 0 0 0);
 }
 
+md-icon {
+ text-align: center;
+}
 
 md-sidenav {
  //background-color: transparent!important;
@@ -171,6 +174,12 @@ md-dialog {
  &.gb-apps-scroll {
   min-height: 226px;
   .gb-card-component {
+   max-width: 200px;
+  }
+ }
+ &.gb-notes-scroll {
+  min-height: 120px;
+  .gb-card-note {
    max-width: 200px;
   }
  }
@@ -389,7 +398,7 @@ md-dialog {
   md-tab-item {
    padding: 0;
    height: 80px;
-   min-width: 120px;
+   width: 100px;
    .gb-icon {
     height: 25px;
     max-height: 25px;
@@ -399,6 +408,15 @@ md-dialog {
    }
    .gb-title {
     font-size: 10px;
+    color: #777;
+   }
+   &.md-active {
+    .gb-icon {
+     color: #555;
+    }
+    .gb-title {
+     color: #111;
+    }
    }
   }
 
@@ -1178,6 +1196,69 @@ md-tabs {
  }
 }
 
+.gb-card-note {
+ position: relative;
+ height: 100px;
+ min-width: 200px;
+ padding: 0 0 0 0;
+ border-radius: 2px;
+ background-color: #FAFAFA;
+ color: #555;
+ cursor: pointer;
+
+ &:hover {
+  box-shadow: $whiteframe-shadow-4dp;
+ }
+ .gb-card-content {
+  padding: 30px 6px 14px 6px;
+
+  .gb-title {
+   //font-size:18px;
+   color: #000;
+   h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+   }
+  }
+  .gb-app-title {
+   text-transform: uppercase;
+   color: #777;
+   font-size: 10px;
+  }
+
+  .gb-description {
+   //@include position(absolute, 23px 0 50px 0);
+   font-size: 12px;
+   height: 32px;
+   display: block;
+   /* Fallback for non-webkit */
+   display: -webkit-box;
+   /* Fallback for non-webkit */
+   line-height: 1.2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   p {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+    &.gb-no-info {
+     color: #BBB;
+    }
+   }
+  }
+ }
+
+ .board-name {
+  padding-top: 16px;
+  font-weight: 500;
+ }
+
+}
+
 
 .gb-description-widget {
  padding: 0;
@@ -1397,7 +1478,7 @@ md-tabs {
    .gb-title {
     color: #000;
     font-weight: 800;
-    font-size: 8px;
+    font-size: 10px;
    }
    .gb-description {
     font-size: 8px;
@@ -1457,6 +1538,49 @@ md-tabs {
   background-color: transparent;
  }
 }
+
+.gb-component-discussion-widget {
+ height: 150px;
+ ms-widget-front {
+  background-color: #F2F2F2;
+ }
+ .gb-title {
+  font-size: 18px;
+  text-transform: uppercase;
+ }
+
+ .gb-description {
+  font-size: 14px;
+ }
+
+ md-icon {
+  &.gb-background-icon {
+   color: #E2E5E5;
+   font-size: 120px;
+   width: 120px;
+   min-width: 120px;
+   max-width: 120px;
+  }
+ }
+ @include respond-to (gb-xs) {
+  height: 100px;
+  .gb-count {
+   font-size: 22px;
+  }
+  .gb-title {
+   font-size: 9px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    font-size: 80px;
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+   }
+  }
+ }
+}
+
 
 .gb-component-story-widget {
  height: 250px;
@@ -1971,6 +2095,72 @@ md-tabs {
  min-height: 50px;
  max-height: 50px;
 }
+
+.gb-furniture-description-widget {
+ width: 100%;
+ padding: 0;
+ height: 300px;
+ box-shadow: none!important;
+ ms-widget-front {
+  padding: 0 8px;
+  background-color: #F2F2F2;
+ }
+ ms-widget-back {
+  background-color: #F2F2F2;
+  padding: 0 8px;
+  .gb-title {
+   text-align: left;
+   padding: 0 10px;
+   font-size: 15px;
+   font-weight: bold;
+  }
+ }
+ .gb-type-title {
+  padding: 0px 10px;
+  color: #AAA;
+  font-size: 12px;
+  text-transform: uppercase;
+ }
+ .gb-title {
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 25px;
+  color: #000;
+ }
+ .gb-description {
+  padding: 0 10px;
+  font-size: 15px;
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #DDD;
+   font-size: 200px;
+   width: 250px;
+   min-width: 250px;
+   max-width: 250px;
+  }
+ }
+ @mixin apps-widget-background {
+  @for $i from 1 through length($apps-colors){
+   .gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.3);
+    color: darken(nth($apps-colors, $i), 15%);
+    &:hover {
+     background-color: rgba(nth($apps-colors, $i), 0.5);
+     color: darken(nth($apps-colors, $i), 25%);
+    }
+   }
+  }
+ }
+
+ @include apps-widget-background;
+
+ .gb-card-profile {
+  background-color: transparent;
+ }
+}
+
 
 
 .gb-swipe-widget {
