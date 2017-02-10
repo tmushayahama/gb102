@@ -11,9 +11,9 @@
  {
 
   var removeFunction = $mdTheming.setBrowserColor({
-   theme: 'default',
-   palette: 'accent',
-   hue: '200' // Default is '800'
+   theme: 'lightBlueTheme',
+   palette: 'primary',
+   hue: '400' // Default is '800'
   });
 
   editableThemes.default.submitTpl = '<md-button class="md-icon-button" type="submit" aria-label="save"><md-icon md-font-icon="icon-checkbox-marked-circle" class="md-accent-fg md-hue-1"></md-icon></md-button>';

@@ -88,6 +88,11 @@ md-sidenav {
 .gb-container {
  position: relative;
  width: 1100px;
+
+ .gb-full-w {
+  width: 100%!important;
+ }
+
  &.gb-section-row {
   width: 1084px;
   margin: 8px 0;
@@ -1420,7 +1425,7 @@ md-tabs {
    max-width: 100px;
    border-radius: 50%;
    i{
-    color: #EEE;
+    //color: #EEE;
     font-size: 60px;
    }
   }
