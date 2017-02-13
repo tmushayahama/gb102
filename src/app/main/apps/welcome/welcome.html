@@ -1,21 +1,21 @@
 <div id="gb-welcome">
- <header id="gb-intro-section" class="">
-  <div class="gb-intro-message">
-   <h1 class="intro-heading">
+ <header id="gb-intro-section" class="" layout="column" layout-align="start center" flex>
+  <div class="gb-intro-message" flex>
+   <h1 class="intro-heading" >
     House of Skills
    </h1>
    <h2 class="intro-lead-in">
-    A new kind of skill exploration with applications like<br>mentorship, advice, goal setting... all in one house
+    A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
    </h2>
   </div>
   <div class="gb-intro-img"></div>
-  <div class="gb-door">
-   <div class="gb-title">Enter<br>House</div>
-   <i class="gb-icon fa icon-arrow-down"></i>
-  </div>
   <div class="gb-wall-h"></div>
  </header>
  <div class="gb-welcome-section-3" layout="column" layout-align="center center" flex>
+  <div class="gb-door gb-door-top">
+   <div class="gb-title">Enter<br>House</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
+  </div>
   <div class="gb-container mb-20" layout="column" layout-align="" flex>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -31,8 +31,8 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
-     <ms-widget-front layout="row" layout-fill flex>
+    <ms-widget class="p-8" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.explorer.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon deep-orange-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -49,8 +49,8 @@
       </div>
      </ms-widget-front>
     </ms-widget>
-    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
-     <ms-widget-front layout="row" layout-fill flex>
+    <ms-widget class="p-8" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.swipe.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon blue-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -67,8 +67,8 @@
       </div>
      </ms-widget-front>
     </ms-widget>
-    <ms-widget class="p-8 gb-app-widget" layout="column" flex="33">
-     <ms-widget-front layout="row" layout-fill flex>
+    <ms-widget class="p-8" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.matcher.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon teal-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -109,8 +109,8 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-app-widget" layout="column" 	flex-xs="33" flex="25">
-     <ms-widget-front layout="row" layout-fill flex>
+    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8" layout="column" 	flex-xs="33" flex="25">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>

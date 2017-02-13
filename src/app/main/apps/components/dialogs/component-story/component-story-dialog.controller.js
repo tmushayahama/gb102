@@ -7,7 +7,7 @@
          .controller('ComponentStoryDialogController', ComponentStoryDialogController);
 
  /** @ngInject */
- function ComponentStoryDialogController(add_component_tabs, level_categories, $state, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, ComponentService, MentorshipService, componentId) {
+ function ComponentStoryDialogController(add_component_tabs, level_categories, $state, $scope, $document, $mdDialog, $interval, fuseTheming, fuseGenerator, msUtils, ComponentService, MentorshipService, componentId) {
 
   var vm = this;
 
@@ -27,6 +27,48 @@
 
   init();
 
+
+
+
+
+  $scope.startTour = function () {
+   var start;
+
+   if (angular.isDefined(start))
+    return;
+
+   start = $interval(function () {
+    if (true) {
+     navigate();
+    } else {
+     $scope.stopTour();
+    }
+   }, 500);
+  };
+
+  $scope.stopTour = function () {
+   if (angular.isDefined(stop)) {
+    $interval.cancel(start);
+    start = undefined;
+   }
+  };
+
+  var navigate = function () {
+   if (!goDown()) {
+    if (!goRight()) {
+
+    } else {
+     while (true) {
+      goUp();
+     }
+    }
+   }
+  }
+
+  $scope.$on('$destroy', function () {
+   // Make sure that the interval is destroyed too
+   $scope.stopTour();
+  });
   /**
    * Close Dialog
    */
@@ -57,8 +99,10 @@
    var id = vm.component.parent_component_id;
    if (id) {
     getComponents(id, 6, 1, true);
+    return false;
+   } else {
+    return true;
    }
-   // vm.storyTabIndex = 0;
   }
 
   function goDown() {
@@ -68,6 +112,9 @@
      getComponents(id, 6, 1);
     }
     // vm.storyTabIndex = 0;
+    return false;
+   } else {
+    return true;
    }
   }
 
@@ -76,6 +123,9 @@
     vm.storyTabIndex--;
     vm.currentComponent = vm.component.components[vm.storyTabIndex];
     vm.downDisabled = false;
+    return false;
+   } else {
+    return true;
    }
   }
 
@@ -84,6 +134,9 @@
     vm.storyTabIndex++;
     vm.currentComponent = vm.component.components[vm.storyTabIndex];
     vm.downDisabled = false;
+    return false;
+   } else {
+    return true;
    }
   }
 

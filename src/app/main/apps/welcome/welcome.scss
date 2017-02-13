@@ -17,17 +17,13 @@ $color-6: #077568;
 
  .gb-wall-h,
  .gb-wall-v {
-  background-color: silver;
-  background-image: linear-gradient(335deg, material-color('brown', '600') 10px, transparent 10px),
-   linear-gradient(155deg, material-color('brown', '600') 10px, transparent 10px),
-   linear-gradient(335deg, material-color('brown', '600') 10px, transparent 10px),
-   linear-gradient(155deg, material-color('brown', '600') 10px, transparent 10px);
-  background-size: 26px 27px;
-  background-position: 0px 30px, 1px 46px, 39px 44px, 14px 6px;
   //background-color: #F2F2F2;
  }
  .gb-wall-h {
   @include position(absolute, null 0 0 0);
+  background-color: rgba(material-color('blue-grey', '900'), 0.7);
+  background-image: linear-gradient(90deg, transparent 98%, rgba(255,255,255,.5) 50%);
+  background-size: 150px 50px;
   width: 100%;
   height:28px;
   border-top: #777 solid 1px;
@@ -78,11 +74,11 @@ $color-6: #077568;
   //background: radial-gradient(ellipse at center,  #ceda2e 0%,#875a9d 100%); /* W3C */
   //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-  //background: url(../../../src/assets/images/landing-page/background-2.jpg);
+  background: url(../../../src/assets/images/landing-page/background-4.jpg);
   //-webkit-background-size: 100%!important;
   //-moz-background-size: 100%!important;
   //-o-background-size: 100%!important;
-  // background-size: 100%!important;
+  // background-repeat: : 100%!important;
   position: relative;
   //margin-bottom: 30px;
   height: 550px;
@@ -91,10 +87,11 @@ $color-6: #077568;
   //overflow: hidden;
 
   .gb-door {
+   bottom: 30px;
    padding-top: 135px;
    border: material-color('blue-grey', '100') solid 1px;
    border-left: material-color('brown', '900') solid 10px;
-   border-bottom: material-color('blue-grey', '100') solid 30px;
+   border-bottom: #ECEFF1 solid 30px;
    z-index: 2;
    .gb-title {
     font-size: 12px;
@@ -105,34 +102,33 @@ $color-6: #077568;
     color: #555;
    }
    @include respond-to (gb-xs) {
-    padding-top:75px;
+    padding-top:55px;
    }
   }
 
   .gb-intro-message {
-   @include position(absolute, 50px null 0 0);
-   width: 100%;
-   height: 200px;
+   //@include position(absolute, 50px null 0 0);
+   width: 800px;
    z-index: 1;
    .intro-lead-in {
     color: #FFF;
     margin-bottom: 20px;
-    font-size: 24px;
-    //font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
     line-height: 30px;
    }
    .intro-heading {
     color: #FFF;
     margin-bottom: 0px;
     font-size: 50px;
-    font-weight: 500;
+    font-weight: 900;
     line-height: 40px;
    }
   }
 
   .gb-intro-img {
    @include position(absolute, null 0 0 0);
-   background: url(../../../src/assets/images/landing-page/background-3.jpg);
+   background: url(../../../src/assets/images/landing-page/background-5.png);
    -webkit-background-size: auto 100%!important;
    -moz-background-size: auto 100%!important;
    -o-background-size: auto 100%!important;
@@ -160,6 +156,7 @@ $color-6: #077568;
   @include respond-to (gb-sm) {
    height: 400px;
    .gb-intro-message {
+    width: 600px;
     padding-top: 20px;
     // padding-bottom: 200px;
     .intro-lead-in {
@@ -200,6 +197,7 @@ $color-6: #077568;
    //padding-bottom: 200px;
    height: 270px;
    .gb-intro-message {
+    width: 100%;
     top: 20px;
     padding: 0px 20px 0 20px;
     .intro-lead-in {
@@ -237,7 +235,7 @@ $color-6: #077568;
   &:after {
    content: "";
    @include position(absolute, 0 0 0 0);
-   background-color: rgba(material-color('blue-grey', '900'), 0.8);
+   background-color: rgba(material-color('blue-grey', '900'), 0.2);
    z-index: 0;
   }
  }
@@ -251,25 +249,16 @@ $color-6: #077568;
  .gb-welcome-section-4,
  .gb-welcome-section-5,
  .gb-welcome-section-6 {
+  background-color: #ECEFF1;
   position: relative;
   padding: 30px 0 160px 0;
   .gb-wall-h {
-   background: repeating-linear-gradient(
-    50deg,
-    material-color('blue-grey', '600') 1px,
-    transparent 6px,
-    material-color('blue-grey', '700') 4px,
-    material-color('blue-grey', '800') 8px
-    );
-   background-color: #FFF;
    height:10px;
   }
   .gb-door {
-   padding-top: 75px;
+   padding-top: 90px;
    height:120px;
    width: 120px;
-   -moz-border-radius: 120px 0 0 0;
-   border-radius: 120px 0 0 0;
    z-index: 2;
    .gb-title {
     font-size: 14px;
@@ -296,7 +285,12 @@ $color-6: #077568;
    }
   }
   .gb-app-widget {
-   //border: material-color('blue-grey', '200') solid 1px;
+   border: material-color('blue-grey', '800') double 3px;
+   background-color:  rgba(material-color('blue-grey', '200'), 0.3);
+   &:hover {
+    border: material-color('blue-grey', '900') double 3px;
+    background-color:  rgba(material-color('blue-grey', '400'), 0.3);
+   }
   }
   .gb-card-heading-1 {
    .gb-title {
@@ -312,19 +306,49 @@ $color-6: #077568;
  }
 
  .gb-welcome-section-3 {
-  background-color: material-color('blue-grey', '100');
+  background: url(../../../src/assets/images/landing-page/background-6.jpg);
+
+  padding-top: 120px;
+  //background-color: rgba(material-color('blue-grey', '50'), 0.5);
   .gb-door {
-   border: material-color('blue-grey', '600') solid 1px;
-   border-right: material-color('blue-grey', '600') solid 5px;
-   border-bottom: material-color('blue-grey', '50') solid 10px;
+   border: material-color('blue-grey', '600') solid 2px;
+   border-left: material-color('blue-grey', '600') solid 6px;
+   border-bottom: #ECEFF1 solid 10px;
+
+   &.gb-door-top {
+    @include position(absolute, -28px null null 50%);
+    padding-top: 0px;
+    -moz-border-radius: 0 0 120px 0;
+    border-radius: 0 0 120px 0;
+    border: material-color('blue-grey', '600') solid 2px;
+    border-left: material-color('blue-grey', '600') solid 2px;
+    border-top: #ECEFF1 solid 30px;
+
+    .gb-title {
+     @include position(absolute, -28px 0 null 0);
+    }
+    .gb-icon {
+     @include position(absolute,  10px 0 null 0);
+    }
+    @include respond-to (gb-xs) {
+     padding-top: 0px;
+     -moz-border-radius: 0 0 90px 0;
+     border-radius: 0 0 90px 0;
+    }
+   }
   }
   .gb-app-widget {
    // border: material-color('blue-grey', '300') solid 1px;
   }
+  @include respond-to (gb-xs) {
+   padding-top: 90px;
+  }
  }
 
  .gb-welcome-section-4 {
-  background-color: material-color('blue-grey', '50');
+  background: url(../../../src/assets/images/landing-page/background-5.jpg);
+
+  // background-color: material-color('blue-grey', '50');
   .gb-door {
    border: material-color('blue-grey', '500') solid 1px;
    border-right: material-color('blue-grey', '500') solid 5px;
@@ -333,10 +357,10 @@ $color-6: #077568;
  }
 
  .gb-welcome-section-5 {
-  background-color: #F2F2F2;
+  //background-color: #F2F2F2;
   .gb-door {
    -moz-border-radius: 0 120px 0 0;
-   border-radius: 0 200px 0 0;
+   border-radius: 0 120px 0 0;
    border: material-color('blue-grey', '500') solid 1px;
    border-left: material-color('blue-grey', '500') solid 5px;
    border-bottom: #FFF solid 10px;
