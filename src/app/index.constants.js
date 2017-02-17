@@ -85,5 +85,9 @@
                    "description": 1,
                    "background": 2
                   },
+                  "post_type": 20000,
+                  "post": {
+                   "discussion": 21001
+                  }
                  });
 })();

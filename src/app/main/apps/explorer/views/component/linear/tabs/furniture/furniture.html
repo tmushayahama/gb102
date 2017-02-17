@@ -1,351 +1,548 @@
 <!--
 LINEAR VIEW FURNITURE
 -->
-<div class="" layout="column" layout-align="center center" flex>
- <div class="gb-container mb-15 mt-15" layout="column" layout-align="" flex>
-  <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
-     Amenities
-    </h2>
+
+<div class="gb-section-description" layout="column" layout-align="center center" flex>
+ <ms-widget class="gb-container gb-room-description-widget" layout="column" flex>
+  <ms-widget-front class="" layout="row" flex>
+   <div class="text-center" layout="column" layout-align="center center" flex>
+    <div class="gb-title">
+     Furniture and Amenities
+    </div>
     <p class="gb-description">
+     Rooms are furnished with a table for discussions, many boards for quick notes, bookshelf with a journal,
+     notebook ... and many more. Explore.
     </p>
    </div>
-  </div>
- </div>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa icon-cabinet" class="indigo-200-fg gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
 </div>
 <!-- Table -->
-<div class="gb-container gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
+<div class="gb-section-table gb-section-furniture" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="start stretch">
+  <div class="widget-group gb-card-row" layout-align="start center" layout="column" flex>
+   <ms-widget class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-type-title">
+      </div>
+      <div class="gb-title">
+       Table
+      </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="gb-title">
-      Table
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-gb-table" class="gb-background-icon"></md-icon>
      </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-gb-table" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Discussions
-     </span>
-    </div>
-    <span flex></span>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
-       layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openComponentDiscussionsDialog($event, vm.componentId)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-tree"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        VIEW DISCUSSIONS
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa fa-plus"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        ADD DISCUSSION
-       </div>
-      </div>
-     </md-button>
     </ms-widget-front>
    </ms-widget>
   </div>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-discussion-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
-     <div layout="column" layout-align="center center" flex>
-      <div class="gb-title">
-       Comments
-      </div>
-      <div class="gb-description">
-       General Discussion
-      </div>
+  <div class="gb-semi-transparent gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
+     </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Discussions
+      </span>
      </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
-     </div>
-    </ms-widget-front>
-   </ms-widget>
+     <span flex></span>
+    </div>
+   </md-toolbar>
+   <div class="md-whiteframe-2dp" layout="row" layout-align="start start">
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openComponentDiscussionsDialog($event, vm.componentId)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa icon-tree"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         VIEW DISCUSSIONS
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa fa-plus"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         ADD DISCUSSION
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <div class="gb-section-row widget-group gb-section-widget-group"
+        layout="row" layout-align="start" flex>
+    <ms-widget flippable="true" class="p-8 gb-component-discussion-widget" layout="column" flex="33"
+               ng-click="vm.openComponentDiscussionsDialog($event, vm.componentId)">
+     <ms-widget-front class="p-8" layout="row" flex>
+      <div layout="column" layout-align="center center" flex>
+       <div class="gb-title">
+        Comments
+       </div>
+       <div class="gb-description">
+        General Discussion
+       </div>
+      </div>
+      <div class="background-image-center">
+       <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
   </div>
  </div>
 </div>
 <!-- Board -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
+<div class="gb-section-board gb-section-furniture" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row" layout="column" layout-align="start stretch">
+  <div class="widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-type-title">
+      </div>
+      <div class="gb-title">
+       Wall Boards
+      </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="gb-title">
-      Wall Panels/Boards
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-table" class="gb-background-icon"></md-icon>
      </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+  <div class="gb-semi-transparent gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-th"></md-icon>
      </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Pinboard
+      </span>
+     </div>
+     <span flex></span>
     </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-table" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-th"></md-icon>
+   </md-toolbar>
+   <div class="widget-group md-whiteframe-2dp"
+        layout="row" layout-align="start" layout-wrap>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openComponentPinboardDialog($event, vm.componentId)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa icon-table"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         VIEW PINBOARD
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa fa-plus"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         ADD TO PINBOARD
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <div class="gb-horizontal-scroll gb-notes-scroll" layout="row">
+    <md-button class="gb-left-scroll"
+               ng-click="$root.scrollHorizontal('#gb-pinboard-cards', -400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-left"></md-icon>
     </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Pinboard
-     </span>
-    </div>
-    <span flex></span>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
-       layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openComponentPinboardDialog($event, vm.componentId)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-table"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        VIEW PINBOARD
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa fa-plus"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        ADD TO PINBOARD
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-  </div>
-  <div class="gb-horizontal-scroll gb-notes-scroll" layout="row">
-   <md-button class="gb-left-scroll"
-              ng-click="$root.scrollHorizontal('#gb-pinboard-cards', -400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-left"></md-icon>
-   </md-button>
-   <div id="gb-pinboard-cards" class="board-list flex-scrollable only-x"
-        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-    <div class="gb-card-component-p" ng-repeat="note in vm.notes"
-         ui-sref="app.componentLinearView.home({id:note.id})"
-         layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-note md-whiteframe-1dp"
-          layout="column">
-      <div class="gb-card-content" flex>
-       <div class="gb-title">
-        <h3 class="gb-ellipsis">
-         {{note.title}}
-        </h3>
-       </div>
-       <div class="gb-description">
-        <p class="">
-         <span>
-          {{::note.description}}
-         </span>
-        </p>
-        <p ng-if="!note.description" class="gb-no-info">
-         No description to show
-        </p>
+    <div id="gb-pinboard-cards" class="board-list flex-scrollable only-x"
+         layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+     <div class="gb-card-component-p" ng-repeat="note in vm.notes"
+          ui-sref="app.componentLinearView.home({id:note.id})"
+          layout="column" layout-align="start" layout-nowrap>
+      <div class="gb-card-note md-whiteframe-1dp"
+           layout="column">
+       <div class="gb-card-content" flex>
+        <div class="gb-title">
+         <h3 class="gb-ellipsis">
+          {{note.title}}
+         </h3>
+        </div>
+        <div class="gb-description">
+         <p class="">
+          <span>
+           {{::note.description}}
+          </span>
+         </p>
+         <p ng-if="!note.description" class="gb-no-info">
+          No description to show
+         </p>
+        </div>
        </div>
       </div>
      </div>
     </div>
-   </div>
-   <md-button class="gb-right-scroll"
-              ng-click="$root.scrollHorizontal('#gb-pinboard-cards', 400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-right"></md-icon>
-   </md-button>
-  </div>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-list"></md-icon>
+    <md-button class="gb-right-scroll"
+               ng-click="$root.scrollHorizontal('#gb-pinboard-cards', 400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-right"></md-icon>
     </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Listboard
-     </span>
-    </div>
-    <span flex></span>
    </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
-       layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openComponentPinboardDialog($event, vm.componentId)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa icon-list"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        VIEW LISTBOARD
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-    <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-                layout="row" layout-align="start stretch">
-      <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
-       <i class="fa fa-plus"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-       <div class="gb-title">
-        ADD TO LISTBOARD
-       </div>
-      </div>
-     </md-button>
-    </ms-widget-front>
-   </ms-widget>
   </div>
-  <div class="gb-horizontal-scroll gb-notes-scroll" layout="row">
-   <md-button class="gb-left-scroll"
-              ng-click="$root.scrollHorizontal('#gb-listboard-cards', -400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-left"></md-icon>
-   </md-button>
-   <div id="gb-listboard-cards" class="board-list flex-scrollable only-x"
-        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-    <div class="gb-card-component-p" ng-repeat="note in vm.notes"
-         ui-sref="app.componentLinearView.home({id:note.id})"
-         layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-note md-whiteframe-1dp"
-          layout="column">
-      <div class="gb-card-content" flex>
-       <div class="gb-title">
-        <h3 class="gb-ellipsis">
-         {{note.title}}
-        </h3>
+  <div class="gb-semi-transparent gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-list"></md-icon>
+     </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Listboard
+      </span>
+     </div>
+     <span flex></span>
+    </div>
+   </md-toolbar>
+   <div class="widget-group md-whiteframe-2dp"
+        layout="row" layout-align="start" layout-wrap>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openComponentListboardDialog($event, vm.componentId)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa icon-list"></i>
        </div>
-       <div class="gb-description">
-        <p class="">
-         <span>
-          {{::note.description}}
-         </span>
-        </p>
-        <p ng-if="!note.description" class="gb-no-info">
-         No description to show
-        </p>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         VIEW LISTBOARD
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa fa-plus"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         ADD TO LISTBOARD
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <div class="gb-horizontal-scroll gb-notes-scroll" layout="row">
+    <md-button class="gb-left-scroll"
+               ng-click="$root.scrollHorizontal('#gb-listboard-cards', -400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-left"></md-icon>
+    </md-button>
+    <div id="gb-listboard-cards" class="board-list flex-scrollable only-x"
+         layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+     <div class="gb-card-component-p" ng-repeat="note in vm.notes"
+          ui-sref="app.componentLinearView.home({id:note.id})"
+          layout="column" layout-align="start" layout-nowrap>
+      <div class="gb-card-note md-whiteframe-1dp"
+           layout="column">
+       <div class="gb-card-content" flex>
+        <div class="gb-title">
+         <h3 class="gb-ellipsis">
+          {{note.title}}
+         </h3>
+        </div>
+        <div class="gb-description">
+         <p class="">
+          <span>
+           {{::note.description}}
+          </span>
+         </p>
+         <p ng-if="!note.description" class="gb-no-info">
+          No description to show
+         </p>
+        </div>
        </div>
       </div>
      </div>
     </div>
+    <md-button class="gb-right-scroll"
+               ng-click="$root.scrollHorizontal('#gb-listboard-cards', 400)"aria-label="Scroll Left">
+     <md-icon md-font-icon="icon-chevron-right"></md-icon>
+    </md-button>
    </div>
-   <md-button class="gb-right-scroll"
-              ng-click="$root.scrollHorizontal('#gb-listboard-cards', 400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-right"></md-icon>
-   </md-button>
   </div>
  </div>
 </div>
+<!-- TV -->
+<div class="gb-section-tv gb-section-furniture" layout="column" layout-align="center center" flex>
+ <div class="gb-container" layout="column" layout-align="start stretch">
+  <div class="widget-group gb-card-row" layout-align="start center" layout="column" flex>
+   <ms-widget class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-type-title">
+      </div>
+      <div class="gb-title">
+       TV
+      </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
+     </div>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-tv" class="gb-background-icon"></md-icon>
+     </div>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+  <div class="gb-semi-transparent gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa icon-tv"></md-icon>
+     </md-button>
+     <div class="gb-heading-title">
+      <span class="ellipsis">
+       Stories
+      </span>
+     </div>
+     <span flex></span>
+    </div>
+   </md-toolbar>
+   <div class="md-whiteframe-2dp" layout="row" layout-align="start start">
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openComponentDiscussionsDialog($event, vm.componentId)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa icon-tree"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         VIEW STORIES
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa fa-plus"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         ADD STORY
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <div class="gb-section-row widget-group gb-section-widget-group"
+        layout="row" layout-align="start" flex>
+    <ms-widget flippable="true" class="p-8 gb-component-discussion-widget" layout="column" flex="33"
+               ng-click="vm.openComponentStoryDialog($event, vm.componentId)">
+     <ms-widget-front class="p-8" layout="row" flex>
+      <div layout="column" layout-align="center center" flex>
+       <div class="gb-title">
+        Everything
+       </div>
+       <div class="gb-description">
+        Room Tour
+       </div>
+      </div>
+      <div class="background-image-center">
+       <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+  </div>
+ </div>
+ <img class="gb-tv-stand" src="src/assets/images/landing-page/background-tv-stand.png" alt=""/>
+</div>
+
 <!--  Bookshelf -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
+<div class="gb-section-bookshelf gb-section-furniture" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-bookshelf-big-bar"></div>
+  <div class="gb-bookshelf-back widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-type-title">
+      </div>
+      <div class="gb-title">
+       Bookshelf
+      </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="gb-title">
-      Bookshelf
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-books" class="gb-background-icon"></md-icon>
      </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+  <div class="gb-bookshelf-back gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa icon-book"></md-icon>
+     </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Notebook
+      </span>
+     </div>
+     <span flex></span>
+     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
+                class="gb-action-btn">
+      <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
      </md-button>
     </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-books" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa icon-book"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Notebook
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
+   </md-toolbar>
+   <div class="widget-group md-whiteframe-2dp"
+        layout="row" layout-align="start" layout-wrap>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa icon-tree"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         VIEW ALL NOTES
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
+                 layout="row" layout-align="start stretch">
+       <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
+        <i class="fa fa-plus"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+        <div class="gb-title">
+         ADD NOTES
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
    </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
-       layout="row" layout-align="start" layout-wrap flex>
+  </div>
+  <div class="gb-bookshelf-back gb-horizontal-scroll gb-notes-scroll" layout="row">
+   <md-button class="gb-left-scroll"
+              ng-click="$root.scrollHorizontal('#gb-books-cards', -400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-left"></md-icon>
+   </md-button>
+   <div id="gb-books-cards" class="board-list flex-scrollable only-x"
+        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+    <div class="gb-card-component-p" ng-repeat="note in vm.notes"
+         ui-sref="app.componentLinearView.home({id:note.id})"
+         layout="column" layout-align="start" layout-nowrap>
+     <div class="gb-card-note md-whiteframe-1dp"
+          layout="column">
+      <div class="gb-card-content" flex>
+       <div class="gb-title">
+        <h3 class="gb-ellipsis">
+         {{note.title}}
+        </h3>
+       </div>
+       <div class="gb-description">
+        <p class="">
+         <span>
+          {{::note.description}}
+         </span>
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <md-button class="gb-right-scroll"
+              ng-click="$root.scrollHorizontal('#gb-books-cards', 400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-right"></md-icon>
+   </md-button>
+  </div>
+ </div>
+ <div class="gb-bookshelf-base"></div>
+</div>
+<!-- Calendar -->
+<div class="gb-section-calendar gb-section-furniture" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-type-title">
+      </div>
+      <div class="gb-title">
+       Calendar
+      </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
+     </div>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-calendar" class="gb-background-icon"></md-icon>
+     </div>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+
+  <div class="widget-group md-whiteframe-2dp"
+       layout="row" layout-align="start" layout-wrap>
    <ms-widget class="gb-add-component-widget" layout="column" flex="50">
     <ms-widget-front layout="row" layout-fill flex>
-     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.apps)" class="gb-main-button"
+     <md-button ng-click="vm.openComponentPinboardDialog($event, vm.componentId)" class="gb-main-button"
                 layout="row" layout-align="start stretch">
       <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
        <i class="fa icon-tree"></i>
       </div>
       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        VIEW ALL NOTES
+        VIEW CALENDAR
        </div>
       </div>
      </md-button>
@@ -360,367 +557,119 @@ LINEAR VIEW FURNITURE
       </div>
       <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
        <div class="gb-title">
-        ADD NOTES
+        ADD TO CALENDAR
        </div>
       </div>
      </md-button>
-    </ms-widget-front>
-   </ms-widget>
-  </div>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-  </div>
- </div>
-</div>
-<!-- Calendar -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
-     </div>
-     <div class="gb-title">
-      Calendar
-     </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-calendar" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-  </ms-widget>
- </div>
-
- <div class="gb-section-row widget-group gb-section-widget-group md-whiteframe-2dp"
-      layout="row" layout-align="start" layout-wrap flex>
-  <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-   <ms-widget-front layout="row" layout-fill flex>
-    <md-button ng-click="vm.openComponentPinboardDialog($event, vm.componentId)" class="gb-main-button"
-               layout="row" layout-align="start stretch">
-     <div class="gb-title-icon deep-purple-400-fg" layout-fill layout="row" layout-align="center center" flex>
-      <i class="fa icon-tree"></i>
-     </div>
-     <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-      <div class="gb-title">
-       VIEW CALENDAR
-      </div>
-     </div>
-    </md-button>
-   </ms-widget-front>
-  </ms-widget>
-  <ms-widget class="gb-add-component-widget" layout="column" flex="50">
-   <ms-widget-front layout="row" layout-fill flex>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.motives)" class="gb-main-button"
-               layout="row" layout-align="start stretch">
-     <div class="gb-title-icon green-400-fg" layout-fill layout="row" layout-align="center center" flex>
-      <i class="fa fa-plus"></i>
-     </div>
-     <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
-      <div class="gb-title">
-       ADD TO CALENDAR
-      </div>
-     </div>
-    </md-button>
-   </ms-widget-front>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Notes
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
-     <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       0 comments
-      </div>
-      <div class="gb-title">
-       Comments
-      </div>
-     </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
-     </div>
     </ms-widget-front>
    </ms-widget>
   </div>
  </div>
 </div>
 <!-- Clock -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
-     </div>
-     <div class="gb-title">
-      Clock
-     </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa fa-clock-o" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-   <ms-widget-back class="grey-50-bg">
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        Description
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
-      </md-button>
-     </div>
-    </md-toolbar>
-    <div class="gb-type-title">
-     Ground
-    </div>
-    <div class="gb-title">
-     Table
-    </div>
-    <div class="gb-description">
-     A table is
-    </div>
-   </ms-widget-back>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Alarm
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
+<div class="gb-section-clock" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
      <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       0 comments
+      <div class="gb-type-title">
       </div>
       <div class="gb-title">
-       Comments
+       Clock
       </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa fa-clock-o" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
+  </div>
+  <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
+     </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Alarm
+      </span>
+     </div>
+     <span flex></span>
+     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
+                class="gb-action-btn">
+      <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
+     </md-button>
+    </div>
+   </md-toolbar>
   </div>
  </div>
 </div>
 <!-- Storage -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
-     </div>
-     <div class="gb-title">
-      Storage
-     </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-cabinet2" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-   <ms-widget-back class="grey-50-bg">
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        Description
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
-      </md-button>
-     </div>
-    </md-toolbar>
-    <div class="gb-type-title">
-     Ground
-    </div>
-    <div class="gb-title">
-     Table
-    </div>
-    <div class="gb-description">
-     A table is
-    </div>
-   </ms-widget-back>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Files
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
+<div class="gb-section-storage" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
      <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       0 comments
+      <div class="gb-type-title">
       </div>
       <div class="gb-title">
-       Comments
+       Storage
       </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-cabinet2" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
   </div>
+  <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+   <md-toolbar class="gb-heading">
+    <div class="md-toolbar-tools">
+     <md-button class="md-icon-button" aria-label="Description Icon">
+      <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
+     </md-button>
+     <div class="gb-heading-title ">
+      <span class="ellipsis">
+       Files
+      </span>
+     </div>
+     <span flex></span>
+     <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
+                class="gb-action-btn">
+      <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
+     </md-button>
+    </div>
+   </md-toolbar>
+  </div>
  </div>
 </div>
 <!-- Safe -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
-     </div>
-     <div class="gb-title">
-      Safe
-     </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-bin" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-   <ms-widget-back class="grey-50-bg">
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        Description
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
-      </md-button>
-     </div>
-    </md-toolbar>
-    <div class="gb-type-title">
-     Ground
-    </div>
-    <div class="gb-title">
-     Table
-    </div>
-    <div class="gb-description">
-     A table is
-    </div>
-   </ms-widget-back>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Discussions
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
+<div class="gb-section-safe" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
      <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       0 comments
+      <div class="gb-type-title">
       </div>
       <div class="gb-title">
-       Comments
+       Safe
       </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-bin" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>
@@ -728,86 +677,23 @@ LINEAR VIEW FURNITURE
  </div>
 </div>
 <!-- Trashcan -->
-<div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
- <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
-  <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
-   <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
-    <div layout="column" layout-align="center center" flex>
-     <div class="gb-type-title">
-     </div>
-     <div class="gb-title">
-      Trashcan
-     </div>
-     <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-      Details
-     </md-button>
-    </div>
-    <div class="background-image-center" layout-align="center center"  flex>
-     <md-icon md-font-icon="fa icon-bin" class="gb-background-icon"></md-icon>
-    </div>
-   </ms-widget-front>
-   <ms-widget-back class="grey-50-bg">
-    <md-toolbar class="gb-heading">
-     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Description Icon">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-pencil"></md-icon>
-      </md-button>
-      <div class="gb-heading-title">
-       <span class="ellipsis">
-        Description
-       </span>
-      </div>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
-       <md-icon class="gb-title-icon" md-font-icon="fa fa-times"></md-icon>
-      </md-button>
-     </div>
-    </md-toolbar>
-    <div class="gb-type-title">
-     Ground
-    </div>
-    <div class="gb-title">
-     Table
-    </div>
-    <div class="gb-description">
-     A table is
-    </div>
-   </ms-widget-back>
-  </ms-widget>
- </div>
- <div class="gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
-  <md-toolbar class="gb-heading">
-   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa fa-commenting-o"></md-icon>
-    </md-button>
-    <div class="gb-heading-title ">
-     <span class="ellipsis">
-      Discussions
-     </span>
-    </div>
-    <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
-   </div>
-  </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
+<div class="gb-section-floor" layout="column" layout-align="center center" flex>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <div class="gb-container widget-group gb-card-row" layout-align="start center"  layout="column" flex>
+   <ms-widget flippable="true" class="gb-furniture-description-widget" layout="column" flex>
+    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
      <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       0 comments
+      <div class="gb-type-title">
       </div>
       <div class="gb-title">
-       Comments
+       Trashcan
       </div>
+      <md-button class="" ng-click="flipWidget(); $event.stopPropagation()" aria-label="Flip widget">
+       Details
+      </md-button>
      </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-comment" class="gb-background-icon"></md-icon>
+     <div class="background-image-center" layout-align="center center"  flex>
+      <md-icon md-font-icon="fa icon-bin" class="gb-background-icon"></md-icon>
      </div>
     </ms-widget-front>
    </ms-widget>

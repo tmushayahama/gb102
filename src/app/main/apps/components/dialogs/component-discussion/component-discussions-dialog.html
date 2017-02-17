@@ -1,5 +1,5 @@
 <!-- NOTE DIALOG -->
-<md-dialog class="gb-component-section-dialog gb-card-row " aria-label="Card Dialog" ng-cloak>
+<md-dialog class="gb-component-discussion-dialog gb-card-row " aria-label="Card Dialog" ng-cloak>
  <md-toolbar class="gb-heading" layout="column" layout-align="start center" flex>
   <div class="md-toolbar-tools gb-container">
    <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
@@ -8,7 +8,7 @@
    </md-button>
    <div class="gb-heading-title">
     <span class="ellipsis">
-     {{vm.component.title}}
+     Discussions
     </span>
    </div>
    <span flex></span>
@@ -19,15 +19,13 @@
   </div>
  </md-toolbar>
  <md-dialog-content ms-scroll>
-  <div id='gb-component-discussion' layout="row" layout-wrap>
-
-   <div class="timeline" layout="column" flex="100" flex-sm="100">
-
+  <div class="gb-component-discussion" layout="column" layout-align="start center">
+   <div class="timeline gb-container" layout="column" flex="100" flex-sm="100">
     <div class="profile-box add-post md-whiteframe-1dp">
      <div class="form" flex>
       <textarea placeholder="Write something.." translate
+                ng-model="vm.post.title"
                 translate-attr-placeholder="PROFILE.WRITE_SOMETHING"></textarea>
-
       <footer layout="row" layout-align="space-between center">
        <div layout="row" layout-align="start center">
         <md-button class="md-icon-button" aria-label="insert photo" translate
@@ -35,38 +33,25 @@
          <md-icon md-font-icon="icon-file-image-box"></md-icon>
          <md-tooltip><span translate="PROFILE.INSERT_PHOTO">insert photo</span></md-tooltip>
         </md-button>
-
-        <md-button class="md-icon-button" aria-label="add person" translate
-                   translate-attr-aria-label="PROFILE.ADD_PERSON">
-         <md-icon md-font-icon="icon-person-plus"></md-icon>
-         <md-tooltip><span translate="PROFILE.ADD_PERSON">add person</span></md-tooltip>
-        </md-button>
-
-        <md-button class="md-icon-button" aria-label="add location" translate
-                   translate-attr-aria-label="PROFILE.LOCATION">
-         <md-icon md-font-icon="icon-map-marker"></md-icon>
-         <md-tooltip><span translate="PROFILE.LOCATION">add location</span></md-tooltip>
-        </md-button>
        </div>
-
-       <md-button ng-click="" class="post-button md-accent md-raised" aria-label="POST"
+       <md-button ng-click="vm.createPost()" class="post-button md-accent md-raised" aria-label="POST"
                   translate="PROFILE.POST" translate-attr-aria-label="PROFILE.POST">
         POST
        </md-button>
       </footer>
      </div>
     </div>
-
     <md-divider></md-divider>
-
-    <div class="timeline-item md-whiteframe-1dp" ng-repeat="post in vm.posts">
+    <div class="timeline-item md-whiteframe-2dp" ng-repeat="post in vm.posts">
      <header layout="row" layout-align="space-between start">
       <div class="user" layout="row" layout-align="start center">
-       <img class="avatar" ng-src="{{post.user.avatar}}">
+       <img class="avatar" ng-src="src/assets/images/profile_pic/{{post.creator.avatar_url}}">
 
        <div layout="column">
         <div class="title">
-         <span class="username md-accent-color">{{post.user.name}}</span>
+         <span class="username md-accent-color">
+          {{post.creator.firstname + " " + post.creator.lastname}}
+         </span>
          <span ng-if="post.type == 'post'" translate="PROFILE.TYPE_POST">posted on your
           timeline</span>
          <span ng-if="post.type == 'something'" translate="PROFILE.TYPE_SOMETHING">shared something
@@ -76,7 +61,7 @@
          <span ng-if="post.type == 'article'" translate="PROFILE.TYPE_ARTICLE">shared an article with
           you</span>
         </div>
-        <div class="time">{{post.time}}</div>
+        <div class="time">{{post.created_at}}</div>
        </div>
       </div>
 
@@ -84,10 +69,9 @@
        <md-icon md-font-icon="icon-dots-vertical"></md-icon>
       </md-button>
      </header>
-
      <div class="content">
-      <div ng-if="post.message" class="message">
-       {{post.message}}
+      <div ng-if="post.title" class="message">
+       {{post.title}}
       </div>
 
       <div ng-if="post.media" class="media">
@@ -105,7 +89,6 @@
        <div class="subtitle">{{post.article.subtitle}}</div>
        <div class="excerpt">{{post.article.excerpt}}</div>
       </div>
-
       <div layout="row" layout-align="start center">
        <md-button class="like-button">
         <div layout="row" layout-align="start center">
@@ -121,46 +104,8 @@
        </md-button>
       </div>
      </div>
-
-     <footer class="" layout="column" layout-align="start start">
-      <div ng-if="post.comments" class="comment-count">{{post.comments.length}} comments
-       <md-icon md-font-icon="icon-keyboard_arrow_down"></md-icon>
-      </div>
-
-      <div class="comment" layout="row" layout-fill ng-repeat="comment in post.comments">
-       <img ng-src="{{comment.user.avatar}}" class="avatar"/>
-
-       <div flex layout="column">
-        <div layout="row" layout-align="start center">
-         <span class="username">{{comment.user.name}}</span>
-         <span class="time">{{comment.time}}</span>
-        </div>
-        <div class="message">
-         {{comment.message}}
-        </div>
-        <div class="actions" layout="row" layout-align="space-between center">
-         <a href="#" class="reply-button md-accent-color" translate="PROFILE.REPLY">Reply</a>
-         <md-icon flex md-font-icon="icon-flag" class="report-button s16"></md-icon>
-        </div>
-       </div>
-      </div>
-
-      <div class="reply" layout="row" layout-fill>
-       <img src="src/assets/images/avatars/profile.jpg" class="avatar"/>
-
-       <form flex>
-        <textarea placeholder="Add a comment..." translate
-                  translate-attr-placeholder="PROFILE.ADD_COMMENT"></textarea>
-        <md-button ng-click="" class="post-comment-button md-accent md-raised" aria-label="Post Comment"
-                   translate="PROFILE.POST_COMMENT" translate-aria-label="PROFILE.POST_COMMENT">
-         Post Comment
-        </md-button>
-       </form>
-      </div>
-     </footer>
     </div>
    </div>
   </div>
-
  </md-dialog-content>
 </md-dialog>

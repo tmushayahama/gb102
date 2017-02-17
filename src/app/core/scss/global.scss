@@ -34,6 +34,7 @@ $gb-themes-primary-color:
 material-color('blue-grey', '500'),
 material-color('blue', '500');
 
+/*
 * {
  -ms-word-break: break-all;
  word-break: break-all;
@@ -44,6 +45,10 @@ material-color('blue', '500');
  -webkit-hyphens: auto;
  -moz-hyphens: auto;
  hyphens: auto;
+}
+*/
+.gb-pattern-floor {
+ background: url(../../../src/assets/images/landing-page/background-5.jpg);
 }
 
 .gb-disabled-1ight {
@@ -77,6 +82,103 @@ body {
  //@include position(fixed, 0 0 0 0);
 }
 
+.gb-section-furniture {
+ //padding: 60px 10px;
+ margin-bottom: 60px;
+ .gb-container {
+  background-color: rgba(material-color('blue-grey', '200'), 0.6);
+  //border: #777 solid 2px;
+  .gb-add-component-widget ms-widget-front {
+   background-color: rgba(#FFF, 0.5);
+  }
+
+  .gb-card-row md-toolbar.gb-heading md-icon.gb-title-icon {
+   color: #111;
+  }
+ }
+}
+
+.gb-section-table {
+ .gb-container {
+  background: url(../../../src/assets/images/landing-page/background-table.jpg);
+ }
+}
+
+.gb-section-board {
+ .gb-container {
+  background: url(../../../src/assets/images/landing-page/background-board.jpg);
+ }
+}
+
+.gb-section-tv {
+ .gb-container {
+  background-color: rgba(material-color('grey', '400'), 1);
+  border: #777 solid 10px;
+  border-top-width: 25px;
+  border-bottom: #555 solid 35px;
+  // background: url(../../../src/assets/images/landing-page/background-board.jpg);
+ }
+ .gb-tv-stand {
+  width: 400px;
+  @include respond-to (gb-xs) {
+   width: 200px;
+  }
+ }
+}
+
+
+
+.gb-section-bookshelf {
+ .gb-container {
+  background: url(../../../src/assets/images/landing-page/background-bookshelf.jpg);
+  height: 100%;
+  overflow: hidden;
+  /*
+  background-color: transparent;
+  background-image: linear-gradient( darken($brown, 20%),  darken($brown, 25%) 282px,
+   lighten($brown, 10%) 320px, lighten($brown, 10%) 322px,
+   $brown 322px, $brown 328px,
+   darken($brown, 10%) 328px, darken($brown, 10%) 330px);
+ // background-size: 10px 330px;
+  //box-shadow: 0px 1000px 0px 400px #7A7668;
+  // z-index: 0;
+  */
+  .gb-bookshelf-back {
+   background: url(../../../src/assets/images/landing-page/background-bookshelf-back.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   padding: 20px 45px;
+   @include respond-to (gb-xs) {
+    padding: 10px 25px;
+   }
+  }
+  .gb-bookshelf-big-bar {
+   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar-2.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   height: 40px;
+  }
+  .gb-bookshelf-base {
+   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar-2.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   height: 70px;
+  }
+  .gb-bookshelf-bar {
+   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   height: 20px;
+  }
+
+ }
+ .gb-shelf {
+  //width: 100%;
+  //height: 10px;
+  // background-color: darken($brown, 5%);
+ }
+}
+
 md-icon {
  text-align: center;
 }
@@ -105,6 +207,11 @@ md-sidenav {
   width: 100%;
  }
 }
+
+.gb-semi-transparent {
+ background-color: rgba(material-color('blue-grey', '100'), 0.5);
+}
+
 
 /*
           ANGULAR MATERIAL OVERRIDES
@@ -510,7 +617,7 @@ md-dialog {
   }
   .gb-heading-title {
    color: #000;
-   font-weight: 500;
+   font-weight: 600;
    font-size: 15px;
    width: 100%;
   }
@@ -946,6 +1053,8 @@ md-tabs {
 }
 
 .gb-card-heading-1 {
+ height: 120px;
+ max-height: 120px;
  .gb-title {
   font-size: 24px;
  }
@@ -953,6 +1062,7 @@ md-tabs {
   font-size: 16px;
  }
  @include respond-to (gb-xs) {
+  height: 90px;
   .gb-title {
    font-size: 14px;
   }
@@ -1397,16 +1507,17 @@ md-tabs {
 }
 
 .gb-app-widget {
- height: 200px;
- min-height: 200px;
- max-height: 200px;
- box-shadow: none!important;
+ padding: 5px 0;
+ height: 160px;
+ min-height: 160px;
+ max-height: 160px;
+ //box-shadow: none!important;
  .gb-main-button {
   background-color: transparent;
  }
  .gb-title-icon {
-  height: 100px;
-  min-height: 100px;
+  height: 80px;
+  min-height: 80px;
   overflow: hidden;
  }
  .gb-main-button {
@@ -1414,14 +1525,14 @@ md-tabs {
   margin: 0;
  }
  .gb-widget-content {
-  padding: 14px;
+  padding: 5px;
  }
  .gb-title-icon {
   text-align: center;
-  width: 100px;
-  min-width: 100px;
-  max-width: 100px;
-  border-radius: 50%;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  //border-radius: 50%;
   i{
    //color: #EEE;
    font-size: 60px;
@@ -1466,7 +1577,7 @@ md-tabs {
    min-height: 70px;
   }
   .gb-widget-content {
-   padding: 8px;
+   padding: 4px;
   }
   .gb-title-icon {
    width: 70px;
@@ -1541,10 +1652,12 @@ md-tabs {
 
 .gb-component-discussion-widget {
  height: 150px;
+ text-align: center;
  ms-widget-front {
-  background-color: #F2F2F2;
+  background-color: rgba(#FFF, 0.4);
  }
  .gb-title {
+
   font-size: 18px;
   text-transform: uppercase;
  }
@@ -1632,6 +1745,7 @@ md-tabs {
  ms-widget-front {
   height: 60px;
   min-height: 60px;
+  max-height: 60px;
   background-color: #F7F7F7;
   box-shadow: none!important;
   .gb-main-button, .gb-widget-content, .gb-title-icon {
@@ -2103,7 +2217,7 @@ md-tabs {
  box-shadow: none!important;
  ms-widget-front {
   padding: 0 8px;
-  background-color: #F2F2F2;
+  // background-color: rgba(material-color('blue-grey', '200'), 0.4);
  }
  ms-widget-back {
   background-color: #F2F2F2;
@@ -2124,8 +2238,9 @@ md-tabs {
  .gb-title {
   text-align: center;
   padding: 10px 10px;
-  font-size: 25px;
-  color: #000;
+  font-size: 30px;
+  color: #222;
+  font-weight: 600;
  }
  .gb-description {
   padding: 0 10px;
@@ -2140,24 +2255,117 @@ md-tabs {
    max-width: 250px;
   }
  }
- @mixin apps-widget-background {
-  @for $i from 1 through length($apps-colors){
-   .gb-app-type-#{$i}
-   {
-    background-color: rgba(nth($apps-colors, $i), 0.3);
-    color: darken(nth($apps-colors, $i), 15%);
-    &:hover {
-     background-color: rgba(nth($apps-colors, $i), 0.5);
-     color: darken(nth($apps-colors, $i), 25%);
-    }
+}
+
+.gb-card-row-4 {
+
+ md-toolbar.gb-heading {
+  background-color: transparent;
+  text-transform: uppercase;
+  md-icon {
+   color: #555;
+   &.gb-title-icon {
+    color: #999;
+   }
+  }
+  .md-toolbar-tools {
+   height: 60px;
+   padding: 0 10px 0 5px;
+  }
+  .gb-heading-title {
+   color: #000;
+   font-weight: 500;
+   font-size: 15px;
+   width: 100%;
+  }
+  .gb-action-btn {
+   color: $gb-primary-color;
+   margin-right: 0px;
+   md-icon {
+    color: $gb-primary-color;
    }
   }
  }
 
- @include apps-widget-background;
+ .gb-view-more-button {
+  margin: 0;
+  height: 50px;
+  font-size: 18px;
+  background-color: rgba(#000, 0.1);
+  &:hover {
+   background-color: rgba(#000, 0.3);
+  }
+ }
+}
 
- .gb-card-profile {
-  background-color: transparent;
+
+.gb-room-description-widget {
+ padding: 0;
+ height: 300px;
+ min-height: 300px;
+ max-height: 300px;
+ box-shadow: none!important;
+ ms-widget-front {
+  padding: 0 8px;
+  background-color: rgba(material-color('blue-grey', '200'), 0.3);
+ }
+ .gb-type-title {
+  padding: 0px 10px;
+  color: #AAA;
+  font-size: 12px;
+  text-transform: uppercase;
+ }
+ .gb-title {
+  width: 600px;
+  padding: 10px 10px;
+  font-size: 25px;
+  color: #000;
+  font-weight: 600;
+ }
+ .gb-description {
+  width: 600px;
+  padding: 10px 10px;
+  font-size: 25px;
+  color: #000;
+ }
+ md-icon {
+  &.gb-background-icon {
+   //color: #DDD;
+   font-size: 200px;
+   width: 250px;
+   min-width: 250px;
+   max-width: 250px;
+  }
+ }
+
+ @include respond-to (gb-xs) {
+  width: 100%;
+  padding: 0;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  ms-widget-front {
+   padding: 0 5px;
+  }
+  .gb-title {
+   width: 100%;
+   padding: 5px;
+   font-size: 18px;
+  }
+  .gb-description {
+   width: 100%;
+   padding: 5;
+   font-size: 14px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    //color: #DDD;
+    font-size: 120px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+   }
+  }
  }
 }
 
@@ -2204,25 +2412,6 @@ md-tabs {
    max-width: 250px;
   }
  }
- @mixin apps-widget-background {
-  @for $i from 1 through length($apps-colors){
-   .gb-app-type-#{$i}
-   {
-    background-color: rgba(nth($apps-colors, $i), 0.3);
-    color: darken(nth($apps-colors, $i), 15%);
-    &:hover {
-     background-color: rgba(nth($apps-colors, $i), 0.5);
-     color: darken(nth($apps-colors, $i), 25%);
-    }
-   }
-  }
- }
-
- @include apps-widget-background;
-
- .gb-card-profile {
-  background-color: transparent;
- }
 }
 
 .gb-matcher-widget {
@@ -2265,25 +2454,6 @@ md-tabs {
    min-width: 150px;
    max-width: 150px;
   }
- }
- @mixin apps-widget-background {
-  @for $i from 1 through length($apps-colors){
-   .gb-app-type-#{$i}
-   {
-    background-color: rgba(nth($apps-colors, $i), 0.3);
-    color: darken(nth($apps-colors, $i), 15%);
-    &:hover {
-     background-color: rgba(nth($apps-colors, $i), 0.5);
-     color: darken(nth($apps-colors, $i), 25%);
-    }
-   }
-  }
- }
-
- @include apps-widget-background;
-
- .gb-card-profile {
-  background-color: transparent;
  }
 }
 
@@ -2633,6 +2803,9 @@ md-tabs {
   //max-width: 100%;
   .gb-title{
    position: relative;
+   height: 40px;
+   min-height: 40px;
+   max-height: 40px;
    width: 100%;
    border-bottom: #CCC solid 1px;
    &:hover {

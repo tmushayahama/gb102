@@ -7,7 +7,7 @@
          .controller('ComponentListboardDialogController', ComponentListboardDialogController);
 
  /** @ngInject */
- function ComponentListboardDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog) {
+ function ComponentListboardDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $window, $mdSidenav, $mdDialog) {
 
   var vm = this;
 
@@ -169,11 +169,27 @@
   /**
    * Initialize
    */
-  function init() {
-   ComponentService.getComponent(vm.componentId, 0).then(function (data) {
-    vm.components = data.components;
-    vm.components.newComponentData = angular.copy(vm.defaultComponentData);
+  function init()
+  {
+   ComponentService.getComponent($stateParams.id, 3).then(function (data) {
+    vm.board = data;
    });
+   $timeout(function ()
+   {
+    // IE list-content max-height hack
+    if (angular.element('html').hasClass('explorer'))
+    {
+     // Calculate the height for the first time
+     calculateListContentHeight();
+
+     // Attach calculateListContentHeight function to window resize
+     $window.onresize = function ()
+     {
+      calculateListContentHeight();
+     };
+    }
+   }, 0);
+
   }
  }
 })();

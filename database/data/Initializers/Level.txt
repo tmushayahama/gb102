@@ -158,3 +158,5 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	blue
 19000	\N	Matcher Answer					
 19001	19000	Answer					
+21000	\N	Post					
+21001	21000	Discussion					

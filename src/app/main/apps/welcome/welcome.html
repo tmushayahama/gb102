@@ -31,11 +31,11 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget class="p-8" layout="column" flex="33">
+    <ms-widget class="p-5" layout="column" flex="33">
      <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.explorer.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
-       <div class="gb-title-icon deep-orange-600-fg" layout="column" layout-fill layout-align="center center" flex>
+       <div class="gb-title-icon green-600-fg" layout="column" layout-fill layout-align="center center" flex>
         <i class="fa icon-gb-explorer"></i>
        </div>
        <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
@@ -49,7 +49,7 @@
       </div>
      </ms-widget-front>
     </ms-widget>
-    <ms-widget class="p-8" layout="column" flex="33">
+    <ms-widget class="p-5" layout="column" flex="33">
      <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.swipe.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
@@ -67,7 +67,7 @@
       </div>
      </ms-widget-front>
     </ms-widget>
-    <ms-widget class="p-8" layout="column" flex="33">
+    <ms-widget class="p-5" layout="column" flex="33">
      <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.matcher.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
@@ -109,7 +109,7 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8" layout="column" 	flex-xs="33" flex="25">
+    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-5" layout="column" 	flex-xs="33" flex="25">
      <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>

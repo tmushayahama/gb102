@@ -1,26 +1,29 @@
 <!---
 Components Home
 -->
-<div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
-  <div class="" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
+
+
+<div class="gb-welcome-section-4" layout="column" layout-align="start center" flex>
+ <ms-widget class="gb-container gb-room-description-widget" layout="column" flex>
+  <ms-widget-front class="" layout="row" flex>
+   <div class="text-center" layout="column" layout-align="center center" flex>
+    <div class="gb-title">
      Room Types: Apply your skills
-    </h2>
+    </div>
     <p class="gb-description">
      Check out the applications of each room type and see what others are doing with their skills
     </p>
    </div>
-  </div>
- </div>
-</div>
-<div class="gb-welcome-section-2" layout="column" layout-align="start center" flex>
- <div class="gb-container" layout="column" layout-align="start stretch" flex>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa icon-gb-explorer" class="green-300-fg gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
+ <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
   <div class="widget-group gb-section-widget-group"
        layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8 gb-app-widget" layout="column" 	flex-xs="33" flex="25">
-    <ms-widget-front layout="row" layout-fill flex>
+   <ms-widget ng-repeat="app in $root.commonData.apps" class="p-8" layout="column" 	flex-xs="33" flex="25">
+    <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
           layout="column" layout-align="start center" flex>
       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
@@ -39,10 +42,15 @@ Components Home
    </ms-widget>
   </div>
  </div>
+ <div class="gb-door">
+  <div class="gb-title">Suggested<br>Rooms</div>
+  <i class="gb-icon fa icon-arrow-down"></i>
+ </div>
+ <div class="gb-wall-h"></div>
 </div>
-<div class="gb-welcome-section-2" layout="column" layout-align="center center" flex>
+<div class="gb-welcome-section-6" layout="column" layout-align="center center" flex>
  <div class="gb-container" layout="column" layout-align="" flex>
-  <div class="" layout="column" layout-align="center center" flex>
+  <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
    <div class="text-center">
     <h2 class="gb-title">
      Rooms: Explore and discover skills
