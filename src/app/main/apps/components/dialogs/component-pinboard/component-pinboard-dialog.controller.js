@@ -12,6 +12,7 @@
   var vm = this;
 
   // Data
+  vm.componentHistory = [];
   vm.componentId = $stateParams.id;
   vm.components = [];//ComponentService.data;
   vm.labels = [];//LabelsService.data;
@@ -25,6 +26,8 @@
 
   // Methods
   vm.closeDialog = closeDialog;
+  vm.openComponent = openComponent;
+  vm.goBack = goBack;
   vm.filterChange = filterChange;
   vm.openSearchToolbar = openSearchToolbar;
   vm.closeSearchToolbar = closeSearchToolbar;
@@ -43,9 +46,23 @@
   /**
    * Close Dialog
    */
-  function closeDialog()
-  {
+  function closeDialog() {
    $mdDialog.hide();
+  }
+
+
+  function openComponent(id) {
+   getComponent(id);
+  }
+
+  function goBack() {
+   if (vm.componentHistory.length <= 1) {
+    closeDialog();
+   } else {
+    vm.componentHistory.pop();
+    var id = vm.componentHistory[vm.componentHistory.length - 1];
+    getComponent(id, true);
+   }
   }
 
   /**
@@ -175,14 +192,22 @@
    })[0];
   };
 
+  function getComponent(id, back) {
+   ComponentService.getComponent(id, 0).then(function (data) {
+    vm.components = data.components;
+    vm.components.newComponentData = angular.copy(vm.defaultComponentData);
+
+    if (!back) {
+     vm.componentHistory.push(id);
+    }
+   });
+  }
+
   /**
    * Initialize
    */
   function init() {
-   ComponentService.getComponent(vm.componentId, 0).then(function (data) {
-    vm.components = data.components;
-    vm.components.newComponentData = angular.copy(vm.defaultComponentData);
-   });
+   getComponent(vm.componentId);
   }
  }
 })();

@@ -2,7 +2,7 @@
 <md-dialog class="gb-component-section-dialog gb-card-row " aria-label="Card Dialog" ng-cloak>
  <md-toolbar class="gb-heading" layout="column" layout-align="start center" flex>
   <div class="md-toolbar-tools">
-   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+   <md-button class="md-icon-button" ng-click="vm.goBack()" aria-label="Close Dialog"
               translate translate-attr-aria-label="SB.CLOSE_DIALOG">
     <md-icon md-font-icon="fa fa-arrow-left"></md-icon>
    </md-button>
@@ -68,7 +68,7 @@
       <ms-masonry-item class="component"
                        ng-repeat="component in vm.components track by component.id"
                        ms-component-item="component"
-                       ng-click="componentLinearCtrl.openComponentDialog($event, component.id)">
+                       ng-click="vm.openComponent(component.id)">
       </ms-masonry-item>
      </ms-masonry>
      <div class="no-results text-center" ng-if="filteredComponents.length === 0 && vm.search === ''">

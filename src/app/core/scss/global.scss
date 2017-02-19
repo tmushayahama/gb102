@@ -81,42 +81,99 @@ body {
 	-webkit-font-smoothing: antialiased;
  //@include position(fixed, 0 0 0 0);
 }
+.gb-section-description {
+ padding: 30px 10px;
+ ms-widget {
+  padding: 0;
+ }
+ @include respond-to (gb-sm) {
+  padding: 20px 10px;
+ }
+ @include respond-to (gb-xs) {
+  padding: 12px 10px;
+ }
+}
 
 .gb-section-furniture {
- //padding: 60px 10px;
- margin-bottom: 60px;
+ padding: 30px 10px;
+ //margin-bottom: 60px;
  .gb-container {
-  background-color: rgba(material-color('blue-grey', '200'), 0.6);
+  //background-color: rgba(material-color('blue-grey', '200'), 0.6);
   //border: #777 solid 2px;
   .gb-add-component-widget ms-widget-front {
-   background-color: rgba(#FFF, 0.5);
+   //background-color: rgba(#FFF, 0.5);
   }
 
   .gb-card-row md-toolbar.gb-heading md-icon.gb-title-icon {
    color: #111;
   }
  }
+
+ @include respond-to (gb-sm) {
+  padding: 20px 10px;
+ }
+ @include respond-to (gb-xs) {
+  padding: 12px 10px;
+ }
 }
 
 .gb-section-table {
  .gb-container {
+  padding:40px 15px;
   background: url(../../../src/assets/images/landing-page/background-table.jpg);
+  border-radius: 50px;
+  @include respond-to (gb-sm) {
+   padding:30px 15px;
+   border-radius: 30px;
+  }
+  @include respond-to (gb-xs) {
+   padding:20px 10px;
+   border-radius: 20px;
+  }
  }
 }
 
 .gb-section-board {
  .gb-container {
-  background: url(../../../src/assets/images/landing-page/background-board.jpg);
+  .gb-board-body {
+   background: url(../../../src/assets/images/landing-page/background-board-body.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   padding: 20px 45px;
+   @include respond-to (gb-sm) {
+    padding: 15px 25px;
+   }
+   @include respond-to (gb-xs) {
+    padding: 10px 15px;
+   }
+  }
+  .gb-board-top {
+   background: url(../../../src/assets/images/landing-page/background-board-top.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   height: 25px;
+  }
+  .gb-board-bottom {
+   background: url(../../../src/assets/images/landing-page/background-board-bottom.jpg);
+   background-size: 100% 100%;
+   width: 100%;
+   height: 25px;
+  }
  }
 }
 
 .gb-section-tv {
  .gb-container {
-  background-color: rgba(material-color('grey', '400'), 1);
-  border: #777 solid 10px;
+  background-color: rgba(material-color('blue-grey', '200'), 1);
+  border: #555 solid 10px;
   border-top-width: 25px;
-  border-bottom: #555 solid 35px;
+  border-bottom: #333 solid 35px;
   // background: url(../../../src/assets/images/landing-page/background-board.jpg);
+  @include respond-to (gb-xs) {
+   border-width: 5px;
+   border-top-width: 12px;
+   border-bottom-width: 20px;
+  }
  }
  .gb-tv-stand {
   width: 400px;
@@ -131,7 +188,7 @@ body {
 .gb-section-bookshelf {
  .gb-container {
   background: url(../../../src/assets/images/landing-page/background-bookshelf.jpg);
-  height: 100%;
+  //height: 500px;
   overflow: hidden;
   /*
   background-color: transparent;
@@ -148,8 +205,11 @@ body {
    background-size: 100% 100%;
    width: 100%;
    padding: 20px 45px;
+   @include respond-to (gb-sm) {
+    padding: 15px 25px;
+   }
    @include respond-to (gb-xs) {
-    padding: 10px 25px;
+    padding: 10px 15px;
    }
   }
   .gb-bookshelf-big-bar {
@@ -209,7 +269,7 @@ md-sidenav {
 }
 
 .gb-semi-transparent {
- background-color: rgba(material-color('blue-grey', '100'), 0.5);
+ background-color: rgba(#FFF, 0.8);
 }
 
 
@@ -1313,7 +1373,7 @@ md-tabs {
 
 .gb-card-note {
  position: relative;
- height: 100px;
+ height: 120px;
  min-width: 200px;
  padding: 0 0 0 0;
  border-radius: 2px;
@@ -1651,14 +1711,15 @@ md-tabs {
 }
 
 .gb-component-discussion-widget {
- height: 150px;
  text-align: center;
  ms-widget-front {
+  height: 120px;
+  min-height: 120px;
   background-color: rgba(#FFF, 0.4);
  }
  .gb-title {
 
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
  }
 
@@ -2218,6 +2279,7 @@ md-tabs {
  ms-widget-front {
   padding: 0 8px;
   // background-color: rgba(material-color('blue-grey', '200'), 0.4);
+  box-shadow: none!important;
  }
  ms-widget-back {
   background-color: #F2F2F2;
@@ -2256,6 +2318,57 @@ md-tabs {
   }
  }
 }
+
+.gb-furniture-item-widget {
+ padding: 8px!important;
+ width: 200px;
+ min-width: 200px;
+ max-width: 200px;
+ text-align: center;
+ opacity: 0.8;
+ ms-widget-front {
+  height: 120px;
+  min-height: 120px;
+ }
+ .gb-title {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+ }
+
+ .gb-description {
+  font-size: 14px;
+ }
+
+ md-icon {
+  &.gb-background-icon {
+   color: #FFF;
+   font-size: 80px;
+   width: 90px;
+   min-width: 90px;
+   max-width: 90px;
+  }
+ }
+ @include respond-to (gb-xs) {
+  padding: 5px!important;
+  height: 100px;
+  .gb-count {
+   font-size: 22px;
+  }
+  .gb-title {
+   font-size: 12px;
+  }
+  md-icon {
+   &.gb-background-icon {
+    font-size: 80px;
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+   }
+  }
+ }
+}
+
 
 .gb-card-row-4 {
 

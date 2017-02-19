@@ -24,6 +24,7 @@
   vm.componentListType = 'components';
 
   // Methods
+  vm.closeDialog = closeDialog;
   vm.filterChange = filterChange;
   vm.openSearchToolbar = openSearchToolbar;
   vm.closeSearchToolbar = closeSearchToolbar;
@@ -38,6 +39,14 @@
   // ******************************
   // Internal methods
   // ******************************
+
+
+  /**
+   * Close Dialog
+   */
+  function closeDialog() {
+   $mdDialog.hide();
+  }
 
   /**
    * Change Components Filter
