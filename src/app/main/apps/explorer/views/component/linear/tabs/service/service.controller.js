@@ -4,10 +4,10 @@
 
  angular
          .module('app.explorer')
-         .controller('ComponentLinearTourController', ComponentLinearTourController);
+         .controller('ComponentLinearServiceController', ComponentLinearServiceController);
 
  /** @ngInject */
- function ComponentLinearTourController(add_component_tabs, ComponentService, DialogService, $stateParams, $rootScope)
+ function ComponentLinearServiceController(add_component_tabs, ComponentService, DialogService, $stateParams, $rootScope)
  {
   var vm = this;
   //////////
@@ -18,8 +18,7 @@
   ///////////
 
   //Methods
-  vm.startComponentStoryDialog = DialogService.startComponentStoryDialog;
-
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
 
  }
 })();

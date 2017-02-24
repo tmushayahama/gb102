@@ -513,12 +513,16 @@ class Component extends Model {
  private static function formatComponentByType($component) {
   $components = array();
   $componentMotiveTypes = Level::getSubLevels(Level::$level_categories['component_motives']);
-  $componentAppTypes = Level::getSubLevels(Level::$level_categories['apps']);
+  $componentRoomTypes = Level::getSubLevels(Level::$level_categories['room']);
+  $componentServiceTypes = Level::getSubLevels(Level::$level_categories['service']);
+  $componentSectionTypes = Level::getSubLevels(Level::$level_categories['section']);
   $componentActivityTypes = Level::getSubLevels(Level::$level_categories['component_types']);
 
   $component["apps"] = Component::getSubComponents($component->id, 1);
   $component["motives"] = self::formatSubComponentByType($component->id, $componentMotiveTypes);
-  $component["components"] = self::formatSubComponentByType($component->id, $componentAppTypes);
+  $component["rooms"] = self::formatSubComponentByType($component->id, $componentRoomTypes);
+  $component["services"] = self::formatSubComponentByType($component->id, $componentServiceTypes);
+  $component["sections"] = self::formatSubComponentByType($component->id, $componentSectionTypes);
   $component["activities"] = self::formatSubComponentByType($component->id, $componentActivityTypes);
  }
 

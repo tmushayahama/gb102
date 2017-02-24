@@ -40,7 +40,7 @@ class Level extends Model {
      'collabo' => 106,
      'project' => 201,
      'page' => 202,
-     'journal' => 203,
+     'group' => 203,
      'question' => 11100,
      'request_type_skill' => 1001,
      'request_type_goal' => 1002,

@@ -172,7 +172,18 @@
             'selectedTab': 1
            }
           })
-
+          .state('app.componentLinearView.service', {
+           url: '/service',
+           views: {
+            'tab': {
+             templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/service/service.html',
+             controller: 'ComponentLinearServiceController as vm'
+            }
+           },
+           data: {
+            'selectedTab': 2
+           }
+          })
           .state('app.componentLinearView.tour', {
            url: '/tour',
            views: {
@@ -182,7 +193,7 @@
             }
            },
            data: {
-            'selectedTab': 2
+            'selectedTab': 3
            }
           })
           .state('app.componentRowView', {

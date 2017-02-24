@@ -1,57 +1,133 @@
 <!--
 LINEAR VIEW STORY
 -->
-<div class="gb-section-floor" layout="column" layout-align="center center" flex>
- <div class="" layout="column" layout-align="center center" flex>
-  <div class="gb-container mb-15 mt-15" layout="column" layout-align="" flex>
-   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-    <div class="text-center">
-     <h2 class="gb-title">
-      Tours
-     </h2>
+<div class="gb-pattern-floor-3 gb-room-padding gb-bottom-gutter" layout="column" layout-align="center center" flex>
+ <div class="gb-section-description" layout="column" layout-align="center center" flex>
+  <ms-widget class="gb-container gb-room-description-widget" layout="column" flex>
+   <ms-widget-front class="" layout="row" flex>
+    <div class="text-center" layout="column" layout-align="center center" flex>
+     <div class="gb-title">
+      Services
+     </div>
      <p class="gb-description">
-
+      Rooms have services and tools you need to help you strengthen your skills. Whether it is mentorship,
+      goal settings, getting advice...
      </p>
     </div>
-   </div>
-  </div>
+    <div class="background-image-center" layout-align="center center"  flex>
+     <md-icon md-font-icon="fa icon-gb-advice" class="teal-200-fg gb-background-icon"></md-icon>
+    </div>
+   </ms-widget-front>
+  </ms-widget>
  </div>
- <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+ <div class="gb-container gb-section-row widget-group gb-section-widget-group md-whiteframe-1dp" flex
+      layout="row" layout-align="start" flex>
+  <ms-widget class="gb-add-component-widget" layout="column" flex="33"
+             ng-repeat="mentorshipRequestType in $root.commonData.mentorshipRequestTypes">
+   <ms-widget-front layout="row" layout-fill flex>
+    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.mentorshipRequest, mentorshipRequestType)" class="gb-main-button"
+               layout="row" layout-align="start stretch">
+     <div class="gb-title-icon {{mentorshipRequestType.background_color + '-400-fg'}}" layout-fill layout="row" layout-align="center center" flex>
+      <i class="fa {{mentorshipRequestType.icon}}"></i>
+     </div>
+     <div class="gb-widget-content" layout="column" layout-align="center stretch" flex>
+      <div class="gb-title">
+       {{mentorshipRequestType.description}}
+      </div>
+     </div>
+    </md-button>
+   </ms-widget-front>
+  </ms-widget>
+ </div>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" flex>
   <md-toolbar class="gb-heading">
    <div class="md-toolbar-tools">
     <md-button class="md-icon-button" aria-label="Description Icon">
-     <md-icon class="gb-title-icon" md-font-icon="fa icon-books"></md-icon>
+     <md-icon class="gb-title-icon" md-font-icon="fa icon-gb-mentorship"></md-icon>
     </md-button>
     <div class="gb-heading-title">
      <span class="ellipsis">
-      Room Tour
+      Mentorships
      </span>
     </div>
     <span flex></span>
-    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
-               class="gb-action-btn">
-     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
-    </md-button>
    </div>
   </md-toolbar>
-  <div class="gb-section-row widget-group gb-section-widget-group"
-       layout="row" layout-align="start" flex>
-   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
-              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
-    <ms-widget-front class="p-8" layout="row" flex>
-     <div layout="column" layout-align="center center" flex>
-      <div class="gb-count">
-       {{::componentLinearCtrl.component.stats.activities_count}}
-      </div>
-      <div class="gb-title">
-       Everything
-      </div>
-     </div>
-     <div class="background-image-center">
-      <md-icon md-font-icon="fa fa-book" class="gb-background-icon"></md-icon>
-     </div>
-    </ms-widget-front>
-   </ms-widget>
+  <div ng-if="componentLinearCtrl.component.mentorships.length === 0" class='gb-section-no-info' flex>
+   No mentorships yet.
+  </div>
+  <div class="" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget ng-repeat="mentorship in componentLinearCtrl.component.mentorships"
+               class="p-8 gb-mentorship-widget" layout="column" flex="50" flex-xs="100">
+     <ms-widget-front layout="row" layout-fill flex>
+      <md-button ui-sref="app.mentorshipLinearView.home({id: mentorship.id})" class="gb-main-button"
+                 layout="column" layout-align="start stretch">
+       <div class="gb-widget-header" ng-class="'md-' + mentorship.component.background_color + '-400-bg'">
+        <div class="gb-title">
+         {{mentorship.component.title}}
+        </div>
+        <div class="gb-subtitle">
+         {{mentorship.status.title}}
+        </div>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-card-profile gb-card-left">
+         <div class="gb-box-content">
+          <div class="gb-title">
+           <h3 class="gb-ellipsis">
+            <a ui-sref="app.profileLinearView.home({userId: mentorship.mentor_id})"
+               ng-click="$event.stopPropagation()">
+             {{mentorship.mentor.firstname + ' ' + mentorship.mentor.lastname}}
+            </a>
+           </h3>
+          </div>
+          <div class="gb-subdescription">
+           <p class="gb-ellipsis">
+            MENTOR
+           </p>
+          </div>
+          <div class="gb-description">
+          </div>
+         </div>
+         <div class="gb-image" ng-class="mentorship.mentor.theme_color">
+          <img ng-if="mentorship.mentor.avatar_url !== 'gb-avatar.jpg'"
+               ng-src="src/assets/images/profile_pic/{{mentorship.mentor.avatar_url}}"
+               class="gb-heading-pic" alt="">
+          {{mentorship.mentor.firstname.substring(0, 1) + mentorship.mentor.lastname.substring(0, 1)}}
+         </div>
+        </div>
+        <div class="gb-card-profile gb-card-right">
+         <div class="gb-box-content">
+          <div class="gb-title">
+           <h3 class="gb-ellipsis">
+            <a data-ui-sref="app.profileLinearView.home({userId: mentorship.mentee_id})"
+               ng-click="$event.stopPropagation()">
+             {{mentorship.mentee.firstname + ' ' + mentorship.mentee.lastname}}
+            </a>
+           </h3>
+          </div>
+          <div class="gb-subdescription">
+           <p class="gb-ellipsis">
+            MENTEE
+           </p>
+          </div>
+          <div class="gb-description">
+          </div>
+         </div>
+         <div class="gb-image" ng-class="mentorship.mentee.theme_color">
+          <img ng-if="mentorship.mentee.avatar_url !== 'gb-avatar.jpg'"
+               ng-src="src/assets/images/profile_pic/{{mentorship.mentee.avatar_url}}"
+               class="gb-heading-pic" alt="">
+          {{mentorship.mentee.firstname.substring(0, 1) + mentorship.mentee.lastname.substring(0, 1)}}
+         </div>
+        </div>
+       </div>
+      </md-button>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
   </div>
  </div>
 </div>
