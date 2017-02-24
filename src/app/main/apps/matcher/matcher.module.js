@@ -96,7 +96,7 @@
 
   // Api
   msApiProvider.register('matcher.getMatcher', ['/api/components/random']);
-  msApiProvider.register('matcher.getMatcherByType', ['/api/components/random/type/:typeId',
+  msApiProvider.register('matcher.getMatcherByType', ['/api/components/random/typeid/:typeId',
    {
     typeId: '@typeId'
    }

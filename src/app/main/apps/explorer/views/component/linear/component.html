@@ -89,6 +89,18 @@ LINEAR VIEW
    </md-tab>
    <md-tab>
     <md-tab-label>
+     <div class="gb-tab-button" ui-sref="app.componentLinearView.service({id: componentLinearCtrl.component.id})">
+      <div class="gb-icon">
+       <i class="fa icon-cabinet"></i>
+      </div>
+      <div class="gb-title">
+       Services
+      </div>
+     </div>
+    </md-tab-label>
+   </md-tab>
+   <md-tab>
+    <md-tab-label>
      <div class="gb-tab-button" ui-sref="app.componentLinearView.tour({id: componentLinearCtrl.component.id})">
       <div class="gb-icon">
        <i class="fa icon-map2"></i>
@@ -102,4 +114,4 @@ LINEAR VIEW
   </md-tabs>
  </div>
 </div>
-<div ui-view="tab" class="gb-bottom-gutter gb-pattern-floor gb-room-padding  gb-component-tab"></div>
+<div ui-view="tab" class="gb-component-tab"></div>

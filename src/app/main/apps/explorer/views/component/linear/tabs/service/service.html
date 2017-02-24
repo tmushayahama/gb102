@@ -1,0 +1,57 @@
+<!--
+LINEAR VIEW STORY
+-->
+<div class="gb-section-floor" layout="column" layout-align="center center" flex>
+ <div class="" layout="column" layout-align="center center" flex>
+  <div class="gb-container mb-15 mt-15" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Tours
+     </h2>
+     <p class="gb-description">
+
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="gb-container gb-card-row gb-section-row md-whiteframe-1dp" layout="column" layout-align="start stretch">
+  <md-toolbar class="gb-heading">
+   <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Description Icon">
+     <md-icon class="gb-title-icon" md-font-icon="fa icon-books"></md-icon>
+    </md-button>
+    <div class="gb-heading-title">
+     <span class="ellipsis">
+      Room Tour
+     </span>
+    </div>
+    <span flex></span>
+    <md-button ng-click="vm.openAddComponentDialog($event, vm.componentId, vm.tabs.contributions)"
+               class="gb-action-btn">
+     <md-icon class="" md-font-icon="fa fa-plus"></md-icon>
+    </md-button>
+   </div>
+  </md-toolbar>
+  <div class="gb-section-row widget-group gb-section-widget-group"
+       layout="row" layout-align="start" flex>
+   <ms-widget flippable="true" class="p-8 gb-component-story-widget" layout="column" flex="33"
+              ng-click="vm.startComponentStoryDialog($event, vm.componentId)">
+    <ms-widget-front class="p-8" layout="row" flex>
+     <div layout="column" layout-align="center center" flex>
+      <div class="gb-count">
+       {{::componentLinearCtrl.component.stats.activities_count}}
+      </div>
+      <div class="gb-title">
+       Everything
+      </div>
+     </div>
+     <div class="background-image-center">
+      <md-icon md-font-icon="fa fa-book" class="gb-background-icon"></md-icon>
+     </div>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
+</div>

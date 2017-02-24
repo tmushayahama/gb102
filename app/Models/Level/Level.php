@@ -27,18 +27,20 @@ class Level extends Model {
 
  public static $level_categories = array(
      'apps' => 1,
-     'skill' => 2,
-     'goal' => 3,
-     'hobby' => 4,
-     'promise' => 5,
-     'mentorship' => 6,
-     'collaboration' => 7,
-     'teach' => 8,
-     'advice' => 9,
-     'group' => 10,
-     'journal' => 11,
-     'page' => 12,
-     'project' => 13,
+     'room' => 10,
+     'service' => 100,
+     'section' => 200,
+     'skill' => 11,
+     'hobby' => 12,
+     'mentorship' => 101,
+     'advice' => 102,
+     'goal' => 103,
+     'promise' => 104,
+     'teach' => 105,
+     'collabo' => 106,
+     'project' => 201,
+     'page' => 202,
+     'journal' => 203,
      'question' => 11100,
      'request_type_skill' => 1001,
      'request_type_goal' => 1002,
@@ -158,7 +160,9 @@ class Level extends Model {
 
  public static function getComponentTypes() {
   $result = array();
-  $result['apps'] = Level::getSubLevels(Level::$level_categories['apps'], true);
+  $result['rooms'] = Level::getSubLevels(Level::$level_categories['room'], true);
+  $result['services'] = Level::getSubLevels(Level::$level_categories['service'], true);
+  $result['sections'] = Level::getSubLevels(Level::$level_categories['section'], true);
   $result['activities'] = Level::getSubLevels(Level::$level_categories['component_types'], true);
   $result['motives'] = Level::getSubLevels(Level::$level_categories['component_motives'], true);
   $result['mentorshipRequestTypes'] = Level::getSubLevels(Level::$level_categories['mentorship_request_types'], true);

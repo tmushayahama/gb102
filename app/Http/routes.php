@@ -68,7 +68,7 @@ Route::group(['prefix' => 'api'], function() {
  Route::post('components/{componentId}/update/background', 'Component\ComponentController@updateComponentBackground');
  Route::get('components/{componentId}/checklist/data', 'Component\ComponentController@componentChecklistStatusData');
  Route::get('components/random', 'Component\ComponentController@getRandomComponent');
- Route::get('components/random/type/{typeId}', 'Component\ComponentController@getRandomComponentByType');
+ Route::get('components/random/typeid/{typeId}', 'Component\ComponentController@getRandomComponentByType');
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
  Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');
  Route::post('component/checklist/edit', 'Explorer\ExplorerController@editExplorerComponentChecklist');

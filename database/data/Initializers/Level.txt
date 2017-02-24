@@ -1,17 +1,19 @@
 id	parent_level_id	title	code	description	long_description	icon	background_color
 1	\N	Apps	apps				
-2	1	skill		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skill	light-blue
-3	1	goal		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goal	pink
-4	1	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	teal
-5	1	promise		Add a Promise	Add a Promise	icon-gb-promise	green
-6	1	mentorship		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorship	deep-purple
-7	1	collabo		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	lime
-8	1	teach		Create A Lesson	Create A Lesson	icon-gb-teach	cyan
-9	1	advice		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advice	indigo
-10	1	group		Create A Group	Create A Group	icon-gb-group	light-green
-11	1	journal		Write a Journal	Write a Journal	icon-gb-journal	deep-orange
-12	1	page		Create A Page	Blogs	icon-gb-page	orange
-13	1	project		Create A Project	A project	icon-gb-project	purple
+10	1	room					
+11	10	skill		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skill	light-blue
+12	10	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	teal
+100	1	service					
+101	100	mentorship		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorship	deep-purple
+102	100	advice		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advice	indigo
+103	100	goal		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goal	pink
+104	100	promise		Add a Promise	Add a Promise	icon-gb-promise	green
+105	100	teach		Create A Lesson	Create A Lesson	icon-gb-teach	cyan
+106	100	collabo		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	lime
+200	1	section					
+201	200	project		Create A Project	A project	icon-gb-project	purple
+202	200	page		Create A Page	Blogs	icon-gb-page	orange
+203	200	group		Write a Journal	Write a Journal	icon-gb-group	light-green
 1001	2	Skill Gained		\N			blue
 1002	2	Skill to Improve		\N			blue
 1003	2	Skill to Learn		\N			blue
@@ -154,9 +156,10 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 18001	18000	Pending					
 18002	18000	Active					
 18003	18000	Inactive					
-20000	\N						blue
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	blue
 19000	\N	Matcher Answer					
 19001	19000	Answer					
+20000	\N						blue
 21000	\N	Post					
 21001	21000	Discussion					
+21002	21000	Topic					
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	blue

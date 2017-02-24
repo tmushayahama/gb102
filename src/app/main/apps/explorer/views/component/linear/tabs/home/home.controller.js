@@ -7,7 +7,7 @@
          .controller('ComponentLinearHomeController', ComponentLinearHomeController);
 
  /** @ngInject */
- function ComponentLinearHomeController(add_component_tabs, ComponentService, DialogService, $stateParams, $rootScope)
+ function ComponentLinearHomeController(add_component_tabs, ComponentService, DialogService, DialogComponentService, $stateParams, $rootScope)
  {
   var vm = this;
   //////////
@@ -19,9 +19,7 @@
 
   //Methods
   vm.openAddComponentDialog = DialogService.openAddComponentDialog;
-
-
-
+  vm.openComponentDiscussionsDialog = DialogComponentService.openComponentDiscussionsDialog;
 
 
  }

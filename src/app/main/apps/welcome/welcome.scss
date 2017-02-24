@@ -74,9 +74,9 @@ $color-6: #077568;
  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
  background: url(../../../src/assets/images/landing-page/background-4.jpg);
- //-webkit-background-size: 100%!important;
- //-moz-background-size: 100%!important;
- //-o-background-size: 100%!important;
+ -webkit-background-size: 700px auto!important;
+ -moz-background-size: 700px auto!important;
+ -o-background-size: 700px auto!important;
  // background-repeat: : 100%!important;
  position: relative;
  //margin-bottom: 30px;

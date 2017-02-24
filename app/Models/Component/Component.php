@@ -389,8 +389,8 @@ class Component extends Model {
  /**
   * Get a random component by type. Used for Swipe and Matcher
   *
-  * @param type $typeId a componentn type
-  * @return type ra ndom component
+  * @param type $typeId a component type
+  * @return type random component
   */
  public static function getRandomComponent($typeId = null) {
   $howMany = 1;

@@ -2,18 +2,22 @@
 MATCHER TAB VIEW
 -->
 <div class="gb-welcome-section-4" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
-  <div class="" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
+
+ <ms-widget class="gb-container gb-room-description-widget" layout="column" flex>
+  <ms-widget-front class="" layout="row" flex>
+   <div class="text-center" layout="column" layout-align="center center" flex>
+    <div class="gb-title">
      Random Questions Explorer
-    </h2>
+    </div>
     <p class="gb-description">
      Answer random questions to match you with skill. Press "Not Now" to skip.
     </p>
    </div>
-  </div>
- </div>
+   <div class="background-image-center" layout-align="center center"  flex>
+    <md-icon md-font-icon="fa icon-gb-matcher" class="green-300-fg gb-background-icon"></md-icon>
+   </div>
+  </ms-widget-front>
+ </ms-widget>
  <div class="gb-container widget-group gb-card-row" layout-align="center center"  layout="row" flex>
   <ms-widget flippable="true" class="gb-matcher-widget" layout="column" layout="column" flex-gt-sm="60" flex-gt-xs="80" flex="95">
    <ms-widget-front class="md-whiteframe-2dp" layout="row" flex>
@@ -70,7 +74,7 @@ MATCHER TAB VIEW
    </md-input-container>
   </form>
  </div>
- <div class="gb-container gb-answer-btn-row mt-10" layout-align="center center" layout="row" flex>
+ <div ng-if="$root.authenticated" class="gb-container gb-answer-btn-row mt-10" layout-align="center center" layout="row" flex>
   <md-button type="button" ng-click="vm.getMatcher()"
              class="md-raised">
    Not Now
@@ -80,5 +84,10 @@ MATCHER TAB VIEW
    Answer
   </md-button>
  </div>
+ <div ng-if="!$root.authenticated" class="gb-container gb-answer-btn-row mt-10" layout-align="center center" layout="row" flex>
+  <md-button type="button" ng-click="vm.getMatcher()"
+             class="md-raised">
+   Next
+  </md-button>
+ </div>
 </div>
-

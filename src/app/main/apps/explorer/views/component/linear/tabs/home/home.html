@@ -1,7 +1,7 @@
 <!--
 LINEAR VIEW HOME
 -->
-<div class="gb-section-floor" layout="column" layout-align="center center" flex>
+<div class="gb-pattern-wall gb-room-padding gb-bottom-gutter" layout="column" layout-align="center center" flex>
  <div class="gb-container widget-group gb-card-row" layout="row" flex>
   <ms-widget class="gb-description-widget mt-10" layout="column" flex>
    <ms-widget-front class="md-whiteframe-1dp" layout="row" flex>
@@ -23,7 +23,7 @@ LINEAR VIEW HOME
       <md-input-container class="md-block" md-no-float>
        <textarea ng-model="componentLinearCtrl.component.title"
                  ng-model-options="{
-                    updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
                  placeholder="Title" columns="1" md-maxlength="150" max-rows="15"></textarea>
       </md-input-container>
      </div>
@@ -31,7 +31,7 @@ LINEAR VIEW HOME
       <md-input-container class="md-block" md-no-float>
        <textarea ng-model="componentLinearCtrl.component.description"
                  ng-model-options="{
-                    updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
+                   updateOn: 'blur', debounce: 1000}" ng-change="componentLinearCtrl.updateComponentDescription(componentLinearCtrl.component)"
                  placeholder="Write a Description" columns="1" md-maxlength="250" max-rows="15"></textarea>
       </md-input-container>
      </div>
@@ -42,7 +42,7 @@ LINEAR VIEW HOME
    </ms-widget-front>
   </ms-widget>
  </div>
- <div class="gb-container widget-group" layout="row" flex layout-nowrap>
+ <div class="gb-container p-8 widget-group" layout="row" flex layout-nowrap>
   <ms-widget flippable="true" class="gb-count-widget" layout="column" flex="33">
    <ms-widget-front class="p-8" layout="row" flex>
     <div layout="column" layout-align="center center" flex>
@@ -59,7 +59,8 @@ LINEAR VIEW HOME
    </ms-widget-front>
   </ms-widget>
   <ms-widget flippable="true" class="gb-count-widget" layout="column" flex="33">
-   <ms-widget-front class="p-8" layout="row" flex>
+   <ms-widget-front class="p-8" layout="row" flex
+                    ng-click="vm.openComponentDiscussionsDialog($event, vm.componentId)">
     <div layout="column" layout-align="center center" flex>
      <div class="gb-count">
       {{::componentLinearCtrl.component.stats.discussions_count}}

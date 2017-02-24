@@ -32,7 +32,7 @@
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
     <ms-widget class="p-5" layout="column" flex="33">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
       <div ui-sref="app.explorer.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon green-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -42,15 +42,12 @@
         <div class="gb-title">
          Explorer
         </div>
-        <div class="gb-description">
-
-        </div>
        </div>
       </div>
      </ms-widget-front>
     </ms-widget>
     <ms-widget class="p-5" layout="column" flex="33">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
       <div ui-sref="app.swipe.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon blue-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -60,15 +57,12 @@
         <div class="gb-title">
          Swipe
         </div>
-        <div class="gb-description">
-
-        </div>
        </div>
       </div>
      </ms-widget-front>
     </ms-widget>
     <ms-widget class="p-5" layout="column" flex="33">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
       <div ui-sref="app.matcher.home" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon teal-600-fg" layout="column" layout-fill layout-align="center center" flex>
@@ -77,9 +71,6 @@
        <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
         <div class="gb-title">
          Matcher
-        </div>
-        <div class="gb-description">
-
         </div>
        </div>
       </div>
@@ -109,7 +100,77 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.apps" class="p-5" layout="column" 	flex-xs="33" flex="25">
+    <ms-widget ng-repeat="app in $root.commonData.rooms" class="p-5" layout="column" 	flex-xs="50" flex="50">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+  </div>
+  <div class="gb-container mb-20" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Room Services
+     </h2>
+     <p class="gb-description">
+      Check out the applications of each room type and see what others are doing with their skills
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget ng-repeat="app in $root.commonData.services" class="p-5" layout="column" 	flex-xs="33" flex="33">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Services
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+  </div>
+  <div class="gb-container mb-20" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Build your own
+     </h2>
+     <p class="gb-description">
+      You can build your own rooms
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget ng-repeat="app in $root.commonData.sections" class="p-5" layout="column" 	flex-xs="33" flex="33">
      <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
@@ -130,39 +191,12 @@
    </div>
   </div>
   <div class="gb-door">
-   <div class="gb-title">Room<br>Preview</div>
-   <i class="gb-icon fa icon-arrow-down"></i>
-  </div>
-  <div class="gb-wall-h"></div>
-  <div ng-if="false" class="background-image-center gb-house-background-icon" layout-align="center center" flex>
-   <div class="" layout="column" layout-align="center center" flex>
-    <i class="fa icon-home3"></i>
-   </div>
-  </div>
- </div>
- <div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
-  <div class="gb-container" layout="column" layout-align="" flex>
-   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-    <div class="text-center">
-     <h2 class="gb-title">
-      Skill Rooms
-     </h2>
-     <p class="gb-description">
-      Track and manage skills.
-     </p>
-    </div>
-   </div>
-  </div>
-  <div class="gb-container pl-10 pr-10" layout="column" layout-align="start center" flex>
-   <img src="src/assets/images/landing-page/screenshot-3-min.jpg" alt="screenshot">
-  </div>
-  <div class="gb-door">
    <div class="gb-title">Front<br>Desk</div>
    <i class="gb-icon fa icon-arrow-down"></i>
   </div>
   <div class="gb-wall-h"></div>
  </div>
- <div class="gb-welcome-section-6" layout="column" layout-align="center center" flex>
+ <div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -258,6 +292,28 @@
      </md-button>
     </div>
    </div>
+  </div>
+  <div class="gb-door">
+   <div class="gb-title">Room<br>Preview</div>
+   <i class="gb-icon fa icon-arrow-down"></i>
+  </div>
+  <div class="gb-wall-h"></div>
+ </div>
+ <div class="gb-welcome-section-6" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Skill Rooms
+     </h2>
+     <p class="gb-description">
+      Track and manage skills.
+     </p>
+    </div>
+   </div>
+  </div>
+  <div class="gb-container pl-10 pr-10" layout="column" layout-align="start center" flex>
+   <img src="src/assets/images/landing-page/screenshot-3-min.jpg" alt="screenshot">
   </div>
  </div>
  <section class='gb-get-started'>
