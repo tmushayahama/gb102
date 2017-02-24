@@ -2,61 +2,68 @@
 LINEAR VIEW
 -->
 
-<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="space-between center" >
+<div class="gb-header gb-header-2 md-accent-bg" layout="column" layout-align="center center" >
  <div class="gb-cover-overlap" ></div>
- <div class="gb-cover" ng-style="$root.headerStyle"></div>
- <div class="gb-container user-info" layout="column" layout-align="center center">
-  <img class="profile-image avatar huge" ng-src="src/assets/images/mentorship/{{mentorshipLinearCtrl.mentorship.component.mentorship_picture_url}}">
-  <div class="gb-title">
-   <p class="gb-ellipsis">
+ <div class="gb-cover md-primary"></div>
+ <div class="gb-container gb-header-info" layout="column" layout-align="space-between center">
+  <div class="gb-title" layout="column" layout-align="center center" flex>
+   <a ui-sref="app.componentLinearView.home({id:mentorshipLinearCtrl.mentorship.component.parent_component_id})"
+      class="gb-title-1 gb-ellipsis">
+    {{mentorshipLinearCtrl.mentorship.component.parent_component.title}}
+   </a>
+   <div class="gb-title-arrow">
+    <i class="fa fa-caret-down"></i>
+   </div>
+   <p class="gb-title-2 gb-ellipsis">
     {{mentorshipLinearCtrl.mentorship.component.title}}
    </p>
   </div>
- </div>
- <div class="actions" layout="row" layout-align="start stretch">
-  <md-button class="md-raised md-accent" aria-label="Add" translate="mentorship.add_text"
-             ng-click="mentorshipLinearCtrl.openAddMentorshipDialog($event, mentorshipLinearCtrl.mentorshipId, mentorshipLinearCtrl.tabs.sections)"
-             translate-attr-aria-label="mentorship.add_text">Add
-  </md-button>
-  <md-button class="md-raised md-primary" translate="mentorship.contribute_text"
-             translate-attr-aria-label="mentorship.contribute_text">Contribute
-  </md-button>
-  <md-menu class="">
-   <md-button class="md-raised md-primary" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
-    <b class="caret"></b>
+  <div class="actions" layout="row" layout-align="start stretch">
+   <md-button class="md-raised md-accent" aria-label="Add" translate="explorer.add_text"
+              ng-click="mentorshipLinearCtrl.openAddComponentDialog($event, mentorshipLinearCtrl.mentorship.componentId, mentorshipLinearCtrl.tabs.sections)"
+              translate-attr-aria-label="explorer.add_text">Add
    </md-button>
-   <md-menu-content class="subscribe-menu-content" width="4">
-    <md-menu-item>
-     <md-button ng-click="mentorshipLinearCtrl.subscribeMentorship()" aria-label="Add Contribution">
-      Subscribe
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="mentorshipLinearCtrl.bookmarkMentorship()" aria-label="Add Contribution">
-      Bookmark
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="mentorshipLinearCtrl.openAddMentorshipDialog($event, mentorshipLinearCtrl.mentorshipId, mentorshipLinearCtrl.tabs.apps)" aria-label="Add Contribution">
-      Add Mentorships
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="mentorshipLinearCtrl.openAddMentorshipDialog($event, mentorshipLinearCtrl.mentorshipId, mentorshipLinearCtrl.tabs.activities)" aria-label="Add Contribution">
-      Add Activities
-     </md-button>
-    </md-menu-item>
-    <md-menu-item>
-     <md-button ng-click="mentorshipLinearCtrl.openAddMentorshipDialog($event, mentorshipLinearCtrl.mentorshipId, mentorshipLinearCtrl.tabs.motives)" aria-label="Add Contribution">
-      Add Background
-     </md-button>
-    </md-menu-item>
-   </md-menu-content>
-  </md-menu>
+   <md-button class="md-raised md-accent" translate="explorer.contribute_text"
+              translate-attr-aria-label="explorer.contribute_text">Contribute
+   </md-button>
+   <md-menu class="">
+    <md-button class="md-raised md-primary" ng-click="$mdOpenMenu($event)" aria-label="Select Privacy">
+     <b class="caret"></b>
+    </md-button>
+    <md-menu-content class="subscribe-menu-content" width="4">
+     <md-menu-item>
+      <md-button ng-click="mentorshipLinearCtrl.subscribeComponent()" aria-label="Add Contribution">
+       Subscribe
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="mentorshipLinearCtrl.bookmarkComponent()" aria-label="Add Contribution">
+       Bookmark
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="mentorshipLinearCtrl.openAddComponentDialog($event, mentorshipLinearCtrl.mentorship.componentId, mentorshipLinearCtrl.tabs.apps)" aria-label="Add Contribution">
+       Add Components
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="mentorshipLinearCtrl.openAddComponentDialog($event, mentorshipLinearCtrl.mentorship.componentId, mentorshipLinearCtrl.tabs.activities)" aria-label="Add Contribution">
+       Add Activities
+      </md-button>
+     </md-menu-item>
+     <md-menu-item>
+      <md-button ng-click="mentorshipLinearCtrl.openAddComponentDialog($event, mentorshipLinearCtrl.mentorship.componentId, mentorshipLinearCtrl.tabs.motives)" aria-label="Add Contribution">
+       Add Background
+      </md-button>
+     </md-menu-item>
+    </md-menu-content>
+   </md-menu>
+  </div>
  </div>
 </div>
+
 <div  class="gb-tabs-1 md-whiteframe-1dp" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="row" flex>
+ <div class="gb-tabs-len-4" layout="row" flex>
   <md-tabs md-selected="selectedIndex" md-stretch-tabs="always" class="">
    <md-tab>
     <md-tab-label>
@@ -72,72 +79,24 @@ LINEAR VIEW
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.activities({id: mentorshipLinearCtrl.mentorship.id})">
+     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.mentor({id: mentorshipLinearCtrl.mentorship.id})">
       <div class="gb-icon">
-       <i class="fa icon-gb-activity"></i>
+       <i class="fa icon-gb-request-mentor"></i>
       </div>
       <div class="gb-title">
-       Activities
+       Mentor
       </div>
      </div>
     </md-tab-label>
    </md-tab>
    <md-tab>
     <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.timeline({id: mentorshipLinearCtrl.mentorship.id})">
+     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.mentee({id: mentorshipLinearCtrl.mentorship.id})">
       <div class="gb-icon">
-       <i class="fa icon-gb-timeline"></i>
+       <i class="fa icon-gb-request-mentee"></i>
       </div>
       <div class="gb-title">
-       Timeline
-      </div>
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.calendar({id: mentorshipLinearCtrl.mentorship.id})">
-      <div class="gb-icon">
-       <i class="fa fa-calendar"></i>
-      </div>
-      <div class="gb-title">
-       Calendar
-      </div>
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.discussions({id: mentorshipLinearCtrl.mentorship.id})">
-      <div class="gb-icon">
-       <i class="fa fa-comments-o"></i>
-      </div>
-      <div class="gb-title">
-       Discussion
-      </div>
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.graphs({id: mentorshipLinearCtrl.mentorship.id})">
-      <div class="gb-icon">
-       <i class="fa fa-bar-chart-o"></i>
-      </div>
-      <div class="gb-title">
-       Graphs
-      </div>
-     </div>
-    </md-tab-label>
-   </md-tab>
-   <md-tab>
-    <md-tab-label>
-     <div class="gb-tab-button" ui-sref="app.mentorshipLinearView.settings({id: mentorshipLinearCtrl.mentorship.id})">
-      <div class="gb-icon">
-       <i class="fa fa-cog"></i>
-      </div>
-      <div class="gb-title">
-       Settings
+       Mentee
       </div>
      </div>
     </md-tab-label>
@@ -145,4 +104,4 @@ LINEAR VIEW
   </md-tabs>
  </div>
 </div>
-<div ui-view="tab" class="gb-bottom-gutter gb-mentorship-tab" layout="column" layout-align="center center" flex></div>
+<div ui-view="tab" class="gb-component-tab"></div>

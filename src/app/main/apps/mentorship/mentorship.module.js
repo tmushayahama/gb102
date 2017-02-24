@@ -127,76 +127,28 @@
             'selectedTab': 0
            }
           })
-          .state('app.mentorshipLinearView.activities', {
-           url: '/activities',
+          .state('app.mentorshipLinearView.mentor', {
+           url: '/mentor',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/activities/activities.html',
-             controller: 'MentorshipLinearActivitiesController as vm'
+             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/mentor/mentor.html',
+             controller: 'MentorshipLinearMentorController as vm'
             }
            },
            data: {
             'selectedTab': 1
            }
           })
-          .state('app.mentorshipLinearView.timeline', {
-           url: '/timeline',
+          .state('app.mentorshipLinearView.mentee', {
+           url: '/mentee',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/timeline/timeline.html',
-             controller: 'MentorshipLinearTimelineController as vm'
+             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/mentee/mentee.html',
+             controller: 'MentorshipLinearMenteeController as vm'
             }
            },
            data: {
             'selectedTab': 2
-           }
-          })
-          .state('app.mentorshipLinearView.calendar', {
-           url: '/calendar',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/calendar/calendar.html',
-             controller: 'MentorshipLinearCalendarController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 3
-           }
-          })
-          .state('app.mentorshipLinearView.discussions', {
-           url: '/discussion',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/discussions/discussions.html',
-             controller: 'MentorshipLinearDiscussionsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 4
-           }
-          })
-          .state('app.mentorshipLinearView.graphs', {
-           url: '/graphs',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/graphs/graphs.html',
-             controller: 'MentorshipLinearGraphsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 5
-           }
-          })
-          .state('app.mentorshipLinearView.settings', {
-           url: '/settings',
-           views: {
-            'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/linear/tabs/settings/settings.html',
-             controller: 'MentorshipLinearSettingsController as vm'
-            }
-           },
-           data: {
-            'selectedTab': 6
            }
           })
           .state('app.mentorshipRowView', {

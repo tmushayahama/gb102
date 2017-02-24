@@ -93,6 +93,7 @@ class Mentorship extends Model {
           ->with('mentee')
           ->with('component')
           ->with('component.creator')
+          ->with('component.parentComponent')
           ->find($id);
   return $mentorship;
  }
