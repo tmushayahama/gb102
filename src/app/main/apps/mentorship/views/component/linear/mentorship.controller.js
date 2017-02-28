@@ -7,24 +7,23 @@
          .controller('MentorshipLinearController', MentorshipLinearController);
 
  /** @ngInject */
- function MentorshipLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, MentorshipService, CardFilters, DialogService)
- {
-  var vm = this;
+ function MentorshipLinearController(add_component_tabs, level_categories, $scope, $stateParams, $document, $window, $timeout, $mdDialog, msUtils, MentorshipService, ComponentService, CardFilters, DialogService) {
 
+  var vm = this;
   // Data
   vm.tabs = add_component_tabs;
-  vm.mentorshipId = $stateParams.id;
+  vm.componentId = $stateParams.id;
   vm.privacy = level_categories.privacy;
   vm.currentView = 'board';
-  vm.mentorship = [];
-  //vm.mentorshipList = BoardList.data;
+  vm.component = [];
+  //vm.componentList = BoardList.data;
   vm.cardFilters = CardFilters;
   vm.card = {};
   vm.cardOptions = {};
   vm.newListName = '';
 
-  vm.defaultMentorshipData = {
-   //mentorshipId: vm.mentorshipId,
+  vm.defaultComponentData = {
+   //explorerId: vm.explorerId,
    typeId: 11001,
    title: "",
    description: "",
@@ -121,11 +120,12 @@
   };
 
   // Methods
-  vm.openMentorshipDialog = DialogService.openMentorshipDialog;
-  vm.openAddMentorshipDialog = DialogService.openAddMentorshipDialog;
+  vm.openComponentDialog = DialogService.openComponentDialog;
+  vm.openComponentSectionDialog = DialogService.openComponentSectionDialog;
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
   vm.openCardDialog = DialogService.openCardDialog;
-  vm.createMentorship = createMentorship;
-  vm.updateMentorshipDescription = updateMentorshipDescription;
+  vm.createComponent = createComponent;
+  vm.updateComponentDescription = updateComponentDescription;
   vm.removeList = removeList;
   vm.cardFilter = cardFilter;
   vm.isOverdue = isOverdue;
@@ -146,7 +146,7 @@
    $timeout(function ()
    {
     // IE list-content max-height hack
-    if (angular.element('html').hasClass('mentorship'))
+    if (angular.element('html').hasClass('explorer'))
     {
      // Calculate the height for the first time
      calculateListContentHeight();
@@ -162,43 +162,43 @@
   }
 
   /**
-   * Create a new mentorship
+   * Create a new component
    *
-   * @param {type} mentorship a parent mentorship
+   * @param {type} component a parent component
    */
-  function createMentorship(mentorship) {
-   if (!mentorship.newMentorship.title) {
+  function createComponent(component) {
+   if (!component.newComponent.title) {
     return;
    }
    var data = {
-    title: mentorship.newMentorship.title,
+    title: component.newComponent.title,
     description: "",
-    parentMentorshipId: vm.mentorship.id, //parent mentorship
-    typeId: mentorship.id,
+    parentComponentId: vm.mentorship.component_id, //parent component
+    typeId: component.id,
     privacyId: vm.privacy.public
    };
-   MentorshipService.createMentorship(data).then(function (response) {
-    mentorship.mentorships.push(response);
-    mentorship.newMentorship.title = "";
+   ComponentService.createComponent(data).then(function (response) {
+    component.components.push(response);
+    component.newComponent.title = "";
    });
   }
 
   /**
-   * Update a mentorship
+   * Update a component
    *
-   * @param {type} mentorship to ve updated
+   * @param {type} component to ve updated
    */
-  function updateMentorshipDescription(mentorship) {
-   if (!mentorship.title) {
+  function updateComponentDescription(component) {
+   if (!component.title) {
     return;
    }
    var data = {
-    mentorshipId: mentorship.id,
-    title: mentorship.title,
-    description: mentorship.description
+    componentId: component.id,
+    title: component.title,
+    description: component.description
    };
-   MentorshipService.updateMentorshipDescription(data).then(function (response) {
-    // mentorship.mentorships.push(response);
+   ComponentService.updateComponentDescription(data).then(function (response) {
+    // component.components.push(response);
    });
   }
 
@@ -237,7 +237,7 @@
   {
    var confirm = $mdDialog.confirm({
     title: 'Remove List',
-    parent: $document.find('#mentorship'),
+    parent: $document.find('#explorer'),
     textContent: 'Are you sure want to remove list?',
     ariaLabel: 'remove list',
     targetEvent: ev,
@@ -248,7 +248,7 @@
    });
    $mdDialog.show(confirm).then(function ()
    {
-    vm.mentorship.lists.splice(vm.mentorship.lists.indexOf(list), 1);
+    vm.component.lists.splice(vm.component.lists.indexOf(list), 1);
    }, function ()
    {
     // Canceled
@@ -267,7 +267,7 @@
 
    //temp
    return true;
-   var card = vm.mentorship.cards.getById(cardId);
+   var card = vm.component.cards.getById(cardId);
 
    try
    {

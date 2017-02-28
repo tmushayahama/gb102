@@ -511,7 +511,6 @@ class Component extends Model {
   * @param array $component the parent component to be formatted
   */
  private static function formatComponentByType($component) {
-  $components = array();
   $componentMotiveTypes = Level::getSubLevels(Level::$level_categories['component_motives']);
   $componentRoomTypes = Level::getSubLevels(Level::$level_categories['room']);
   $componentServiceTypes = Level::getSubLevels(Level::$level_categories['service']);
@@ -574,7 +573,7 @@ class Component extends Model {
   * @param int $componentId the parent componentId to be formatted
   * @param array $componentTypes the types of component
   */
- private static function formatSubComponentByType($componentId, $componentTypes) {
+ public static function formatSubComponentByType($componentId, $componentTypes) {
   $components = array();
   foreach ($componentTypes as $componentType) {
    $components[$componentType->id] = $componentType;

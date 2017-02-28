@@ -1,0 +1,22 @@
+<!-- mentorshipAppTypes -->
+<div class="widget-group" layout="row" flex="100" layout-wrap>
+ <ms-widget ng-repeat="app in $root.commonData.mentorshipAppTypes" class="p-8 gb-section-widget"
+            ng-click="vm.selectApp(app)" layout="column" flex="100">
+  <ms-widget-front layout="row" layout-fill flex>
+   <md-button ng-click="vm.selectApp(app)" class="gb-main-button"
+              layout="row" layout-align="start stretch" flex>
+    <div class="gb-title-icon" ng-class="'md-' + app.background_color + '-400-bg'" layout-fill layout="row" layout-align="center center" flex>
+     <i class="fa {{app.icon}}"></i>
+    </div>
+    <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+     <div class="gb-title">
+      {{app.title}}
+     </div>
+     <div class="gb-description">
+      {{app.long_description}}
+     </div>
+    </div>
+   </md-button>
+  </ms-widget-front>
+ </ms-widget>
+</div>

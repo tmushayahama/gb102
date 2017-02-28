@@ -91,10 +91,14 @@ class Mentorship extends Model {
   $mentorship = Mentorship::with('creator')
           ->with('mentor')
           ->with('mentee')
-          ->with('component')
-          ->with('component.creator')
-          ->with('component.parentComponent')
           ->find($id);
+
+  if ($mentorship) {
+   $mentorshipAppTypes = Level::getSubLevels(Level::$level_categories['mentorship_app_type']);
+   $mentorship["component"] = Component::getComponent($mentorship->component_id, Level::$componentJsonFormat["types"], 2);
+   $mentorship["component"]["mentorshipApps"] = Component::formatSubComponentByType($mentorship->component_id, $mentorshipAppTypes);
+  }
+
   return $mentorship;
  }
 

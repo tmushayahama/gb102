@@ -7,7 +7,7 @@
          .controller('MentorshipController', MentorshipController);
 
  /** @ngInject */
- function MentorshipController($stateParams, $mdSidenav, MentorshipService, CardFilters)
+ function MentorshipController($stateParams, $mdSidenav, DialogService, ComponentDialogService, MentorshipService, CardFilters)
  {
   var vm = this;
 
@@ -19,6 +19,8 @@
   ////////
 
   // Methods
+  vm.openAddComponentDialog = ComponentDialogService.openAddComponentDialog;
+
   vm.toggleSidenav = toggleSidenav;
   vm.updateBoardUri = updateBoardUri;
   vm.clearFilters = CardFilters.clear;

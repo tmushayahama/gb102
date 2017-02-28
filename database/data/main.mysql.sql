@@ -507,6 +507,18 @@ load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/compone
     ignore 1 LINES
    (`id`,	`parent_component_id`,	`type_id`,	`title`,	`description`,	`due`, `template_type_id`,	`creator_id`,	`component_picture_url`,	`background_color`,	`created_at`,	`updated_at`,	`level_id`,	`privacy_id`,	`order`,	`status`);
 
+-- ----------- COMPONENT ---------------
+load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/mentorship.txt'
+    into table gb102.gb_mentorship
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`,	`parent_mentorship_id`,	`component_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`description`,	`created_at`,	`updated_at`,	`privacy`, `order`,	`status_id`);
+
+
+
 
 -- ----------- COMPONENT ---------------
 load data local infile 'C:/xampp/htdocs/gb102/database/data/initializers/checklist.txt'

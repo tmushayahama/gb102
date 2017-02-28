@@ -18,7 +18,7 @@
   ///////////
 
   //Methods
-  vm.openAddMentorshipDialog = DialogService.openAddMentorshipDialog;
+  vm.openAddComponentDialog = DialogService.openAddComponentDialog;
 
 
 

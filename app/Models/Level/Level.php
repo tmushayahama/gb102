@@ -91,6 +91,7 @@ class Level extends Model {
      ),
      'template_type' => 7000,
      'component_types' => 11000,
+     'mentorship_app_type' => 22000,
      'recommendation' => 12000,
      'default_component_background_color' => 13001,
      "component_motives" => 14000,
@@ -167,6 +168,7 @@ class Level extends Model {
   $result['motives'] = Level::getSubLevels(Level::$level_categories['component_motives'], true);
   $result['mentorshipRequestTypes'] = Level::getSubLevels(Level::$level_categories['mentorship_request_types'], true);
   $result['contributionTypes'] = Level::getSubLevels(Level::$level_categories['contribution_types'], true);
+  $result['mentorshipAppTypes'] = Level::getSubLevels(Level::$level_categories['mentorship_app_type'], true);
   return $result;
  }
 
