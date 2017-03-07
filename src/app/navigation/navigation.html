@@ -73,4 +73,50 @@
    </ms-widget>
   </div>
  </div>
+ <h4 class="gb-nav-heading">
+  SERVICES
+ </h4>
+ <div class="" layout="column" layout-align="start stretch" flex>
+  <div class="widget-group gb-section-widget-group"
+       layout="row" layout-align="start" layout-wrap flex>
+   <ms-widget ng-repeat="app in $root.commonData.services" class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+                layout="row" layout-align="start stretch">
+      <div class="gb-title-icon" ng-class="'md-' + app.background_color + '-400-bg'" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa {{app.icon}}"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        {{app.title}}
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
+ <h4 class="gb-nav-heading"> 
+  CUSTOM ROOMS
+ </h4>
+ <div class="" layout="column" layout-align="start stretch" flex>
+  <div class="widget-group gb-section-widget-group"
+       layout="row" layout-align="start" layout-wrap flex>
+   <ms-widget ng-repeat="app in $root.commonData.sections" class="p-8 gb-section-widget gb-widget-xs" layout="column" 	flex="100">
+    <ms-widget-front layout="row" layout-fill flex>
+     <md-button ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+                layout="row" layout-align="start stretch">
+      <div class="gb-title-icon" ng-class="'md-' + app.background_color + '-400-bg'" layout-fill layout="row" layout-align="center center" flex>
+       <i class="fa {{app.icon}}"></i>
+      </div>
+      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+       <div class="gb-title">
+        {{app.title}}
+       </div>
+      </div>
+     </md-button>
+    </ms-widget-front>
+   </ms-widget>
+  </div>
+ </div>
 </div>
