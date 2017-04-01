@@ -70,12 +70,9 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('components/random', 'Component\ComponentController@getRandomComponent');
  Route::get('components/random/typeid/{typeId}', 'Component\ComponentController@getRandomComponentByType');
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
- Route::post('component/checklist/create', 'Explorer\ExplorerController@createExplorerComponentChecklist');
- Route::post('component/checklist/edit', 'Explorer\ExplorerController@editExplorerComponentChecklist');
- //Component Contributions
+//Component Contributions
  Route::get('components/{componentId}/contribution/type/{typeId}/suggestions', 'Component\ComponentController@getContributionSuggestions');
  Route::post('components/contributions/create', 'Component\ComponentController@createComponentContributions');
-
  //Mentorship
  Route::get('components/{componentId}/mentorships', 'Mentorship\MentorshipController@getMentorship');
  Route::post('mentorships/create', 'Mentorship\MentorshipController@createMentorship');

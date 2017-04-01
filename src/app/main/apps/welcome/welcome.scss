@@ -73,7 +73,7 @@ $color-6: #077568;
  //background: radial-gradient(ellipse at center,  #ceda2e 0%,#875a9d 100%); /* W3C */
  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
- background: url(../../../src/assets/images/landing-page/background-4.jpg);
+ background: url(../../../src/assets/images/landing-page/background-5.jpg);
  -webkit-background-size: 700px auto!important;
  -moz-background-size: 700px auto!important;
  -o-background-size: 700px auto!important;
@@ -84,6 +84,10 @@ $color-6: #077568;
  text-align: center;
  background-color: material-color('blue-grey', '800');
  //overflow: hidden;
+
+ .gb-recommendation-scroll {
+  z-index: 4;
+ }
 
  .gb-door {
   bottom: 30px;
@@ -111,17 +115,17 @@ $color-6: #077568;
   width: 500px;
   z-index: 1;
   .intro-lead-in {
-   color: #FFF;
+   color: #111;
    margin-bottom: 20px;
    font-size: 20px;
-   font-weight: 600;
+   font-weight: 400;
    line-height: 30px;
   }
   .intro-heading {
-   color: #FFF;
+   color: #000;
    margin-bottom: 0px;
    font-size: 50px;
-   font-weight: 900;
+   font-weight: 500;
    line-height: 40px;
   }
  }
