@@ -1,7 +1,7 @@
 /*
  *
  * This is a Skill Section ComponentService factory which
- * connects to the backend
+ * connects to the backend ad serves as a model
  */
 
 (function ()
@@ -13,10 +13,13 @@
          .factory('ExplorerService', ExplorerService);
 
  /** @ngInject */
- function ExplorerService($q, msApi)
- {
+ function ExplorerService($q, msApi) {
   var service = {
+   //Data
    data: {},
+   ////////
+   //
+   //Methods
    createComponent: createComponent,
    updateComponent: updateComponent,
    updateComponentDescription: updateComponentDescription,
@@ -27,7 +30,7 @@
    getRandomComponent: getRandomComponent,
    getRandomComponentByType: getRandomComponentByType,
    getCard: getCard,
-   //Component Bookmarks
+   /*Component Bookmarks*/
    getComponentBookmarks: getComponentBookmarks,
    createComponentBookmark: createComponentBookmark,
    //Component Contribution
@@ -35,11 +38,12 @@
    createComponentContributions: createComponentContributions,
    //User Components
    getUserComponents: getUserComponents,
+   ////////
   };
 
 
   // ******************************
-  // Internal methods
+  // Internal Methods
   // ******************************
 
   /**
@@ -47,19 +51,16 @@
    *
    * @returns promise of the deferred response
    */
-  function getComponents(listFormat)
-  {
+  function getComponents(listFormat) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.components@get', {listFormat: listFormat},
-           function (response)
-           {
+           function (response) {
             //service.data = response;
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -73,18 +74,15 @@
    * @param appName
    * @returns promise of the deferred response
    */
-  function getComponentsByType(appName)
-  {
+  function getComponentsByType(appName) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.componentsByType@query', {appName: appName},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -99,18 +97,15 @@
    * @param listFormat
    * @returns promise of the deferred response
    */
-  function getComponent(componentId, listFormat)
-  {
+  function getComponent(componentId, listFormat) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.component@get', {id: componentId, listFormat: listFormat},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -124,18 +119,15 @@
    * @param appName
    * @returns promise of the deferred response
    */
-  function getComponentApp(appName)
-  {
+  function getComponentApp(appName) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.componentApp@get', {appName: appName},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -148,18 +140,15 @@
    *
    * @returns promise of the deferred response
    */
-  function getRandomComponent()
-  {
+  function getRandomComponent() {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.randomComponent@get', {},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -173,18 +162,15 @@
    * @param typeId type of the component
    * @returns promise of the deferred response
    */
-  function getRandomComponentByType(typeId)
-  {
+  function getRandomComponentByType(typeId) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.randomComponentByType@get', {typeId: typeId},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -198,18 +184,15 @@
    * @param componentId
    * @returns promise of the deferred response
    */
-  function getCard(cardId, listFormat)
-  {
+  function getCard(cardId, listFormat) {
    // Create a new deferred object
    var deferred = $q.defer();
 
    msApi.request('explorer.component@get', {id: cardId, listFormat: listFormat},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -230,12 +213,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.createComponent@save', componentData,
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -254,12 +235,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.updateComponent@save', componentData,
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -279,12 +258,10 @@
 
    msApi.request('explorer.updateComponentDescription@save',
            componentData,
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -309,12 +286,10 @@
             componentId: componentId,
             typeId: typeId
            },
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -335,14 +310,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.createComponentContributions@save', componentContributionData,
-           function (response)
-           {
-            // Resolve the promise
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
-            // Reject the promise
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -366,12 +337,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.getComponentBookmarks@query', {creatorId: creatorId},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -390,12 +359,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.createComponentBookmark@save', componentData,
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -416,12 +383,10 @@
    var deferred = $q.defer();
 
    msApi.request('explorer.userComponents@get', {userId: userId, listFormat: listFormat},
-           function (response)
-           {
+           function (response) {
             deferred.resolve(response);
            },
-           function (response)
-           {
+           function (response) {
             deferred.reject(response);
            }
    );
@@ -440,16 +405,11 @@
    var deferred = $q.defer();
 
    _generateEmptyExplorerObject().then(
-           function (response)
-           {
-            // Attach the data
+           function (response) {
             service.data = response.data;
-            // Resolve the response
             deferred.resolve(response);
            },
-           function (response)
-           {
-            // Reject the response
+           function (response) {
             deferred.reject(response);
            }
    );

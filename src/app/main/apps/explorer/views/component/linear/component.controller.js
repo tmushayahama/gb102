@@ -16,14 +16,12 @@
   vm.privacy = level_categories.privacy;
   vm.currentView = 'board';
   vm.component = [];
-  //vm.componentList = BoardList.data;
   vm.cardFilters = CardFilters;
   vm.card = {};
   vm.cardOptions = {};
   vm.newListName = '';
 
   vm.defaultComponentData = {
-   //explorerId: vm.explorerId,
    typeId: 11001,
    title: "",
    description: "",
@@ -57,61 +55,51 @@
    forceHelperSize: true,
    forcePlaceholderSize: true,
    handle: msUtils.isMobile() ? '.list-card-sort-handle' : false,
-   helper: function (event, el)
-   {
+   helper: function (event, el) {
     return el.clone().addClass('list-card-sort-helper');
    },
    placeholder: 'list-card card-sortable-placeholder',
    tolerance: 'pointer',
    scroll: true,
-   sort: function (event, ui)
-   {
+   sort: function (event, ui) {
     var listContentEl = ui.placeholder.closest('.list-content');
     var boardContentEl = ui.placeholder.closest('#board');
 
-    if (listContentEl)
-    {
+    if (listContentEl) {
      var listContentElHeight = listContentEl[0].clientHeight,
              listContentElScrollHeight = listContentEl[0].scrollHeight;
 
-     if (listContentElHeight !== listContentElScrollHeight)
-     {
+     if (listContentElHeight !== listContentElScrollHeight) {
       var itemTop = ui.position.top,
               itemBottom = itemTop + ui.item.height(),
               listTop = listContentEl.offset().top,
               listBottom = listTop + listContentElHeight;
 
-      if (itemTop < listTop + 25)
-      {
+      if (itemTop < listTop + 25) {
        listContentEl.scrollTop(listContentEl.scrollTop() - 25);
       }
 
-      if (itemBottom > listBottom - 25)
-      {
+      if (itemBottom > listBottom - 25) {
        listContentEl.scrollTop(listContentEl.scrollTop() + 25);
       }
      }
     }
 
-    if (boardContentEl)
-    {
+    if (boardContentEl) {
      var boardContentElWidth = boardContentEl[0].clientWidth;
      var boardContentElScrollWidth = boardContentEl[0].scrollWidth;
 
-     if (boardContentElWidth !== boardContentElScrollWidth)
-     {
+     if (boardContentElWidth !== boardContentElScrollWidth) {
       var itemLeft = ui.position.left,
               itemRight = itemLeft + ui.item.width(),
               boardLeft = boardContentEl.offset().left,
               boardRight = boardLeft + boardContentElWidth;
 
-      if (itemLeft < boardLeft + 25)
-      {
+      if (itemLeft < boardLeft + 25) {
        boardContentEl.scrollLeft(boardContentEl.scrollLeft() - 25);
       }
 
-      if (itemRight > boardRight)
-      {
+      if (itemRight > boardRight) {
        boardContentEl.scrollLeft(boardContentEl.scrollLeft() + 25);
       }
      }
@@ -129,10 +117,14 @@
   vm.removeList = removeList;
   vm.cardFilter = cardFilter;
   vm.isOverdue = isOverdue;
-
   //////////
 
   init();
+
+
+  // ******************************
+  // Internal methods
+  // ******************************
 
   /**
    * Initialize
@@ -143,17 +135,14 @@
     vm.component = data;
     vm.component.newComponentData = angular.copy(vm.defaultComponentData);
    });
-   $timeout(function ()
-   {
+   $timeout(function () {
     // IE list-content max-height hack
-    if (angular.element('html').hasClass('explorer'))
-    {
+    if (angular.element('html').hasClass('explorer')) {
      // Calculate the height for the first time
      calculateListContentHeight();
 
      // Attach calculateListContentHeight function to window resize
-     $window.onresize = function ()
-     {
+     $window.onresize = function () {
       calculateListContentHeight();
      };
     }
@@ -170,6 +159,7 @@
    if (!component.newComponent.title) {
     return;
    }
+
    var data = {
     title: component.newComponent.title,
     description: "",
@@ -207,13 +197,11 @@
    * Calculate the list-content height
    * IE ONLY
    */
-  function calculateListContentHeight()
-  {
+  function calculateListContentHeight() {
    var boardEl = angular.element('#board');
    var boardElHeight = boardEl.height();
 
-   boardEl.find('.list-wrapper').each(function (index, el)
-   {
+   boardEl.find('.list-wrapper').each(function (index, el) {
     // Get the required heights for calculations
     var listWrapperEl = angular.element(el),
             listHeaderElHeight = listWrapperEl.find('.list-header').height(),
@@ -233,8 +221,7 @@
    * @param ev
    * @param list
    */
-  function removeList(ev, list)
-  {
+  function removeList(ev, list) {
    var confirm = $mdDialog.confirm({
     title: 'Remove List',
     parent: $document.find('#explorer'),
@@ -262,39 +249,31 @@
    * @param cardId
    * @returns {*}
    */
-  function cardFilter(cardId)
-  {
+  function cardFilter(cardId) {
 
    //temp
    return true;
    var card = vm.component.cards.getById(cardId);
 
-   try
-   {
-    if (angular.lowercase(card.name).indexOf(angular.lowercase(vm.cardFilters.name)) < 0)
-    {
+   try {
+    if (angular.lowercase(card.name).indexOf(angular.lowercase(vm.cardFilters.name)) < 0) {
      throw false;
     }
 
-    angular.forEach(vm.cardFilters.labels, function (label)
-    {
-     if (!msUtils.exists(label, card.idLabels))
-     {
+    angular.forEach(vm.cardFilters.labels, function (label) {
+     if (!msUtils.exists(label, card.idLabels)) {
       throw false;
      }
     });
 
-    angular.forEach(vm.cardFilters.members, function (member)
-    {
-     if (!msUtils.exists(member, card.idMembers))
-     {
+    angular.forEach(vm.cardFilters.members, function (member) {
+     if (!msUtils.exists(member, card.idMembers)) {
       throw false;
      }
     });
 
 
-   } catch (err)
-   {
+   } catch (err) {
     return err;
    }
 
@@ -307,8 +286,7 @@
    * @param cardDate
    * @returns {boolean}
    */
-  function isOverdue(cardDate)
-  {
+  function isOverdue(cardDate) {
    return moment() > moment(cardDate, 'x');
   }
 

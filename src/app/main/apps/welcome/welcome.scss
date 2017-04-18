@@ -18,6 +18,7 @@ $color-6: #077568;
 .gb-wall-v {
  //background-color: #F2F2F2;
 }
+
 .gb-wall-h {
  @include position(absolute, null 0 0 0);
  background-color: rgba(material-color('blue-grey', '900'), 0.7);
@@ -89,6 +90,19 @@ $color-6: #077568;
   z-index: 4;
  }
 
+ .gb-actions {
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  padding: 15px 5px;
+  z-index: 3;
+  .md-button {
+   height: 50px;
+   line-height: 50px;
+   padding: 0 20px;
+  }
+ }
+
  .gb-door {
   bottom: 30px;
   padding-top: 135px;
@@ -111,7 +125,8 @@ $color-6: #077568;
 
  .gb-intro-message {
   //@include position(absolute, 50px null 0 0);
-  padding-top: 50px;
+  padding-top: 40px;
+  max-height: 200px;
   width: 500px;
   z-index: 1;
   .intro-lead-in {
@@ -151,14 +166,16 @@ $color-6: #077568;
    font-size: 12px;
   }
  }
+
  @include respond-to (gb-md) {
   .gb-intro-carousel {
    bottom: -300px;
    width: 80%;
   }
  }
+
  @include respond-to (gb-sm) {
-  height: 400px;
+  height: 550px;
   .gb-intro-message {
    //width: 600px;
    padding-top: 20px;
@@ -352,11 +369,32 @@ $color-6: #077568;
 
 .gb-welcome-section-4 {
  background: url(../../../src/assets/images/landing-page/background-5.jpg);
-
+ padding-top: 100px;
  .gb-door {
   border: material-color('blue-grey', '600') solid 2px;
   border-left: material-color('blue-grey', '600') solid 6px;
   border-bottom: #ECEFF1 solid 10px;
+
+  &.gb-door-top {
+   @include position(absolute, -28px null null 50%);
+   padding-top: 0px;
+   -moz-border-radius: 0 0 150px 0;
+   border-radius: 0 0 150px 0;
+   border: material-color('blue-grey', '600') solid 2px;
+   border-left: material-color('blue-grey', '600') solid 6px;
+   border-top: #ECEFF1 solid 30px;
+   .gb-title {
+    @include position(absolute, -28px 0 null 0);
+   }
+   .gb-icon {
+    @include position(absolute,  10px 0 null 0);
+   }
+   @include respond-to (gb-xs) {
+    padding-top: 0px;
+    -moz-border-radius: 0 0 90px 0;
+    border-radius: 0 0 90px 0;
+   }
+  }
  }
 }
 

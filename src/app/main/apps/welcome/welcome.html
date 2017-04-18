@@ -18,7 +18,7 @@
     <div class="gb-card-component-p" ng-repeat="sample in vm.components.samples"
          ui-sref="app.componentLinearView.home({id:component.id})"
          layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-component md-whiteframe-1dp"
+     <div class="gb-card-component gb-card-component-sm md-whiteframe-1dp"
           layout="column">
       <div class="gb-card-cover" flex>
        <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
@@ -76,8 +76,8 @@
     <md-icon md-font-icon="icon-chevron-right"></md-icon>
    </md-button>
   </div>
-  <div>
-   <md-button class="md-raised">
+  <div class="gb-actions">
+   <md-button ui-sref="app.explorer.home" class="md-raised md-primary">
     Found Your House
    </md-button>
   </div>

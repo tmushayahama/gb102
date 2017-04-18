@@ -12,11 +12,8 @@
   var vm = this;
 
   // Data
-
-
   $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
   $rootScope.appName = "Explorer";
-
 
   // Methods
   //////////

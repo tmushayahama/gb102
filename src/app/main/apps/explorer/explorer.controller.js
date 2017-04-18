@@ -14,7 +14,6 @@
   // Data
   vm.currentView = 'board';
   vm.board = ComponentService.data;
-  //vm.boardList = BoardList.data;
   vm.boardSelectorVisible = false;
   ////////
 
@@ -35,8 +34,7 @@
    * Once you connect your app to your server,
    * you would do this on your API server.
    */
-  function updateBoardUri()
-  {
+  function updateBoardUri() {
    if (vm.boardList.getById(vm.board.id))
    {
     vm.boardList.getById(vm.board.id).name = vm.board.name;
@@ -49,8 +47,7 @@
    *
    * @param sidenavId
    */
-  function toggleSidenav(sidenavId)
-  {
+  function toggleSidenav(sidenavId) {
    $mdSidenav(sidenavId).toggle();
   }
 
@@ -62,8 +59,7 @@
    * @param value
    * @returns {T}
    */
-  Array.prototype.getById = function (value)
-  {
+  Array.prototype.getById = function (value) {
    return this.filter(function (x)
    {
     return x.id === value;
@@ -75,7 +71,6 @@
     vm.board = data;
    });
   }
-
 
  }
 })();

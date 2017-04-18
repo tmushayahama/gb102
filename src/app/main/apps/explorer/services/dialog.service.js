@@ -10,6 +10,10 @@
  function DialogService($mdDialog, $document)
  {
   var service = {
+   //Data
+   data: {},
+   /////////
+   //Methods
    openCardDialog: openCardDialog,
    openAddComponentDialog: openAddComponentDialog,
    openAddComponentsDialog: openAddComponentsDialog,
@@ -17,9 +21,8 @@
    openComponentSectionDialog: openComponentSectionDialog,
    openComponentNotesDialog: openComponentNotesDialog,
    startComponentStoryDialog: startComponentStoryDialog
+           ////////
   };
-
-  //////////
 
   // ******************************
   // Internal methods

@@ -18,14 +18,18 @@
 
   //Methods
   vm.openAddComponentDialog = DialogService.openAddComponentDialog;
+/////////
 
   init();
 
   $rootScope.headerStyle = {background: $rootScope.generateBackgroundPattern()};
   $rootScope.appName = "Explorer";
 
+  // ******************************
+  // Internal methods
+  // ******************************
 
-  // Methods
+
   function init() {
    ComponentService.getComponents(5).then(function (data) {
     vm.components = data;

@@ -10,8 +10,7 @@
  function ComponentLinearHomeController(add_component_tabs, ComponentService, DialogService, DialogComponentService, $stateParams, $rootScope)
  {
   var vm = this;
-  //////////
-  //
+
   ////Data
   vm.tabs = add_component_tabs;
   vm.componentId = $stateParams.id;
@@ -20,7 +19,7 @@
   //Methods
   vm.openAddComponentDialog = DialogService.openAddComponentDialog;
   vm.openComponentDiscussionsDialog = DialogComponentService.openComponentDiscussionsDialog;
-
+  /////////
 
  }
 })();
