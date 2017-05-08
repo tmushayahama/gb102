@@ -12,7 +12,25 @@ $color-4: #9A6D36;
 $color-5: #41642A;
 $color-6: #077568;
 
+.gb-house-background {
+ padding: 100px 20px 50px 100px;
+ background: url(../../../src/assets/images/landing-page/house-1.jpg);
+ //-webkit-background-size: auto 100%!important;
+ // -moz-background-size: auto 100%!important;
+ //-o-background-size: auto 100%!important;
+ background-size: auto 100%!important;
+}
 
+.gb-pillar-1 {
+ background: url(../../../src/assets/images/landing-page/pillar-1.png);
+ -webkit-background-size: auto 100%!important;
+ -moz-background-size: auto 100%!important;
+ -o-background-size: auto 100%!important;
+ background-size: auto 100%!important;
+ height: 100%;
+ width: 50px;
+ max-width: 50px;
+}
 
 .gb-wall-h,
 .gb-wall-v {
@@ -74,7 +92,7 @@ $color-6: #077568;
  //background: radial-gradient(ellipse at center,  #ceda2e 0%,#875a9d 100%); /* W3C */
  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
- background: url(../../../src/assets/images/landing-page/background-5.jpg);
+ //background: url(../../../src/assets/images/landing-page/background-5.jpg);
  -webkit-background-size: 700px auto!important;
  -moz-background-size: 700px auto!important;
  -o-background-size: 700px auto!important;
@@ -83,7 +101,7 @@ $color-6: #077568;
  //margin-bottom: 30px;
  height: 550px;
  text-align: center;
- background-color: material-color('blue-grey', '800');
+ //background-color: material-color('blue-grey', '800');
  //overflow: hidden;
 
  .gb-recommendation-scroll {
