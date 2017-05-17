@@ -1,5 +1,3 @@
-
-
 $explorer-color: #027887;
 $swipe-color: #5E2D35;
 $matcher-color:#027;
@@ -84,24 +82,16 @@ $color-6: #077568;
 }
 
 #gb-intro-section {
- //background: -moz-radial-gradient(center, ellipse cover,  #ceda2e 0%, #875a9d 100%); /* FF3.6+ */
- //background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ceda2e), color-stop(100%,#875a9d)); /* Chrome,Safari4+ */
- //background: -webkit-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* Chrome10+,Safari5.1+ */
- //background: -o-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* Opera 12+ */
- //background: -ms-radial-gradient(center, ellipse cover,  #ceda2e 0%,#875a9d 100%); /* IE10+ */
- //background: radial-gradient(ellipse at center,  #ceda2e 0%,#875a9d 100%); /* W3C */
- //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ceda2e', endColorstr='#875a9d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
- //background: url(../../../src/assets/images/landing-page/background-5.jpg);
- -webkit-background-size: 700px auto!important;
- -moz-background-size: 700px auto!important;
- -o-background-size: 700px auto!important;
+ background: url(../../../src/assets/images/house/front-door-1.png);
+ background-repeat: no-repeat;
+ background-position: center 150px;
+ background-size: 100% 700px!important;
  // background-repeat: : 100%!important;
  position: relative;
  //margin-bottom: 30px;
- height: 550px;
+ height: 700px;
  text-align: center;
- //background-color: material-color('blue-grey', '800');
+ background-color: material-color('blue-grey', '800');
  //overflow: hidden;
 
  .gb-recommendation-scroll {
@@ -141,13 +131,31 @@ $color-6: #077568;
   }
  }
 
+ .gb-front-door {
+  height: 500px;
+  //@include position(absolute, 50px null 0 0);
+  background: url(../../../src/assets/images/house/front-door-1.png);
+  -webkit-background-size: auto 100%!important;
+  -moz-background-size: auto 100%!important;
+  -o-background-size: auto 100%!important;
+  background-size: auto 100%!important;
+ }
+
  .gb-intro-message {
   //@include position(absolute, 50px null 0 0);
-  padding-top: 40px;
+  // background: url(../../../src/assets/images/landing-page/above-roof-2.jpg);
+  // -webkit-background-size: auto 100%!important;
+  //-moz-background-size: auto 100%!important;
+  //-o-background-size: auto 100%!important;
+  // background-size: 400px 100%!important;
+  padding-top: 60px;
+  height: 200px;
+  min-height: 200px;
   max-height: 200px;
-  width: 500px;
+  width: 100%;
   z-index: 1;
   .intro-lead-in {
+   max-width: 500px;
    color: #111;
    margin-bottom: 20px;
    font-size: 20px;
@@ -156,7 +164,7 @@ $color-6: #077568;
   }
   .intro-heading {
    color: #000;
-   margin-bottom: 0px;
+   margin: 0px;
    font-size: 50px;
    font-weight: 500;
    line-height: 40px;
@@ -193,7 +201,7 @@ $color-6: #077568;
  }
 
  @include respond-to (gb-sm) {
-  height: 550px;
+  height: 700px;
   .gb-intro-message {
    //width: 600px;
    padding-top: 20px;
@@ -234,11 +242,13 @@ $color-6: #077568;
  @include respond-to (gb-xs) {
   // padding-top: 300px;
   //padding-bottom: 200px;
-  height: 270px;
+  height: 600px;
   .gb-intro-message {
+   height: 100px;
+   min-height: 100px;
+   max-height: 100px;
    width: 100%;
-   top: 20px;
-   padding: 0px 20px 0 20px;
+   padding: 20px 20px 0 20px;
    .intro-lead-in {
     margin-bottom: 5px;
     font-size: 14px;
@@ -272,10 +282,10 @@ $color-6: #077568;
   }
  }
  &:after {
-  content: "";
-  @include position(absolute, 0 0 0 0);
-  background-color: rgba(material-color('blue-grey', '900'), 0.2);
-  z-index: 0;
+  //content: "";
+  //@include position(absolute, 0 0 0 0);
+  //background-color: rgba(material-color('blue-grey', '900'), 0.2);
+  // z-index: 0;
  }
 }
 
@@ -324,12 +334,15 @@ $color-6: #077568;
   }
  }
  .gb-app-widget {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   box-shadow: $whiteframe-shadow-2dp;
   //border: material-color('blue-grey', '800') double 3px;
-  background-color:  rgba(material-color('blue-grey', '200'), 0.3);
+  background-color:  rgba(#FFF, 0.7);
   &:hover {
    // border: material-color('blue-grey', '900') double 3px;
-   background-color:  rgba(material-color('blue-grey', '400'), 0.3);
+   background-color:  rgba(material-color('blue-grey', '400'), 0.5);
   }
  }
  .gb-card-heading-1 {
@@ -386,7 +399,9 @@ $color-6: #077568;
 }
 
 .gb-welcome-section-4 {
- background: url(../../../src/assets/images/landing-page/background-5.jpg);
+ background: url(../../../src/assets/images/landing-page/lobby-1.jpg);
+ background-size: 100% 100%!important;
+ height: 700px;
  padding-top: 100px;
  .gb-door {
   border: material-color('blue-grey', '600') solid 2px;

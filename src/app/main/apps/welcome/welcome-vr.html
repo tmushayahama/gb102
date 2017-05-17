@@ -1,0 +1,76 @@
+
+<!--<a-scene stats>-->
+
+<a-scene>
+
+ <a-entity mobile></a-entity>
+
+ <a-entity light="type: directional; color: #FFF; intensity: 0.8" position="2 20 0"></a-entity>
+ <a-entity light="type: ambient; color: #FFF"></a-entity>
+
+ <!-- Custom components with animations -->
+ <a-entity spheres material="shader: envMapMaterial; src:src/assets/textures/cube/hall/; "></a-entity>
+ <a-entity anim_1></a-entity>
+ <a-entity anim_2></a-entity>
+
+ <!-- - Custom components with animations -->
+
+ <a-assets>
+  <a-mixin id="checkpoint"></a-mixin>
+  <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+
+
+  <img id="sky_sphere-texture" src="src/assets/textures/sky_sphere.jpg">
+
+  <!--
+  <a-sound src="src/assets/audio/84529__cmusounddesign__02-museum.ogg"
+           autoplay="true"
+           loop="true"
+           position="1 1 0"></a-sound>
+
+  <a-sound  src="src/assets/audio/219462__cediez__musee-victoria-londres-grand-escalier.ogg"
+           autoplay="true"
+           loop="true"
+           position="1 1 10"></a-sound>
+  -->
+
+  <!-- floor -->
+  <a-asset-item id="floor-obj" src="src/assets/models/floor.obj"></a-asset-item>
+  <img id="floor-texture" src="src/assets/textures/floor.jpg">
+  <img id="floor_normal-texture" src="src/assets/textures/dirt-road-1.jpg">
+  <!-- - floor -->
+
+  <!-- hall -->
+  <a-asset-item id="gb-house-obj" src="src/assets/gb-models/gb-house.obj"></a-asset-item>
+  <img id="hall-texture" src="src/assets/textures/hall.jpg">
+  <!--<img id="hall_normal-texture" src="src/assets/textures/hall_normal.jpg">-->
+  <!-- - hall -->
+
+  <!-- hall low floor -->
+  <!-- this piece is only meant for teleportation -->
+  <a-asset-item id="hall_low_floor-obj" src="src/assets/models/hall_low_floor.obj"></a-asset-item>
+
+  <!-- - hall low floor-->
+
+
+ </a-assets>
+
+ <a-sky color="#EEEEFF" material="src: #sky_sphere-texture"></a-sky>
+
+ <a-entity obj-model="obj: #floor-obj;" id="floor"></a-entity>
+ <a-entity obj-model="obj: #gb-house-obj;" material="src: #hall-texture" id="hall"></a-entity>
+ <a-entity obj-model="obj: #hall_low_floor-obj;" material="opacity: 0.0" id="hall_low_floor"></a-entity>
+
+
+ <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="left"></a-entity>
+ <a-entity teleport-controls="button: trigger; collision-entities: #floor #hall_low_floor" hand-controls="right"></a-entity>
+
+</a-scene>
+
+<div class="w-button-nav">
+ <md-button ng-click="">
+  ddd
+ </md-button>
+</div>
+
+

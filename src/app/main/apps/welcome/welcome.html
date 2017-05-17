@@ -1,6 +1,6 @@
 <div id="gb-welcome">
  <header id="gb-intro-section" class="" layout="column" layout-align="start center" flex>
-  <div class="gb-intro-message" flex>
+  <div class="gb-intro-message" layout="column" layout-align="start center" flex>
    <h1 class="intro-heading" >
     House of Skills
    </h1>
@@ -8,19 +8,19 @@
     A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
    </h2>
   </div>
-  <div class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
+  <div ng-if="false" class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
    <md-button class="gb-left-scroll"
               ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
     <md-icon md-font-icon="icon-chevron-left"></md-icon>
    </md-button>
-   <div id="gb-featured" class="board-list flex-scrollable only-x"
+   <div id="gb-featured" class="flex-scrollable only-x"
         layout="row" layout-align="start" ms-scroll flex layout-nowrap>
     <div class="" layout="column" layout-align="start" flex>
      <div class="" layout="row" layout-align="start" layout-nowrap>
       <div class="gb-card-component-house-p" ng-repeat="sample in vm.components.samples"
-           ui-sref="app.componentLinearView.home({id:component.id})"
            layout="column" layout-align="start" layout-nowrap>
-       <div class="gb-card-component-house md-whiteframe-1dp" layout="column">
+       <div class="gb-card-component-house md-whiteframe-1dp" layout="column"
+            ui-sref="app.componentLinearView.home({id:component.id})">
         <div class="gb-card-cover" flex>
          <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
               class="gb-cover-image">
@@ -81,14 +81,14 @@
   </div>
   <div class="gb-actions">
    <md-button ui-sref="app.explorer.home" class="md-raised md-primary">
-    Find Your House
+    Find Your Room
    </md-button>
   </div>
   <div class="gb-intro-img" hide></div>
-  <div class="gb-wall-h"></div>
+  <div hide class="gb-wall-h"></div>
  </header>
  <div class="gb-welcome-section-4" layout="column" layout-align="center center" flex>
-  <div class="gb-door gb-door-top">
+  <div class="gb-door gb-door-top" hide>
    <div class="gb-title">Enter<br>Lobby</div>
    <i class="gb-icon fa icon-arrow-down"></i>
   </div>
@@ -105,16 +105,10 @@
     </div>
    </div>
   </div>
-
-  <div class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
-   <md-button class="gb-left-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-left"></md-icon>
-   </md-button>
-   <div id="gb-featured" class="flex-scrollable only-x"
-        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+  <div class="gb-container" layout="row" layout-align="start start">
+   <div class="" layout="column" layout-align="start start" flex="33">
     <ms-widget ng-repeat="app in $root.commonData.rooms" class="p-5" layout="column" 	flex-xs="50" flex="50">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+     <ms-widget-front class="gb-app-preview-widget" layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
@@ -132,18 +126,29 @@
      </ms-widget-front>
     </ms-widget>
    </div>
-   <md-button class="gb-right-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured', 400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-right"></md-icon>
-   </md-button>
-  </div>
-
-
-  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
-   <div class="widget-group gb-section-widget-group"
-        layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.rooms" class="p-5" layout="column" 	flex-xs="50" flex="50">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+   <div class="" layout="column" layout-align="start stretch" flex="33">
+    <ms-widget ng-repeat="app in $root.commonData.services" class="p-5" layout="column" 	flex-xs="50" flex="50">
+     <ms-widget-front class="gb-app-preview-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <div class="" layout="column" layout-align="start stretch" flex="33">
+    <ms-widget ng-repeat="app in $root.commonData.sections" class="p-5" layout="column" 	flex-xs="50" flex="50">
+     <ms-widget-front class="gb-app-preview-widget" layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
@@ -162,6 +167,8 @@
     </ms-widget>
    </div>
   </div>
+
+
   <div class="gb-container mb-20" layout="column" layout-align="" flex>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -176,9 +183,9 @@
   </div>
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
-        layout="row" layout-align="start" layout-wrap flex>
-    <ms-widget ng-repeat="app in $root.commonData.services" class="p-5" layout="column" 	flex-xs="33" flex="33">
-     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+        layout="row" layout-align="start start" layout-wrap flex>
+    <ms-widget class="gb-app-widget" ng-repeat="app in $root.commonData.services" class="p-5" layout="column" 	flex-xs="33" flex="33">
+     <ms-widget-front  layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
        <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
@@ -457,3 +464,47 @@
   &copy;Copyright 2016 SkillSection.com. All rights reserved.
  </div>
 </div>
+
+<a-scene ng-if="hide">
+
+ <!-- Cursor -->
+ <a-entity>
+  <a-camera position="0 2 0">
+   <a-cursor color="#000"></a-cursor>
+  </a-camera>
+ </a-entity>
+
+ <!-- WebVR Logo -->
+ <a-curvedimage src="img/logo.png" radius="5.7" theta-length="36" height="1" position="0 2.6 0" opacity="0.5">
+  <a-animation attribute="rotation" from="0 10 0" to="0 200 0" begin="500" dur="1000"></a-animation>
+ </a-curvedimage>
+
+
+ <a-curvedimage src="img/welcome.png" radius="5.7" theta-length="30" height=".85" position="0 1.4 0" scale=".4 .4 .4">
+  <a-animation attribute="rotation" from="0 180 0" to="0 203 0" begin="750" dur="1000"></a-animation>
+ </a-curvedimage>
+
+ <!-- Lower row -->
+
+ <!-- introduce ng-repeat for images based on JSON data -->
+ <a-curvedimage src="{{getThumbnail(image)}}" url="{{image}}" ng-repeat="image in images track by $index" radius="5.7" class="vr-image" theta-length="18" height=".8" position="0 {{lowerIndex[$index]}} 0" scale=".4 .4 .4" ng-click="viewImage(image)">
+  <a-animation attribute="rotation" from="0 180 0" to="0 {{upperIndex[$index]}} 0" begin="750" dur="1000"></a-animation>
+  <a-event name="click" color="#FFC65D"></a-event>
+  <a-event name="mouseenter" color="#FFC65D"></a-event>
+  <a-event name="mouseleave" color="none"></a-event>
+ </a-curvedimage>
+
+ <!-- Loop -->
+ <a-entity>
+  <a-cylinder position="0 0.5 0" radius="4" height="1.6" side="back" open-ended="true" color="#FFF"></a-cylinder>
+ </a-entity>
+
+ <!-- Floor shadow -->
+ <a-image position="0 -5 0" src="img/shadow.png"
+          rotation="-90 0 0" scale="6 6 6"></a-image>
+
+ <a-sky color="#ECECEC"></a-sky>
+ <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+ <a-light type="ambient" color="#fff"></a-light>
+
+</a-scene>

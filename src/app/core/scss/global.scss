@@ -357,6 +357,12 @@ md-dialog {
 }
 .gb-horizontal-scroll {
  position:relative;
+ &.gb-apps-preview-scroll {
+  min-height: 150px;
+  .gb-card-component {
+   max-width: 200px;
+  }
+ }
  &.gb-apps-scroll {
   min-height: 226px;
   .gb-card-component {
@@ -1421,10 +1427,12 @@ md-tabs {
  }
 
  .gb-card-cover {
+  position: relative;
   height: 110px;
   min-height: 110px;
   max-height: 110px;
   overflow: hidden;
+  border-bottom: #333 ridge 4px;
   .gb-cover-image {
    height: 100%;
    width: 100%;
@@ -1434,30 +1442,42 @@ md-tabs {
     min-height: 110px;
    }
   }
+  &:after {
+   content: '';
+   @include position(absolute, 0 0 0 0);
+   background: url(../../../src/assets/images/landing-page/transparent-screen-1.png);
+   //-webkit-background-size: auto 100%!important;
+   // -moz-background-size: auto 100%!important;
+   //-o-background-size: auto 100%!important;
+   background-size: 100% 100%!important;
+   background-color: rgba(#0FF, 0.2);
+   z-index: 1;
+  }
  }
  .gb-opacity-content {
-  @include position(absolute, 80px 0 null 0);
+  @include position(absolute, 84px 0 null 0);
   background-color: rgba(#000, 0.3);
-  height: 30px;
+  height: 25px;
  }
  .gb-card-profile {
-  @include position(absolute, 80px  0 null 0);
+  @include position(absolute, 84px 0 null 0);
   background-color: transparent;
   overflow: hidden;
-  height: 60px;
-  min-height: 60px;
-  max-height: 60px;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
   width: 100%;
+  z-index: 2;
 
   .gb-image {
    @include position(absolute, 10px null 10px 10px);
    padding-top: 7px;
    text-align: center;
-   font-size: 15px;
-   height: 40px;
-   width: 40px;
+   font-size: 12px;
+   height: 30px;
+   width: 30px;
    border-radius: 50%;
-   border: #FAFAFA solid 3px;
+   border: #FAFAFA solid 2px;
    overflow: hidden;
    .gb-heading-pic {
     @include position(absolute, 0 0 0 0);
@@ -1467,39 +1487,39 @@ md-tabs {
    }
   }
   .gb-box-content {
-   @include position(absolute, 0 0 0 50px);
+   @include position(absolute, 0 0 0 40px);
    height: auto;
-   padding: 8px 5px;
-   line-height: 18px;
+   padding: 5px 5px;
+   line-height: 16px;
    .gb-title {
     color: #555;
     padding: 0;
     a {
      color: #FFF;
      cursor: pointer;
-     font-size: 14px;
+     font-size: 12px;
      font-weight: 400;
     }
    }
    .gb-subdescription {
     text-transform: uppercase;
-    margin-top: 8px;
-    font-size: 12px;
+    margin-top: 6px;
+    font-size: 10px;
     color: #888;
    }
   }
  }
 
  .gb-card-content {
-  padding: 30px 6px 14px 6px;
+  padding: 25px 6px 14px 6px;
 
   .gb-title {
    //font-size:18px;
    color: #000;
    h3 {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
    }
   }
   .gb-app-title {
@@ -1511,7 +1531,7 @@ md-tabs {
   .gb-description {
    //@include position(absolute, 23px 0 50px 0);
    font-size: 12px;
-   height: 32px;
+   height: 30px;
    display: block;
    /* Fallback for non-webkit */
    display: -webkit-box;
@@ -1524,7 +1544,7 @@ md-tabs {
    overflow: hidden;
    p {
     font-size: 12px;
-    line-height: 15px;
+    line-height: 14px;
     margin: 0;
     &.gb-no-info {
      color: #BBB;
@@ -2909,6 +2929,43 @@ md-tabs {
 
 
 .gb-apps-widget {
+ height: 200px;
+ .gb-title {
+
+  font-size: 40px;
+  text-transform: capitalize;
+ }
+ .gb-stat {
+  font-size: 20px;
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #BBB;
+   font-size: 150px;
+   width: 150px;
+   min-width: 150px;
+   max-width: 150px;
+  }
+ }
+ @mixin apps-widget-background {
+  @for $i from 1 through length($apps-colors){
+   .gb-app-type-#{$i}
+   {
+    background-color: rgba(nth($apps-colors, $i), 0.3);
+    color: darken(nth($apps-colors, $i), 15%);
+    &:hover {
+     background-color: rgba(nth($apps-colors, $i), 0.5);
+     color: darken(nth($apps-colors, $i), 25%);
+    }
+   }
+  }
+ }
+
+ @include apps-widget-background;
+
+}
+
+.gb-apps-preview-widget {
  height: 200px;
  .gb-title {
 
