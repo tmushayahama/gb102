@@ -1,6 +1,92 @@
 <div id="gb-welcome">
  <header id="gb-intro-section" class="" layout="column" layout-align="start center" flex>
 
+
+  <div  class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
+   <md-button class="gb-left-scroll"
+              ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-left"></md-icon>
+   </md-button>
+   <div id="gb-featured" class="flex-scrollable only-x"
+        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+    <div class="gb-window-bg-2" ng-repeat="sample in vm.components.samples"
+         layout="column" layout-align="start" layout-nowrap>
+     <div class="gb-card-component-house md-whiteframe-1dp" layout="column"
+          ui-sref="app.componentLinearView.home({id:component.id})">
+      <div class="gb-card-cover" flex>
+       <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
+            class="gb-cover-image">
+        <img ng-src="src/assets/images/explorer/{{sample.component.component_picture_url}}">
+       </div>
+       <div ng-if="sample.component.component_placeholder_style"
+            class="gb-cover-image"
+            ng-style="sample.component.component_placeholder_style">
+       </div>
+      </div>
+      <div class="gb-opacity-content" hide-xs></div>
+      <div class="gb-card-profile">
+       <div class="gb-box-content">
+        <div class="gb-title">
+         <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+          {{sample.component.creator.firstname + ' ' + sample.component.creator.lastname}}
+         </a>
+        </div>
+        <div class="gb-subdescription">
+         <p class="gb-ellipsis">
+          {{sample.component.id}} ROOM
+         </p>
+        </div>
+       </div>
+       <div class="gb-image" ng-class="sample.component.creator.theme_color">
+        <img ng-if="sample.component.creator.avatar_url !== 'gb-avatar.jpg'"
+             src="src/assets/images/profile_pic/{{sample.component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+        {{sample.component.creator.firstname.substring(0, 1) + sample.component.creator.lastname.substring(0, 1)}}
+       </div>
+      </div>
+      <div class="gb-card-content" flex>
+       <div class="gb-title">
+        <h3 class="gb-ellipsis">
+         {{sample.component.title}}
+        </h3>
+       </div>
+       <div class="gb-description">
+        <p class="">
+         <span>
+          {{::sample.component.description}}
+         </span>
+        </p>
+        <p ng-if="!sample.component.description" class="gb-no-info">
+         No description to show
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <md-button class="gb-right-scroll"
+              ng-click="$root.scrollHorizontal('#gb-featured', 400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-right"></md-icon>
+   </md-button>
+  </div>
+
+  <div class="gb-intro-message" layout="column" layout-align="start center" flex>
+   <h1 class="intro-heading" >
+    House of Skills
+   </h1>
+   <h2 class="intro-lead-in">
+    A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
+   </h2>
+  </div>
+  <div class="gb-actions">
+   <md-button ui-sref="app.explorer.home" class="md-raised md-primary">
+    Find Your Room
+   </md-button>
+  </div>
+  <div class="gb-intro-img" hide></div>
+  <div hide class="gb-wall-h"></div>
+ </header>
+ <div class="gb-welcome-section-4" layout="column" layout-align="center center" flex>
   <div class="gb-horizontal-scroll gb-overview-rooms-scroll" layout="row">
    <md-button class="gb-left-scroll"
               ng-click="$root.scrollHorizontal('#gb-overview-rooms', -400)"aria-label="Scroll Left">
@@ -115,94 +201,6 @@
    </md-button>
   </div>
 
-  <div class="gb-intro-message" layout="column" layout-align="start center" flex>
-   <h1 class="intro-heading" >
-    House of Skills
-   </h1>
-   <h2 class="intro-lead-in">
-    A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
-   </h2>
-  </div>
-  <div ng-if="false" class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
-   <md-button class="gb-left-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-left"></md-icon>
-   </md-button>
-   <div id="gb-featured" class="flex-scrollable only-x"
-        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
-    <div class="" layout="column" layout-align="start" flex>
-     <div class="" layout="row" layout-align="start" layout-nowrap>
-      <div class="gb-card-component-house-p" ng-repeat="sample in vm.components.samples"
-           layout="column" layout-align="start" layout-nowrap>
-       <div class="gb-card-component-house md-whiteframe-1dp" layout="column"
-            ui-sref="app.componentLinearView.home({id:component.id})">
-        <div class="gb-card-cover" flex>
-         <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
-              class="gb-cover-image">
-          <img ng-src="src/assets/images/explorer/{{sample.component.component_picture_url}}">
-         </div>
-         <div ng-if="sample.component.component_placeholder_style"
-              class="gb-cover-image"
-              ng-style="sample.component.component_placeholder_style">
-         </div>
-        </div>
-        <div class="gb-opacity-content" hide-xs></div>
-        <div class="gb-card-profile">
-         <div class="gb-box-content">
-          <div class="gb-title">
-           <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-            {{sample.component.creator.firstname + ' ' + sample.component.creator.lastname}}
-           </a>
-          </div>
-          <div class="gb-subdescription">
-           <p class="gb-ellipsis">
-            {{sample.component.id}} ROOM
-           </p>
-          </div>
-         </div>
-         <div class="gb-image" ng-class="sample.component.creator.theme_color">
-          <img ng-if="sample.component.creator.avatar_url !== 'gb-avatar.jpg'"
-               src="src/assets/images/profile_pic/{{sample.component.creator.avatar_url}}"
-               class="gb-heading-pic" alt="">
-          {{sample.component.creator.firstname.substring(0, 1) + sample.component.creator.lastname.substring(0, 1)}}
-         </div>
-        </div>
-        <div class="gb-card-content" flex>
-         <div class="gb-title">
-          <h3 class="gb-ellipsis">
-           {{sample.component.title}}
-          </h3>
-         </div>
-         <div class="gb-description">
-          <p class="">
-           <span>
-            {{::sample.component.description}}
-           </span>
-          </p>
-          <p ng-if="!sample.component.description" class="gb-no-info">
-           No description to show
-          </p>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <md-button class="gb-right-scroll"
-              ng-click="$root.scrollHorizontal('#gb-featured', 400)"aria-label="Scroll Left">
-    <md-icon md-font-icon="icon-chevron-right"></md-icon>
-   </md-button>
-  </div>
-  <div class="gb-actions">
-   <md-button ui-sref="app.explorer.home" class="md-raised md-primary">
-    Find Your Room
-   </md-button>
-  </div>
-  <div class="gb-intro-img" hide></div>
-  <div hide class="gb-wall-h"></div>
- </header>
- <div class="gb-welcome-section-4" layout="column" layout-align="center center" flex>
   <div class="gb-door gb-door-top" hide>
    <div class="gb-title">Enter<br>Lobby</div>
    <i class="gb-icon fa icon-arrow-down"></i>
