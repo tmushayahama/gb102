@@ -19,6 +19,47 @@ $color-6: #077568;
  background-size: auto 100%!important;
 }
 
+.gb-window-bg-1 {
+ background: url(../../../src/assets/images/house/window-1.jpg);
+ //-webkit-background-size: auto 100%!important;
+ //-moz-background-size: auto 100%!important;
+ //-o-background-size: auto 100%!important;
+
+ background-size: 100% 100%!important;
+ @include deep-height(180px);
+ @include deep-width(150px);
+ padding: 33px 10px 0 60px;
+ .gb-app-widget {
+  @include deep-height(121px);
+  @include deep-width(100px);
+
+  .gb-widget-content {
+   padding: 5px;
+  }
+  .gb-title-icon {
+   @include deep-height(50px);
+   @include deep-width(50px);
+   overflow: hidden;
+   i{
+    //color: #EEE;
+    font-size: 40px;
+   }
+  } .gb-widget-content {
+   padding: 3px;
+  }
+  .gb-title {
+   color: #000;
+   font-size: 12px;
+   text-transform: uppercase;
+  }
+  .gb-description {
+   color: #333;
+   font-size: 12px;
+   line-height: 15px;
+  }
+ }
+}
+
 .gb-pillar-1 {
  background: url(../../../src/assets/images/landing-page/pillar-1.png);
  -webkit-background-size: auto 100%!important;
@@ -82,16 +123,16 @@ $color-6: #077568;
 }
 
 #gb-intro-section {
- background: url(../../../src/assets/images/house/front-door-1.png);
+ background: url(../../../src/assets/images/house/front-door-1.jpg);
  background-repeat: no-repeat;
- background-position: center 150px;
+ background-position: center 300px;
  background-size: 100% 700px!important;
  // background-repeat: : 100%!important;
  position: relative;
  //margin-bottom: 30px;
- height: 700px;
+ height: 1000px;
  text-align: center;
- background-color: material-color('blue-grey', '800');
+ background-color: #BAA082;
  //overflow: hidden;
 
  .gb-recommendation-scroll {
@@ -289,6 +330,19 @@ $color-6: #077568;
  }
 }
 
+.gb-staircase {
+ background: url(../../../src/assets/images/house/steps-1.png);
+ background-repeat: no-repeat;
+ background-position: center top;
+ background-size: 500px 100%!important;
+ // background-repeat: : 100%!important;
+ position: relative;
+ //margin-bottom: 30px;
+ height: 100px;
+ text-align: center;
+ background-color: material-color('blue-grey', '800');
+}
+
 .gb-welcome-section-1 {
  padding: 20px 0;
  background-color: #FFF;
@@ -333,18 +387,7 @@ $color-6: #077568;
    }
   }
  }
- .gb-app-widget {
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px;
-  box-shadow: $whiteframe-shadow-2dp;
-  //border: material-color('blue-grey', '800') double 3px;
-  background-color:  rgba(#FFF, 0.7);
-  &:hover {
-   // border: material-color('blue-grey', '900') double 3px;
-   background-color:  rgba(material-color('blue-grey', '400'), 0.5);
-  }
- }
+
  .gb-card-heading-1 {
   .gb-title {
    color: #000;
@@ -399,10 +442,11 @@ $color-6: #077568;
 }
 
 .gb-welcome-section-4 {
- background: url(../../../src/assets/images/landing-page/lobby-1.jpg);
- background-size: 100% 100%!important;
+ //background: url(../../../src/assets/images/landing-page/lobby-1.jpg);
+ //background-size: 100% 100%!important;
  height: 700px;
  padding-top: 100px;
+ background-color: #BAA082;
  .gb-door {
   border: material-color('blue-grey', '600') solid 2px;
   border-left: material-color('blue-grey', '600') solid 6px;

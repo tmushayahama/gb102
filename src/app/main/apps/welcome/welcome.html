@@ -1,5 +1,120 @@
 <div id="gb-welcome">
  <header id="gb-intro-section" class="" layout="column" layout-align="start center" flex>
+
+  <div class="gb-horizontal-scroll gb-overview-rooms-scroll" layout="row">
+   <md-button class="gb-left-scroll"
+              ng-click="$root.scrollHorizontal('#gb-overview-rooms', -400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-left"></md-icon>
+   </md-button>
+   <div id="gb-overview-rooms" class="flex-scrollable only-x"
+        layout="row" layout-align="start" ms-scroll flex layout-nowrap>
+
+    <ms-widget class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.explorer.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon green-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-explorer"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Explorer
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.swipe.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon blue-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-swipe"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Swipe
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.matcher.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon teal-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-matcher"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Matcher
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget ng-repeat="app in $root.commonData.rooms" class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget ng-repeat="app in $root.commonData.services" class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget ng-repeat="app in $root.commonData.sections" class="gb-window-bg-1" layout="column">
+     <ms-widget-front class="gb-app-widget" layout="row" layout-fill flex>
+      <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa {{app.icon}}"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         {{app.title}}
+        </div>
+        <div class="gb-description">
+         {{app.count}} Rooms
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+   </div>
+   <md-button class="gb-right-scroll"
+              ng-click="$root.scrollHorizontal('#gb-overview-rooms', 400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-right"></md-icon>
+   </md-button>
+  </div>
+
   <div class="gb-intro-message" layout="column" layout-align="start center" flex>
    <h1 class="intro-heading" >
     House of Skills
@@ -167,8 +282,6 @@
     </ms-widget>
    </div>
   </div>
-
-
   <div class="gb-container mb-20" layout="column" layout-align="" flex>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -184,7 +297,7 @@
   <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
    <div class="widget-group gb-section-widget-group"
         layout="row" layout-align="start start" layout-wrap flex>
-    <ms-widget class="gb-app-widget" ng-repeat="app in $root.commonData.services" class="p-5" layout="column" 	flex-xs="33" flex="33">
+    <ms-widget class="gb-app-widget" ng-repeat="app in $root.commonData.services" layout="column" 	flex-xs="33" flex="33">
      <ms-widget-front  layout="row" layout-fill flex>
       <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
            layout="column" layout-align="start center" flex>
@@ -244,6 +357,8 @@
    <i class="gb-icon fa icon-arrow-down"></i>
   </div>
   <div class="gb-wall-h"></div>
+ </div>
+ <div class="gb-staircase" flex>
  </div>
  <div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>

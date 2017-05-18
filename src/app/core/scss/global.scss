@@ -30,6 +30,18 @@
 $gb-primary-color: material-color('blue-grey', '800');
 $gb-secondary-color: material-color('orange', '300');
 
+@mixin deep-width($number) {
+ width: $number;
+ min-width: $number;
+ max-width: $number;
+}
+
+@mixin deep-height($number) {
+ height: $number;
+ min-height: $number;
+ max-height: $number;
+}
+
 $gb-themes-primary-color:
 material-color('blue-grey', '500'),
 material-color('blue', '500');
@@ -356,7 +368,11 @@ md-dialog {
  text-overflow: ellipsis;
 }
 .gb-horizontal-scroll {
+ width: 100%;
  position:relative;
+ &.gb-overview-rooms {
+  @include deep-height(190px);
+ }
  &.gb-apps-preview-scroll {
   min-height: 150px;
   .gb-card-component {
@@ -373,6 +389,18 @@ md-dialog {
   min-height: 120px;
   .gb-card-note {
    max-width: 200px;
+  }
+ }
+ .gb-app-widget {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  box-shadow: $whiteframe-shadow-2dp;
+  //border: material-color('blue-grey', '800') double 3px;
+  background-color:  rgba(#FFF, 0.7);
+  &:hover {
+   // border: material-color('blue-grey', '900') double 3px;
+   background-color:  rgba(material-color('blue-grey', '400'), 0.5);
   }
  }
  .gb-left-scroll,
@@ -1868,6 +1896,7 @@ md-tabs {
  &.gb-widget-lg {
   padding: 25px 0 5px 0;
  }
+
  .gb-main-button {
   background-color: transparent;
  }
