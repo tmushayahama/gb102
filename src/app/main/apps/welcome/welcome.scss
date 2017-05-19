@@ -2,7 +2,6 @@ $explorer-color: #027887;
 $swipe-color: #5E2D35;
 $matcher-color:#027;
 $features-color:#EEE;
-
 $color-1: #184F5C;
 $color-2: #5E2D35;
 $color-3: #027;
@@ -17,6 +16,18 @@ $color-6: #077568;
  // -moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
  background-size: auto 100%!important;
+}
+
+.gb-floor-level  {
+ background: url(../../../src/assets/images/house/wall-block-1.jpg);
+ color: darken(#BAA082, 10%);
+ margin: 0;
+ font-weight: 500;
+ line-height: 20px;
+ text-align: center;
+ text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+ font: 20px 'BazarMedium';
+ letter-spacing: 2px;
 }
 
 .gb-window-bg-1 {
@@ -380,14 +391,14 @@ $color-6: #077568;
 #gb-intro-section {
  background: url(../../../src/assets/images/house/front-door-1.jpg);
  background-repeat: no-repeat;
- background-position: center 300px;
- background-size: 100% 700px!important;
+ background-position: center 520px;
+ background-size: 100% 600px!important;
  // background-repeat: : 100%!important;
  position: relative;
  //margin-bottom: 30px;
- height: 1000px;
+ height: 1220px;
  text-align: center;
- background-color: #BAA082;
+ background-color: #D8C7AD;
  //overflow: hidden;
 
  .gb-recommendation-scroll {
@@ -398,7 +409,7 @@ $color-6: #077568;
   height: 60px;
   min-height: 60px;
   max-height: 60px;
-  padding: 15px 5px;
+  padding: 0;
   z-index: 3;
   .md-button {
    height: 50px;
@@ -438,32 +449,36 @@ $color-6: #077568;
  }
 
  .gb-intro-message {
-  //@include position(absolute, 50px null 0 0);
-  // background: url(../../../src/assets/images/landing-page/above-roof-2.jpg);
-  // -webkit-background-size: auto 100%!important;
+  background: url(../../../src/assets/images/house/wall-block-1.jpg);
+  //-webkit-background-size: auto 100%!important;
   //-moz-background-size: auto 100%!important;
   //-o-background-size: auto 100%!important;
-  // background-size: 400px 100%!important;
-  padding-top: 60px;
-  height: 200px;
-  min-height: 200px;
-  max-height: 200px;
+
+  background-size: auto 100%!important;
+  padding-top: 20px;
+  @include deep-height(260px);
   width: 100%;
   z-index: 1;
   .intro-lead-in {
-   max-width: 500px;
-   color: #111;
-   margin-bottom: 20px;
+   max-width: 600px;
+   color: darken(#BAA082, 30%);
+   margin: 10px 0;
    font-size: 20px;
    font-weight: 400;
    line-height: 30px;
+   text-shadow: 0px 1px 1px #4d4d4d;
+   letter-spacing: 2px;
+
   }
   .intro-heading {
-   color: #000;
-   margin: 0px;
+   color: darken(#BAA082, 10%);
+   margin: 0;
    font-size: 50px;
-   font-weight: 500;
-   line-height: 40px;
+   font-weight: 700;
+   line-height: 20px;
+   text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+   font: 80px 'BazarMedium';
+   letter-spacing: 8px;
   }
  }
 
