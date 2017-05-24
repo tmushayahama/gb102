@@ -12,7 +12,6 @@
 @import 'partials/icons';
 @import 'partials/material';
 @import 'partials/typography';
-
 @import 'partials/plugins/angular-google-map';
 @import 'partials/plugins/angular-moment-picker';
 @import 'partials/plugins/c3';
@@ -23,7 +22,6 @@
 @import 'partials/plugins/nvd3';
 @import 'partials/plugins/perfect-scrollbar';
 @import 'partials/plugins/text-angular';
-
 @import 'partials/helpers';
 @import 'partials/print';
 
@@ -2981,41 +2979,68 @@ md-tabs {
 
 }
 
-.gb-apps-preview-widget {
- height: 200px;
- .gb-title {
-
-  font-size: 40px;
-  text-transform: capitalize;
+.gb-app-preview-widget {
+ height: 100%;
+ background-color: rgba(material-color('blue-grey', '400'), 0.2);
+ text-align: center;
+ &.gb-lg {
+  @include deep-height(80px);
  }
- .gb-stat {
-  font-size: 20px;
- }
- md-icon {
-  &.gb-background-icon {
-   color: #BBB;
-   font-size: 150px;
-   width: 150px;
-   min-width: 150px;
-   max-width: 150px;
-  }
- }
- @mixin apps-widget-background {
-  @for $i from 1 through length($apps-colors){
-   .gb-app-type-#{$i}
-   {
-    background-color: rgba(nth($apps-colors, $i), 0.3);
-    color: darken(nth($apps-colors, $i), 15%);
-    &:hover {
-     background-color: rgba(nth($apps-colors, $i), 0.5);
-     color: darken(nth($apps-colors, $i), 25%);
-    }
+ &.gb-sm {
+  @include deep-height(50px);
+  md-icon {
+   &.gb-background-icon {
+    font-size: 30px;
+    @include deep-width(40px);
    }
   }
  }
 
- @include apps-widget-background;
-
+ gb-main-button {
+  background-color: transparent;
+ }
+ .gb-title-icon {
+  height: 80px;
+  min-height: 80px;
+  overflow: hidden;
+ }
+ .gb-main-button {
+  padding: 0;
+  margin: 0;
+ }
+ .gb-widget-content {
+  padding: 5px;
+ }
+ .gb-title-icon {
+  text-align: center;
+  @include deep-width(80px);
+  //border-radius: 50%;
+  i{
+   //color: #EEE;
+   font-size: 60px;
+  }
+ }
+ .gb-title {
+  color: #000;
+  text-align: center;
+  font-size: 8px;
+  text-transform: uppercase;
+ }
+ .gb-description {
+  color: #555;
+  text-align: center;
+  text-transform: none;
+  font-size: 6px;
+  white-space: normal;
+  line-height: 10px;
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #BBB;
+   font-size: 40px;
+   @include deep-width(60px);
+  }
+ }
 }
 
 .gb-card-profile {

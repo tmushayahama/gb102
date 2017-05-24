@@ -2,11 +2,11 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 1	\N	Apps	apps				
 10	1	room					
 11	10	skill		Add a Skill	Do something with skills you have gained. Improve your current skills or just learn a new skill	icon-gb-skill	light-blue
-12	10	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	teal
+12	10	goal		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goal	pink
+13	10	hobby		Add a Hobby	Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies	icon-gb-hobby	teal
 100	1	service					
 101	100	mentorship		Create a Mentorship	"Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory"	icon-gb-mentorship	deep-purple
 102	100	advice		Add an Advice	Are you good at giving an advice? Are you seeking advice?	icon-gb-advice	indigo
-103	100	goal		Add a Goal	"Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals"	icon-gb-goal	pink
 104	100	promise		Add a Promise	Add a Promise	icon-gb-promise	green
 105	100	teach		Create A Lesson	Create A Lesson	icon-gb-teach	cyan
 106	100	collabo		Create A Collaboration	Create A Collaboration	icon-gb-collaboration	lime
@@ -162,7 +162,6 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 21000	\N	Post					
 21001	21000	Discussion					
 21002	21000	Topic					
-100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	blue
 22000	\N	Mentorship					
 22001	22000	Roles					blue
 22002	22000	Plan					cyan
@@ -170,4 +169,4 @@ id	parent_level_id	title	code	description	long_description	icon	background_color
 22004	22000	Skills					cyan
 22005	22000	Expectation					indigo
 22006	22000	Feedback					light-green
-							
+100000	\N	Community	community 		Join us now to get your own personalized profile and portfolio of work	icon-gb-community	blue
