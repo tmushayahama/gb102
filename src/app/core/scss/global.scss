@@ -2985,6 +2985,12 @@ md-tabs {
  text-align: center;
  &.gb-lg {
   @include deep-height(80px);
+  .gb-title {
+   font-size: 10px;
+  }
+  .gb-description {
+   font-size: 8px;
+  }
  }
  &.gb-sm {
   @include deep-height(50px);
@@ -3024,10 +3030,11 @@ md-tabs {
   color: #000;
   text-align: center;
   font-size: 8px;
+  font-weight: bold;
   text-transform: uppercase;
  }
  .gb-description {
-  color: #555;
+  color: #000;
   text-align: center;
   text-transform: none;
   font-size: 6px;
@@ -3037,9 +3044,12 @@ md-tabs {
  md-icon {
   &.gb-background-icon {
    color: #BBB;
-   font-size: 40px;
-   @include deep-width(60px);
+   font-size: 50px;
+   @include deep-width(70px);
   }
+ }
+ &:hover {
+  background-color: rgba(material-color('blue-grey', '600'), 0.5);
  }
 }
 

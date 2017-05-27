@@ -83,7 +83,7 @@
   <div class="gb-intro-img" hide></div>
   <div hide class="gb-wall-h"></div>
  </header>
- <div class="gb-welcome-section-4 gb-lobby-bg" layout="column" layout-align="center center" flex>
+ <div class="gb-lobby-bg" layout="column" layout-align="center center" flex>
   <div ng-if="false" class="gb-horizontal-scroll gb-overview-rooms-scroll" layout="row">
    <md-button class="gb-left-scroll"
               ng-click="$root.scrollHorizontal('#gb-overview-rooms', -400)"aria-label="Scroll Left">
@@ -371,19 +371,6 @@
  </div>
 </div>
 <div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
-  <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
-     Rooms: Explore and discover skills
-    </h2>
-    <p class="gb-description">
-     <strong>Find inspiration. Cheer someone</strong><br>
-     Browse through the rooms
-    </p>
-   </div>
-  </div>
- </div>
  <div class="" layout="column" layout-align="start stretch">
   <div ng-repeat="recommendation in vm.components.recommendations"
        class="gb-card-row"
