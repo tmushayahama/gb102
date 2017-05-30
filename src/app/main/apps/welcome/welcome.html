@@ -403,6 +403,42 @@
         </div>
        </ms-widget-front>
       </ms-widget>
+      <ms-widget ng-repeat="app in $root.commonData.services"  class="p-5" layout="column" flex="33">
+       <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+        <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+             layout="column" layout-align="start center" flex>
+         <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+          <i class="fa {{app.icon}}"></i>
+         </div>
+         <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+          <div class="gb-title">
+           {{app.title}}
+          </div>
+          <div class="gb-description">
+           {{app.count}} Rooms
+          </div>
+         </div>
+        </div>
+       </ms-widget-front>
+      </ms-widget>
+      <ms-widget ng-repeat="app in $root.commonData.sections"  class="p-5" layout="column" flex="33">
+       <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+        <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+             layout="column" layout-align="start center" flex>
+         <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+          <i class="fa {{app.icon}}"></i>
+         </div>
+         <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+          <div class="gb-title">
+           {{app.title}}
+          </div>
+          <div class="gb-description">
+           {{app.count}} Rooms
+          </div>
+         </div>
+        </div>
+       </ms-widget-front>
+      </ms-widget>
      </div>
     </div>
    </div>
