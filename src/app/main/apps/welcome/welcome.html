@@ -197,12 +197,6 @@
     <md-icon md-font-icon="icon-chevron-right"></md-icon>
    </md-button>
   </div>
-
-  <div class="gb-door gb-door-top" hide>
-   <div class="gb-title">Enter<br>Lobby</div>
-   <i class="gb-icon fa icon-arrow-down"></i>
-  </div>
-
   <div class="gb-container mb-20" layout="column" layout-align="" flex hide>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -368,214 +362,159 @@
    <div class="gb-title">Front<br>Desk</div>
    <i class="gb-icon fa icon-arrow-down"></i>
   </div>
-  <div class="gb-wall-h" hide></div>
  </div>
-</div>
-<div class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex>
- <div class="" layout="column" layout-align="start stretch">
-  <div ng-repeat="recommendation in vm.components.recommendations"
-       class="gb-card-row"
-       layout="column">
-   <md-toolbar class="gb-heading gb-floor-level">
-    <div class="md-toolbar-tools">
-     <div class="gb-heading-title">
-      <div class="ellipsis">
-       {{::recommendation.title}}
-      </div>
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12002]">
+ </gb-floor>
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12003]">
+ </gb-floor>
+ <div class="gb-welcome-section-6 gb-room-background" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      Skill Rooms
+     </h2>
+     <p class="gb-description">
+      Track and manage skills.
+     </p>
+    </div>
+    <div class="gb-container" layout="column" layout-align="start stretch" flex>
+     <div class="widget-group gb-section-widget-group"
+          layout="row" layout-align="start" layout-wrap flex>
+      <ms-widget ng-repeat="app in $root.commonData.rooms"  class="p-5" layout="column" flex="33">
+       <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+        <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
+             layout="column" layout-align="start center" flex>
+         <div class="gb-title-icon {{ app.background_color + '-600-fg'}}" layout="column" layout-fill layout-align="center center" flex>
+          <i class="fa {{app.icon}}"></i>
+         </div>
+         <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+          <div class="gb-title">
+           {{app.title}}
+          </div>
+          <div class="gb-description">
+           {{app.count}} Rooms
+          </div>
+         </div>
+        </div>
+       </ms-widget-front>
+      </ms-widget>
      </div>
     </div>
-   </md-toolbar>
-   <div  class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
-    <md-button class="gb-left-scroll"
-               ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
-     <md-icon md-font-icon="icon-chevron-left"></md-icon>
-    </md-button>
-    <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
-         layout="row" layout-align="start start" ms-scroll flex layout-nowrap>
-     <div class="gb-window-bg-3" ng-repeat="recommendationComponent in recommendation.recommendationComponents"
-          ui-sref="app.componentLinearView.home({id:recommendationComponent.component.id})"
-          layout="column" layout-align="start" layout-nowrap>
-      <div class="gb-card-component md-whiteframe-1dp"
-           layout="column">
-       <div class="gb-card-cover" flex>
-        <div ng-if="recommendationComponent.component.component_picture_url && recommendationComponent.component.component_picture_url !== 'default.png'"
-             class="gb-cover-image">
-         <img ng-src="src/assets/images/explorer/{{recommendationComponent.component.component_picture_url}}">
-        </div>
-        <div ng-if="recommendationComponent.component.component_placeholder_style"
-             class="gb-cover-image"
-             ng-style="recommendationComponent.component.component_placeholder_style">
-        </div>
+   </div>
+  </div>
+ </div>
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12004]">
+ </gb-floor>
+ <div class="gb-welcome-section-3 gb-garage-background" layout="column" layout-align="center center" flex>
+  <div class="gb-container mb-20" layout="column" layout-align="" flex>
+   <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
+    <div class="text-center">
+     <h2 class="gb-title">
+      The Garage: Find tools to explore and discover skills
+     </h2>
+    </div>
+   </div>
+  </div>
+  <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
+   <div class="widget-group gb-section-widget-group"
+        layout="row" layout-align="start" layout-wrap flex>
+    <ms-widget class="p-5" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+      <div ui-sref="app.explorer.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon green-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-explorer"></i>
        </div>
-       <div class="gb-opacity-content" hide-xs></div>
-       <div class="gb-card-profile">
-        <div class="gb-box-content">
-         <div class="gb-title">
-          <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-           {{recommendationComponent.component.creator.firstname + ' ' + recommendationComponent.component.creator.lastname}}
-          </a>
-         </div>
-         <div class="gb-subdescription">
-          <p class="gb-ellipsis">
-           {{recommendationComponent.component.type.title}} ROOM
-          </p>
-         </div>
-        </div>
-        <div class="gb-image" ng-class="recommendationComponent.component.creator.theme_color">
-         <img ng-if="recommendationComponent.component.creator.avatar_url !== 'gb-avatar.jpg'"
-              src="src/assets/images/profile_pic/{{recommendationComponent.component.creator.avatar_url}}"
-              class="gb-heading-pic" alt="">
-         {{recommendationComponent.component.creator.firstname.substring(0, 1) + recommendationComponent.component.creator.lastname.substring(0, 1)}}
-        </div>
-       </div>
-       <div class="gb-card-content" flex>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
         <div class="gb-title">
-         <h3 class="gb-ellipsis">
-          {{recommendationComponent.component.title}}
-         </h3>
-        </div>
-        <div class="gb-description">
-         <p class="">
-          <span>
-           {{::recommendationComponent.component.description}}
-          </span>
-         </p>
-         <p ng-if="!recommendationComponent.component.description" class="gb-no-info">
-          No description to show
-         </p>
+         Explorer
         </div>
        </div>
       </div>
-     </div>
-    </div>
-    <md-button class="gb-right-scroll"
-               ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 400)"aria-label="Scroll Left">
-     <md-icon md-font-icon="icon-chevron-right"></md-icon>
-    </md-button>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="p-5" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+      <div ui-sref="app.swipe.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon blue-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-swipe"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Swipe
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
+    <ms-widget class="p-5" layout="column" flex="33">
+     <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
+      <div ui-sref="app.matcher.home" class="gb-main-button"
+           layout="column" layout-align="start center" flex>
+       <div class="gb-title-icon teal-600-fg" layout="column" layout-fill layout-align="center center" flex>
+        <i class="fa icon-gb-matcher"></i>
+       </div>
+       <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
+        <div class="gb-title">
+         Matcher
+        </div>
+       </div>
+      </div>
+     </ms-widget-front>
+    </ms-widget>
    </div>
   </div>
  </div>
- <div class="gb-door">
-  <div class="gb-title">Room<br>Preview</div>
-  <i class="gb-icon fa icon-arrow-down"></i>
- </div>
- <div class="gb-wall-h"></div>
-</div>
-<div class="gb-welcome-section-6" layout="column" layout-align="center center" flex>
- <div class="gb-container" layout="column" layout-align="" flex>
-  <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
-     Skill Rooms
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12005]">
+ </gb-floor>
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12006]">
+ </gb-floor>
+ <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+           gb-floor template="'src/app/main/apps/components/directives/floor/floor.html'"
+           recommendation="vm.components.recommendations[12007]">
+ </gb-floor>
+ <section class='gb-get-started gb-elevator-background'>
+  <div class="container">
+   <div class="row">
+    <h2>
+     Get started today
     </h2>
-    <p class="gb-description">
-     Track and manage skills.
+    <p>
+     Discover what a new kind of skill exploration and application can do for you.
     </p>
    </div>
-  </div>
- </div>
- <div class="gb-container pl-10 pr-10" layout="column" layout-align="start center" flex>
-  <img src="src/assets/images/landing-page/screenshot-3-min.jpg" alt="screenshot">
- </div>
-</div>
-<div class="gb-welcome-section-3" layout="column" layout-align="center center" flex>
- <div class="gb-door">
-  <div class="gb-title">Enter<br>Garage</div>
-  <i class="gb-icon fa icon-arrow-down"></i>
- </div>
- <div class="gb-container mb-20" layout="column" layout-align="" flex>
-  <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
-   <div class="text-center">
-    <h2 class="gb-title">
-     The Garage: Find tools to explore and discover skills
-    </h2>
-    <p class="gb-description">
-     Take a tour of the house
-    </p>
-   </div>
-  </div>
- </div>
- <div class="gb-container gb-house-tools" layout="column" layout-align="start stretch" flex>
-  <div class="widget-group gb-section-widget-group"
-       layout="row" layout-align="start" layout-wrap flex>
-   <ms-widget class="p-5" layout="column" flex="33">
-    <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
-     <div ui-sref="app.explorer.home" class="gb-main-button"
-          layout="column" layout-align="start center" flex>
-      <div class="gb-title-icon green-600-fg" layout="column" layout-fill layout-align="center center" flex>
-       <i class="fa icon-gb-explorer"></i>
+   <div class="row" ng-if="false">
+    <div class="gb-btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <div class="btn-toolbar row">
+      <button type="button" ng-click="appCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
+       <i class="fa fa-key"></i> Beta Access
+      </button>
+      <div class="gb-or">
+       or
       </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        Explorer
-       </div>
-      </div>
+      <button type="button" ng-click="appCtrl.openLoginModal()" class="btn btn-default">
+       <i class="fa fa-sign-in"></i> Login
+      </button>
      </div>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="p-5" layout="column" flex="33">
-    <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
-     <div ui-sref="app.swipe.home" class="gb-main-button"
-          layout="column" layout-align="start center" flex>
-      <div class="gb-title-icon blue-600-fg" layout="column" layout-fill layout-align="center center" flex>
-       <i class="fa icon-gb-swipe"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        Swipe
-       </div>
-      </div>
-     </div>
-    </ms-widget-front>
-   </ms-widget>
-   <ms-widget class="p-5" layout="column" flex="33">
-    <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
-     <div ui-sref="app.matcher.home" class="gb-main-button"
-          layout="column" layout-align="start center" flex>
-      <div class="gb-title-icon teal-600-fg" layout="column" layout-fill layout-align="center center" flex>
-       <i class="fa icon-gb-matcher"></i>
-      </div>
-      <div class="gb-widget-content" layout="column" layout-align="start stretch" flex>
-       <div class="gb-title">
-        Matcher
-       </div>
-      </div>
-     </div>
-    </ms-widget-front>
-   </ms-widget>
-  </div>
- </div>
-</div>
-<section class='gb-get-started'>
- <div class="container">
-  <div class="row">
-   <h2>
-    Get started today
-   </h2>
-   <p>
-    Discover what a new kind of skill exploration and application can do for you.
-   </p>
-  </div>
-  <div class="row" ng-if="false">
-   <div class="gb-btn-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="btn-toolbar row">
-     <button type="button" ng-click="appCtrl.openRegistrationModal()" class="btn btn-success gb-beta-btn">
-      <i class="fa fa-key"></i> Beta Access
-     </button>
-     <div class="gb-or">
-      or
-     </div>
-     <button type="button" ng-click="appCtrl.openLoginModal()" class="btn btn-default">
-      <i class="fa fa-sign-in"></i> Login
-     </button>
     </div>
    </div>
   </div>
+ </section>
+ <div class="gb-lp-footer">
+  &copy;Copyright 2016 SkillSection.com. All rights reserved.
  </div>
-</section>
-<div class="gb-lp-footer">
- &copy;Copyright 2016 SkillSection.com. All rights reserved.
-</div>
 </div>
 
 <a-scene ng-if="hide">

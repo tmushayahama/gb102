@@ -29,15 +29,15 @@ $gb-primary-color: material-color('blue-grey', '800');
 $gb-secondary-color: material-color('orange', '300');
 
 @mixin deep-width($number) {
- width: $number;
- min-width: $number;
- max-width: $number;
+ width: $numberimportant;
+ min-width: $number!important;
+ max-width: $numberimportant;
 }
 
 @mixin deep-height($number) {
- height: $number;
- min-height: $number;
- max-height: $number;
+ height: $numberimportant;
+ min-height: $numberimportant;
+ max-height: $numberimportant;
 }
 
 $gb-themes-primary-color:
@@ -1877,6 +1877,13 @@ md-tabs {
  min-height: 160px;
  max-height: 160px;
  //box-shadow: none!important;
+ box-shadow: $whiteframe-shadow-2dp;
+ //border: material-color('blue-grey', '800') double 3px;
+ background-color:  rgba(#FFF, 0.7);
+ &:hover {
+  // border: material-color('blue-grey', '900') double 3px;
+  background-color:  rgba(material-color('blue-grey', '400'), 0.5);
+ }
 
  &.gb-widget-lg {
   padding: 25px 0 5px 0;

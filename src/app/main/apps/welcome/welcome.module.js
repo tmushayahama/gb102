@@ -4,8 +4,7 @@
 
  angular
          .module('app.welcome',
-                 [
-                 ]
+                 ['app.components']
                  )
          .config(config);
 

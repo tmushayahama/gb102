@@ -1,0 +1,82 @@
+<div class="" layout="column" layout-align="start stretch">
+ <div class="gb-card-row"
+      layout="column">
+  <md-toolbar class="gb-heading gb-floor-level">
+   <div class="md-toolbar-tools">
+    <div class="gb-heading-title">
+     <div class="ellipsis">
+      {{::recommendation.title}}
+     </div>
+    </div>
+   </div>
+  </md-toolbar>
+  <div  class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
+   <md-button class="gb-left-scroll"
+              ng-click="$root.scrollHorizontal('#gb-featured-' + $index, -400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-left"></md-icon>
+   </md-button>
+   <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
+        layout="row" layout-align="start start" ms-scroll flex layout-nowrap>
+    <div class="gb-window-bg-3" ng-repeat="recommendationComponent in recommendation.recommendationComponents"
+         ui-sref="app.componentLinearView.home({id:recommendationComponent.component.id})"
+         layout="column" layout-align="start" layout-nowrap>
+     <div class="gb-card-component md-whiteframe-1dp"
+          layout="column">
+      <div class="gb-card-cover" flex>
+       <div ng-if="recommendationComponent.component.component_picture_url && recommendationComponent.component.component_picture_url !== 'default.png'"
+            class="gb-cover-image">
+        <img ng-src="src/assets/images/explorer/{{recommendationComponent.component.component_picture_url}}">
+       </div>
+       <div ng-if="recommendationComponent.component.component_placeholder_style"
+            class="gb-cover-image"
+            ng-style="recommendationComponent.component.component_placeholder_style">
+       </div>
+      </div>
+      <div class="gb-opacity-content" hide-xs></div>
+      <div class="gb-card-profile">
+       <div class="gb-box-content">
+        <div class="gb-title">
+         <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+          {{recommendationComponent.component.creator.firstname + ' ' + recommendationComponent.component.creator.lastname}}
+         </a>
+        </div>
+        <div class="gb-subdescription">
+         <p class="gb-ellipsis">
+          {{recommendationComponent.component.type.title}} ROOM
+         </p>
+        </div>
+       </div>
+       <div class="gb-image" ng-class="recommendationComponent.component.creator.theme_color">
+        <img ng-if="recommendationComponent.component.creator.avatar_url !== 'gb-avatar.jpg'"
+             src="src/assets/images/profile_pic/{{recommendationComponent.component.creator.avatar_url}}"
+             class="gb-heading-pic" alt="">
+        {{recommendationComponent.component.creator.firstname.substring(0, 1) + recommendationComponent.component.creator.lastname.substring(0, 1)}}
+       </div>
+      </div>
+      <div class="gb-card-content" flex>
+       <div class="gb-title">
+        <h3 class="gb-ellipsis">
+         {{recommendationComponent.component.title}}
+        </h3>
+       </div>
+       <div class="gb-description">
+        <p class="">
+         <span>
+          {{::recommendationComponent.component.description}}
+         </span>
+        </p>
+        <p ng-if="!recommendationComponent.component.description" class="gb-no-info">
+         No description to show
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <md-button class="gb-right-scroll"
+              ng-click="$root.scrollHorizontal('#gb-featured-' + $index, 400)"aria-label="Scroll Left">
+    <md-icon md-font-icon="icon-chevron-right"></md-icon>
+   </md-button>
+  </div>
+ </div>
+</div>
