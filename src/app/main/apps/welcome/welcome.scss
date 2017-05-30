@@ -12,7 +12,7 @@ $color-6: #077568;
 
 .gb-lobby-bg {
  position: relative;
- background: url(../../../src/assets/images/house/front-door-4.jpg);
+ background: url(../../../src/assets/images/house/front-door-3.jpg);
  background-repeat: no-repeat;
  //background-position: center top;
  background-size: 100% 700px!important;
@@ -29,24 +29,30 @@ $color-6: #077568;
   z-index:0;
  }
 }
-.gb-house-background {
- padding: 100px 20px 50px 100px;
- background: url(../../../src/assets/images/landing-page/house-1.jpg);
+.gb-wall-background {
+ background: url(../../../src/assets/images/house/wall-block-1.jpg);
  //-webkit-background-size: auto 100%!important;
  // -moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
  //background-size: auto 100%!important;
 }
 
+.gb-roof-lights {
+ background: url(../../../src/assets/images/house/gb-light-1.jpg);
+ background-size: auto 100%!important;
+ @include deep-height(15px);
+ @include deep-width(100%);
+}
+
 .gb-floor-level  {
  background: url(../../../src/assets/images/house/wall-block-1.jpg);
- background-size: 100% 700px!important;
- color: darken(#BAA082, 10%);
+ // background-size: 100% 700px!important;
+ color: #FFF;
  margin: 0;
  font-weight: 500;
  line-height: 20px;
  text-align: center;
- text-shadow: 0px 1px 1px #4d4d4d;
+ text-shadow: 0px 1px 1px #EEE;
  font: 20px 'BazarMedium';
  letter-spacing: 2px;
 }
@@ -99,14 +105,16 @@ $color-6: #077568;
  //-o-background-size: auto 100%!important;
 
  background-size: 100% 100%!important;
- @include deep-height(230px);
- @include deep-width(283px);
- padding: 33px 10px 0 68px;
+ @include deep-height(182px);
+ @include deep-width(180px);
+ padding: 12px 14px;
+ margin-right: 50px;
 
  .gb-card-component-house {
   @include deep-height(160px);
   @include deep-width(150px);
   border: none;
+  opacity: 0.7;
   //border: #333 ridge 4px;
   // border-top-width: 6px;
   // border-bottom-width: 8px;
@@ -116,6 +124,7 @@ $color-6: #077568;
 
   &:hover {
    box-shadow: $whiteframe-shadow-4dp;
+   opacity: 1;
   }
 
   .gb-card-cover {
@@ -348,6 +357,19 @@ $color-6: #077568;
 
 }
 
+.gb-window-bg-3 {
+ background: url(../../../src/assets/images/house/window-2.jpg);
+ //-webkit-background-size: auto 100%!important;
+ //-moz-background-size: auto 100%!important;
+ //-o-background-size: auto 100%!important;
+
+ background-size: 100% 100%!important;
+ @include deep-height(252px);
+ @include deep-width(240px);
+ .gb-card-component {
+  margin-right: 50px;
+ }
+}
 .gb-kiosk-bg-1 {
  background: url(../../../src/assets/images/house/kiosk-1.png);
  //-webkit-background-size: auto 100%!important;
@@ -435,7 +457,8 @@ $color-6: #077568;
  // background-repeat: : 100%!important;
  position: relative;
  //margin-bottom: 30px;
- height: 490px;
+ padding-top: 20px;
+ height: 510px;
  text-align: center;
  //background-color: #D8C7AD;
  //overflow: hidden;
@@ -472,9 +495,6 @@ $color-6: #077568;
    font-size: 40px;
    color: #555;
   }
-  @include respond-to (gb-xs) {
-   padding-top:55px;
-  }
  }
 
  .gb-front-door {
@@ -488,12 +508,12 @@ $color-6: #077568;
  }
 
  .gb-intro-message {
-  background: url(../../../src/assets/images/house/wall-block-1.jpg);
+  //background: url(../../../src/assets/images/house/wall-block-1.jpg);
   //-webkit-background-size: auto 100%!important;
   //-moz-background-size: auto 100%!important;
   //-o-background-size: auto 100%!important;
 
-  background-size: auto 100px!important;
+  //background-size: auto 100px!important;
   padding-top: 20px;
   @include deep-height(260px);
   width: 100%;
@@ -543,93 +563,10 @@ $color-6: #077568;
   }
  }
 
- @include respond-to (gb-md) {
-  .gb-intro-carousel {
-   bottom: -300px;
-   width: 80%;
-  }
- }
-
  @include respond-to (gb-sm) {
-  height: 700px;
-  .gb-intro-message {
-   //width: 600px;
-   padding-top: 20px;
-   // padding-bottom: 200px;
-   .intro-lead-in {
-    margin-bottom: 15px;
-    //font-size: 18px;
-    //line-height: 25px;
-   }
-   .intro-heading {
-    margin-bottom: 5px;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 30px;
-   }
-  }
-  .gb-intro-img {
-   height: 250px;
-   .gb-image-card{
-    height: 50px;
-    min-width: 40px;
-    width: 40px;
-    margin: 3px;
-    .gb-card-cover {
-     height: 100%;
-     overflow: hidden;
-     .gb-cover-image {
-      img {
-       height: 100%;
-       min-width: 40px;
-      }
-     }
-    }
-   }
-  }
  }
 
  @include respond-to (gb-xs) {
-  // padding-top: 300px;
-  //padding-bottom: 200px;
-  height: 600px;
-  .gb-intro-message {
-   height: 100px;
-   min-height: 100px;
-   max-height: 100px;
-   width: 100%;
-   padding: 20px 20px 0 20px;
-   .intro-lead-in {
-    margin-bottom: 5px;
-    font-size: 14px;
-    line-height: 18px;
-   }
-   .intro-heading {
-    margin-bottom: 5px;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 20px;
-   }
-  }
-  .gb-intro-img {
-   height: 150px;
-   .gb-image-card{
-    height: 50px;
-    min-width: 40px;
-    width: 40px;
-    margin: 3px;
-    .gb-card-cover {
-     height: 100%;
-     overflow: hidden;
-     .gb-cover-image {
-      img {
-       height: 100%;
-       min-width: 40px;
-      }
-     }
-    }
-   }
-  }
  }
  &:after {
   //content: "";

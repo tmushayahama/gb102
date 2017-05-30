@@ -1,6 +1,7 @@
 <div id="gb-welcome">
- <header id="gb-intro-section" class="" layout="column" layout-align="start center" flex>
-  <div  class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
+ <div class='gb-roof-lights'></div>
+ <header id="gb-intro-section" class="gb-wall-background" layout="column" layout-align="start center" flex>
+  <div class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
    <md-button class="gb-left-scroll"
               ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
     <md-icon md-font-icon="icon-chevron-left"></md-icon>
@@ -10,7 +11,7 @@
     <div class="gb-window-bg-2" ng-repeat="sample in vm.components.samples"
          layout="column" layout-align="start" layout-nowrap>
      <div class="gb-card-component-house md-whiteframe-1dp" layout="column"
-          ui-sref="app.componentLinearView.home({id:component.id})">
+          ui-sref="app.componentLinearView.home({id:sample.component.id})">
       <div class="gb-card-cover" flex>
        <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
             class="gb-cover-image">
@@ -370,7 +371,7 @@
   <div class="gb-wall-h" hide></div>
  </div>
 </div>
-<div class="gb-welcome-section-5" layout="column" layout-align="center center" flex>
+<div class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex>
  <div class="" layout="column" layout-align="start stretch">
   <div ng-repeat="recommendation in vm.components.recommendations"
        class="gb-card-row"
@@ -391,10 +392,10 @@
     </md-button>
     <div id="gb-featured-{{$index}}" class="board-list flex-scrollable only-x"
          layout="row" layout-align="start start" ms-scroll flex layout-nowrap>
-     <div class="gb-window-bg-2" ng-repeat="recommendationComponent in recommendation.recommendationComponents"
+     <div class="gb-window-bg-3" ng-repeat="recommendationComponent in recommendation.recommendationComponents"
           ui-sref="app.componentLinearView.home({id:recommendationComponent.component.id})"
           layout="column" layout-align="start" layout-nowrap>
-      <div class="gb-card-component-house md-whiteframe-1dp"
+      <div class="gb-card-component md-whiteframe-1dp"
            layout="column">
        <div class="gb-card-cover" flex>
         <div ng-if="recommendationComponent.component.component_picture_url && recommendationComponent.component.component_picture_url !== 'default.png'"
