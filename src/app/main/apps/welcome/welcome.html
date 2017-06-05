@@ -376,16 +376,16 @@
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
      <h2 class="gb-title">
-      Skill Rooms
+      Skill Rooms & Services
      </h2>
      <p class="gb-description">
-      Track and manage skills.
+      Discover, Explore and Apply skills.
      </p>
     </div>
     <div class="gb-container" layout="column" layout-align="start stretch" flex>
      <div class="widget-group gb-section-widget-group"
-          layout="row" layout-align="start" layout-wrap flex>
-      <ms-widget ng-repeat="app in $root.commonData.rooms"  class="p-5" layout="column" flex="33">
+          layout="row" layout-align="start" layout-wrap>
+      <ms-widget ng-repeat="app in $root.commonData.rooms"  class="p-5" layout="column" flex="25">
        <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
         <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
              layout="column" layout-align="start center" flex>
@@ -403,7 +403,7 @@
         </div>
        </ms-widget-front>
       </ms-widget>
-      <ms-widget ng-repeat="app in $root.commonData.services"  class="p-5" layout="column" flex="33">
+      <ms-widget ng-repeat="app in $root.commonData.services"  class="p-5" layout="column" flex="25">
        <ms-widget-front class="gb-app-widget gb-widget-lg" layout="row" layout-fill flex>
         <div ui-sref="app.apps.home({'app_name': '{{::app.title}}'})" class="gb-main-button"
              layout="column" layout-align="start center" flex>
