@@ -61,50 +61,7 @@
    placeholder: 'list-card card-sortable-placeholder',
    tolerance: 'pointer',
    scroll: true,
-   sort: function (event, ui) {
-    var listContentEl = ui.placeholder.closest('.list-content');
-    var boardContentEl = ui.placeholder.closest('#board');
-
-    if (listContentEl) {
-     var listContentElHeight = listContentEl[0].clientHeight,
-             listContentElScrollHeight = listContentEl[0].scrollHeight;
-
-     if (listContentElHeight !== listContentElScrollHeight) {
-      var itemTop = ui.position.top,
-              itemBottom = itemTop + ui.item.height(),
-              listTop = listContentEl.offset().top,
-              listBottom = listTop + listContentElHeight;
-
-      if (itemTop < listTop + 25) {
-       listContentEl.scrollTop(listContentEl.scrollTop() - 25);
-      }
-
-      if (itemBottom > listBottom - 25) {
-       listContentEl.scrollTop(listContentEl.scrollTop() + 25);
-      }
-     }
-    }
-
-    if (boardContentEl) {
-     var boardContentElWidth = boardContentEl[0].clientWidth;
-     var boardContentElScrollWidth = boardContentEl[0].scrollWidth;
-
-     if (boardContentElWidth !== boardContentElScrollWidth) {
-      var itemLeft = ui.position.left,
-              itemRight = itemLeft + ui.item.width(),
-              boardLeft = boardContentEl.offset().left,
-              boardRight = boardLeft + boardContentElWidth;
-
-      if (itemLeft < boardLeft + 25) {
-       boardContentEl.scrollLeft(boardContentEl.scrollLeft() - 25);
-      }
-
-      if (itemRight > boardRight) {
-       boardContentEl.scrollLeft(boardContentEl.scrollLeft() + 25);
-      }
-     }
-    }
-   }
+   sort: sort
   };
 
   // Methods
@@ -149,6 +106,51 @@
     }
    }, 0);
 
+  }
+
+  function sort(event, ui) {
+   var listContentEl = ui.placeholder.closest('.list-content');
+   var boardContentEl = ui.placeholder.closest('#board');
+
+   if (listContentEl) {
+    var listContentElHeight = listContentEl[0].clientHeight,
+            listContentElScrollHeight = listContentEl[0].scrollHeight;
+
+    if (listContentElHeight !== listContentElScrollHeight) {
+     var itemTop = ui.position.top,
+             itemBottom = itemTop + ui.item.height(),
+             listTop = listContentEl.offset().top,
+             listBottom = listTop + listContentElHeight;
+
+     if (itemTop < listTop + 25) {
+      listContentEl.scrollTop(listContentEl.scrollTop() - 25);
+     }
+
+     if (itemBottom > listBottom - 25) {
+      listContentEl.scrollTop(listContentEl.scrollTop() + 25);
+     }
+    }
+   }
+
+   if (boardContentEl) {
+    var boardContentElWidth = boardContentEl[0].clientWidth;
+    var boardContentElScrollWidth = boardContentEl[0].scrollWidth;
+
+    if (boardContentElWidth !== boardContentElScrollWidth) {
+     var itemLeft = ui.position.left,
+             itemRight = itemLeft + ui.item.width(),
+             boardLeft = boardContentEl.offset().left,
+             boardRight = boardLeft + boardContentElWidth;
+
+     if (itemLeft < boardLeft + 25) {
+      boardContentEl.scrollLeft(boardContentEl.scrollLeft() - 25);
+     }
+
+     if (itemRight > boardRight) {
+      boardContentEl.scrollLeft(boardContentEl.scrollLeft() + 25);
+     }
+    }
+   }
   }
 
   /**

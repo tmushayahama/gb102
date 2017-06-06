@@ -21,88 +21,27 @@
  <md-dialog-content ms-scroll>
   <div class="gb-component-discussion" layout="column" layout-align="start center">
    <div class="timeline gb-container" layout="column" flex="100" flex-sm="100">
-    <div class="profile-box add-post md-whiteframe-1dp">
-     <div class="form" flex>
-      <textarea placeholder="Write something.." translate
-                ng-model="vm.post.title"
-                translate-attr-placeholder="PROFILE.WRITE_SOMETHING"></textarea>
-      <footer layout="row" layout-align="space-between center">
-       <div layout="row" layout-align="start center">
-        <md-button class="md-icon-button" aria-label="insert photo" translate
-                   translate-attr-aria-label="PROFILE.INSERT_PHOTO">
-         <md-icon md-font-icon="icon-file-image-box"></md-icon>
-         <md-tooltip><span translate="PROFILE.INSERT_PHOTO">insert photo</span></md-tooltip>
-        </md-button>
-       </div>
-       <md-button ng-click="vm.createPost()" class="post-button md-accent md-raised" aria-label="POST"
-                  translate="PROFILE.POST" translate-attr-aria-label="PROFILE.POST">
-        POST
-       </md-button>
-      </footer>
+    <div class="gb-card-profile md-whiteframe-1dp">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <a class="gb-ellipsis">
+        {{vm.contribution.contributor.firstname + ' ' + vm.contribution.contributor.lastname}}
+       </a>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        {{vm.contribution.level.title}} - {{vm.contribution.status.title}}
+       </p>
+      </div>
+      <div class="gb-description">
+      </div>
      </div>
-    </div>
-    <md-divider></md-divider>
-    <div class="timeline-item md-whiteframe-2dp" ng-repeat="post in vm.posts">
-     <header layout="row" layout-align="space-between start">
-      <div class="user" layout="row" layout-align="start center">
-       <img class="avatar" ng-src="src/assets/images/profile_pic/{{post.creator.avatar_url}}">
-
-       <div layout="column">
-        <div class="title">
-         <span class="username md-accent-color">
-          {{post.creator.firstname + " " + post.creator.lastname}}
-         </span>
-         <span ng-if="post.type == 'post'" translate="PROFILE.TYPE_POST">posted on your
-          timeline</span>
-         <span ng-if="post.type == 'something'" translate="PROFILE.TYPE_SOMETHING">shared something
-          with you</span>
-         <span ng-if="post.type == 'video'" translate="PROFILE.TYPE_VIDEO">shared a video with
-          you</span>
-         <span ng-if="post.type == 'article'" translate="PROFILE.TYPE_ARTICLE">shared an article with
-          you</span>
-        </div>
-        <div class="time">{{post.created_at}}</div>
-       </div>
-      </div>
-
-      <md-button class="md-icon-button" aria-label="more" translate translate-attr-aria-label="PROFILE.MORE">
-       <md-icon md-font-icon="icon-dots-vertical"></md-icon>
-      </md-button>
-     </header>
-     <div class="content">
-      <div ng-if="post.title" class="message">
-       {{post.title}}
-      </div>
-
-      <div ng-if="post.media" class="media">
-       <img ng-if="post.media.type === 'image'" ng-src="{{post.media.preview}}">
-
-       <div ng-if="post.media.type === 'video'" ng-bind-html="post.media.embed | toTrusted">
-       </div>
-      </div>
-
-      <div ng-if="post.article" layout="column" class="article">
-       <div class="media">
-        <img ng-src="{{post.article.media.preview}}">
-       </div>
-       <div class="title">{{post.article.title}}</div>
-       <div class="subtitle">{{post.article.subtitle}}</div>
-       <div class="excerpt">{{post.article.excerpt}}</div>
-      </div>
-      <div layout="row" layout-align="start center">
-       <md-button class="like-button">
-        <div layout="row" layout-align="start center">
-         <md-icon md-font-icon="icon-heart-outline" class="s16"></md-icon>
-         <span translate="PROFILE.LIKE">Like</span>&nbsp;<span>({{post.like}})</span>
-        </div>
-       </md-button>
-       <md-button class="share-button">
-        <div layout="row" layout-align="start center">
-         <md-icon md-font-icon="icon-share" class="s16"></md-icon>
-         <span translate="PROFILE.SHARE">Share</span>&nbsp;<span>({{post.share}})</span>
-        </div>
-       </md-button>
-      </div>
+     <div class="gb-image" ng-class="vm.contribution.contributor.theme_color">
+      <img ng-if="vm.contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
+           data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           ng-src="src/assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
+           class="gb-heading-pic" alt="">
+      {{vm.contribution.contributor.firstname.substring(0, 1) + vm.contribution.contributor.lastname.substring(0, 1)}}
      </div>
     </div>
    </div>

@@ -7,17 +7,17 @@
          .controller('ComponentContributorDialogController', ComponentContributorDialogController);
 
  /** @ngInject */
- function ComponentContributorDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog) {
+ function ComponentContributorDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog, componentId, contribution) {
 
   var vm = this;
 
   // Data
-  vm.componentId = $stateParams.id;
-
+  vm.componentId = componentId;
+  vm.contribution = contribution;
+  //////////
 
   // Methods
   vm.closeDialog = closeDialog;
-
   //////////
 
   init();
