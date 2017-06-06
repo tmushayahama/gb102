@@ -83,7 +83,7 @@ describe('login page', function () {
  it('should give an error when a wrong password is entered', function () {
   usernameInput.clear();
   passwordInput.clear();
-  usernameInput.sendKeys('labpc');
+  usernameInput.sendKeys('tre');
   passwordInput.sendKeys('wrong password');
 
   usernameInput.getAttribute('value').then(function (value) {

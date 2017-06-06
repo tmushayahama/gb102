@@ -8,6 +8,7 @@
 
  /** @ngInject */
  function DialogComponentService($mdDialog, $document) {
+
   var service = {
    openCardDialog: openCardDialog,
    openAddComponentDialog: openAddComponentDialog,
@@ -21,7 +22,8 @@
    openComponentDiscussionsDialog: openComponentDiscussionsDialog,
    openComponentGraphsDialog: openComponentGraphsDialog,
    openComponentCalendarDialog: openComponentCalendarDialog,
-   startComponentStoryDialog: startComponentStoryDialog
+   startComponentStoryDialog: startComponentStoryDialog,
+   openComponentContributorDialog: openComponentContributorDialog,
   };
 
   //////////
@@ -323,6 +325,29 @@
     escapeToClose: true,
     locals: {
      componentId: componentId
+    }
+   });
+  }
+
+  /**
+   * Open component contributor for editing purposes
+   *
+   * @param ev  the event which triggered the dialog
+   * @param componentId the component Id
+   * @param contributor the contributor
+   */
+  function openComponentContributorDialog(ev, componentId, contributor) {
+   $mdDialog.show({
+    templateUrl: 'src/app/main/apps/components/dialogs/component-contributor/component-contributor-dialog.html',
+    //parent: $document.find('#components'),
+    controller: 'ComponentContributorDialogController',
+    controllerAs: 'vm',
+    targetEvent: ev,
+    clickOutsideToClose: true,
+    escapeToClose: true,
+    locals: {
+     componentId: componentId,
+     contributor: contributor
     }
    });
   }

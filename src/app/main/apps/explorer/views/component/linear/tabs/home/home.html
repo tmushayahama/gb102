@@ -128,10 +128,11 @@ LINEAR VIEW HOME
   </div>
   <div layout="row" layout-align="start start" flex layout-wrap>
    <div class="p-8" flex-gt-sm="25" flex-gt-xs="33" flex="100">
-    <div class="gb-card-profile md-whiteframe-1dp">
+    <div class="gb-card-profile md-whiteframe-1dp"
+         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, componentLinearCtrl.component.creator_id)">
      <div class="gb-box-content">
       <div class="gb-title">
-       <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+       <a  class="gb-ellipsis">
         {{componentLinearCtrl.component.creator.firstname + ' ' + componentLinearCtrl.component.creator.lastname}}
        </a>
       </div>
@@ -152,10 +153,11 @@ LINEAR VIEW HOME
    </div>
    <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
         flex-gt-sm="25" flex-gt-xs="33" flex="100">
-    <div class="gb-card-profile md-whiteframe-1dp">
+    <div class="gb-card-profile md-whiteframe-1dp"
+         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, componentLinearCtrl.contribution)">
      <div class="gb-box-content">
       <div class="gb-title">
-       <a class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+       <a class="gb-ellipsis">
         {{contribution.contributor.firstname + ' ' + contribution.contributor.lastname}}
        </a>
       </div>
