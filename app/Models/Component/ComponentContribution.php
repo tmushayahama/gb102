@@ -106,18 +106,38 @@ class ComponentContribution extends Model {
  }
 
  /**
-  * Get the component contribution by component Id
+  * Get the component contributions by component Id
   *
   * @param type $componentId
   *
   * @return type json response of all component contribution
   */
- public static function getComponentContribution($componentId) {
+ public static function getComponentContributions($componentId) {
   $componentContributions = ComponentContribution::with('creator')
           ->with('contributor')
           ->with('level')
           ->with('status')
           ->orderBy('id', 'DESC')
+          ->where('component_id', $componentId)
+          ->get();
+  return $componentContributions;
+ }
+
+ /**
+  * Get the component contribution by component Id
+  *
+  * @param type $componentId
+  * @param type $contributorId
+  *
+  * @return type json response of all component contribution
+  */
+ public static function getComponentContribution($componentId, $contributorId) {
+  $componentContributions = ComponentContribution::with('creator')
+          ->with('contributor')
+          ->with('level')
+          ->with('status')
+          ->orderBy('id', 'DESC')
+          ->where('contributor_id', $contributorId)
           ->where('component_id', $componentId)
           ->get();
   return $componentContributions;

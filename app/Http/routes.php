@@ -72,6 +72,8 @@ Route::group(['prefix' => 'api'], function() {
  Route::get('component/{componentId}/checklist', 'Explorer\ExplorerController@getExplorerComponentChecklist');
 //Component Contributions
  Route::get('components/{componentId}/contribution/type/{typeId}/suggestions', 'Component\ComponentController@getContributionSuggestions');
+ Route::get('components/{componentId}/contributions', 'Component\ComponentController@getComponentContributions');
+ Route::get('components/{componentId}/contributions/{contributotId}', 'Component\ComponentController@getComponentContribution');
  Route::post('components/contributions/create', 'Component\ComponentController@createComponentContributions');
  //Mentorship
  Route::get('components/{componentId}/mentorships', 'Mentorship\MentorshipController@getMentorship');

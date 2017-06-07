@@ -23,6 +23,8 @@
    //Component Contribution
    getContributionSuggestions: getContributionSuggestions,
    createComponentContributions: createComponentContributions,
+   getComponentContributions: getComponentContributions,
+   getComponentContribution: getComponentContribution,
    //Component Bookmarks
    getComponentBookmarks: getComponentBookmarks,
    createComponentBookmark: createComponentBookmark,
@@ -62,18 +64,14 @@
    * @returns promise of the deferred response
    */
   function getComponents(listFormat) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.components@get',
-           {listFormat: listFormat},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.components@get', {listFormat: listFormat}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -86,18 +84,15 @@
    * @returns promise of the deferred response
    */
   function getComponentsByType(componentId, typeId) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.componentsByType@query',
-           {componentId: componentId, typeId: typeId},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.componentsByType@query', {
+    componentId: componentId, typeId: typeId}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -121,14 +116,11 @@
     url.params.page = page;
    }
 
-   msApi.request(url.name, url.params,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request(url.name, url.params, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -154,14 +146,11 @@
     url.params.depth = depth;
    }
 
-   msApi.request(url.name, url.params,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request(url.name, url.params, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -172,17 +161,14 @@
    * @returns promise of the deferred response
    */
   function getRandomComponent() {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.randomComponent@get', {},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.randomComponent@get', {}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -194,17 +180,14 @@
    * @returns promise of the deferred response
    */
   function getRandomComponentByType(typeId) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.randomComponentByType@get', {typeId: typeId},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.randomComponentByType@get', {typeId: typeId}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -217,17 +200,14 @@
    * @returns promise of the deferred response
    */
   function createComponent(componentData) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.createComponent@save', componentData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.createComponent@save', componentData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
+
    return deferred.promise;
   }
 
@@ -239,17 +219,14 @@
    * @returns promise of the deferred response
    */
   function updateComponent(componentData) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.updateComponent@save', componentData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.updateComponent@save', componentData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
+
    return deferred.promise;
   }
 
@@ -261,18 +238,13 @@
    * @returns promise of the deferred response
    */
   function updateComponentDescription(componentData) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.updateComponentDescription@save',
-           componentData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.updateComponentDescription@save', componentData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
    return deferred.promise;
   }
 
@@ -284,18 +256,13 @@
    * @returns promise of the deferred response
    */
   function updateComponentBackground(componentData) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.updateComponentBackground@save',
-           componentData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.updateComponentBackground@save', componentData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
    return deferred.promise;
   }
 
@@ -312,18 +279,14 @@
   function getContributionSuggestions(componentId, typeId) {
    var deferred = $q.defer();
 
-   msApi.request('component.getContributionSuggestions@query',
-           {
-            componentId: componentId,
-            typeId: typeId
-           },
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.getContributionSuggestions@query', {
+    componentId: componentId,
+    typeId: typeId
+   }, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -336,17 +299,57 @@
    * @returns promise of the deferred response
    */
   function createComponentContributions(componentContributionData) {
-   // Create a new deferred object
    var deferred = $q.defer();
 
-   msApi.request('component.createComponentContributions@save', componentContributionData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.createComponentContributions@save', componentContributionData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
+
+   return deferred.promise;
+  }
+
+  /**
+   * Get all Component Contributions of a component
+   *
+   * @param componentId a specific component
+   * @returns promise of the deferred response
+   */
+  function getComponentContributions(componentId) {
+   var deferred = $q.defer();
+
+   msApi.request('component.getComponentContributions@query', {
+    componentId: componentId
+   }, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
+
+   return deferred.promise;
+  }
+
+
+  /**
+   * Get a Component Contributions of a contributor
+   *
+   * @param componentId a component
+   * @param contributorId a contributor
+   *
+   * @returns promise of the deferred response
+   */
+  function getComponentContribution(componentId, contributorId) {
+   var deferred = $q.defer();
+
+   msApi.request('component.getComponentContribution@get', {
+    componentId: componentId,
+    contributorId: contributorId
+   }, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -360,17 +363,16 @@
    * @returns promise of the deferred response
    */
   function getComponentBookmarks(creatorId) {
-   // Create a new deferred object
+
    var deferred = $q.defer();
 
-   msApi.request('component.getComponentBookmarks@query', {creatorId: creatorId},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.getComponentBookmarks@query', {
+    creatorId: creatorId}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -382,17 +384,14 @@
    * @returns promise of the deferred response
    */
   function createComponentBookmark(componentData) {
-   // Create a new deferred object
+
    var deferred = $q.defer();
 
-   msApi.request('component.createComponentBookmark@save', componentData,
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
-   );
+   msApi.request('component.createComponentBookmark@save', componentData, function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   });
 
    return deferred.promise;
   }
@@ -405,16 +404,16 @@
    * @returns {$q@call;defer.promise}
    */
   function getUserComponents(userId, listFormat) {
-   // Create a new deferred object
+
    var deferred = $q.defer();
 
-   msApi.request('component.userComponents@get', {userId: userId, listFormat: listFormat},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
+   msApi.request('component.userComponents@get', {
+    userId: userId, listFormat: listFormat}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   }
    );
 
    return deferred.promise;
@@ -428,16 +427,16 @@
    * @returns {$q@call;defer.promise}
    */
   function getUserComponentsByType(userId, typeId) {
-   // Create a new deferred object
+
    var deferred = $q.defer();
 
-   msApi.request('component.userComponentsByType@query', {userId: userId, typeId: typeId},
-           function (response) {
-            deferredHandler(response, deferred);
-           },
-           function (response) {
-            deferred.reject(response);
-           }
+   msApi.request('component.userComponentsByType@query', {
+    userId: userId, typeId: typeId}
+   , function (response) {
+    deferredHandler(response, deferred);
+   }, function (response) {
+    deferred.reject(response);
+   }
    );
 
    return deferred.promise;

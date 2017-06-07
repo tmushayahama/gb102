@@ -1,0 +1,110 @@
+<!-- NOTE DIALOG -->
+<md-dialog class="gb-component-discussion-dialog gb-card-row " aria-label="Card Dialog" ng-cloak>
+ <md-toolbar class="gb-heading" layout="column" layout-align="start center" flex>
+  <div class="md-toolbar-tools gb-container">
+   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+              translate translate-attr-aria-label="SB.CLOSE_DIALOG">
+    <md-icon md-font-icon="fa fa-arrow-left"></md-icon>
+   </md-button>
+   <div class="gb-card-profile md-whiteframe-1dp">
+    <div class="gb-box-content">
+     <div class="gb-title">
+      <a class="gb-ellipsis">
+       {{vm.contribution.contributor.firstname + ' ' + vm.contribution.contributor.lastname}}
+      </a>
+     </div>
+     <div class="gb-subdescription">
+      <p class="gb-ellipsis">
+       {{vm.contribution.level.title}} - {{vm.contribution.status.title}}
+      </p>
+     </div>
+     <div class="gb-description">
+     </div>
+    </div>
+    <div class="gb-image" ng-class="vm.contribution.contributor.theme_color">
+     <img ng-if="vm.contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
+          data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+          ng-src="src/assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
+          class="gb-heading-pic" alt="">
+     {{vm.contribution.contributor.firstname.substring(0, 1) + vm.contribution.contributor.lastname.substring(0, 1)}}
+    </div>
+   </div>
+   <span flex></span>
+   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+              translate translate-attr-aria-label="SB.CLOSE_DIALOG">
+    <md-icon md-font-icon="icon-close"></md-icon>
+   </md-button>
+  </div>
+ </md-toolbar>
+ <md-dialog-content ms-scroll>
+  <div class="gb-tabs-1 md-whiteframe-1dp" layout="column" layout-align="center center" flex>
+   <div class="gb-tabs-len-4" layout="row" flex>
+    <md-tabs md-no-pagination md-swipe-content md-selected="selectedIndex" md-stretch-tabs="always" class="">
+     <md-tab>
+      <md-tab-label>
+       <div class="gb-tab-button">
+        <div class="gb-icon">
+         <i class="fa fa-list"></i>
+        </div>
+        <div class="gb-title">
+         Overview
+        </div>
+       </div>
+      </md-tab-label>
+     </md-tab>
+     <md-tab>
+      <md-tab-label>
+       <div class="gb-tab-button">
+        <div class="gb-icon">
+         <i class="fa icon-chat"></i>
+        </div>
+        <div class="gb-title">
+         Chat
+        </div>
+       </div>
+      </md-tab-label>
+     </md-tab>
+     <md-tab>
+      <md-tab-label>
+       <div class="gb-tab-button">
+        <div class="gb-icon">
+         <i class="fa fa-bar-chart"></i>
+        </div>
+        <div class="gb-title">
+         Stats
+        </div>
+       </div>
+      </md-tab-label>
+     </md-tab>
+    </md-tabs>
+   </div>
+  </div>
+  <div class="gb-component-discussion" layout="column" layout-align="start center">
+   <div class="timeline gb-container" layout="column" flex="100" flex-sm="100">
+    <div class="gb-card-profile md-whiteframe-1dp">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <a class="gb-ellipsis">
+        {{vm.contribution.contributor.firstname + ' ' + vm.contribution.contributor.lastname}}
+       </a>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        {{vm.contribution.level.title}} - {{vm.contribution.status.title}}
+       </p>
+      </div>
+      <div class="gb-description">
+      </div>
+     </div>
+     <div class="gb-image" ng-class="vm.contribution.contributor.theme_color">
+      <img ng-if="vm.contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
+           data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
+           ng-src="src/assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
+           class="gb-heading-pic" alt="">
+      {{vm.contribution.contributor.firstname.substring(0, 1) + vm.contribution.contributor.lastname.substring(0, 1)}}
+     </div>
+    </div>
+   </div>
+  </div>
+ </md-dialog-content>
+</md-dialog>

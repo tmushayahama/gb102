@@ -238,7 +238,7 @@ class Component extends Model {
 
   foreach ($components as $component) {
    $component["stats"] = self::getComponentStats($component->id);
-   $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
+   $component["contributions"] = ComponentContribution::getComponentContributions($component->id);
   }
   return $components;
  }
@@ -271,7 +271,7 @@ class Component extends Model {
 
   if ($depth > 1) {
    foreach ($components as $component) {
-    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
+    $component["contributions"] = ComponentContribution::getComponentContributions($component->id);
     $component["stats"] = self::getComponentStats($component->id);
     $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
    }
@@ -296,7 +296,7 @@ class Component extends Model {
 
   if ($depth > 0) {
    foreach ($components as $component) {
-    $component["contributions"] = ComponentContribution::getComponentContribution($component->id);
+    $component["contributions"] = ComponentContribution::getComponentContributions($component->id);
     $component["components"] = Component::getSubComponents($component->id, 0, $depth--);
    }
   }
@@ -349,7 +349,7 @@ class Component extends Model {
           ->with('parentComponent')
           ->find($componentId);
   $component["stats"] = self::getComponentStats($componentId);
-  $component["contributions"] = ComponentContribution::getComponentContribution($componentId);
+  $component["contributions"] = ComponentContribution::getComponentContributions($componentId);
   $component["mentorships"] = Mentorship::getMentorships($componentId);
 
   switch ($listFormat) {

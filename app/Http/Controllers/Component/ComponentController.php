@@ -190,6 +190,31 @@ class ComponentController extends Controller {
  }
 
  /**
+  * Get a component contributions
+  *
+  * @param type $componentId a component
+  *
+  * @return type json response of a component Contributor
+  */
+ public function getComponentContributions($componentId) {
+  $componentContribution = ComponentContribution::getComponentContributions($componentId);
+  return \Response::json($componentContribution);
+ }
+
+ /**
+  * Get a component contributor
+  *
+  * @param type $componentId a component
+  * @param type $contributorId a contributor
+  *
+  * @return type json response of a component Contributor
+  */
+ public function getComponentContribution($componentId, $contributorId) {
+  $componentContribution = ComponentContribution::getComponentContribution($componentId, $contributorId);
+  return \Response::json($componentContribution);
+ }
+
+ /**
   * Get all bookmarks for a particular user
   *
   * @return type json response of all component bookmarks
