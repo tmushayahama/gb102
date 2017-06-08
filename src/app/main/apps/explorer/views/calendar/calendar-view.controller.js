@@ -177,7 +177,7 @@
         function eventDialog(date, ev)
         {
             $mdDialog.show({
-                templateUrl        : 'src/app/main/apps/explorer/views/calendar/dialogs/event/event-dialog.html',
+                templateUrl        : 'app/main/apps/explorer/views/calendar/dialogs/event/event-dialog.html',
                 controller         : 'ExplorerCalendarEventDialogController',
                 controllerAs       : 'vm',
                 parent             : $document.find('#explorer'),

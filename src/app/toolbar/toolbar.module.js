@@ -12,6 +12,6 @@
  /** @ngInject */
  function config($translatePartialLoaderProvider)
  {
-  $translatePartialLoaderProvider.addPart('src/app/toolbar');
+  $translatePartialLoaderProvider.addPart('app/toolbar');
  }
 })();

@@ -11,7 +11,7 @@
  {
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/components');
+  $translatePartialLoaderProvider.addPart('app/main/apps/components');
 
   // Api
   msApiProvider.register('component.component', ['/api/components/:id/listformat/:listFormat', {

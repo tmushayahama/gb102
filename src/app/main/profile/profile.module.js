@@ -17,7 +17,7 @@
    url: '/profile/{userId}',
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/profile/profile.html',
+     templateUrl: 'app/main/profile/profile.html',
      controller: 'ProfileController as vm'
     }
    },
@@ -27,7 +27,7 @@
    abstract: true,
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/profile/views/linear/profile.html',
+     templateUrl: 'app/main/profile/views/linear/profile.html',
      controller: 'ProfileLinearController as profileLinearCtrl'
     }
    }
@@ -35,7 +35,7 @@
    url: '/overview',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/home/home.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/home/home.html',
      controller: 'ProfileLinearHomeController as vm'
     }
    },
@@ -46,7 +46,7 @@
    url: '/activities',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/activities/activities.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/activities/activities.html',
      controller: 'ProfileLinearActivitiesController as vm'
     }
    },
@@ -57,7 +57,7 @@
    url: '/timeline',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/timeline/timeline.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/timeline/timeline.html',
      controller: 'ProfileLinearTimelineController as vm'
     }
    },
@@ -68,7 +68,7 @@
    url: '/calendar',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/calendar/calendar.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/calendar/calendar.html',
      controller: 'ProfileLinearCalendarController as vm'
     }
    },
@@ -79,7 +79,7 @@
    url: '/discussion',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/discussions/discussions.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/discussions/discussions.html',
      controller: 'ProfileLinearDiscussionsController as vm'
     }
    },
@@ -90,7 +90,7 @@
    url: '/graphs',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/graphs/graphs.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/graphs/graphs.html',
      controller: 'ProfileLinearGraphsController as vm'
     }
    },
@@ -101,7 +101,7 @@
    url: '/settings',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/profile/views/linear/tabs/settings/settings.html',
+     templateUrl: 'app/main/profile/views/linear/tabs/settings/settings.html',
      controller: 'ProfileLinearSettingsController as vm'
     }
    },
@@ -111,14 +111,14 @@
   });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/profile');
+  $translatePartialLoaderProvider.addPart('app/main/profile');
 
   // Api
   msApiProvider.register('profile.profile', ['/api/profile/:userId', {userId: "@userId"}]);
 
-  msApiProvider.register('profile.timeline', ['src/app/data/profile/timeline.json']);
-  msApiProvider.register('profile.about', ['src/app/data/profile/about.json']);
-  msApiProvider.register('profile.photosVideos', ['src/app/data/profile/photos-videos.json']);
+  msApiProvider.register('profile.timeline', ['app/data/profile/timeline.json']);
+  msApiProvider.register('profile.about', ['app/data/profile/about.json']);
+  msApiProvider.register('profile.photosVideos', ['app/data/profile/photos-videos.json']);
 
  }
 })();

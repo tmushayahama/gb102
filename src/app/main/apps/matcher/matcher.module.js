@@ -24,7 +24,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/matcher/matcher.html',
+             templateUrl: 'app/main/apps/matcher/matcher.html',
              controller: 'MatcherController as vm'
             }
            },
@@ -34,7 +34,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/matcher/tabs/home/home.html',
+             templateUrl: 'app/main/apps/matcher/tabs/home/home.html',
              controller: 'MatcherHomeTabController as vm'
             }
            },
@@ -46,7 +46,7 @@
            url: '/saved',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/matcher/tabs/history/history.html',
+             templateUrl: 'app/main/apps/matcher/tabs/history/history.html',
              controller: 'MatcherHistoryTabController as vm'
             }
            },
@@ -58,7 +58,7 @@
            url: '/compare',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/matcher/tabs/compare/compare.html',
+             templateUrl: 'app/main/apps/matcher/tabs/compare/compare.html',
              controller: 'MatcherCompareTabController as vm'
             }
            },
@@ -70,7 +70,7 @@
            url: '/about',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/matcher/tabs/about/about.html',
+             templateUrl: 'app/main/apps/matcher/tabs/about/about.html',
              controller: 'MatcherAboutTabController as vm'
             }
            },
@@ -82,7 +82,7 @@
            url: '/business',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/matcher/tabs/business/business.html',
+             templateUrl: 'app/main/apps/matcher/tabs/business/business.html',
              controller: 'MatcherBusinessTabController as vm'
             }
            },
@@ -92,7 +92,7 @@
           });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/matcher');
+  $translatePartialLoaderProvider.addPart('app/main/apps/matcher');
 
   // Api
   msApiProvider.register('matcher.getMatcher', ['/api/components/random']);

@@ -20,7 +20,7 @@ SWIPE HISTORY TAB VIEW
   <div class="gb-card-cover">
    <div ng-if="search.component.component_picture_url && search.component.component_picture_url !== 'default.png'"
         class="gb-cover-image">
-    <img ng-src="src/assets/images/search/{{search.component.component_picture_url}}">
+    <img ng-src="assets/images/search/{{search.component.component_picture_url}}">
    </div>
    <div ng-if="search.component.component_placeholder_style"
         class="gb-cover-image"
@@ -58,7 +58,7 @@ SWIPE HISTORY TAB VIEW
      </div>
      <div class="gb-image" ng-class="search.component.creator.theme_color">
       <img ng-if="search.component.creator.avatar_url !== 'gb-avatar.jpg'"
-           src="src/assets/images/profile_pic/{{search.component.creator.avatar_url}}"
+           src="assets/images/profile_pic/{{search.component.creator.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{search.component.creator.firstname.substring(0, 1) + search.component.creator.lastname.substring(0, 1)}}
      </div>

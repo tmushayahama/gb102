@@ -142,7 +142,7 @@
         return {
             restrict        : 'A',
             controller      : 'msComponentItemController as MsComponentItem',
-            templateUrl     : 'src/app/main/apps/components/directives/ms-component-item/ms-component-item.html',
+            templateUrl     : 'app/main/apps/components/directives/ms-component-item/ms-component-item.html',
             require         : ['msComponentItem', '^msMasonry'],
             bindToController: {
                 msComponentItem: '='

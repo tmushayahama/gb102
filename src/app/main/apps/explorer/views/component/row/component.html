@@ -41,7 +41,7 @@
       <!-- CARD COVER -->
       <div ng-if="component.component_picture_url && component.component_picture_url !== 'default.png'"
            class="list-card-cover">
-       <img ng-src="src/assets/images/explorer/{{component.component_picture_url}}">
+       <img ng-src="assets/images/explorer/{{component.component_picture_url}}">
       </div>
       <!-- / CARD COVER -->
       <!-- CARD DETAILS -->
@@ -106,7 +106,7 @@
         <div class="list-card-member"
              ng-repeat="contribution in component.contributions">
          <img class="list-card-member-avatar"
-              ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}">
+              ng-src="assets/images/profile_pic/{{contribution.contributor.avatar_url}}">
          <md-tooltip>
           <div class="name">{{ contribution.contributor.firstname + " " + contribution.contributor.lastname}}</div>
          </md-tooltip>

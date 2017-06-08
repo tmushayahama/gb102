@@ -24,7 +24,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/search/search.html',
+             templateUrl: 'app/main/apps/search/search.html',
              controller: 'SearchController as vm'
             }
            },
@@ -34,7 +34,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/search/tabs/home/home.html',
+             templateUrl: 'app/main/apps/search/tabs/home/home.html',
              controller: 'SearchHomeTabController as vm'
             }
            },
@@ -46,7 +46,7 @@
            url: '/saved',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/search/tabs/history/history.html',
+             templateUrl: 'app/main/apps/search/tabs/history/history.html',
              controller: 'SearchHistoryTabController as vm'
             }
            },
@@ -56,7 +56,7 @@
           });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/search');
+  $translatePartialLoaderProvider.addPart('app/main/apps/search');
 
   // Api
   msApiProvider.register('search.suggestionSearch', ['/api/search/suggestion/keyword/:keyword', {

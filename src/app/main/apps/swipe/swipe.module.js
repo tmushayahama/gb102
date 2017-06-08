@@ -24,7 +24,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/swipe/swipe.html',
+             templateUrl: 'app/main/apps/swipe/swipe.html',
              controller: 'SwipeController as vm'
             }
            },
@@ -34,7 +34,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/swipe/tabs/home/home.html',
+             templateUrl: 'app/main/apps/swipe/tabs/home/home.html',
              controller: 'SwipeHomeTabController as vm'
             }
            },
@@ -46,7 +46,7 @@
            url: '/saved',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/swipe/tabs/history/history.html',
+             templateUrl: 'app/main/apps/swipe/tabs/history/history.html',
              controller: 'SwipeHistoryTabController as vm'
             }
            },
@@ -58,7 +58,7 @@
            url: '/compare',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/swipe/tabs/compare/compare.html',
+             templateUrl: 'app/main/apps/swipe/tabs/compare/compare.html',
              controller: 'SwipeCompareTabController as vm'
             }
            },
@@ -70,7 +70,7 @@
            url: '/about',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/swipe/tabs/about/about.html',
+             templateUrl: 'app/main/apps/swipe/tabs/about/about.html',
              controller: 'SwipeAboutTabController as vm'
             }
            },
@@ -82,7 +82,7 @@
            url: '/business',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/swipe/tabs/business/business.html',
+             templateUrl: 'app/main/apps/swipe/tabs/business/business.html',
              controller: 'SwipeBusinessTabController as vm'
             }
            },
@@ -92,7 +92,7 @@
           });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/swipe');
+  $translatePartialLoaderProvider.addPart('app/main/apps/swipe');
 
   // Api
   msApiProvider.register('swipe.getSwipe', ['/api/components/random']);

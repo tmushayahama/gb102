@@ -24,7 +24,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorships/mentorships.html',
+             templateUrl: 'app/main/apps/mentorship/views/mentorships/mentorships.html',
              controller: 'MentorshipController as mentorshipsCtrl'
             }
            },
@@ -34,7 +34,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/tabs/home/home.html',
+             templateUrl: 'app/main/apps/mentorship/tabs/home/home.html',
              controller: 'MentorshipHomeTabController as vm'
             }
            },
@@ -46,7 +46,7 @@
            url: '/swipe',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/tabs/swipe/swipe.html',
+             templateUrl: 'app/main/apps/mentorship/tabs/swipe/swipe.html',
              controller: 'MentorshipSwipeTabController as vm'
             }
            },
@@ -58,7 +58,7 @@
            url: '/matcher',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/tabs/matcher/matcher.html',
+             templateUrl: 'app/main/apps/mentorship/tabs/matcher/matcher.html',
              controller: 'MentorshipMatcherTabController as vm'
             }
            },
@@ -70,7 +70,7 @@
            url: '/business',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/tabs/business/business.html',
+             templateUrl: 'app/main/apps/mentorship/tabs/business/business.html',
              controller: 'MentorshipBusinessTabController as vm'
             }
            },
@@ -82,7 +82,7 @@
            url: '/mentorship',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/tabs/mentorship/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/tabs/mentorship/mentorship.html',
              controller: 'MentorshipMentorshipTabController as vm'
             }
            },
@@ -96,11 +96,11 @@
            url: '/mentorship/boardview/:id',
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/mentorship/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/mentorship.html',
              controller: 'MentorshipController as vm'
             },
             'mentorshipContent@app.mentorshipColumnView': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/column/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/views/mentorship/column/mentorship.html',
              controller: 'MentorshipColumnController as vm'
             }
            }
@@ -110,7 +110,7 @@
            abstract: true,
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/views/component/linear/mentorship.html',
              controller: 'MentorshipLinearController as mentorshipLinearCtrl'
             }
            }
@@ -119,7 +119,7 @@
            url: '/overview',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/home/home.html',
+             templateUrl: 'app/main/apps/mentorship/views/component/linear/tabs/home/home.html',
              controller: 'MentorshipLinearHomeController as vm'
             }
            },
@@ -131,7 +131,7 @@
            url: '/mentor',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/mentor/mentor.html',
+             templateUrl: 'app/main/apps/mentorship/views/component/linear/tabs/mentor/mentor.html',
              controller: 'MentorshipLinearMentorController as vm'
             }
            },
@@ -143,7 +143,7 @@
            url: '/mentee',
            views: {
             'tab': {
-             templateUrl: 'src/app/main/apps/mentorship/views/component/linear/tabs/mentee/mentee.html',
+             templateUrl: 'app/main/apps/mentorship/views/component/linear/tabs/mentee/mentee.html',
              controller: 'MentorshipLinearMenteeController as vm'
             }
            },
@@ -155,18 +155,18 @@
            url: '/mentorship/rowview/:id',
            views: {
             'content@app': {
-             templateUrl: 'src/app/main/apps/mentorship/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/mentorship.html',
              controller: 'MentorshipController as vm'
             },
             'mentorshipContent@app.mentorshipColumnView': {
-             templateUrl: 'src/app/main/apps/mentorship/views/mentorship/row/mentorship.html',
+             templateUrl: 'app/main/apps/mentorship/views/mentorship/row/mentorship.html',
              controller: 'MentorshipRowController as vm'
             }
            }
           });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/mentorship');
+  $translatePartialLoaderProvider.addPart('app/main/apps/mentorship');
 
   // Api
   msApiProvider.register('mentorship.mentorship', ['/api/mentorship/:id/listformat/:listFormat',

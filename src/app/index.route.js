@@ -38,27 +38,27 @@
            abstract: true,
            views: {
             'main@': {
-             templateUrl: 'src/app/core/layouts/main.html',
+             templateUrl: 'app/core/layouts/main.html',
              controller: 'MainController as vm'
             },
             'toolbar@app': {
-             templateUrl: 'src/app/toolbar/toolbar.html',
+             templateUrl: 'app/toolbar/toolbar.html',
              controller: 'ToolbarController as vm'
             },
             'navigation@app': {
-             templateUrl: 'src/app/navigation/navigation.html',
+             templateUrl: 'app/navigation/navigation.html',
              controller: 'NavigationController as vm'
             },
             'quickPanel@app': {
-             templateUrl: 'src/app/quick-panel/quick-panel.html',
+             templateUrl: 'app/quick-panel/quick-panel.html',
              controller: 'QuickPanelController as vm'
             },
             'loginPanel@app': {
-             templateUrl: 'src/app/login-panel/login-panel.html',
+             templateUrl: 'app/login-panel/login-panel.html',
              controller: 'LoginPanelController as vm'
             },
             'registrationPanel@app': {
-             templateUrl: 'src/app/registration-panel/registration-panel.html',
+             templateUrl: 'app/registration-panel/registration-panel.html',
              controller: 'RegistrationPanelController as vm'
             }
            }

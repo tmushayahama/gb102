@@ -29,32 +29,32 @@
    {
     label: 'Vertical Navigation',
     value: 'verticalNavigation',
-    figure: '/src/assets/images/theme-options/vertical-nav.jpg'
+    figure: '/assets/images/theme-options/vertical-nav.jpg'
    },
    {
     label: 'Vertical Navigation with Fullwidth Toolbar',
     value: 'verticalNavigationFullwidthToolbar',
-    figure: '/src/assets/images/theme-options/vertical-nav-with-full-toolbar.jpg'
+    figure: '/assets/images/theme-options/vertical-nav-with-full-toolbar.jpg'
    },
    {
     label: 'Vertical Navigation with Fullwidth Toolbar 2',
     value: 'verticalNavigationFullwidthToolbar2',
-    figure: '/src/assets/images/theme-options/vertical-nav-with-full-toolbar-2.jpg'
+    figure: '/assets/images/theme-options/vertical-nav-with-full-toolbar-2.jpg'
    },
    {
     label: 'Horizontal Navigation',
     value: 'horizontalNavigation',
-    figure: '/src/assets/images/theme-options/horizontal-nav.jpg'
+    figure: '/assets/images/theme-options/horizontal-nav.jpg'
    },
    {
     label: 'Content with Toolbar',
     value: 'contentWithToolbar',
-    figure: '/src/assets/images/theme-options/content-with-toolbar.jpg'
+    figure: '/assets/images/theme-options/content-with-toolbar.jpg'
    },
    {
     label: 'Content Only',
     value: 'contentOnly',
-    figure: '/src/assets/images/theme-options/content-only.jpg'
+    figure: '/assets/images/theme-options/content-only.jpg'
    },
   ];
 
@@ -120,7 +120,7 @@
    restrict: 'E',
    scope: {},
    controller: 'MsThemeOptionsController as vm',
-   templateUrl: 'src/app/core/theme-options/theme-options.html',
+   templateUrl: 'app/core/theme-options/theme-options.html',
    compile: function (tElement)
    {
     tElement.addClass('ms-theme-options');

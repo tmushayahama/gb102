@@ -16,7 +16,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -49,7 +49,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -82,7 +82,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -115,7 +115,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -148,7 +148,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -181,7 +181,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -214,7 +214,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -247,7 +247,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -280,7 +280,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -313,7 +313,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -346,7 +346,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -379,7 +379,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -412,7 +412,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -445,7 +445,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -478,7 +478,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -511,7 +511,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -544,7 +544,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -577,7 +577,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],
@@ -602,7 +602,7 @@
             "price": "$36.37",
             "quantity": 78,
             "active": true,
-            "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+            "image": "assets/images/ecommerce/product-image-placeholder.png"
         },
         {
             "id": 20,
@@ -620,7 +620,7 @@
                 {
                     "default": true,
                     "id": 1,
-                    "url": "src/assets/images/ecommerce/product-image-placeholder.png",
+                    "url": "assets/images/ecommerce/product-image-placeholder.png",
                     "type": "image"
                 }
             ],

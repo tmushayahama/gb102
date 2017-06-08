@@ -15,7 +15,7 @@
             url    : '/chat',
             views  : {
                 'content@app': {
-                    templateUrl: 'src/app/main/apps/chat/chat.html',
+                    templateUrl: 'app/main/apps/chat/chat.html',
                     controller : 'ChatController as vm'
                 }
             },
@@ -32,13 +32,13 @@
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('src/app/main/apps/chat');
+        $translatePartialLoaderProvider.addPart('app/main/apps/chat');
 
         // Api
         // Contacts data must be alphabatically ordered.
-        msApiProvider.register('chat.contacts', ['src/app/data/chat/contacts.json']);
-        msApiProvider.register('chat.chats', ['src/app/data/chat/chats/:id.json']);
-        msApiProvider.register('chat.user', ['src/app/data/chat/user.json']);
+        msApiProvider.register('chat.contacts', ['app/data/chat/contacts.json']);
+        msApiProvider.register('chat.chats', ['app/data/chat/chats/:id.json']);
+        msApiProvider.register('chat.user', ['app/data/chat/user.json']);
 
         // Navigation
         msNavigationServiceProvider.saveItem('apps.chat', {

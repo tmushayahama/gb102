@@ -12,7 +12,7 @@ $color-6: #077568;
 
 .gb-lobby-bg {
  position: relative;
- background: url(../../../src/assets/images/house/front-door-3.jpg);
+ background: url(../../../assets/images/house/front-door-3.jpg);
  background-repeat: no-repeat;
  //background-position: center top;
  background-size: 100% 700px!important;
@@ -25,14 +25,14 @@ $color-6: #077568;
  &:after {
   content: ' ';
   //@include position(absolute, 0 0 0 0);
-  // background: url(../../../src/assets/images/house/wall-block-1.jpg);
+  // background: url(../../../assets/images/house/wall-block-1.jpg);
   z-index:0;
  }
 }
 
 .gb-room-background {
  position: relative;
- background: url(../../../src/assets/images/house/gb-room-1.jpg);
+ background: url(../../../assets/images/house/gb-room-1.jpg);
  background-repeat: no-repeat;
  //background-position: center top;
  background-size: 100% 700px!important;
@@ -44,7 +44,7 @@ $color-6: #077568;
 
 .gb-garage-background {
  position: relative;
- background: url(../../../src/assets/images/house/gb-garage-1.jpg);
+ background: url(../../../assets/images/house/gb-garage-1.jpg);
  background-repeat: no-repeat;
  //background-position: center top;
  background-size: 100% 700px!important;
@@ -56,8 +56,8 @@ $color-6: #077568;
 
 .gb-elevator-background {
  position: relative;
- background:  url(../../../src/assets/images/house/gb-elevator-1.jpg) no-repeat,
-  url(../../../src/assets/images/house/wall-block-2.jpg) repeat;
+ background:  url(../../../assets/images/house/gb-elevator-1.jpg) no-repeat,
+  url(../../../assets/images/house/wall-block-2.jpg) repeat;
  background-position:center top, top;
  background-size: 600px 600px, auto;
  // background-repeat: : 100%!important;
@@ -66,7 +66,7 @@ $color-6: #077568;
 }
 
 .gb-wall-background {
- background: url(../../../src/assets/images/house/wall-block-2.jpg);
+ background: url(../../../assets/images/house/wall-block-2.jpg);
  //-webkit-background-size: auto 100%!important;
  // -moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -74,14 +74,14 @@ $color-6: #077568;
 }
 
 .gb-roof-lights {
- background: url(../../../src/assets/images/house/gb-light-1.jpg);
+ background: url(../../../assets/images/house/gb-light-1.jpg);
  background-size: auto 100%!important;
  @include deep-height(15px);
  @include deep-width(100%);
 }
 
 .gb-floor-level  {
- background: url(../../../src/assets/images/house/wall-block-2.jpg);
+ background: url(../../../assets/images/house/wall-block-2.jpg);
  // background-size: 100% 700px!important;
  padding: 20px 5px 20px;
  color: #FFF;
@@ -97,7 +97,7 @@ $color-6: #077568;
 }
 
 .gb-window-bg-1 {
- background: url(../../../src/assets/images/house/window-1.jpg);
+ background: url(../../../assets/images/house/window-1.jpg);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -138,7 +138,7 @@ $color-6: #077568;
 }
 
 .gb-window-bg-2 {
- background: url(../../../src/assets/images/house/window-2.jpg);
+ background: url(../../../assets/images/house/window-2.jpg);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -183,7 +183,7 @@ $color-6: #077568;
    &:after {
     content: '';
     @include position(absolute, 0 0 0 0);
-    background: url(../../../src/assets/images/landing-page/transparent-screen-1.png);
+    background: url(../../../assets/images/landing-page/transparent-screen-1.png);
     //-webkit-background-size: auto 100%!important;
     // -moz-background-size: auto 100%!important;
     //-o-background-size: auto 100%!important;
@@ -397,7 +397,7 @@ $color-6: #077568;
 }
 
 .gb-window-bg-3 {
- background: url(../../../src/assets/images/house/window-2.jpg);
+ background: url(../../../assets/images/house/window-2.jpg);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -416,7 +416,7 @@ $color-6: #077568;
  }
 }
 .gb-kiosk-bg-1 {
- background: url(../../../src/assets/images/house/kiosk-1.png);
+ background: url(../../../assets/images/house/kiosk-1.png);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -429,7 +429,7 @@ $color-6: #077568;
 
  .gb-kiosk-screen {
   padding-top: 10px;
-  background: url(../../../src/assets/images/house/floor-1.jpg);
+  background: url(../../../assets/images/house/floor-1.jpg);
   @include deep-height(400px);
   @include deep-width(300px);
   background-color: #AAA;
@@ -533,7 +533,7 @@ $color-6: #077568;
 
  .gb-intro-img {
   @include position(absolute, null 0 0 0);
-  background: url(../../../src/assets/images/landing-page/background-5.png);
+  background: url(../../../assets/images/landing-page/background-5.png);
   -webkit-background-size: auto 100%!important;
   -moz-background-size: auto 100%!important;
   -o-background-size: auto 100%!important;
@@ -697,7 +697,7 @@ $color-6: #077568;
 }
 
 .gb-welcome-section-3 {
- //background: url(../../../src/assets/images/landing-page/background-6.jpg);
+ //background: url(../../../assets/images/landing-page/background-6.jpg);
 
  padding-top: 120px;
  //background-color: rgba(material-color('blue-grey', '50'), 0.5);
@@ -737,7 +737,7 @@ $color-6: #077568;
 }
 
 .gb-welcome-section-4 {
- //background: url(../../../src/assets/images/landing-page/lobby-1.jpg);
+ //background: url(../../../assets/images/landing-page/lobby-1.jpg);
  //background-size: 100% 100%!important;
  //height: 700px;
  padding-top: 100px;

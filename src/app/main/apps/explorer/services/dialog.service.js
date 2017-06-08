@@ -36,7 +36,7 @@
    */
   function openCardDialog(ev, cardId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/card/card-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/card/card-dialog.html',
     controller: 'ExplorerCardDialogController',
     controllerAs: 'vm',
     parent: $document.find('#explorer'),
@@ -59,7 +59,7 @@
    */
   function openAddComponentDialog(ev, componentId, startTabIndex, preselectedData) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
     controllerAs: 'vm',
     parent: angular.element($document.body),
@@ -84,7 +84,7 @@
    */
   function openAddComponentsDialog(ev, componentId, contents) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
     controller: 'ExplorerAddComponentsDialogController',
     controllerAs: 'vm',
     // parent: $document.find('#explorer'),
@@ -106,7 +106,7 @@
    */
   function openComponentDialog(ev, componentId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component/component-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component/component-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentDialogController',
     controllerAs: 'vm',
@@ -128,7 +128,7 @@
    */
   function openComponentSectionDialog(ev, componentId, section) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-section/component-section-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-section/component-section-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentSectionDialogController',
     controllerAs: 'vm',
@@ -151,7 +151,7 @@
    */
   function openComponentNotesDialog(ev, componentId, notes) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-notes/component-notes-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-notes/component-notes-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentNotesDialogController',
     controllerAs: 'vm',
@@ -174,7 +174,7 @@
    */
   function startComponentStoryDialog(ev, componentId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-story/component-story-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-story/component-story-dialog.html',
     controller: 'ComponentStoryDialogController',
     controllerAs: 'vm',
     // parent: $document.find('#explorer'),

@@ -39,19 +39,19 @@
         },
         "groups": [
             {
-                "logo": "src/assets/images/logos/android.png",
+                "logo": "assets/images/logos/android.png",
                 "name": "Android",
                 "category": "Technology",
                 "members": "1.856.546"
             },
             {
-                "logo": "src/assets/images/logos/google.png",
+                "logo": "assets/images/logos/google.png",
                 "name": "Google",
                 "category": "Web",
                 "members": "1.226.121"
             },
             {
-                "logo": "src/assets/images/logos/fallout.png",
+                "logo": "assets/images/logos/fallout.png",
                 "name": "Fallout",
                 "category": "Games",
                 "members": "526.142"
@@ -60,31 +60,31 @@
         "friends": [
             {
                 "name": "Garry Newman",
-                "avatar": "src/assets/images/avatars/garry.jpg"
+                "avatar": "assets/images/avatars/garry.jpg"
             },
             {
                 "name": "Carl Henderson",
-                "avatar": "src/assets/images/avatars/carl.jpg"
+                "avatar": "assets/images/avatars/carl.jpg"
             },
             {
                 "name": "Jane Dean",
-                "avatar": "src/assets/images/avatars/jane.jpg"
+                "avatar": "assets/images/avatars/jane.jpg"
             },
             {
                 "name": "Garry Arnold",
-                "avatar": "src/assets/images/avatars/garry.jpg"
+                "avatar": "assets/images/avatars/garry.jpg"
             },
             {
                 "name": "Vincent Munoz",
-                "avatar": "src/assets/images/avatars/vincent.jpg"
+                "avatar": "assets/images/avatars/vincent.jpg"
             },
             {
                 "name": "Alice Freeman",
-                "avatar": "src/assets/images/avatars/alice.jpg"
+                "avatar": "assets/images/avatars/alice.jpg"
             },
             {
                 "name": "Andrew Green",
-                "avatar": "src/assets/images/avatars/andrew.jpg"
+                "avatar": "assets/images/avatars/andrew.jpg"
             }
         ]
     }

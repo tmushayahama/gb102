@@ -144,7 +144,7 @@ LINEAR VIEW HOME
      </div>
      <div class="gb-image" ng-class="mentorshipLinearCtrl.mentorship.component.creator.theme_color">
       <img ng-if="mentorshipLinearCtrl.mentorship.component.creator.avatar_url !== 'gb-avatar.jpg'"
-           ng-src="src/assets/images/profile_pic/{{mentorshipLinearCtrl.mentorship.component.creator.avatar_url}}"
+           ng-src="assets/images/profile_pic/{{mentorshipLinearCtrl.mentorship.component.creator.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{mentorshipLinearCtrl.mentorship.component.creator.firstname.substring(0, 1) + mentorshipLinearCtrl.mentorship.component.creator.lastname.substring(0, 1)}}
      </div>
@@ -170,7 +170,7 @@ LINEAR VIEW HOME
      <div class="gb-image" ng-class="contribution.contributor.theme_color">
       <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
            data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+           ng-src="assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
      </div>

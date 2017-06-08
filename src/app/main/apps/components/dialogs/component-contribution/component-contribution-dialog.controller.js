@@ -7,13 +7,13 @@
          .controller('ComponentContributionDialogController', ComponentContributionDialogController);
 
  /** @ngInject */
- function ComponentContributionDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog, componentId, contribution) {
+ function ComponentContributionDialogController(ComponentService, $rootScope, $stateParams, $document, $timeout, $scope, $mdSidenav, $mdDialog, componentId, contributorId) {
 
   var vm = this;
 
   // Data
   vm.componentId = componentId;
-  vm.contribution = contribution;
+  vm.contributorId = contributorId;
   //////////
 
   // Methods
@@ -39,8 +39,7 @@
    */
   function init() {
    ComponentService.getComponentContribution(vm.componentId, vm.contribution.contributor_id).then(function (data) {
-    vm.components = data.components;
-    vm.components.newComponentData = angular.copy(vm.defaultComponentData);
+    vm.contribution = data.contribution;
    });
   }
  }

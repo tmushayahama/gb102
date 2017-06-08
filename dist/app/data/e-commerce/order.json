@@ -12,7 +12,7 @@
                 "id": 1,
                 "firstName": "Dollie",
                 "lastName": "Bullock",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -27,7 +27,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -35,7 +35,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -43,7 +43,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -90,7 +90,7 @@
                 "id": 1,
                 "firstName": "Holmes",
                 "lastName": "Hines",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -105,7 +105,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -113,7 +113,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -121,7 +121,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -168,7 +168,7 @@
                 "id": 1,
                 "firstName": "Serena",
                 "lastName": "Glover",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -183,7 +183,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -191,7 +191,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -199,7 +199,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -246,7 +246,7 @@
                 "id": 1,
                 "firstName": "Dianne",
                 "lastName": "Prince",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -261,7 +261,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -269,7 +269,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -277,7 +277,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -324,7 +324,7 @@
                 "id": 1,
                 "firstName": "Frankie",
                 "lastName": "Hewitt",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -339,7 +339,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -347,7 +347,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -355,7 +355,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -402,7 +402,7 @@
                 "id": 1,
                 "firstName": "Cole",
                 "lastName": "Holcomb",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -417,7 +417,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -425,7 +425,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -433,7 +433,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -480,7 +480,7 @@
                 "id": 1,
                 "firstName": "Merrill",
                 "lastName": "Richardson",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -495,7 +495,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -503,7 +503,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -511,7 +511,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -558,7 +558,7 @@
                 "id": 1,
                 "firstName": "Morgan",
                 "lastName": "Pitts",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -573,7 +573,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -581,7 +581,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -589,7 +589,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -636,7 +636,7 @@
                 "id": 1,
                 "firstName": "Krista",
                 "lastName": "Mathis",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -651,7 +651,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -659,7 +659,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -667,7 +667,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -714,7 +714,7 @@
                 "id": 1,
                 "firstName": "Hayden",
                 "lastName": "Fitzgerald",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -729,7 +729,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -737,7 +737,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -745,7 +745,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -792,7 +792,7 @@
                 "id": 1,
                 "firstName": "Cotton",
                 "lastName": "Carlson",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -807,7 +807,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -815,7 +815,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -823,7 +823,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -870,7 +870,7 @@
                 "id": 1,
                 "firstName": "Kaye",
                 "lastName": "Baldwin",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -885,7 +885,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -893,7 +893,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -901,7 +901,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -948,7 +948,7 @@
                 "id": 1,
                 "firstName": "Iva",
                 "lastName": "Clark",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -963,7 +963,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -971,7 +971,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -979,7 +979,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1026,7 +1026,7 @@
                 "id": 1,
                 "firstName": "Shauna",
                 "lastName": "Rosales",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1041,7 +1041,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1049,7 +1049,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1057,7 +1057,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1104,7 +1104,7 @@
                 "id": 1,
                 "firstName": "Carroll",
                 "lastName": "Dotson",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1119,7 +1119,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1127,7 +1127,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1135,7 +1135,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1182,7 +1182,7 @@
                 "id": 1,
                 "firstName": "Jeannie",
                 "lastName": "Reese",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1197,7 +1197,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1205,7 +1205,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1213,7 +1213,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1260,7 +1260,7 @@
                 "id": 1,
                 "firstName": "Dena",
                 "lastName": "Rowe",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1275,7 +1275,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1283,7 +1283,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1291,7 +1291,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1338,7 +1338,7 @@
                 "id": 1,
                 "firstName": "Blankenship",
                 "lastName": "Lynch",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1353,7 +1353,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1361,7 +1361,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1369,7 +1369,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1416,7 +1416,7 @@
                 "id": 1,
                 "firstName": "Whitley",
                 "lastName": "Mcgee",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1431,7 +1431,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1439,7 +1439,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1447,7 +1447,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [
@@ -1494,7 +1494,7 @@
                 "id": 1,
                 "firstName": "Hood",
                 "lastName": "Hodges",
-                "avatar": "src/assets/images/avatars/Abbott.jpg",
+                "avatar": "assets/images/avatars/Abbott.jpg",
                 "company": "Saois",
                 "jobTitle": "Digital Archivist",
                 "email": "abbott@withinpixels.com",
@@ -1509,7 +1509,7 @@
                     "price": "$10.24",
                     "quantity": 1,
                     "total": "$10.24",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 2,
@@ -1517,7 +1517,7 @@
                     "price": "$24.62",
                     "quantity": 1,
                     "total": "$24.62",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 },
                 {
                     "id": 3,
@@ -1525,7 +1525,7 @@
                     "price": "$49.29",
                     "quantity": 1,
                     "total": "$49.29",
-                    "image": "src/assets/images/ecommerce/product-image-placeholder.png"
+                    "image": "assets/images/ecommerce/product-image-placeholder.png"
                 }
             ],
             "status": [

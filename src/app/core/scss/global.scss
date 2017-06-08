@@ -58,19 +58,19 @@ material-color('blue', '500');
 }
 */
 .gb-pattern-floor {
- background: url(../../../src/assets/images/landing-page/background-5.jpg);
+ background: url(../../../assets/images/landing-page/background-5.jpg);
  background-size: 400px auto;
 }
 .gb-pattern-floor-2 {
- background: url(../../../src/assets/images/landing-page/background-7.jpg);
+ background: url(../../../assets/images/landing-page/background-7.jpg);
  background-size: 400px auto;
 }
 .gb-pattern-floor-3 {
- background: url(../../../src/assets/images/landing-page/background-8.jpg);
+ background: url(../../../assets/images/landing-page/background-8.jpg);
  background-size: 400px auto;
 }
 .gb-pattern-wall {
- background: url(../../../src/assets/images/landing-page/background-6.jpg);
+ background: url(../../../assets/images/landing-page/background-6.jpg);
  background-size: 700px auto;
 }
 
@@ -143,7 +143,7 @@ body {
 .gb-section-table {
  .gb-container {
   padding:40px 15px;
-  background: url(../../../src/assets/images/landing-page/background-table.jpg);
+  background: url(../../../assets/images/landing-page/background-table.jpg);
   border-radius: 50px;
   @include respond-to (gb-sm) {
    padding:30px 15px;
@@ -159,7 +159,7 @@ body {
 .gb-section-board {
  .gb-container {
   .gb-board-body {
-   background: url(../../../src/assets/images/landing-page/background-board-body.jpg);
+   background: url(../../../assets/images/landing-page/background-board-body.jpg);
    background-size: 100% 100%;
    width: 100%;
    padding: 20px 45px;
@@ -171,13 +171,13 @@ body {
    }
   }
   .gb-board-top {
-   background: url(../../../src/assets/images/landing-page/background-board-top.jpg);
+   background: url(../../../assets/images/landing-page/background-board-top.jpg);
    background-size: 100% 100%;
    width: 100%;
    height: 25px;
   }
   .gb-board-bottom {
-   background: url(../../../src/assets/images/landing-page/background-board-bottom.jpg);
+   background: url(../../../assets/images/landing-page/background-board-bottom.jpg);
    background-size: 100% 100%;
    width: 100%;
    height: 25px;
@@ -191,7 +191,7 @@ body {
   border: #555 solid 10px;
   border-top-width: 25px;
   border-bottom: #333 solid 35px;
-  // background: url(../../../src/assets/images/landing-page/background-board.jpg);
+  // background: url(../../../assets/images/landing-page/background-board.jpg);
   @include respond-to (gb-xs) {
    border-width: 5px;
    border-top-width: 12px;
@@ -210,7 +210,7 @@ body {
 
 .gb-section-bookshelf {
  .gb-container {
-  background: url(../../../src/assets/images/landing-page/background-bookshelf.jpg);
+  background: url(../../../assets/images/landing-page/background-bookshelf.jpg);
   //height: 500px;
   overflow: hidden;
   /*
@@ -224,7 +224,7 @@ body {
   // z-index: 0;
   */
   .gb-bookshelf-back {
-   background: url(../../../src/assets/images/landing-page/background-bookshelf-back.jpg);
+   background: url(../../../assets/images/landing-page/background-bookshelf-back.jpg);
    background-size: 100% 100%;
    width: 100%;
    padding: 20px 45px;
@@ -236,19 +236,19 @@ body {
    }
   }
   .gb-bookshelf-big-bar {
-   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar-2.jpg);
+   background: url(../../../assets/images/landing-page/background-bookshelf-bar-2.jpg);
    background-size: 100% 100%;
    width: 100%;
    height: 40px;
   }
   .gb-bookshelf-base {
-   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar-2.jpg);
+   background: url(../../../assets/images/landing-page/background-bookshelf-bar-2.jpg);
    background-size: 100% 100%;
    width: 100%;
    height: 70px;
   }
   .gb-bookshelf-bar {
-   background: url(../../../src/assets/images/landing-page/background-bookshelf-bar.jpg);
+   background: url(../../../assets/images/landing-page/background-bookshelf-bar.jpg);
    background-size: 100% 100%;
    width: 100%;
    height: 20px;
@@ -429,7 +429,7 @@ md-dialog {
 .gb-header {
  padding: 20px 10px;
  position: relative;
- background: url('/src/assets/images/explorer/cover-1.png');
+ background: url('/assets/images/explorer/cover-1.png');
  -webkit-background-size: auto 100%!important;
  -moz-background-size: auto 100%!important;
  -o-background-size: auto 100%!important;
@@ -1456,7 +1456,7 @@ md-tabs {
   &:after {
    content: '';
    @include position(absolute, 0 0 0 0);
-   background: url(../../../src/assets/images/landing-page/transparent-screen-1.png);
+   background: url(../../../assets/images/landing-page/transparent-screen-1.png);
    //-webkit-background-size: auto 100%!important;
    // -moz-background-size: auto 100%!important;
    //-o-background-size: auto 100%!important;
@@ -3437,7 +3437,7 @@ md-tabs {
  position: relative;
  @include shadow(1);
  //padding: 50px 5px 50px 5px!important;
- background: url('/src/assets/images/explorer/cover-1.png');
+ background: url('/assets/images/explorer/cover-1.png');
  -webkit-background-size: auto 100%!important;
  -moz-background-size: auto 100%!important;
  -o-background-size: auto 100%!important;

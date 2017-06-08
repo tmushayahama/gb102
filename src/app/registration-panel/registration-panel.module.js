@@ -10,7 +10,7 @@
  function config($translatePartialLoaderProvider, msApiProvider)
  {
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/registration-panel');
+  $translatePartialLoaderProvider.addPart('app/registration-panel');
 
   // Api
   msApiProvider.register('user.createInvite', ['/api/user/invite']);

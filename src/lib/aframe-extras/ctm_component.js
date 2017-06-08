@@ -22,7 +22,7 @@ AFRAME.registerComponent('ctm', {
    mesh.scale.multiplyScalar(that.data.scale);
 
 
-   mesh.material.map = textureLoader.load('src/assets/textures/' + that.data.name + '.jpg');
+   mesh.material.map = textureLoader.load('assets/textures/' + that.data.name + '.jpg');
    //mesh.material.map.magFilter = THREE.NearestFilter;
    //mesh.material.needsUpdate = true;
 
@@ -45,7 +45,7 @@ AFRAME.registerComponent('ctm', {
 
     }*/
 
-  }, {useWorker: true, worker: new Worker("src/lib/aframe-extras/CTMWorker.js")});
+  }, {useWorker: true, worker: new Worker("lib/aframe-extras/CTMWorker.js")});
 
 
 

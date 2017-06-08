@@ -87,7 +87,7 @@
     components: '=gbComponents',
     parentComponentId: '=gbParentComponentId'
    },
-   templateUrl: 'src/app/main/apps/components/directives/ms-new-component/ms-new-component.html',
+   templateUrl: 'app/main/apps/components/directives/ms-new-component/ms-new-component.html',
    link: function (scope, element, attributes, MsNewComponent)
    {
     MsNewComponent.element = element;

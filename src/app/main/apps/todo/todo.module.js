@@ -20,7 +20,7 @@
             url      : '/to-do',
             views    : {
                 'content@app': {
-                    templateUrl: 'src/app/main/apps/todo/todo.html',
+                    templateUrl: 'app/main/apps/todo/todo.html',
                     controller : 'TodoController as vm'
                 }
             },
@@ -38,11 +38,11 @@
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('src/app/main/apps/todo');
+        $translatePartialLoaderProvider.addPart('app/main/apps/todo');
 
         // Api
-        msApiProvider.register('todo.tasks', ['src/app/data/todo/tasks.json']);
-        msApiProvider.register('todo.tags', ['src/app/data/todo/tags.json']);
+        msApiProvider.register('todo.tasks', ['app/data/todo/tasks.json']);
+        msApiProvider.register('todo.tags', ['app/data/todo/tags.json']);
 
         // Navigation
         msNavigationServiceProvider.saveItem('apps.to-do', {

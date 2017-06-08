@@ -24,7 +24,7 @@
    abstract: true,
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/views/components/components.html',
+     templateUrl: 'app/main/apps/explorer/views/components/components.html',
      controller: 'ExplorerComponentsController as componentsCtrl'
     }
    },
@@ -33,7 +33,7 @@
    url: '/overview',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/tabs/home/home.html',
+     templateUrl: 'app/main/apps/explorer/tabs/home/home.html',
      controller: 'ExplorerComponentsHomeTabController as vm'
     }
    },
@@ -44,7 +44,7 @@
    url: '/swipe',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/tabs/swipe/swipe.html',
+     templateUrl: 'app/main/apps/explorer/tabs/swipe/swipe.html',
      controller: 'ExplorerComponentsSwipeTabController as vm'
     }
    },
@@ -55,7 +55,7 @@
    url: '/matcher',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/tabs/matcher/matcher.html',
+     templateUrl: 'app/main/apps/explorer/tabs/matcher/matcher.html',
      controller: 'ExplorerComponentsMatcherTabController as vm'
     }
    },
@@ -66,7 +66,7 @@
    url: '/business',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/tabs/business/business.html',
+     templateUrl: 'app/main/apps/explorer/tabs/business/business.html',
      controller: 'ExplorerComponentsBusinessTabController as vm'
     }
    },
@@ -77,7 +77,7 @@
    url: '/mentorship',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/tabs/mentorship/mentorship.html',
+     templateUrl: 'app/main/apps/explorer/tabs/mentorship/mentorship.html',
      controller: 'ExplorerComponentsMentorshipTabController as vm'
     }
    },
@@ -89,7 +89,7 @@
    abstract: true,
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/views/app-components/app-components.html',
+     templateUrl: 'app/main/apps/explorer/views/app-components/app-components.html',
      controller: 'AppExplorerComponentsController as componentAppCtrl'
     }
    }
@@ -97,7 +97,7 @@
    url: '/home',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/app-components/tabs/home/home.html',
+     templateUrl: 'app/main/apps/explorer/views/app-components/tabs/home/home.html',
      controller: 'AppComponentsHomeTabController as vm'
     }
    },
@@ -108,7 +108,7 @@
    url: '/home',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/app-components/tabs/app/app.html',
+     templateUrl: 'app/main/apps/explorer/views/app-components/tabs/app/app.html',
      controller: 'AppComponentsHomeTabController as vm'
     }
    },
@@ -119,11 +119,11 @@
    url: '/component/boardview/:id',
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/explorer.html',
+     templateUrl: 'app/main/apps/explorer/explorer.html',
      controller: 'ExplorerController as vm'
     },
     'explorerContent@app.componentColumnView': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/column/component.html',
+     templateUrl: 'app/main/apps/explorer/views/component/column/component.html',
      controller: 'ComponentColumnController as vm'
     }
    }
@@ -132,7 +132,7 @@
    abstract: true,
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/linear/component.html',
+     templateUrl: 'app/main/apps/explorer/views/component/linear/component.html',
      controller: 'ComponentLinearController as componentLinearCtrl'
     }
    }
@@ -140,7 +140,7 @@
    url: '/overview',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/home/home.html',
+     templateUrl: 'app/main/apps/explorer/views/component/linear/tabs/home/home.html',
      controller: 'ComponentLinearHomeController as vm'
     }
    },
@@ -151,7 +151,7 @@
    url: '/furniture',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/furniture/furniture.html',
+     templateUrl: 'app/main/apps/explorer/views/component/linear/tabs/furniture/furniture.html',
      controller: 'ComponentLinearFurnitureController as vm'
     }
    },
@@ -162,7 +162,7 @@
    url: '/service',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/service/service.html',
+     templateUrl: 'app/main/apps/explorer/views/component/linear/tabs/service/service.html',
      controller: 'ComponentLinearServiceController as vm'
     }
    },
@@ -173,7 +173,7 @@
    url: '/tour',
    views: {
     'tab': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/linear/tabs/tour/tour.html',
+     templateUrl: 'app/main/apps/explorer/views/component/linear/tabs/tour/tour.html',
      controller: 'ComponentLinearTourController as vm'
     }
    },
@@ -184,11 +184,11 @@
    url: '/component/rowview/:id',
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/explorer.html',
+     templateUrl: 'app/main/apps/explorer/explorer.html',
      controller: 'ExplorerController as vm'
     },
     'explorerContent@app.componentColumnView': {
-     templateUrl: 'src/app/main/apps/explorer/views/component/row/component.html',
+     templateUrl: 'app/main/apps/explorer/views/component/row/component.html',
      controller: 'ComponentRowController as vm'
     }
    }
@@ -196,11 +196,11 @@
    url: '/add',
    views: {
     'content@app': {
-     templateUrl: 'src/app/main/apps/explorer/explorer.html',
+     templateUrl: 'app/main/apps/explorer/explorer.html',
      controller: 'ExplorerController as vm'
     },
     'explorerContent@app.explorer.boards.addBoard': {
-     templateUrl: 'src/app/main/apps/explorer/views/board/board-view.html',
+     templateUrl: 'app/main/apps/explorer/views/board/board-view.html',
      controller: 'BoardViewController as vm'
     }
    },
@@ -214,14 +214,14 @@
    url: '/calendar',
    views: {
     'explorerContent@app.explorer.boards.board': {
-     templateUrl: 'src/app/main/apps/explorer/views/calendar/calendar-view.html',
+     templateUrl: 'app/main/apps/explorer/views/calendar/calendar-view.html',
      controller: 'CalendarViewController as vm'
     }
    }
   });
 
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/main/apps/explorer');
+  $translatePartialLoaderProvider.addPart('app/main/apps/explorer');
 
   // Api
 

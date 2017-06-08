@@ -29,7 +29,7 @@
    */
   function openCardDialog(ev, cardId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/mentorship/dialogs/card/card-dialog.html',
+    templateUrl: 'app/main/apps/mentorship/dialogs/card/card-dialog.html',
     controller: 'MentorshipCardDialogController',
     controllerAs: 'vm',
     parent: $document.find('#mentorship'),
@@ -52,7 +52,7 @@
    */
   function openAddMentorshipDialog(ev, mentorshipId, startTabIndex, preselectedData) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/mentorship/dialogs/add-mentorship/add-mentorship-dialog.html',
+    templateUrl: 'app/main/apps/mentorship/dialogs/add-mentorship/add-mentorship-dialog.html',
     controller: 'MentorshipAddMentorshipDialogController',
     controllerAs: 'vm',
     parent: $document.find('#mentorship'),
@@ -75,7 +75,7 @@
    */
   function openMentorshipDialog(ev, mentorshipId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/mentorships/dialogs/mentorship/mentorship-dialog.html',
+    templateUrl: 'app/main/apps/mentorships/dialogs/mentorship/mentorship-dialog.html',
     //parent: $document.find('#mentorships'),
     controller: 'MentorshipDialogController',
     controllerAs: 'vm',

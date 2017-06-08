@@ -85,7 +85,7 @@ Components Home
        <div class="gb-card-cover" flex>
         <div ng-if="recommendationComponent.component.component_picture_url && recommendationComponent.component.component_picture_url !== 'default.png'"
              class="gb-cover-image">
-         <img ng-src="src/assets/images/explorer/{{recommendationComponent.component.component_picture_url}}">
+         <img ng-src="assets/images/explorer/{{recommendationComponent.component.component_picture_url}}">
         </div>
         <div ng-if="recommendationComponent.component.component_placeholder_style"
              class="gb-cover-image"
@@ -108,7 +108,7 @@ Components Home
         </div>
         <div class="gb-image" ng-class="recommendationComponent.component.creator.theme_color">
          <img ng-if="recommendationComponent.component.creator.avatar_url !== 'gb-avatar.jpg'"
-              src="src/assets/images/profile_pic/{{recommendationComponent.component.creator.avatar_url}}"
+              src="assets/images/profile_pic/{{recommendationComponent.component.creator.avatar_url}}"
               class="gb-heading-pic" alt="">
          {{recommendationComponent.component.creator.firstname.substring(0, 1) + recommendationComponent.component.creator.lastname.substring(0, 1)}}
         </div>

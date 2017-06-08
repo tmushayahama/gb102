@@ -19,7 +19,7 @@
             url      : '/calendar',
             views    : {
                 'content@app': {
-                    templateUrl: 'src/app/main/apps/calendar/calendar.html',
+                    templateUrl: 'app/main/apps/calendar/calendar.html',
                     controller : 'CalendarController as vm'
                 }
             },
@@ -27,7 +27,7 @@
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('src/app/main/apps/calendar');
+        $translatePartialLoaderProvider.addPart('app/main/apps/calendar');
 
         // Navigation
         msNavigationServiceProvider.saveItem('apps.calendar', {

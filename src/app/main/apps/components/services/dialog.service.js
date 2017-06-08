@@ -40,7 +40,7 @@
    */
   function openCardDialog(ev, cardId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/card/card-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/card/card-dialog.html',
     controller: 'ExplorerCardDialogController',
     controllerAs: 'vm',
     parent: $document.find('#explorer'),
@@ -63,7 +63,7 @@
    */
   function openAddComponentDialog(ev, componentId, startTabIndex, preselectedData) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/add-component/add-component-dialog.html',
     controller: 'ExplorerAddComponentDialogController',
     controllerAs: 'vm',
     parent: angular.element($document.body),
@@ -88,7 +88,7 @@
    */
   function openAddComponentsDialog(ev, componentId, contents) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
+    templateUrl: 'app/main/apps/explorer/dialogs/add-components/add-components-dialog.html',
     controller: 'ExplorerAddComponentsDialogController',
     controllerAs: 'vm',
     // parent: $document.find('#explorer'),
@@ -110,7 +110,7 @@
    */
   function openComponentDialog(ev, componentId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component/component-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component/component-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentDialogController',
     controllerAs: 'vm',
@@ -132,7 +132,7 @@
    */
   function openComponentSectionDialog(ev, componentId, section) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-section/component-section-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-section/component-section-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentSectionDialogController',
     controllerAs: 'vm',
@@ -155,7 +155,7 @@
    */
   function openComponentChatsDialog(ev, componentId, chats) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-chat/component-chats-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-chat/component-chats-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentChatsDialogController',
     controllerAs: 'vm',
@@ -178,7 +178,7 @@
    */
   function openComponentCalendarDialog(ev, componentId, calendars) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-calendar/component-calendar-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-calendar/component-calendar-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentCalendarsDialogController',
     controllerAs: 'vm',
@@ -201,7 +201,7 @@
    */
   function openComponentDiscussionsDialog(ev, componentId, discussions) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-discussion/component-discussions-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-discussion/component-discussions-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentDiscussionsDialogController',
     controllerAs: 'vm',
@@ -224,7 +224,7 @@
    */
   function openComponentGraphsDialog(ev, componentId, graphs) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-graph/component-graphs-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-graph/component-graphs-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentGraphsDialogController',
     controllerAs: 'vm',
@@ -247,7 +247,7 @@
    */
   function openComponentListboardDialog(ev, componentId, listboard) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-listboard/component-listboard-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-listboard/component-listboard-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentListboardDialogController',
     controllerAs: 'vm',
@@ -270,7 +270,7 @@
    */
   function openComponentNotesDialog(ev, componentId, notes) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-note/component-notes-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-note/component-notes-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentNotesDialogController',
     controllerAs: 'vm',
@@ -293,7 +293,7 @@
    */
   function openComponentPinboardDialog(ev, componentId, pinboard) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-pinboard/component-pinboard-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-pinboard/component-pinboard-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentPinboardDialogController',
     controllerAs: 'vm',
@@ -316,7 +316,7 @@
    */
   function startComponentStoryDialog(ev, componentId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-story/component-story-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-story/component-story-dialog.html',
     controller: 'ComponentStoryDialogController',
     controllerAs: 'vm',
     // parent: $document.find('#explorer'),
@@ -336,9 +336,9 @@
    * @param componentId the component Id
    * @param contributor the contributor
    */
-  function openComponentContributorDialog(ev, componentId, contribution) {
+  function openComponentContributorDialog(ev, componentId, contributorId) {
    $mdDialog.show({
-    templateUrl: 'src/app/main/apps/components/dialogs/component-contributor/component-contributor-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-contributor/component-contributor-dialog.html',
     //parent: $document.find('#components'),
     controller: 'ComponentContributorDialogController',
     controllerAs: 'vm',
@@ -347,7 +347,7 @@
     escapeToClose: true,
     locals: {
      componentId: componentId,
-     contribution: contribution
+     contributorId: contributorId
     }
    });
   }

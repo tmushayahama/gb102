@@ -13,7 +13,7 @@
   var api = {};
 
   // Base Url
-  api.baseUrl = 'src/app/data/';
+  api.baseUrl = 'app/data/';
 
   api.config = {
    apps: $resource('/api/constants/componenttypes')
@@ -21,7 +21,7 @@
   /**
    * You can use this service to define your API urls. The "api" service
    * is designed to work in parallel with "apiResolver" service which you can
-   * find in the "src/app/core/services/api-resolver.service.js" file.
+   * find in the "app/core/services/api-resolver.service.js" file.
    *
    * You can structure your API urls whatever the way you want to structure them.
    * You can either use very simple definitions, or you can use multi-dimensional
@@ -141,7 +141,7 @@
    *          url      : '/blog',
    *          views    : {
    *               'content@app': {
-   *                   templateUrl: 'src/app/main/apps/blog/blog.html',
+   *                   templateUrl: 'app/main/apps/blog/blog.html',
    *                   controller : 'BlogController as vm'
    *               }
    *          },
@@ -159,7 +159,7 @@
    *          url      : '/blog/:id',
    *          views    : {
    *               'content@app': {
-   *                   templateUrl: 'src/app/main/apps/blog/blog.html',
+   *                   templateUrl: 'app/main/apps/blog/blog.html',
    *                   controller : 'BlogController as vm'
    *               }
    *          },
@@ -211,7 +211,7 @@
    timespans : $resource(api.baseUrl + 'gantt-chart/timespans.json')
    };
 
-   api.icons = $resource('src/assets/icons/selection.json');
+   api.icons = $resource('assets/icons/selection.json');
 
    api.invoice = $resource(api.baseUrl + 'invoice/invoice.json');
 

@@ -87,7 +87,7 @@ SWIPE TAB VIEW
   <div class="gb-card-cover">
    <div ng-if="swipe.component.component_picture_url && swipe.component.component_picture_url !== 'default.png'"
         class="gb-cover-image">
-    <img ng-src="src/assets/images/explorer/{{swipe.component.component_picture_url}}">
+    <img ng-src="assets/images/explorer/{{swipe.component.component_picture_url}}">
    </div>
    <div ng-if="swipe.component.component_placeholder_style"
         class="gb-cover-image"
@@ -101,7 +101,7 @@ SWIPE TAB VIEW
    <div class="gb-name-badge-1">
     <div class="gb-image">
      <img data-ui-sref="apps.component.overview({componentId: component.id})"
-          ng-src="src/assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
+          ng-src="assets/images/profile_pic/{{ ::component.creator.avatar_url}}"
           class="gb-heading-pic" alt="">
     </div>
     <p class="gb-name gb-ellipsis">

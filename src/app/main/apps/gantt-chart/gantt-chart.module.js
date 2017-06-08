@@ -31,7 +31,7 @@
             url    : '/gantt-chart',
             views  : {
                 'content@app': {
-                    templateUrl: 'src/app/main/apps/gantt-chart/gantt-chart.html',
+                    templateUrl: 'app/main/apps/gantt-chart/gantt-chart.html',
                     controller : 'GanttChartController as vm'
                 }
             },
@@ -48,7 +48,7 @@
         });
 
         // Translation
-        $translatePartialLoaderProvider.addPart('src/app/main/apps/gantt-chart');
+        $translatePartialLoaderProvider.addPart('app/main/apps/gantt-chart');
 
         // Navigation
         msNavigationServiceProvider.saveItem('apps.gantt-chart', {
@@ -59,8 +59,8 @@
         });
 
         // Api
-        msApiProvider.register('ganttChart.tasks', ['src/app/data/gantt-chart/tasks.json']);
-        msApiProvider.register('ganttChart.timespans', ['src/app/data/gantt-chart/timespans.json']);
+        msApiProvider.register('ganttChart.tasks', ['app/data/gantt-chart/tasks.json']);
+        msApiProvider.register('ganttChart.timespans', ['app/data/gantt-chart/timespans.json']);
 
     }
 

@@ -24,7 +24,7 @@
     <div class="gb-image" ng-class="vm.contribution.contributor.theme_color">
      <img ng-if="vm.contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
           data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-          ng-src="src/assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
+          ng-src="assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
           class="gb-heading-pic" alt="">
      {{vm.contribution.contributor.firstname.substring(0, 1) + vm.contribution.contributor.lastname.substring(0, 1)}}
     </div>
@@ -99,7 +99,7 @@
      <div class="gb-image" ng-class="vm.contribution.contributor.theme_color">
       <img ng-if="vm.contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
            data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           ng-src="src/assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
+           ng-src="assets/images/profile_pic/{{vm.contribution.contributor.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{vm.contribution.contributor.firstname.substring(0, 1) + vm.contribution.contributor.lastname.substring(0, 1)}}
      </div>

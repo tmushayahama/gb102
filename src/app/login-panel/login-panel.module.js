@@ -10,7 +10,7 @@
  function config($translatePartialLoaderProvider, msApiProvider)
  {
   // Translation
-  $translatePartialLoaderProvider.addPart('src/app/login-panel');
+  $translatePartialLoaderProvider.addPart('app/login-panel');
 
  }
 })();

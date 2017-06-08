@@ -198,7 +198,7 @@ module.exports = function (grunt) {
      },
      {
       match: /src="app\//g,
-      replacement: 'src="public/app-v2/src/app/'
+      replacement: 'src="public/app-v2/app/'
      }
     ]
    },

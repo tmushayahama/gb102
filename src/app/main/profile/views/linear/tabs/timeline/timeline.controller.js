@@ -80,12 +80,12 @@
     angular.forEach(data.components, function (component) {
      vm.timeline.push({
       "card": {
-       "template": "src/app/core/directives/ms-card/templates/template-10/template-10.html",
+       "template": "app/core/directives/ms-card/templates/template-10/template-10.html",
        "title": component.type.title,
        "subtitle": component.title,
        "media": {
         "image": {
-         "src": "src/assets/images/profile_pic/" + component.creator.avatar_url,
+         "src": "assets/images/profile_pic/" + component.creator.avatar_url,
          "alt": component.creator.firstname
         }
        },

@@ -145,7 +145,7 @@ LINEAR VIEW HOME
      </div>
      <div class="gb-image" ng-class="componentLinearCtrl.component.creator.theme_color">
       <img ng-if="componentLinearCtrl.component.creator.avatar_url !== 'gb-avatar.jpg'"
-           ng-src="src/assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
+           ng-src="assets/images/profile_pic/{{componentLinearCtrl.component.creator.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{componentLinearCtrl.component.creator.firstname.substring(0, 1) + componentLinearCtrl.component.creator.lastname.substring(0, 1)}}
      </div>
@@ -154,7 +154,7 @@ LINEAR VIEW HOME
    <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
         flex-gt-sm="25" flex-gt-xs="33" flex="100">
     <div class="gb-card-profile md-whiteframe-1dp"
-         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, contribution)">
+         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, contribution.contributor_id)">
      <div class="gb-box-content">
       <div class="gb-title">
        <a class="gb-ellipsis">
@@ -171,7 +171,7 @@ LINEAR VIEW HOME
      <div class="gb-image" ng-class="contribution.contributor.theme_color">
       <img ng-if="contribution.contributor.avatar_url !== 'gb-avatar.jpg'"
            data-ui-sref="apps.explorer.overview({explorerId: explorer.id})"
-           ng-src="src/assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
+           ng-src="assets/images/profile_pic/{{contribution.contributor.avatar_url}}"
            class="gb-heading-pic" alt="">
       {{contribution.contributor.firstname.substring(0, 1) + contribution.contributor.lastname.substring(0, 1)}}
      </div>

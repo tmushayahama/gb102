@@ -365,7 +365,7 @@
     componentType: '=',
     componentId: '='
    },
-   templateUrl: 'src/app/main/apps/components/directives/ms-component-form/ms-component-form.html',
+   templateUrl: 'app/main/apps/components/directives/ms-component-form/ms-component-form.html',
    link: function (scope, element, attributes, MsComponentForm)
    {
     // Type

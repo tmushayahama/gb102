@@ -72,10 +72,10 @@ gulp.task('html', ['inject', 'partials'], function ()
          }));
 });
 
-//To replace app with src/app
+//To replace app with app
 gulp.task('index-replace-html', function () {
  return gulp.src([conf.paths.tmp + '/serve/index.html'])
-         .pipe(replace('app/', 'src/app/'))
+         .pipe(replace('app/', 'app/'))
          .pipe(gulp.dest(''));
 });
 
@@ -85,7 +85,7 @@ gulp.task('index-replace-css', function () {
          .pipe(gulp.dest(conf.paths.src + '/app/'));
 });
 
-//To replace app with src/app
+//To replace app with app
 gulp.task('index-replace-html-dist', function () {
  return gulp.src([conf.paths.src + '/index.html'])
          .pipe(replace('scripts/', 'src/scripts/'))

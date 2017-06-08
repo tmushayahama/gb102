@@ -69,7 +69,7 @@
   return {
    restrict: 'E',
    controller: 'msSbAddCardController as vm',
-   templateUrl: 'src/app/main/apps//directives/ms-sb-add-card/ms-sb-add-card.html',
+   templateUrl: 'app/main/apps//directives/ms-sb-add-card/ms-sb-add-card.html',
    scope: {
     msListId: '='
    },
