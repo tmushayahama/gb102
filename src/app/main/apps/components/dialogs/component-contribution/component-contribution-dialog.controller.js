@@ -38,7 +38,7 @@
    * Initialize
    */
   function init() {
-   ComponentService.getComponentContribution(vm.componentId, vm.contribution.contributor_id).then(function (data) {
+   ComponentService.getComponentContribution(componentId, contributorId).then(function (data) {
     vm.contribution = data.contribution;
    });
   }

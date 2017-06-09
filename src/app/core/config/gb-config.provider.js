@@ -8,7 +8,7 @@
 
  var DEBUG = true;
 
- var apiUrl = DEBUG ? "localhost:8000/" : window.location.origin + window.location.pathname;
+ var apiUrl = DEBUG ? "http://localhost:8000/" : window.location.origin + window.location.pathname;
 
  if (!apiUrl.endsWith("/")) {
   apiUrl = apiUrl + "/";

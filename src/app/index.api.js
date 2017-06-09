@@ -7,13 +7,12 @@
          .factory('api', apiService);
 
  /** @ngInject */
- function apiService($resource)
+ function apiService(gbConfig, $resource)
  {
 
   var api = {};
 
-  // Base Url
-  api.baseUrl = 'app/data/';
+  var apiUrl = gbConfig.getConfig("apiUrl");
 
   api.config = {
    apps: $resource('/api/constants/componenttypes')

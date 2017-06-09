@@ -69,7 +69,7 @@
   vm.openComponentSectionDialog = DialogService.openComponentSectionDialog;
   vm.openAddComponentDialog = DialogService.openAddComponentDialog;
   vm.openCardDialog = DialogService.openCardDialog;
-  vm.openComponentContributorDialog = DialogComponentService.openComponentContributorDialog;
+  vm.openComponentContributionDialog = DialogComponentService.openComponentContributionDialog;
   vm.createComponent = createComponent;
   vm.updateComponentDescription = updateComponentDescription;
   vm.removeList = removeList;

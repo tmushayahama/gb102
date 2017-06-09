@@ -16,8 +16,9 @@
          .config(config);
 
  /** @ngInject */
- function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
- {
+ function config(gbConfigProvider, $stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider) {
+  var apiUrl = gbConfigProvider.getConfig("apiUrl");
+
   $stateProvider
           .state('app.matcher', {
            url: '/matcher',
@@ -95,17 +96,17 @@
   $translatePartialLoaderProvider.addPart('app/main/apps/matcher');
 
   // Api
-  msApiProvider.register('matcher.getMatcher', ['/api/components/random']);
-  msApiProvider.register('matcher.getMatcherByType', ['/api/components/random/typeid/:typeId',
+  msApiProvider.register('matcher.getMatcher', [apiUrl + 'api/components/random']);
+  msApiProvider.register('matcher.getMatcherByType', [apiUrl + 'api/components/random/typeid/:typeId',
    {
     typeId: '@typeId'
    }
   ]);
-  msApiProvider.register('matcher.getMatchers', ['/api/components/bookmarks/:creatorId',
+  msApiProvider.register('matcher.getMatchers', [apiUrl + 'api/components/bookmarks/:creatorId',
    {
     creatorId: "@creatorId"
    }]);
-  msApiProvider.register('matcher.createMatcher', ['/api/components/create']);
+  msApiProvider.register('matcher.createMatcher', [apiUrl + 'api/components/create']);
 
  }
 

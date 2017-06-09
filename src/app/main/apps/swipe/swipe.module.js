@@ -16,8 +16,9 @@
          .config(config);
 
  /** @ngInject */
- function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
- {
+ function config(gbConfigProvider, $stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider) {
+  var apiUrl = gbConfigProvider.getConfig("apiUrl");
+
   $stateProvider
           .state('app.swipe', {
            url: '/swipe',
@@ -95,17 +96,17 @@
   $translatePartialLoaderProvider.addPart('app/main/apps/swipe');
 
   // Api
-  msApiProvider.register('swipe.getSwipe', ['/api/components/random']);
-  msApiProvider.register('swipe.getSwipeByType', ['/api/components/random/type/:typeId',
+  msApiProvider.register('swipe.getSwipe', [apiUrl + 'api/components/random']);
+  msApiProvider.register('swipe.getSwipeByType', [apiUrl + 'api/components/random/type/:typeId',
    {
     typeId: '@typeId'
    }
   ]);
-  msApiProvider.register('swipe.getSwipes', ['/api/components/bookmarks/:creatorId',
+  msApiProvider.register('swipe.getSwipes', [apiUrl + 'api/components/bookmarks/:creatorId',
    {
     creatorId: "@creatorId"
    }]);
-  msApiProvider.register('swipe.createSwipe', ['/api/components/bookmarks/create']);
+  msApiProvider.register('swipe.createSwipe', [apiUrl + 'api/components/bookmarks/create']);
 
  }
 

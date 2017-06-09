@@ -9,8 +9,9 @@
          .config(config);
 
  /** @ngInject */
- function config($stateProvider, msApiProvider)
- {
+ function config(gbConfigProvider, $stateProvider, msApiProvider) {
+  var apiUrl = gbConfigProvider.getConfig("apiUrl");
+
   // State
   $stateProvider.state('app.welcome', {
    url: '/welcome',
@@ -32,7 +33,7 @@
   });
 
   // Api
-  msApiProvider.register('welcome.components', ['/api/components/listformat/:listFormat',
+  msApiProvider.register('welcome.components', [apiUrl + 'api/components/listformat/:listFormat',
    {
     listFormat: "@listFormat"
    }]);

@@ -23,7 +23,7 @@
    openComponentGraphsDialog: openComponentGraphsDialog,
    openComponentCalendarDialog: openComponentCalendarDialog,
    startComponentStoryDialog: startComponentStoryDialog,
-   openComponentContributorDialog: openComponentContributorDialog,
+   openComponentContributionDialog: openComponentContributionDialog,
   };
 
   //////////
@@ -336,11 +336,11 @@
    * @param componentId the component Id
    * @param contributor the contributor
    */
-  function openComponentContributorDialog(ev, componentId, contributorId) {
+  function openComponentContributionDialog(ev, componentId, contributorId) {
    $mdDialog.show({
-    templateUrl: 'app/main/apps/components/dialogs/component-contributor/component-contributor-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-contribution/component-contribution-dialog.html',
     //parent: $document.find('#components'),
-    controller: 'ComponentContributorDialogController',
+    controller: 'ComponentContributionDialogController',
     controllerAs: 'vm',
     targetEvent: ev,
     clickOutsideToClose: true,

@@ -7,9 +7,10 @@
          .controller('LoginPanelController', LoginPanelController);
 
  /** @ngInject */
- function LoginPanelController(msApi, $mdSidenav, $http, $auth, $rootScope, $state, localStorageService)
+ function LoginPanelController(gbConfig, msApi, $mdSidenav, $http, $auth, $rootScope, $state, localStorageService)
  {
   var vm = this;
+  var apiUrl = gbConfig.getConfig("apiUrl");
 
   vm.user;
 
@@ -17,7 +18,7 @@
 
    $auth.login(vm.user).then(function ()
    {
-    return $http.get('api/authenticate/user');
+    return $http.get(apiUrl + 'api/authenticate/user');
    }, function (error) {
     vm.loginError = true;
     vm.loginErrorText = error.data.error;

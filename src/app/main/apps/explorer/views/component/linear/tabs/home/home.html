@@ -129,7 +129,7 @@ LINEAR VIEW HOME
   <div layout="row" layout-align="start start" flex layout-wrap>
    <div class="p-8" flex-gt-sm="25" flex-gt-xs="33" flex="100">
     <div class="gb-card-profile md-whiteframe-1dp"
-         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, componentLinearCtrl.component.creator_id)">
+         ng-click="componentLinearCtrl.openComponentContributionDialog($event, componentLinearCtrl.component.id, componentLinearCtrl.component.creator_id)">
      <div class="gb-box-content">
       <div class="gb-title">
        <a  class="gb-ellipsis">
@@ -154,7 +154,7 @@ LINEAR VIEW HOME
    <div ng-repeat="contribution in componentLinearCtrl.component.contributions" class="p-8"
         flex-gt-sm="25" flex-gt-xs="33" flex="100">
     <div class="gb-card-profile md-whiteframe-1dp"
-         ng-click="componentLinearCtrl.openComponentContributorDialog($event, componentLinearCtrl.component.id, contribution.contributor_id)">
+         ng-click="componentLinearCtrl.openComponentContributionDialog($event, componentLinearCtrl.component.id, contribution.contributor_id)">
      <div class="gb-box-content">
       <div class="gb-title">
        <a class="gb-ellipsis">

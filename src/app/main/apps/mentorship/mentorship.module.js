@@ -16,8 +16,9 @@
          .config(config);
 
  /** @ngInject */
- function config($stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider)
- {
+ function config(gbConfigProvider, $stateProvider, $translatePartialLoaderProvider, msApiProvider, msNavigationServiceProvider) {
+  var apiUrl = gbConfigProvider.getConfig("apiUrl");
+
   $stateProvider
           .state('app.mentorship', {
            url: '/mentorship',
@@ -169,20 +170,20 @@
   $translatePartialLoaderProvider.addPart('app/main/apps/mentorship');
 
   // Api
-  msApiProvider.register('mentorship.mentorship', ['/api/mentorship/:id/listformat/:listFormat',
+  msApiProvider.register('mentorship.mentorship', [apiUrl + 'api/mentorship/:id/listformat/:listFormat',
    {
     id: "@id",
     listformat: "@listformat"
    }]);
-  msApiProvider.register('mentorship.createMentorship', ['/api/mentorships/create']);
-  msApiProvider.register('mentorship.updateMentorship', ['/api/mentorships/update']);
-  msApiProvider.register('mentorship.updateMentorshipDescription', ['/api/mentorships/:mentorshipId/update/description', {
+  msApiProvider.register('mentorship.createMentorship', [apiUrl + 'api/mentorships/create']);
+  msApiProvider.register('mentorship.updateMentorship', [apiUrl + 'api/mentorships/update']);
+  msApiProvider.register('mentorship.updateMentorshipDescription', [apiUrl + 'api/mentorships/:mentorshipId/update/description', {
     mentorshipId: "@mentorshipId",
    }]);
-  msApiProvider.register('mentorship.updateMentorshipBackground', ['/api/mentorships/:mentorshipId/update/background', {
+  msApiProvider.register('mentorship.updateMentorshipBackground', [apiUrl + 'api/mentorships/:mentorshipId/update/background', {
     mentorshipId: "@mentorshipId",
    }]);
-  msApiProvider.register('mentorship.mentorships', ['/api/mentorships/listformat/:listFormat',
+  msApiProvider.register('mentorship.mentorships', [apiUrl + 'api/mentorships/listformat/:listFormat',
    {
     listFormat: "@listFormat"
    }]);
@@ -194,12 +195,12 @@
    {
     appName: '@appName'
    }]);
-  msApiProvider.register('mentorship.randomMentorshipByType', ['/api/mentorships/random/type/:typeId',
+  msApiProvider.register('mentorship.randomMentorshipByType', [apiUrl + 'api/mentorships/random/type/:typeId',
    {
     typeId: '@typeId'
    }
   ]);
-  msApiProvider.register('mentorship.randomMentorship', ['/api/mentorships/random']);
+  msApiProvider.register('mentorship.randomMentorship', [apiUrl + 'api/mentorships/random']);
 
   /*Mentorship Request*/
   msApiProvider.register('mentorship.getRequestSuggestions', ['api/mentorships/:mentorshipId/request/type/:typeId/suggestions',
@@ -207,17 +208,17 @@
     mentorshipId: "@mentorshipId",
     typeId: "@typeId"
    }]);
-  msApiProvider.register('mentorship.createMentorshipRequests', ['/api/mentorships/requests/create']);
+  msApiProvider.register('mentorship.createMentorshipRequests', [apiUrl + 'api/mentorships/requests/create']);
 
 
   /*Mentorship Bookmarks*/
-  msApiProvider.register('mentorship.getMentorshipBookmarks', ['/api/mentorships/bookmarks/:creatorId',
+  msApiProvider.register('mentorship.getMentorshipBookmarks', [apiUrl + 'api/mentorships/bookmarks/:creatorId',
    {
     creatorId: "@creatorId"
    }]);
-  msApiProvider.register('mentorship.createMentorshipBookmark', ['/api/mentorships/bookmarks/create']);
+  msApiProvider.register('mentorship.createMentorshipBookmark', [apiUrl + 'api/mentorships/bookmarks/create']);
   /*User Mentorship*/
-  msApiProvider.register('mentorship.userMentorships', ['/api/mentorships/user/:userId/listformat/:listFormat',
+  msApiProvider.register('mentorship.userMentorships', [apiUrl + 'api/mentorships/user/:userId/listformat/:listFormat',
    {
     userId: "@userId",
     listFormat: "@listFormat"
