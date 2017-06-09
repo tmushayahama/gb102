@@ -204,13 +204,12 @@ class ComponentController extends Controller {
  /**
   * Get a component contributor
   *
-  * @param type $componentId a component
-  * @param type $contributorId a contributor
+  * @param type $contributionId a contributoion
   *
   * @return type json response of a component Contributor
   */
- public function getComponentContribution($componentId, $contributorId) {
-  $componentContribution = ComponentContribution::getComponentContribution($componentId, $contributorId);
+ public function getComponentContribution($contributionId) {
+  $componentContribution = ComponentContribution::getComponentContribution($contributionId);
   return \Response::json($componentContribution);
  }
 

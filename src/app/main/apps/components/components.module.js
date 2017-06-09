@@ -59,9 +59,8 @@
   msApiProvider.register('component.getComponentContributions', [apiUrl + 'api/components/:componentId/contributions', {
     componentId: "@componentId"
    }]);
-  msApiProvider.register('component.getComponentContribution', [apiUrl + 'api/components/:componentId/contributions/:contributorId', {
-    componentId: "@componentId",
-    contributorId: "@contributorId"
+  msApiProvider.register('component.getComponentContribution', [apiUrl + 'api/contributions/:contributionId', {
+    contributionId: "@contributinId"
    }]);
 
   /*Component Bookmarks*/

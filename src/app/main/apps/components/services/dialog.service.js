@@ -336,7 +336,7 @@
    * @param componentId the component Id
    * @param contributor the contributor
    */
-  function openComponentContributionDialog(ev, componentId, contributorId) {
+  function openComponentContributionDialog(ev, contributionId) {
    $mdDialog.show({
     templateUrl: 'app/main/apps/components/dialogs/component-contribution/component-contribution-dialog.html',
     //parent: $document.find('#components'),
@@ -346,8 +346,7 @@
     clickOutsideToClose: true,
     escapeToClose: true,
     locals: {
-     componentId: componentId,
-     contributorId: contributorId
+     contributionId: contributionId
     }
    });
   }

@@ -73,7 +73,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function() {
 //Component Contributions
  Route::get('components/{componentId}/contribution/type/{typeId}/suggestions', 'Component\ComponentController@getContributionSuggestions');
  Route::get('components/{componentId}/contributions', 'Component\ComponentController@getComponentContributions');
- Route::get('components/{componentId}/contributions/{contributotId}', 'Component\ComponentController@getComponentContribution');
+ Route::get('contributions/{contributionId}', 'Component\ComponentController@getComponentContribution');
  Route::post('components/contributions/create', 'Component\ComponentController@createComponentContributions');
  //Mentorship
  Route::get('components/{componentId}/mentorships', 'Mentorship\MentorshipController@getMentorship');
@@ -81,10 +81,9 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function() {
  //Mentorship Request
  Route::get('mentorships/{componentId}/request/type/{typeId}/suggestions', 'Mentorship\MentorshipController@getRequestSuggestions');
  Route::get('mentorship/{mentorshipId}/listformat/{listFormat}', 'Mentorship\MentorshipController@getMentorship');
-
-
-
  //Component Bookmarks
  Route::get('components/bookmarks/{creatorId}', 'Component\ComponentController@getComponentBookmarks');
  Route::post('components/bookmarks/create', 'Component\ComponentController@createComponentBookmark');
+ //Contribution
+ Route::get('contributions/{contributionId}', 'Component\ComponentController@getComponentContribution');
 });

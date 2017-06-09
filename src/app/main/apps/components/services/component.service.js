@@ -334,17 +334,15 @@
   /**
    * Get a Component Contributions of a contributor
    *
-   * @param componentId a component
-   * @param contributorId a contributor
+   * @param contributionId a contributor
    *
    * @returns promise of the deferred response
    */
-  function getComponentContribution(componentId, contributorId) {
+  function getComponentContribution(contributionId) {
    var deferred = $q.defer();
 
    msApi.request('component.getComponentContribution@get', {
-    componentId: componentId,
-    contributorId: contributorId
+    contributionId: contributionId
    }, function (response) {
     deferredHandler(response, deferred);
    }, function (response) {
