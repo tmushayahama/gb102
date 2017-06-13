@@ -57,8 +57,14 @@
                    "parent": 6001,
                    "application": 6002
                   },
-                  "list": {
-                   "handpicked": 1
+                  "componentFormat": {
+                   "none": 0,
+                   "subcomponents": 1,
+                   "types": 2,
+                   "columns": 3,
+                   "linear": 4,
+                   "recommendations": 5,
+                   "tree": 6
                   },
                   "share": {
                    "explorer": 300000,

@@ -1,0 +1,70 @@
+<!-- NOTE DIALOG -->
+<md-dialog class="gb-component-section-dialog gb-card-row " aria-label="Card Dialog" ng-cloak>
+ <md-toolbar class="gb-heading" layout="column" layout-align="start center" flex>
+  <div class="md-toolbar-tools gb-container">
+   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+              translate translate-attr-aria-label="SB.CLOSE_DIALOG">
+    <md-icon md-font-icon="fa fa-arrow-left"></md-icon>
+   </md-button>
+   <div class="gb-heading-title">
+    <span class="ellipsis">
+     {{vm.component.title}}
+    </span>
+   </div>
+   <span flex></span>
+   <md-button class="md-icon-button" ng-click="vm.closeDialog()" aria-label="Close Dialog"
+              translate translate-attr-aria-label="SB.CLOSE_DIALOG">
+    <md-icon md-font-icon="icon-close"></md-icon>
+   </md-button>
+  </div>
+ </md-toolbar>
+ <md-dialog-content ms-scroll>
+  <div class="p-8" ng-repeat="section in vm.component.sections"
+       ng-if="section.components.length > 0">
+   <div class="gb-component-row-card gb-card-row md-whiteframe-1dp" layout="column" layout-align="start stretch" flex>
+    <md-toolbar class="gb-heading" flex>
+     <div class="md-toolbar-tools">
+      <div class="gb-heading-title">
+       <span class="ellipsis">
+        {{section.title}}
+       </span>
+      </div>
+      <span flex></span>
+      <md-button ng-click="vm.openComponentSectionDialog($event, vm.component.id, section)"
+                 class="gb-action-btn" aria-label="View Section Fullscreen">
+       <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
+      </md-button>
+     </div>
+    </md-toolbar>
+    <div class="gb-card-content" flex>
+     <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
+          layout="row" layout-align="start center">
+      <a class="" ng-click="vm.openComponentDialog($event, component.id)" flex >
+       <div class="gb-ellipsis">
+        {{component.title}}
+       </div>
+      </a>
+      <div ng-if="component.stats.activities_count > 0" class="gb-label-stats" flex>
+       {{component.stats.activities_count}}
+       <i class="fa icon-gb-apply"></i>
+      </div>
+      <div class="gb-action-btn" flex>
+       <md-button ui-sref="app.componentLinearView.home({id:component.id})" class="md-icon-button" aria-label="open">
+        <md-icon class="" md-font-icon="fa fa-chevron-right"></md-icon>
+       </md-button>
+      </div>
+     </div>
+     <form ng-submit="vm.createComponent(section)" class="gb-add-component-form">
+      <md-input-container class="md-block" md-no-float>
+       <input type="text" class="gb-add-component-input" ng-model="section.newComponent.title" placeholder='Add to "{{section.title}}"' md-maxlength="150">
+      </md-input-container>
+     </form>
+    </div>
+   </div>
+  </div>
+
+
+
+
+ </md-dialog-content>
+</md-dialog>

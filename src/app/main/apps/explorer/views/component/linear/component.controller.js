@@ -66,7 +66,7 @@
 
   // Methods
   vm.openComponentDialog = DialogService.openComponentDialog;
-  vm.openComponentSectionDialog = DialogService.openComponentSectionDialog;
+  vm.openComponentEditorDialog = DialogComponentService.openComponentEditorDialog;
   vm.openAddComponentDialog = DialogService.openAddComponentDialog;
   vm.openCardDialog = DialogService.openCardDialog;
   vm.openComponentContributionDialog = DialogComponentService.openComponentContributionDialog;

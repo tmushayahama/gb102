@@ -14,7 +14,7 @@
    openAddComponentDialog: openAddComponentDialog,
    openAddComponentsDialog: openAddComponentsDialog,
    openComponentDialog: openComponentDialog,
-   openComponentSectionDialog: openComponentSectionDialog,
+   openComponentEditorDialog: openComponentEditorDialog,
    openComponentNotesDialog: openComponentNotesDialog,
    openComponentPinboardDialog: openComponentPinboardDialog,
    openComponentListboardDialog: openComponentListboardDialog,
@@ -124,24 +124,24 @@
   }
 
   /**
-   * Open component section for editing purposes
+   * Open component editor for editing purposes
    *
    * @param ev  the event which triggered the dialog
    * @param componentId the component Id
-   * @param section the section
+   * @param editor the editor
    */
-  function openComponentSectionDialog(ev, componentId, section) {
+  function openComponentEditorDialog(ev, componentId, defaultComponentFormatId) {
    $mdDialog.show({
-    templateUrl: 'app/main/apps/components/dialogs/component-section/component-section-dialog.html',
+    templateUrl: 'app/main/apps/components/dialogs/component-editor/component-editor-dialog.html',
     //parent: $document.find('#components'),
-    controller: 'ComponentSectionDialogController',
+    controller: 'ComponentEditorDialogController',
     controllerAs: 'vm',
     targetEvent: ev,
     clickOutsideToClose: true,
     escapeToClose: true,
     locals: {
      componentId: componentId,
-     section: section
+     defaultComponentFormatId: defaultComponentFormatId
     }
    });
   }

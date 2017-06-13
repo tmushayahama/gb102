@@ -291,15 +291,13 @@
    * Update check list stats
    * @param list
    */
-  function updateCheckedCount(list)
-  {
+  function updateCheckedCount(list) {
    var checkItems = list.checkItems;
    var checkedItems = 0;
    var allCheckedItems = 0;
    var allCheckItems = 0;
 
-   angular.forEach(checkItems, function (checkItem)
-   {
+   angular.forEach(checkItems, function (checkItem) {
     if (checkItem.checked)
     {
      checkedItems++;

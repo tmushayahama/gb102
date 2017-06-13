@@ -249,7 +249,7 @@ LINEAR VIEW HOME
         </span>
        </div>
        <span flex></span>
-       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+       <md-button ng-click="componentLinearCtrl.openComponentEditorDialog($event, componentLinearCtrl.component.id, section.component_type)"
                   class="gb-action-btn" aria-label="Add Section Item">
         <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
        </md-button>
@@ -258,7 +258,7 @@ LINEAR VIEW HOME
      <div class="gb-card-content" flex>
       <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
            layout="row" layout-align="start center">
-       <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <a class="" ng-click="componentLinearCtrl.openComponentEditorDialog($event, component.id, component.component_type)" flex >
         <div class="gb-ellipsis">
          {{component.title}}
         </div>
@@ -292,7 +292,7 @@ LINEAR VIEW HOME
         </span>
        </div>
        <span flex></span>
-       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+       <md-button ng-click="componentLinearCtrl.openComponentEditorDialog($event, componentLinearCtrl.component.id, section.component_type)"
                   class="gb-action-btn" aria-label="View Section Fullscreen">
         <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
        </md-button>
@@ -301,7 +301,7 @@ LINEAR VIEW HOME
      <div class="gb-card-content" flex>
       <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
            layout="row" layout-align="start center">
-       <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <a class="" ng-click="componentLinearCtrl.openComponentEditorDialog($event, component.id, component.component_type)" flex >
         <div class="gb-ellipsis">
          {{component.title}}
         </div>
@@ -335,7 +335,7 @@ LINEAR VIEW HOME
         </span>
        </div>
        <span flex></span>
-       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+       <md-button ng-click="componentLinearCtrl.openComponentEditorDialog($event, componentLinearCtrl.component.id, section.component_type)"
                   class="gb-action-btn" aria-label="View Section Fullscreen">
         <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
        </md-button>
@@ -344,7 +344,7 @@ LINEAR VIEW HOME
      <div class="gb-card-content" flex>
       <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
            layout="row" layout-align="start center">
-       <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <a class="" ng-click="componentLinearCtrl.openComponentEditorDialog($event, component.id, component.component_type)" flex >
         <div class="gb-ellipsis">
          {{component.title}}
         </div>
@@ -378,7 +378,7 @@ LINEAR VIEW HOME
         </span>
        </div>
        <span flex></span>
-       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+       <md-button ng-click="componentLinearCtrl.openComponentEditorDialog($event, componentLinearCtrl.component.id, section.component_type)"
                   class="gb-action-btn" aria-label="View Section Fullscreen">
         <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
        </md-button>
@@ -387,7 +387,7 @@ LINEAR VIEW HOME
      <div class="gb-card-content" flex>
       <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
            layout="row" layout-align="start center">
-       <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <a class="" ng-click="componentLinearCtrl.openComponentEditorDialog($event, component.id, component.component_type)" flex >
         <div class="gb-ellipsis">
          {{component.title}}
         </div>
@@ -421,7 +421,7 @@ LINEAR VIEW HOME
         </span>
        </div>
        <span flex></span>
-       <md-button ng-click="componentLinearCtrl.openComponentSectionDialog($event, componentLinearCtrl.component.id, section)"
+       <md-button ng-click="componentLinearCtrl.openComponentEditorDialog($event, componentLinearCtrl.component.id, section.component_type)"
                   class="gb-action-btn" aria-label="Add Section Item">
         <md-icon class="" md-font-icon="icon-fullscreen"></md-icon>
        </md-button>
@@ -430,7 +430,7 @@ LINEAR VIEW HOME
      <div class="gb-card-content" flex>
       <div ng-repeat="component in section.components" class="gb-title" ng-class="'md-' + component.background_color + '-400-bg'"
            layout="row" layout-align="start center">
-       <a class="" ng-click="componentLinearCtrl.openComponentDialog($event, component.id)" flex >
+       <a class="" ng-click="componentLinearCtrl.openComponentEditorDialog($event, component.id, component.component_type)" flex >
         <div class="gb-ellipsis">
          {{component.title}}
         </div>

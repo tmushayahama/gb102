@@ -348,6 +348,7 @@ class Component extends Model {
           ->with('creator')
           ->with('parentComponent')
           ->find($componentId);
+  $component["componentType"] = $listFormat;
   $component["stats"] = self::getComponentStats($componentId);
   $component["contributions"] = ComponentContribution::getComponentContributions($componentId);
   $component["mentorships"] = Mentorship::getMentorships($componentId);
@@ -577,6 +578,7 @@ class Component extends Model {
   $components = array();
   foreach ($componentTypes as $componentType) {
    $components[$componentType->id] = $componentType;
+   $components[$componentType->id]["component_type"] = Level::$componentJsonFormat["types"];
    $components[$componentType->id]["components"] = Component::getSubComponentsByType($componentId, $componentType->id);
   }
   return $components;
