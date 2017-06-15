@@ -14,6 +14,7 @@
   vm.tabs = add_component_tabs;
   vm.componentId = $stateParams.id;
   vm.privacy = level_categories.privacy;
+  vm.componentFormat = level_categories.componentFormat;
   vm.currentView = 'board';
   vm.component = [];
   vm.cardFilters = CardFilters;

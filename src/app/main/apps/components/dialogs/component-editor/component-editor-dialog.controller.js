@@ -16,16 +16,16 @@
   vm.componentFormat = level_categories.componentFormat;
   vm.board = [];
   vm.component = [];
+  vm.componentHistory = [];
   vm.newLabelColor = 'red';
   vm.members = vm.board.members;
   vm.labels = vm.board.labels;
 
   // Methods
+  vm.getComponent = getComponent;
   vm.createComponent = createComponent;
-  vm.openComponentDialog = DialogService.openComponentDialog;
   vm.updateComponentDescription = updateComponentDescription;
   vm.updateComponentBackground = updateComponentBackground;
-  vm.openComponent = openComponent;
   vm.goBack = goBack;
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
@@ -39,6 +39,12 @@
 
   //////////
 
+  /**
+   * Initialize
+   */
+  function init() {
+   getComponent(componentId, defaultComponentFormatId);
+  }
 
   /**
    * Create a new component
@@ -108,22 +114,20 @@
   }
 
   function goBack() {
-   if (vm.componentHistory.length <= 1) {
-    closeDialog();
-   } else {
+   if (vm.componentHistory.length > 0) {
     vm.componentHistory.pop();
     var id = vm.componentHistory[vm.componentHistory.length - 1];
-    getComponent(id, true);
+    getComponent(id, vm.componentFormat.types, true);
    }
   }
 
   function getComponent(id, componentFormat, back) {
    switch (componentFormat) {
     case vm.componentFormat.none:
-     getComponentByNone(id, back);
+     getComponentByNone(id, componentFormat, back);
      break;
     case vm.componentFormat.types:
-     getComponentByTypw(id, back);
+     getComponentByTypw(id, componentFormat, back);
      break;
    }
   }
@@ -140,19 +144,14 @@
   }
 
   function getComponentByTypw(id, componentFormatId, back) {
-   ComponentService.getComponentsByType(componentId, componentFormatId).then(function (data) {
-    vm.component.components = data;
+   ComponentService.getComponent(id, componentFormatId).then(function (data) {
+    vm.component = data;
     if (!back) {
      vm.componentHistory.push(id);
     }
    });
   }
 
-  /**
-   * Initialize
-   */
-  function init() {
-   getComponent(componentId, defaultComponentFormatId);
-  }
+
  }
 })();
