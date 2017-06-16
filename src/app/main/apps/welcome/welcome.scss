@@ -9,6 +9,18 @@ $color-4: #9A6D36;
 $color-5: #41642A;
 $color-6: #077568;
 
+.gb-actions-lg {
+ @include deep-height(50px);
+ padding: 0;
+ z-index: 3;
+ .md-button {
+  margin: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  height: 100%;
+  line-height: 55px;
+ }
+}
 
 .gb-lobby-bg {
  position: relative;
@@ -56,32 +68,24 @@ $color-6: #077568;
 
 .gb-elevator-background {
  position: relative;
- background:  url(../../../assets/images/house/gb-elevator-1.jpg) no-repeat,
-  url(../../../assets/images/house/wall-block-2.jpg) repeat;
- background-position:center top, top;
- background-size: 600px 600px, auto;
+ background:  url(../../../assets/images/house/gb-elevator-1.jpg) no-repeat;
+ background-position:center top;
+ background-size: 600px 600px;
  // background-repeat: : 100%!important;
  @include deep-height(600px);
  @include deep-width(100%);
 }
 
 .gb-wall-background {
- background: url(../../../assets/images/house/wall-block-2.jpg);
+ //background: url(../../../assets/images/house/wall-block-2.jpg);
  //-webkit-background-size: auto 100%!important;
  // -moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
  //background-size: auto 100%!important;
 }
 
-.gb-roof-lights {
- background: url(../../../assets/images/house/gb-light-1.jpg);
- background-size: auto 100%!important;
- @include deep-height(15px);
- @include deep-width(100%);
-}
-
 .gb-floor-level  {
- background: url(../../../assets/images/house/wall-block-2.jpg);
+ //background: url(../../../assets/images/house/wall-block-2.jpg);
  // background-size: 100% 700px!important;
  padding: 20px 5px 20px;
  color: #FFF;
@@ -96,55 +100,22 @@ $color-6: #077568;
  }
 }
 
-.gb-window-bg-1 {
- background: url(../../../assets/images/house/window-1.jpg);
+.gb-floor-level-2  {
+ //background: url(../../../assets/images/house/wall-block-2.jpg);
+ // background-size: 100% 700px!important;
+ padding: 20px 5px 20px;
+ //background-color: material-color('blue-grey', '50');
+ margin: 0;
+}
+
+.gb-window-bg-2 {
+ // background: url(../../../assets/images/house/window-2.jpg);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
 
  background-size: 100% 100%!important;
  @include deep-height(180px);
- @include deep-width(150px);
- padding: 33px 10px 0 60px;
- .gb-app-widget {
-  @include deep-height(121px);
-  @include deep-width(100px);
-
-  .gb-widget-content {
-   padding: 5px;
-  }
-  .gb-title-icon {
-   @include deep-height(50px);
-   @include deep-width(50px);
-   overflow: hidden;
-   i{
-    //color: #EEE;
-    font-size: 40px;
-   }
-  } .gb-widget-content {
-   padding: 3px;
-  }
-  .gb-title {
-   color: #000;
-   font-size: 12px;
-   text-transform: uppercase;
-  }
-  .gb-description {
-   color: #333;
-   font-size: 12px;
-   line-height: 15px;
-  }
- }
-}
-
-.gb-window-bg-2 {
- background: url(../../../assets/images/house/window-2.jpg);
- //-webkit-background-size: auto 100%!important;
- //-moz-background-size: auto 100%!important;
- //-o-background-size: auto 100%!important;
-
- background-size: 100% 100%!important;
- @include deep-height(182px);
  @include deep-width(180px);
  padding: 12px 14px;
  margin: 0 25px 0 25px;
@@ -395,9 +366,8 @@ $color-6: #077568;
  }
 
 }
-
 .gb-window-bg-3 {
- background: url(../../../assets/images/house/window-2.jpg);
+ //background: url(../../../assets/images/house/window-2.jpg);
  //-webkit-background-size: auto 100%!important;
  //-moz-background-size: auto 100%!important;
  //-o-background-size: auto 100%!important;
@@ -405,7 +375,7 @@ $color-6: #077568;
  background-size: 100% 100%!important;
  @include deep-height(240px);
  @include deep-width(240px);
- padding: 15px 20px 13px 20px;
+ padding: 15px 20px 15px 20px;
  margin: 0 50px 0 50px;
 
  .gb-card-component {
@@ -482,52 +452,41 @@ $color-6: #077568;
 }
 
 #gb-intro-section {
+ background: material-color('blue-grey', '800');
+ @include background(linear-gradient(to top, rgba(material-color('blue-grey', '900'),0), rgba(material-color('blue-grey', '800'), 1)));
  position: relative;
  padding-top: 20px;
- height: 510px;
+ height: 700px;
  text-align: center;
 
  .gb-recommendation-scroll {
   z-index: 4;
  }
 
- .gb-actions {
-  @include deep-height(60px);
-  padding: 0;
-  z-index: 3;
-  .md-button {
-   height: 100%;
-   line-height: 50px;
-   padding: 0 20px;
-  }
- }
-
  .gb-intro-message {
-  padding-top: 20px;
+  padding: 100px 5px 30px 5px;
   @include deep-height(260px);
   width: 100%;
   z-index: 1;
 
   .intro-lead-in {
    max-width: 600px;
-   color: darken(#D8C7AD, 30%);
+   color: #FFF;
    margin: 10px 0;
    font-size: 20px;
    font-weight: 400;
    line-height: 30px;
-   text-shadow: 0px 1px 1px #4d4d4d;
    letter-spacing: 2px;
   }
 
   .intro-heading {
-   color: darken(#D8C7AD, 30%);
+   padding: 20px 5px;
+   color: #FFF;
    margin: 0;
-   font-size: 50px;
-   font-weight: 700;
+   font-size: 70px;
+   font-weight: normal;
    line-height: 20px;
-   text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
-   font: 80px 'BazarMedium';
-   letter-spacing: 8px;
+   letter-spacing: 6px;
   }
  }
 
@@ -574,7 +533,6 @@ $color-6: #077568;
     font-size: 50px;
     font-weight: 700;
     line-height: 25px;
-    text-shadow: 1px 1px 0px #2c2e38;
     letter-spacing: 2px;
    }
   }
@@ -621,7 +579,6 @@ $color-6: #077568;
     font-size: 40px;
     font-weight: 700;
     line-height: 20px;
-    text-shadow: 1px 1px 0px #2c2e38;
     letter-spacing: 2px;
    }
   }

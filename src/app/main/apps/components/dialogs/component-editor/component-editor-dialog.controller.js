@@ -10,6 +10,7 @@
  function ComponentEditorDialogController(add_component_tabs, level_categories, $scope, $document, $mdDialog, fuseTheming, fuseGenerator, msUtils, DialogService, ComponentService, componentId, defaultComponentFormatId) {
 
   var vm = this;
+
   // Data
   vm.tabs = add_component_tabs;
   vm.privacy = level_categories.privacy;
@@ -20,24 +21,22 @@
   vm.newLabelColor = 'red';
   vm.members = vm.board.members;
   vm.labels = vm.board.labels;
+  //////////
 
   // Methods
   vm.getComponent = getComponent;
+  vm.goBack = goBack;
   vm.createComponent = createComponent;
   vm.updateComponentDescription = updateComponentDescription;
   vm.updateComponentBackground = updateComponentBackground;
-  vm.goBack = goBack;
   vm.palettes = fuseTheming.getRegisteredPalettes();
   vm.rgba = fuseGenerator.rgba;
   vm.toggleInArray = msUtils.toggleInArray;
   vm.exists = msUtils.exists;
   vm.closeDialog = closeDialog;
-  // vm.getCardList = getCardList;
-
+  //////////
 
   init();
-
-  //////////
 
   /**
    * Initialize

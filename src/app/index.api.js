@@ -15,7 +15,7 @@
   var apiUrl = gbConfig.getConfig("apiUrl");
 
   api.config = {
-   apps: $resource('/api/constants/componenttypes')
+   apps: $resource(apiUrl + 'api/constants/componenttypes')
   };
   /**
    * You can use this service to define your API urls. The "api" service

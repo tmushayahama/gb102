@@ -1,6 +1,13 @@
 <div id="gb-welcome">
- <div class='gb-roof-lights'></div>
  <header id="gb-intro-section" class="gb-wall-background" layout="column" layout-align="start center" flex>
+  <div class="gb-intro-message" layout="column" layout-align="start center" flex>
+   <h1 class="intro-heading" >
+    House of Skills
+   </h1>
+   <h2 class="intro-lead-in">
+    A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
+   </h2>
+  </div>
   <div class="gb-recommendation-scroll gb-horizontal-scroll gb-apps-scroll" layout="column" layout-align="start stretch">
    <md-button class="gb-left-scroll"
               ng-click="$root.scrollHorizontal('#gb-featured', -400)"aria-label="Scroll Left">
@@ -10,7 +17,7 @@
         layout="row" layout-align="start" ms-scroll flex layout-nowrap>
     <div class="gb-window-bg-2" ng-repeat="sample in vm.components.samples"
          layout="column" layout-align="start" layout-nowrap>
-     <div class="gb-card-component-house md-whiteframe-1dp" layout="column"
+     <div class="gb-card-component-house md-whiteframe-2dp" layout="column"
           ui-sref="app.componentLinearView.home({id:sample.component.id})">
       <div class="gb-card-cover" flex>
        <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
@@ -68,22 +75,16 @@
     <md-icon md-font-icon="icon-chevron-right"></md-icon>
    </md-button>
   </div>
-  <div class="gb-intro-message" layout="column" layout-align="start center" flex>
-   <h1 class="intro-heading" >
-    House of Skills
-   </h1>
-   <h2 class="intro-lead-in">
-    A new kind of skill exploration with applications like mentorship, advice, goal setting... all in one house
-   </h2>
-   <div class="gb-actions">
+ </header>
+ <div class="gb-floor-level-2" layout="column" layout-align="center center" flex>
+  <div class="gb-container" layout="row" layout-align="center center" flex>
+   <div class="gb-actions-lg">
     <md-button ui-sref="app.explorer.home" class="md-raised md-primary">
      Find Your Room
     </md-button>
    </div>
   </div>
-  <div class="gb-intro-img" hide></div>
-  <div hide class="gb-wall-h"></div>
- </header>
+ </div>
  <div class="gb-lobby-bg" layout="column" layout-align="center center" flex>
   <div ng-if="false" class="gb-horizontal-scroll gb-overview-rooms-scroll" layout="row">
    <md-button class="gb-left-scroll"
