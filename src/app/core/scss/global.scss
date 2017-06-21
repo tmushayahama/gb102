@@ -383,6 +383,9 @@ md-dialog {
    max-width: 200px;
   }
  }
+ &.gb-apps-scroll-1 {
+  min-height: 250px;
+ }
  &.gb-notes-scroll {
   min-height: 120px;
   .gb-card-note {
@@ -1663,7 +1666,6 @@ md-tabs {
      overflow: hidden;
      text-overflow: ellipsis;
     }
-
    }
   }
  }
@@ -1940,6 +1942,124 @@ md-tabs {
   &:hover {
    background-color: rgba(#000, 0.3);
   }
+ }
+
+ @include respond-to (gb-xs) {
+  height: 115px;
+  min-height: 115px;
+  &.gb-widget-lg {
+   padding: 15px 0 5px 0;
+  }
+  .gb-main-button, .gb-widget-content, .gb-title-icon {
+   height: 70px;
+   min-height: 70px;
+  }
+  .gb-widget-content {
+   padding: 4px;
+  }
+  .gb-title-icon {
+   width: 70px;
+   min-width: 70px;
+   max-width: 70px;
+   i{
+    font-size: 40px;
+   }
+  }
+  .gb-title {
+   color: #000;
+   font-weight: 800;
+   font-size: 10px;
+  }
+  .gb-description {
+   font-size: 8px;
+   line-height: 12px;
+  }
+ }
+}
+
+.gb-app-widget-2 {
+ padding: 5px 0;
+ @include deep-height(250px);
+ @include deep-width(300px);
+ box-shadow: $whiteframe-shadow-2dp;
+ background-color:  rgba(#FFF, 0.5);
+ &:hover {
+  // border: material-color('blue-grey', '900') double 3px;
+  //background-color:  rgba(material-color('blue-grey', '400'), 0.5);
+ }
+
+ &.gb-widget-lg {
+  padding: 25px 0 5px 0;
+ }
+
+ .gb-main-button {
+  background-color: transparent;
+ }
+ .gb-main-button {
+  padding: 0;
+  margin: 0;
+ }
+ .gb-widget-content {
+  padding: 14px 10px;
+ }
+ .gb-title-icon {
+  text-align: center;
+  @include deep-height(100%);
+  //border-radius: 50%;
+  i{
+   //color: #EEE;
+   font-size: 30px;
+  }
+ }
+ .gb-title {
+  color: #555;
+  text-align: left;
+  font-size: 30px;
+  text-transform: capitalize;
+ }
+ .gb-description {
+  padding-top: 10px;
+  color: #656565;
+  text-align: left;
+  text-transform: none;
+  font-size: 14px;
+  white-space: normal;
+  line-height: 18px;
+ }
+ .gb-subdescription {
+  padding-top: 10px;
+  color: #656565;
+  text-align: left;
+  text-transform: none;
+  font-size: 18px;
+  white-space: normal;
+  line-height: 14px;
+ }
+ md-icon {
+  &.gb-background-icon {
+   color: #EEE;
+   font-size: 150px;
+   width: 100px;
+   min-width: 100px;
+   max-width: 100px;
+  }
+ }
+ .gb-add-section-button {
+  height: 40px;
+  background-color: rgba(#000, 0.1);
+  &:hover {
+   background-color: rgba(#000, 0.3);
+  }
+ }
+
+ .gb-widget-footer  {
+  @include deep-height(70px);
+ }
+
+ .gb-bottom-bar  {
+  @include position(absolute, null 0 0 0);
+  @include deep-height(5px);
+  z-index: 1;
  }
 
  @include respond-to (gb-xs) {
