@@ -7,12 +7,15 @@
          .config(config);
 
  /** @ngInject */
- function config($mdThemingProvider, $translateProvider, $provide, $authProvider, localStorageServiceProvider) {
+ function config($mdThemingProvider, $translateProvider, $provide, $authProvider, slickCarouselConfig, localStorageServiceProvider) {
 
   localStorageServiceProvider
           .setPrefix('gb102')
           .setStorageType('localStorage')
           .setNotify(true, true);
+
+  slickCarouselConfig.dots = true;
+  slickCarouselConfig.autoplay = false;
 
   function redirectWhenLoggedOut($q, $injector, localStorageService) {
    return {

@@ -1,6 +1,4 @@
 @import '../../../../bower_components/angular-material/angular-material.scss';
-@import "../../../lib/bourbon/bourbon";
-@import "../../../lib/compass-breakpoint/breakpoint.scss";
 @import 'partials/reset';
 @import 'partials/variables';
 @import 'partials/mixins';
@@ -24,6 +22,8 @@
 @import 'partials/plugins/text-angular';
 @import 'partials/helpers';
 @import 'partials/print';
+@import "../../../lib/bourbon/bourbon";
+@import "../../../lib/compass-breakpoint/breakpoint.scss";
 
 $gb-primary-color: material-color('blue-grey', '800');
 $gb-secondary-color: material-color('orange', '300');
@@ -365,6 +365,10 @@ md-dialog {
 .gb-ellipsis a {
  text-overflow: ellipsis;
 }
+.gb-room-samples-carousel {
+ @include deep-height(250px);
+}
+
 .gb-horizontal-scroll {
  width: 100%;
  position:relative;
@@ -1419,22 +1423,24 @@ md-tabs {
 }
 
 .gb-card-component-house {
+ margin: 50px 30px;
  text-align: left;
  position: relative;
- height: 210px;
- min-height: 210px;
- max-height: 210px;
- width: 180px;
- min-width: 180px;
- max-width: 180px;
+ @include deep-height(210px);
+ @include deep-width(200px);
  //padding: 0 0 0 0;
  border-radius: 0px;
- border: #333 ridge 4px;
- border-top-width: 8px;
- border-bottom-width: 10px;
  background-color: #FAFAFA;
  color: #555;
  cursor: pointer;
+ @include transition(all 0.1s linear);
+
+ &.gb-door-component {
+  margin: 10px 30px;
+  @include deep-height(300px);
+  @include deep-width(350px);
+  @include transition(all 0.5s linear);
+ }
 
  &:hover {
   box-shadow: $whiteframe-shadow-4dp;

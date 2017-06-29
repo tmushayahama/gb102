@@ -131,7 +131,7 @@ class ComponentContribution extends Model {
   *
   * @return type json response of all component contribution
   */
- public static function getComponentContribution($contributionId) {
+ public static function getComponentContribution($contributionId, $details = 1) {
   $componentContribution = ComponentContribution::with('creator')
           ->with('contributor')
           ->with('component')

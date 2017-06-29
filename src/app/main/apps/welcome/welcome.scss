@@ -50,7 +50,7 @@ $color-6: #077568;
  background-size: 100% 700px!important;
  padding: 100px 10px 10px 10px;
  // background-repeat: : 100%!important;
- @include deep-height(700px);
+ @include deep-height(500px);
  @include deep-width(100%);
 }
 
@@ -62,7 +62,7 @@ $color-6: #077568;
  background-size: 100% 700px!important;
  padding: 100px 10px 10px 10px;
  // background-repeat: : 100%!important;
- @include deep-height(700px);
+ @include deep-height(500px);
  @include deep-width(100%);
 }
 

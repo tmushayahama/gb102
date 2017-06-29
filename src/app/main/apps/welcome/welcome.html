@@ -76,61 +76,67 @@
    </md-button>
   </div>
 
-  <ul rn-carousel rn-carousel-buffered class="gb-container gb-horizontal-scroll gb-apps-scroll-1" ng-class="{blurred: blurred}">
-   <li ng-repeat="sample in vm.components.samples">
-    <div class="gb-card-component-house md-whiteframe-2dp" layout="column"
-         ui-sref="app.componentLinearView.home({id:sample.component.id})">
-     <div class="gb-card-cover" flex>
-      <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
-           class="gb-cover-image">
-       <img ng-src="assets/images/explorer/{{sample.component.component_picture_url}}">
-      </div>
-      <div ng-if="sample.component.component_placeholder_style"
-           class="gb-cover-image"
-           ng-style="sample.component.component_placeholder_style">
-      </div>
+
+  <slick class="gb-container slider" settings="vm.recommendationCarouselConfig"
+         init-onload="true" ng-if="vm.components.samples">
+   <div ng-repeat="sample in vm.components.samples track by $index"
+        ng-class="{'gb-door-component': vm.doorIndex === $index}" class="gb-card-component-house md-whiteframe-2dp" layout="column"
+        ui-sref="app.componentLinearView.home({id:sample.component.id})">
+    <div class="gb-card-cover" flex>
+     <div ng-if="sample.component.component_picture_url && sample.component.component_picture_url !== 'default.png'"
+          class="gb-cover-image">
+      <img ng-src="assets/images/explorer/{{sample.component.component_picture_url}}">
      </div>
-     <div class="gb-opacity-content" hide-xs></div>
-     <div class="gb-card-profile">
-      <div class="gb-box-content">
-       <div class="gb-title">
-        <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
-         {{sample.component.creator.firstname + ' ' + sample.component.creator.lastname}}
-        </a>
-       </div>
-       <div class="gb-subdescription">
-        <p class="gb-ellipsis">
-         {{sample.component.id}} ROOM
-        </p>
-       </div>
-      </div>
-      <div class="gb-image" ng-class="sample.component.creator.theme_color">
-       <img ng-if="sample.component.creator.avatar_url !== 'gb-avatar.jpg'"
-            src="assets/images/profile_pic/{{sample.component.creator.avatar_url}}"
-            class="gb-heading-pic" alt="">
-       {{sample.component.creator.firstname.substring(0, 1) + sample.component.creator.lastname.substring(0, 1)}}
-      </div>
-     </div>
-     <div class="gb-card-content" flex>
-      <div class="gb-title">
-       <h3 class="gb-ellipsis">
-        {{sample.component.title}}
-       </h3>
-      </div>
-      <div class="gb-description">
-       <p class="">
-        <span>
-         {{::sample.component.description}}
-        </span>
-       </p>
-       <p ng-if="!sample.component.description" class="gb-no-info">
-        No description to show
-       </p>
-      </div>
+     <div ng-if="sample.component.component_placeholder_style"
+          class="gb-cover-image"
+          ng-style="sample.component.component_placeholder_style">
      </div>
     </div>
-   </li>
-  </ul>
+    <div class="gb-opacity-content" hide-xs></div>
+    <div class="gb-card-profile">
+     <div class="gb-box-content">
+      <div class="gb-title">
+       <a  class="gb-ellipsis" data-ui-sref="apps.profile.overview({profileId: explorerContribution.contribution.contributor_id})">
+        {{sample.component.creator.firstname + ' ' + sample.component.creator.lastname}}
+       </a>
+      </div>
+      <div class="gb-subdescription">
+       <p class="gb-ellipsis">
+        {{sample.component.id}} ROOM
+       </p>
+      </div>
+     </div>
+     <div class="gb-image" ng-class="sample.component.creator.theme_color">
+      <img ng-if="sample.component.creator.avatar_url !== 'gb-avatar.jpg'"
+           src="assets/images/profile_pic/{{sample.component.creator.avatar_url}}"
+           class="gb-heading-pic" alt="">
+      {{sample.component.creator.firstname.substring(0, 1) + sample.component.creator.lastname.substring(0, 1)}}
+     </div>
+    </div>
+    <div class="gb-card-content" flex>
+     <div class="gb-title">
+      <h3 class="gb-ellipsis">
+       {{sample.component.title}}
+      </h3>
+     </div>
+     <div class="gb-description">
+      <p class="">
+       <span>
+        {{::sample.component.description}}
+       </span>
+      </p>
+      <p ng-if="!sample.component.description" class="gb-no-info">
+       No description to show
+      </p>
+     </div>
+    </div>
+   </div>
+  </slick>
+  <slick class="slider" settings="slickConfig4" ng-if="slickConfig1Loaded" dots="true">
+   <div ng-repeat="i in numbers track by $index">
+    <div class="" ng-include="'tpl2.html'"></div>
+   </div>
+  </slick>
  </header>
  <div class="gb-floor-level-2" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="row" layout-align="center center" flex>
@@ -307,15 +313,15 @@
    <i class="gb-icon fa icon-arrow-down"></i>
   </div>
  </div>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false" class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12002]">
  </gb-floor>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false" class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12003]">
  </gb-floor>
- <div class="gb-welcome-section-6 gb-room-background" layout="column" layout-align="center center" flex>
+ <div class="gb-room-background" layout="column" layout-align="center center" flex>
   <div class="gb-container" layout="column" layout-align="" flex>
    <div class="gb-card-heading-1" layout="column" layout-align="center center" flex>
     <div class="text-center">
@@ -327,7 +333,6 @@
      </p>
     </div>
    </div>
-
    <div class="gb-horizontal-scroll gb-apps-scroll-1" layout="column" layout-align="start stretch">
     <md-button class="gb-left-scroll"
                ng-click="$root.scrollHorizontal('#gb-featured-apps', -400)"aria-label="Scroll Left">
@@ -422,10 +427,9 @@
      <md-icon md-font-icon="icon-chevron-right"></md-icon>
     </md-button>
    </div>
-
   </div>
  </div>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false"  class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12004]">
  </gb-floor>
@@ -490,15 +494,15 @@
    </div>
   </div>
  </div>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false" class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12005]">
  </gb-floor>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false" class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12006]">
  </gb-floor>
- <gb-floor class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
+ <gb-floor ng-if="false" class="gb-welcome-section-5 gb-wall-background" layout="column" layout-align="center center" flex
            gb-floor template="'app/main/apps/components/directives/floor/floor.html'"
            recommendation="vm.components.recommendations[12007]">
  </gb-floor>

@@ -12,7 +12,7 @@
           'textAngular',
           'xeditable',
           'ui.tree',
-          'angular-carousel',
+          'slickCarousel',
           // Core
           'app.core',
           'app.search',
